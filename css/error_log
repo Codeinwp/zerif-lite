@@ -1,0 +1,7 @@
+[22-May-2014 05:46:04 America/Chicago] PHP Fatal error:  Call to undefined function get_theme_mod() in /home/clients/public_html/zerif-pro/wp-content/themes/zerif-pro/css/style.php on line 4
+[22-May-2014 05:47:12 America/Chicago] PHP Fatal error:  Call to undefined function get_theme_mod() in /home/clients/public_html/zerif-pro/wp-content/themes/zerif-pro/css/style.php on line 4
+[22-May-2014 05:47:51 America/Chicago] PHP Fatal error:  Call to undefined function get_theme_mod() in /home/clients/public_html/zerif-pro/wp-content/themes/zerif-pro/css/style.php on line 4
+[22-May-2014 05:49:04 America/Chicago] PHP Fatal error:  Call to undefined function get_theme_mod() in /home/clients/public_html/zerif-pro/wp-content/themes/zerif-pro/css/style.php on line 4
+[22-May-2014 05:49:39 America/Chicago] PHP Fatal error:  Call to undefined function get_theme_mod() in /home/clients/public_html/zerif-pro/wp-content/themes/zerif-pro/css/style.php on line 4
+[22-May-2014 12:19:04 UTC] PHP Warning:  Missing argument 1 for WP_Widget::__construct(), called in /home/clients/public_html/zerif-pro/wp-includes/widgets.php on line 413 and defined in /home/clients/public_html/zerif-pro/wp-includes/widgets.php on line 86
+[22-May-2014 12:19:04 UTC] PHP Warning:  Missing argument 2 for WP_Widget::__construct(), called in /home/clients/public_html/zerif-pro/wp-includes/widgets.php on line 413 and defined in /home/clients/public_html/zerif-pro/wp-includes/widgets.php on line 86
