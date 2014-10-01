@@ -422,6 +422,26 @@ function zerif_register_required_plugins()
 
             'force_deactivation' => true,
 
+        ),
+
+        array(
+ 
+            'name'      => 'WP Product Review',
+ 
+            'slug'      => 'wp-product-review',
+ 
+            'required'  => false,
+ 
+        ),
+
+        array(
+ 
+            'name'      => 'Revive Old Post (Former Tweet Old Post)',
+ 
+            'slug'      => 'tweet-old-post',
+ 
+            'required'  => false,
+ 
         )
 
     );
