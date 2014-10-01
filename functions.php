@@ -43,7 +43,7 @@ function zerif_setup()
 
      */
 
-    load_theme_textdomain('zerif', get_template_directory() . '/languages');
+    load_theme_textdomain('zerif-lite', get_template_directory() . '/languages'); 
 
 
     // Add default posts and comments RSS feed links to head.
@@ -447,7 +447,7 @@ function zerif_register_required_plugins()
     );
 
 
-    $theme_text_domain = 'zerif';
+    $theme_text_domain = 'zerif-lite';
 
 
     $config = array(
