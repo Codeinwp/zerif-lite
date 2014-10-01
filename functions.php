@@ -324,10 +324,11 @@ function zerif_scripts()
 
 
     /* scrollReveal script */
+    if ( !wp_is_mobile() ){
+        wp_register_script( 'zerif_scrollReveal_script', get_template_directory_uri() . '/js/scrollReveal.js', array("jquery"), '20120206', true  );
 
-    wp_register_script('zerif_scrollReveal_script', get_template_directory_uri() . '/js/scrollReveal.js', array("jquery"), '20120206', true);
-
-    wp_enqueue_script('zerif_scrollReveal_script');
+        wp_enqueue_script( 'zerif_scrollReveal_script' );
+    }
 
 
     /* zerif script */
