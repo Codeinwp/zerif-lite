@@ -43,7 +43,7 @@ function zerif_setup()
 
      */
 
-    load_theme_textdomain('zerif-lite', get_template_directory() . '/languages'); 
+    load_theme_textdomain('zerif', get_template_directory() . '/languages');
 
 
     // Add default posts and comments RSS feed links to head.
@@ -324,11 +324,10 @@ function zerif_scripts()
 
 
     /* scrollReveal script */
-    if ( !wp_is_mobile() ){
-        wp_register_script( 'zerif_scrollReveal_script', get_template_directory_uri() . '/js/scrollReveal.js', array("jquery"), '20120206', true  );
 
-        wp_enqueue_script( 'zerif_scrollReveal_script' );
-    }
+    wp_register_script('zerif_scrollReveal_script', get_template_directory_uri() . '/js/scrollReveal.js', array("jquery"), '20120206', true);
+
+    wp_enqueue_script('zerif_scrollReveal_script');
 
 
     /* zerif script */
@@ -422,32 +421,12 @@ function zerif_register_required_plugins()
 
             'force_deactivation' => true,
 
-        ),
-
-        array(
- 
-            'name'      => 'WP Product Review',
- 
-            'slug'      => 'wp-product-review',
- 
-            'required'  => false,
- 
-        ),
-
-        array(
- 
-            'name'      => 'Revive Old Post (Former Tweet Old Post)',
- 
-            'slug'      => 'tweet-old-post',
- 
-            'required'  => false,
- 
         )
 
     );
 
 
-    $theme_text_domain = 'zerif-lite';
+    $theme_text_domain = 'zerif';
 
 
     $config = array(

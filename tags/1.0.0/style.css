@@ -1,10 +1,10 @@
 /*
 Theme Name: Zerif Lite
-Theme URI: https://themeisle.com/themes/zerif-lite/
-Author: ThemeIsle
-Author URI: https://themeisle.com
-Description: Zerif LITE is free a one page Wordpress theme. It's perfect for web agencies, digital studios, corporate, product showcase, personal and business portfolio.
-Version: 1.0.2
+Theme URI: demo.themeisle.com/zerif-pro/
+Author: Codeinwp
+Author URI: codeinwp.com
+Description: Zerif LITE is a modern responsive Wordpress Theme. It's perfect for web agencies, digital studios, corporate, product showcase, personal and business portfolio.
+Version: 1.0
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif
@@ -946,15 +946,6 @@ a:active {
  /*---------------------------------------
  **   10.0 Content                   -----
 -----------------------------------------*/
-
-container>.navbar-header, 
-.container-fluid>.navbar-header, 
-.container>.navbar-collapse, 
-.container-fluid>.navbar-collapse {
-    margin-right: 0;
-    margin-left: 0;
-}
-
  /*---------------------------------------
  **   10.1 Posts and pages                   -----
 -----------------------------------------*/
@@ -1354,21 +1345,18 @@ object {
 	overflow: hidden;
 }
 .header_title {
-    float: left;
-    height:50px;
-    margin-top:10px;
+	float: left;
+	margin-left:-15px;
+	height:50px;
+	margin-top:10px;
 }
 .header_title h1{
-    font-size: 20px;
-    line-height: 20px;
-    margin-bottom: 5px;
-    text-align: center;
-    margin-top: 5px;
+	font-size:25px;
+	line-height:25px;
 }
 .header_title h2{
 	font-size:15px !important;
 	line-height:15px;
-    margin: 0;
 }
 .header_title a {
 	color:#000;
@@ -2671,8 +2659,6 @@ article .posted-on a:hover{
 .row{
     float: left;
     width: 100%;
-    margin-right: 0;
-    margin-left: 0;
 }
 /* Calendar style */
 /* Calendar Widget */
@@ -2804,23 +2790,15 @@ article .posted-on a:hover{
 	}
 	#client-feedbacks .feedback-box{
 	    width: 100%;
-	    margin-left: 0;
-        margin-right: 0;
 	}
 	.intro-text{
     	margin-top: 31%;
         font-size: 45px;
         line-height: 55px;
     }
-    .section-header h2{
-        font-size: 35px;
-    }
-    .section-header {
-        padding-bottom: 30px;
-    }
-    .focus, .works, .about-us, .features, .packages, .products, .testimonial, .contact-us {
-        padding-top: 60px;
-        padding-bottom: 60px;
+    .works .row{
+        margin-left: 0;
+        margin-right: 0;
     }
 
 }
@@ -2879,6 +2857,12 @@ article .posted-on a:hover{
 	.our-clients{
 	    width: 100%;
 	    float: left;
+	}
+
+	/* OUR TEAM */
+	.our-team .row{
+	    margin-left: 0;
+        margin-right: 0;
 	}
 
       /* PURCHASE NOW */
