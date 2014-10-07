@@ -39,7 +39,7 @@ function zerif_setup()
 
      * If you're building a theme based on zerif, use a find and replace
 
-     * to change 'zerif' to the name of your theme in all the template files
+     * to change 'zerif-lite' to the name of your theme in all the template files
 
      */
 
@@ -73,7 +73,7 @@ function zerif_setup()
 
     register_nav_menus(array(
 
-        'primary' => __('Primary Menu', 'zerif'),
+        'primary' => __('Primary Menu', 'zerif-lite'),
 
     ));
 
@@ -109,6 +109,46 @@ function zerif_setup()
     ));
 
 
+		/**
+		 * Implement the Custom Header feature.
+
+		 */
+
+		//require get_template_directory() . '/inc/custom-header.php';
+
+
+		/**
+		 * Custom template tags for this theme.
+
+		 */
+
+		require get_template_directory() . '/inc/template-tags.php';
+
+
+		/**
+		 * Custom functions that act independently of the theme templates.
+
+		 */
+
+		require get_template_directory() . '/inc/extras.php';
+
+
+		/**
+		 * Customizer additions.
+
+		 */
+
+		require get_template_directory() . '/inc/customizer.php';
+
+		require get_template_directory() . '/inc/category-dropdown-custom-control.php';
+
+
+		/* tgm-plugin-activation */
+
+
+		require_once get_template_directory() . '/class-tgm-plugin-activation.php';
+
+
     if (function_exists('add_image_size')):
 
         add_image_size('zerif_project_photo', 285, 214, true);
@@ -133,7 +173,7 @@ function zerif_widgets_init()
 
     register_sidebar(array(
 
-        'name' => __('Sidebar', 'zerif'),
+        'name' => __('Sidebar', 'zerif-lite'),
 
         'id' => 'sidebar-1',
 
@@ -149,7 +189,7 @@ function zerif_widgets_init()
 
     register_sidebar(array(
 
-        'name' => __('Our focus section', 'zerif'),
+        'name' => __('Our focus section', 'zerif-lite'),
 
         'id' => 'sidebar-ourfocus',
 
@@ -165,7 +205,7 @@ function zerif_widgets_init()
 
     register_sidebar(array(
 
-        'name' => __('Testimonials section', 'zerif'),
+        'name' => __('Testimonials section', 'zerif-lite'),
 
         'id' => 'sidebar-testimonials',
 
@@ -181,7 +221,7 @@ function zerif_widgets_init()
 
     register_sidebar(array(
 
-        'name' => __('About us section', 'zerif'),
+        'name' => __('About us section', 'zerif-lite'),
 
         'id' => 'sidebar-aboutus',
 
@@ -197,7 +237,7 @@ function zerif_widgets_init()
 
     register_sidebar(array(
 
-        'name' => __('Our team section', 'zerif'),
+        'name' => __('Our team section', 'zerif-lite'),
 
         'id' => 'sidebar-ourteam',
 
@@ -358,46 +398,6 @@ function zerif_scripts()
 add_action('wp_enqueue_scripts', 'zerif_scripts');
 
 
-/**
- * Implement the Custom Header feature.
-
- */
-
-//require get_template_directory() . '/inc/custom-header.php';
-
-
-/**
- * Custom template tags for this theme.
-
- */
-
-require get_template_directory() . '/inc/template-tags.php';
-
-
-/**
- * Custom functions that act independently of the theme templates.
-
- */
-
-require get_template_directory() . '/inc/extras.php';
-
-
-/**
- * Customizer additions.
-
- */
-
-require get_template_directory() . '/inc/customizer.php';
-
-require get_template_directory() . '/inc/category-dropdown-custom-control.php';
-
-
-/* tgm-plugin-activation */
-
-
-require_once get_template_directory() . '/class-tgm-plugin-activation.php';
-
-
 add_action('tgmpa_register', 'zerif_register_required_plugins');
 
 
@@ -412,15 +412,9 @@ function zerif_register_required_plugins()
 
             'name' => 'Widget customizer',
 
-            'slug' => 'widget-customizer',
+            'slug' => 'widget-customizer', 
 
-            'source' => get_template_directory() . '/plugins/widget-customizer.zip',
-
-            'required' => true,
-
-            'force_activation' => true,
-
-            'force_deactivation' => true,
+            'required' => true 
 
         ),
 
@@ -446,8 +440,7 @@ function zerif_register_required_plugins()
 
     );
 
-
-    $theme_text_domain = 'zerif-lite';
+	 
 
 
     $config = array(
@@ -468,13 +461,13 @@ function zerif_register_required_plugins()
 
         'strings' => array(
 
-            'page_title' => __('Install Required Plugins', $theme_text_domain),
+            'page_title' => __('Install Required Plugins', 'zerif-lite'),
 
-            'menu_title' => __('Install Plugins', $theme_text_domain),
+            'menu_title' => __('Install Plugins', 'zerif-lite'),
 
-            'installing' => __('Installing Plugin: %s', $theme_text_domain),
+            'installing' => __('Installing Plugin: %s', 'zerif-lite'),
 
-            'oops' => __('Something went wrong with the plugin API.', $theme_text_domain),
+            'oops' => __('Something went wrong with the plugin API.', 'zerif-lite'),
 
             'notice_can_install_required' => _n_noop('This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.'),
 
@@ -496,11 +489,11 @@ function zerif_register_required_plugins()
 
             'activate_link' => _n_noop('Begin activating plugin', 'Begin activating plugins'),
 
-            'return' => __('Return to Required Plugins Installer', $theme_text_domain),
+            'return' => __('Return to Required Plugins Installer', 'zerif-lite'),
 
-            'plugin_activated' => __('Plugin activated successfully.', $theme_text_domain),
+            'plugin_activated' => __('Plugin activated successfully.', 'zerif-lite'),
 
-            'complete' => __('All plugins installed and activated successfully. %s', $theme_text_domain),
+            'complete' => __('All plugins installed and activated successfully. %s', 'zerif-lite'),
 
             'nag_type' => 'updated'
 
@@ -549,7 +542,7 @@ function zerif_custom_post_info()
 
             <p>
 
-                <label for="zerif_testimonial_option"><?php _e('Testimonial author details:', 'zerif'); ?></label><br/>
+                <label for="zerif_testimonial_option"><?php _e('Testimonial author details:', 'zerif-lite'); ?></label><br/>
 
                 <input type="text" name="zerif_testimonial_option" id="zerif_testimonial_option"
                        value="<?php echo get_post_meta($post->ID, 'zerif_testimonial_option', true); ?>">
@@ -558,7 +551,7 @@ function zerif_custom_post_info()
 
             <p>
 
-                <label for="zerif_team_member_option"><?php _e('Team member position:', 'zerif'); ?></label><br/>
+                <label for="zerif_team_member_option"><?php _e('Team member position:', 'zerif-lite'); ?></label><br/>
 
                 <input type="text" name="zerif_team_member_option" id="zerif_team_member_option"
                        value="<?php echo get_post_meta($post->ID, 'zerif_team_member_option', true); ?>">
@@ -568,7 +561,7 @@ function zerif_custom_post_info()
             <p>
 
                 <label
-                    for="zerif_team_member_fb_option"><?php _e('Team member facebook link:', 'zerif'); ?></label><br/>
+                    for="zerif_team_member_fb_option"><?php _e('Team member facebook link:', 'zerif-lite'); ?></label><br/>
 
                 <input type="text" name="zerif_team_member_fb_option" id="zerif_team_member_fb_option"
                        value="<?php echo get_post_meta($post->ID, 'zerif_team_member_fb_option', true); ?>">
@@ -577,7 +570,7 @@ function zerif_custom_post_info()
 
             <p>
 
-                <label for="zerif_team_member_tw_option"><?php _e('Team member twitter link:', 'zerif'); ?></label><br/>
+                <label for="zerif_team_member_tw_option"><?php _e('Team member twitter link:', 'zerif-lite'); ?></label><br/>
 
                 <input type="text" name="zerif_team_member_tw_option" id="zerif_team_member_tw_option"
                        value="<?php echo get_post_meta($post->ID, 'zerif_team_member_tw_option', true); ?>">
@@ -586,7 +579,7 @@ function zerif_custom_post_info()
 
             <p>
 
-                <label for="zerif_team_member_bh_option"><?php _e('Team member behance link:', 'zerif'); ?></label><br/>
+                <label for="zerif_team_member_bh_option"><?php _e('Team member behance link:', 'zerif-lite'); ?></label><br/>
 
                 <input type="text" name="zerif_team_member_bh_option" id="zerif_team_member_bh_option"
                        value="<?php echo get_post_meta($post->ID, 'zerif_team_member_bh_option', true); ?>">
@@ -596,7 +589,7 @@ function zerif_custom_post_info()
             <p>
 
                 <label
-                    for="zerif_team_member_db_option"><?php _e('Team member dribbble link:', 'zerif'); ?></label><br/>
+                    for="zerif_team_member_db_option"><?php _e('Team member dribbble link:', 'zerif-lite'); ?></label><br/>
 
                 <input type="text" name="zerif_team_member_db_option" id="zerif_team_member_db_option"
                        value="<?php echo get_post_meta($post->ID, 'zerif_team_member_db_option', true); ?>">
@@ -851,7 +844,7 @@ class zerif_ourfocus extends WP_Widget
 
         <p>
 
-            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'zerif'); ?></label><br/>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('title'); ?>"
                    id="<?php echo $this->get_field_id('title'); ?>" value="<?php echo $instance['title']; ?>"
@@ -861,7 +854,7 @@ class zerif_ourfocus extends WP_Widget
 
         <p>
 
-            <label for="<?php echo $this->get_field_id('text'); ?>"><?php _e('Text', 'zerif'); ?></label><br/>
+            <label for="<?php echo $this->get_field_id('text'); ?>"><?php _e('Text', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('text'); ?>"
                    id="<?php echo $this->get_field_id('text'); ?>" value="<?php echo $instance['text']; ?>"
@@ -871,7 +864,7 @@ class zerif_ourfocus extends WP_Widget
 
         <p>
 
-            <label for="<?php echo $this->get_field_id('image_uri'); ?>"><?php _e('Image', 'zerif'); ?></label><br/>
+            <label for="<?php echo $this->get_field_id('image_uri'); ?>"><?php _e('Image', 'zerif-lite'); ?></label><br/>
 
 
 
@@ -1038,7 +1031,7 @@ class zerif_testimonial_widget extends WP_Widget
 
         <p>
 
-            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Author', 'zerif'); ?></label><br/>
+            <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Author', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('title'); ?>"
                    id="<?php echo $this->get_field_id('title'); ?>" value="<?php echo $instance['title']; ?>"
@@ -1049,7 +1042,7 @@ class zerif_testimonial_widget extends WP_Widget
         <p>
 
             <label
-                for="<?php echo $this->get_field_id('details'); ?>"><?php _e('Author details', 'zerif'); ?></label><br/>
+                for="<?php echo $this->get_field_id('details'); ?>"><?php _e('Author details', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('details'); ?>"
                    id="<?php echo $this->get_field_id('details'); ?>" value="<?php echo $instance['details']; ?>"
@@ -1059,7 +1052,7 @@ class zerif_testimonial_widget extends WP_Widget
 
         <p>
 
-            <label for="<?php echo $this->get_field_id('text'); ?>"><?php _e('Text', 'zerif'); ?></label><br/>
+            <label for="<?php echo $this->get_field_id('text'); ?>"><?php _e('Text', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('text'); ?>"
                    id="<?php echo $this->get_field_id('text'); ?>" value="<?php echo $instance['text']; ?>"
@@ -1069,7 +1062,7 @@ class zerif_testimonial_widget extends WP_Widget
 
         <p>
 
-            <label for="<?php echo $this->get_field_id('image_uri'); ?>"><?php _e('Image', 'zerif'); ?></label><br/>
+            <label for="<?php echo $this->get_field_id('image_uri'); ?>"><?php _e('Image', 'zerif-lite'); ?></label><br/>
 
 
 
@@ -1187,7 +1180,7 @@ class zerif_clients_widget extends WP_Widget
 
         <p>
 
-            <label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link', 'zerif'); ?></label><br/>
+            <label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('link'); ?>"
                    id="<?php echo $this->get_field_id('link'); ?>" value="<?php echo $instance['link']; ?>"
@@ -1199,7 +1192,7 @@ class zerif_clients_widget extends WP_Widget
 
         <p>
 
-            <label for="<?php echo $this->get_field_id('image_uri'); ?>"><?php _e('Image', 'zerif'); ?></label><br/>
+            <label for="<?php echo $this->get_field_id('image_uri'); ?>"><?php _e('Image', 'zerif-lite'); ?></label><br/>
 
 
 
@@ -1400,7 +1393,7 @@ class zerif_team_widget extends WP_Widget
 
         <p>
 
-            <label for="<?php echo $this->get_field_id('name'); ?>"><?php _e('Name', 'zerif'); ?></label><br/>
+            <label for="<?php echo $this->get_field_id('name'); ?>"><?php _e('Name', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('name'); ?>"
                    id="<?php echo $this->get_field_id('name'); ?>" value="<?php echo $instance['name']; ?>"
@@ -1412,7 +1405,7 @@ class zerif_team_widget extends WP_Widget
 
         <p>
 
-            <label for="<?php echo $this->get_field_id('position'); ?>"><?php _e('Position', 'zerif'); ?></label><br/>
+            <label for="<?php echo $this->get_field_id('position'); ?>"><?php _e('Position', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('position'); ?>"
                    id="<?php echo $this->get_field_id('position'); ?>" value="<?php echo $instance['position']; ?>"
@@ -1425,7 +1418,7 @@ class zerif_team_widget extends WP_Widget
         <p>
 
             <label
-                for="<?php echo $this->get_field_id('description'); ?>"><?php _e('Description', 'zerif'); ?></label><br/>
+                for="<?php echo $this->get_field_id('description'); ?>"><?php _e('Description', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('description'); ?>"
                    id="<?php echo $this->get_field_id('description'); ?>"
@@ -1438,7 +1431,7 @@ class zerif_team_widget extends WP_Widget
         <p>
 
             <label
-                for="<?php echo $this->get_field_id('fb_link'); ?>"><?php _e('Facebook link', 'zerif'); ?></label><br/>
+                for="<?php echo $this->get_field_id('fb_link'); ?>"><?php _e('Facebook link', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('fb_link'); ?>"
                    id="<?php echo $this->get_field_id('fb_link'); ?>" value="<?php echo $instance['fb_link']; ?>"
@@ -1451,7 +1444,7 @@ class zerif_team_widget extends WP_Widget
         <p>
 
             <label
-                for="<?php echo $this->get_field_id('tw_link'); ?>"><?php _e('Twitter link', 'zerif'); ?></label><br/>
+                for="<?php echo $this->get_field_id('tw_link'); ?>"><?php _e('Twitter link', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('tw_link'); ?>"
                    id="<?php echo $this->get_field_id('tw_link'); ?>" value="<?php echo $instance['tw_link']; ?>"
@@ -1464,7 +1457,7 @@ class zerif_team_widget extends WP_Widget
         <p>
 
             <label
-                for="<?php echo $this->get_field_id('bh_link'); ?>"><?php _e('Behance link', 'zerif'); ?></label><br/>
+                for="<?php echo $this->get_field_id('bh_link'); ?>"><?php _e('Behance link', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('bh_link'); ?>"
                    id="<?php echo $this->get_field_id('bh_link'); ?>" value="<?php echo $instance['bh_link']; ?>"
@@ -1477,7 +1470,7 @@ class zerif_team_widget extends WP_Widget
         <p>
 
             <label
-                for="<?php echo $this->get_field_id('db_link'); ?>"><?php _e('Dribble link', 'zerif'); ?></label><br/>
+                for="<?php echo $this->get_field_id('db_link'); ?>"><?php _e('Dribble link', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('db_link'); ?>"
                    id="<?php echo $this->get_field_id('db_link'); ?>" value="<?php echo $instance['db_link']; ?>"
@@ -1489,7 +1482,7 @@ class zerif_team_widget extends WP_Widget
 
         <p>
 
-            <label for="<?php echo $this->get_field_id('image_uri'); ?>"><?php _e('Image', 'zerif'); ?></label><br/>
+            <label for="<?php echo $this->get_field_id('image_uri'); ?>"><?php _e('Image', 'zerif-lite'); ?></label><br/>
 
 
 

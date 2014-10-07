@@ -18,11 +18,11 @@ get_header(); ?>
 
 		<article>
 			<header class="entry-header">
-				<h1 class="entry-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'zerif' ); ?></h1>
+				<h1 class="entry-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'zerif-lite' ); ?></h1>
 			</header><!-- .entry-header -->
 
 			<div class="entry-content">
-				<p><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'zerif' ); ?></p>
+				<p><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'zerif-lite' ); ?></p>
 				
 			</div><!-- .entry-content -->
 		</article><!-- #post-## -->

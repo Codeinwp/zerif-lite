@@ -41,3 +41,6 @@ The exceptions to this license are as follows:
 
  * images/bg.jpg
     Copyright (C) 2014 http://jaymantri.com/
+	
+ * images/focus.png
+    Copyright (C) 2014 https://www.iconfinder.com/icons/283043/album_cloud_frame_gallery_image_mountain_painting_photo_photos_pictures_sky_icon
