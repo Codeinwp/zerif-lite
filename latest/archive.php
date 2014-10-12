@@ -30,46 +30,46 @@ get_header(); ?>
 							single_tag_title();
 
 						elseif ( is_author() ) :
-							printf( __( 'Author: %s', 'zerif' ), '<span class="vcard">' . get_the_author() . '</span>' );
+							printf( __( 'Author: %s', 'zerif-lite' ), '<span class="vcard">' . get_the_author() . '</span>' );
 
 						elseif ( is_day() ) :
-							printf( __( 'Day: %s', 'zerif' ), '<span>' . get_the_date() . '</span>' );
+							printf( __( 'Day: %s', 'zerif-lite' ), '<span>' . get_the_date() . '</span>' );
 
 						elseif ( is_month() ) :
-							printf( __( 'Month: %s', 'zerif' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'zerif' ) ) . '</span>' );
+							printf( __( 'Month: %s', 'zerif-lite' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'zerif-lite' ) ) . '</span>' );
 
 						elseif ( is_year() ) :
-							printf( __( 'Year: %s', 'zerif' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'zerif' ) ) . '</span>' );
+							printf( __( 'Year: %s', 'zerif-lite' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'zerif-lite' ) ) . '</span>' );
 
 						elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
-							_e( 'Asides', 'zerif' );
+							_e( 'Asides', 'zerif-lite' );
 
 						elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) :
-							_e( 'Galleries', 'zerif');
+							_e( 'Galleries', 'zerif-lite');
 
 						elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
-							_e( 'Images', 'zerif');
+							_e( 'Images', 'zerif-lite');
 
 						elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
-							_e( 'Videos', 'zerif' );
+							_e( 'Videos', 'zerif-lite' );
 
 						elseif ( is_tax( 'post_format', 'post-format-quote' ) ) :
-							_e( 'Quotes', 'zerif' );
+							_e( 'Quotes', 'zerif-lite' );
 
 						elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
-							_e( 'Links', 'zerif' );
+							_e( 'Links', 'zerif-lite' );
 
 						elseif ( is_tax( 'post_format', 'post-format-status' ) ) :
-							_e( 'Statuses', 'zerif' );
+							_e( 'Statuses', 'zerif-lite' );
 
 						elseif ( is_tax( 'post_format', 'post-format-audio' ) ) :
-							_e( 'Audios', 'zerif' );
+							_e( 'Audios', 'zerif-lite' );
 
 						elseif ( is_tax( 'post_format', 'post-format-chat' ) ) :
-							_e( 'Chats', 'zerif' );
+							_e( 'Chats', 'zerif-lite' );
 
 						else :
-							_e( 'Archives', 'zerif' );
+							_e( 'Archives', 'zerif-lite' );
 
 						endif;
 					?>
