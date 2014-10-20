@@ -265,7 +265,7 @@ function zerif_scripts()
 {
 
 
-    wp_register_style('zerif_font', 'http://fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700|Homemade+Apple');
+    wp_register_style('zerif_font', '//fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700|Homemade+Apple');
 
     wp_enqueue_style('zerif_font');
 
