@@ -144,11 +144,9 @@ function zerif_setup()
 
 
 		/* tgm-plugin-activation */
+        require_once get_template_directory() . '/class-tgm-plugin-activation.php';
 
-
-		require_once get_template_directory() . '/class-tgm-plugin-activation.php';
-
-
+		
     if (function_exists('add_image_size')):
 
         add_image_size('zerif_project_photo', 285, 214, true);
@@ -290,12 +288,12 @@ function zerif_scripts()
     wp_enqueue_style('zerif_vegas_style');
 
 
-    wp_register_style('zerif_icon_fonts_style', get_template_directory_uri() . '/assets/icon-fonts/styles.css', array('zerif_vegas_style'), 'v1');
+    wp_register_style('zerif_fontawesome', get_template_directory_uri() . '/css/font-awesome.min.css', array('zerif_vegas_style'), 'v1');
 
-    wp_enqueue_style('zerif_icon_fonts_style');
+    wp_enqueue_style('zerif_fontawesome');
 
 
-    wp_register_style('zerif_pixeden_style', get_template_directory_uri() . '/css/pixeden-icons.css', array('zerif_icon_fonts_style'), 'v1');
+    wp_register_style('zerif_pixeden_style', get_template_directory_uri() . '/css/pixeden-icons.css', array('zerif_fontawesome'), 'v1');
 
     wp_enqueue_style('zerif_pixeden_style');
 
@@ -408,7 +406,15 @@ function zerif_register_required_plugins()
     $plugins = array(
 
 
-       
+        array(
+
+            'name' => 'Widget customizer',
+
+            'slug' => 'widget-customizer', 
+
+            'required' => true 
+
+        ),
 
         array(
  
@@ -1521,3 +1527,29 @@ function zerif_customizer_custom_css()
 
 
 add_action('customize_controls_print_styles', 'zerif_customizer_custom_css');
+
+/* Display a notice that can be dismissed */
+
+add_action('admin_notices', 'zerif_admin_notice');
+
+function zerif_admin_notice() {
+    global $current_user ;
+        $user_id = $current_user->ID;
+        /* Check that the user hasn't already clicked to ignore the message */
+    if ( ! get_user_meta($user_id, 'example_ignore_notice') ) {
+        echo '<div class="updated"><p>'; 
+        printf(__('If you have any issues with Zerif, make sure you check the <a href="%2$s">documentation</a> and <a href="%3$s">PRO version</a> if you are looking for portfolio + premium support. | <a href="%1$s">Hide Notice</a>'), '?zerif_nag_ignore=0','https://themeisle.com/documentation-zerif-lite','https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/');
+        echo "</p></div>";
+    }
+}
+
+add_action('admin_init', 'zerif_nag_ignore');
+
+function zerif_nag_ignore() {
+    global $current_user;
+        $user_id = $current_user->ID;
+        /* If user clicks to ignore the notice, add that to their user meta */
+        if ( isset($_GET['zerif_nag_ignore']) && '0' == $_GET['zerif_nag_ignore'] ) {
+             add_user_meta($user_id, 'zerif_ignore_notice', 'true', true);
+    }
+}
