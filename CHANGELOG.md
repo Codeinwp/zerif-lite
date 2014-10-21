@@ -1,5 +1,14 @@
 
 
+### 1.0.7 - 21/10/2014
+
+ Changes: 
+
+
+ * removed widget customizer plugin
+ * Update style.css
+
+
 ### 1.0.6 - 20/10/2014
 
  Changes: 
