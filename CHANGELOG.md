@@ -1,5 +1,15 @@
 
 
+### 1.0.9 - 21/10/2014
+
+ Changes: 
+
+
+ * Fixed fonts, added fontawesome   notification   footer links
+
+Fixed fonts, added fontawesome   notification   footer links
+
+
 ### 1.0.7 - 21/10/2014
 
  Changes: 
