@@ -408,15 +408,7 @@ function zerif_register_required_plugins()
     $plugins = array(
 
 
-        array(
-
-            'name' => 'Widget customizer',
-
-            'slug' => 'widget-customizer', 
-
-            'required' => true 
-
-        ),
+       
 
         array(
  
