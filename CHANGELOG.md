@@ -1,5 +1,14 @@
 
 
+### 1.1 - 23/10/2014
+
+ Changes: 
+
+
+ * Fixed dropdown menu
+ * Updated theme version
+
+
 ### 1.0.9 - 21/10/2014
 
  Changes: 
