@@ -4,7 +4,7 @@ Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: https://themeisle.com
 Description: Zerif LITE is free a one page Wordpress theme. It's perfect for web agencies, digital studios, corporate, product showcase, personal and business portfolio.
-Version: 1.0.9
+Version: 1.0.10
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -2825,6 +2825,10 @@ article .posted-on a:hover{
 
 }
 @media (max-width: 767px) {
+
+	.navbar-inverse .navbar-nav li:hover > ul.sub-menu {
+		display: none;
+	}
 
 	.bs-navbar-collapse {
 		border: 0;
