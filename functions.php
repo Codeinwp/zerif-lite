@@ -784,11 +784,16 @@ class zerif_ourfocus extends WP_Widget
 
 
             <div class="service-icon">
-
-
-                <i class="pixeden"
-                   style="background:url(<?php echo esc_url($instance['image_uri']); ?>) no-repeat center;width:100%; height:100%;"></i>
-                <!-- FOCUS ICON-->
+				
+				<?php if( !empty($instance['link']) ): ?>
+				
+					<a href="<?php echo $instance['link']; ?>"><i class="pixeden" style="background:url(<?php echo esc_url($instance['image_uri']); ?>) no-repeat center;width:100%; height:100%;"></i> <!-- FOCUS ICON--></a>
+				
+				<?php else: ?>
+				
+					<i class="pixeden" style="background:url(<?php echo esc_url($instance['image_uri']); ?>) no-repeat center;width:100%; height:100%;"></i> <!-- FOCUS ICON-->
+				
+				<?php endif; ?>
 
 
             </div>
@@ -825,6 +830,8 @@ class zerif_ourfocus extends WP_Widget
         $instance['text'] = strip_tags($new_instance['text']);
 
         $instance['title'] = strip_tags($new_instance['title']);
+		
+		$instance['link'] = strip_tags( $new_instance['link'] );
 
         $instance['image_uri'] = strip_tags($new_instance['image_uri']);
 
@@ -859,6 +866,15 @@ class zerif_ourfocus extends WP_Widget
                    class="widefat"/>
 
         </p>
+		
+	
+		<p>
+
+			<label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link','zerif'); ?></label><br />
+
+			<input type="text" name="<?php echo $this->get_field_name('link'); ?>" id="<?php echo $this->get_field_id('link'); ?>" value="<?php echo $instance['link']; ?>" class="widefat" />
+
+		</p>
 
         <p>
 
@@ -1307,22 +1323,27 @@ class zerif_team_widget extends WP_Widget
 
                         <?php if (!empty($instance['fb_link'])): ?>
                             <li><a href="<?php echo apply_filters('widget_title', $instance['fb_link']); ?>"><i
-                                        class="icon-facebook"></i></a></li>
+                                        class="fa fa-facebook"></i></a></li>
                         <?php endif; ?>
 
                         <?php if (!empty($instance['tw_link'])): ?>
                             <li><a href="<?php echo apply_filters('widget_title', $instance['tw_link']); ?>"><i
-                                        class="icon-twitter-alt"></i></a></li>
+                                        class="fa fa-twitter"></i></a></li>
                         <?php endif; ?>
 
                         <?php if (!empty($instance['bh_link'])): ?>
                             <li><a href="<?php echo apply_filters('widget_title', $instance['bh_link']); ?>"><i
-                                        class="icon-behance"></i></a></li>
+                                        class="fa fa-behance"></i></a></li>
                         <?php endif; ?>
 
                         <?php if (!empty($instance['db_link'])): ?>
                             <li><a href="<?php echo apply_filters('widget_title', $instance['db_link']); ?>"><i
-                                        class="icon-dribbble"></i></a></li>
+                                        class="fa fa-dribbble"></i></a></li>
+                        <?php endif; ?>
+						
+						<?php if (!empty($instance['ln_link'])): ?>
+                            <li><a href="<?php echo apply_filters('widget_title', $instance['ln_link']); ?>"><i
+                                        class="fa fa-linkedin"></i></a></li>
                         <?php endif; ?>
 
 
@@ -1374,6 +1395,8 @@ class zerif_team_widget extends WP_Widget
         $instance['bh_link'] = strip_tags($new_instance['bh_link']);
 
         $instance['db_link'] = strip_tags($new_instance['db_link']);
+		
+		$instance['ln_link'] = strip_tags($new_instance['ln_link']);
 
         $instance['image_uri'] = strip_tags($new_instance['image_uri']);
 
@@ -1476,7 +1499,16 @@ class zerif_team_widget extends WP_Widget
 
         </p>
 
+		<p>
 
+            <label
+                for="<?php echo $this->get_field_id('ln_link'); ?>"><?php _e('Linkedin link', 'zerif-lite'); ?></label><br/>
+
+            <input type="text" name="<?php echo $this->get_field_name('ln_link'); ?>"
+                   id="<?php echo $this->get_field_id('ln_link'); ?>" value="<?php echo $instance['ln_link']; ?>"
+                   class="widefat"/>
+
+        </p>
 
         <p>
 
@@ -1553,3 +1585,8 @@ function zerif_nag_ignore() {
              add_user_meta($user_id, 'zerif_ignore_notice', 'true', true);
     }
 }
+
+function zerif_excerpt_more( $more ) {
+	return '<a href="'.get_permalink().'">[...]</a>';
+}
+add_filter('excerpt_more', 'zerif_excerpt_more');
