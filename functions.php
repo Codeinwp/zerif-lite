@@ -1601,12 +1601,12 @@ function zerif_lite_display_upsell() {
 				<div class="row">
 					<div id="upsell_header" class="col-md-12">
 						<h2>
-							<a href="themeisle.com" target="_blank">
+							<a href="https://themeisle.com" target="_blank">
 								<img src="<?php echo get_template_directory_uri(); ?>/images/logo-themeisle.png"/>
 							</a>
 						</h2>
 
-						<h3><?php _e( 'Themes You Can Trust', 'zerif-lite' ); ?></h3>
+						<h3><?php _e( 'Simple and effective products, no complex frameworks, no drag & drop builders.', 'zerif-lite' ); ?></h3>
 					</div>
 				</div>
 
