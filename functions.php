@@ -154,6 +154,9 @@ function zerif_setup()
         add_image_size('zerif_our_team_photo', 174, 174, true);
 
     endif;
+	
+	/* woocommerce support */
+	add_theme_support( 'woocommerce' );
 
 }
 
@@ -263,54 +266,27 @@ function zerif_scripts()
 {
 
 
-    wp_register_style('zerif_font', '//fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700|Homemade+Apple');
+    wp_enqueue_style('zerif_font', '//fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700|Homemade+Apple');
 
-    wp_enqueue_style('zerif_font');
-
-
-    wp_register_style('zerif_bootstrap_style', get_template_directory_uri() . '/css/bootstrap.min.css');
-
-    wp_enqueue_style('zerif_bootstrap_style');
+    wp_enqueue_style('zerif_bootstrap_style', get_template_directory_uri() . '/css/bootstrap.css');
+	wp_style_add_data( 'zerif_bootstrap_style', 'rtl', 'replace' );
 
 
-    wp_register_style('zerif_owl_theme_style', get_template_directory_uri() . '/css/owl.theme.css', array('zerif_bootstrap_style'), 'v1');
+    wp_enqueue_style('zerif_owl_theme_style', get_template_directory_uri() . '/css/owl.theme.css', array('zerif_bootstrap_style'), 'v1');
 
-    wp_enqueue_style('zerif_owl_theme_style');
+    wp_enqueue_style('zerif_owl_carousel_style', get_template_directory_uri() . '/css/owl.carousel.css', array('zerif_owl_theme_style'), 'v1');
 
+    wp_enqueue_style('zerif_vegas_style', get_template_directory_uri() . '/css/jquery.vegas.min.css', array('zerif_owl_carousel_style'), 'v1');
 
-    wp_register_style('zerif_owl_carousel_style', get_template_directory_uri() . '/css/owl.carousel.css', array('zerif_owl_theme_style'), 'v1');
+    wp_enqueue_style('zerif_fontawesome', get_template_directory_uri() . '/css/font-awesome.min.css', array('zerif_vegas_style'), 'v1');
 
-    wp_enqueue_style('zerif_owl_carousel_style');
-
-
-    wp_register_style('zerif_vegas_style', get_template_directory_uri() . '/css/jquery.vegas.min.css', array('zerif_owl_carousel_style'), 'v1');
-
-    wp_enqueue_style('zerif_vegas_style');
-
-
-    wp_register_style('zerif_fontawesome', get_template_directory_uri() . '/css/font-awesome.min.css', array('zerif_vegas_style'), 'v1');
-
-    wp_enqueue_style('zerif_fontawesome');
-
-
-    wp_register_style('zerif_pixeden_style', get_template_directory_uri() . '/css/pixeden-icons.css', array('zerif_fontawesome'), 'v1');
-
-    wp_enqueue_style('zerif_pixeden_style');
-
+    wp_enqueue_style('zerif_pixeden_style', get_template_directory_uri() . '/css/pixeden-icons.css', array('zerif_fontawesome'), 'v1');
 
     wp_enqueue_style('zerif_style', get_stylesheet_uri(), array('zerif_pixeden_style'), 'v1');
 
-
-    wp_register_style('zerif_responsive_style', get_template_directory_uri() . '/css/responsive.css', array('zerif_style'), 'v1');
-
-    wp_enqueue_style('zerif_responsive_style');
-
-
-    //wp_enqueue_style( 'justifyblog-bootstrap-responsive', get_template_directory_uri() . '/css/bootstrap-theme.min.css', array(), 'v3.1.1' );
-
+    wp_enqueue_style('zerif_responsive_style', get_template_directory_uri() . '/css/responsive.css', array('zerif_style'), 'v1');
 
     wp_enqueue_script('jquery');
-
 
     /* Bootstrap script */
 
@@ -782,7 +758,7 @@ class zerif_ourfocus extends WP_Widget
 
         <div class="col-lg-3 col-sm-3 focus-box" data-scrollreveal="enter left after 0.15s over 1s">
 
-
+			<?php if( !empty($instance['image_uri']) ): ?>
             <div class="service-icon">
 				
 				<?php if( !empty($instance['link']) ): ?>
@@ -797,18 +773,20 @@ class zerif_ourfocus extends WP_Widget
 
 
             </div>
+			<?php endif; ?>
 
-
-            <h5 class="red-border-bottom"><?php echo apply_filters('widget_title', $instance['title']); ?></h5>
+            <h5 class="red-border-bottom"><?php if( !empty($instance['title']) ): echo apply_filters('widget_title', $instance['title']); endif; ?></h5>
             <!-- FOCUS HEADING -->
 
 
-            <p>
-
-                <?php echo apply_filters('widget_title', $instance['text']); ?>
-
-            </p>
-
+			<?php 
+				if( !empty($instance['text']) ):
+				
+					echo '<p>';
+						echo apply_filters('widget_title', $instance['text']);
+					echo '</p>';
+				endif;
+			?>	
 
         </div>
 
@@ -852,7 +830,7 @@ class zerif_ourfocus extends WP_Widget
             <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Title', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('title'); ?>"
-                   id="<?php echo $this->get_field_id('title'); ?>" value="<?php echo $instance['title']; ?>"
+                   id="<?php echo $this->get_field_id('title'); ?>" value="<?php if( !empty($instance['title']) ): echo $instance['title']; endif; ?>"
                    class="widefat"/>
 
         </p>
@@ -862,7 +840,7 @@ class zerif_ourfocus extends WP_Widget
             <label for="<?php echo $this->get_field_id('text'); ?>"><?php _e('Text', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('text'); ?>"
-                   id="<?php echo $this->get_field_id('text'); ?>" value="<?php echo $instance['text']; ?>"
+                   id="<?php echo $this->get_field_id('text'); ?>" value="<?php if( !empty($instance['text']) ): echo $instance['text']; endif; ?>"
                    class="widefat"/>
 
         </p>
@@ -872,7 +850,7 @@ class zerif_ourfocus extends WP_Widget
 
 			<label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link','zerif'); ?></label><br />
 
-			<input type="text" name="<?php echo $this->get_field_name('link'); ?>" id="<?php echo $this->get_field_id('link'); ?>" value="<?php echo $instance['link']; ?>" class="widefat" />
+			<input type="text" name="<?php echo $this->get_field_name('link'); ?>" id="<?php echo $this->get_field_id('link'); ?>" value="<?php if( !empty($instance['link']) ): echo $instance['link']; endif; ?>" class="widefat" />
 
 		</p>
 
@@ -884,7 +862,7 @@ class zerif_ourfocus extends WP_Widget
 
             <?php
 
-            if ($instance['image_uri'] != '') :
+            if ( !empty($instance['image_uri']) ) :
 
                 echo '<img class="custom_media_image" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" /><br />';
 
@@ -895,7 +873,7 @@ class zerif_ourfocus extends WP_Widget
 
 
             <input type="text" class="widefat custom_media_url" name="<?php echo $this->get_field_name('image_uri'); ?>"
-                   id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php echo $instance['image_uri']; ?>"
+                   id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php if( !empty($instance['image_uri']) ): echo $instance['image_uri']; endif; ?>"
                    style="margin-top:5px;">
 
 
@@ -963,11 +941,13 @@ class zerif_testimonial_widget extends WP_Widget
 
             <!-- MESSAGE OF THE CLIENT -->
 
-            <div class="message">
+			<?php if( !empty($instance['text']) ): ?>
+				<div class="message">
 
-                <?php echo apply_filters('widget_title', $instance['text']); ?>
+					<?php echo apply_filters('widget_title', $instance['text']); ?>
 
-            </div>
+				</div>
+			<?php endif; ?>
 
             <!-- CLIENT INFORMATION -->
 
@@ -981,23 +961,30 @@ class zerif_testimonial_widget extends WP_Widget
 
                 <div class="client-info">
 
-                    <a class="client-name" href=""><?php echo apply_filters('widget_title', $instance['title']); ?></a>
+					<?php if( !empty($instance['title']) ): ?>
+						<a class="client-name" href=""><?php echo apply_filters('widget_title', $instance['title']); ?></a>
+					<?php endif; ?>	
 
+					<?php if( !empty($instance['details']) ): ?>
                     <div class="client-company">
 
                         <?php echo apply_filters('widget_title', $instance['details']); ?>
 
                     </div>
+					<?php endif; ?>
 
                 </div>
 
                 <?php
+				
+				if( !empty($instance['image_uri']) ):
 
-                echo '<div class="client-image hidden-xs">';
+					echo '<div class="client-image hidden-xs">';
 
-                echo '<img src="' . esc_url($instance['image_uri']) . '" alt="">';
+					echo '<img src="' . esc_url($instance['image_uri']) . '" alt="">';
 
-                echo '</div>';
+					echo '</div>';
+				endif;	
 
                 ?>
 
@@ -1048,18 +1035,17 @@ class zerif_testimonial_widget extends WP_Widget
             <label for="<?php echo $this->get_field_id('title'); ?>"><?php _e('Author', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('title'); ?>"
-                   id="<?php echo $this->get_field_id('title'); ?>" value="<?php echo $instance['title']; ?>"
+                   id="<?php echo $this->get_field_id('title'); ?>" value="<?php if( !empty($instance['title']) ): echo $instance['title']; endif; ?>"
                    class="widefat"/>
 
         </p>
 
         <p>
 
-            <label
-                for="<?php echo $this->get_field_id('details'); ?>"><?php _e('Author details', 'zerif-lite'); ?></label><br/>
+            <label for="<?php echo $this->get_field_id('details'); ?>"><?php _e('Author details', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('details'); ?>"
-                   id="<?php echo $this->get_field_id('details'); ?>" value="<?php echo $instance['details']; ?>"
+                   id="<?php echo $this->get_field_id('details'); ?>" value="<?php if( !empty($instance['details']) ): echo $instance['details']; endif; ?>"
                    class="widefat"/>
 
         </p>
@@ -1069,7 +1055,7 @@ class zerif_testimonial_widget extends WP_Widget
             <label for="<?php echo $this->get_field_id('text'); ?>"><?php _e('Text', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('text'); ?>"
-                   id="<?php echo $this->get_field_id('text'); ?>" value="<?php echo $instance['text']; ?>"
+                   id="<?php echo $this->get_field_id('text'); ?>" value="<?php if( !empty($instance['text']) ): echo $instance['text']; endif; ?>"
                    class="widefat"/>
 
         </p>
@@ -1082,7 +1068,7 @@ class zerif_testimonial_widget extends WP_Widget
 
             <?php
 
-            if ($instance['image_uri'] != '') :
+            if ( !empty($instance['image_uri']) ) :
 
                 echo '<img class="custom_media_image_testimonial" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" /><br />';
 
@@ -1094,7 +1080,7 @@ class zerif_testimonial_widget extends WP_Widget
 
             <input type="text" class="widefat custom_media_url_testimonial"
                    name="<?php echo $this->get_field_name('image_uri'); ?>"
-                   id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php echo $instance['image_uri']; ?>"
+                   id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php if( !empty($instance['image_uri']) ): echo $instance['image_uri']; endif; ?>"
                    style="margin-top:5px;">
 
 
@@ -1156,8 +1142,8 @@ class zerif_clients_widget extends WP_Widget
 
         ?>
 
-        <a href="<?php echo apply_filters('widget_title', $instance['link']); ?>"><img
-                src="<?php echo esc_url($instance['image_uri']); ?>" alt="Client"></a>
+        <a href="<?php if( !empty($instance['link']) ): echo apply_filters('widget_title', $instance['link']); endif; ?>"><img
+                src="<?php if( !empty($instance['image_uri']) ): echo esc_url($instance['image_uri']); endif; ?>" alt="Client"></a>
 
 
 
@@ -1197,7 +1183,7 @@ class zerif_clients_widget extends WP_Widget
             <label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('link'); ?>"
-                   id="<?php echo $this->get_field_id('link'); ?>" value="<?php echo $instance['link']; ?>"
+                   id="<?php echo $this->get_field_id('link'); ?>" value="<?php if( !empty($instance['link']) ): echo $instance['link']; endif; ?>"
                    class="widefat"/>
 
         </p>
@@ -1212,7 +1198,7 @@ class zerif_clients_widget extends WP_Widget
 
             <?php
 
-            if ($instance['image_uri'] != '') :
+            if ( !empty($instance['image_uri']) ) :
 
                 echo '<img class="custom_media_image_clients" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" /><br />';
 
@@ -1224,7 +1210,7 @@ class zerif_clients_widget extends WP_Widget
 
             <input type="text" class="widefat custom_media_url_clients"
                    name="<?php echo $this->get_field_name('image_uri'); ?>"
-                   id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php echo $instance['image_uri']; ?>"
+                   id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php if( !empty($instance['image_uri']) ): echo $instance['image_uri']; endif; ?>"
                    style="margin-top:5px;">
 
 
@@ -1293,24 +1279,32 @@ class zerif_team_widget extends WP_Widget
 
             <div class="team-member">
 
-
-                <figure class="profile-pic">
-
-
-                    <img src="<?php echo esc_url($instance['image_uri']); ?>" alt="">
+				<?php if( !empty($instance['image_uri']) ): ?>
+				
+					<figure class="profile-pic">
 
 
-                </figure>
+						<img src="<?php echo esc_url($instance['image_uri']); ?>" alt="">
+
+
+					</figure>
+				
+				<?php endif; ?>
 
 
                 <div class="member-details">
 
+					<?php if( !empty($instance['name']) ): ?>
+					
+						<h5 class="dark-text red-border-bottom"><?php echo apply_filters('widget_title', $instance['name']); ?></h5>
+						
+					<?php endif; ?>	
 
-                    <h5 class="dark-text red-border-bottom"><?php echo apply_filters('widget_title', $instance['name']); ?></h5>
-
-
-                    <div class="position"><?php echo apply_filters('widget_title', $instance['position']); ?></div>
-
+					<?php if( !empty($instance['position']) ): ?>
+					
+						<div class="position"><?php echo apply_filters('widget_title', $instance['position']); ?></div>
+				
+					<?php endif; ?>
 
                 </div>
 
@@ -1321,27 +1315,27 @@ class zerif_team_widget extends WP_Widget
                     <ul>
 
 
-                        <?php if (!empty($instance['fb_link'])): ?>
+                        <?php if ( !empty($instance['fb_link']) ): ?>
                             <li><a href="<?php echo apply_filters('widget_title', $instance['fb_link']); ?>"><i
                                         class="fa fa-facebook"></i></a></li>
                         <?php endif; ?>
 
-                        <?php if (!empty($instance['tw_link'])): ?>
+                        <?php if ( !empty($instance['tw_link']) ): ?>
                             <li><a href="<?php echo apply_filters('widget_title', $instance['tw_link']); ?>"><i
                                         class="fa fa-twitter"></i></a></li>
                         <?php endif; ?>
 
-                        <?php if (!empty($instance['bh_link'])): ?>
+                        <?php if ( !empty($instance['bh_link']) ): ?>
                             <li><a href="<?php echo apply_filters('widget_title', $instance['bh_link']); ?>"><i
                                         class="fa fa-behance"></i></a></li>
                         <?php endif; ?>
 
-                        <?php if (!empty($instance['db_link'])): ?>
+                        <?php if ( !empty($instance['db_link']) ): ?>
                             <li><a href="<?php echo apply_filters('widget_title', $instance['db_link']); ?>"><i
                                         class="fa fa-dribbble"></i></a></li>
                         <?php endif; ?>
 						
-						<?php if (!empty($instance['ln_link'])): ?>
+						<?php if ( !empty($instance['ln_link']) ): ?>
                             <li><a href="<?php echo apply_filters('widget_title', $instance['ln_link']); ?>"><i
                                         class="fa fa-linkedin"></i></a></li>
                         <?php endif; ?>
@@ -1353,6 +1347,7 @@ class zerif_team_widget extends WP_Widget
                 </div>
 
 
+				<?php if( !empty($instance['description']) ): ?>
                 <div class="details">
 
 
@@ -1360,6 +1355,7 @@ class zerif_team_widget extends WP_Widget
 
 
                 </div>
+				<?php endif; ?>
 
 
             </div>
@@ -1417,7 +1413,7 @@ class zerif_team_widget extends WP_Widget
             <label for="<?php echo $this->get_field_id('name'); ?>"><?php _e('Name', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('name'); ?>"
-                   id="<?php echo $this->get_field_id('name'); ?>" value="<?php echo $instance['name']; ?>"
+                   id="<?php echo $this->get_field_id('name'); ?>" value="<?php if( !empty($instance['name']) ): echo $instance['name']; endif; ?>"
                    class="widefat"/>
 
         </p>
@@ -1429,7 +1425,7 @@ class zerif_team_widget extends WP_Widget
             <label for="<?php echo $this->get_field_id('position'); ?>"><?php _e('Position', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('position'); ?>"
-                   id="<?php echo $this->get_field_id('position'); ?>" value="<?php echo $instance['position']; ?>"
+                   id="<?php echo $this->get_field_id('position'); ?>" value="<?php if( !empty($instance['position']) ): echo $instance['position']; endif; ?>"
                    class="widefat"/>
 
         </p>
@@ -1443,7 +1439,7 @@ class zerif_team_widget extends WP_Widget
 
             <input type="text" name="<?php echo $this->get_field_name('description'); ?>"
                    id="<?php echo $this->get_field_id('description'); ?>"
-                   value="<?php echo $instance['description']; ?>" class="widefat"/>
+                   value="<?php if( !empty($instance['description']) ): echo $instance['description']; endif; ?>" class="widefat"/>
 
         </p>
 
@@ -1455,7 +1451,7 @@ class zerif_team_widget extends WP_Widget
                 for="<?php echo $this->get_field_id('fb_link'); ?>"><?php _e('Facebook link', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('fb_link'); ?>"
-                   id="<?php echo $this->get_field_id('fb_link'); ?>" value="<?php echo $instance['fb_link']; ?>"
+                   id="<?php echo $this->get_field_id('fb_link'); ?>" value="<?php if( !empty($instance['fb_link']) ): echo $instance['fb_link']; endif; ?>"
                    class="widefat"/>
 
         </p>
@@ -1468,7 +1464,7 @@ class zerif_team_widget extends WP_Widget
                 for="<?php echo $this->get_field_id('tw_link'); ?>"><?php _e('Twitter link', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('tw_link'); ?>"
-                   id="<?php echo $this->get_field_id('tw_link'); ?>" value="<?php echo $instance['tw_link']; ?>"
+                   id="<?php echo $this->get_field_id('tw_link'); ?>" value="<?php if( !empty($instance['tw_link']) ): echo $instance['tw_link']; endif; ?>"
                    class="widefat"/>
 
         </p>
@@ -1481,7 +1477,7 @@ class zerif_team_widget extends WP_Widget
                 for="<?php echo $this->get_field_id('bh_link'); ?>"><?php _e('Behance link', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('bh_link'); ?>"
-                   id="<?php echo $this->get_field_id('bh_link'); ?>" value="<?php echo $instance['bh_link']; ?>"
+                   id="<?php echo $this->get_field_id('bh_link'); ?>" value="<?php if( !empty($instance['bh_link']) ): echo $instance['bh_link']; endif; ?>"
                    class="widefat"/>
 
         </p>
@@ -1494,7 +1490,7 @@ class zerif_team_widget extends WP_Widget
                 for="<?php echo $this->get_field_id('db_link'); ?>"><?php _e('Dribble link', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('db_link'); ?>"
-                   id="<?php echo $this->get_field_id('db_link'); ?>" value="<?php echo $instance['db_link']; ?>"
+                   id="<?php echo $this->get_field_id('db_link'); ?>" value="<?php if( !empty($instance['db_link']) ): echo $instance['db_link']; endif; ?>"
                    class="widefat"/>
 
         </p>
@@ -1505,7 +1501,7 @@ class zerif_team_widget extends WP_Widget
                 for="<?php echo $this->get_field_id('ln_link'); ?>"><?php _e('Linkedin link', 'zerif-lite'); ?></label><br/>
 
             <input type="text" name="<?php echo $this->get_field_name('ln_link'); ?>"
-                   id="<?php echo $this->get_field_id('ln_link'); ?>" value="<?php echo $instance['ln_link']; ?>"
+                   id="<?php echo $this->get_field_id('ln_link'); ?>" value="<?php if( !empty($instance['ln_link']) ): echo $instance['ln_link']; endif; ?>"
                    class="widefat"/>
 
         </p>
@@ -1518,7 +1514,7 @@ class zerif_team_widget extends WP_Widget
 
             <?php
 
-            if ($instance['image_uri'] != '') :
+            if ( !empty($instance['image_uri']) ) :
 
                 echo '<img class="custom_media_image_team" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" /><br />';
 
@@ -1530,7 +1526,7 @@ class zerif_team_widget extends WP_Widget
 
             <input type="text" class="widefat custom_media_url_team"
                    name="<?php echo $this->get_field_name('image_uri'); ?>"
-                   id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php echo $instance['image_uri']; ?>"
+                   id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php if( !empty($instance['image_uri']) ): echo $instance['image_uri']; endif; ?>"
                    style="margin-top:5px;">
 
 
@@ -1560,33 +1556,208 @@ function zerif_customizer_custom_css()
 
 add_action('customize_controls_print_styles', 'zerif_customizer_custom_css');
 
-/* Display a notice that can be dismissed */
-
-add_action('admin_notices', 'zerif_admin_notice');
-
-function zerif_admin_notice() {
-    global $current_user ;
-        $user_id = $current_user->ID;
-        /* Check that the user hasn't already clicked to ignore the message */
-    if ( ! get_user_meta($user_id, 'example_ignore_notice') ) {
-        echo '<div class="updated"><p>'; 
-        printf(__('If you have any issues with Zerif, make sure you check the <a href="%2$s">documentation</a> and <a href="%3$s">PRO version</a> if you are looking for portfolio + premium support. | <a href="%1$s">Hide Notice</a>'), '?zerif_nag_ignore=0','https://themeisle.com/documentation-zerif-lite','https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/');
-        echo "</p></div>";
-    }
-}
-
-add_action('admin_init', 'zerif_nag_ignore');
-
-function zerif_nag_ignore() {
-    global $current_user;
-        $user_id = $current_user->ID;
-        /* If user clicks to ignore the notice, add that to their user meta */
-        if ( isset($_GET['zerif_nag_ignore']) && '0' == $_GET['zerif_nag_ignore'] ) {
-             add_user_meta($user_id, 'zerif_ignore_notice', 'true', true);
-    }
-}
-
 function zerif_excerpt_more( $more ) {
 	return '<a href="'.get_permalink().'">[...]</a>';
 }
 add_filter('excerpt_more', 'zerif_excerpt_more');
+
+/**************************/
+/**** More themes *********/
+/**************************/
+
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
+// Add stylesheet and JS for upsell page.
+function zerif_upsell_style() {
+	wp_enqueue_style( 'upsell-style', get_template_directory_uri() . '/css/upsell.css');
+}
+
+// Add upsell page to the menu.
+function zerif_lite_add_upsell() {
+	$page = add_theme_page(
+		__( 'More Themes', 'zerif-lite' ),
+		__( 'More Themes', 'zerif-lite' ),
+		'administrator',
+		'zerif-lite-themes',
+		'zerif_lite_display_upsell'
+	);
+
+	add_action( 'admin_print_styles-' . $page, 'zerif_upsell_style' );
+}
+add_action( 'admin_menu', 'zerif_lite_add_upsell', 11 );
+
+// Define markup for the upsell page.
+function zerif_lite_display_upsell() {
+
+	// Set template directory uri
+	$directory_uri = get_template_directory_uri();
+	?>
+	<div class="wrap">
+		<div class="container-fluid">
+			<div id="upsell_container">
+				<div class="row">
+					<div id="upsell_header" class="col-md-12">
+						<h2>
+							<a href="themeisle.com" target="_blank">
+								<img src="<?php echo get_template_directory_uri(); ?>/images/logo-themeisle.png"/>
+							</a>
+						</h2>
+
+						<h3><?php _e( 'Themes You Can Trust', 'zerif-lite' ); ?></h3>
+					</div>
+				</div>
+
+				<div id="upsell_themes" class="row">
+					<?php
+					// Set the argument array with author name.
+					$args = array(
+						'author' => 'codeinwp',
+					);
+
+					// Set the $request array.
+					$request = array(
+						'body' => array(
+							'action'  => 'query_themes',
+							'request' => serialize( (object)$args )
+						)
+					);
+					$themes = zerif_get_themes( $request );
+					$active_theme = wp_get_theme()->get( 'Name' );
+					$counter = 1;
+
+					// For currently active theme.
+					foreach ( $themes->themes as $theme ) {
+						if( $active_theme == $theme->name ) {?>
+
+							<div id="<?php echo $theme->slug; ?>" class="theme-container col-md-6 col-lg-4">
+								<div class="image-container">
+									<img class="theme-screenshot" src="<?php echo $theme->screenshot_url ?>"/>
+
+									<div class="theme-description">
+										<p><?php echo $theme->description; ?></p>
+									</div>
+								</div>
+								<div class="theme-details active">
+									<span class="theme-name"><?php echo $theme->name . ':' . __( 'Current theme', 'zerif-lite' ); ?></span>
+									<a class="button button-secondary customize right" target="_blank" href="<?php echo get_site_url(). '/wp-admin/customize.php' ?>">Customize</a>
+								</div>
+							</div>
+
+						<?php
+						$counter++;
+						break;
+						}
+					}
+
+					// For all other themes.
+					foreach ( $themes->themes as $theme ) {
+						if( $active_theme != $theme->name ) {
+
+							// Set the argument array with author name.
+							$args = array(
+								'slug' => $theme->slug,
+							);
+
+							// Set the $request array.
+							$request = array(
+								'body' => array(
+									'action'  => 'theme_information',
+									'request' => serialize( (object)$args )
+								)
+							);
+
+							$theme_details = zerif_get_themes( $request );
+							?>
+
+							<div id="<?php echo $theme->slug; ?>" class="theme-container col-md-6 col-lg-4 <?php echo $counter % 3 == 1 ? 'no-left-megin' : ""; ?>">
+								<div class="image-container">
+									<img class="theme-screenshot" src="<?php echo $theme->screenshot_url ?>"/>
+
+									<div class="theme-description">
+										<p><?php echo $theme->description; ?></p>
+									</div>
+								</div>
+								<div class="theme-details">
+									<span class="theme-name"><?php echo $theme->name; ?></span>
+
+									<!-- Check if the theme is installed -->
+									<?php if( wp_get_theme( $theme->slug )->exists() ) { ?>
+
+										<!-- Show the tick image notifying the theme is already installed. -->
+										<img data-toggle="tooltip" title="<?php _e( 'Already installed', 'zerif-lite' ); ?>" data-placement="bottom" class="theme-exists" src="<?php echo $directory_uri ?>/core/images/tick.png"/>
+
+										<!-- Activate Button -->
+										<a  class="button button-primary activate right"
+											href="<?php echo wp_nonce_url( admin_url( 'themes.php?action=activate&amp;stylesheet=' . urlencode( $theme->slug ) ), 'switch-theme_' . $theme->slug );?>" >Activate</a>
+									<?php }
+									else {
+
+										// Set the install url for the theme.
+										$install_url = add_query_arg( array(
+												'action' => 'install-theme',
+												'theme'  => $theme->slug,
+											), self_admin_url( 'update.php' ) );
+									?>
+										<!-- Install Button -->
+										<a data-toggle="tooltip" data-placement="bottom" title="<?php echo 'Downloaded ' . number_format( $theme_details->downloaded ) . ' times'; ?>" class="button button-primary install right" href="<?php echo esc_url( wp_nonce_url( $install_url, 'install-theme_' . $theme->slug ) ); ?>" ><?php _e( 'Install Now', 'zerif-lite' ); ?></a>
+									<?php } ?>
+
+									<!-- Preview button -->
+									<a class="button button-secondary preview right" target="_blank" href="<?php echo $theme->preview_url; ?>"><?php _e( 'Live Preview', 'zerif-lite' ); ?></a>
+								</div>
+							</div>
+							<?php
+							$counter++;
+						}
+					}?>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script>
+		jQuery(function () {
+			jQuery('.download').tooltip();
+			jQuery('.theme-exists').tooltip();
+		});
+	</script>
+<?php
+}
+
+// Get all themeisle themes by using API.
+function zerif_get_themes( $request ) {
+
+	// Generate a cache key that would hold the response for this request:
+	$key = 'zerif-lite_' . md5( serialize( $request ) );
+
+	// Check transient. If it's there - use that, if not re fetch the theme
+	if ( false === ( $themes = get_transient( $key ) ) ) {
+
+		// Transient expired/does not exist. Send request to the API.
+		$response = wp_remote_post( 'http://api.wordpress.org/themes/info/1.0/', $request );
+
+		// Check for the error.
+		if ( !is_wp_error( $response ) ) {
+
+			$themes = unserialize( wp_remote_retrieve_body( $response ) );
+
+			if ( !is_object( $themes ) && !is_array( $themes ) ) {
+
+				// Response body does not contain an object/array
+				return new WP_Error( 'theme_api_error', 'An unexpected error has occurred' );
+			}
+
+			// Set transient for next time... keep it for 24 hours should be good
+			set_transient( $key, $themes, 60 * 60 * 24 );
+		}
+		else {
+			// Error object returned
+			return $response;
+		}
+	}
+
+	return $themes;
+}
