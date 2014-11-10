@@ -4,7 +4,7 @@ Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: https://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agencies, digital studios, corporate, product showcase, personal and business portfolio.Zerif Lite is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly and W3C Markup Validated. Cross-Browser compatible. <a href="https://themeisle.com/forums/forum/zerif-lite">Official support forum</a> (https://themeisle.com/forums/forum/zerif-lite).
-Version: 1.3.1
+Version: 1.3.2
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -2178,9 +2178,6 @@ width: -webkit-calc(100% / 4);
 /*---------------------------------------
 **   Producs            -----
 -----------------------------------------*/
-.products {
-	background: url(images/product-bg.png) 50% 0 repeat;
-}
 .products .color-overlay {
 	background: rgba(39,144,176, 0.96);
 	margin-top: -100px;
@@ -2714,7 +2711,109 @@ article .posted-on a:hover{
 	background: #e9e9e9;
 	border: none;
 }
+/* woocommerce */
+.onsale {
+	width: 50px !important;
+	border: 5px solid #34d293 !important;
+	border-radius: 50% !important;
+	background: rgba(255,255,255,0.9) !important;
+	color: #34d293 !important;
+	text-shadow: none !important;
+	text-transform: uppercase !important;
+	margin: -16px -16px 0 0 !important;
+}
+.woocommerce h1.page-title {
+	text-align:left;
+	position: relative;
+	font-size: 20px;
+}
+.woocommerce h1.page-title:before {
+	position: absolute;
+	margin: auto;
+	z-index: 1;
+	content: "";
+	width: 10%;
+	height: 2px;
+	background: #e96656;
+	bottom: -9px;
+	left: 0;
+}
 
+.woocommerce .woocommerce-ordering select {
+	padding: 12px 15% 12px 2%;
+	color: #A0A0A0;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 0;
+}	
+.woocommerce .products .product h3 {
+	float:none;
+	color: #404040 !Important;
+}
+.woocommerce .added_to_cart, .woocommerce .button  {
+	display: inline-block !important;
+	text-align: center !important;
+	text-transform: uppercase !important;
+	padding: 13px 35px 13px 35px !important;
+	border-radius: 4px !important;
+	margin: 10px !important;
+	border: none !Important;
+	background: #f3f3f3 !important;
+	color: #000 !important;	
+}
+.woocommerce .add_to_cart_button, .woocommerce .checkout-button, .woocommerce .single_add_to_cart_button, .woocommerce #place_order {
+	display: inline-block !important;
+	text-align: center !important;
+	text-transform: uppercase !important;
+	padding: 13px 35px 13px 35px !important;
+	border-radius: 4px !important;
+	margin: 10px !important;
+	border: none !Important;
+	background: #e96656 !important;
+	color: #FFF !important;	
+}	
+.woocommerce .add_to_cart_button:hover, .woocommerce .checkout-button:hover, .woocommerce .single_add_to_cart_button :hover, .woocommerce #place_order:hover {
+	background:#bf3928 !important;
+}
+.woocommerce .price del {
+	display:block;
+}
+.woocommerce .price {
+	height:auto !important;
+	line-height:normal !important;
+}
+.woocommerce .price ins {
+	color: #000;
+	font-weight:bold;
+	font-size: 20px;
+}
+.woocommerce #coupon_code {
+	padding: 10px !important;
+	color: #A0A0A0 !important;
+	border: 1px solid rgba(0, 0, 0, 0.1) !important;
+	border-radius: 0 !important;
+	margin-top: 13px !important;
+}
+.woocommerce .product-name a {
+	color:#404040 !important;
+}
+.woocommerce .cart_totals tr.cart-subtotal th, .woocommerce .cart_totals tr.order-total th{
+	width:100% !important;
+}
+.woocommerce .entry-title {
+	text-align:left;
+}
+.woocommerce .woocommerce-info:before, .woocommerce-page .woocommerce-info:before,.woocommerce .woocommerce-error:before, .woocommerce-page .woocommerce-error:before {
+	padding: 0 !important;
+}
+.woocommerce .checkout input, .woocommerce .checkout textarea, .woocommerce .checkout select {
+	padding: 12px 15% 12px 2%;
+}
+.woocommerce ul.payment_methods {
+	padding-left:1em !important;
+}
+.woocommerce .checkout #payment label {
+	display:block;
+}
 /*---------------------------------------
  **   Responsive            -----
 -----------------------------------------*/
