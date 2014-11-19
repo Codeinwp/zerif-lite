@@ -2,7 +2,7 @@
 Contributors:		codeinwp
 Tags:				black, gray, red, white, one-column, two-columns, right-sidebar, responsive-layout, custom-background, custom-menu, editor-style, featured-images, threaded-comments, translation-ready
 Requires at least:	3.3.0
-Tested up to:		3.9
+Tested up to:		4.0
 
 Zerif Lite
 == Description ==
@@ -44,3 +44,6 @@ The exceptions to this license are as follows:
 	
  * images/focus.png
     Copyright (C) 2014 https://www.iconfinder.com/icons/283043/album_cloud_frame_gallery_image_mountain_painting_photo_photos_pictures_sky_icon
+
+ * Font Awesome is fully open source and is GPL friendly. You can use it for commercial projects, open source projects, or really just about whatever you want.
+   http://fortawesome.github.io/Font-Awesome/license/
