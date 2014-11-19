@@ -1,5 +1,14 @@
 
 
+### 1.3.5 - 19/11/2014
+
+ Changes: 
+
+
+ * Update home.php
+ * Update style.css
+
+
 ### 1.3.4 - 19/11/2014
 
  Changes: 
