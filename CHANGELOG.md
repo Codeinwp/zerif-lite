@@ -1,5 +1,22 @@
 
 
+### 1.3.4 - 19/11/2014
+
+ Changes: 
+
+
+ * fixed form subject issue, added linkedin icon and icons for socials, our focus clickable, contact section button and email, link on read more
+ * Added pro extra options in customizer
+ * woocommerce , wpml and rtl support, fixed undefined index errors, changed description,  added more themes page and fixed front page
+ * fixed wrong description, links and tagline
+
+fixed wrong description, links and tagline
+ * Fixed fotter and added woocommerce style
+ * Frontpage template
+ * Fixed wp.org fronpage and blog
+ * Update home.php
+
+
 ### 1.1 - 23/10/2014
 
  Changes: 
