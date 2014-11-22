@@ -388,7 +388,7 @@ function zerif_register_required_plugins()
 
             'slug' => 'widget-customizer', 
 
-            'required' => true 
+            'required' => false 
 
         ),
 
