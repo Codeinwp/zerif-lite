@@ -243,8 +243,8 @@
 					<h2 class="white-text"><?php _e('Get in touch','zerif-lite'); ?></h2>
 					<?php
 						$zerif_contactus_subtitle = get_theme_mod('zerif_contactus_subtitle');
-						if(isset($zerif_contactus_subtitle) && $zerif_contactus_subtitle != ""):
-							echo '<h6 class="white-text">'.$zerif_contactus_subtitle.'</h6>';
+						if( !empty($zerif_contactus_subtitle) ):
+							echo '<h6 class="white-text">'.esc_attr($zerif_contactus_subtitle).'</h6>';
 						endif;
 					?>
 				</div>
@@ -267,25 +267,25 @@
 
 
 
-						if(isset($nameError) && $nameError != '') :
+						if( !empty($nameError) ) :
 
 							echo '<p class="error white-text">'.$nameError.'</p>';
 
 						endif;
 
-						if(isset($emailError) && $emailError != '') :
+						if( !empty($emailError) ) :
 
 							echo '<p class="error white-text">'.$emailError.'</p>';
 
 						endif;
 
-						if(isset($subjectError) && $subjectError != '') :
+						if( !empty($subjectError) ) :
 
 							echo '<p class="error white-text">'.$subjectError.'</p>';
 
 						endif;
 
-						if(isset($messageError) && $messageError != '') :
+						if( !empty($messageError) ) :
 
 							echo '<p class="error white-text">'.$messageError.'</p>';
 
@@ -301,32 +301,32 @@
 
 						<div class="col-lg-4 col-sm-4" data-scrollreveal="enter left after 0s over 1s">
 
-							<input type="text" name="myname" placeholder="Your Name" class="form-control input-box" value="<?php if(isset($_POST['myname'])) echo $_POST['myname'];?>">
+							<input type="text" name="myname" placeholder="<?php _e('Your Name','zerif-lite'); ?>" class="form-control input-box" value="<?php if(isset($_POST['myname'])) echo esc_attr($_POST['myname']);?>">
 
 						</div>
 
 						<div class="col-lg-4 col-sm-4" data-scrollreveal="enter left after 0s over 1s">
 
-							<input type="email" name="myemail" placeholder="Your Email" class="form-control input-box" value="<?php if(isset($_POST['myemail'])) echo $_POST['myemail'];?>">
+							<input type="email" name="myemail" placeholder="<?php _e('Your Email','zerif-lite'); ?>" class="form-control input-box" value="<?php if(isset($_POST['myemail'])) echo esc_url($_POST['myemail']);?>">
 
 						</div>
 
 						<div class="col-lg-4 col-sm-4" data-scrollreveal="enter left after 0s over 1s">
 
-							<input type="text" name="mysubject" placeholder="Subject" class="form-control input-box" value="<?php if(isset($_POST['mysubject'])) echo $_POST['mysubject'];?>">
+							<input type="text" name="mysubject" placeholder="<?php _e('Subject','zerif-lite'); ?>" class="form-control input-box" value="<?php if(isset($_POST['mysubject'])) echo esc_attr($_POST['mysubject']);?>">
 
 						</div>
 
 						<div class="col-md-12" data-scrollreveal="enter right after 0s over 1s">
 
-							<textarea name="mymessage" class="form-control textarea-box" placeholder="Your Message"><?php if(isset($_POST['mymessage'])) { echo stripslashes($_POST['mymessage']); } ?></textarea>
+							<textarea name="mymessage" class="form-control textarea-box" placeholder="<?php _e('Your Message','zerif-lite'); ?>"><?php if(isset($_POST['mymessage'])) { echo stripslashes($_POST['mymessage']); } ?></textarea>
 
 						</div>
 	
 						<?php
 							$zerif_contactus_button_label = get_theme_mod('zerif_contactus_button_label','Send Message');
 							if( !empty($zerif_contactus_button_label) ):
-								echo '<button class="btn btn-primary custom-button red-btn" type="submit" data-scrollreveal="enter left after 0s over 1s">'.$zerif_contactus_button_label.'</button>';
+								echo '<button class="btn btn-primary custom-button red-btn" type="submit" data-scrollreveal="enter left after 0s over 1s">'.esc_attr($zerif_contactus_button_label).'</button>';
 							endif;
 						?>
 						
