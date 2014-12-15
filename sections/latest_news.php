@@ -69,7 +69,7 @@
 											<?php if ( has_post_thumbnail() ) : ?>
 												<?php the_post_thumbnail(); ?>
 											<?php else: ?>
-												<img src="<?php echo bloginfo('template_url'); ?>/images/blank-latestposts.png">
+												<img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/blank-latestposts.png">
 											<?php endif; ?>
 
 										</a>
