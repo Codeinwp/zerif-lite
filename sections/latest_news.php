@@ -1,3 +1,9 @@
+		<?php 
+		global $wp_query;
+		$total_posts = $wp_query->post_count;
+		if ($total_posts>0) {
+			?>
+		
 		<section class="latest-news" id="latestnews">
 			<div class="container">
 
@@ -34,7 +40,7 @@
 
 
 					<?php 
-						$args = array( 'post_type' => 'post', 'posts_per_page' => '12', 'order' => 'DESC');
+						$args = array( 'post_type' => 'post', 'posts_per_page' => $total_posts, 'order' => 'DESC');
 						$loop = new WP_Query( $args );
 
 						$newSlideActive = '<div class="item active">';
@@ -137,3 +143,4 @@
 
 			</div>
 		</section>
+		<?php } ?>
