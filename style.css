@@ -4,7 +4,7 @@ Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: https://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agencies, digital studios, corporate, product showcase, personal and business portfolio.Zerif Lite is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly and W3C Markup Validated. Cross-Browser compatible. <a href="https://themeisle.com/forums/forum/zerif-lite">Official support forum</a> (https://themeisle.com/forums/forum/zerif-lite).
-Version: 1.3.5
+Version: 1.3.8
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -1524,6 +1524,95 @@ object {
 	color: rgba(255,255,255,0.7);
 	text-transform: uppercase;
 }
+/*----  SECTION:  HOME > LATEST NEWS   ----*/
+.latest-news {
+	padding-bottom: 66px;
+	padding-top: 100px;
+	background: #FFFFFF;
+}
+.carousel-inner {
+/*	margin: 0 30px; */
+}
+#carousel-homepage-latestnews .item{
+	height: auto;
+}
+.latesnews-content {
+	font-size: 14px;
+	line-height: 18px;
+	color: #909090;
+}
+#carousel-homepage-latestnews .carousel-inner .item .latestnews-title {
+	margin-bottom: 15px;
+	color: #404040;
+	position: relative;
+	display: inline-block;
+	text-transform: uppercase;
+	margin-bottom: 30px;
+	font-weight: bold;
+	font-size: 17px;
+	float: none;
+	width: auto;
+}
+#carousel-homepage-latestnews .carousel-inner .item .latestnews-title a {
+	text-transform: uppercase;
+	color: #404040;
+	font-weight: 700;
+	display: block;
+}
+#carousel-homepage-latestnews .item .latestnews-box .latestnews-title a:before {
+	position: absolute;
+	margin: auto;
+	z-index: 1;
+	content: "";
+	width: 75%;
+	height: 2px;
+	background: #e96656;
+	bottom: -9px;
+	left: 12.5%;
+}
+#carousel-homepage-latestnews .item .latestnews-box:nth-child(4n+1) .latestnews-title a:before {
+	background: #e96656;
+}
+#carousel-homepage-latestnews .item .latestnews-box:nth-child(4n+2) .latestnews-title a:before {
+	background: #34d293;
+}
+#carousel-homepage-latestnews .item .latestnews-box:nth-child(4n+3) .latestnews-title a:before {
+	background: #3ab0e2;
+}
+#carousel-homepage-latestnews .item .latestnews-box:nth-child(4n) .latestnews-title a:before {
+	background: #f7d861;
+}
+#carousel-homepage-latestnews {
+	margin: 0 30px;
+}
+#carousel-homepage-latestnews .carousel-control {
+	width: 45px;
+	background: none;
+}
+.carousel-control.left {
+	margin-left: -45px;
+}
+.carousel-control.right {
+	margin-right: -45px;
+}
+#carousel-homepage-latestnews .glyphicon-chevron-left:before{
+	content: "";
+	background: url(images/left-arrow.png) no-repeat center center;
+	width: 30px;
+	height: 30px;
+	float: left;
+}
+#carousel-homepage-latestnews .glyphicon-chevron-right:before{
+	content: "";
+	background: url(images/right-arrow.png) no-repeat center center;	
+	width: 30px;
+	height: 30px;
+	float: left;
+}
+#carousel-homepage-latestnews {
+	margin-top: 20px;
+}
+
 /*---------------------------------------
  **   Section: Our focus             -----
 -----------------------------------------*/
@@ -2817,6 +2906,7 @@ article .posted-on a:hover{
 body.home.page {
 	background-image:none !important;
 }
+
 /*---------------------------------------
  **   Responsive            -----
 -----------------------------------------*/

@@ -110,14 +110,6 @@ function zerif_setup()
 
 
 		/**
-		 * Implement the Custom Header feature.
-
-		 */
-
-		//require get_template_directory() . '/inc/custom-header.php';
-
-
-		/**
 		 * Custom template tags for this theme.
 
 		 */
@@ -146,17 +138,12 @@ function zerif_setup()
 		/* tgm-plugin-activation */
         require_once get_template_directory() . '/class-tgm-plugin-activation.php';
 
-		
-    if (function_exists('add_image_size')):
-
         add_image_size('zerif_project_photo', 285, 214, true);
 
         add_image_size('zerif_our_team_photo', 174, 174, true);
-
-    endif;
 	
-	/* woocommerce support */
-	add_theme_support( 'woocommerce' );
+		/* woocommerce support */
+		add_theme_support( 'woocommerce' );
 
 }
 
@@ -290,67 +277,43 @@ function zerif_scripts()
 
     /* Bootstrap script */
 
-    wp_register_script('zerif_bootstrap_script', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '20120206', true);
-
-    wp_enqueue_script('zerif_bootstrap_script');
-
+    wp_enqueue_script('zerif_bootstrap_script', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '20120206', true);
 
     /* ScrollTo script */
 
-    wp_register_script('zerif_scrollTo', get_template_directory_uri() . '/js/jquery.scrollTo.min.js', array("jquery"), '20120206', true);
-
-    wp_enqueue_script('zerif_scrollTo');
-
+    wp_enqueue_script('zerif_scrollTo', get_template_directory_uri() . '/js/jquery.scrollTo.min.js', array("jquery"), '20120206', true);
 
     /* jQuery.nav script */
 
-    wp_register_script('zerif_jquery_nav', get_template_directory_uri() . '/js/jquery.nav.js', array("jquery"), '20120206', true);
-
-    wp_enqueue_script('zerif_jquery_nav');
-
+    wp_enqueue_script('zerif_jquery_nav', get_template_directory_uri() . '/js/jquery.nav.js', array("jquery"), '20120206', true);
 
     /* Knob script */
 
-    wp_register_script('zerif_knob_nav', get_template_directory_uri() . '/js/jquery.knob.js', array("jquery"), '20120206', true);
-
-    wp_enqueue_script('zerif_knob_nav');
-
+    wp_enqueue_script('zerif_knob_nav', get_template_directory_uri() . '/js/jquery.knob.js', array("jquery"), '20120206', true);
 
     /* Owl carousel script */
 
-    wp_register_script('zerif_owl_carousel', get_template_directory_uri() . '/js/owl.carousel.min.js', array("jquery"), '20120206', true);
-
-    wp_enqueue_script('zerif_owl_carousel');
+    wp_enqueue_script('zerif_owl_carousel', get_template_directory_uri() . '/js/owl.carousel.min.js', array("jquery"), '20120206', true);
 
 
     /* Smootscroll script */
 
-    wp_register_script('zerif_smoothscroll', get_template_directory_uri() . '/js/smoothscroll.js', array("jquery"), '20120206', true);
-
-    wp_enqueue_script('zerif_smoothscroll');
-
+    wp_enqueue_script('zerif_smoothscroll', get_template_directory_uri() . '/js/smoothscroll.js', array("jquery"), '20120206', true);
 
     /* Vegas script */
 
-    wp_register_script('zerif_vegas_script', get_template_directory_uri() . '/js/jquery.vegas.min.js', array("jquery"), '20120206', true);
-
-    wp_enqueue_script('zerif_vegas_script');
+    wp_enqueue_script('zerif_vegas_script', get_template_directory_uri() . '/js/jquery.vegas.min.js', array("jquery"), '20120206', true);
 
 
     /* scrollReveal script */
     if ( !wp_is_mobile() ){
-        wp_register_script( 'zerif_scrollReveal_script', get_template_directory_uri() . '/js/scrollReveal.js', array("jquery"), '20120206', true  );
-
-        wp_enqueue_script( 'zerif_scrollReveal_script' );
+        wp_enqueue_script( 'zerif_scrollReveal_script', get_template_directory_uri() . '/js/scrollReveal.js', array("jquery"), '20120206', true  );
     }
 
 
     /* zerif script */
 
-    wp_register_script('zerif_script', get_template_directory_uri() . '/js/zerif.js', array("jquery", "zerif_knob_nav"), '20120206', true);
-
-    wp_enqueue_script('zerif_script');
-
+    wp_enqueue_script('zerif_script', get_template_directory_uri() . '/js/zerif.js', array("jquery", "zerif_knob_nav"), '20120206', true);
 
     wp_enqueue_script('justifyblog-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true);
 
@@ -367,6 +330,7 @@ function zerif_scripts()
 
     }
 
+	add_editor_style('/css/custom-editor-style.css');
 }
 
 add_action('wp_enqueue_scripts', 'zerif_scripts');
@@ -388,7 +352,7 @@ function zerif_register_required_plugins()
 
             'slug' => 'widget-customizer', 
 
-            'required' => true 
+            'required' => false 
 
         ),
 
@@ -443,25 +407,25 @@ function zerif_register_required_plugins()
 
             'oops' => __('Something went wrong with the plugin API.', 'zerif-lite'),
 
-            'notice_can_install_required' => _n_noop('This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.'),
+            'notice_can_install_required' => _n_noop('This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.','zerif-lite'),
 
-            'notice_can_install_recommended' => _n_noop('This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.'),
+            'notice_can_install_recommended' => _n_noop('This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.','zerif-lite'),
 
-            'notice_cannot_install' => _n_noop('Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.'),
+            'notice_cannot_install' => _n_noop('Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.','zerif-lite'),
 
-            'notice_can_activate_required' => _n_noop('The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.'),
+            'notice_can_activate_required' => _n_noop('The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.','zerif-lite'),
 
-            'notice_can_activate_recommended' => _n_noop('The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.'),
+            'notice_can_activate_recommended' => _n_noop('The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.','zerif-lite'),
 
-            'notice_cannot_activate' => _n_noop('Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.'),
+            'notice_cannot_activate' => _n_noop('Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.','zerif-lite'),
 
-            'notice_ask_to_update' => _n_noop('The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.'),
+            'notice_ask_to_update' => _n_noop('The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.','zerif-lite'),
 
-            'notice_cannot_update' => _n_noop('Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.'),
+            'notice_cannot_update' => _n_noop('Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.','zerif-lite'),
 
-            'install_link' => _n_noop('Begin installing plugin', 'Begin installing plugins'),
+            'install_link' => _n_noop('Begin installing plugin', 'Begin installing plugins','zerif-lite'),
 
-            'activate_link' => _n_noop('Begin activating plugin', 'Begin activating plugins'),
+            'activate_link' => _n_noop('Begin activating plugin', 'Begin activating plugins','zerif-lite'),
 
             'return' => __('Return to Required Plugins Installer', 'zerif-lite'),
 
@@ -498,7 +462,7 @@ add_action('admin_menu', 'zerif_post_options_box');
 function zerif_post_options_box()
 {
 
-    add_meta_box('post_info', 'Post details', 'zerif_custom_post_info', 'post', 'side', 'high');
+    add_meta_box('post_info', __('Post details','zerif-lite'), 'zerif_custom_post_info', 'post', 'side', 'high');
 
 }
 
@@ -660,17 +624,6 @@ function zerif_wp_page_menu()
 
 }
 
-
-function cwp_add_editor_styles()
-{
-
-    add_editor_style('/css/custom-editor-style.css');
-
-}
-
-add_action('init', 'cwp_add_editor_styles');
-
-
 add_filter('the_title', 'cwp_default_title');
 
 
@@ -680,7 +633,7 @@ function cwp_default_title($title)
 
     if ($title == '')
 
-        $title = "Default title";
+        $title = __("Default title",'zerif-lite');
 
 
     return $title;
@@ -878,7 +831,7 @@ class zerif_ourfocus extends WP_Widget
 
 
             <input type="button" class="button button-primary custom_media_button" id="custom_media_button"
-                   name="<?php echo $this->get_field_name('image_uri'); ?>" value="Upload Image"
+                   name="<?php echo $this->get_field_name('image_uri'); ?>" value="<?php _e('Upload Image','zerif-lite'); ?>"
                    style="margin-top:5px;"/>
 
         </p>
@@ -1086,7 +1039,7 @@ class zerif_testimonial_widget extends WP_Widget
 
             <input type="button" class="button button-primary custom_media_button_testimonial"
                    id="custom_media_button_testimonial" name="<?php echo $this->get_field_name('image_uri'); ?>"
-                   value="Upload Image" style="margin-top:5px;"/>
+                   value="<?php _e('Upload Image','zerif-lite'); ?>" style="margin-top:5px;"/>
 
         </p>
 
@@ -1216,7 +1169,7 @@ class zerif_clients_widget extends WP_Widget
 
             <input type="button" class="button button-primary custom_media_button_clients"
                    id="custom_media_button_clients" name="<?php echo $this->get_field_name('image_uri'); ?>"
-                   value="Upload Image" style="margin-top:5px;"/>
+                   value="<?php _e('Upload Image','zerif-lite'); ?>" style="margin-top:5px;"/>
 
         </p>
 
@@ -1531,7 +1484,7 @@ class zerif_team_widget extends WP_Widget
 
 
             <input type="button" class="button button-primary custom_media_button_team" id="custom_media_button_clients"
-                   name="<?php echo $this->get_field_name('image_uri'); ?>" value="Upload Image"
+                   name="<?php echo $this->get_field_name('image_uri'); ?>" value="<?php _e('Upload Image','zerif-lite'); ?>"
                    style="margin-top:5px;"/>
 
         </p>
