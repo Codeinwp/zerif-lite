@@ -1,5 +1,16 @@
 
 
+### 1.4.0 - 31/12/2014
+
+ Changes: 
+
+
+ * Merge pull request #20 from Codeinwp/production
+
+merge back-ward
+ * added full width page
+
+
 ### 1.3.5 - 19/11/2014
 
  Changes: 
