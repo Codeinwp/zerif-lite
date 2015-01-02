@@ -243,6 +243,47 @@ function zerif_widgets_init()
 
 add_action('widgets_init', 'zerif_widgets_init');
 
+function zerif_slug_fonts_url() {
+    $fonts_url = '';
+ 
+    /* Translators: If there are characters in your language that are not
+    * supported by Lora, translate this to 'off'. Do not translate
+    * into your own language.
+    */
+    $lato = _x( 'on', 'Lato font: on or off', 'zerif-lite' );
+    $homemade = _x( 'on', 'Homemade font: on or off', 'zerif-lite' );
+    /* Translators: If there are characters in your language that are not
+    * supported by Open Sans, translate this to 'off'. Do not translate
+    * into your own language.
+    */
+    $monserrat = _x( 'on', 'Monserrat font: on or off', 'zerif-lite' );
+ 
+    if ( 'off' !== $lato || 'off' !== $monserrat|| 'off' !== $homemade ) {
+        $font_families = array();
+ 
+        
+        if ( 'off' !== $lato ) {
+            $font_families[] = 'Lato:300,400,700,400italic';
+        }
+ 
+        if ( 'off' !== $monserrat ) {
+            $font_families[] = 'Montserrat:700';
+        }
+        
+        if ( 'off' !== $homemade ) {
+            $font_families[] = 'Homemade Apple';
+        }
+ 
+        $query_args = array(
+            'family' => urlencode( implode( '|', $font_families ) ),
+            'subset' => urlencode( 'latin,latin-ext' ),
+        );
+ 
+        $fonts_url = add_query_arg( $query_args, '//fonts.googleapis.com/css' );
+    }
+ 
+    return $fonts_url;
+}
 
 /**
  * Enqueue scripts and styles.
@@ -253,10 +294,10 @@ function zerif_scripts()
 {
 
 
-    wp_enqueue_style('zerif_font', '//fonts.googleapis.com/css?family=Lato:300,400,700,400italic|Montserrat:700|Homemade+Apple');
+    wp_enqueue_style('zerif_font', zerif_slug_fonts_url(), array(), null );
 
     wp_enqueue_style('zerif_bootstrap_style', get_template_directory_uri() . '/css/bootstrap.css');
-	wp_style_add_data( 'zerif_bootstrap_style', 'rtl', 'replace' );
+    wp_style_add_data( 'zerif_bootstrap_style', 'rtl', 'replace' );
 
 
     wp_enqueue_style('zerif_owl_theme_style', get_template_directory_uri() . '/css/owl.theme.css', array('zerif_bootstrap_style'), 'v1');
