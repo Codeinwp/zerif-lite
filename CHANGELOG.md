@@ -1,5 +1,15 @@
 
 
+### 1.4.1 - 02/01/2015
+
+ Changes: 
+
+
+ * disable fonts for some languages
+ * Update style.css
+ * Update functions.php
+
+
 ### 1.4.0 - 31/12/2014
 
  Changes: 
