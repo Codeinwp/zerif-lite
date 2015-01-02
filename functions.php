@@ -271,7 +271,7 @@ function zerif_slug_fonts_url() {
         }
         
         if ( 'off' !== $homemade ) {
-            $font_families[] = 'Homemade+Apple';
+            $font_families[] = 'Homemade Apple';
         }
  
         $query_args = array(
