@@ -345,8 +345,14 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 			<div class="container">
 				<!-- SECTION HEADER -->
 				<div class="section-header">
-					<h2 class="white-text"><?php _e('Get in touch','zerif-lite'); ?></h2>
+					
 					<?php
+					
+						$zerif_contactus_title = get_theme_mod('zerif_contactus_title','Get in touch');
+						if ( !empty($zerif_contactus_title) ):
+							echo '<h2 class="white-text">'.$zerif_contactus_title.'</h2>';
+						endif;
+					
 						$zerif_contactus_subtitle = get_theme_mod('zerif_contactus_subtitle');
 						if(isset($zerif_contactus_subtitle) && $zerif_contactus_subtitle != ""):
 							echo '<h6 class="white-text">'.$zerif_contactus_subtitle.'</h6>';
