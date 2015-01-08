@@ -1,5 +1,19 @@
 
 
+### 1.4.2 - 08/01/2015
+
+ Changes: 
+
+
+ * This fixes #13 upsell in customizer
+ * This fixes #22, updated pot file
+ * THis fixes #15, responsive background image
+ * This fixes #23, changing section names in customizer
+ * This fixes #24, hover radio buttons, + update style version
+ * Cart without sidebar
+ * This fixes #25, remove widget customizer for wp greater versions
+
+
 ### 1.4.1 - 02/01/2015
 
  Changes: 
