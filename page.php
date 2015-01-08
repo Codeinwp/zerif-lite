@@ -17,7 +17,7 @@ get_header(); ?>
 	<div id="content" class="site-content">
 <div class="container">
 
-<div class="content-left-wrap col-md-9">
+<?php 	if( function_exists('is_cart') && is_cart()) {				echo '<div class="content-left-wrap col-md-12">';			}	else {			echo '<div class="content-left-wrap col-md-9">';			}	?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
@@ -36,11 +36,7 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-</div><!-- .content-left-wrap -->
-
-<div class="sidebar-wrap col-md-3 content-left-wrap">
-	<?php get_sidebar(); ?>
-</div><!-- .sidebar-wrap -->
+<?php 	if( function_exists('is_cart') && is_cart()) {		echo '</div>';	}	else {		echo '</div>';		echo '<div class="sidebar-wrap col-md-3 content-left-wrap">';			get_sidebar();		echo '</div>';	}	?>	
 
 </div><!-- .container -->
 <?php get_footer(); ?>

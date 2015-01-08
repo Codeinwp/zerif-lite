@@ -383,41 +383,73 @@ add_action('tgmpa_register', 'zerif_register_required_plugins');
 function zerif_register_required_plugins()
 {
 
+	$wp_version_nr = get_bloginfo('version');
+	
+	if( $wp_version_nr < 3.9 ):
 
-    $plugins = array(
+		$plugins = array(
 
 
-        array(
+			array(
 
-            'name' => 'Widget customizer',
+				'name' => 'Widget customizer',
 
-            'slug' => 'widget-customizer', 
+				'slug' => 'widget-customizer', 
 
-            'required' => false 
+				'required' => false 
 
-        ),
+			),
 
-        array(
- 
-            'name'      => 'WP Product Review',
- 
-            'slug'      => 'wp-product-review',
- 
-            'required'  => false,
- 
-        ),
+			array(
+	 
+				'name'      => 'WP Product Review',
+	 
+				'slug'      => 'wp-product-review',
+	 
+				'required'  => false,
+	 
+			),
 
-        array(
- 
-            'name'      => 'Revive Old Post (Former Tweet Old Post)',
- 
-            'slug'      => 'tweet-old-post',
- 
-            'required'  => false,
- 
-        )
+			array(
+	 
+				'name'      => 'Revive Old Post (Former Tweet Old Post)',
+	 
+				'slug'      => 'tweet-old-post',
+	 
+				'required'  => false,
+	 
+			)
 
-    );
+		);
+		
+	else:
+
+		$plugins = array(
+
+			array(
+	 
+				'name'      => 'WP Product Review',
+	 
+				'slug'      => 'wp-product-review',
+	 
+				'required'  => false,
+	 
+			),
+
+			array(
+	 
+				'name'      => 'Revive Old Post (Former Tweet Old Post)',
+	 
+				'slug'      => 'tweet-old-post',
+	 
+				'required'  => false,
+	 
+			)
+
+		);
+
+	
+	endif;
 
 	 
 
