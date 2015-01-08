@@ -4,7 +4,7 @@ Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: https://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agencies, digital studios, corporate, product showcase, personal and business portfolio.Zerif Lite is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly and W3C Markup Validated. Cross-Browser compatible. <a href="https://themeisle.com/forums/forum/zerif-lite">Official support forum</a> (https://themeisle.com/forums/forum/zerif-lite).
-Version: 1.4.1
+Version: 1.4.2
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -649,7 +649,7 @@ textarea {
 	border-radius: 4px;
 	background: rgba(255,255,255, 0.95);
 }
- textarea:hover,
+textarea:hover,
 input:hover,
 textarea:active,
 input:active,
@@ -657,7 +657,6 @@ textarea:focus,
 input:focus {
     outline: 1 !important;
     outline-color: #e96656 !important;
-    -webkit-appearance:none;
 
   -webkit-box-shadow:none !important;
   box-shadow:none !important;
