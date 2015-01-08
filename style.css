@@ -2916,6 +2916,10 @@ body.home.page {
 	background-image:none !important;
 }
 
+body.custom-background {
+	background-position: top center !important;
+	background-attachment: fixed !important;
+}
 /*---------------------------------------
  **   Responsive            -----
 -----------------------------------------*/
