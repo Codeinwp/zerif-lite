@@ -1,5 +1,19 @@
 
 
+### 1.4.3 - 09/01/2015
+
+ Changes: 
+
+
+ * This fixes #31 , translation issue
+ * This fixes #30, wrong textdomain
+ * This fixes #28, header cuts of title on mobile
+ * This fixes #9, overlap header with text
+ * Aliniere compononete Our focus
+ * Footer apare in partea de jos a ecranului, dar nu a site-ului
+ * This fixes #22, .pot file
+
+
 ### 1.4.2 - 08/01/2015
 
  Changes: 
