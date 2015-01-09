@@ -49,6 +49,13 @@ jQuery(document).ready(function() {
 });
 
 
+jQuery(document).ready(function() {
+	var current_height = jQuery('.header .container').height();
+	jQuery('.header').css('min-height',current_height);
+	
+	
+});
+
 /* =================================
 
 ===  Bootstrap Fix              ====
