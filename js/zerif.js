@@ -22,7 +22,31 @@ jQuery(window).load(function() {
 })
 
 
+/*** mobile menu */
+jQuery(document).ready(function() {
 
+	if ( jQuery(window).width() < 767 ){
+
+		jQuery('#site-navigation li').each(function(){
+
+			if ( jQuery(this).find('ul').length > 0 ){
+				jQuery(this).addClass('has_children');
+				jQuery(this).find('a').first().after('<p class="dropdownmenu"></p>');
+			}
+			
+		});
+
+	}
+
+	jQuery('.dropdownmenu').click(function(){
+		if( jQuery(this).parent('li').hasClass('this-open') ){
+			jQuery(this).parent('li').removeClass('this-open');
+		}else{
+			jQuery(this).parent('li').addClass('this-open');
+		}
+	});
+
+});
 
 
 /* =================================
