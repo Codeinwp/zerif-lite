@@ -181,9 +181,9 @@ function zerif_widgets_init()
 
         'id' => 'sidebar-ourfocus',
 
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+        'before_widget' => '',
 
-        'after_widget' => '</aside>',
+        'after_widget' => '',
 
         'before_title' => '<h1 class="widget-title">',
 
