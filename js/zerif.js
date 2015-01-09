@@ -292,5 +292,21 @@ jQuery('.navbar-toggle').on('click', function () {
 
 });
 
-
-
+/* FOOTER */
+jQuery(window).load(function() {
+	
+	/* vp_h will hold the height of the browser window */
+	var vp_h = jQuery(window).height();
+	
+	/* b_g will hold the height of the html body */
+	var b_g = jQuery('body').height();
+	
+	/* If the body height is lower than window */
+	if(b_g < vp_h) {
+		
+		jQuery('footer').css("position","absolute");
+		jQuery('footer').css("bottom","0px");
+		jQuery('footer').css("width","100%");
+		
+	}
+});	
