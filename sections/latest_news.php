@@ -14,7 +14,7 @@
 					$zerif_latestnews_title = get_theme_mod('zerif_latestnews_title');
 
 					if( !empty($zerif_latestnews_title) ):
-						echo '<h2 class="dark-text">' . $zerif_latestnews_title . '</h2>';
+						echo '<h2 class="dark-text">' . __($zerif_latestnews_title,'zerif-lite') . '</h2>';
 					else:
 						echo '<h2 class="dark-text">' . __('Latest news','zerif-lite') . '</h2>';
 					endif;
@@ -24,7 +24,7 @@
 
 					if( !empty($zerif_latestnews_subtitle) ):
 
-						echo '<h6 class="dark-text">'.$zerif_latestnews_subtitle.'</h6>';
+						echo '<h6 class="dark-text">'.__($zerif_latestnews_subtitle,'zerif-lite').'</h6>';
 
 					endif;
 				?>
@@ -133,11 +133,11 @@
 					<!-- Controls -->
 					<a class="left carousel-control" href="#carousel-homepage-latestnews" role="button" data-slide="prev">
 						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-						<span class="sr-only">Previous</span>
+						<span class="sr-only"><?php _e('Previous','zerif-lite'); ?></span>
 					</a>
 					<a class="right carousel-control" href="#carousel-homepage-latestnews" role="button" data-slide="next">
 						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-						<span class="sr-only">Next</span>
+						<span class="sr-only"><?php _e('Next','zerif-lite'); ?></span>
 					</a>
 				</div>
 

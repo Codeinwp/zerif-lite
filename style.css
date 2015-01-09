@@ -4,7 +4,7 @@ Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: https://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agencies, digital studios, corporate, product showcase, personal and business portfolio.Zerif Lite is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly and W3C Markup Validated. Cross-Browser compatible. <a href="https://themeisle.com/forums/forum/zerif-lite">Official support forum</a> (https://themeisle.com/forums/forum/zerif-lite).
-Version: 1.4.2
+Version: 1.4.3
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -1630,6 +1630,16 @@ object {
 	background: #FFFFFF;
 
 }
+.focus .row {
+ 	text-align:center;
+}
+.focus .row .focus-box {
+ 	display:inline-block;
+ 	float:none !important;	
+ 	margin-right: -4px;
+	vertical-align: top;
+	margin-bottom: 25px;
+}
 /* FOCUS BOX */
 .focus-box .service-icon {
 	margin-bottom: 30px;
@@ -2998,6 +3008,7 @@ body.custom-background {
 		padding-bottom: 33px;
 	}
 }
+
 @media (max-width: 992px) {
 
 	.purchase-now .red-btn{
@@ -3030,15 +3041,13 @@ body.custom-background {
 }
 @media (max-width: 767px) {
 
-	.navbar-inverse .navbar-nav li:hover > ul.sub-menu {
-		display: none;
-	}
-
+	/* HEADER */
 	.bs-navbar-collapse {
 		border: 0;
 	}
 	#main-nav {
 		overflow: hidden;
+		margin-bottom:1px;
 	}
 	.navbar-inverse .navbar-nav {
 		padding-left: 10px;
@@ -3049,7 +3058,83 @@ body.custom-background {
 		display: inline-block;
 		margin-bottom: 0;
 	}
-
+	.navbar-inverse .navbar-nav > li {
+		width: 100%;
+		border-bottom: 1px solid #EDEDED;
+		position: relative;
+		margin: 8px 0 0 0;
+		padding: 0 0 8px 0;
+	}
+	.navbar-inverse .navbar-nav > li  a {
+		text-align: left;
+	}
+	.navbar-inverse .navbar-nav ul.sub-menu {
+		display: none !important;
+		position: relative;
+		top: 0;
+		box-shadow: none;
+		width: 100%;
+	}
+	.navbar-inverse .navbar-nav li.this-open > ul {
+		display: block !important;
+	}
+	.navbar-inverse .navbar-nav ul.sub-menu li {
+		width: 100%;
+		float: left;
+	}
+	.navbar-inverse .navbar-nav ul.sub-menu li a {
+		width: 100%;
+		float: left;
+		padding: 8px 25px 8px 0;
+		border-bottom: 1px solid #EDEDED;
+	}
+	.navbar-inverse .navbar-nav ul.sub-menu li:last-child a {
+		border-bottom: none;
+	}
+	.navbar-inverse .navbar-nav ul.sub-menu ul.sub-menu {
+		position: relative;
+		left: 0;
+		top: 0;
+	}
+	#main-nav {
+		overflow: visible;
+	}
+	#main-nav,
+	#main-nav.fixed {
+		position: relative;
+	}
+	.navbar-collapse {
+		max-height: 100%;
+	}
+	.navbar-inverse .navbar-nav ul.sub-menu li {
+		padding-left: 20px;
+	}
+	.navbar-inverse .navbar-nav ul.sub-menu li {
+		padding-bottom: 0;
+		padding-top: 0;
+	}
+	.dropdownmenu {
+		position: absolute;
+		z-index: 9;
+		right: 0;
+		top: 5px;
+		width: 25px;
+		height: 25px;
+		margin: 0;
+		padding: 0;
+		border-radius: 3px;
+		background: url(images/menu-icon.png) center center no-repeat #e96656;
+	}
+	.navbar-inverse .navbar-nav ul.sub-menu li{
+		margin-right: 0;
+		padding-right: 0;
+	}
+	.navbar-inverse .navbar-nav > li > a:hover {
+		color: #404040 !important;
+	}
+	.this-open > a {
+		color: #e96656 !important;
+	}
 
     /* HOME */
 	.header {
