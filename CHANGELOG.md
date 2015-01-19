@@ -1,5 +1,15 @@
 
 
+### 1.4.4 - 19/01/2015
+
+ Changes: 
+
+
+ * This fixes #35, translate strings plus generate pot file
+ * Fixes our focus centering when theme is first installed
+ * Update style.css
+
+
 ### 1.4.3 - 09/01/2015
 
  Changes: 
