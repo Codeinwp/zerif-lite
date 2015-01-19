@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Zerif Lite\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-01-09 15:15+0200\n"
-"PO-Revision-Date: 2015-01-09 15:15+0200\n"
+"POT-Creation-Date: 2015-01-14 12:49+0200\n"
+"PO-Revision-Date: 2015-01-14 12:49+0200\n"
 "Last-Translator: \n"
 "Language-Team: codeinwp <support@codeinwp.com>\n"
 "MIME-Version: 1.0\n"
@@ -568,6 +568,22 @@ msgid "Meta"
 msgstr ""
 
 #: inc/customizer.php:1
+msgid "Check out the <a href=\"https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/\">PRO version</a> for full control over the frontpage sections order!"
+msgstr ""
+
+#: inc/customizer.php:1
+msgid "Check out the <a href=\"https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/\">PRO version</a> for full control over the color scheme !"
+msgstr ""
+
+#: inc/customizer.php:1
+msgid "Check out the <a href=\"https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/\">PRO version</a> to add a google maps section !"
+msgstr ""
+
+#: inc/customizer.php:1
+msgid "Check out the <a href=\"https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/\">PRO version</a> to add a pricing section !"
+msgstr ""
+
+#: inc/customizer.php:1
 msgid "Sections order"
 msgstr ""
 
@@ -600,6 +616,10 @@ msgid "Email section - icon"
 msgstr ""
 
 #: inc/customizer.php:1
+msgid "support@codeinwp.com"
+msgstr ""
+
+#: inc/customizer.php:1
 msgid "Email"
 msgstr ""
 
@@ -616,11 +636,19 @@ msgid "Address section - icon"
 msgstr ""
 
 #: inc/customizer.php:1
+msgid "24B, Fainari Street, Bucharest, Romania"
+msgstr ""
+
+#: inc/customizer.php:1
 msgid "Address"
 msgstr ""
 
 #: inc/customizer.php:1
 msgid "Big title section"
+msgstr ""
+
+#: inc/customizer.php:1
+msgid "Hide big title section?"
 msgstr ""
 
 #: inc/customizer.php:1
@@ -651,6 +679,10 @@ msgid "Green button link"
 msgstr ""
 
 #: inc/customizer.php:1
+msgid "Hide our focus section?"
+msgstr ""
+
+#: inc/customizer.php:1
 msgid "Our Focus"
 msgstr ""
 
@@ -661,6 +693,10 @@ msgstr ""
 
 #: inc/customizer.php:1
 msgid "Our focus subtitle"
+msgstr ""
+
+#: inc/customizer.php:1
+msgid "Hide about us section?"
 msgstr ""
 
 #: inc/customizer.php:1
@@ -684,6 +720,10 @@ msgstr ""
 
 #: inc/customizer.php:1
 msgid "Big left side title"
+msgstr ""
+
+#: inc/customizer.php:1
+msgid "You can add here a large piece of text. For that, please go in the Admin Area, Customizer, \"About us section\" <br/> <br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dapibus, eros at accumsan auctor, felis eros condimentum quam, non porttitor est urna vel neque.  <br/> <br/>Maecenas non tellus vitae augue tempor venenatis. Mauris ac tincidunt dolor, id feugiat odio. Mauris egestas ligula sit amet lorem condimentum ultrices"
 msgstr ""
 
 #: inc/customizer.php:1
@@ -755,6 +795,10 @@ msgid "Feature no4 percentage"
 msgstr ""
 
 #: inc/customizer.php:1
+msgid "Hide our team section?"
+msgstr ""
+
+#: inc/customizer.php:1
 #: sections/our_team.php:1
 msgid "Our Team"
 msgstr ""
@@ -769,6 +813,10 @@ msgid "Our team subtitle"
 msgstr ""
 
 #: inc/customizer.php:1
+msgid "Hide testimonials section?"
+msgstr ""
+
+#: inc/customizer.php:1
 msgid "Testimonials"
 msgstr ""
 
@@ -778,6 +826,10 @@ msgstr ""
 
 #: inc/customizer.php:1
 msgid "Latest News section"
+msgstr ""
+
+#: inc/customizer.php:1
+msgid "Hide latest news section?"
 msgstr ""
 
 #: inc/customizer.php:1
@@ -821,6 +873,10 @@ msgid "Contact us section"
 msgstr ""
 
 #: inc/customizer.php:1
+msgid "Hide contact us section?"
+msgstr ""
+
+#: inc/customizer.php:1
 msgid "Get in touch"
 msgstr ""
 
@@ -850,6 +906,14 @@ msgstr ""
 
 #: inc/customizer.php:1
 msgid "Pricing section"
+msgstr ""
+
+#: inc/customizer.php:1
+msgid "Documentation"
+msgstr ""
+
+#: inc/customizer.php:1
+msgid "View PRO version"
 msgstr ""
 
 #: inc/template-tags.php:35
