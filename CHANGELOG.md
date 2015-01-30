@@ -1,5 +1,23 @@
 
 
+### 1.4.5 - 30/01/2015
+
+ Changes: 
+
+
+ * Update style.css
+ * Update style.css
+ * Update style.css
+ * Fixed #42, big title enclosing tag h1 , not h6
+ * Fixed #44, disable preloader from customizer
+ * Fix #38, fixed our focus section hover colors
+ * Fixed #48, replace wp product review by login customizer
+ * Fixed #41, reversed telephone and mail icons in footer
+ * Fixed #40, fixed team member widgets for more than 4
+ * Fixed #32, load customizer scripts just in customizer, not in all backend pages
+ * Fix #16, hover efects for our focus widgets, when more than 4
+
+
 ### 1.4.4 - 19/01/2015
 
  Changes: 
