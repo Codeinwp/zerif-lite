@@ -402,9 +402,9 @@ function zerif_register_required_plugins()
 
 			array(
 	 
-				'name'      => 'WP Product Review',
+				'name'      => 'Login customizer',
 	 
-				'slug'      => 'wp-product-review',
+				'slug'      => 'login-customizer',
 	 
 				'required'  => false,
 	 
@@ -428,9 +428,9 @@ function zerif_register_required_plugins()
 
 			array(
 	 
-				'name'      => 'WP Product Review',
+				'name'      => 'Login customizer',
 	 
-				'slug'      => 'wp-product-review',
+				'slug'      => 'login-customizer',
 	 
 				'required'  => false,
 	 
@@ -744,7 +744,7 @@ function zerif_register_widgets()
 /************************/
 
 
-add_action('admin_enqueue_scripts', 'zerif_ourfocus_widget_scripts');
+add_action('customize_controls_print_scripts', 'zerif_ourfocus_widget_scripts');
 
 function zerif_ourfocus_widget_scripts()
 {
@@ -925,7 +925,7 @@ class zerif_ourfocus extends WP_Widget
 /***************************/
 
 
-add_action('admin_enqueue_scripts', 'zerif_testimonial_widget_scripts');
+add_action('customize_controls_print_scripts', 'zerif_testimonial_widget_scripts');
 
 function zerif_testimonial_widget_scripts()
 {
@@ -1132,7 +1132,7 @@ class zerif_testimonial_widget extends WP_Widget
 /***************************/
 
 
-add_action('admin_enqueue_scripts', 'zerif_clients_widget_scripts');
+add_action('customize_controls_print_scripts', 'zerif_clients_widget_scripts');
 
 function zerif_clients_widget_scripts()
 {
@@ -1262,7 +1262,7 @@ class zerif_clients_widget extends WP_Widget
 /***************************/
 
 
-add_action('admin_enqueue_scripts', 'zerif_team_widget_scripts');
+add_action('customize_controls_print_scripts', 'zerif_team_widget_scripts');
 
 function zerif_team_widget_scripts()
 {

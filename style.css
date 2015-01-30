@@ -3,8 +3,8 @@ Theme Name: Zerif Lite
 Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: https://themeisle.com
-Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agencies, digital studios, corporate, product showcase, personal and business portfolio.Zerif Lite is WooCommerce Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly and W3C Markup Validated. Cross-Browser compatible. <a href="https://themeisle.com/forums/forum/zerif-lite">Official support forum</a> (https://themeisle.com/forums/forum/zerif-lite).
-Version: 1.4.4
+Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agencies, digital studios, corporate, product showcase, personal and business portfolio, photography sites, freelancers.Is built on BootStrap with parallax support, is responsive and mobile friendly, clean, modern and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly and W3C Markup Validated. Cross-Browser compatible. <a href="https://themeisle.com/forums/forum/zerif-lite">Official support forum</a> (https://themeisle.com/forums/forum/zerif-lite).
+Version: 1.4.5
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -1623,7 +1623,9 @@ object {
 /*---------------------------------------
  **   Section: Our focus             -----
 -----------------------------------------*/
-
+.focus-box .service-icon .pixeden  {
+	border-radius: 50%;
+}
 .focus {
 	padding-bottom: 100px;
 	overflow: hidden;
@@ -1658,28 +1660,28 @@ object {
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
-.ctUp-ads:nth-child(1) .service-icon:hover {
+.ctUp-ads:nth-child(n+1) .service-icon:hover, .focus-box:nth-child(n+1) .service-icon:hover {
 	border: 10px solid #e96656;
 }
-.ctUp-ads:nth-child(2) .service-icon:hover{
+.ctUp-ads:nth-child(2n+1) .service-icon:hover, .focus-box:nth-child(2n+1) .service-icon:hover{
 	border: 10px solid #34d293;
 }
-.ctUp-ads:nth-child(3) .service-icon:hover {
+.ctUp-ads:nth-child(3) .service-icon:hover, .focus-box:nth-child(3) .service-icon:hover {
 	border: 10px solid #3ab0e2;
 }
-.ctUp-ads:nth-child(4) .service-icon:hover{
+.ctUp-ads:nth-child(4) .service-icon:hover, .focus-box:nth-child(4) .service-icon:hover{
 	border: 10px solid #f7d861;
 }
-.ctUp-ads:nth-child(1) .red-border-bottom:before {
+.ctUp-ads:nth-child(1) .red-border-bottom:before, .focus-box:nth-child(1) .red-border-bottom:hover {
 	background: #e96656;
 }
-.ctUp-ads:nth-child(2) .red-border-bottom:before {
+.ctUp-ads:nth-child(2) .red-border-bottom:before, .focus-box:nth-child(2) .red-border-bottom:hover {
 	background: #34d293;
 }
-.ctUp-ads:nth-child(3) .red-border-bottom:before {
+.ctUp-ads:nth-child(3) .red-border-bottom:before, .focus-box:nth-child(3) .red-border-bottom:hover{
 	background: #3ab0e2;
 }
-.ctUp-ads:nth-child(4) .red-border-bottom:before {
+.ctUp-ads:nth-child(4) .red-border-bottom:before, .focus-box:nth-child(4) .red-border-bottom:hover {
 	background: #f7d861;
 }
 .focus-box h5 {
@@ -2928,6 +2930,10 @@ body.home.page {
 body.custom-background {
 	background-position: top center !important;
 	background-attachment: fixed !important;
+}
+
+.zerif_team:nth-child(4n+1), .our-team .col-lg-3:nth-child(4n+1) {
+	clear:both;
 }
 /*---------------------------------------
  **   Responsive            -----
