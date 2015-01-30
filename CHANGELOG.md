@@ -6,6 +6,15 @@
 
 
  * Update style.css
+ * Update customizer.php
+
+
+### 1.4.5 - 30/01/2015
+
+ Changes: 
+
+
+ * Update style.css
  * Update style.css
  * Update style.css
  * Fixed #42, big title enclosing tag h1 , not h6
