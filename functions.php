@@ -402,9 +402,9 @@ function zerif_register_required_plugins()
 
 			array(
 	 
-				'name'      => 'WP Product Review',
+				'name'      => 'Login customizer',
 	 
-				'slug'      => 'wp-product-review',
+				'slug'      => 'login-customizer',
 	 
 				'required'  => false,
 	 
@@ -428,9 +428,9 @@ function zerif_register_required_plugins()
 
 			array(
 	 
-				'name'      => 'WP Product Review',
+				'name'      => 'Login customizer',
 	 
-				'slug'      => 'wp-product-review',
+				'slug'      => 'login-customizer',
 	 
 				'required'  => false,
 	 
