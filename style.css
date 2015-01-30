@@ -1623,7 +1623,9 @@ object {
 /*---------------------------------------
  **   Section: Our focus             -----
 -----------------------------------------*/
-
+.focus-box .service-icon .pixeden  {
+	border-radius: 50%;
+}
 .focus {
 	padding-bottom: 100px;
 	overflow: hidden;
@@ -1658,28 +1660,28 @@ object {
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
-.ctUp-ads:nth-child(1) .service-icon:hover {
+.ctUp-ads:nth-child(1) .service-icon:hover, .focus-box:nth-child(1) .service-icon:hover {
 	border: 10px solid #e96656;
 }
-.ctUp-ads:nth-child(2) .service-icon:hover{
+.ctUp-ads:nth-child(2) .service-icon:hover, .focus-box:nth-child(2) .service-icon:hover{
 	border: 10px solid #34d293;
 }
-.ctUp-ads:nth-child(3) .service-icon:hover {
+.ctUp-ads:nth-child(3) .service-icon:hover, .focus-box:nth-child(3) .service-icon:hover {
 	border: 10px solid #3ab0e2;
 }
-.ctUp-ads:nth-child(4) .service-icon:hover{
+.ctUp-ads:nth-child(4) .service-icon:hover, .focus-box:nth-child(4) .service-icon:hover{
 	border: 10px solid #f7d861;
 }
-.ctUp-ads:nth-child(1) .red-border-bottom:before {
+.ctUp-ads:nth-child(1) .red-border-bottom:before, .focus-box:nth-child(1) .red-border-bottom:hover {
 	background: #e96656;
 }
-.ctUp-ads:nth-child(2) .red-border-bottom:before {
+.ctUp-ads:nth-child(2) .red-border-bottom:before, .focus-box:nth-child(2) .red-border-bottom:hover {
 	background: #34d293;
 }
-.ctUp-ads:nth-child(3) .red-border-bottom:before {
+.ctUp-ads:nth-child(3) .red-border-bottom:before, .focus-box:nth-child(3) .red-border-bottom:hover{
 	background: #3ab0e2;
 }
-.ctUp-ads:nth-child(4) .red-border-bottom:before {
+.ctUp-ads:nth-child(4) .red-border-bottom:before, .focus-box:nth-child(4) .red-border-bottom:hover {
 	background: #f7d861;
 }
 .focus-box h5 {
