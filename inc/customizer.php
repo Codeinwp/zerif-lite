@@ -201,7 +201,7 @@ function zerif_customize_register( $wp_customize ) {
 	
 	/* Disable preloader */
 	
-	$wp_customize->add_setting( 'zerif_disable_preloader', array('sanitize_callback' => 'zerif_sanitize_text));
+	$wp_customize->add_setting( 'zerif_disable_preloader', array('sanitize_callback' => 'zerif_sanitize_text'));
 
 	$wp_customize->add_control(
 
