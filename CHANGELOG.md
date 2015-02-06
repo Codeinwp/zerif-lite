@@ -1,5 +1,25 @@
 
 
+### 1.4.6 - 06/02/2015
+
+ Changes: 
+
+
+ * Open social links in new tab
+
+Open social links in new tab
+ * added travis
+
+added travis
+ * fixed travis
+ * fixed syntax error
+ * Update style.css
+ * Merge pull request #56 from HardeepAsrani/development
+
+Open social links in new tab
+ * remove travis
+
+
 ### 1.4.5 - 30/01/2015
 
  Changes: 
