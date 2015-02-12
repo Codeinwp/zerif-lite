@@ -1300,7 +1300,7 @@ class zerif_team_widget extends WP_Widget
 
 
 
-        <div class="col-lg-3 col-sm-3">
+        <div class="col-lg-3 col-sm-3 team-box">
 
 
             <div class="team-member">

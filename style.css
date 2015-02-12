@@ -1635,7 +1635,7 @@ object {
 .focus .row {
  	text-align:center;
 }
-.focus .row .focus-box {
+.focus .row .focus-box, .our-team .row .team-box {
  	display:inline-block;
  	float:none !important;	
  	margin-right: -4px;
