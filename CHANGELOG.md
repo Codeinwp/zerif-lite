@@ -1,5 +1,14 @@
 
 
+### 1.4.7 - 12/02/2015
+
+ Changes: 
+
+
+ * Fixed #62, #51 our team widgets default alignment
+ * Increased version
+
+
 ### 1.4.6 - 06/02/2015
 
  Changes: 
