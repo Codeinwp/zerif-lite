@@ -98,6 +98,9 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 
 			/* recaptcha */
+			$zerif_contactus_sitekey = get_theme_mod('zerif_contactus_sitekey');
+			$zerif_contactus_secretkey = get_theme_mod('zerif_contactus_secretkey');
+			$zerif_contactus_recaptcha_show = get_theme_mod('zerif_contactus_recaptcha_show');
 
 			if( isset($zerif_contactus_recaptcha_show) && $zerif_contactus_recaptcha_show != 1 && !empty($zerif_contactus_sitekey) && !empty($zerif_contactus_secretkey) ) :
 
