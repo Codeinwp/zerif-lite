@@ -1787,3 +1787,11 @@ function zerif_get_themes( $request ) {
 
 	return $themes;
 }
+
+
+/* Enqueue Google reCAPTCHA scripts */
+add_action( 'wp_enqueue_scripts', 'recaptcha_scripts' );
+
+function recaptcha_scripts() {
+    wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
+}
