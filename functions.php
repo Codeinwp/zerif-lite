@@ -1793,5 +1793,14 @@ function zerif_get_themes( $request ) {
 add_action( 'wp_enqueue_scripts', 'recaptcha_scripts' );
 
 function recaptcha_scripts() {
-    wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
+
+    if ( is_home() ):
+        $zerif_contactus_sitekey = get_theme_mod('zerif_contactus_sitekey');
+        $zerif_contactus_secretkey = get_theme_mod('zerif_contactus_secretkey');
+        $zerif_contactus_recaptcha_show = get_theme_mod('zerif_contactus_recaptcha_show');
+        if( isset($zerif_contactus_recaptcha_show) && $zerif_contactus_recaptcha_show != 1 && !empty($zerif_contactus_sitekey) && !empty($zerif_contactus_secretkey) ) :
+            wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
+        endif;
+    endif;
+
 }
