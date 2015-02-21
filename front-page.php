@@ -97,6 +97,42 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 	if(isset($_POST['submitted'])) :
 
 
+			/* recaptcha */
+			
+			$zerif_contactus_sitekey = get_theme_mod('zerif_contactus_sitekey');
+
+			$zerif_contactus_secretkey = get_theme_mod('zerif_contactus_secretkey');
+			
+			$zerif_contactus_recaptcha_show = get_theme_mod('zerif_contactus_recaptcha_show');
+
+			if( isset($zerif_contactus_recaptcha_show) && $zerif_contactus_recaptcha_show != 1 && !empty($zerif_contactus_sitekey) && !empty($zerif_contactus_secretkey) ) :
+
+		        $captcha;
+
+		        if( isset($_POST['g-recaptcha-response']) ){
+
+		          $captcha=$_POST['g-recaptcha-response'];
+
+		        }
+
+		        if( !$captcha ){
+
+		          $hasError = true;    
+		          
+		        }
+
+		        $response = wp_remote_get( "https://www.google.com/recaptcha/api/siteverify?secret=".$zerif_contactus_secretkey."&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR'] );
+
+		        if($response['body'].success==false) {
+
+		        	$hasError = true;
+
+		        }
+
+	        endif;
+
+
+
 			/* name */
 
 
@@ -441,6 +477,20 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 							endif;
 						?>
 						
+						<?php 
+
+							$zerif_contactus_sitekey = get_theme_mod('zerif_contactus_sitekey');
+							$zerif_contactus_secretkey = get_theme_mod('zerif_contactus_secretkey');
+							$zerif_contactus_recaptcha_show = get_theme_mod('zerif_contactus_recaptcha_show');
+
+							if( isset($zerif_contactus_recaptcha_show) && $zerif_contactus_recaptcha_show != 1 && !empty($zerif_contactus_sitekey) && !empty($zerif_contactus_secretkey) ) :
+
+								echo '<div class="g-recaptcha" data-sitekey="' . $zerif_contactus_sitekey . '"></div>';
+
+							endif;
+
+						?>
+
 					</form>
 
 				</div>

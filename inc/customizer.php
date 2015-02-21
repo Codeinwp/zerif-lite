@@ -1564,6 +1564,61 @@ function zerif_customize_register( $wp_customize ) {
 				'priority'    => 5,
 
 	));
+
+	/* recaptcha */
+
+	$wp_customize->add_setting( 'zerif_contactus_recaptcha_show', array('sanitize_callback' => 'zerif_sanitize_text'));
+
+	$wp_customize->add_control(
+
+		'zerif_contactus_recaptcha_show',
+
+		array(
+
+			'type' => 'checkbox',
+
+			'label' => __('Hide reCaptcha?','zerif-lite'),
+
+			'section' => 'zerif_contactus_section',
+
+			'priority'    => 6,
+
+		)
+
+	);
+
+	/* site key */
+
+	$wp_customize->add_setting( 'zerif_contactus_sitekey', array('sanitize_callback' => 'zerif_sanitize_text'));	
+
+	$wp_customize->add_control( 'zerif_contactus_sitekey', array(
+
+				'label'    => __( 'Site key', 'zerif-lite' ),
+
+				'section'  => 'zerif_contactus_section',
+
+				'settings' => 'zerif_contactus_sitekey',
+
+				'priority'    => 7,
+
+	));
+
+
+	/* secret key */
+
+	$wp_customize->add_setting( 'zerif_contactus_secretkey', array('sanitize_callback' => 'zerif_sanitize_text'));	
+
+	$wp_customize->add_control( 'zerif_contactus_secretkey', array(
+
+				'label'    => __( 'Secret key', 'zerif-lite' ),
+
+				'section'  => 'zerif_contactus_section',
+
+				'settings' => 'zerif_contactus_secretkey',
+
+				'priority'    => 8,
+
+	));
 	
 	/* Google maps section */
 	

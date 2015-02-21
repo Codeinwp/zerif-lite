@@ -4,12 +4,12 @@ Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: https://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agencies, digital studios, corporate, product showcase, personal and business portfolio, photography sites, freelancers.Is built on BootStrap with parallax support, is responsive and mobile friendly, clean, modern and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, Multilingual Ready (WPML), RTL-Language Support, Retina-Ready, Search Engine Friendly and W3C Markup Validated. Is Cross-Browser compatible and translation ready so you can easily use Zerif in spanish, portuguese, italian or french. <a href="https://themeisle.com/forums/forum/zerif-lite">Official support forum</a> (https://themeisle.com/forums/forum/zerif-lite).
-Version: 1.4.7
+Version: 1.5.0
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
 Domain Path: /languages/
-Tags: black, gray, red, white, one-column, two-columns, right-sidebar,fixed-layout,light,front-page-post-form,full-width-template,rtl-language-support,sticky-post,theme-options,responsive-layout, custom-background, custom-menu, editor-style, featured-images, threaded-comments, translation-ready
+Tags: black, gray, red, white, one-column, two-columns, right-sidebar,fixed-layout,light,front-page-post-form,full-width-template,rtl-language-support,sticky-post,theme-options,responsive-layout, custom-background, custom-menu, editor-style, featured-images, threaded-comments, translation-ready,photoblogging
 */
 /*--------------------------------------------------------------
 1.0 - Reset
@@ -954,12 +954,18 @@ a:active {
  **   10.0 Content                   -----
 -----------------------------------------*/
 
-container>.navbar-header, 
+.container>.navbar-header, 
 .container-fluid>.navbar-header, 
 .container>.navbar-collapse, 
 .container-fluid>.navbar-collapse {
     margin-right: 0;
     margin-left: 0;
+}
+.site-content {
+	background: #FFF;
+}
+.home .site-content {
+	background: none;
 }
 
  /*---------------------------------------
@@ -2574,11 +2580,17 @@ width: -webkit-calc(100% / 4);
 	width: 100%;
 	margin: auto;
 	margin-bottom: 20px;
+	border-radius: 4px;
 }
 .contact-us .custom-button {
 	float: right;
 	margin-right: 15px;
 }
+.g-recaptcha {
+	margin-left: 15px;
+	display: none;
+}
+
 /*---------------------------------------
  **   Footer           -----
 -----------------------------------------*/
