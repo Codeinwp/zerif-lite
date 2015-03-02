@@ -314,6 +314,12 @@ function zerif_scripts()
 
     wp_enqueue_style('zerif_responsive_style', get_template_directory_uri() . '/css/responsive.css', array('zerif_style'), 'v1');
 
+    if ( wp_is_mobile() ){
+        
+        wp_enqueue_style( 'zerif_style_mobile', get_template_directory_uri() . '/css/style-mobile.css', array('zerif_bootstrap_style', 'zerif_style'),'v1' );
+    
+    }
+
     wp_enqueue_script('jquery');
 
     /* Bootstrap script */
