@@ -1,5 +1,26 @@
 
 
+### 1.5.4 - 05/03/2015
+
+ Changes: 
+
+
+ * Latest news issue on iPad
+ * Woocommerce display for older versions
+ * Branding
+
+- Modified background image
++ added focus images
+ * Branding - follow-up
+
+removed unnecessary images
+added screenshot
+ * Replaced screenshot
+ * Merge pull request #74 from DragosBubu/development
+
+Branding
+
+
 ### 1.4.7 - 12/02/2015
 
  Changes: 
