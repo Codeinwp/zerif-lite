@@ -1810,3 +1810,17 @@ function recaptcha_scripts() {
     endif;
 
 }
+
+/* remove custom-background from body_class() */
+add_filter( 'body_class', 'remove_class_function' );
+function remove_class_function( $classes ) {
+
+    if ( !is_home() ) {   
+        // index of custom-background
+        $key = array_search('custom-background', $classes);
+        // remove class
+        unset($classes[$key]);
+    }
+    return $classes;
+
+}
