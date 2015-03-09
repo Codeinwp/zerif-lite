@@ -4,7 +4,7 @@ Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: https://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.5.6
+Version: 1.5.7
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -1365,6 +1365,8 @@ object {
 	min-height: 775px;
 	position: relative;
 	overflow: hidden;
+	-webkit-box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.08);
+	box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.08);
 }
 .header_title {
     float: left;
@@ -1392,14 +1394,14 @@ object {
 	border: 0;
 	border-radius: 0 !important;
 	text-align: left;
-	-webkit-box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.08);
-	box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.08);
 }
 #main-nav {
 	position: fixed;
 	width: 100%;
 	z-index: 1000;
 	min-height: 75px;
+	overflow: hidden;
+	margin-bottom: 0;
 }
 #main-nav.fixed {
 	position: fixed !important;
@@ -2751,7 +2753,11 @@ article .posted-on a:hover{
 	clear: both;
 }
 .content-left-wrap{
-	margin-top: 50px;
+	padding-top: 30px;
+}
+.sidebar-wrap.content-left-wrap{
+	margin-top: 60px;
+	padding-top: 0;
 }
 .debar-wrap {
 	margin-top: 50px;
@@ -3996,7 +4002,6 @@ body.custom-background {
 	}
 	#main-nav {
 		overflow: hidden;
-		margin-bottom:1px;
 	}
 	.navbar-inverse .navbar-nav {
 		padding-left: 10px;
@@ -4046,7 +4051,7 @@ body.custom-background {
 		top: 0;
 	}
 	#main-nav {
-		overflow: visible;
+		overflow: hidden;
 	}
 	#main-nav,
 	#main-nav.fixed {
@@ -4215,11 +4220,6 @@ body.custom-background {
 	.client-list ul li {
 		display: block;
 	}
-}
-/* trebuie sters la un moment dat ca pentru ca
-ca nu o sa mearga chestii in header pe homepage */
-.header {
-	min-height: 56px;
 }
 
 .zerif-copyright {
