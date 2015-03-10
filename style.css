@@ -4,7 +4,7 @@ Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: https://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.5.8
+Version: 1.5.9
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -3867,9 +3867,100 @@ article .posted-on a:hover{
 	.woocommerce-page .products .product > a:first-child {
 		width: 100% !important;
 	}
+	/* cart page */
+	.woocommerce table.shop_table th {
+		padding: 5px 5px;
+		font-size: 8px;
+	}
+	.woocommerce-page .woocommerce .product-name a {
+		font-size: 12px;
+		line-height: 16px;
+		float: left;
+	}
+	.woocommerce table.shop_table td {
+		padding: 6px 4px;
+	}
+	.woocommerce table.shop_table td,
+	.woocommerce table.shop_table td span,
+	.woocommerce table.shop_table td a,
+	.woocommerce table.shop_table td strong {
+		font-size: 12px;
+	}
+	.woocommerce table.shop_table td .amount {
+		font-size: 12px;
+	}
+	.woocommerce-page .woocommerce .product-quantity input.qty {
+		width: 45px !important;
+	}
+	.woocommerce td.product-quantity {
+		min-width: 40px;
+	}
+	.woocommerce-page .woocommerce input[type="submit"] {
+		font-size: 10px !important;
+	}
+	.woocommerce-page .woocommerce .cart_totals tr.cart-subtotal th {
+		font-size: 12px;
+	}
+	.woocommerce-cart .cart-collaterals .cart_totals tr th {
+		font-size: 12px;
+	}
+	.woocommerce-cart .cart-collaterals .cart_totals table td,
+	.woocommerce-cart .cart-collaterals .cart_totals table td span,
+	.woocommerce-cart .cart-collaterals .cart_totals table td a {
+		font-size: 12px;
+	}
+	.woocommerce form .form-row label {
+		font-size: 12px;
+	}
+	.woocommerce-page .woocommerce .woocommerce-info,
+	.woocommerce-page .woocommerce .woocommerce-info a {
+		font-size: 12px;
+	}
+	.woocommerce-checkout-payment label {
+		font-size: 14px;
+	}
+	.woocommerce-page .woocommerce #payment div.payment_box p {
+		font-size: 12px;
+		line-height: 16px;
+		text-align: justify;
+	}
+	.woocommerce form .form-row {
+		width: 100%;
+	}
+	.woocommerce-page .woocommerce .order_details li {
+		width: 100% !important;
+		border-bottom: 1px dashed #d3ced2 !important;
+		border-right: none !important;
+		padding: 0 0 5px 0 !important;
+		margin-bottom: 5px !important;
+		margin-top: 5px !important
+	}
+	.woocommerce-page address {
+		font-size: 12px;
+	}
+	.woocommerce-page .woocommerce-error,
+	.woocommerce-page .woocommerce-message,
+	.woocommerce-page .woocommerce-error li {
+		font-size: 12px;
+	}
+	.woocommerce-page .woocommerce .cart-collaterals .cart_totals a {
+		width: 100%;
+		margin-right: 0 !important;
+	}
+	.woocommerce-page .woocommerce .checkbox {
+		font-size: 16px;
+	}
+	.woocommerce-page .myaccount_address {
+		font-size: 12px;
+	}
+	.woocommerce-page #content .quantity input.minus,
+	.woocommerce-page #content .quantity input.plus {
+		display: none;
+	}
 
 }
 /* [end] woocommerce */
+
 body.home.page {
 	background-image:none !important;
 }
