@@ -334,3 +334,28 @@ jQuery(window).load(function() {
 		
 	}
 });	
+
+
+jQuery(document).ready(function(){
+  setminHeightHeader();
+});
+
+jQuery(window).resize(function() {
+  setminHeightHeader();
+  cloneMenu();
+});
+
+function setminHeightHeader() 
+{
+  jQuery('#main-nav').css('min-height','75px');
+  jQuery('.header').css('min-height','75px');
+  var minHeight = parseInt( jQuery('#main-nav').height() );
+  jQuery('#main-nav').css('min-height',minHeight);
+  jQuery('.header').css('min-height',minHeight);
+}
+
+function cloneMenu()
+{
+  jQuery( '.collapse.in').removeClass('in');
+  jQuery( '.navbar-toggle.collapsed').removeClass('collapsed');
+}
