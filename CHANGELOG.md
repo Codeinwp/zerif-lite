@@ -1,5 +1,16 @@
 
 
+### 1.6.0 - 17/03/2015
+
+ Changes: 
+
+
+ * Woocommerce style issues
+ * Fixed Shop page mobile issue
+ * Fixed #79 Responsive menu issues
+ * Fixed #78, added author link for testimonial widget
+
+
 ### 1.5.4 - 05/03/2015
 
  Changes: 
