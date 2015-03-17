@@ -993,9 +993,8 @@ class zerif_testimonial_widget extends WP_Widget
 
                 <div class="client-info">
 
-					<?php if( !empty($instance['title']) ): ?>
-						<a class="client-name" href=""><?php echo apply_filters('widget_title', $instance['title']); ?></a>
-					<?php endif; ?>	
+					<a class="client-name" target="_blank" <?php if( !empty($instance['link']) ): echo 'href="'.esc_url($instance['link']).'"'; endif; ?>><?php if( !empty($instance['title']) ): echo apply_filters('widget_title', $instance['title'] ); endif; ?></a>
+					
 
 					<?php if( !empty($instance['details']) ): ?>
                     <div class="client-company">
@@ -1049,6 +1048,8 @@ class zerif_testimonial_widget extends WP_Widget
         $instance['details'] = strip_tags($new_instance['details']);
 
         $instance['image_uri'] = strip_tags($new_instance['image_uri']);
+		
+		$instance['link'] = strip_tags( $new_instance['link'] );
 
         return $instance;
 
@@ -1071,6 +1072,14 @@ class zerif_testimonial_widget extends WP_Widget
                    class="widefat"/>
 
         </p>
+		
+		<p>
+
+			<label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Author link','zerif'); ?></label><br />
+
+			<input type="text" name="<?php echo $this->get_field_name('link'); ?>" id="<?php echo $this->get_field_id('link'); ?>" value="<?php if( !empty($instance['link']) ): echo $instance['link']; endif; ?>" class="widefat" />
+
+		</p>
 
         <p>
 
