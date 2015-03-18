@@ -67,7 +67,7 @@ jQuery(document).ready(function() {
       return false;
     }
   });
-  if ( thisOpen == false && jQuery('.contact-form textarea').val().length > 0 ) {
+  if ( thisOpen == false && (typeof jQuery('.contact-form textarea').val() != 'undefined') && (jQuery('.contact-form textarea').val().length > 0) ) {
     thisOpen = true;
     jQuery('.g-recaptcha').css('display','block').delay(1000).css('opacity','1');
   }
