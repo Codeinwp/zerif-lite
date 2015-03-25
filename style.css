@@ -4,7 +4,7 @@ Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: https://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.6.3
+Version: 1.6.4s
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -3859,6 +3859,24 @@ article .posted-on a:hover{
 .woocommerce .shipping_calculator h2 a {
 	font-size: 18px;
 }
+/**/
+.woocommerce-page .upsells.products ul li.product,
+.woocommerce-page .upsells.products ul.products li.product {
+	float: left;
+	margin: 0 3.8% 2.992em 0;
+	padding: 0;
+	position: relative;
+	width: 22.05%;
+	clear: none;
+}
+.woocommerce .upsells.products ul li.product:nth-child(4), 
+.woocommerce-page ul.products li.product:nth-child(4) {
+	margin-right: 0;
+}
+.woocommerce .upsells.products ul li.product:nth-child(4+1), 
+.woocommerce-page ul.products li.product:nth-child(4+1) {
+	clear: left;
+}
 /*woocommerce pagination*/
 .woocommerce nav.woocommerce-pagination {
 	float: left;
@@ -3922,7 +3940,30 @@ article .posted-on a:hover{
 
 }
 @media (max-width: 768px) {
-
+	.woocommerce-page .upsells.products ul li.product,
+	.woocommerce-page .upsells.products ul.products li.product{
+		width: 48%;
+		float: left;
+		clear: both;
+		margin: 0 0 2.992em;
+	}
+	.woocommerce .upsells.products ul li.product:nth-child(4), 
+	.woocommerce-page ul.products li.product:nth-child(4) {
+		margin: 0 0 2.992em;
+	}
+	.woocommerce .upsells.products ul li.product:nth-child(4+1), 
+	.woocommerce-page ul.products li.product:nth-child(4+1) {
+		clear: none;
+	}
+	.woocommerce .upsells.products ul li.product:nth-child(even), 
+	.woocommerce-page ul.products li.product:nth-child(even) {
+		margin-right: 0;
+		float: right;
+	}
+	.woocommerce .upsells.products ul li.product:nth-child(odd), 
+	.woocommerce-page ul.products li.product:nth-child(odd) {
+		clear: left;
+	}
 }
 @media (max-width: 600px) {
 
@@ -4070,6 +4111,10 @@ article .posted-on a:hover{
 	.woocommerce-page #content .quantity input.minus,
 	.woocommerce-page #content .quantity input.plus {
 		display: none;
+	}
+	.woocommerce-page .upsells.products ul li.product,
+	.woocommerce-page .upsells.products ul.products li.product{
+		width: 100%;
 	}
 
 }
