@@ -4,7 +4,7 @@ Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: https://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.6.2
+Version: 1.6.3
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -3858,6 +3858,53 @@ article .posted-on a:hover{
 }
 .woocommerce .shipping_calculator h2 a {
 	font-size: 18px;
+}
+/*woocommerce pagination*/
+.woocommerce nav.woocommerce-pagination {
+	float: left;
+	width: 100%;
+	padding-bottom: 30px;
+}
+.woocommerce .woocommerce-pagination ul.page-numbers .current:before, 
+.woocommerce-page .woocommerce-pagination ul.page-numbers .current:before {
+	content: "";
+	display: none;
+}
+.woocommerce #content nav.woocommerce-pagination ul, 
+.woocommerce nav.woocommerce-pagination ul, 
+.woocommerce-page #content nav.woocommerce-pagination ul, 
+.woocommerce-page nav.woocommerce-pagination ul,
+.woocommerce nav.woocommerce-pagination ul {
+	border: none;
+}
+.woocommerce #content nav.woocommerce-pagination ul li, 
+.woocommerce-page #content nav.woocommerce-pagination ul li, 
+.woocommerce-page nav.woocommerce-pagination ul li
+.woocommerce nav.woocommerce-pagination ul li {
+	border: none;
+	margin: 0 3px;
+}
+.woocommerce nav.woocommerce-pagination ul li a,
+.woocommerce nav.woocommerce-pagination ul li span {
+	width: 32px;
+	min-width: 32px;
+	border: none;
+	border-radius: 4px;
+	background: rgb(236, 236, 236);
+	color: #000;
+}
+.woocommerce #content nav.woocommerce-pagination ul li span.current,
+.woocommerce nav.woocommerce-pagination ul li span.current,
+.woocommerce-page #content nav.woocommerce-pagination ul li span.current,
+.woocommerce-page nav.woocommerce-pagination ul li span.current,
+.woocommerce nav.woocommerce-pagination ul li span.current,
+.woocommerce nav.woocommerce-pagination ul li a:hover,
+.woocommerce-page nav.woocommerce-pagination ul li a:hover,
+.woocommerce-page #content nav.woocommerce-pagination ul li a:hover,
+.woocommerce nav.woocommerce-pagination ul li a:hover,
+.woocommerce #content nav.woocommerce-pagination ul li a:hover {
+	background: rgb(233, 102, 86);
+	color: #FFF;
 }
 
 @media (max-width: 1200px) {
