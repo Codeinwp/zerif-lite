@@ -36,7 +36,7 @@ get_header(); ?>
 
 
 
-<div class="content-left-wrap col-md-9">
+<div class="content-left-wrap col-md-12">
 
 	<div id="primary" class="content-area">
 
@@ -53,16 +53,6 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 </div><!-- .content-left-wrap -->
-
-
-
-<div class="sidebar-wrap col-md-3 content-left-wrap">
-
-	<?php get_sidebar(); ?>
-
-</div><!-- .sidebar-wrap -->
-
-
 
 </div><!-- .container -->
 
