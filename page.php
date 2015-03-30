@@ -36,7 +36,7 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-<?php 	if( function_exists('is_cart') && is_cart()) {		echo '</div>';	}	else {		echo '</div>';		echo '<div class="sidebar-wrap col-md-3 content-left-wrap">';			get_sidebar();		echo '</div>';	}	?>	
+<?php 	if( (function_exists('is_cart') && is_cart()) || (function_exists('is_account_page') && is_account_page()) || (function_exists('is_checkout') && is_checkout() ) ) {		echo '</div>';	}	else {		echo '</div>';		echo '<div class="sidebar-wrap col-md-3 content-left-wrap">';			get_sidebar();		echo '</div>';	}	?>	
 
 </div><!-- .container -->
 <?php get_footer(); ?>
