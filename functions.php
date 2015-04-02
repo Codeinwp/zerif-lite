@@ -355,14 +355,7 @@ function zerif_scripts()
 	/* scrollReveal script */
 	if ( !wp_is_mobile() ){
 		wp_enqueue_script( 'zerif_scrollReveal_script', get_template_directory_uri() . '/js/scrollReveal.js', array("jquery"), '20120206', true  );
-		add_filter( 'script_loader_tag', function( $tag, $handle ) {
-			if ( $handle === 'zerif_scrollReveal_script' ) {
-				$tag = "<!--[if gt IE 8]>$tag<![endif]-->";
-			}
-			return $tag;
-		}, 10, 2 );
 	}
-
 
     /* zerif script */
 
