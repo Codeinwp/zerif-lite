@@ -4,7 +4,7 @@ Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: https://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.6.7
+Version: 1.6.8
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -2676,11 +2676,10 @@ width: -webkit-calc(100% / 4);
 .post-img-wrap{
 	float: left;
 	margin-right: 20px;
+	display: inline-block;
+	overflow: hidden;
 }
 .post-img-wrap a{
-	display: block;
-	float: left;
-	overflow: hidden;
 }
 .post-img-wrap a img{
 	width: 200px;
@@ -2751,7 +2750,7 @@ article .posted-on a:hover{
 	clear: both;
 }
 .content-left-wrap{
-	padding-top: 30px;
+	padding-top: 60px;
 }
 .sidebar-wrap.content-left-wrap{
 	margin-top: 60px;
@@ -2761,9 +2760,31 @@ article .posted-on a:hover{
 	margin-top: 50px;
 }
 .listpost-content-wrap{
-	width: 63%;
-	float: left;
-	margin-top: -29px;
+}
+.listpost-content-wrap h1.entry-title {
+	float: none;
+	clear: none;
+	margin-top: 0;
+}
+.listpost-content-wrap .entry-title:before {
+	display: none;
+	content: "";
+}
+.listpost-content-wrap .entry-title a:after {
+  position: absolute;
+  margin: auto;
+  z-index: 1;
+  content: "";
+  width: 35%;
+  height: 2px;
+  background: #e96656;
+  bottom: -9px;
+  left: 0;
+  width: 50px;
+}
+.listpost-content-wrap h1.entry-title a {
+	float: none;
+	position: relative;
 }
 .listpost-content-wrap-full{
 	width: 100%;
@@ -2775,6 +2796,14 @@ article .posted-on a:hover{
 .entry-title{
 	font-size: 20px;
 }
+.listpost-content-wrap .entry-content {
+	margin-top: 0.5em;
+}
+.listpost-content-wrap .entry-footer {
+}
+.listpost-content-wrap .entry-content p {
+	padding-bottom: 20px;
+}
 .entry-content{
 	line-height: 20px;
 }
@@ -2783,7 +2812,6 @@ article .posted-on a:hover{
 }
 .search .list-post-top{
 	min-height: 1px;
-	padding: 20px 30px 15px;
 }
 .entry-footer{
 	background: transparent;
@@ -4490,11 +4518,14 @@ body.custom-background {
 	/* blog */
 	.post-img-wrap {
 		width: 100%;
-
 	}
 	.listpost-content-wrap {
 		width: 100%;
 		margin-top: 20px;
+		float: left;
+	}
+	.entry-content p {
+  		margin: 4px 0px 0px 0px;
 	}
 	.post-img-wrap a {
 		float: none;
@@ -4502,8 +4533,11 @@ body.custom-background {
 		width: 250px;
 		height: 250px;
 	}
+	.post-img-wrap {
+		text-align: center;
+		margin-right: 0;
+	}
 	.post-img-wrap a img{
-
 		width: auto;
 	}
 	/* comments */
