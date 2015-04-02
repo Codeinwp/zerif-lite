@@ -67,6 +67,7 @@ function zerif_setup()
     /* Set the image size by cropping the image */
 
     add_image_size('post-thumbnail', 250, 250, true);
+    add_image_size( 'post-thumbnail-large', 750, 550, true );
 
 
     // This theme uses wp_nav_menu() in one location.
