@@ -4,7 +4,7 @@ Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: https://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.6.8
+Version: 1.6.9
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -2805,8 +2805,8 @@ article .posted-on a:hover{
 .listpost-content-wrap .entry-footer {
 	padding-top: 10px;
 }
-.listpost-content-wrap-full .entry-footer span,
-.listpost-content-wrap .entry-footer span {
+.listpost-content-wrap-full .entry-footer > span,
+.listpost-content-wrap .entry-footer > span {
 	padding-right: 15px;
 }
 .listpost-content-wrap .entry-content p {
@@ -2833,7 +2833,13 @@ article .posted-on a:hover{
 }
 .entry-footer-large{
 	background: transparent;
-	padding: 0px 30px 20px 10px;
+	padding: 10px 30px 20px 0px;
+}
+.entry-footer-large > span {
+	padding-right: 15px;
+}
+.large-container .entry-content p {
+	margin: 10px 20px 0px 0px;
 }
 .entry-content{
 	margin: 1em 0 0;
@@ -2887,16 +2893,16 @@ article .posted-on a:hover{
 
 /* ====================== Large TEMPLATE ============================== */
 .entry-meta-large{
-	float: right;
+	float: left;
+	width: 100%;
 }
 .entry-content p {
 	text-align:justify;
 	margin: 4px 20px 0px 0px;
 }
 .post-img-wrap-large a img{
-	
 	max-width: 100%;
-	width: 95%;
+	width: 100%;
 	height: auto;
 	-webkit-transform: scale(1);
 	-moz-transform: scale(1);
@@ -2915,14 +2921,18 @@ article .posted-on a:hover{
 	background: rgba(255, 255, 255, 0.9) none repeat scroll 0% 0%;
 	min-height: 50px;
 	width: 100%;
-	padding: 0px 30px 0px 20px;
+	padding: 20px 20px 0px 20px;
+	border-top: 2px solid #FFF;
 }
-.large-container{
+.large-container {
 	background-color: #fff;
 	border-radius:4px;
 	margin: 35px 0;
 	position: relative;
-	
+	width: 97%;
+}
+.large-container .list-post-top {
+	min-height: 1px;
 }
 
 /* woocommerce v2.3.5 */
@@ -4026,6 +4036,9 @@ article .posted-on a:hover{
 	.woocommerce-page .products .product > a:first-child {
 /*		min-height: 325px; */
 	}
+	.large-container {
+		width: 100%;
+	}
 
 }
 @media (max-width: 768px) {
@@ -4053,6 +4066,9 @@ article .posted-on a:hover{
 	.woocommerce-page ul.products li.product:nth-child(odd) {
 		clear: left;
 	}
+	.listpost-content-wrap-large {
+		position: relative;
+	}
 }
 @media (max-width: 600px) {
 
@@ -4070,7 +4086,12 @@ article .posted-on a:hover{
 	.woocommerce-page .woocommerce-tabs .tabs li {
 		padding: 10px 10px;
 	}
-
+	.listpost-content-wrap-large {
+		position: relative;
+	}
+	.listpost-content-wrap-large {
+		padding: 20px 0px 0px 0px;
+	}
 }
 @media (max-width: 480px) {
 

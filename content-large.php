@@ -20,7 +20,18 @@
 
 			 	<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
 
-				<?php the_post_thumbnail("post-thumbnail-large"); ?>
+					<?php 
+						$image_id = get_post_thumbnail_id();
+						$image_url_big = wp_get_attachment_image_src($image_id,'post-thumbnail-large', true);
+						$image_url_tablet = wp_get_attachment_image_src($image_id,'post-thumbnail-large-table', true);
+						$image_url_mobile = wp_get_attachment_image_src($image_id,'post-thumbnail-large-mobile', true);
+					?>
+
+			 		<picture>
+						<source media="(max-width: 600px)" srcset="<?php echo $image_url_mobile[0]; ?>">
+						<source media="(max-width: 768px)" srcset="<?php echo $image_url_tablet[0]; ?>">
+						<img src="<?php echo $image_url_big[0]; ?>" alt="The Breakfast Combo">
+					</picture>
 
 				</a>
 
@@ -47,7 +58,15 @@
 		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
 
+		<?php if ( 'post' == get_post_type() ) : ?>
 
+		<div class="entry-meta-large">
+
+			<?php zerif_posted_on(); ?>
+
+		</div><!-- .entry-meta -->
+
+		<?php endif; ?>
 		
 
 	</header><!-- .entry-header -->
@@ -130,19 +149,6 @@
 
 		<?php endif; /* End if 'post' == get_post_type() */ ?>
 		
-		
-		<?php if ( 'post' == get_post_type() ) : ?>
-
-		<div class="entry-meta-large">
-
-			<?php zerif_posted_on(); ?>
-
-		</div><!-- .entry-meta -->
-
-		<?php endif; ?>
-		
-		
-
 
 		<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
 

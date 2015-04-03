@@ -334,4 +334,6 @@ body {
 	.woocommerce-page #content .quantity input.qty {
 		line-height: 30px;
 	}
-
+	.listpost-content-wrap-large {
+		background: #FFF;
+	}
