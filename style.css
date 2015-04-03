@@ -2761,7 +2761,8 @@ article .posted-on a:hover{
 }
 .listpost-content-wrap{
 }
-.listpost-content-wrap h1.entry-title {
+.listpost-content-wrap h1.entry-title,
+.list-post-top h1.entry-title {
 	float: none;
 	clear: none;
 	margin-top: 0;
@@ -2771,16 +2772,19 @@ article .posted-on a:hover{
 	content: "";
 }
 .listpost-content-wrap .entry-title a:after {
-  position: absolute;
-  margin: auto;
-  z-index: 1;
-  content: "";
-  width: 35%;
-  height: 2px;
-  background: #e96656;
-  bottom: -9px;
-  left: 0;
-  width: 50px;
+	position: absolute;
+	margin: auto;
+	z-index: 1;
+	content: "";
+	width: 35%;
+	height: 2px;
+	background: #e96656;
+	bottom: -9px;
+	left: 0;
+	width: 50px;
+}
+.post .entry-footer {
+	padding-top: 15px;
 }
 .listpost-content-wrap h1.entry-title a {
 	float: none;
@@ -2791,7 +2795,6 @@ article .posted-on a:hover{
 }
 .listpost-content-wrap-full .list-post-top{
 	min-height: 1px;
-	margin-bottom: 20px;
 }
 .entry-title{
 	font-size: 20px;
@@ -2800,6 +2803,11 @@ article .posted-on a:hover{
 	margin-top: 0.5em;
 }
 .listpost-content-wrap .entry-footer {
+	padding-top: 10px;
+}
+.listpost-content-wrap-full .entry-footer span,
+.listpost-content-wrap .entry-footer span {
+	padding-right: 15px;
 }
 .listpost-content-wrap .entry-content p {
 	padding-bottom: 20px;
@@ -4544,6 +4552,32 @@ body.custom-background {
 	.comment-reply-link{
 		position: relative;
 		margin-top: 10px;
+	}
+	.post-img-wrap a img{
+		width: 200px;
+		height: auto;
+		-webkit-transform: scale(1);
+		-moz-transform: scale(1);
+		-o-transform: scale(1);
+		-ms-transform: scale(1);
+		transform: scale(1);
+		-webkit-transition: all 0.3s ease-out;
+		-moz-transition: all 0.3s ease-out;
+		-ms-transition: all 0.3s ease-out;
+		-o-transition: all 0.3s ease-out;
+		transition: all 0.3 ease-out;
+	}
+	.post-img-wrap a:hover img{
+		-webkit-transform: scale(1);
+		-moz-transform: scale(1);
+		-o-transform: scale(1);
+		-ms-transform: scale(1);
+		transform: scale(1);
+		-webkit-transition: all 0.3s ease-out;
+		-moz-transition: all 0.3s ease-out;
+		-ms-transition: all 0.3s ease-out;
+		-o-transition: all 0.3s ease-out;
+		transition: all 0.3 ease-out;
 	}
 }
 @media (max-width: 320px) {
