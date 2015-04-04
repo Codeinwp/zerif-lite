@@ -17,7 +17,7 @@ get_header(); ?>
 	<div id="content" class="site-content">
 <div class="container">
 
-<?php 	if( function_exists('is_cart') && is_cart()) {				echo '<div class="content-left-wrap col-md-12">';			}	else {			echo '<div class="content-left-wrap col-md-9">';			}	?>
+<?php 	if( (function_exists('is_cart') && is_cart()) || (function_exists('is_account_page') && is_account_page()) || (function_exists('is_checkout') && is_checkout() ) ) {				echo '<div class="content-left-wrap col-md-12">';			}	else {			echo '<div class="content-left-wrap col-md-9">';			}	?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
@@ -36,7 +36,7 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
-<?php 	if( function_exists('is_cart') && is_cart()) {		echo '</div>';	}	else {		echo '</div>';		echo '<div class="sidebar-wrap col-md-3 content-left-wrap">';			get_sidebar();		echo '</div>';	}	?>	
+<?php 	if( (function_exists('is_cart') && is_cart()) || (function_exists('is_account_page') && is_account_page()) || (function_exists('is_checkout') && is_checkout() ) ) {		echo '</div>';	}	else {		echo '</div>';		echo '<div class="sidebar-wrap col-md-3 content-left-wrap">';			get_sidebar();		echo '</div>';	}	?>	
 
 </div><!-- .container -->
 <?php get_footer(); ?>

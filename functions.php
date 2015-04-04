@@ -67,6 +67,9 @@ function zerif_setup()
     /* Set the image size by cropping the image */
 
     add_image_size('post-thumbnail', 250, 250, true);
+    add_image_size( 'post-thumbnail-large', 750, 500, true ); /* blog thumbnail */
+    add_image_size( 'post-thumbnail-large-table', 600, 300, true ); /* blog thumbnail for table */
+    add_image_size( 'post-thumbnail-large-mobile', 400, 200, true ); /* blog thumbnail for mobile */
 
 
     // This theme uses wp_nav_menu() in one location.
@@ -350,13 +353,11 @@ function zerif_scripts()
     /* Vegas script */
 
     wp_enqueue_script('zerif_vegas_script', get_template_directory_uri() . '/js/jquery.vegas.min.js', array("jquery"), '20120206', true);
-
-
-    /* scrollReveal script */
-    if ( !wp_is_mobile() ){
-        wp_enqueue_script( 'zerif_scrollReveal_script', get_template_directory_uri() . '/js/scrollReveal.js', array("jquery"), '20120206', true  );
-    }
-
+	
+	/* scrollReveal script */
+	if ( !wp_is_mobile() ){
+		wp_enqueue_script( 'zerif_scrollReveal_script', get_template_directory_uri() . '/js/scrollReveal.js', array("jquery"), '20120206', true  );
+	}
 
     /* zerif script */
 
