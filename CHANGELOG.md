@@ -1,5 +1,38 @@
 
 
+### 1.6.9 - 04/04/2015
+
+ Changes: 
+
+
+ * Fixed #85, error in js, when contact form is not displayed, which caused about us circles to stop working
+ * Fixed #82, problem with Our Focus widget colors
+ * Replaced screenshot with the new format
+
+1200x900
+.jpg -> .png
+ * Merge pull request #87 from DragosBubu/development
+
+Replaced screenshot with the new format
+ * Fixed #80 No Compatible with IE9
+ * Fixed #94 WooCommerce Pagination Issue
+ * Fixed #95 Featured products issue
+ * This fixes #88
+
+New screenshot
+ * Merge pull request #96 from DragosBubu/development
+
+This fixes #88
+ * Fixed #99, removed sidebar from woocommerce templates
+ * Fixed #100, removed sidebar from checkout page
+ * Fixed #101, theme not loading on IE8, included scrollReveal.js for versions greater then IE8
+ * H tags incompatible with plugins
+ * Fixed large bottom padding on frontpage sections
+ * Introduced new (large) template for Blog
+ * Fixed #103 Blog alignment problem
+ * Fixed #105 New blog template looks very bad on IE8
+
+
 ### 1.6.0 - 17/03/2015
 
  Changes: 
