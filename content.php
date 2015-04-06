@@ -68,7 +68,7 @@
 
 		<?php the_excerpt(); ?>
 
-	</div><!-- .entry-summary -->
+
 
 	<?php else : ?>
 
@@ -94,11 +94,10 @@
 
 		?>
 
-	</div><!-- .entry-content -->
 
 	<?php endif; ?>
 
-	</div><!-- .list-post-top -->
+
 
 	<footer class="entry-footer">
 
@@ -157,6 +156,12 @@
 		<?php edit_post_link( __( 'Edit', 'zerif-lite' ), '<span class="edit-link">', '</span>' ); ?>
 
 	</footer><!-- .entry-footer -->
+
+
+	</div><!-- .entry-content --><!-- .entry-summary -->
+
+	</div><!-- .list-post-top -->
+
 
 </div><!-- .listpost-content-wrap -->
 

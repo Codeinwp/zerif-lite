@@ -4,7 +4,7 @@ Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: https://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.6.9
+Version: 1.7.0
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -246,7 +246,7 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	margin-top: 15px;
+	padding-top: 15px;
 	margin-bottom: 10px;
 	display: block;
 	clear: both;
@@ -771,6 +771,10 @@ a:active {
 .nav-links a {
 	color:#e96656;
 }
+.site-main .post-navigation {
+	float: left;
+	width: 100%;
+}
  /*---------------------------------------
  **   6.0 Accessibility                   -----
 -----------------------------------------*/
@@ -1017,7 +1021,6 @@ a:active {
 	margin-top:  15px;
 }
 .entry-title{
-
 	position: relative;
 }
 .entry-title:before {
@@ -1125,6 +1128,7 @@ a:active {
 	color: #bdbdbd;
 	font-style: italic;
 	font-size: 12px;
+	padding: 3px 0px;
 }
 .comment-reply-link:hover{
 	background: #cb4332;
@@ -2784,7 +2788,6 @@ article .posted-on a:hover{
 	width: 50px;
 }
 .post .entry-footer {
-	padding-top: 15px;
 }
 .listpost-content-wrap h1.entry-title a {
 	float: none;
@@ -2798,9 +2801,11 @@ article .posted-on a:hover{
 }
 .entry-title{
 	font-size: 20px;
+	margin-top: 0;
+	padding-top: 0;
 }
 .listpost-content-wrap .entry-content {
-	margin-top: 0.5em;
+	margin-top: 1em;
 }
 .listpost-content-wrap .entry-footer {
 	padding-top: 10px;
@@ -2810,7 +2815,8 @@ article .posted-on a:hover{
 	padding-right: 15px;
 }
 .listpost-content-wrap .entry-content p {
-	padding-bottom: 20px;
+	min-height: 90px;
+	margin-bottom: 0
 }
 .entry-content{
 	line-height: 20px;
@@ -2898,7 +2904,6 @@ article .posted-on a:hover{
 }
 .entry-content p {
 	text-align:justify;
-	margin: 4px 20px 0px 0px;
 }
 .post-img-wrap-large a img{
 	max-width: 100%;
@@ -4575,7 +4580,7 @@ body.custom-background {
 		margin-top: 10px;
 	}
 	.post-img-wrap a img{
-		width: 200px;
+		width: 250px;
 		height: auto;
 		-webkit-transform: scale(1);
 		-moz-transform: scale(1);
