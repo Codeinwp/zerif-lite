@@ -1,5 +1,14 @@
 
 
+### 1.7.1 - 07/04/2015
+
+ Changes: 
+
+
+ * Padding issue
+ * Fixed #104 No image appears on the blog page on IE8
+
+
 ### 1.6.9 - 04/04/2015
 
  Changes: 
