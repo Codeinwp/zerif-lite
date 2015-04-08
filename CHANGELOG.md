@@ -1,5 +1,13 @@
 
 
+### 1.7.1 - 08/04/2015
+
+ Changes: 
+
+
+ * Fixed XSS vulnerability with contact form
+
+
 ### 1.7.1 - 07/04/2015
 
  Changes: 
