@@ -4,7 +4,7 @@ Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: https://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.7.2
+Version: 1.7.3
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -279,7 +279,6 @@ h6 {
 --------------------------------------------------------------*/
 .buttons {
 	text-align: center;
-	margin-bottom: 150px;
 	margin-top: 45px;
 }
 .button {
@@ -1365,11 +1364,14 @@ object {
  **   Section: Home                  -----
 -----------------------------------------*/
 .header {
+
+}
+.header-content-wrap {
 	background: rgba(0, 0, 0, 0.5);
-	min-height: 775px;
 	position: relative;
 	-webkit-box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.08);
 	box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.08);
+	padding: 21% 0 150px;
 }
 .header_title {
     float: left;
@@ -1522,13 +1524,11 @@ object {
 .intro-text{
 	text-align: center;
 	color: #FFF;
-	margin-top: 25%;
 	line-height: 65px;
 	z-index: 0;
 	text-transform: uppercase;
 	font-size: 55px;
 	float:none;
-
 }
 /* Short Messages */
 .bottom-message-section {
@@ -4340,8 +4340,10 @@ body.custom-background {
 	    margin-left: 0;
         margin-right: 0;
 	}
+	.header-content-wrap {
+		padding-top: 26%;
+	}
 	.intro-text{
-    	margin-top: 31%;
         font-size: 45px;
         line-height: 55px;
     }
@@ -4466,8 +4468,10 @@ body.custom-background {
 		line-height: 8vh;
 		font-size: 6.5vw;
 	}
+    .header-content-wrap {
+    	padding-top: 30%;
+    }
 	.intro-text{
-    	margin-top: 30%;
         font-size: 41px;
         line-height: 49px;
     }
@@ -4536,8 +4540,11 @@ body.custom-background {
 		line-height: 6vh;
 		font-size: 6.5vw;
 	}
+	
+	.header-content-wrap {
+	    padding-top: 40%;
+	}
 	.intro-text{
-	    margin-top: 40%;
         font-size: 32px;
         line-height: 37px;
     }
@@ -4611,8 +4618,10 @@ body.custom-background {
 		line-height: 25px;
 		font-size: 7vw;
 	}
-	.intro-text {
-        margin-top: 50%;
+	.header-content-wrap {
+        padding-top: 50%;
+    }
+    .intro-text {
         font-size: 22px;
         line-height: 30px;
     }
