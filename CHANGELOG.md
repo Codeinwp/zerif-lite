@@ -1,5 +1,13 @@
 
 
+### 1.7.3 - 15/04/2015
+
+ Changes: 
+
+
+ * Fixed #114 Background image appears when page is loading
+
+
 ### 1.7.1 - 08/04/2015
 
  Changes: 
