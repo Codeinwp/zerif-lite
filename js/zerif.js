@@ -336,15 +336,14 @@ jQuery(window).load(function() {
 });	
 
 
-jQuery(document).ready(function(){
+/* SETS THE HEADER HEIGHT */
+jQuery(window).load(function(){
   setminHeightHeader();
 });
-
 jQuery(window).resize(function() {
   setminHeightHeader();
-  cloneMenu();
+  closeMenu();
 });
-
 function setminHeightHeader() 
 {
   jQuery('#main-nav').css('min-height','75px');
@@ -353,9 +352,9 @@ function setminHeightHeader()
   jQuery('#main-nav').css('min-height',minHeight);
   jQuery('.header').css('min-height',minHeight);
 }
-
-function cloneMenu()
+function closeMenu()
 {
   jQuery( '.collapse.in').removeClass('in');
   jQuery( '.navbar-toggle.collapsed').removeClass('collapsed');
 }
+/* - */
