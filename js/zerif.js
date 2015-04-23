@@ -22,31 +22,26 @@ jQuery(window).load(function() {
 })
 
 
-/*** mobile menu */
-jQuery(document).ready(function() {
+/*** DROPDOWN FOR MOBILE MENU */
+var callback_mobile_dropdown = function () {
 
-	if ( jQuery(window).width() < 767 ){
+  var navLi = jQuery('#site-navigation li');
 
-		jQuery('#site-navigation li').each(function(){
-
-			if ( jQuery(this).find('ul').length > 0 ){
-				jQuery(this).addClass('has_children');
-				jQuery(this).find('a').first().after('<p class="dropdownmenu"></p>');
-			}
-			
-		});
-
-	}
-
-	jQuery('.dropdownmenu').click(function(){
-		if( jQuery(this).parent('li').hasClass('this-open') ){
-			jQuery(this).parent('li').removeClass('this-open');
-		}else{
-			jQuery(this).parent('li').addClass('this-open');
-		}
-	});
-
-});
+    navLi.each(function(){
+        if ( jQuery(this).find('ul').length > 0 && !jQuery(this).hasClass('has_children') ){
+            jQuery(this).addClass('has_children');
+            jQuery(this).find('a').first().after('<p class="dropdownmenu"></p>');
+        }
+    });
+    jQuery('.dropdownmenu').click(function(){
+        if( jQuery(this).parent('li').hasClass('this-open') ){
+            jQuery(this).parent('li').removeClass('this-open');
+        }else{
+            jQuery(this).parent('li').addClass('this-open');
+        }
+    });
+};
+jQuery(document).ready(callback_mobile_dropdown);
 
 
 jQuery(document).ready(function() {
@@ -341,7 +336,7 @@ function closeMenu()
 /* - */
 
 
-/* STIKY FOOTER */
+/* STICKY FOOTER */
 jQuery(window).load(function(){
   fixFooterBottom();
 });
@@ -355,21 +350,50 @@ function fixFooterBottom(){
   var footer      = jQuery('footer#footer');
   var content     = jQuery('.site-content > .container');
 
-  var pageWidth   = jQuery(window).width();
-  var pageMinWidth  = 768;
-  if (pageWidth > pageMinWidth){
-    var headerHeight  = header.height() + parseInt(header.css('margin-top')) + parseInt(header.css('margin-bottom')) + parseInt(header.css('padding-top')) + parseInt(header.css('padding-bottom'));
-    var footerHeight  = footer.height() + parseInt(footer.css('margin-top')) + parseInt(footer.css('margin-bottom')) + parseInt(footer.css('padding-top')) + parseInt(footer.css('padding-bottom'));
-    var contentHeight = content.height() + parseInt(content.css('margin-top')) + parseInt(content.css('margin-bottom')) + parseInt(content.css('padding-top')) + parseInt(content.css('padding-bottom'));
-    var windowHeight  = jQuery(window).height();
-    var totalHeight = headerHeight + footerHeight + contentHeight;
-    if (totalHeight<windowHeight){
-      footer.css({'position':'absolute','width':'100%','bottom':'0'});
-    }else{
-      footer.css({'position':'relative','width':'100%','bottom':'initial'});
-    }
-  }
-  else{
-      footer.css({'position':'relative','width':'100%','bottom':'initial'});
+  content.css('min-height', '1px');
+
+  var headerHeight  = header.outerHeight();
+  var footerHeight  = footer.outerHeight();
+  var contentHeight = content.outerHeight();
+  var windowHeight  = jQuery(window).height();
+
+  var totalHeight = headerHeight + footerHeight + contentHeight;
+
+  if (totalHeight<windowHeight){
+    content.css('min-height', windowHeight - headerHeight - footerHeight );
+  }else{
+    content.css('min-height','1px');
   }
 }
+
+
+/*** CENTERED MENU */
+var callback_menu_align = function () {
+
+  var headerWrap    = jQuery('.header');
+  var navWrap     = jQuery('#site-navigation');
+  var logoWrap    = jQuery('.responsive-logo');
+  var containerWrap   = jQuery('.container');
+  var classToAdd    = 'menu-align-center';
+
+  if ( headerWrap.hasClass(classToAdd) ) 
+  {
+        headerWrap.removeClass(classToAdd);
+  }
+    var logoWidth     = logoWrap.outerWidth();
+    var menuWidth     = navWrap.outerWidth();
+    var containerWidth  = containerWrap.width();
+
+    if ( menuWidth + logoWidth > containerWidth ) {
+        headerWrap.addClass(classToAdd);
+    }
+    else
+    {
+        if ( headerWrap.hasClass(classToAdd) )
+        {
+            headerWrap.removeClass(classToAdd);
+        }
+    }
+}
+jQuery(window).load(callback_menu_align);
+jQuery(window).resize(callback_menu_align);
