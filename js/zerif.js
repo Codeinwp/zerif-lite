@@ -316,25 +316,6 @@ jQuery('.navbar-toggle').on('click', function () {
 
 });
 
-/* FOOTER */
-jQuery(window).load(function() {
-	
-	/* vp_h will hold the height of the browser window */
-	var vp_h = jQuery(window).height();
-	
-	/* b_g will hold the height of the html body */
-	var b_g = jQuery('body').height();
-	
-	/* If the body height is lower than window */
-	if(b_g < vp_h) {
-		
-		jQuery('footer').css("position","absolute");
-		jQuery('footer').css("bottom","0px");
-		jQuery('footer').css("width","100%");
-		
-	}
-});	
-
 
 /* SETS THE HEADER HEIGHT */
 jQuery(window).load(function(){
@@ -358,3 +339,37 @@ function closeMenu()
   jQuery( '.navbar-toggle.collapsed').removeClass('collapsed');
 }
 /* - */
+
+
+/* STIKY FOOTER */
+jQuery(window).load(function(){
+  fixFooterBottom();
+});
+jQuery(window).resize(function() {
+  fixFooterBottom();
+});
+
+function fixFooterBottom(){
+
+  var header      = jQuery('header.header');
+  var footer      = jQuery('footer#footer');
+  var content     = jQuery('.site-content > .container');
+
+  var pageWidth   = jQuery(window).width();
+  var pageMinWidth  = 768;
+  if (pageWidth > pageMinWidth){
+    var headerHeight  = header.height() + parseInt(header.css('margin-top')) + parseInt(header.css('margin-bottom')) + parseInt(header.css('padding-top')) + parseInt(header.css('padding-bottom'));
+    var footerHeight  = footer.height() + parseInt(footer.css('margin-top')) + parseInt(footer.css('margin-bottom')) + parseInt(footer.css('padding-top')) + parseInt(footer.css('padding-bottom'));
+    var contentHeight = content.height() + parseInt(content.css('margin-top')) + parseInt(content.css('margin-bottom')) + parseInt(content.css('padding-top')) + parseInt(content.css('padding-bottom'));
+    var windowHeight  = jQuery(window).height();
+    var totalHeight = headerHeight + footerHeight + contentHeight;
+    if (totalHeight<windowHeight){
+      footer.css({'position':'absolute','width':'100%','bottom':'0'});
+    }else{
+      footer.css({'position':'relative','width':'100%','bottom':'initial'});
+    }
+  }
+  else{
+      footer.css({'position':'relative','width':'100%','bottom':'initial'});
+  }
+}
