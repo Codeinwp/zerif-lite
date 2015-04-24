@@ -40,6 +40,12 @@ var callback_mobile_dropdown = function () {
             jQuery(this).parent('li').addClass('this-open');
         }
     });
+    
+    navLi.find('a').click(function(){
+      jQuery('.navbar-toggle').addClass('collapsed');
+        jQuery('.collapse').removeClass('in'); 
+    });
+
 };
 jQuery(document).ready(callback_mobile_dropdown);
 
