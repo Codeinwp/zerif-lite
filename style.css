@@ -33,7 +33,7 @@ fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
 	border: 0;
 	font-family: inherit;
-	font-size: 100%;
+	font-size: 16px;
 	font-style: inherit;
 	font-weight: inherit;
 	margin: 0;
