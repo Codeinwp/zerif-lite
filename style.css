@@ -4,7 +4,7 @@ Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: https://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.7.3
+Version: 1.7.6
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -17,6 +17,12 @@ Tags: black, gray, red, white, one-column, two-columns, right-sidebar,fixed-layo
 /*--------------------------------------------------------------
 1.0 - Reset
 --------------------------------------------------------------*/
+html {
+	font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
+	overflow-y: scroll; /* Keeps page centered in all browsers regardless of content height */
+	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
+	-ms-text-size-adjust:     100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
+}
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -27,19 +33,13 @@ fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
 	border: 0;
 	font-family: inherit;
-	font-size: 100%;
+	font-size: 16px;
 	font-style: inherit;
 	font-weight: inherit;
 	margin: 0;
 	outline: 0;
 	padding: 0;
 	vertical-align: baseline;
-}
-html {
-	font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
-	overflow-y: scroll; /* Keeps page centered in all browsers regardless of content height */
-	-webkit-text-size-adjust: 100%; /* Prevents iOS text size adjust after orientation change, without disabling user zoom */
-	-ms-text-size-adjust:     100%; /* www.456bereastreet.com/archive/201012/controlling_text_size_in_safari_for_ios_without_disabling_user_zoom/ */
 }
 *,
 *:before,
@@ -1000,7 +1000,10 @@ a:active {
 .page-header{
 	text-align: left;
 	border-bottom: none;
-	margin: 40px 0 40px;
+	margin: 0px 0 40px;
+}
+.search-results .page-header {
+	margin: 0px 0 40px;
 }
 .page-header .page-title{
 	position: relative;
@@ -1363,8 +1366,12 @@ object {
 /*---------------------------------------
  **   Section: Home                  -----
 -----------------------------------------*/
-.header {
-
+.header.header {
+	min-height: 76px;
+}
+.header.header > .navbar {
+	-webkit-box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.08);
+	box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.08);
 }
 .header-content-wrap {
 	background: rgba(0, 0, 0, 0.5);
@@ -1394,6 +1401,10 @@ object {
 	color:#000;
 }
 /*----  SECTION:  HOME > TOP BAR   ----*/
+ #site-navigation {
+ 	height: 1px;
+	float: right;
+ }
 .navbar {
 	background: #FFF;
 	border: 0;
@@ -1443,6 +1454,7 @@ object {
 	background:#fff;
 	width:200px;
 	box-shadow: 3px 3px 2px rgba(50, 50, 50, 0.08);
+	z-index: 9999;
 }
 .navbar-inverse .navbar-nav ul.sub-menu {
 	margin:0;
@@ -1471,8 +1483,13 @@ object {
 .navbar-brand {
 	height: 76px;
 	position: relative;
-	line-height: 45px;
+	line-height: 60px;
+	padding: 7px;
+	display: inline-block;
 }
+.navbar-brand > img {
+	max-height: 100%;
+}		 }
 .current a {
 	color: #e96656 !important;
 	position: relative;
@@ -1510,6 +1527,36 @@ object {
 .navbar-toggle.collapsed{
     background-color: #808080 !important;
 }
+.menu-align-center #site-navigation {
+	width: 100%;
+}
+.menu-align-center #site-navigation > ul {
+	width: 100%;
+	text-align: center;
+}
+.menu-align-center #site-navigation > ul ul {
+	text-align: left;
+}
+.menu-align-center #site-navigation > ul > li {
+	float: none;
+	display: inline-block;
+}
+.menu-align-center .responsive-logo {
+	width: 100%;
+	text-align: center;
+}
+.menu-align-center .zerif_header_title {
+	width: 100%;
+}
+.menu-align-center .navbar-inverse .navbar-nav > li {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+.menu-align-center .responsive-logo > a{
+	float: none;
+	display: inline-block;
+}
+
 /*----  SECTION:  HOME > INTRO AND SHORT MSGS   ----*/
 .intro {
 	text-align: center;
@@ -4074,6 +4121,9 @@ article .posted-on a:hover{
 	.listpost-content-wrap-large {
 		position: relative;
 	}
+	.menu-align-center .responsive-logo > a {
+		float: left;
+	}
 }
 @media (max-width: 600px) {
 
@@ -4247,31 +4297,17 @@ body.custom-background {
 .zerif_team:nth-child(4n+1), .our-team .col-lg-3:nth-child(4n+1) {
 	clear:both;
 }
+
+.dropdownmenu {
+	display: none;
+}
+
 /*---------------------------------------
  **   Responsive            -----
 -----------------------------------------*/
 @media (min-width: 768px) and (max-width: 1024px) {
 
     /* TOP BAR ELEMENTS */
-	.responsive-logo {
-		width: 100%;
-		position: relative;
-		text-align: center;
-		margin-top: 10px;
-		padding-top: 15px;
-	}
-	.responsive-logo a {
-		float: none !important;
-	}
-	.responsive-nav {
-		text-align: center;
-		width: 100%;
-		padding-top: 0;
-	}
-	.responsive-nav li {
-		margin-bottom: 15px;
-		margin-top: 0 !important;
-	}
 
      /* HOME */
 	.intro {
@@ -4437,6 +4473,7 @@ body.custom-background {
 		padding-top: 0;
 	}
 	.dropdownmenu {
+		display: block;
 		position: absolute;
 		z-index: 9;
 		right: 0;

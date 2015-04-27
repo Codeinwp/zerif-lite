@@ -22,31 +22,32 @@ jQuery(window).load(function() {
 })
 
 
-/*** mobile menu */
-jQuery(document).ready(function() {
+/*** DROPDOWN FOR MOBILE MENU */
+var callback_mobile_dropdown = function () {
 
-	if ( jQuery(window).width() < 767 ){
+  var navLi = jQuery('#site-navigation li');
 
-		jQuery('#site-navigation li').each(function(){
+    navLi.each(function(){
+        if ( jQuery(this).find('ul').length > 0 && !jQuery(this).hasClass('has_children') ){
+            jQuery(this).addClass('has_children');
+            jQuery(this).find('a').first().after('<p class="dropdownmenu"></p>');
+        }
+    });
+    jQuery('.dropdownmenu').click(function(){
+        if( jQuery(this).parent('li').hasClass('this-open') ){
+            jQuery(this).parent('li').removeClass('this-open');
+        }else{
+            jQuery(this).parent('li').addClass('this-open');
+        }
+    });
+    
+    navLi.find('a').click(function(){
+      jQuery('.navbar-toggle').addClass('collapsed');
+        jQuery('.collapse').removeClass('in'); 
+    });
 
-			if ( jQuery(this).find('ul').length > 0 ){
-				jQuery(this).addClass('has_children');
-				jQuery(this).find('a').first().after('<p class="dropdownmenu"></p>');
-			}
-			
-		});
-
-	}
-
-	jQuery('.dropdownmenu').click(function(){
-		if( jQuery(this).parent('li').hasClass('this-open') ){
-			jQuery(this).parent('li').removeClass('this-open');
-		}else{
-			jQuery(this).parent('li').addClass('this-open');
-		}
-	});
-
-});
+};
+jQuery(document).ready(callback_mobile_dropdown);
 
 
 jQuery(document).ready(function() {
@@ -316,35 +317,15 @@ jQuery('.navbar-toggle').on('click', function () {
 
 });
 
-/* FOOTER */
-jQuery(window).load(function() {
-	
-	/* vp_h will hold the height of the browser window */
-	var vp_h = jQuery(window).height();
-	
-	/* b_g will hold the height of the html body */
-	var b_g = jQuery('body').height();
-	
-	/* If the body height is lower than window */
-	if(b_g < vp_h) {
-		
-		jQuery('footer').css("position","absolute");
-		jQuery('footer').css("bottom","0px");
-		jQuery('footer').css("width","100%");
-		
-	}
-});	
 
-
-jQuery(document).ready(function(){
+/* SETS THE HEADER HEIGHT */
+jQuery(window).load(function(){
   setminHeightHeader();
 });
-
 jQuery(window).resize(function() {
   setminHeightHeader();
-  cloneMenu();
+  closeMenu();
 });
-
 function setminHeightHeader() 
 {
   jQuery('#main-nav').css('min-height','75px');
@@ -353,9 +334,72 @@ function setminHeightHeader()
   jQuery('#main-nav').css('min-height',minHeight);
   jQuery('.header').css('min-height',minHeight);
 }
-
-function cloneMenu()
+function closeMenu()
 {
   jQuery( '.collapse.in').removeClass('in');
   jQuery( '.navbar-toggle.collapsed').removeClass('collapsed');
 }
+/* - */
+
+
+/* STICKY FOOTER */
+jQuery(window).load(function(){
+  fixFooterBottom();
+});
+jQuery(window).resize(function() {
+  fixFooterBottom();
+});
+
+function fixFooterBottom(){
+
+  var header      = jQuery('header.header');
+  var footer      = jQuery('footer#footer');
+  var content     = jQuery('.site-content > .container');
+
+  content.css('min-height', '1px');
+
+  var headerHeight  = header.outerHeight();
+  var footerHeight  = footer.outerHeight();
+  var contentHeight = content.outerHeight();
+  var windowHeight  = jQuery(window).height();
+
+  var totalHeight = headerHeight + footerHeight + contentHeight;
+
+  if (totalHeight<windowHeight){
+    content.css('min-height', windowHeight - headerHeight - footerHeight );
+  }else{
+    content.css('min-height','1px');
+  }
+}
+
+
+/*** CENTERED MENU */
+var callback_menu_align = function () {
+
+  var headerWrap    = jQuery('.header');
+  var navWrap     = jQuery('#site-navigation');
+  var logoWrap    = jQuery('.responsive-logo');
+  var containerWrap   = jQuery('.container');
+  var classToAdd    = 'menu-align-center';
+
+  if ( headerWrap.hasClass(classToAdd) ) 
+  {
+        headerWrap.removeClass(classToAdd);
+  }
+    var logoWidth     = logoWrap.outerWidth();
+    var menuWidth     = navWrap.outerWidth();
+    var containerWidth  = containerWrap.width();
+
+    if ( menuWidth + logoWidth > containerWidth ) {
+        headerWrap.addClass(classToAdd);
+    }
+    else
+    {
+        if ( headerWrap.hasClass(classToAdd) )
+        {
+            headerWrap.removeClass(classToAdd);
+        }
+    }
+}
+jQuery(window).load(callback_menu_align);
+jQuery(window).resize(callback_menu_align);
