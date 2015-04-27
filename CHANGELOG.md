@@ -1,5 +1,17 @@
 
 
+### 1.7.6 - 27/04/2015
+
+ Changes: 
+
+
+ * Logo height issue
+ * Stiky footer
+ * Fixed Sticky footer issue and Header issue
+ * Customizer big text issue
+ * Fixes #113 The menu does not close on mobile, after item selected
+
+
 ### 1.7.3 - 15/04/2015
 
  Changes: 
