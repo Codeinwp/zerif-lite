@@ -464,7 +464,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 						</div>
 
-						<div class="col-md-12" data-scrollreveal="enter right after 0s over 1s">
+						<div class="col-lg-12 col-sm-12" data-scrollreveal="enter right after 0s over 1s">
 
 							<textarea name="mymessage" class="form-control textarea-box" placeholder="Your Message"><?php if(isset($_POST['mymessage'])) { echo stripslashes($_POST['mymessage']); } ?></textarea>
 

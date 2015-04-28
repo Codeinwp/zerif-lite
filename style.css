@@ -4093,7 +4093,7 @@ article .posted-on a:hover{
 	}
 
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 	.woocommerce-page .upsells.products ul li.product,
 	.woocommerce-page .upsells.products ul.products li.product{
 		width: 48%;
