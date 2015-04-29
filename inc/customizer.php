@@ -70,7 +70,7 @@ function zerif_customize_register( $wp_customize ) {
 	{
 		public function render_content()
 		{
-			echo __('Check out the <a href="https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/">PRO version</a> for full control over the frontpage sections order!','zerif-lite');
+			echo __('Check out the <a href="http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/">PRO version</a> for full control over the frontpage sections order!','zerif-lite');
 		}
 
 	} 
@@ -79,7 +79,7 @@ function zerif_customize_register( $wp_customize ) {
 	{
 		public function render_content()
 		{
-			echo __('Check out the <a href="https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/">PRO version</a> for full control over the color scheme !','zerif-lite');
+			echo __('Check out the <a href="http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/">PRO version</a> for full control over the color scheme !','zerif-lite');
 		}
 
 	} 
@@ -88,7 +88,7 @@ function zerif_customize_register( $wp_customize ) {
 	{
 		public function render_content()
 		{
-			echo __('Check out the <a href="https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/">PRO version</a> to add a google maps section !','zerif-lite');
+			echo __('Check out the <a href="http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/">PRO version</a> to add a google maps section !','zerif-lite');
 		}
 
 	} 
@@ -97,7 +97,7 @@ function zerif_customize_register( $wp_customize ) {
 	{
 		public function render_content()
 		{
-			echo __('Check out the <a href="https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/">PRO version</a> to add a pricing section !','zerif-lite');
+			echo __('Check out the <a href="http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/">PRO version</a> to add a pricing section !','zerif-lite');
 		}
 
 	} 
