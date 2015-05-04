@@ -299,6 +299,8 @@ function zerif_scripts()
 
     wp_enqueue_style('zerif_font', zerif_slug_fonts_url(), array(), null );
 
+    wp_enqueue_style( 'zerif_font_all', '//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600italic,600,700,700italic,800,800italic');
+    
     wp_enqueue_style('zerif_bootstrap_style', get_template_directory_uri() . '/css/bootstrap.css');
     wp_style_add_data( 'zerif_bootstrap_style', 'rtl', 'replace' );
 
