@@ -350,7 +350,10 @@ function zerif_scripts()
 
     /* Smootscroll script */
 
-    wp_enqueue_script('zerif_smoothscroll', get_template_directory_uri() . '/js/smoothscroll.js', array("jquery"), '20120206', true);
+    $zerif_disable_smooth_scroll = get_theme_mod('zerif_disable_smooth_scroll');
+    if( isset($zerif_disable_smooth_scroll) && ($zerif_disable_smooth_scroll != 1)):
+        wp_enqueue_script('zerif_smoothscroll', get_template_directory_uri() . '/js/smoothscroll.js', array("jquery"), '20120206', true);
+    endif;  
 
     /* Vegas script */
 

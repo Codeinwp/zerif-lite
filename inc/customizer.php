@@ -114,7 +114,6 @@ function zerif_customize_register( $wp_customize ) {
 		)));
 		
 		/* Disable preloader */
-		
 		$wp_customize->add_setting( 'zerif_disable_preloader', array('sanitize_callback' => 'zerif_sanitize_text'));
 		$wp_customize->add_control(
 				'zerif_disable_preloader',
@@ -125,6 +124,19 @@ function zerif_customize_register( $wp_customize ) {
 					'priority'    => 2,
 				)
 		);
+
+		/* Disable smooth scroll */
+		$wp_customize->add_setting( 'zerif_disable_smooth_scroll', array('sanitize_callback' => 'zerif_sanitize_text'));
+		$wp_customize->add_control(
+				'zerif_disable_smooth_scroll',
+				array(
+					'type' 		=> 'checkbox',
+					'label' 	=> __('Disable smooth scroll?','zerif-lite'),
+					'section' 	=> 'zerif_general_section',
+					'priority'	=> 3,
+				)
+		);
+
 		/* COPYRIGHT */
 		$wp_customize->add_setting( 'zerif_copyright', array('sanitize_callback' => 'zerif_sanitize_text'));
 		$wp_customize->add_control( 'zerif_copyright', array(
@@ -258,7 +270,6 @@ function zerif_customize_register( $wp_customize ) {
 		)));
 		
 		/* Disable preloader */
-		
 		$wp_customize->add_setting( 'zerif_disable_preloader', array('sanitize_callback' => 'zerif_sanitize_text'));
 		$wp_customize->add_control(
 				'zerif_disable_preloader',
@@ -269,6 +280,19 @@ function zerif_customize_register( $wp_customize ) {
 					'priority'    => 2,
 				)
 		);
+
+		/* Disable smooth scroll */
+		$wp_customize->add_setting( 'zerif_disable_smooth_scroll', array('sanitize_callback' => 'zerif_sanitize_text'));
+		$wp_customize->add_control(
+				'zerif_disable_smooth_scroll',
+				array(
+					'type' 		=> 'checkbox',
+					'label' 	=> __('Disable smooth scroll?','zerif-lite'),
+					'section' 	=> 'zerif_general_section',
+					'priority'	=> 3,
+				)
+		);
+
 		/* COPYRIGHT */
 		$wp_customize->add_setting( 'zerif_copyright', array('sanitize_callback' => 'zerif_sanitize_text'));
 		$wp_customize->add_control( 'zerif_copyright', array(
