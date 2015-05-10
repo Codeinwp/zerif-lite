@@ -151,14 +151,6 @@ jQuery(document).ready(function() {
 
   });
 
-  
-
-  
-
-  jQuery('body:not(.home)').removeClass('custom-background');
-
-  
-
 });
 
 
@@ -324,7 +316,6 @@ jQuery(window).load(function(){
 });
 jQuery(window).resize(function() {
   setminHeightHeader();
-  closeMenu();
 });
 function setminHeightHeader() 
 {
@@ -334,21 +325,12 @@ function setminHeightHeader()
   jQuery('#main-nav').css('min-height',minHeight);
   jQuery('.header').css('min-height',minHeight);
 }
-function closeMenu()
-{
-  jQuery( '.collapse.in').removeClass('in');
-  jQuery( '.navbar-toggle.collapsed').removeClass('collapsed');
-}
 /* - */
 
 
 /* STICKY FOOTER */
-jQuery(window).load(function(){
-  fixFooterBottom();
-});
-jQuery(window).resize(function() {
-  fixFooterBottom();
-});
+jQuery(window).load(fixFooterBottom);
+jQuery(window).resize(fixFooterBottom);
 
 function fixFooterBottom(){
 
