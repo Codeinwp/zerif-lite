@@ -1732,32 +1732,33 @@ object {
 	transition: all 0.2s ease-in-out;
 }
 /* ON HOVER COLORED ROUNDED CIRCLE AROUND ICONS */
+/* ON HOVER COLORED ROUNDED CIRCLE AROUND ICONS */
 .red,.green,.blue,.yellow {
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
-.ctUp-ads:nth-child(4n+1) .service-icon:hover, .focus-box:nth-child(4n+1) .service-icon:hover {
+.focus-box:nth-child(4n+1) .service-icon:hover {
 	border: 10px solid #e96656;
 }
-.ctUp-ads:nth-child(4n+2) .service-icon:hover, .focus-box:nth-child(4n+2) .service-icon:hover{
+.focus-box:nth-child(4n+2) .service-icon:hover{
 	border: 10px solid #34d293;
 }
-.ctUp-ads:nth-child(4n+3) .service-icon:hover, .focus-box:nth-child(4n+3) .service-icon:hover {
+.focus-box:nth-child(4n+3) .service-icon:hover {
 	border: 10px solid #3ab0e2;
 }
-.ctUp-ads:nth-child(4n+4) .service-icon:hover, .focus-box:nth-child(4n+4) .service-icon:hover{
+.focus-box:nth-child(4n+4) .service-icon:hover{
 	border: 10px solid #f7d861;
 }
-.ctUp-ads:nth-child(4n+1) .red-border-bottom:before, .focus-box:nth-child(4n+1) .red-border-bottom:hover {
+.focus-box:nth-child(4n+1) .red-border-bottom:before {
 	background: #e96656;
 }
-.ctUp-ads:nth-child(4n+2) .red-border-bottom:before, .focus-box:nth-child(4n+2) .red-border-bottom:hover {
+.focus-box:nth-child(4n+2) .red-border-bottom:before {
 	background: #34d293;
 }
-.ctUp-ads:nth-child(4n+3) .red-border-bottom:before, .focus-box:nth-child(4n+3) .red-border-bottom:hover{
+.focus-box:nth-child(4n+3) .red-border-bottom:before {
 	background: #3ab0e2;
 }
-.ctUp-ads:nth-child(4n+4) .red-border-bottom:before, .focus-box:nth-child(4n+4) .red-border-bottom:hover {
+.focus-box:nth-child(4n+4) .red-border-bottom:before {
 	background: #f7d861;
 }
 .focus-box h5 {
@@ -1771,6 +1772,7 @@ object {
 	font-size: 17px;
 	float: none;
     width: auto;
+    background: none;
 }
 .focus-box p {
 	font-size: 14px;
@@ -1997,9 +1999,12 @@ width: -webkit-calc(100% / 4);
 	line-height: normal;
 	margin-top: -15px;
 }
+.about-us .section-header h6 {
+	color: #FFF;
+}
 .about-us p {
 	text-align: left;
-	color: #939393;
+	color: #FFF;
 }
 .about-us .column {
 	margin-bottom: 78px;
@@ -2559,6 +2564,9 @@ width: -webkit-calc(100% / 4);
 	background: #dbbf56;
 	padding-bottom: 90px;
 }
+.testimonial .section-header h6 {
+	color: #FFF;
+}
 #client-feedbacks .feedback-box {
 	width: 30%;
 	float:left;
@@ -2651,6 +2659,9 @@ width: -webkit-calc(100% / 4);
 .contact-us {
 	background: rgba(0, 0, 0, 0.5);
 	padding-bottom: 95px;
+}
+.contact-us .section-header h6 {
+	color: #FFF;
 }
 .contact-us .input-box,textarea {
 	width: 100%;
@@ -4118,6 +4129,10 @@ article .posted-on a:hover{
 }
 
 @media (max-width: 1200px) {
+	
+	.header-content-wrap{
+		padding: 235px 0 150px;
+	}
 
 }
 
@@ -4357,6 +4372,15 @@ body.custom-background {
 /*---------------------------------------
  **   Responsive            -----
 -----------------------------------------*/
+
+@media (max-width: 1200px) {
+	
+	.header-content-wrap{
+		padding: 235px 0 150px;
+	}
+
+}
+
 @media (min-width: 768px) and (max-width: 1024px) {
 
     /* TOP BAR ELEMENTS */
@@ -4445,6 +4469,9 @@ body.custom-background {
         padding-top: 60px;
         padding-bottom: 60px;
     }
+    .header-content-wrap{
+		padding: 225px 0 150px;
+	}
 
 }
 @media (max-width: 767px) {
