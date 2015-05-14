@@ -56,13 +56,31 @@
 			<?php
 
 
-				$zerif_aboutus_biglefttitle = get_theme_mod('zerif_aboutus_biglefttitle',__('Everything you see here is responsive and mobile-friendly.','zerif-lite'));
+			$zerif_aboutus_biglefttitle = get_theme_mod('zerif_aboutus_biglefttitle',__('Everything you see here is responsive and mobile-friendly.','zerif-lite'));
+			$zerif_aboutus_text = get_theme_mod('zerif_aboutus_text','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros.<br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros. <br><br>Mauris vel nunc at ipsum fermentum pellentesque quis ut massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non adipiscing massa. Sed ut fringilla sapien. Cras sollicitudin, lectus sed tincidunt cursus, magna lectus vehicula augue, a lobortis dui orci et est.');
+			$zerif_aboutus_feature1_title = get_theme_mod('zerif_aboutus_feature1_title',__('YOUR SKILL #1','zerif-lite'));
+			$zerif_aboutus_feature1_text = get_theme_mod('zerif_aboutus_feature1_text');
+
+			switch (
+				(empty($zerif_aboutus_biglefttitle) ? 0 : 1)
+				+ (empty($zerif_aboutus_text) ? 0 : 1)
+				+ (empty($zerif_aboutus_feature1_title) && empty($zerif_aboutus_feature1_text) ? 0 : 1)
+			) {
+				case 3:
+					$colCount = 4;
+					break;
+				case 2:
+					$colCount = 6;
+					break;
+				default:
+					$colCount = 12;
+			}
 
 
 				if( !empty($zerif_aboutus_biglefttitle) ):
 
 
-					echo '<div class="col-lg-4 col-md-4 column">';
+					echo '<div class="col-lg-' . $colCount . ' col-md-' . $colCount . ' column">';
 
 
 						echo '<div class="big-intro" data-scrollreveal="enter left after 0s over 1s">';
@@ -80,16 +98,9 @@
 				endif;
 
 
+			if( !empty($zerif_aboutus_text) ):
 
-
-
-				$zerif_aboutus_text = get_theme_mod('zerif_aboutus_text','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros.<br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros. <br><br>Mauris vel nunc at ipsum fermentum pellentesque quis ut massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non adipiscing massa. Sed ut fringilla sapien. Cras sollicitudin, lectus sed tincidunt cursus, magna lectus vehicula augue, a lobortis dui orci et est.');
-
-
-				if( !empty($zerif_aboutus_text) ):
-
-
-					echo '<div class="col-lg-4 col-md-4 column" data-scrollreveal="enter bottom after 0s over 1s">';
+				echo '<div class="col-lg-' . $colCount . ' col-md-' . $colCount . ' column" data-scrollreveal="enter bottom after 0s over 1s">';
 
 
 						echo '<p>';
@@ -115,7 +126,7 @@
 		<!-- COLUMN 1 - SKILSS-->
 
 
-		<div class="col-lg-4 col-md-4 column">
+		<div class="col-lg-<?php echo $colCount; ?> col-md-<?php echo $colCount; ?> column">
 
 
 			<ul class="skills" data-scrollreveal="enter right after 0s over 1s">
@@ -149,10 +160,6 @@
 
 
 						endif;
-
-						$zerif_aboutus_feature1_title = get_theme_mod('zerif_aboutus_feature1_title',__('YOUR SKILL #1','zerif-lite'));
-						$zerif_aboutus_feature1_text = get_theme_mod('zerif_aboutus_feature1_text');
-						$zerif_aboutus_feature1_text = get_theme_mod('zerif_aboutus_feature1_text');
 
 						if( !empty($zerif_aboutus_feature1_title) ):
 							echo '<h6>'.__($zerif_aboutus_feature1_title,'zerif-lite').'</h6>';
