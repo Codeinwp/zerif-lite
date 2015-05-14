@@ -209,7 +209,7 @@ function zerif_customize_register( $wp_customize ) {
 		)));
 			
 		/* email */   
-		$wp_customize->add_setting( 'zerif_email', array( 'sanitize_callback' => 'zerif_sanitize_text','default' => '<a href="mailto:friend@themeisle.com">friend@themeisle.com</a>') );
+		$wp_customize->add_setting( 'zerif_email', array( 'sanitize_callback' => 'zerif_sanitize_text','default' => '<a href="mailto:contact@site.com">contact@site.com</a>') );
 		$wp_customize->add_control( new Zerif_Customize_Textarea_Control( $wp_customize, 'zerif_email', array(
 				'label'   => __( 'Email', 'zerif-lite' ),
 				'section' => 'zerif_general_footer_section',
@@ -245,7 +245,7 @@ function zerif_customize_register( $wp_customize ) {
 		)));
 		/* address */
 			
-		$wp_customize->add_setting( 'zerif_address', array( 'sanitize_callback' => 'zerif_sanitize_text', 'default' => '<a href="mailto:contact@site.com">contact@site.com</a>' ) );
+		$wp_customize->add_setting( 'zerif_address', array( 'sanitize_callback' => 'zerif_sanitize_text', 'default' => __('Company address','zerif-lite') ) );
 		$wp_customize->add_control( new Zerif_Customize_Textarea_Control( $wp_customize, 'zerif_address', array(
 				'label'   => __( 'Address', 'zerif-lite' ),
 				'section' => 'zerif_general_footer_section',
