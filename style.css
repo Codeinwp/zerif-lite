@@ -2719,6 +2719,14 @@ width: -webkit-calc(100% / 4);
 	padding-top: 67px;
 	padding-bottom: 30px;
 }
+.company-details a {
+	color:#939393;
+	text-decoration:none;
+}
+
+.company-details a:hover {
+	color: #e96656;
+}
 .company-details .icon-top {
 	font-size: 30px;
 	margin-bottom: 10px;
