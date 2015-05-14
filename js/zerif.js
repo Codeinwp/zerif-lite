@@ -385,3 +385,58 @@ var callback_menu_align = function () {
 }
 jQuery(window).load(callback_menu_align);
 jQuery(window).resize(callback_menu_align);
+
+var isMobile = {
+    Android: function() {
+        return navigator.userAgent.match(/Android/i);
+    },
+    BlackBerry: function() {
+        return navigator.userAgent.match(/BlackBerry/i);
+    },
+    iOS: function() {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+    },
+    Opera: function() {
+        return navigator.userAgent.match(/Opera Mini/i);
+    },
+    Windows: function() {
+        return navigator.userAgent.match(/IEMobile/i);
+    },
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
+    }
+};
+
+/* Rollover on mobile devices */
+if( isMobile.any() ) {
+
+  /* Our team section */
+    jQuery('.team-member').on('click', function(){
+        jQuery('.team-member-open').removeClass('team-member-open');
+        jQuery(this).addClass('team-member-open');
+        event.stopPropagation();
+    });    
+    jQuery("html").click(function() {
+      jQuery('.team-member-open').removeClass('team-member-open');
+  });
+  
+  /* Portfolio section */
+  jQuery(document).ready(function(){
+      jQuery('.cbp-rfgrid li').prepend('<p class="cbp-rfgrid-tr"></p>');
+  });
+    jQuery('.cbp-rfgrid li').on('click', function(){
+        if ( !jQuery(this).hasClass('cbp-rfgrid-open') ){
+            jQuery('.cbp-rfgrid-tr').css('display','block');
+            jQuery('.cbp-rfgrid-open').removeClass('cbp-rfgrid-open');
+            
+            jQuery(this).addClass('cbp-rfgrid-open');
+            jQuery(this).find('.cbp-rfgrid-tr').css('display','none');
+            event.stopPropagation();            
+        }
+    });
+    jQuery("html").click(function() {
+        jQuery('.cbp-rfgrid-tr').css('display','block');
+        jQuery('.cbp-rfgrid-open').removeClass('cbp-rfgrid-open');
+  });
+    
+}
