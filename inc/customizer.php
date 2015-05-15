@@ -708,7 +708,7 @@ function zerif_customize_register( $wp_customize ) {
 				'panel' => 'panel_about'
 		));
 		
-		$wp_customize->add_setting( 'zerif_aboutus_clients_section' );
+		$wp_customize->add_setting( 'zerif_aboutus_clients_section', array('sanitize_callback' => 'zerif_sanitize_text') );
 	
 		$wp_customize->add_control( new Zerif_Clients_Widgets( $wp_customize, 'zerif_aboutus_clients_section',
 			array(
