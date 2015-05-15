@@ -40,10 +40,29 @@ The exceptions to this license are as follows:
      Licensed under the MIT license.
 
  * images/bg.jpg
-    Copyright (C) 2014 http://jaymantri.com/
+    Copyright (C) 2014 https://unsplash.com/
+	https://download.unsplash.com/27/perspective.jpg
 	
- * images/focus.png
-    Copyright (C) 2014 https://www.iconfinder.com/icons/283043/album_cloud_frame_gallery_image_mountain_painting_photo_photos_pictures_sky_icon
-
+ * images/team1.png
+	https://download.unsplash.com/photo-1427088625471-da8a7193afd3
+ 
+ * images/team2.png
+	https://download.unsplash.com/31/iqlYdAAYQiaOCoKnT6jE_kabia.jpg
+ 
+ * images/team3.png
+    https://download.unsplash.com/photo-1429362078931-9ba258af2ff0
+ 
+ * images/team4.png
+    https://download.unsplash.com/photo-1428471226620-c2698eadf413
+ 
+ * images/testimonial1.jpg
+    https://download.unsplash.com/7/girl-flowers.jpg
+ 
+ * images/testimonial2.jpg
+    https://download.unsplash.com/photo-1427096105551-15e2512fd2dc
+  
+ * images/testimonial3.jpg
+    https://download.unsplash.com/photo-1428471226620-c2698eadf413
+ 
  * Font Awesome is fully open source and is GPL friendly. You can use it for commercial projects, open source projects, or really just about whatever you want.
    http://fortawesome.github.io/Font-Awesome/license/

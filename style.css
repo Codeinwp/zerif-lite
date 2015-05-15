@@ -1,10 +1,10 @@
 /*
 Theme Name: Zerif Lite
-Theme URI: https://themeisle.com/themes/zerif-lite/
+Theme URI: http://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
-Author URI: https://themeisle.com
+Author URI: http://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.7.6
+Version: 1.8.0
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -12,10 +12,9 @@ Domain Path: /languages/
 Tags: black, gray, red, white, one-column, two-columns, right-sidebar,fixed-layout,light,front-page-post-form,full-width-template,rtl-language-support,sticky-post,theme-options,responsive-layout, custom-background, custom-menu, editor-style, featured-images, threaded-comments, translation-ready,photoblogging
 */
 
-@import url(//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600italic,600,700,700italic,800,800italic);
 
 /*--------------------------------------------------------------
-1.0 - Reset
+1.0 - Reset  
 --------------------------------------------------------------*/
 html {
 	font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
@@ -246,7 +245,6 @@ h1, h2, h3, h4, h5, h6 {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-	padding-top: 15px;
 	margin-bottom: 10px;
 	display: block;
 	clear: both;
@@ -256,7 +254,8 @@ h1,h2 {
 	font-weight: 700;
 	line-height: 35px;
 }
-h1 {
+h1,
+h1 span {
 	font-size: 30px;
 }
 h2 {
@@ -914,7 +913,7 @@ a:active {
 	text-indent: -99999999999px;
 }
 .widget_search label{
-
+	margin-bottom: 5px;
 	width: 100%;
 	position: relative;
 }
@@ -987,6 +986,10 @@ a:active {
 .single .byline,
 .group-blog .byline {
 	display: inline;
+}
+.entry-meta-large .byline,
+.entry-meta-large .updated {
+	display: none;
 }
 .page-content,
 .entry-content,
@@ -1071,6 +1074,9 @@ a:active {
 }
 .comment-form, .comments-title, .comment-reply-title {
 	text-align:left;
+}
+.comment .reply a {
+	font-size: 12px;
 }
 .comment-form p {
 	margin:10px 10px 10px 0;
@@ -1326,6 +1332,7 @@ object {
 }
 .section-header {
 	text-align: center;
+	padding-bottom: 75px;
 }
 .section-header h2 {
 	padding-bottom: 10px;
@@ -1334,10 +1341,14 @@ object {
 	display: inline-block;
 	font-size: 45px;
 	text-transform: uppercase;
+	margin-top: 15px;
+	margin-bottom: 0;
 }
 .section-header h6 {
 	font-size: 16px;
-	padding-bottom: 15px;
+	margin-bottom: 0;
+	color: #808080;
+	padding-top: 0;
 }
 /* PRE LOADER */
 .preloader {
@@ -1378,7 +1389,7 @@ object {
 	position: relative;
 	-webkit-box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.08);
 	box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.08);
-	padding: 21% 0 150px;
+	padding: 285px 0 210px;
 }
 .header_title {
     float: left;
@@ -1404,7 +1415,10 @@ object {
  #site-navigation {
  	height: 1px;
 	float: right;
- }
+	margin-right: 0;
+	margin-left: 0;
+
+}
 .navbar {
 	background: #FFF;
 	border: 0;
@@ -1421,6 +1435,10 @@ object {
 #main-nav.fixed {
 	position: fixed;
 	top: 0;
+}
+.navbar-inverse .navbar-nav {
+	margin-left: 0;
+	margin-right: 0;
 }
 .navbar-inverse .navbar-nav >li {
 	display: inline;
@@ -1484,7 +1502,7 @@ object {
 	height: 76px;
 	position: relative;
 	line-height: 60px;
-	padding: 7px;
+	padding: 7px 15px;
 	display: inline-block;
 }
 .navbar-brand > img {
@@ -1600,6 +1618,7 @@ object {
 #carousel-homepage-latestnews .item{
 	height: auto;
 }
+.latesnews-content p,
 .latesnews-content {
 	font-size: 14px;
 	line-height: 18px;
@@ -1616,6 +1635,7 @@ object {
 	font-size: 17px;
 	float: none;
 	width: auto;
+	margin-top: 15px;
 }
 #carousel-homepage-latestnews .carousel-inner .item .latestnews-title a {
 	text-transform: uppercase;
@@ -1674,7 +1694,6 @@ object {
 	float: left;
 }
 #carousel-homepage-latestnews {
-	margin-top: 20px;
 }
 
 /*---------------------------------------
@@ -1713,32 +1732,33 @@ object {
 	transition: all 0.2s ease-in-out;
 }
 /* ON HOVER COLORED ROUNDED CIRCLE AROUND ICONS */
+/* ON HOVER COLORED ROUNDED CIRCLE AROUND ICONS */
 .red,.green,.blue,.yellow {
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
-.ctUp-ads:nth-child(4n+1) .service-icon:hover, .focus-box:nth-child(4n+1) .service-icon:hover {
+.focus-box:nth-child(4n+1) .service-icon:hover {
 	border: 10px solid #e96656;
 }
-.ctUp-ads:nth-child(4n+2) .service-icon:hover, .focus-box:nth-child(4n+2) .service-icon:hover{
+.focus-box:nth-child(4n+2) .service-icon:hover{
 	border: 10px solid #34d293;
 }
-.ctUp-ads:nth-child(4n+3) .service-icon:hover, .focus-box:nth-child(4n+3) .service-icon:hover {
+.focus-box:nth-child(4n+3) .service-icon:hover {
 	border: 10px solid #3ab0e2;
 }
-.ctUp-ads:nth-child(4n+4) .service-icon:hover, .focus-box:nth-child(4n+4) .service-icon:hover{
+.focus-box:nth-child(4n+4) .service-icon:hover{
 	border: 10px solid #f7d861;
 }
-.ctUp-ads:nth-child(4n+1) .red-border-bottom:before, .focus-box:nth-child(4n+1) .red-border-bottom:hover {
+.focus-box:nth-child(4n+1) .red-border-bottom:before {
 	background: #e96656;
 }
-.ctUp-ads:nth-child(4n+2) .red-border-bottom:before, .focus-box:nth-child(4n+2) .red-border-bottom:hover {
+.focus-box:nth-child(4n+2) .red-border-bottom:before {
 	background: #34d293;
 }
-.ctUp-ads:nth-child(4n+3) .red-border-bottom:before, .focus-box:nth-child(4n+3) .red-border-bottom:hover{
+.focus-box:nth-child(4n+3) .red-border-bottom:before {
 	background: #3ab0e2;
 }
-.ctUp-ads:nth-child(4n+4) .red-border-bottom:before, .focus-box:nth-child(4n+4) .red-border-bottom:hover {
+.focus-box:nth-child(4n+4) .red-border-bottom:before {
 	background: #f7d861;
 }
 .focus-box h5 {
@@ -1752,9 +1772,11 @@ object {
 	font-size: 17px;
 	float: none;
     width: auto;
+    background: none;
 }
 .focus-box p {
 	font-size: 14px;
+	color: #808080;
 }
 /*----OTHER FOCUSES ----*/
 .other-focuses {
@@ -1801,6 +1823,7 @@ object {
 	padding: 0;
 	max-width: 800px;
 	margin-bottom: 20px;
+	margin-top: 15px;
 }
 /*---------------------------------------
  **   Section: Portfolio          -----
@@ -1880,6 +1903,7 @@ width: -webkit-calc(100% / 4);
 	position: relative;
 	display: inline-block;
 	margin-bottom: 15px;
+	margin-top: 15px;
 	font-weight: bold;
 	text-transform: uppercase;
 }
@@ -1896,6 +1920,22 @@ width: -webkit-calc(100% / 4);
 	filter: alpha(opacity=100);
 	opacity: 1;
 	bottom: -50px;
+}
+.cbp-rfgrid li.cbp-rfgrid-open a .project-info {
+	filter: alpha(opacity=100);
+	opacity: 1;
+}
+.cbp-rfgrid-tr {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	margin-bottom: 0;
+	z-index: 9;
+}
+.cbp-rfgrid li.cbp-rfgrid-open a .project-info .project-details {
+	top: 0;
+	opacity: 1;
 }
 /* media queries:  change number of items per row */
 @media screen and (max-width: 1190px) {
@@ -1975,9 +2015,12 @@ width: -webkit-calc(100% / 4);
 	line-height: normal;
 	margin-top: -15px;
 }
+.about-us .section-header h6 {
+	color: #FFF;
+}
 .about-us p {
 	text-align: left;
-	color: #939393;
+	color: #FFF;
 }
 .about-us .column {
 	margin-bottom: 78px;
@@ -2012,6 +2055,7 @@ width: -webkit-calc(100% / 4);
 	clear: none;
 	width: auto;
 	float: none;
+	margin-top: 15px;
 }
 .skills .skill p {
 	line-height: 20px;
@@ -2032,6 +2076,7 @@ width: -webkit-calc(100% / 4);
 .our-clients h5 {
 	font-weight: 700;
 	float:none;
+	margin-top: 15px;
 }
 .client-list {
 	padding-top: 5px;
@@ -2165,6 +2210,19 @@ width: -webkit-calc(100% / 4);
 	filter: alpha(opacity=100);
 	opacity: 1;
 }
+.team-member.team-member-open .details {
+	display: block;
+	top: 0;
+	background: #333;
+	color: white;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+	filter: alpha(opacity=100);
+	opacity: 1;
+	-webkit-transition: none;
+	-moz-transition: none;
+	-o-transition: none;
+	transition: none;
+}
 .team-member .profile-pic {
 	border-radius: 50%;
 	width: 174px;
@@ -2182,10 +2240,10 @@ width: -webkit-calc(100% / 4);
 	color: #404040;
 	font-weight: 700;
 	position: relative;
+	margin-top: 15px;
 }
 .team-member .position {
 	font-size: 13px;
-	margin-top: 15px;
 }
 .team-member .social-icons {
 	margin-bottom: 25px;
@@ -2219,6 +2277,7 @@ width: -webkit-calc(100% / 4);
 .our-team .row > div:nth-child(4n+4) .red-border-bottom:before{
     background: #f7d861;
 }
+
 /*---------------------------------------
  **   Features            -----
 -----------------------------------------*/
@@ -2534,6 +2593,9 @@ width: -webkit-calc(100% / 4);
 	background: #dbbf56;
 	padding-bottom: 90px;
 }
+.testimonial .section-header h6 {
+	color: #FFF;
+}
 #client-feedbacks .feedback-box {
 	width: 30%;
 	float:left;
@@ -2627,6 +2689,9 @@ width: -webkit-calc(100% / 4);
 	background: rgba(0, 0, 0, 0.5);
 	padding-bottom: 95px;
 }
+.contact-us .section-header h6 {
+	color: #FFF;
+}
 .contact-us .input-box,textarea {
 	width: 100%;
 	margin: auto;
@@ -2647,11 +2712,20 @@ width: -webkit-calc(100% / 4);
 -----------------------------------------*/
 #footer {
 	background: #272727;
+	line-height: 20px;
 }
 .company-details {
 	color: #939393;
 	padding-top: 67px;
-	padding-bottom: 67px;
+	padding-bottom: 30px;
+}
+.company-details a {
+	color:#939393;
+	text-decoration:none;
+}
+
+.company-details a:hover {
+	color: #e96656;
 }
 .company-details .icon-top {
 	font-size: 30px;
@@ -2675,6 +2749,10 @@ width: -webkit-calc(100% / 4);
 }
 .social li a:hover {
 	color: #e96656;
+}
+.copyright p {
+	margin-bottom: 0;
+	color: #939393;
 }
 /*---------------------------------------
  **   Single page           -----
@@ -2886,13 +2964,21 @@ article .posted-on a:hover{
 }
 .entry-footer-large{
 	background: transparent;
-	padding: 10px 30px 20px 0px;
+	padding: 0 0 20px 0px;
+	position: relative;
+	padding-right: 200px;
+	float: left;
+	width: 100%;
 }
 .entry-footer-large > span {
-	padding-right: 15px;
+	padding-right: 5px;
+}
+.entry-footer-large-left {
+	float: left;
 }
 .large-container .entry-content p {
-	margin: 10px 20px 0px 0px;
+	margin: 4px 20px 0px 0px;
+	text-align: justify;
 }
 .entry-content{
 	margin: 1em 0 0;
@@ -2946,8 +3032,10 @@ article .posted-on a:hover{
 
 /* ====================== Large TEMPLATE ============================== */
 .entry-meta-large{
-	float: left;
-	width: 100%;
+	float: right;
+	position: absolute;
+	right: 0;
+	top: 0
 }
 .entry-content p {
 	text-align:justify;
@@ -2973,18 +3061,19 @@ article .posted-on a:hover{
 	background: rgba(255, 255, 255, 0.9) none repeat scroll 0% 0%;
 	min-height: 50px;
 	width: 100%;
-	padding: 20px 20px 0px 20px;
+	padding: 15px 20px 0px 20px;
 	border-top: 2px solid #FFF;
 }
 .large-container {
 	background-color: #fff;
 	border-radius:4px;
-	margin: 35px 0;
+	margin: 0 0 35px 0;
 	position: relative;
-	width: 97%;
+	width: 95%;
+	float: left;
 }
 .large-container .list-post-top {
-	min-height: 1px;
+	min-height: 130px;
 }
 
 /* woocommerce v2.3.5 */
@@ -4077,6 +4166,10 @@ article .posted-on a:hover{
 }
 
 @media (max-width: 1200px) {
+	
+	.header-content-wrap{
+		padding: 235px 0 150px;
+	}
 
 }
 
@@ -4093,7 +4186,7 @@ article .posted-on a:hover{
 	}
 
 }
-@media (max-width: 768px) {
+@media (max-width: 767px) {
 	.woocommerce-page .upsells.products ul li.product,
 	.woocommerce-page .upsells.products ul.products li.product{
 		width: 48%;
@@ -4146,6 +4239,17 @@ article .posted-on a:hover{
 	}
 	.listpost-content-wrap-large {
 		padding: 20px 0px 0px 0px;
+	}
+	#wpadminbar {
+  		position: fixed;
+	}
+	.entry-meta-large {
+		position: relative;
+		float: left;
+		width: 100%;
+	}
+	.entry-footer-large {
+		padding-right: 0;
 	}
 }
 @media (max-width: 480px) {
@@ -4305,6 +4409,15 @@ body.custom-background {
 /*---------------------------------------
  **   Responsive            -----
 -----------------------------------------*/
+
+@media (max-width: 1200px) {
+	
+	.header-content-wrap{
+		padding: 235px 0 150px;
+	}
+
+}
+
 @media (min-width: 768px) and (max-width: 1024px) {
 
     /* TOP BAR ELEMENTS */
@@ -4393,6 +4506,9 @@ body.custom-background {
         padding-top: 60px;
         padding-bottom: 60px;
     }
+    .header-content-wrap{
+		padding: 225px 0 150px;
+	}
 
 }
 @media (max-width: 767px) {

@@ -299,17 +299,12 @@ function zerif_scripts()
 
     wp_enqueue_style('zerif_font', zerif_slug_fonts_url(), array(), null );
 
+    wp_enqueue_style( 'zerif_font_all', '//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600italic,600,700,700italic,800,800italic');
+    
     wp_enqueue_style('zerif_bootstrap_style', get_template_directory_uri() . '/css/bootstrap.css');
     wp_style_add_data( 'zerif_bootstrap_style', 'rtl', 'replace' );
 
-
-    wp_enqueue_style('zerif_owl_theme_style', get_template_directory_uri() . '/css/owl.theme.css', array('zerif_bootstrap_style'), 'v1');
-
-    wp_enqueue_style('zerif_owl_carousel_style', get_template_directory_uri() . '/css/owl.carousel.css', array('zerif_owl_theme_style'), 'v1');
-
-    wp_enqueue_style('zerif_vegas_style', get_template_directory_uri() . '/css/jquery.vegas.min.css', array('zerif_owl_carousel_style'), 'v1');
-
-    wp_enqueue_style('zerif_fontawesome', get_template_directory_uri() . '/css/font-awesome.min.css', array('zerif_vegas_style'), 'v1');
+    wp_enqueue_style('zerif_fontawesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), 'v1');
 
     wp_enqueue_style('zerif_pixeden_style', get_template_directory_uri() . '/css/pixeden-icons.css', array('zerif_fontawesome'), 'v1');
 
@@ -326,33 +321,17 @@ function zerif_scripts()
     wp_enqueue_script('jquery');
 
     /* Bootstrap script */
-
     wp_enqueue_script('zerif_bootstrap_script', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '20120206', true);
 
-    /* ScrollTo script */
-
-    wp_enqueue_script('zerif_scrollTo', get_template_directory_uri() . '/js/jquery.scrollTo.min.js', array("jquery"), '20120206', true);
-
-    /* jQuery.nav script */
-
-    wp_enqueue_script('zerif_jquery_nav', get_template_directory_uri() . '/js/jquery.nav.js', array("jquery"), '20120206', true);
-
     /* Knob script */
-
     wp_enqueue_script('zerif_knob_nav', get_template_directory_uri() . '/js/jquery.knob.js', array("jquery"), '20120206', true);
-
-    /* Owl carousel script */
-
-    wp_enqueue_script('zerif_owl_carousel', get_template_directory_uri() . '/js/owl.carousel.min.js', array("jquery"), '20120206', true);
-
 
     /* Smootscroll script */
 
-    wp_enqueue_script('zerif_smoothscroll', get_template_directory_uri() . '/js/smoothscroll.js', array("jquery"), '20120206', true);
-
-    /* Vegas script */
-
-    wp_enqueue_script('zerif_vegas_script', get_template_directory_uri() . '/js/jquery.vegas.min.js', array("jquery"), '20120206', true);
+    $zerif_disable_smooth_scroll = get_theme_mod('zerif_disable_smooth_scroll');
+    if( isset($zerif_disable_smooth_scroll) && ($zerif_disable_smooth_scroll != 1)):
+        wp_enqueue_script('zerif_smoothscroll', get_template_directory_uri() . '/js/smoothscroll.js', array("jquery"), '20120206', true);
+    endif;  
 	
 	/* scrollReveal script */
 	if ( !wp_is_mobile() ){
@@ -362,15 +341,6 @@ function zerif_scripts()
     /* zerif script */
 
     wp_enqueue_script('zerif_script', get_template_directory_uri() . '/js/zerif.js', array("jquery", "zerif_knob_nav"), '20120206', true);
-
-    wp_enqueue_script('justifyblog-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20120206', true);
-
-
-    wp_enqueue_script('justifyblog-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true);
-
-
-    wp_enqueue_script('zerif-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130115', true);
-
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
 
@@ -816,7 +786,7 @@ class zerif_ourfocus extends WP_Widget
 				if( !empty($instance['text']) ):
 				
 					echo '<p>';
-						echo apply_filters('widget_title', $instance['text']);
+						echo htmlspecialchars_decode(apply_filters('widget_title', $instance['text']));
 					echo '</p>';
 				endif;
 			?>	
@@ -838,7 +808,7 @@ class zerif_ourfocus extends WP_Widget
 
         $instance = $old_instance;
 
-        $instance['text'] = strip_tags($new_instance['text']);
+        $instance['text'] = wp_filter_post_kses($new_instance['text']);
 
         $instance['title'] = strip_tags($new_instance['title']);
 		
@@ -872,9 +842,10 @@ class zerif_ourfocus extends WP_Widget
 
             <label for="<?php echo $this->get_field_id('text'); ?>"><?php _e('Text', 'zerif-lite'); ?></label><br/>
 
-            <input type="text" name="<?php echo $this->get_field_name('text'); ?>"
-                   id="<?php echo $this->get_field_id('text'); ?>" value="<?php if( !empty($instance['text']) ): echo $instance['text']; endif; ?>"
-                   class="widefat"/>
+            <textarea class="widefat" rows="8" cols="20" name="<?php echo $this->get_field_name('text'); ?>"
+                      id="<?php echo $this->get_field_id('text'); ?>"><?php
+                        if( !empty($instance['text']) ): echo htmlspecialchars_decode($instance['text']); endif;
+            ?></textarea>
 
         </p>
 		
@@ -977,7 +948,7 @@ class zerif_testimonial_widget extends WP_Widget
 			<?php if( !empty($instance['text']) ): ?>
 				<div class="message">
 
-					<?php echo apply_filters('widget_title', $instance['text']); ?>
+					<?php echo htmlspecialchars_decode(apply_filters('widget_title', $instance['text'])); ?>
 
 				</div>
 			<?php endif; ?>
@@ -1042,7 +1013,7 @@ class zerif_testimonial_widget extends WP_Widget
 
         $instance = $old_instance;
 
-        $instance['text'] = strip_tags($new_instance['text']);
+        $instance['text'] = $new_instance['text'];
 
         $instance['title'] = strip_tags($new_instance['title']);
 
@@ -1096,9 +1067,10 @@ class zerif_testimonial_widget extends WP_Widget
 
             <label for="<?php echo $this->get_field_id('text'); ?>"><?php _e('Text', 'zerif-lite'); ?></label><br/>
 
-            <input type="text" name="<?php echo $this->get_field_name('text'); ?>"
-                   id="<?php echo $this->get_field_id('text'); ?>" value="<?php if( !empty($instance['text']) ): echo $instance['text']; endif; ?>"
-                   class="widefat"/>
+            <textarea class="widefat" rows="8" cols="20" name="<?php echo $this->get_field_name('text'); ?>"
+                      id="<?php echo $this->get_field_id('text'); ?>"><?php
+                if( !empty($instance['text']) ): echo htmlspecialchars_decode($instance['text']); endif;
+            ?></textarea>
 
         </p>
 
@@ -1393,7 +1365,7 @@ class zerif_team_widget extends WP_Widget
                 <div class="details">
 
 
-                    <?php echo apply_filters('widget_title', $instance['description']); ?>
+                    <?php echo htmlspecialchars_decode(apply_filters('widget_title', $instance['description'])); ?>
 
 
                 </div>
@@ -1422,9 +1394,9 @@ class zerif_team_widget extends WP_Widget
 
         $instance['name'] = strip_tags($new_instance['name']);
 
-        $instance['position'] = strip_tags($new_instance['position']);
+        $instance['position'] = wp_filter_post_kses($new_instance['position']);
 
-        $instance['description'] = strip_tags($new_instance['description']);
+        $instance['description'] = wp_filter_post_kses($new_instance['description']);
 
         $instance['fb_link'] = strip_tags($new_instance['fb_link']);
 
@@ -1466,9 +1438,10 @@ class zerif_team_widget extends WP_Widget
 
             <label for="<?php echo $this->get_field_id('position'); ?>"><?php _e('Position', 'zerif-lite'); ?></label><br/>
 
-            <input type="text" name="<?php echo $this->get_field_name('position'); ?>"
-                   id="<?php echo $this->get_field_id('position'); ?>" value="<?php if( !empty($instance['position']) ): echo $instance['position']; endif; ?>"
-                   class="widefat"/>
+            <textarea class="widefat" rows="8" cols="20" name="<?php echo $this->get_field_name('position'); ?>"
+                      id="<?php echo $this->get_field_id('position'); ?>"><?php
+                if( !empty($instance['position']) ): echo htmlspecialchars_decode($instance['position']); endif;
+            ?></textarea>
 
         </p>
 
@@ -1479,9 +1452,10 @@ class zerif_team_widget extends WP_Widget
             <label
                 for="<?php echo $this->get_field_id('description'); ?>"><?php _e('Description', 'zerif-lite'); ?></label><br/>
 
-            <input type="text" name="<?php echo $this->get_field_name('description'); ?>"
-                   id="<?php echo $this->get_field_id('description'); ?>"
-                   value="<?php if( !empty($instance['description']) ): echo $instance['description']; endif; ?>" class="widefat"/>
+            <textarea class="widefat" rows="8" cols="20" name="<?php echo $this->get_field_name('description'); ?>"
+                      id="<?php echo $this->get_field_id('description'); ?>"><?php
+                if( !empty($instance['description']) ): echo htmlspecialchars_decode($instance['description']); endif;
+            ?></textarea>
 
         </p>
 
