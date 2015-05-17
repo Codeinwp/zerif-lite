@@ -588,7 +588,7 @@ input[type="url"],
 input[type="password"],
 input[type="search"],
 textarea {
-	color: #A0A0A0;
+	color: #555;
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-radius: 0;
 }
@@ -2705,6 +2705,19 @@ width: -webkit-calc(100% / 4);
 .g-recaptcha {
 	margin-left: 15px;
 	display: none;
+}
+.contact-us .notification p {
+	border-radius: 3px;
+	color: #FFF;
+	padding: 5px 10px;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+.contact-us .error p {
+	background: #E96656;
+}
+.contact-us .success p {
+	background: #34d293;
 }
 
 /*---------------------------------------
