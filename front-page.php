@@ -440,7 +440,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 					?>
 
-					<form role="form" method="POST" action="" onSubmit="this.scrollPosition.value=document.body.scrollTop" class="contact-form">
+					<form role="form" method="POST" action="" onSubmit="this.scrollPosition.value=(document.body.scrollTop || document.documentElement.scrollTop)" class="contact-form">
 
 						<input type="hidden" name="scrollPosition">
 
