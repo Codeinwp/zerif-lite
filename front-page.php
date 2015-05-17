@@ -408,7 +408,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 						elseif(isset($_POST['submitted'])):
 
-							echo '<p class="error white-text">'.__('Sorry, an error occured.','zerif-lite').'<p>';
+							echo '<p class="error white-text">'.__('Sorry, an error occured.','zerif-lite').'</p>';
 
 						endif;
 
