@@ -2008,6 +2008,10 @@ width: -webkit-calc(100% / 4);
 	color: #FFF;
 	padding-bottom: 100px;
 }
+.about-us .row {
+	margin-left: -15px;
+	margin-right: -15px;
+}
 .about-us .big-intro {
 	text-align: right;
 	font-weight: 300;
@@ -2020,7 +2024,9 @@ width: -webkit-calc(100% / 4);
 }
 .about-us p {
 	text-align: left;
-	color: #FFF;
+	color: #939393;
+	font-size: 14px;
+	line-height: 25px;
 }
 .about-us .column {
 	margin-bottom: 78px;
@@ -2028,6 +2034,7 @@ width: -webkit-calc(100% / 4);
 /*--SKILLS --*/
 .skills {
 	text-align: left;
+	margin: 0 0 0 0;
 }
 .skills .skill {
 	display: block;
@@ -2055,10 +2062,12 @@ width: -webkit-calc(100% / 4);
 	clear: none;
 	width: auto;
 	float: none;
-	margin-top: 15px;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 .skills .skill p {
 	line-height: 20px;
+	font-size: 14px;
 	color: #8f8f8f;
 }
 /*--OUR CLIENTS --*/
@@ -2076,7 +2085,8 @@ width: -webkit-calc(100% / 4);
 .our-clients h5 {
 	font-weight: 700;
 	float:none;
-	margin-top: 15px;
+	margin-top: 0;
+	margin-bottom: 0
 }
 .client-list {
 	padding-top: 5px;
