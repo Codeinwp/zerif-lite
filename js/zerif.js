@@ -51,9 +51,9 @@ jQuery(document).ready(callback_mobile_dropdown);
 
 
 jQuery(document).ready(function() {
-	var current_height = jQuery('.header .container').height();
-	jQuery('.header').css('min-height',current_height);
-	
+  var current_height = jQuery('.header .container').height();
+  jQuery('.header').css('min-height',current_height);
+  
 });
 
 
@@ -163,30 +163,85 @@ jQuery(document).ready(function() {
 
 =================================== */
 
-var scrollAnimationTime = 1200,
+jQuery(document).ready(function(){
+  jQuery('#site-navigation a[href*=#]:not([href=#])').bind('click',function () {
+    var headerHeight;
+    var hash    = this.hash;
+    var idName  = hash.substring(1);    // get id name
+    var alink   = this;                 // this button pressed
+    // check if there is a section that had same id as the button pressed
+    if ( jQuery('section [id*=' + idName + ']').length > 0 && jQuery(window).width() >= 751 ){
+      jQuery('.current').removeClass('current');
+      jQuery(alink).parent('li').addClass('current');
+    }else{
+      jQuery('.current').removeClass('current');
+    }
+    if ( jQuery(window).width() >= 751 ) {
+      headerHeight = jQuery('#main-nav').height();
+    } else {
+      headerHeight = 0;
+    }
+    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+      var target = jQuery(this.hash);
+      target = target.length ? target : jQuery('[name=' + this.hash.slice(1) +']');
+      if (target.length) {
+        jQuery('html,body').animate({
+          scrollTop: target.offset().top - headerHeight + 10
+        }, 1200);
+        return false;
+      }
+    }
+  });
+});
 
-        scrollAnimation = 'easeInOutExpo';
+jQuery(document).ready(function(){
+    var headerHeight;
+    jQuery('.current').removeClass('current');
+    jQuery('#site-navigation a[href$="' + window.location.hash + '"]').parent('li').addClass('current');
+    if ( jQuery(window).width() >= 751 ) {
+      headerHeight = jQuery('#main-nav').height();
+    } else {
+      headerHeight = 0;
+    }
+    if (location.pathname.replace(/^\//,'') == window.location.pathname.replace(/^\//,'') && location.hostname == window.location.hostname) {
+      var target = jQuery(window.location.hash);
+      if (target.length) {
+        jQuery('html,body').animate({
+          scrollTop: target.offset().top - headerHeight + 10
+        }, 1200);
+        return false;
+      }
+    }
+});
 
-    jQuery('a.scrollto').bind('click.smoothscroll',function (event) {
-
-		
-
-        event.preventDefault();
-
-        var target = this.hash;
-
-        jQuery('html, body').stop().animate({
-
-            'scrollTop': jQuery(target).offset().top
-
-        }, scrollAnimationTime, scrollAnimation, function () {
-
-            window.location.hash = target;
-
-        });
-
-    });   
-
+/* TOP NAVIGATION MENU SELECTED ITEMS */
+jQuery(window).scroll(function(){
+  if ( jQuery(window).width() >= 751 ) {
+    setTimeout(function(){ 
+      var zerif_scrollTop = jQuery(window).scrollTop();       // cursor position
+      var headerHeight = jQuery('#main-nav').outerHeight();   // header height
+      var isInOneSection = 'no';                              // used for checking if the cursor is in one section or not
+      // for all sections check if the cursor is inside a section
+      jQuery("section").each( function() {
+        var thisID = '#' + jQuery(this).attr('id');           // section id
+        var zerif_offset = jQuery(this).offset().top;         // distance between top and our section
+        var thisHeight  = jQuery(this).outerHeight();         // section height
+        var thisBegin   = zerif_offset - headerHeight;                      // where the section begins
+        var thisEnd     = zerif_offset + thisHeight - headerHeight;         // where the section ends  
+        // if position of the cursor is inside of the this section
+        if ( zerif_scrollTop >= thisBegin && zerif_scrollTop <= thisEnd ) {
+          isInOneSection = 'yes';
+          jQuery('.current').removeClass('current');
+          jQuery('#site-navigation a[href$="' + thisID + '"]').parent('li').addClass('current');    // find the menu button with the same ID section
+          return false;
+        }
+        if (isInOneSection == 'no') {
+          jQuery('.current').removeClass('current');
+        }
+      });
+    }, 1200);
+  }
+});
 
 
 /* ================================
