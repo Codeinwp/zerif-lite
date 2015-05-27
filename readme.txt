@@ -39,30 +39,36 @@ The exceptions to this license are as follows:
      Copyright (C) 2014  https://twitter.com/julianlloyd
      Licensed under the MIT license.
 
- * images/bg.jpg
-    Copyright (C) 2014 https://unsplash.com/
-	https://download.unsplash.com/27/perspective.jpg
+  * Images	 
+	 
+	License: All unsplash.com images are licensed under the terms of the Creative Commons Zero, http://creativecommons.org/publicdomain/zero/1.0/ 	  
+	 
+		 * images/bg.jpg
+			Source: https://download.unsplash.com/27/perspective.jpg
+			
+		 * images/team1.png
+			Source: https://download.unsplash.com/photo-1427088625471-da8a7193afd3
+		 
+		 * images/team2.png
+			Source: https://download.unsplash.com/31/iqlYdAAYQiaOCoKnT6jE_kabia.jpg
+		 
+		 * images/team3.png
+			Source: https://download.unsplash.com/photo-1429362078931-9ba258af2ff0
+		 
+		 * images/team4.png
+			Source: https://download.unsplash.com/photo-1428471226620-c2698eadf413
+		 
+		 * images/testimonial1.jpg
+			Source: https://download.unsplash.com/7/girl-flowers.jpg
+		 
+		 * images/testimonial2.jpg
+			Source: https://download.unsplash.com/photo-1427096105551-15e2512fd2dc
+		  
+		 * images/testimonial3.jpg
+			Source: https://download.unsplash.com/photo-1428471226620-c2698eadf413
+ 
+ * Font Awesome
+ 
+	License: SIL OFL 1.1
 	
- * images/team1.png
-	https://download.unsplash.com/photo-1427088625471-da8a7193afd3
- 
- * images/team2.png
-	https://download.unsplash.com/31/iqlYdAAYQiaOCoKnT6jE_kabia.jpg
- 
- * images/team3.png
-    https://download.unsplash.com/photo-1429362078931-9ba258af2ff0
- 
- * images/team4.png
-    https://download.unsplash.com/photo-1428471226620-c2698eadf413
- 
- * images/testimonial1.jpg
-    https://download.unsplash.com/7/girl-flowers.jpg
- 
- * images/testimonial2.jpg
-    https://download.unsplash.com/photo-1427096105551-15e2512fd2dc
-  
- * images/testimonial3.jpg
-    https://download.unsplash.com/photo-1428471226620-c2698eadf413
- 
- * Font Awesome is fully open source and is GPL friendly. You can use it for commercial projects, open source projects, or really just about whatever you want.
-   http://fortawesome.github.io/Font-Awesome/license/
+	URL: http://scripts.sil.org/OFL
