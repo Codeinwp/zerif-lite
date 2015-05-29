@@ -220,7 +220,6 @@ function scrolled() {
     jQuery(this).off('scroll')[0].setTimeout(function(){
 
       if ( jQuery(window).width() >= 751 ) {
-          console.log('aaa');
           var zerif_scrollTop = jQuery(window).scrollTop();       // cursor position
           var headerHeight = jQuery('#main-nav').outerHeight();   // header height
           var isInOneSection = 'no';                              // used for checking if the cursor is in one section or not
