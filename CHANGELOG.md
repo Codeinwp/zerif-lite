@@ -1,5 +1,30 @@
 
 
+### 1.8.1 - 29/05/2015
+
+ Changes: 
+
+
+ * Changed new line separator to \n from old mac separator \r.
+ * Updated about us section to be display in col-lg 4, 6 or 12 depending on what texts are set.
+ * Fixed closing tag.
+ * Updated contact us form style, error and success messages, made field required.
+ * Fix to contact us form to scroll on submit as described in: https://github.com/Codeinwp/zerif-lite/issues/117
+ * Fixed #138 About us section
+ * Merge pull request #142 from aurelijusrozenas/pr-contactSection
+
+Updated contact us form style, error and success messages, made field required.
+ * Merge pull request #140 from aurelijusrozenas/pr-aboutSection2
+
+Updated about us section to be display in col-lg 4, 6 or 12 depending on what texts are set.
+ * Fixed #136 smoothscroll
+ * Fixed #68, remove unused meta boxes for testimonials
+ * Fixed #63, translate ready issue
+ * Added proper license for images and font awesome
+ * Fixed #136 smoothscroll
+ * Update style.css
+
+
 ### 1.7.6 - 27/04/2015
 
  Changes: 
