@@ -1,5 +1,13 @@
 
 
+### 1.8.2 - 29/05/2015
+
+ Changes: 
+
+
+ * Fixed XSS vulnerability with contact form
+
+
 ### 1.8.1 - 29/05/2015
 
  Changes: 
