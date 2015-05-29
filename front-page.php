@@ -416,25 +416,25 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 						if(isset($nameError) && $nameError != '') :
 
-							echo '<div class="notification error"><p>'.$nameError.'</p></div>';
+							echo '<div class="notification error"><p>'.esc_html($nameError).'</p></div>';
 
 						endif;
 
 						if(isset($emailError) && $emailError != '') :
 
-							echo '<div class="notification error"><p>'.$emailError.'</p></div>';
+							echo '<div class="notification error"><p>'.esc_html($emailError).'</p></div>';
 
 						endif;
 
 						if(isset($subjectError) && $subjectError != '') :
 
-							echo '<div class="notification error"><p>'.$subjectError.'</p></div>';
+							echo '<div class="notification error"><p>'.esc_html($subjectError).'</p></div>';
 
 						endif;
 
 						if(isset($messageError) && $messageError != '') :
 
-							echo '<div class="notification error"><p>'.$messageError.'</p></div>';
+							echo '<div class="notification error"><p>'.esc_html($messageError).'</p></div>';
 
 						endif;
 
