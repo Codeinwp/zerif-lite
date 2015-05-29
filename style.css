@@ -4,7 +4,7 @@ Theme URI: http://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: http://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.8.0
+Version: 1.8.1
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -588,7 +588,7 @@ input[type="url"],
 input[type="password"],
 input[type="search"],
 textarea {
-	color: #A0A0A0;
+	color: #555;
 	border: 1px solid rgba(0, 0, 0, 0.1);
 	border-radius: 0;
 }
@@ -1507,22 +1507,6 @@ object {
 }
 .navbar-brand > img {
 	max-height: 100%;
-}		 }
-.current a {
-	color: #e96656 !important;
-	position: relative;
-	outline: none;
-}
-.current:before {
-	position: absolute;
-	margin: auto;
-	z-index: 1;
-	content: "";
-	width: 75%;
-	height: 2px;
-	background: #e96656;
-	bottom: 0px;
-	left: 12.5%;
 }
 .navbar-inverse .navbar-nav>li>a:hover {
 	color: #e96656;
@@ -1574,6 +1558,59 @@ object {
 	float: none;
 	display: inline-block;
 }
+.navbar-inverse .navbar-nav>li>a:hover, 
+.navbar-inverse .navbar-nav>li>a:focus {
+	color: #e96656;
+}
+.navbar-inverse .navbar-nav>li.current>a {
+	color: #e96656;
+	position: relative;
+	outline: none;
+}
+ul.nav > li.menu-item-home > a:before {
+	content: "";
+	display: none;
+}
+li.current>a:before {
+	position: absolute;
+	margin: auto;
+	z-index: 1;
+	content: "";
+	width: 75%;
+	height: 2px;
+	background: #e96656;
+	bottom: 0px;
+	left: 12.5%;
+}
+ul.nav > li.current_page_item > a:before {
+	position: absolute;
+	margin: auto;
+	z-index: 1;
+	content: "";
+	width: 75%;
+	height: 2px;
+	background: #e96656;
+	bottom: 0px;
+	left: 12.5%;
+	display: block;
+}
+ul.nav > li.current_page_item.menu-item-home > a:before {
+	content: "";
+	display: none;
+}
+ul.nav > li.current_page_item.current > a:before {
+	position: absolute;
+	margin: auto;
+	z-index: 1;
+	content: "";
+	width: 75%;
+	height: 2px;
+	background: #e96656;
+	bottom: 0px;
+	left: 12.5%;
+	display: block;
+}
+
 
 /*----  SECTION:  HOME > INTRO AND SHORT MSGS   ----*/
 .intro {
@@ -2008,6 +2045,10 @@ width: -webkit-calc(100% / 4);
 	color: #FFF;
 	padding-bottom: 100px;
 }
+.about-us .row {
+	margin-left: -15px;
+	margin-right: -15px;
+}
 .about-us .big-intro {
 	text-align: right;
 	font-weight: 300;
@@ -2020,7 +2061,9 @@ width: -webkit-calc(100% / 4);
 }
 .about-us p {
 	text-align: left;
-	color: #FFF;
+	color: #939393;
+	font-size: 14px;
+	line-height: 25px;
 }
 .about-us .column {
 	margin-bottom: 78px;
@@ -2028,6 +2071,7 @@ width: -webkit-calc(100% / 4);
 /*--SKILLS --*/
 .skills {
 	text-align: left;
+	margin: 0 0 0 0;
 }
 .skills .skill {
 	display: block;
@@ -2055,10 +2099,12 @@ width: -webkit-calc(100% / 4);
 	clear: none;
 	width: auto;
 	float: none;
-	margin-top: 15px;
+	margin-top: 0;
+	margin-bottom: 0;
 }
 .skills .skill p {
 	line-height: 20px;
+	font-size: 14px;
 	color: #8f8f8f;
 }
 /*--OUR CLIENTS --*/
@@ -2076,7 +2122,8 @@ width: -webkit-calc(100% / 4);
 .our-clients h5 {
 	font-weight: 700;
 	float:none;
-	margin-top: 15px;
+	margin-top: 0;
+	margin-bottom: 0
 }
 .client-list {
 	padding-top: 5px;
@@ -2705,6 +2752,19 @@ width: -webkit-calc(100% / 4);
 .g-recaptcha {
 	margin-left: 15px;
 	display: none;
+}
+.contact-us .notification p {
+	border-radius: 3px;
+	color: #FFF;
+	padding: 5px 10px;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+.contact-us .error p {
+	background: #E96656;
+}
+.contact-us .success p {
+	background: #34d293;
 }
 
 /*---------------------------------------
@@ -4610,6 +4670,15 @@ body.custom-background {
 	}
 	.this-open > a {
 		color: #e96656 !important;
+	}
+	li.current>a:before {
+		content: "";
+		display: none !important;
+	}
+	ul.nav > li.current_page_item > a:before {
+		content: "";
+		left: 0px;
+		width: 50px;
 	}
 
     /* HOME */

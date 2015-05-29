@@ -404,11 +404,11 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 						if(isset($emailSent) && $emailSent == true) :
 
-							echo '<p class="error white-text">'.__('Thanks, your email was sent successfully!','zerif-lite').'</p>';
+							echo '<div class="notification success"><p>'.__('Thanks, your email was sent successfully!','zerif-lite').'</p></div>';
 
 						elseif(isset($_POST['submitted'])):
 
-							echo '<p class="error white-text">'.__('Sorry, an error occured.','zerif-lite').'<p>';
+							echo '<div class="notification error"><p>'.__('Sorry, an error occured.','zerif-lite').'</p></div>';
 
 						endif;
 
@@ -416,31 +416,31 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 						if(isset($nameError) && $nameError != '') :
 
-							echo '<p class="error white-text">'.$nameError.'</p>';
+							echo '<div class="notification error"><p>'.$nameError.'</p></div>';
 
 						endif;
 
 						if(isset($emailError) && $emailError != '') :
 
-							echo '<p class="error white-text">'.$emailError.'</p>';
+							echo '<div class="notification error"><p>'.$emailError.'</p></div>';
 
 						endif;
 
 						if(isset($subjectError) && $subjectError != '') :
 
-							echo '<p class="error white-text">'.$subjectError.'</p>';
+							echo '<div class="notification error"><p>'.$subjectError.'</p></div>';
 
 						endif;
 
 						if(isset($messageError) && $messageError != '') :
 
-							echo '<p class="error white-text">'.$messageError.'</p>';
+							echo '<div class="notification error"><p>'.$messageError.'</p></div>';
 
 						endif;
 
 					?>
 
-					<form role="form" method="POST" action="" onSubmit="this.scrollPosition.value=document.body.scrollTop" class="contact-form">
+					<form role="form" method="POST" action="" onSubmit="this.scrollPosition.value=(document.body.scrollTop || document.documentElement.scrollTop)" class="contact-form">
 
 						<input type="hidden" name="scrollPosition">
 
@@ -448,19 +448,19 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 						<div class="col-lg-4 col-sm-4" data-scrollreveal="enter left after 0s over 1s">
 
-							<input type="text" name="myname" placeholder="Your Name" class="form-control input-box" value="<?php if(isset($_POST['myname'])) echo esc_attr($_POST['myname']);?>">
+							<input required="required" type="text" name="myname" placeholder="Your Name" class="form-control input-box" value="<?php if(isset($_POST['myname'])) echo esc_attr($_POST['myname']);?>">
 
 						</div>
 
 						<div class="col-lg-4 col-sm-4" data-scrollreveal="enter left after 0s over 1s">
 
-							<input type="email" name="myemail" placeholder="Your Email" class="form-control input-box" value="<?php if(isset($_POST['myemail'])) echo is_email($_POST['myemail']) ? $_POST['myemail'] : ""; ?>">
+							<input required="required" type="email" name="myemail" placeholder="Your Email" class="form-control input-box" value="<?php if(isset($_POST['myemail'])) echo is_email($_POST['myemail']) ? $_POST['myemail'] : ""; ?>">
 
 						</div>
 
 						<div class="col-lg-4 col-sm-4" data-scrollreveal="enter left after 0s over 1s">
 
-							<input type="text" name="mysubject" placeholder="Subject" class="form-control input-box" value="<?php if(isset($_POST['mysubject'])) echo esc_attr($_POST['mysubject']);?>">
+							<input required="required" type="text" name="mysubject" placeholder="Subject" class="form-control input-box" value="<?php if(isset($_POST['mysubject'])) echo esc_attr($_POST['mysubject']);?>">
 
 						</div>
 
