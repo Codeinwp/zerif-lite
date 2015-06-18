@@ -1648,3 +1648,26 @@ function remove_class_function( $classes ) {
     return $classes;
 
 }
+
+/* get first image from a post content or get a default image */
+function zerif_get_first_image_from_post() {
+
+	global $post, $posts;
+	
+	$zerif_first_img = '';
+	ob_start();
+	ob_end_clean();
+  
+	$output = preg_match_all('/<img.+src=[\'"]([^\'"]+)[\'"].*>/i', $post->post_content, $zerif_matches);
+	
+	if( !empty($zerif_matches[1][0]) ):
+		$zerif_first_img = '<img src="'.$zerif_matches[1][0].'">';
+	endif;	
+
+	if(empty($zerif_first_img)):
+		$zerif_first_img = '<img src="'.get_template_directory_uri().'/images/blank-latestposts.png'.'">';
+	endif;
+	
+	return $zerif_first_img;
+	
+}
