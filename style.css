@@ -4506,7 +4506,7 @@ body.custom-background {
 		height: 128px;
 	}
 	.team-member .details {
-		display: none;
+		line-height: 18px;
 	}
       /* PURCHASE NOW */
 	.purchase-now {
