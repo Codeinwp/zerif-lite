@@ -2729,6 +2729,13 @@ width: -webkit-calc(100% / 4);
 .purchase-now .red-btn:hover {
 	background: #bf3928;
 }
+.ribbon-without-button h3 {
+	text-align: center;
+}
+.ribbon-without-button .col-md-9 {
+	width: 100%;
+}
+
 /*----------------------------------------
  **   Contact us             -----
 -----------------------------------------*/
