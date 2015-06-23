@@ -500,3 +500,21 @@ if( isMobile.any() ) {
   });
     
 }
+
+/* latest news */
+jQuery(document).ready(function(){
+
+  if( jQuery( '#carousel-homepage-latestnews').length > 0 ) {
+    if( jQuery( '#carousel-homepage-latestnews div.item' ).length < 2 ) {
+      jQuery( '#carousel-homepage-latestnews > a' ).css('display','none');
+    }
+    var maxheight = 0;
+    jQuery( '#carousel-homepage-latestnews div.item' ).each(function(){
+      if( jQuery(this).height() > maxheight ) {
+        maxheight = jQuery(this).height();
+      }
+    });
+    jQuery( '#carousel-homepage-latestnews div.item' ).height(maxheight);
+  }
+
+});
