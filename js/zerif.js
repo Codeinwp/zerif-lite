@@ -164,7 +164,7 @@ jQuery(document).ready(function() {
 =================================== */
 
 jQuery(document).ready(function(){
-  jQuery('#site-navigation a[href*=#]:not([href=#])').bind('click',function () {
+  jQuery('#site-navigation a[href*=#]:not([href=#]), header.header a[href*=#]:not([href=#])').bind('click',function () {
     var headerHeight;
     var hash    = this.hash;
     var idName  = hash.substring(1);    // get id name
