@@ -73,7 +73,7 @@
 												if ( has_post_thumbnail() ) :
 													the_post_thumbnail();
 												else:
-													echo zerif_get_first_image_from_post();
+													echo '<img src="'.esc_url( get_template_directory_uri() ).'/images/blank-latestposts.png">';
 												endif; 
 
 											echo '</a>';
@@ -106,7 +106,7 @@
 												if ( has_post_thumbnail() ) :
 													the_post_thumbnail();
 												else:
-													echo zerif_get_first_image_from_post();
+													echo '<img src="'.esc_url( get_template_directory_uri() ).'/images/blank-latestposts.png">';
 												endif; 
 											echo '</a>';
 										echo '</div>';
