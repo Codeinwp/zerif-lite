@@ -2181,40 +2181,11 @@ width: -webkit-calc(100% / 4);
 /*---------------------------------------
 **   Producs            -----
 -----------------------------------------*/
-.products {
-	background: url(images/product-bg.png) 50% 0 repeat;
-}
 .products .color-overlay {
 	background: rgba(39,144,176, 0.96);
 	margin-top: -100px;
 	padding-top: 100px;
 	padding-bottom: 70px;
-}
-/*--ITEMS IMAGES--*/
-/*--ITEMS IMAGES--*/
-.item-1 {
-	background-image: url(images/products/1.jpg);
-}
-.item-2 {
-	background-image: url(images/products/2.jpg);
-}
-.item-3 {
-	background-image: url(images/products/3.jpg);
-}
-.item-4 {
-	background-image: url(images/products/4.jpg);
-}
-.item-5 {
-	background-image: url(images/products/5.jpg);
-}
-.item-6 {
-	background-image: url(images/products/6.jpg);
-}
-.item-7 {
-	background-image: url(images/products/7.jpg);
-}
-.item-8 {
-	background-image: url(images/products/8.jpg);
 }
 /*---ITEM STYLE ---*/
 .item {
