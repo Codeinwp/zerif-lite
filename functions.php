@@ -648,7 +648,7 @@ class zerif_ourfocus extends WP_Widget
 
         $instance = $old_instance;
 
-        $instance['text'] = wp_filter_post_kses($new_instance['text']);
+        $instance['text'] = stripslashes(wp_filter_post_kses($new_instance['text']));
 
         $instance['title'] = strip_tags($new_instance['title']);
 		
@@ -853,7 +853,7 @@ class zerif_testimonial_widget extends WP_Widget
 
         $instance = $old_instance;
 
-        $instance['text'] = $new_instance['text'];
+        $instance['text'] = stripslashes(wp_filter_post_kses($new_instance['text']));
 
         $instance['title'] = strip_tags($new_instance['title']);
 
@@ -1156,7 +1156,7 @@ class zerif_team_widget extends WP_Widget
 
 					<?php if( !empty($instance['position']) ): ?>
 					
-						<div class="position"><?php echo apply_filters('widget_title', $instance['position']); ?></div>
+						<div class="position"><?php echo htmlspecialchars_decode(apply_filters('widget_title', $instance['position'])); ?></div>
 				
 					<?php endif; ?>
 
@@ -1234,9 +1234,9 @@ class zerif_team_widget extends WP_Widget
 
         $instance['name'] = strip_tags($new_instance['name']);
 
-        $instance['position'] = wp_filter_post_kses($new_instance['position']);
+        $instance['position'] = stripslashes(wp_filter_post_kses($new_instance['position']));
 
-        $instance['description'] = wp_filter_post_kses($new_instance['description']);
+        $instance['description'] = stripslashes(wp_filter_post_kses($new_instance['description']));
 
         $instance['fb_link'] = strip_tags($new_instance['fb_link']);
 
