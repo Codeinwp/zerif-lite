@@ -1,5 +1,22 @@
 
 
+### 1.8.2.2 - 01/07/2015
+
+ Changes: 
+
+
+ * Fixed #153, allow widgets in our team widget, position field
+ * Fixed #131, show first image in post if no featured image is selected for latest posts section ; fixed number of latest news section posts
+ * Fixed #69, added Create an account link for the site key and secret key in contact us section
+ * Fixed #154 Our team section hover issue
+ * Fixed #156 Right ribbon when no button
+ * Hide arraws on latest news section when number of posts is less than 4
+ * Fixed #152, quotes and apostrophes in html widgets
+ * Fixed #158 Scrolling from big buttons
+ * Reverted showing first image in post, if no featured image is selected
+ * Removed unused images
+
+
 ### 1.8.2 - 29/05/2015
 
  Changes: 
