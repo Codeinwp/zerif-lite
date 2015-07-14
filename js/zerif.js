@@ -64,17 +64,17 @@ jQuery(document).ready(function() {
   jQuery('.contact-form .form-control').each(function(){
     if ( jQuery(this).val().length > 0 ){
       thisOpen = true;
-      jQuery('.g-recaptcha').css('display','block').delay(1000).css('opacity','1');
+      jQuery('.zerif-g-recaptcha').css('display','block').delay(1000).css('opacity','1');
       return false;
     }
   });
   if ( thisOpen == false && (typeof jQuery('.contact-form textarea').val() != 'undefined') && (jQuery('.contact-form textarea').val().length > 0) ) {
     thisOpen = true;
-    jQuery('.g-recaptcha').css('display','block').delay(1000).css('opacity','1');
+    jQuery('.zerif-g-recaptcha').css('display','block').delay(1000).css('opacity','1');
   }
   jQuery('.contact-form input, .contact-form textarea').focus(function(){
-    if ( !jQuery('.g-recaptcha').hasClass('recaptcha-display') ) {
-        jQuery('.g-recaptcha').css('display','block').delay(1000).css('opacity','1');
+    if ( !jQuery('.zerif-g-recaptcha').hasClass('recaptcha-display') ) {
+        jQuery('.zerif-g-recaptcha').css('display','block').delay(1000).css('opacity','1');
     }
   });
 
