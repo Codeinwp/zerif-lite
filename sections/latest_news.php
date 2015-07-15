@@ -43,82 +43,87 @@
 					/* Wrapper for slides */
 					
 					echo '<div class="carousel-inner" role="listbox">';
-
+						
+						
 						$zerif_latest_loop = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => $zerif_total_posts, 'order' => 'DESC','ignore_sticky_posts' => true ) );
-
+						
 						$newSlideActive = '<div class="item active">';
 						$newSlide 		= '<div class="item">';
 						$newSlideClose 	= '<div class="clear"></div></div>';
 						$i_latest_posts= 0;
 						
-						while ( $zerif_latest_loop->have_posts() ) : $zerif_latest_loop->the_post();
-
-							$i_latest_posts++;
-
-							if ( !wp_is_mobile() ){
-
-									if($i_latest_posts == 1){
-										echo $newSlideActive;
-									}
-									else if($i_latest_posts % 4 == 1){
-										echo $newSlide;
-									}
+						if ( $zerif_latest_loop->have_posts() ) :
+						
+							while ( $zerif_latest_loop->have_posts() ) : $zerif_latest_loop->the_post();
 								
-									echo '<div class="col-sm-3 latestnews-box">';
+								$i_latest_posts++;
 
-										echo '<div class="latestnews-img">';
-										
-											echo '<a href="'.get_permalink().'" title="'.get_the_title().'">';
+								if ( !wp_is_mobile() ){
 
-												if ( has_post_thumbnail() ) :
-													the_post_thumbnail();
-												else:
-													echo '<img src="'.esc_url( get_template_directory_uri() ).'/images/blank-latestposts.png">';
-												endif; 
+										if($i_latest_posts == 1){
+											echo $newSlideActive;
+										}
+										else if($i_latest_posts % 4 == 1){
+											echo $newSlide;
+										}
+									
+										echo '<div class="col-sm-3 latestnews-box">';
 
-											echo '</a>';
+											echo '<div class="latestnews-img">';
 											
-										echo '</div>';
+												echo '<a href="'.get_permalink().'" title="'.get_the_title().'">';
 
-										echo '<div class="latesnews-content">';
+													if ( has_post_thumbnail() ) :
+														the_post_thumbnail();
+													else:
+														echo '<img src="'.esc_url( get_template_directory_uri() ).'/images/blank-latestposts.png">';
+													endif; 
 
-											echo '<h5 class="latestnews-title"><a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_title().'</a></h5>';
+												echo '</a>';
+												
+											echo '</div>';
 
-											the_excerpt();
+											echo '<div class="latesnews-content">';
 
-										echo '</div>';
+												echo '<h5 class="latestnews-title"><a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_title().'</a></h5>';
 
-									echo '</div><!-- .latestnews-box"> -->';
+												the_excerpt();
 
-									/* after every four posts it must closing the '.item' */
-									if($i_latest_posts % 4 == 0){
-										echo $newSlideClose;
-									}
+											echo '</div>';
 
-							} else {
+										echo '</div><!-- .latestnews-box"> -->';
 
-								if( $i_latest_posts == 1 ) $active = 'active'; else $active = ''; 
-		
-								echo '<div class="item '.$active.'">';
-									echo '<div class="col-md-3 latestnews-box">';
-										echo '<div class="latestnews-img">';
-											echo '<a href="'.get_permalink().'" title="'.get_the_title().'">';
-												if ( has_post_thumbnail() ) :
-													the_post_thumbnail();
-												else:
-													echo '<img src="'.esc_url( get_template_directory_uri() ).'/images/blank-latestposts.png">';
-												endif; 
-											echo '</a>';
-										echo '</div>';
-										echo '<div class="latesnews-content">';
-											echo '<h5 class="latestnews-title"><a href="'.get_the_permalink().'" title="'.get_the_title().'">'.get_the_title().'</a></h5>';
-											the_excerpt();
+										/* after every four posts it must closing the '.item' */
+										if($i_latest_posts % 4 == 0){
+											echo $newSlideClose;
+										}
+
+								} else {
+
+									if( $i_latest_posts == 1 ) $active = 'active'; else $active = ''; 
+			
+									echo '<div class="item '.$active.'">';
+										echo '<div class="col-md-3 latestnews-box">';
+											echo '<div class="latestnews-img">';
+												echo '<a href="'.get_permalink().'" title="'.get_the_title().'">';
+													if ( has_post_thumbnail() ) :
+														the_post_thumbnail();
+													else:
+														echo '<img src="'.esc_url( get_template_directory_uri() ).'/images/blank-latestposts.png">';
+													endif; 
+												echo '</a>';
+											echo '</div>';
+											echo '<div class="latesnews-content">';
+												echo '<h5 class="latestnews-title"><a href="'.get_the_permalink().'" title="'.get_the_title().'">'.get_the_title().'</a></h5>';
+												the_excerpt();
+											echo '</div>';
 										echo '</div>';
 									echo '</div>';
-								echo '</div>';
-							}
+								}
+							
+							endwhile;
 						
-						endwhile;
+						endif;	
 
 						if ( !wp_is_mobile() ) {
 
