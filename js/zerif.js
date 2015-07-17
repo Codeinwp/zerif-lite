@@ -518,3 +518,28 @@ jQuery(document).ready(function(){
   }
 
 });
+
+/* fix for IE9 placeholders */
+
+jQuery(document).ready(function(){
+	
+	if (document.createElement("input").placeholder == undefined) {
+	
+		jQuery('.contact-form input, .contact-form textarea').focus(function () {
+			if ( (jQuery(this).attr('placeholder') != '') && (jQuery(this).val() == jQuery(this).attr('placeholder')) ) {
+				jQuery(this).val('').removeClass('zerif-hasPlaceholder');
+			}
+		}).blur(function () {
+			if ( (jQuery(this).attr('placeholder') != '') && (jQuery(this).val() == '' || (jQuery(this).val() == jQuery(this).attr('placeholder')))) {
+				jQuery(this).val(jQuery(this).attr('placeholder')).addClass('zerif-hasPlaceholder');
+			}
+		});
+		
+		jQuery('.contact-form input').blur();
+		jQuery('.contact-form textarea').blur();
+		
+		jQuery('form.contact-form').submit(function () {
+			jQuery(this).find('.zerif-hasPlaceholder').each(function() { jQuery(this).val(''); });
+		});
+	}
+});
