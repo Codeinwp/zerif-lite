@@ -446,19 +446,19 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 						<input type="hidden" name="submitted" id="submitted" value="true" />
 
-						<div class="col-lg-4 col-sm-4" data-scrollreveal="enter left after 0s over 1s">
+						<div class="col-lg-4 col-sm-4 zerif-rtl-contact-name" data-scrollreveal="enter left after 0s over 1s">
 
 							<input required="required" type="text" name="myname" placeholder="<?php _e('Your Name','zerif-lite'); ?>" class="form-control input-box" value="<?php if(isset($_POST['myname'])) echo esc_attr($_POST['myname']);?>">
 
 						</div>
 
-						<div class="col-lg-4 col-sm-4" data-scrollreveal="enter left after 0s over 1s">
+						<div class="col-lg-4 col-sm-4 zerif-rtl-contact-email" data-scrollreveal="enter left after 0s over 1s">
 
 							<input required="required" type="email" name="myemail" placeholder="<?php _e('Your Email','zerif-lite'); ?>" class="form-control input-box" value="<?php if(isset($_POST['myemail'])) echo is_email($_POST['myemail']) ? $_POST['myemail'] : ""; ?>">
 
 						</div>
 
-						<div class="col-lg-4 col-sm-4" data-scrollreveal="enter left after 0s over 1s">
+						<div class="col-lg-4 col-sm-4 zerif-rtl-contact-subject" data-scrollreveal="enter left after 0s over 1s">
 
 							<input required="required" type="text" name="mysubject" placeholder="<?php _e('Subject','zerif-lite'); ?>" class="form-control input-box" value="<?php if(isset($_POST['mysubject'])) echo esc_attr($_POST['mysubject']);?>">
 
