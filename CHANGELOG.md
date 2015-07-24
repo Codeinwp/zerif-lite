@@ -1,5 +1,22 @@
 
 
+### 1.8.2.2 - 24/07/2015
+
+ Changes: 
+
+
+ * Fixed #157, upload image button in widgets
+ * Fixed #149, issue with reCaptcha
+ * Fixed #164, added bootstrap glyphicons
+ * Fixed #141, translations for contact form placeholders and added default po and mo file, plus translations for romanian
+ * Update class-tgm-plugin-activation to latest version
+ * Fixed #57, placeholders for contact form in IE9
+ * Update .pot file
+ * Fixed #166 RTL issue
+ * Fixed #162 Home latest news responsive issue AND unclosed elements issue
+ * Removed glyphicon
+
+
 ### 1.8.2.2 - 01/07/2015
 
  Changes: 
