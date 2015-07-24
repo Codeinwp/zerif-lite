@@ -80,7 +80,7 @@
 				if( !empty($zerif_aboutus_biglefttitle) ):
 
 
-					echo '<div class="col-lg-' . $colCount . ' col-md-' . $colCount . ' column">';
+					echo '<div class="col-lg-' . $colCount . ' col-md-' . $colCount . ' column zerif-rtl-big-title">';
 
 
 						echo '<div class="big-intro" data-scrollreveal="enter left after 0s over 1s">';
@@ -100,7 +100,7 @@
 
 			if( !empty($zerif_aboutus_text) ):
 
-				echo '<div class="col-lg-' . $colCount . ' col-md-' . $colCount . ' column" data-scrollreveal="enter bottom after 0s over 1s">';
+				echo '<div class="col-lg-' . $colCount . ' col-md-' . $colCount . ' column zerif_about_us_center" data-scrollreveal="enter bottom after 0s over 1s">';
 
 
 						echo '<p>';
@@ -126,7 +126,7 @@
 		<!-- COLUMN 1 - SKILSS-->
 
 
-		<div class="col-lg-<?php echo $colCount; ?> col-md-<?php echo $colCount; ?> column">
+		<div class="col-lg-<?php echo $colCount; ?> col-md-<?php echo $colCount; ?> column zerif-rtl-skills ">
 
 
 			<ul class="skills" data-scrollreveal="enter right after 0s over 1s">

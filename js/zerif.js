@@ -64,17 +64,17 @@ jQuery(document).ready(function() {
   jQuery('.contact-form .form-control').each(function(){
     if ( jQuery(this).val().length > 0 ){
       thisOpen = true;
-      jQuery('.g-recaptcha').css('display','block').delay(1000).css('opacity','1');
+      jQuery('.zerif-g-recaptcha').css('display','block').delay(1000).css('opacity','1');
       return false;
     }
   });
   if ( thisOpen == false && (typeof jQuery('.contact-form textarea').val() != 'undefined') && (jQuery('.contact-form textarea').val().length > 0) ) {
     thisOpen = true;
-    jQuery('.g-recaptcha').css('display','block').delay(1000).css('opacity','1');
+    jQuery('.zerif-g-recaptcha').css('display','block').delay(1000).css('opacity','1');
   }
   jQuery('.contact-form input, .contact-form textarea').focus(function(){
-    if ( !jQuery('.g-recaptcha').hasClass('recaptcha-display') ) {
-        jQuery('.g-recaptcha').css('display','block').delay(1000).css('opacity','1');
+    if ( !jQuery('.zerif-g-recaptcha').hasClass('recaptcha-display') ) {
+        jQuery('.zerif-g-recaptcha').css('display','block').delay(1000).css('opacity','1');
     }
   });
 
@@ -502,19 +502,48 @@ if( isMobile.any() ) {
 }
 
 /* latest news */
-jQuery(document).ready(function(){
-
+jQuery(window).load(zerif_home_latest_news);
+jQuery(window).resize(zerif_home_latest_news);
+function zerif_home_latest_news(){
   if( jQuery( '#carousel-homepage-latestnews').length > 0 ) {
-    if( jQuery( '#carousel-homepage-latestnews div.item' ).length < 2 ) {
-      jQuery( '#carousel-homepage-latestnews > a' ).css('display','none');
-    }
-    var maxheight = 0;
-    jQuery( '#carousel-homepage-latestnews div.item' ).each(function(){
-      if( jQuery(this).height() > maxheight ) {
-        maxheight = jQuery(this).height();
+    jQuery( '#carousel-homepage-latestnews div.item' ).height('auto');
+    if( isMobile.any() || (!isMobile.any() && jQuery('.container').outerWidth()>768) ) {
+  
+      if( jQuery( '#carousel-homepage-latestnews div.item' ).length < 2 ) {
+        jQuery( '#carousel-homepage-latestnews > a' ).css('display','none');
       }
-    });
-    jQuery( '#carousel-homepage-latestnews div.item' ).height(maxheight);
+      var maxheight = 0;
+      jQuery( '#carousel-homepage-latestnews div.item' ).each(function(){
+        if( jQuery(this).height() > maxheight ) {
+          maxheight = jQuery(this).height();
+        }
+      });
+      jQuery( '#carousel-homepage-latestnews div.item' ).height(maxheight);
+    }
   }
+}
 
+/* fix for IE9 placeholders */
+
+jQuery(document).ready(function(){
+	
+	if (document.createElement("input").placeholder == undefined) {
+	
+		jQuery('.contact-form input, .contact-form textarea').focus(function () {
+			if ( (jQuery(this).attr('placeholder') != '') && (jQuery(this).val() == jQuery(this).attr('placeholder')) ) {
+				jQuery(this).val('').removeClass('zerif-hasPlaceholder');
+			}
+		}).blur(function () {
+			if ( (jQuery(this).attr('placeholder') != '') && (jQuery(this).val() == '' || (jQuery(this).val() == jQuery(this).attr('placeholder')))) {
+				jQuery(this).val(jQuery(this).attr('placeholder')).addClass('zerif-hasPlaceholder');
+			}
+		});
+		
+		jQuery('.contact-form input').blur();
+		jQuery('.contact-form textarea').blur();
+		
+		jQuery('form.contact-form').submit(function () {
+			jQuery(this).find('.zerif-hasPlaceholder').each(function() { jQuery(this).val(''); });
+		});
+	}
 });

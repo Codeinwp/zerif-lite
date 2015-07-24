@@ -2731,7 +2731,7 @@ width: -webkit-calc(100% / 4);
 	float: right;
 	margin-right: 15px;
 }
-.g-recaptcha {
+.zerif-g-recaptcha {
 	margin-left: 15px;
 	display: none;
 }

@@ -16,7 +16,7 @@
 
 ?>
 
-
+	</div><!-- .site-content -->
 
 <footer id="footer">
 

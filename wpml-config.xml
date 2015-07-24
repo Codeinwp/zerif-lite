@@ -47,6 +47,6 @@
 			<key name='zerif_contactus_button_label' />
 			<key name='zerif_contactus_sitekey' />
 			<key name='zerif_contactus_secretkey' />
-		</key>	
+		</key>
     </admin-texts>
 </wpml-config>
