@@ -257,7 +257,28 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 					$body = "Name: $name \n\nEmail: $email \n\n Subject: $subject \n\n Message: $message";
 
 
-					$headers = 'From: '.$name.' <'.$emailTo.'>' . "\r\n" . 'Reply-To: ' . $email;
+					/* FIXED HEADERS FOR EMAIL NOT GOING TO SPAM */
+					$zerif_admin_email = get_option( 'admin_email' );
+					$zerif_sitename = strtolower( $_SERVER['SERVER_NAME'] );
+
+					function zerif_is_localhost() {
+						$zerif_server_name = strtolower( $_SERVER['SERVER_NAME'] );
+						return in_array( $zerif_server_name, array( 'localhost', '127.0.0.1' ) );
+					}
+					
+					if ( zerif_is_localhost() ) {
+					
+						$headers = 'From: '.$name.' <'.$zerif_admin_email.'>' . "\r\n" . 'Reply-To: ' . $email;
+						
+					} else {
+					
+						if ( substr( $zerif_sitename, 0, 4 ) == 'www.' ) {
+							$zerif_sitename = substr( $zerif_sitename, 4 );
+						}
+						
+						$headers = 'From: '.$name.' <wordpress@'.$zerif_sitename.'>' . "\r\n" . 'Reply-To: ' . $email;
+						
+					}
 
 
 					wp_mail($emailTo, $subject, $body, $headers);
