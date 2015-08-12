@@ -348,6 +348,11 @@ function zerif_scripts()
 
     }
 
+    /* parallax effect */
+    if ( !wp_is_mobile() ){
+        wp_enqueue_script( 'zerif_parallax', get_template_directory_uri() . '/js/parallax.js', array("jquery"), 'v1', true  );
+    }
+
 	add_editor_style('/css/custom-editor-style.css');
 }
 

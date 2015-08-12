@@ -547,3 +547,31 @@ jQuery(document).ready(function(){
 		});
 	}
 });
+
+
+
+/* Header section */
+jQuery(document).ready(parallax_effect);
+jQuery(window).resize(parallax_effect);
+
+function parallax_effect(){
+
+    if( jQuery('#parallax_move').length>0 ) {
+        var scene = document.getElementById('parallax_move');
+        var window_width = jQuery(window).outerWidth();
+        jQuery('#parallax_move').css({
+        'width':            window_width + 120,
+        'margin-left':      -60,
+        'margin-top':       -60,
+        'position':         'absolute',
+        });
+        var h = jQuery('header#home').outerHeight();
+        jQuery('#parallax_move').children().each(function(){
+        jQuery(this).css({
+            'height': h+100,
+        });
+        });
+        var parallax = new Parallax(scene);
+    }
+
+}

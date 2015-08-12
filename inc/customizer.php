@@ -1195,6 +1195,32 @@ function zerif_customize_register( $wp_customize ) {
 				'priority'    => 8,
 	));
 	
+
+	/*******************************************************/
+    /************	PARALLAX IMAGES *********************/
+	/*******************************************************/
+	$wp_customize->add_section( 'zerif_parallax_section' , array(
+			'title'       => __( 'Parallax effect', 'zerif-lite' ),
+    	  	'priority'    => 60
+	));
+	/* IMAGE 1*/
+	$wp_customize->add_setting( 'zerif_parallax_img1', array('sanitize_callback' => 'esc_url_raw', 'default' => get_template_directory_uri() . '/images/background1.png'));
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themeslug_parallax_img1', array(
+			'label'    	=> __( 'Image 1', 'zerif-lite' ),
+			'section'  	=> 'zerif_parallax_section',
+			'settings' 	=> 'zerif_parallax_img1',
+			'priority'	=> 1,
+	)));
+	/* IMAGE 2 */
+	$wp_customize->add_setting( 'zerif_parallax_img2', array('sanitize_callback' => 'esc_url_raw', 'default' => get_template_directory_uri() . '/images/background2.png'));
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themeslug_parallax_img2', array(
+			'label'    	=> __( 'Image 2', 'zerif-lite' ),
+			'section'  	=> 'zerif_parallax_section',
+			'settings' 	=> 'zerif_parallax_img2',
+			'priority'	=> 2,
+	)));
+
+
 	/* Google maps section */
 	
 	$wp_customize->add_section( 'zerif_googlemap_section' , array(
