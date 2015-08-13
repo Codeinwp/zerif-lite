@@ -1215,7 +1215,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 	/* IMAGE 1*/
-	$wp_customize->add_setting( 'zerif_parallax_img1', array('sanitize_callback' => 'esc_url_raw', 'default' => get_template_directory_uri() . '/images/background1.png'));
+	$wp_customize->add_setting( 'zerif_parallax_img1', array('sanitize_callback' => 'esc_url_raw', 'default' => get_template_directory_uri() . '/images/background1.jpg'));
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themeslug_parallax_img1', array(
 			'label'    	=> __( 'Image 1', 'zerif-lite' ),
 			'section'  	=> 'zerif_parallax_section',
