@@ -66,6 +66,12 @@ The exceptions to this license are as follows:
 		  
 		 * images/testimonial3.jpg
 			Source: https://download.unsplash.com/photo-1428471226620-c2698eadf413
+
+		* images/background1.jpg
+			Source: https://images.unsplash.com/6/mountain.JPG?q=80&fm=jpg&s=29a8bc12575bcf1bb879cb20f2aa9493
+
+		* images/background2.png
+			Source: https://images.unsplash.com/photo-1434828927397-62ea053f7a35?q=80&fm=jpg&s=63163124f8cdba56cee68aeb55bcfbdf
  
  * Font Awesome
  
