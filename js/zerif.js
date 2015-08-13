@@ -640,10 +640,11 @@ jQuery(window).resize(function() {
             columns_height  = [],
             prefix          = 'zerif',
             unique_class    = prefix + '_grid_' + self.make_unique();
+            local_class     = prefix + '_grid';
         var classname;
         var substr_index    = this.element.className.indexOf(prefix+'_grid_');
         if( substr_index>-1 ) {
-            classname = this.element.className.substr( 0, this.element.className.length-35-prefix.length );
+            classname = this.element.className.substr( 0, this.element.className.length-unique_class.length-local_class.length );
         } else {
             classname = this.element.className;
         }
@@ -653,7 +654,7 @@ jQuery(window).resize(function() {
         } else {
             my_id = this.element.id;
         }
-        $container.after('<div id="' + my_id + '" class="' + classname + ' ' + prefix + '_grid ' + unique_class + '"></div>');
+        $container.after('<div id="' + my_id + '" class="' + classname + ' ' + local_class + ' ' + unique_class + '"></div>');
         var i;
         for(i=1; i<=this.options.columns; i++){
             columns_height.push(0);
@@ -663,7 +664,7 @@ jQuery(window).resize(function() {
             if( i%self.options.columns == 0 ) { first_cols = prefix + '_grid_last'; }
             $('.'+unique_class).append('<div class="' + prefix + '_grid_col_' + this.options.columns +' ' + prefix + '_grid_column_' + i +' ' + first_cols + ' ' + last_cols + '"></div>');
         }
-        if( this.element.className.indexOf(prefix + '_grid')<0 ){
+        if( this.element.className.indexOf(local_class)<0 ){
             $container.children(this.options.selector).each(function(index){
                 var min = Math.min.apply(null,columns_height);
                 var this_index = columns_height.indexOf(min)+1;
