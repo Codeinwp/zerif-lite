@@ -936,6 +936,17 @@ function zerif_customize_register( $wp_customize ) {
 			'priority'    => 1,
 		)
 	);
+    /* testimonial pinterest layout */
+	$wp_customize->add_setting( 'zerif_testimonials_pinterest_style');
+	$wp_customize->add_control(
+		'zerif_testimonials_pinterest_style',
+		array(
+			'type' 			=> 'checkbox',
+			'label' 		=> __('Use pinterest layout?','zerif'),
+			'section' 		=> 'zerif_testimonials_section',
+			'priority'    	=> 2,
+		)
+	);	
 	/* testimonials title */
 	$wp_customize->add_setting( 'zerif_testimonials_title', array('sanitize_callback' => 'zerif_sanitize_text','default' => __('Testimonials','zerif-lite')));
 	$wp_customize->add_control( 'zerif_testimonials_title', array(
@@ -951,7 +962,8 @@ function zerif_customize_register( $wp_customize ) {
 	      	'section'  => 'zerif_testimonials_section',
 	      	'settings' => 'zerif_testimonials_subtitle',
 			'priority'    => 3,
-	));
+	));	
+	$wp_customize->get_setting( 'zerif_testimonials_pinterest_style' )->transport = 'postMessage';
 	/**********************************************/
     /**********	LATEST NEWS SECTION **************/
 	/**********************************************/

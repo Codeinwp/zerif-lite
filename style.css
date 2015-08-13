@@ -2696,6 +2696,43 @@ width: -webkit-calc(100% / 4);
 	user-select: none;
 	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
+.zerif_grid_col_4 > div,
+.zerif_grid_col_3 > div,
+.zerif_grid_col_2 > div,
+.zerif_grid_col_1 > div {
+	margin-bottom: 30px;
+	text-align: center;
+}
+.zerif_grid_col_4 {
+	float: left;
+	width: 23%;
+	margin: 0 1.25% 0 1.25%;
+}
+.zerif_grid_col_3 {
+    float: left;
+    width: 31.5%;
+    margin: 0 1.25% 0 1.25%;
+}
+.zerif_grid_col_2 {
+	float: left;
+	width: 48%;
+	margin: 0 1.75% 0 1.75%;
+}
+.zerif_grid_col_1 {
+	float: left;
+	width: 100%;
+}
+.zerif_grid_first {
+	margin-left: 0;
+	padding-left: 0;
+}
+.zerif_grid_last {
+	margin-right: 0;
+	padding-right: 0;
+}
+#client-feedbacks.zerif_grid .feedback-box {
+	width: 100%;
+}
 /*----------------------------------------
  **   Purchase now           -----
 -----------------------------------------*/

@@ -587,3 +587,114 @@ function parallax_effect(){
     }
 
 }
+
+
+/* testimonial Masonry style */
+var window_width_old;
+var exist_class = false;
+jQuery(document).ready(function(){
+  if( jQuery('.testimonial-masonry').length>0 ){
+    exist_class = true;
+    window_width_old = jQuery('.container').outerWidth();
+    if( window_width_old < 970 ) {
+        jQuery('.testimonial-masonry').zerifgridpinterest({columns: 1,selector: '.zerif_testim'});
+    } else {
+        jQuery('.testimonial-masonry').zerifgridpinterest({columns: 3,selector: '.zerif_testim'});
+    }
+  }
+});
+
+jQuery(window).resize(function() {
+    if( window_width_old != jQuery('.container').outerWidth() && exist_class === true ){
+        window_width_old = jQuery('.container').outerWidth();
+        if( window_width_old < 970 ) {
+            jQuery('.testimonial-masonry').zerifgridpinterest({columns: 1,selector: '.zerif_testim'});
+        } else {
+            jQuery('.testimonial-masonry').zerifgridpinterest({columns: 3,selector: '.zerif_testim'});
+        }
+    }
+});
+
+
+;(function ($, window, document, undefined) {
+    var defaults = {
+            columns:                3,
+            selector:               'div',
+            excludeParentClass:     '',
+        };
+    function ZerifGridPinterest(element, options) {
+        this.element    = element;
+        this.options    = $.extend({}, defaults, options);
+        this.defaults   = defaults;
+        this.init();
+    }
+    ZerifGridPinterest.prototype.init = function () {
+        var self            = this,
+            $container      = $(this.element);
+            $select_options = $(this.element).children();
+        self.make_magic( $container, $select_options );
+    };
+    ZerifGridPinterest.prototype.make_magic = function (container) {
+        var self            = this;
+            $container      = $(container),
+            columns_height  = [],
+            prefix          = 'zerif',
+            unique_class    = prefix + '_grid_' + self.make_unique();
+        var classname;
+        var substr_index    = this.element.className.indexOf(prefix+'_grid_');
+        if( substr_index>-1 ) {
+            classname = this.element.className.substr( 0, this.element.className.length-35-prefix.length );
+        } else {
+            classname = this.element.className;
+        }
+        var my_id;
+        if( this.element.id == '' ) {
+            my_id = prefix+'_id_' + self.make_unique();
+        } else {
+            my_id = this.element.id;
+        }
+        $container.after('<div id="' + my_id + '" class="' + classname + ' ' + prefix + '_grid ' + unique_class + '"></div>');
+        var i;
+        for(i=1; i<=this.options.columns; i++){
+            columns_height.push(0);
+            var first_cols = '';
+            var last_cols = '';
+            if( i%self.options.columns == 1 ) { first_cols = prefix + '_grid_first'; }
+            if( i%self.options.columns == 0 ) { first_cols = prefix + '_grid_last'; }
+            $('.'+unique_class).append('<div class="' + prefix + '_grid_col_' + this.options.columns +' ' + prefix + '_grid_column_' + i +' ' + first_cols + ' ' + last_cols + '"></div>');
+        }
+        if( this.element.className.indexOf(prefix + '_grid')<0 ){
+            $container.children(this.options.selector).each(function(index){
+                var min = Math.min.apply(null,columns_height);
+                var this_index = columns_height.indexOf(min)+1;
+                $(this).attr(prefix+'grid-attr','this-'+index).appendTo('.'+unique_class +' .' + prefix + '_grid_column_'+this_index);
+                columns_height[this_index-1] = $('.'+unique_class +' .' + prefix + '_grid_column_'+this_index).height();
+            });
+        } else {
+            var no_boxes = $container.find(this.options.selector).length;
+            var i;
+            for( i=0; i<no_boxes; i++ ){
+                var min = Math.min.apply(null,columns_height);
+                var this_index = columns_height.indexOf(min)+1;
+                $('#'+this.element.id).find('['+prefix+'grid-attr="this-'+i+'"]').appendTo('.'+unique_class +' .' + prefix + '_grid_column_'+this_index);
+                columns_height[this_index-1] = $('.'+unique_class +' .' + prefix + '_grid_column_'+this_index).height();
+            }
+        }
+        $container.remove();
+    }
+    ZerifGridPinterest.prototype.make_unique = function () {
+        var text = "";
+        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        for( var i=0; i<10; i++ )
+            text += possible.charAt(Math.floor(Math.random() * possible.length));
+        return text;
+    }
+    $.fn.zerifgridpinterest = function (options) {
+        return this.each(function () {
+            var value = '';
+            if (!$.data(this, value)) {
+                $.data(this, value, new ZerifGridPinterest(this, options) );
+            }
+        });
+    }
+})(jQuery);
