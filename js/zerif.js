@@ -557,21 +557,33 @@ jQuery(window).resize(parallax_effect);
 function parallax_effect(){
 
     if( jQuery('#parallax_move').length>0 ) {
-        var scene = document.getElementById('parallax_move');
-        var window_width = jQuery(window).outerWidth();
-        jQuery('#parallax_move').css({
+      var scene = document.getElementById('parallax_move');
+      var window_width = jQuery(window).outerWidth();
+      jQuery('#parallax_move').css({
         'width':            window_width + 120,
         'margin-left':      -60,
         'margin-top':       -60,
         'position':         'absolute',
-        });
-        var h = jQuery('header#home').outerHeight();
-        jQuery('#parallax_move').children().each(function(){
+      });
+      var h = jQuery('header#home').outerHeight();
+      jQuery('#parallax_move').children().each(function(){
         jQuery(this).css({
             'height': h+100,
         });
-        });
+      });
+      if( !isMobile.any() ) {
         var parallax = new Parallax(scene);
+      } else {
+        jQuery('#parallax_move').css({
+          'z-index': '0',
+        });
+        jQuery('#parallax_move .layer').css({
+          'position': 'absolute',
+          'top': '0',
+          'left': '0',
+          'z-index': '1',
+        });
+      }
     }
 
 }
