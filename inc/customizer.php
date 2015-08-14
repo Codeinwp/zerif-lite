@@ -937,7 +937,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
     /* testimonial pinterest layout */
-	$wp_customize->add_setting( 'zerif_testimonials_pinterest_style');
+	$wp_customize->add_setting( 'zerif_testimonials_pinterest_style', array('sanitize_callback' => 'zerif_sanitize_text'));
 	$wp_customize->add_control(
 		'zerif_testimonials_pinterest_style',
 		array(
@@ -963,7 +963,6 @@ function zerif_customize_register( $wp_customize ) {
 	      	'settings' => 'zerif_testimonials_subtitle',
 			'priority'    => 3,
 	));	
-	$wp_customize->get_setting( 'zerif_testimonials_pinterest_style' )->transport = 'postMessage';
 	/**********************************************/
     /**********	LATEST NEWS SECTION **************/
 	/**********************************************/
