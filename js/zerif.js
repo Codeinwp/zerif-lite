@@ -644,7 +644,7 @@ jQuery(window).resize(function() {
         var classname;
         var substr_index    = this.element.className.indexOf(prefix+'_grid_');
         if( substr_index>-1 ) {
-            classname = this.element.className.substr( 0, this.element.className.length-unique_class.length-local_class.length );
+            classname = this.element.className.substr( 0, this.element.className.length-unique_class.length-local_class.length-2 );
         } else {
             classname = this.element.className;
         }
