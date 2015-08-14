@@ -551,7 +551,7 @@ jQuery(document).ready(function(){
 
 
 /* Header section */
-jQuery(document).ready(parallax_effect);
+jQuery(window).load(parallax_effect);
 jQuery(window).resize(parallax_effect);
 
 function parallax_effect(){
