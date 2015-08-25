@@ -147,6 +147,13 @@ function zerif_setup()
 	
 		/* woocommerce support */
 		add_theme_support( 'woocommerce' );
+		
+	/**
+	* Welcome screen
+	*/
+	if ( is_admin() ) {
+		require get_template_directory() . '/inc/admin/welcome-screen/welcome-screen.php';
+	}
 
 }
 
