@@ -1,161 +1,162 @@
 <?php
 /**
  * Welcome Screen Class
- * Sets up the welcome screen page, hides the menu item
- * and contains the screen content.
  */
 class Zerif_Welcome {
 
 	/**
-	 * Constructor
-	 * Sets up the welcome screen
+	 * Constructor for the welcome screen
 	 */
 	public function __construct() {
 
-		add_action( 'admin_menu', array( $this, 'storefront_welcome_register_menu' ) );
-		add_action( 'load-themes.php', array( $this, 'storefront_activation_admin_notice' ) );
-		add_action( 'admin_enqueue_scripts', array( $this, 'storefront_welcome_style' ) );
+		/* create dashbord page */
+		add_action( 'admin_menu', array( $this, 'zerif_lite_welcome_register_menu' ) );
 
-		add_action( 'storefront_welcome', array( $this, 'storefront_welcome_intro' ), 				10 );
-		add_action( 'storefront_welcome', array( $this, 'storefront_welcome_getting_started' ), 	30 );
-		add_action( 'storefront_welcome', array( $this, 'storefront_welcome_github' ), 		        40 );
-		add_action( 'storefront_welcome', array( $this, 'storefront_welcome_child_themes' ), 		50 );
-		add_action( 'storefront_welcome', array( $this, 'storefront_welcome_who' ), 				60 );
-		add_action( 'storefront_welcome', array( $this, 'storefront_welcome_news' ), 				70 );
-		
-	} // end constructor
+		/* activation notice */
+		add_action( 'load-themes.php', array( $this, 'zerif_lite_activation_admin_notice' ) );
 
-	/**
-	 * Adds an admin notice upon successful activation.
-	 * @since 1.0.3
-	 */
-	public function storefront_activation_admin_notice() {
-		global $pagenow;
+		/* enqueue script and style for welcome screen */
+		add_action( 'admin_enqueue_scripts', array( $this, 'zerif_lite_welcome_style_and_scripts' ) );
 
-		if ( is_admin() && 'themes.php' == $pagenow && isset( $_GET['activated'] ) ) { // input var okay
-			add_action( 'admin_notices', array( $this, 'storefront_welcome_admin_notice' ), 99 );
-		}
-	}
+		/* load welcome screen */
+		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_welcome' ), 				10 );
+		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_getting_started' ), 	    20 );
+		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_news' ), 				    30 );
+		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_child_themes' ), 		    40 );
+		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_github' ), 		            50 );
+		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_about_us' ), 				60 );
 
-	/**
-	 * Display an admin notice linking to the welcome screen
-	 * @since 1.0.3
-	 */
-	public function storefront_welcome_admin_notice() {
-		?>
-			<div class="updated notice is-dismissible">
-				<p><?php echo sprintf( esc_html__( 'Thanks for choosing Storefront! You can read hints and tips on how get the most out of your new theme on the %swelcome screen%s.', 'storefront' ), '<a href="' . esc_url( admin_url( 'themes.php?page=storefront-welcome' ) ) . '">', '</a>' ); ?></p>
-				<p><a href="<?php echo esc_url( admin_url( 'themes.php?page=storefront-welcome' ) ); ?>" class="button" style="text-decoration: none;"><?php _e( 'Get started with Storefront', 'storefront' ); ?></a></p>
-			</div>
-		<?php
-	}
-
-	/**
-	 * Load welcome screen css
-	 * @return void
-	 * @since  1.4.4
-	 */
-	public function storefront_welcome_style( $hook_suffix ) {
-		global $storefront_version;
-
-		if ( 'appearance_page_storefront-welcome' == $hook_suffix ) {
-			wp_enqueue_style( 'storefront-welcome-screen', get_template_directory_uri() . '/inc/admin/welcome-screen/css/welcome.css', $storefront_version );
-			wp_enqueue_script( 'storefront-welcome-screen-js', get_template_directory_uri() . '/inc/admin/welcome-screen/js/welcome.js', array('jquery'), $storefront_version );
-			wp_enqueue_style( 'thickbox' );
-			wp_enqueue_script( 'thickbox' );
-		}
 	}
 
 	/**
 	 * Creates the dashboard page
 	 * @see  add_theme_page()
-	 * @since 1.0.0
+	 * @since 1.8.2.4
 	 */
-	public function storefront_welcome_register_menu() {
-		add_theme_page( 'Zerif Lite', 'Zerif Lite', 'activate_plugins', 'storefront-welcome', array( $this, 'storefront_welcome_screen' ) );
+	public function zerif_lite_welcome_register_menu() {
+		add_theme_page( 'Zerif Lite', 'Zerif Lite', 'activate_plugins', 'zerif-lite-welcome', array( $this, 'zerif_lite_welcome_screen' ) );
 	}
 
 	/**
-	 * The welcome screen
-	 * @since 1.0.0
+	 * Adds an admin notice upon successful activation.
+	 * @since 1.8.2.4
 	 */
-	public function storefront_welcome_screen() {
+	public function zerif_lite_activation_admin_notice() {
+		global $pagenow;
+
+		if ( is_admin() && ('themes.php' == $pagenow) && isset( $_GET['activated'] ) ) {
+			add_action( 'admin_notices', array( $this, 'zerif_lite_welcome_admin_notice' ), 99 );
+		}
+	}
+
+	/**
+	 * Display an admin notice linking to the welcome screen
+	 * @since 1.8.2.4
+	 */
+	public function zerif_lite_welcome_admin_notice() {
+		?>
+			<div class="updated notice is-dismissible">
+				<p><?php echo sprintf( esc_html__( 'Welcome! Thank you for choosing Zerif Lite! To fully take advantage of the best our theme can offer please make sure you visit our %swelcome page%s.', 'zerif-lite' ), '<a href="' . esc_url( admin_url( 'themes.php?page=zerif-lite-welcome' ) ) . '">', '</a>' ); ?></p>
+				<p><a href="<?php echo esc_url( admin_url( 'themes.php?page=zerif-lite-welcome' ) ); ?>" class="button" style="text-decoration: none;"><?php _e( 'Get started with Zerif Lite', 'zerif-lite' ); ?></a></p>
+			</div>
+		<?php
+	}
+
+	/**
+	 * Load welcome screen css and javascript
+	 * @since  1.8.2.4
+	 */
+	public function zerif_lite_welcome_style_and_scripts( $hook_suffix ) {
+
+		if ( 'appearance_page_zerif-lite-welcome' == $hook_suffix ) {
+			wp_enqueue_style( 'zerif-lite-welcome-screen-css', get_template_directory_uri() . '/inc/admin/welcome-screen/css/welcome.css' );
+			wp_enqueue_script( 'zerif-lite-welcome-screen-js', get_template_directory_uri() . '/inc/admin/welcome-screen/js/welcome.js', array('jquery') );
+		}
+	}
+
+	/**
+	 * Welcome screen content
+	 * @since 1.8.2.4
+	 */
+	public function zerif_lite_welcome_screen() {
+
 		require_once( ABSPATH . 'wp-load.php' );
 		require_once( ABSPATH . 'wp-admin/admin.php' );
 		require_once( ABSPATH . 'wp-admin/admin-header.php' );
 		?>
 
-		<ul class="nav nav-tabs" role="tablist">
-			<li role="presentation" class="active"><a href="#intro" aria-controls="intro" role="tab" data-toggle="tab">Intro</a></li>
-			<li role="presentation"><a href="#news" aria-controls="news" role="tab" data-toggle="tab">Important news</a></li>
-			<li role="presentation"><a href="#child_themes" aria-controls="child_themes" role="tab" data-toggle="tab">Child themes</a></li>
-			<li role="presentation"><a href="#getting_started" aria-controls="getting_started" role="tab" data-toggle="tab">Getting started</a></li>
-			<li role="presentation"><a href="#github" aria-controls="github" role="tab" data-toggle="tab">Contribute</a></li>
-			<li role="presentation"><a href="#who" aria-controls="who" role="tab" data-toggle="tab">About us</a></li>
+		<ul class="zerif-lite-nav-tabs" role="tablist">
+			<li role="presentation" class="active"><a href="#welcome" aria-controls="welcome" role="tab" data-toggle="tab"><?php esc_html_e( 'Welcome','zerif-lite'); ?></a></li>
+			<li role="presentation"><a href="#getting_started" aria-controls="getting_started" role="tab" data-toggle="tab"><?php esc_html_e( 'Getting started','zerif-lite'); ?></a></li>
+			<li role="presentation" class="zerif-lite-w-red-tab"><a href="#news" aria-controls="news" role="tab" data-toggle="tab"><?php esc_html_e( 'News','zerif-lite'); ?></a></li>
+			<li role="presentation"><a href="#child_themes" aria-controls="child_themes" role="tab" data-toggle="tab"><?php esc_html_e( 'Child themes','zerif-lite'); ?></a></li>
+			<li role="presentation"><a href="#github" aria-controls="github" role="tab" data-toggle="tab"><?php esc_html_e( 'Contribute','zerif-lite'); ?></a></li>
+			<li role="presentation"><a href="#about_us" aria-controls="about_us" role="tab" data-toggle="tab"><?php esc_html_e( 'About us','zerif-lite'); ?></a></li>
 		</ul>
 
-  <!-- Tab panes -->
-		<div class="tab-content">
+		<div class="zerif-lite-tab-content">
 
 			<?php
 			/**
-			 * @hooked storefront_welcome_intro - 10
-			 * @hooked storefront_welcome_getting_started - 20
-			 * @hooked storefront_welcome_addons - 30
-			 * @hooked storefront_welcome_who - 40
+			 * @hooked zerif_lite_welcome_welcome - 10
+			 * @hooked zerif_lite_welcome_getting_started - 20
+			 * @hooked zerif_lite_welcome_news - 30
+			 * @hooked zerif_lite_welcome_child_themes - 40
+			 * @hooked zerif_lite_welcome_github - 50
+			 * @hooked zerif_lite_welcome_about_us - 60
 			 */
-			do_action( 'storefront_welcome' ); ?>
+			do_action( 'zerif_lite_welcome' ); ?>
 
 		</div>
 		<?php
 	}
 
 	/**
-	 * Welcome screen intro
-	 * @since 1.0.0
+	 * Welcome
+	 * @since 1.8.2.4
 	 */
-	public function storefront_welcome_intro() {
-		require_once( get_template_directory() . '/inc/admin/welcome-screen/sections/intro.php' );
+	public function zerif_lite_welcome_welcome() {
+		require_once( get_template_directory() . '/inc/admin/welcome-screen/sections/welcome.php' );
 	}
 
 	/**
-	 * Welcome screen about section
-	 * @since 1.0.0
+	 * Getting started
+	 * @since 1.8.2.4
 	 */
-	public function storefront_welcome_who() {
-		require_once( get_template_directory() . '/inc/admin/welcome-screen/sections/who.php' );
-	}
-
-	/**
-	 * Welcome screen getting started section
-	 * @since 1.0.0
-	 */
-	public function storefront_welcome_getting_started() {
+	public function zerif_lite_welcome_getting_started() {
 		require_once( get_template_directory() . '/inc/admin/welcome-screen/sections/getting-started.php' );
 	}
 
 	/**
-	 * Welcome screen child themes
-	 * @since 1.4.4
+	 * News
+	 * @since 1.8.2.4
 	 */
-	public function storefront_welcome_child_themes() {
+	public function zerif_lite_welcome_news() {
+		require_once( get_template_directory() . '/inc/admin/welcome-screen/sections/news.php' );
+	}
+
+	/**
+	 * Child themes
+	 * @since 1.8.2.4
+	 */
+	public function zerif_lite_welcome_child_themes() {
 		require_once( get_template_directory() . '/inc/admin/welcome-screen/sections/child-themes.php' );
 	}
-	
+
 	/**
-	 * Welcome screen github
-	 * @since 1.4.4
+	 * Contribute
+	 * @since 1.8.2.4
 	 */
-	public function storefront_welcome_github() {
+	public function zerif_lite_welcome_github() {
 		require_once( get_template_directory() . '/inc/admin/welcome-screen/sections/github.php' );
 	}
-	
+
 	/**
-	 * Welcome screen news
-	 * @since 1.4.4
+	 * About us
+	 * @since 1.8.2.4
 	 */
-	public function storefront_welcome_news() {
-		require_once( get_template_directory() . '/inc/admin/welcome-screen/sections/news.php' );
+	public function zerif_lite_welcome_about_us() {
+		require_once( get_template_directory() . '/inc/admin/welcome-screen/sections/about_us.php' );
 	}
 }
 

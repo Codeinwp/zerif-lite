@@ -1,128 +1,66 @@
-.appearance_page_storefront-welcome .storefront-add-ons {
-  overflow: hidden;
-  zoom: 1; }
-  .appearance_page_storefront-welcome .storefront-add-ons .add-on {
-    border: 1px solid #ddd;
-    background: #f8f8f8;
-    margin-bottom: 2.618em;
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
-    clear: both;
-    position: relative;
-    min-height: 330px; }
-    .appearance_page_storefront-welcome .storefront-add-ons .add-on h4 {
-      margin-top: 0;
-      font-size: 1em;
-      padding: 1.618em;
-      line-height: 1.4;
-      background: #fff;
-      margin: 0; }
-    .appearance_page_storefront-welcome .storefront-add-ons .add-on .content {
-      padding: 1em 1.618em 1.618em 1.618em; }
-      .appearance_page_storefront-welcome .storefront-add-ons .add-on .content p:last-child {
-        margin-bottom: 0; }
-    .appearance_page_storefront-welcome .storefront-add-ons .add-on.activated {
-      border-color: #7ad03a;
-      border-width: 2px; }
-  .appearance_page_storefront-welcome .storefront-add-ons img {
-    padding: .618em;
-    background: #fff;
-    box-sizing: border-box; }
-
-.appearance_page_storefront-welcome .last-feature {
-  margin-right: 0 !important; }
-
-.appearance_page_storefront-welcome .panel {
-  width: 30.75%;
-  float: left;
-  margin-right: 3.8%; }
-  .appearance_page_storefront-welcome .panel#child_themes {
-    margin-right: 0; }
-  .appearance_page_storefront-welcome .panel hr {
-    margin: 2.618em 0; }
-
-.appearance_page_storefront-welcome #who {
-  clear: both; }
-
-.appearance_page_storefront-welcome .free {
-  text-transform: uppercase;
-  font-size: 90%;
-  color: #fff;
-  background: #333;
-  display: inline-block;
-  padding: 2px 6px;
-  float: right; }
-
-.appearance_page_storefront-welcome .activated {
-  background: #7ad03a;
-  color: #fff;
-  font-size: 13px;
-  line-height: 26px;
-  height: 28px;
-  margin: 0;
-  padding: 0 10px 1px;
-  display: inline-block;
-  border-radius: 3px; }
-  .appearance_page_storefront-welcome .activated span {
-    line-height: 26px; }
-
-.appearance_page_storefront-welcome .free-plugins li {
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding-bottom: .53em;
-  margin-bottom: .53em; }
-  .appearance_page_storefront-welcome .free-plugins li:last-child {
-    padding-bottom: 0;
-    margin-bottom: 0;
-    border-bottom: 0; }
-	
-	
-.nav-tabs {
+.zerif-lite-nav-tabs {
     border-bottom: 1px solid #ddd;
-	padding-left: 0;
     margin-bottom: 0;
-    list-style: none;
 }
-.nav-tabs:before {
-	    display: table;
+.zerif-lite-nav-tabs:after {
+    clear: both;
+    display: table;
     content: " ";
 }
-.nav-tabs>li {
+.zerif-lite-nav-tabs > li {
     float: left;
     margin-bottom: -1px;
-	position: relative;
     display: block;
 }
-.nav-tabs>li>a {
-    margin-right: 2px;
-    line-height: 1.42857143;
+.zerif-lite-nav-tabs > li > a {
     border: 1px solid transparent;
     border-radius: 4px 4px 0 0;
-	position: relative;
     display: block;
     padding: 10px 15px;
 	text-decoration: none;
 }
-.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover {
+.zerif-lite-nav-tabs > li.active > a, .zerif-lite-nav-tabs > li.active > a:focus, .zerif-lite-nav-tabs > li.active > a:hover {
     color: #555;
-    cursor: default;
     background-color: #fff;
     border: 1px solid #ddd;
     border-bottom-color: transparent;
 }
-.nav-tabs:after {
-	clear: both;
-	display: table;
-    content: " ";
+.zerif-lite-nav-tabs > li.zerif-lite-w-red-tab > a {
+    color: red;
+    font-weight: bold;
 }
-.tab-content {
+.zerif-lite-tab-content {
 	background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
 }
-.tab-content>.tab-pane {
+.zerif-lite-tab-content > .tab-pane {
     display: none;
 }
-.tab-content>.active {
+.zerif-lite-tab-content > .active {
     display: block;
 }
 
-.tab-pane {
-	padding: 10px;
+.zerif-lite-tab-pane {
+	padding: 30px;
+}
+.zerif-lite-tab-pane {
+    display: none;
+}
+.zerif-lite-tab-pane.active {
+    display: block;
+}
+
+#zerif-lite-theme-version {
+    font-size: 50%;
+    padding: 10px;
+    background: #ccc;
+}
+#zerif-lite-w-screenshot {
+    border: 1px solid #ccc;
+    margin-top: 30px;
+}
+.zerif-lite-w-activated {
+    cursor:not-allowed !important;
 }

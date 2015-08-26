@@ -1,65 +1,41 @@
 <?php
 /**
- * Welcome screen child themes template
+ * Child themes template
  */
 ?>
-<div id="child_themes" class="storefront-add-ons panel tab-pane">
+<div id="child_themes" class="zerif-lite-tab-pane">
 	<?php
-		$theme = wp_get_theme();
+		$current_theme = wp_get_theme();
 	?>
 
-	<h2><?php esc_html_e( 'Get a whole new look', 'storefront' ); ?> <div class="dashicons dashicons-admin-appearance"></div></h2>
+	<h1><?php esc_html_e( 'Get a whole new look for your site', 'zerif-lite' ); ?></h1>
 
+	<p><?php esc_html_e( 'Below you will find a selection of Zerif Lite child themes that will totally transform the look of your site.', 'zerif-lite' ); ?></p>
+
+	<!-- ZBlackBeard -->
+
+	<img src="<?php echo esc_url( get_template_directory_uri() ) . '/inc/admin/welcome-screen/img/zblackbeard.jpg'; ?>" alt="<?php esc_html_e( 'ZBlackBeard Child Theme', 'zerif-lite' ); ?>" />
+
+	<h2><?php esc_html_e( 'ZBlackBeard', 'zerif-lite' ); ?></h2>
+	<p><?php esc_html_e( 'ZBlackbeard is a modern responsive WordPress Theme. It\'s perfect for web agencies, digital studios, corporate, product showcase, personal and business portfolio.', 'zerif-lite' ); ?></p>
 	<p>
-		<?php esc_html_e( 'Below you will find a selection of Storefront child themes that will instantly transform the look and feel of your Storefront shop.', 'storefront' ); ?>
-	</p>
-
-	<hr />
-
-	<img src="<?php echo esc_url( get_template_directory_uri() ) . '/inc/admin/welcome-screen/img/zblackbeard.jpg'; ?>" alt="<?php esc_html_e( 'Proshop Child Theme', 'storefront' ); ?>" />
-	<h4><?php esc_html_e( 'ZBlackBeard', 'zerif-lite' ); ?></h4>
-	<p><?php esc_html_e( 'Unlock the true potential of your sports clothing and equipment store with ProShop! It\'s metropolitan design provides an active aesthetic giving your store oodles of character.', 'storefront' ); ?></p>
-	<p style="margin-bottom: 2.618em;">
-		<?php if ( 'Proshop' != $theme['Name'] ) { ?>
-			<a href="http://www.woothemes.com/products/proshop/" class="button button-primary"><?php printf( esc_html__( 'Buy %s now', 'storefront' ), '<span class="screen-reader-text">Proshop</span>' ); ?></a>
+		<?php if ( 'ZBlackBeard' != $current_theme['Name'] ) { ?>
+			<a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-theme&theme=zblackbeard' ), 'install-theme_zblackbeard' ) ); ?>" class="button button-primary"><?php printf( __( 'Install %s now', 'zerif-lite' ), '<span class="screen-reader-text">ZblackBeard</span>' ); ?></a>
 		<?php } ?>
 	</p>
-
 	<hr />
 
-	<img src="<?php echo esc_url( get_template_directory_uri() ) . '/inc/admin/welcome-screen/img/galleria.jpg'; ?>" alt="<?php esc_html_e( 'Galleria Child Theme', 'storefront' ); ?>" class="image-50" />
-	<h4><?php esc_html_e( 'Galleria', 'storefront' ); ?></h4>
-	<p><?php esc_html_e( 'Galleria is a Storefront child theme perfect for fashion and design stores. Stylish and minimalist, it gives sites a high class look and keeps products centerstage.', 'storefront' ); ?></p>
-	<p style="margin-bottom: 2.618em;">
-		<?php if ( 'Galleria' != $theme['Name'] ) { ?>
-			<a href="http://www.woothemes.com/products/galleria/" class="button button-primary"><?php printf( esc_html__( 'Buy %s now', 'storefront' ), '<span class="screen-reader-text">Galleria</span>' ); ?></a>
+	<!-- Zerius -->
+
+	<img src="<?php echo esc_url( get_template_directory_uri() ) . '/inc/admin/welcome-screen/img/zerius.jpg'; ?>" alt="<?php esc_html_e( 'Zerius Child Theme', 'zerif-lite' ); ?>" />
+
+	<h2><?php esc_html_e( 'Zerius', 'zerif-lite' ); ?></h2>
+	<p><?php esc_html_e( 'Zerius is a clean, modern, and animated free one-page parallax WordPress theme.', 'zerif-lite' ); ?></p>
+	<p>
+		<?php if ( 'Zerius' != $current_theme['Name'] ) { ?>
+			<a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-theme&theme=zerius' ), 'install-theme_zerius' ) ); ?>" class="button button-primary"><?php printf( __( 'Install %s now', 'zerif-lite' ), '<span class="screen-reader-text">Zerius</span>' ); ?></a>
 		<?php } ?>
 	</p>
-
 	<hr />
-
-	<img src="<?php echo esc_url( get_template_directory_uri() ) . '/inc/admin/welcome-screen/img/boutique.jpg'; ?>" alt="<?php esc_html_e( 'Boutique Child Theme', 'storefront' ); ?>" class="image-50" />
-	<p class="free"><?php esc_html_e( 'Free!', 'storefront' ); ?></p>
-	<h4><?php esc_html_e( 'Boutique', 'storefront' ); ?></h4>
-	<p><?php esc_html_e( 'Boutique is a simple, traditionally designed Storefront child theme, ideal for small stores or boutiques. Add your logo, create a unique color scheme and start selling!', 'storefront' ); ?></p>
-	<p style="margin-bottom: 2.618em;">
-		<?php if ( 'Boutique' != $theme['Name'] ) { ?>
-			<a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-theme&theme=boutique' ), 'install-theme_boutique' ) ); ?>" class="button button-primary"><?php printf( __( 'Install %s now', 'storefront' ), '<span class="screen-reader-text">Boutique</span>' ); ?></a>
-		<?php } ?>
-		<a href="http://www.woothemes.com/products/boutique/" class="button"><?php printf( esc_html__( 'Read more %sabout Boutique%s &rarr;', 'storefront' ), '<span class="screen-reader-text">', '</span>' ); ?></a>
-	</p>
-
-	<hr />
-
-	<img src="<?php echo esc_url( get_template_directory_uri() ) . '/inc/admin/welcome-screen/img/deli.jpg'; ?>" alt="<?php esc_html_e( 'Deli Child Theme', 'storefront' ); ?>" class="image-50" />
-	<p class="free"><?php esc_html_e( 'Free!', 'storefront' ); ?></p>
-	<h4><?php esc_html_e( 'Deli', 'storefront' ); ?></h4>
-	<p><?php esc_html_e( 'Deli features a texturised, earthy design, perfect for stores selling natural, organic or hand made goods.', 'storefront' ); ?></p>
-	<p style="margin-bottom: 2.618em;">
-		<?php if ( 'Deli' != $theme['Name'] ) { ?>
-			<a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-theme&theme=deli' ), 'install-theme_deli' ) ); ?>" class="button button-primary"><?php printf( __( 'Install %s now', 'storefront' ), '<span class="screen-reader-text">Deli</span>' ); ?></a>
-		<?php } ?>
-		<a href="http://www.woothemes.com/products/deli/" class="button"><?php printf( esc_html__( 'Read more %sabout Deli%s &rarr;', 'storefront' ), '<span class="screen-reader-text">', '</span>' ); ?></a>
-	</p>
 
 </div>
