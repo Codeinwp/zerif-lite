@@ -1,5 +1,4 @@
 .zerif-lite-nav-tabs {
-    border-bottom: 1px solid #ddd;
     margin-bottom: 0;
 }
 .zerif-lite-nav-tabs:after {
@@ -34,6 +33,8 @@
     border-bottom: 1px solid #ddd;
     border-right: 1px solid #ddd;
     border-left: 1px solid #ddd;
+    width: 960px;
+    float: left;
 }
 .zerif-lite-tab-content > .tab-pane {
     display: none;
@@ -63,4 +64,30 @@
 }
 .zerif-lite-w-activated {
     cursor:not-allowed !important;
+}
+.zerif-tab-pane-half {
+    width: 45%;
+    float:left;
+    border-left: 1px solid #ccc;
+    padding-left: 20px;
+    margin-top: 15px;
+    padding-right: 20px;
+    margin-bottom: 15px;
+}
+.zerif-lite-tab-content img {
+    max-width: 100%;
+}
+.zerif-tab-pane-first-half {
+    border-left: none;
+}
+.zerif-tab-pane-center {
+    text-align: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.zerif-lite-welcome-title {
+    font-size: 32px;
+}
+.zerif-lite-clear {
+    clear: both;
 }

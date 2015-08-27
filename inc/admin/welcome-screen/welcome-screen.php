@@ -19,12 +19,14 @@ class Zerif_Welcome {
 		add_action( 'admin_enqueue_scripts', array( $this, 'zerif_lite_welcome_style_and_scripts' ) );
 
 		/* load welcome screen */
-		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_welcome' ), 				10 );
-		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_getting_started' ), 	    20 );
-		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_news' ), 				    30 );
-		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_child_themes' ), 		    40 );
-		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_github' ), 		            50 );
+
+		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_getting_started' ), 	    10 );
+		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_actions_required' ), 		20 );
+		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_child_themes' ), 		    30 );
+		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_github' ), 		            40 );
+		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_changelog' ), 				50 );
 		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_about_us' ), 				60 );
+		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_free_pro' ), 				70 );
 
 	}
 
@@ -86,37 +88,31 @@ class Zerif_Welcome {
 		?>
 
 		<ul class="zerif-lite-nav-tabs" role="tablist">
-			<li role="presentation" class="active"><a href="#welcome" aria-controls="welcome" role="tab" data-toggle="tab"><?php esc_html_e( 'Welcome','zerif-lite'); ?></a></li>
-			<li role="presentation"><a href="#getting_started" aria-controls="getting_started" role="tab" data-toggle="tab"><?php esc_html_e( 'Getting started','zerif-lite'); ?></a></li>
-			<li role="presentation" class="zerif-lite-w-red-tab"><a href="#news" aria-controls="news" role="tab" data-toggle="tab"><?php esc_html_e( 'News','zerif-lite'); ?></a></li>
+			<li role="presentation" class="active"><a href="#getting_started" aria-controls="getting_started" role="tab" data-toggle="tab"><?php esc_html_e( 'Getting started','zerif-lite'); ?></a></li>
+			<li role="presentation" class="zerif-lite-w-red-tab"><a href="#actions_required" aria-controls="actions_required" role="tab" data-toggle="tab"><?php esc_html_e( 'Actions required','zerif-lite'); ?></a></li>
 			<li role="presentation"><a href="#child_themes" aria-controls="child_themes" role="tab" data-toggle="tab"><?php esc_html_e( 'Child themes','zerif-lite'); ?></a></li>
 			<li role="presentation"><a href="#github" aria-controls="github" role="tab" data-toggle="tab"><?php esc_html_e( 'Contribute','zerif-lite'); ?></a></li>
+			<li role="presentation"><a href="#changelog" aria-controls="changelog" role="tab" data-toggle="tab"><?php esc_html_e( 'Changelog','zerif-lite'); ?></a></li>
 			<li role="presentation"><a href="#about_us" aria-controls="about_us" role="tab" data-toggle="tab"><?php esc_html_e( 'About us','zerif-lite'); ?></a></li>
+			<li role="presentation"><a href="#free_pro" aria-controls="free_pro" role="tab" data-toggle="tab"><?php esc_html_e( 'Free VS PRO','zerif-lite'); ?></a></li>
 		</ul>
 
 		<div class="zerif-lite-tab-content">
 
 			<?php
 			/**
-			 * @hooked zerif_lite_welcome_welcome - 10
-			 * @hooked zerif_lite_welcome_getting_started - 20
-			 * @hooked zerif_lite_welcome_news - 30
-			 * @hooked zerif_lite_welcome_child_themes - 40
-			 * @hooked zerif_lite_welcome_github - 50
+			 * @hooked zerif_lite_welcome_getting_started - 10
+			 * @hooked zerif_lite_welcome_actions_required - 20
+			 * @hooked zerif_lite_welcome_child_themes - 30
+			 * @hooked zerif_lite_welcome_github - 40
+			 * @hooked zerif_lite_welcome_changelog - 50
 			 * @hooked zerif_lite_welcome_about_us - 60
+			 * @hooked zerif_lite_welcome_free_pro - 70
 			 */
 			do_action( 'zerif_lite_welcome' ); ?>
 
 		</div>
 		<?php
-	}
-
-	/**
-	 * Welcome
-	 * @since 1.8.2.4
-	 */
-	public function zerif_lite_welcome_welcome() {
-		require_once( get_template_directory() . '/inc/admin/welcome-screen/sections/welcome.php' );
 	}
 
 	/**
@@ -128,11 +124,11 @@ class Zerif_Welcome {
 	}
 
 	/**
-	 * News
+	 * Actions required
 	 * @since 1.8.2.4
 	 */
-	public function zerif_lite_welcome_news() {
-		require_once( get_template_directory() . '/inc/admin/welcome-screen/sections/news.php' );
+	public function zerif_lite_welcome_actions_required() {
+		require_once( get_template_directory() . '/inc/admin/welcome-screen/sections/actions-required.php' );
 	}
 
 	/**
@@ -152,11 +148,27 @@ class Zerif_Welcome {
 	}
 
 	/**
+	 * Changelog
+	 * @since 1.8.2.4
+	 */
+	public function zerif_lite_welcome_changelog() {
+		require_once( get_template_directory() . '/inc/admin/welcome-screen/sections/changelog.php' );
+	}
+
+	/**
 	 * About us
 	 * @since 1.8.2.4
 	 */
 	public function zerif_lite_welcome_about_us() {
 		require_once( get_template_directory() . '/inc/admin/welcome-screen/sections/about_us.php' );
+	}
+
+	/**
+	 * Free vs PRO
+	 * @since 1.8.2.4
+	 */
+	public function zerif_lite_welcome_free_pro() {
+		require_once( get_template_directory() . '/inc/admin/welcome-screen/sections/free_pro.php' );
 	}
 }
 
