@@ -65,6 +65,12 @@ $customizer_url = admin_url() . 'customize.php' ;
 
 	<div class="zerif-tab-pane-half">
 
+		<h4><?php esc_html_e( 'Speed up your site', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'Slow', 'zerif-lite' ); ?></p>
+		<p><a href="http://docs.themeisle.com/article/63-speed-up-your-wordpress-site/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+
+		<hr />
+
 		<h4><?php esc_html_e( 'Link Menu to sections', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'Linking the frontpage sections with the top menu is very simple, all you need to do is assign section anchors to the menu. In the below documentation you will find a nice tutorial about this.', 'zerif-lite' ); ?></p>
 		<p><a href="http://docs.themeisle.com/article/33-how-to-link-menus-to-sections-in-zerif/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
@@ -105,17 +111,31 @@ $customizer_url = admin_url() . 'customize.php' ;
 
 	<div class="zerif-tab-pane-center">
 		<h1><?php esc_html_e( 'Recommended plugins', 'zerif-lite' ); ?></h1>
+	</div>
 
-		<div class="zerif-tab-pane-half zerif-tab-pane-first-half">
-			<h4><?php esc_html_e( 'Short pixel', 'zerif-lite' ); ?></h4>
-		</div>
+	<div class="zerif-tab-pane-half zerif-tab-pane-first-half">
+		<h4><?php esc_html_e( 'WP Product Review Lite', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'Easily turn your basic posts into in-depth reviews with ratings, pros and cons, affiliate links, rich snippets and user reviews.', 'zerif-lite' ); ?></p>
+		<p><a href="http://themeisle.com/plugins/wp-product-review-lite/" class="button button-primary"><?php esc_html_e( 'Install plugin', 'zerif-lite' ); ?></a></p>
 
-		<div class="zerif-tab-pane-half">
-			<h4><?php esc_html_e( 'Short pixel', 'zerif-lite' ); ?></h4>
-		</div>
+		<hr />
 
-		<div class="zerif-lite-clear"></div>
+		<h4><?php esc_html_e( 'Visualizer: Charts and Graphs', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'A simple, easy to use and quite powerful chart tool to create, manage and embed interactive charts into your WordPress posts and pages.', 'zerif-lite' ); ?></p>
+		<p><a href="https://wordpress.org/plugins/visualizer/" class="button button-primary"><?php esc_html_e( 'Install plugin', 'zerif-lite' ); ?></a></p>
+	</div>
+
+	<div class="zerif-tab-pane-half">
+		<h4><?php esc_html_e( 'ShortPixel Image Optimizer', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'Fast, easy-to-use and lightweight plugin that optimizes images & PDFs. Preserve a high visual quality of images and make your website load faster!', 'zerif-lite' ); ?></p>
+		<p><a href="https://wordpress.org/plugins/shortpixel-image-optimiser/" class="button button-primary"><?php esc_html_e( 'Install plugin', 'zerif-lite' ); ?></a></p>
+
+		<hr />
+
+
 
 	</div>
+
+	<div class="zerif-lite-clear"></div>
 
 </div>
