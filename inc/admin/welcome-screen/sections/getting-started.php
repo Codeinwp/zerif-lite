@@ -23,12 +23,6 @@ $customizer_url = admin_url() . 'customize.php' ;
 
 		<h1><?php esc_html_e( 'Getting started', 'zerif-lite' ); ?></h1>
 
-		<h4><?php esc_html_e( 'Set up the frontpage.','zerif-lite'); ?></h4>
-		<p><?php esc_html_e( 'Please make sure you have checked Front page displays "Your latest posts" in Settings -> Reading.','zerif-lite' ); ?></p>
-		<p><a href="<?php echo esc_url( admin_url().'options-reading.php' ); ?>" class="button button-primary"><?php esc_html_e( 'Set up frontpage', 'zerif-lite' ); ?></a></p>
-
-		<hr />
-
 		<h4><?php esc_html_e( 'Customize everything in a single place.' ,'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'Using the WordPress Customizer you can easily customize every aspect of the theme.', 'zerif-lite' ); ?></p>
 		<p><a href="<?php echo esc_url( $customizer_url ); ?>" class="button button-primary"><?php esc_html_e( 'Go to Customizer', 'zerif-lite' ); ?></a></p>
