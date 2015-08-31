@@ -1,20 +1,33 @@
 jQuery(document).ready(function() {
 
+	var zerif_href = zerifCustomizerScript.themepageUrl;
+	var zerif_customizer_href = zerifCustomizerScript.customizerUrl;
+	var zerif_actionsRequired_nr = zerifCustomizerScript.actionsRequired;
+	var zerif_has_actionsRequired = zerifCustomizerScript.hasActionsRequired;
+
 	jQuery( "#sortable" ).sortable();
 	
 	jQuery( "#sortable" ).disableSelection();
 
-	jQuery('#customize-theme-controls > ul').prepend('<li class="accordion-section zerif-upsells">');
-	
-	jQuery('.zerif-upsells').append('<a style="width: 80%; margin: 5px auto 5px auto; display: block; text-align: center;" href="https://wordpress.org/support/view/theme-reviews/zerif-lite" class="button" target="_blank">{review}</a>'.replace('{review}',objectL10n.review));
-	
-	jQuery('.zerif-upsells').append('<a style="width: 80%; margin: 5px auto 5px auto; display: block; text-align: center;" href="http://themeisle.com/forums/forum/zerif-lite/" class="button" target="_blank">{support}</a>'.replace('{support}',objectL10n.support));
-	
-	jQuery('.zerif-upsells').append('<a style="width: 80%; margin: 5px auto 5px auto; display: block; text-align: center;" href="http://themeisle.com/documentation-zerif-lite" class="button" target="_blank">{documentation}</a>'.replace('{documentation}',objectL10n.documentation));
+	if ( (typeof zerif_customizer_href !== 'undefined') && (typeof zerif_actionsRequired_nr !== 'undefined') && (typeof zerif_has_actionsRequired !== 'undefined') && (zerif_has_actionsRequired == 'yes') ) {
 
-	jQuery('.zerif-upsells').append('<a style="width: 80%; margin: 5px auto 5px auto; display: block; text-align: center;" href="http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/" class="button" target="_blank">{pro}</a>'.replace('{pro}',objectL10n.pro));
+		jQuery('#accordion-section-themes .accordion-section-title').append('<a href="' + zerif_customizer_href + '"><span class="zerif-lite-actions-count">' + zerif_actionsRequired_nr + '</span></a>');
 
-	jQuery('#customize-theme-controls > ul').prepend('</li>');
+	}
+
+	jQuery( '#customize-theme-controls > ul' ).prepend('<li class="accordion-section zerif-upsells">');
+
+	jQuery( '.zerif-upsells' ).append('<a style="width: 80%; margin: 5px auto 5px auto; display: block; text-align: center;" href="http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/" class="button" target="_blank">{pro}</a>'.replace('{pro}',objectL10n.pro));
+
+	jQuery( '.zerif-upsells' ).append('<a style="width: 80%; margin: 5px auto 5px auto; display: block; text-align: center;" href="http://themeisle.com/documentation-zerif-lite" class="button" target="_blank">{documentation}</a>'.replace('{documentation}',objectL10n.documentation));
+
+	if (typeof zerif_href !== 'undefined') {
+
+		jQuery('.zerif-upsells').append('<a style="width: 80%; margin: 5px auto 5px auto; display: block; text-align: center;" href="' + zerif_href + '" class="button" target="_blank">{themeinfo}</a>'.replace('{themeinfo}', objectL10n.themeinfo));
+
+	}
+
+	jQuery( '#customize-theme-controls > ul' ).prepend('</li>');
 	
 	
 	jQuery( '.ui-state-default' ).on( 'mousedown', function() {

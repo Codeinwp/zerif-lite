@@ -1404,13 +1404,29 @@ function zerif_registers() {
 	wp_enqueue_style( 'zerif_jquery_ui_css' );
 	wp_register_script( 'zerif_customizer_script', get_template_directory_uri() . '/js/zerif_customizer.js', array("jquery","zerif_jquery_ui"), '20120206', true  );
 	wp_enqueue_script( 'zerif_customizer_script' );
+
+
+    $zerif_lite_actions_required = 1;
+	if ( !class_exists( 'WPCF7_ContactForm' ) ) {
+		$zerif_lite_has_actions = 'yes';
+	}
+	else {
+		$zerif_lite_has_actions = 'no';
+	}
+
+	wp_localize_script('zerif_customizer_script', 'zerifCustomizerScript', array(
+		'themepageUrl' => esc_url( admin_url( 'themes.php?page=zerif-lite-welcome' ) ),
+		'customizerUrl' => esc_url( admin_url( 'customize.php#actions_required' ) ),
+		'actionsRequired' => $zerif_lite_actions_required,
+		'hasActionsRequired' => $zerif_lite_has_actions
+	));
+
 	
 	wp_localize_script( 'zerif_customizer_script', 'objectL10n', array(
 		
-		'documentation' => __( 'Documentation', 'zerif-lite' ),
-		'pro' => __('View PRO version','zerif-lite'),
-		'review' => __('Leave a review (it will help us)','zerif-lite'),
-		'support' => __('Support Forum','zerif-lite')
+		'documentation' => __( 'View Documentation', 'zerif-lite' ),
+		'pro' => __('Upgrade to PRO','zerif-lite'),
+		'themeinfo' => __('View Theme Info','zerif-lite')
 		
 	) );
 }

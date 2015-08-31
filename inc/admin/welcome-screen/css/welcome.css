@@ -146,3 +146,44 @@
 .zerif-lite-child-theme-details .theme-details .preview {
     margin-right: 2px;
 }
+.zerif-lite-fre-pro table {
+    border-collapse: collapse;
+    width: 100%;
+}
+.zerif-lite-fre-pro table tr {
+    border-bottom: 1px solid #ddd;
+}
+.zerif-lite-fre-pro table td {
+    padding: 30px;
+}
+.zerif-lite-fre-pro table th {
+    padding-bottom: 30px;
+}
+.zerif-lite-fre-pro table td span.dashicons-before:before {
+    font-size: 50px;
+    width: auto;
+    height: auto;
+}
+.zerif-lite-fre-pro table td span.dashicons-yes:before {
+    color:green;
+}
+.zerif-lite-fre-pro table td span.dashicons-no-alt:before {
+    color:red;
+}
+.zerif-lite-fre-pro table tr.zerif-lite-text-center {
+    text-align: center;
+}
+.zerif-lite-actions-count {
+    padding: 0 6px;
+    display: inline-block;
+    background-color: #d54e21;
+    color: #fff;
+    font-size: 9px;
+    line-height: 17px;
+    font-weight: 600;
+    margin: 1px 0 0 2px;
+    vertical-align: top;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    z-index: 26;
+}

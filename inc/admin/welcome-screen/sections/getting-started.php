@@ -23,6 +23,12 @@ $customizer_url = admin_url() . 'customize.php' ;
 
 		<h1><?php esc_html_e( 'Getting started', 'zerif-lite' ); ?></h1>
 
+		<h4><?php esc_html_e( 'Set up the frontpage.','zerif-lite'); ?></h4>
+		<p><?php esc_html_e( 'Please make sure you have checked Front page displays "Your latest posts" in Settings -> Reading.','zerif-lite' ); ?></p>
+		<p><a href="<?php echo esc_url( admin_url().'options-reading.php' ); ?>" class="button button-primary"><?php esc_html_e( 'Set up frontpage', 'zerif-lite' ); ?></a></p>
+
+		<hr />
+
 		<h4><?php esc_html_e( 'Customize everything in a single place.' ,'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'Using the WordPress Customizer you can easily customize every aspect of the theme.', 'zerif-lite' ); ?></p>
 		<p><a href="<?php echo esc_url( $customizer_url ); ?>" class="button button-primary"><?php esc_html_e( 'Go to Customizer', 'zerif-lite' ); ?></a></p>
@@ -45,9 +51,9 @@ $customizer_url = admin_url() . 'customize.php' ;
 
 		<hr />
 
-		<h4><?php esc_html_e( 'Change anchors', 'zerif-lite' ); ?></h4>
-		<p><?php esc_html_e( 'To better suit your site\'s needs, you can change each section\'s anchor to what you want. The entire process is described below.', 'zerif-lite' ); ?></p>
-		<p><a href="http://docs.themeisle.com/article/36-how-to-change-section-anchor-in-zerif/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+		<h4><?php esc_html_e( 'Slider in big title section', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'If you are in the position where you want to change the default appearance of the big title section, you may want to replace it with a nice looking slider. This can be accomplished by following the documention below.', 'zerif-lite' ); ?></p>
+		<p><a href="http://docs.themeisle.com/article/13-replacing-big-title-section-with-an-image-slider/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr />
 
@@ -61,12 +67,18 @@ $customizer_url = admin_url() . 'customize.php' ;
 		<p><?php esc_html_e( 'You can turn off the animation effects you see when Zerif Lite loads a section in an easy way with just few changes. Check the documentation below.', 'zerif-lite' ); ?></p>
 		<p><a href="http://docs.themeisle.com/article/15-turn-off-loading-animations-in-zerif/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
+		<hr />
+
+		<h4><?php esc_html_e( 'Replace the skills section with an image', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'If you feel the default About us section is not exactly what you need, you can maybe try change it with an image.', 'zerif-lite' ); ?></p>
+		<p><a href="http://docs.themeisle.com/article/60-replacing-skills-section-with-an-image-in-zerif" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+
 	</div>
 
 	<div class="zerif-tab-pane-half">
 
 		<h4><?php esc_html_e( 'Speed up your site', 'zerif-lite' ); ?></h4>
-		<p><?php esc_html_e( 'Slow', 'zerif-lite' ); ?></p>
+		<p><?php esc_html_e( 'If you find yourself in the situation where everything on your site is running very slow, you might consider having a look at the below documentation where you will find the most common issues causing this and possible solutions for each of the issues.', 'zerif-lite' ); ?></p>
 		<p><a href="http://docs.themeisle.com/article/63-speed-up-your-wordpress-site/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr />
@@ -77,21 +89,21 @@ $customizer_url = admin_url() . 'customize.php' ;
 
 		<hr />
 
-		<h4><?php esc_html_e( 'Slider in big title section', 'zerif-lite' ); ?></h4>
-		<p><?php esc_html_e( 'If you are in the position where you want to change the default appearance of the big title section, you may want to replace it with a nice looking slider. This can be accomplished by following the documention below.', 'zerif-lite' ); ?></p>
-		<p><a href="http://docs.themeisle.com/article/13-replacing-big-title-section-with-an-image-slider/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+		<h4><?php esc_html_e( 'Change anchors', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'To better suit your site\'s needs, you can change each section\'s anchor to what you want. The entire process is described below.', 'zerif-lite' ); ?></p>
+		<p><a href="http://docs.themeisle.com/article/36-how-to-change-section-anchor-in-zerif/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+
+		<hr />
+
+		<h4><?php esc_html_e( 'Change the page template', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'Zerif Lite has three page templates available, two for the blog and one for full width pages. To make sure you take full advantage of those page templates, make sure you read the documentation.', 'zerif-lite' ); ?></p>
+		<p><a href="http://docs.themeisle.com/article/32-how-to-change-the-page-template-in-wordpress" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr />
 
 		<h4><?php esc_html_e( 'Remove the opacity', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'You don\'t like the way Zerif Lite looks with its background opacity? No problem. Just remove it using the steps below.', 'zerif-lite' ); ?></p>
 		<p><a href="http://docs.themeisle.com/article/30-removing-background-opacity-in-zerif/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
-
-		<hr />
-
-		<h4><?php esc_html_e( 'Replace the skills section with an image', 'zerif-lite' ); ?></h4>
-		<p><?php esc_html_e( 'If you feel the default About us section is not exactly what you need, you can maybe try change it with an image.', 'zerif-lite' ); ?></p>
-		<p><a href="http://docs.themeisle.com/article/60-replacing-skills-section-with-an-image-in-zerif" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 	</div>
 
@@ -114,25 +126,87 @@ $customizer_url = admin_url() . 'customize.php' ;
 	</div>
 
 	<div class="zerif-tab-pane-half zerif-tab-pane-first-half">
-		<h4><?php esc_html_e( 'WP Product Review Lite', 'zerif-lite' ); ?></h4>
+
+		<!-- WP Product Review -->
+		<h4><?php esc_html_e( 'WP Product Review', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'Easily turn your basic posts into in-depth reviews with ratings, pros and cons, affiliate links, rich snippets and user reviews.', 'zerif-lite' ); ?></p>
-		<p><a href="http://themeisle.com/plugins/wp-product-review-lite/" class="button button-primary"><?php esc_html_e( 'Install plugin', 'zerif-lite' ); ?></a></p>
+
+		<?php if ( is_plugin_active( 'wp-product-review/wp-product-review.php' ) ) { ?>
+
+				<p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p>
+
+			<?php
+		}
+		else { ?>
+
+				<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=wp-product-review' ), 'install-plugin_wp-product-review' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install WP Product Review', 'zerif-lite' ); ?></a></p>
+
+			<?php
+		}
+
+		?>
 
 		<hr />
 
-		<h4><?php esc_html_e( 'Visualizer: Charts and Graphs', 'zerif-lite' ); ?></h4>
-		<p><?php esc_html_e( 'A simple, easy to use and quite powerful chart tool to create, manage and embed interactive charts into your WordPress posts and pages.', 'zerif-lite' ); ?></p>
-		<p><a href="https://wordpress.org/plugins/visualizer/" class="button button-primary"><?php esc_html_e( 'Install plugin', 'zerif-lite' ); ?></a></p>
+		<!-- Custom Login Customizer -->
+		<h4><?php esc_html_e( 'Custom Login Customizer', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'Login Customizer plugin allows you to easily customize your login page straight from your WordPress Customizer! You can preview your changes before you save them!', 'zerif-lite' ); ?></p>
+
+		<?php if ( is_plugin_active( 'login-customizer/login-customizer.php' ) ) { ?>
+
+			<p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p>
+
+			<?php
+		}
+		else { ?>
+
+			<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=login-customizer' ), 'install-plugin_login-customizer' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install Custom Login Customizer', 'zerif-lite' ); ?></a></p>
+
+			<?php
+		}
+		?>
+
 	</div>
 
 	<div class="zerif-tab-pane-half">
+
+		<!-- ShortPixel Image Optimizer -->
 		<h4><?php esc_html_e( 'ShortPixel Image Optimizer', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'Fast, easy-to-use and lightweight plugin that optimizes images & PDFs. Preserve a high visual quality of images and make your website load faster!', 'zerif-lite' ); ?></p>
-		<p><a href="https://wordpress.org/plugins/shortpixel-image-optimiser/" class="button button-primary"><?php esc_html_e( 'Install plugin', 'zerif-lite' ); ?></a></p>
+
+		<?php if ( is_plugin_active( 'shortpixel-image-optimiser/wp-shortpixel.php' ) ) { ?>
+
+				<p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p>
+
+			<?php
+		}
+		else { ?>
+
+			<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=shortpixel-image-optimiser' ), 'install-plugin_shortpixel-image-optimiser' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install ShortPixel Image Optimizer', 'zerif-lite' ); ?></a></p>
+
+			<?php
+		}
+		?>
 
 		<hr />
 
+		<!-- Visualizer: Charts and Graphs -->
+		<h4><?php esc_html_e( 'Visualizer: Charts and Graphs', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'A simple, easy to use and quite powerful chart tool to create, manage and embed interactive charts into your WordPress posts and pages.', 'zerif-lite' ); ?></p>
 
+		<?php if ( class_exists( 'Visualizer_Plugin' ) ) { ?>
+
+			<p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p>
+
+			<?php
+		}
+		else { ?>
+
+			<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=visualizer' ), 'install-plugin_visualizer' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install Visualizer', 'zerif-lite' ); ?></a></p>
+
+			<?php
+		}
+		?>
 
 	</div>
 
