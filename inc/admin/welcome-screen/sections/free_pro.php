@@ -129,6 +129,27 @@
                 <td><span class="dashicons-before dashicons-no-alt"></span></td>
                 <td><span class="dashicons-before dashicons-yes"></span></td>
             </tr>
+            <tr>
+                <td>
+                    <h3>Subscribe section</h3>
+                </td>
+                <td><span class="dashicons-before dashicons-no-alt"></span></td>
+                <td><span class="dashicons-before dashicons-yes"></span></td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Change labels in contact us section</h3>
+                </td>
+                <td><span class="dashicons-before dashicons-no-alt"></span></td>
+                <td><span class="dashicons-before dashicons-yes"></span></td>
+            </tr>
+            <tr>
+                <td>
+                    <h3>Support</h3>
+                </td>
+                <td><span class="dashicons-before dashicons-no-alt"></span></td>
+                <td><span class="dashicons-before dashicons-yes"></span></td>
+            </tr>
             <tr class="zerif-lite-text-center">
                 <td colspan="3"><a href="http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/" target="_blank" class="button button-primary">Get Zerif PRO now!</a></td>
             </tr>
