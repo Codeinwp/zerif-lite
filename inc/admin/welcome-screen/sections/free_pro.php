@@ -25,31 +25,6 @@
             </tr>
             <tr>
                 <td>
-                    <h3>Hide/Show each section</h3>
-                    <p>With just one click</p>
-                </td>
-                <td><span class="dashicons-before dashicons-yes"></span></td>
-                <td><span class="dashicons-before dashicons-yes"></span></td>
-
-            </tr>
-            <tr>
-                <td>
-                    <h3>Cross browser Compatible</h3>
-                    <p>Tested in all major browsers</p>
-                </td>
-                <td><span class="dashicons-before dashicons-yes"></span></td>
-                <td><span class="dashicons-before dashicons-yes"></span></td>
-            </tr>
-            <tr>
-                <td>
-                    <h3>RTL support</h3>
-                    <p>Right-to-Left Language support</p>
-                </td>
-                <td><span class="dashicons-before dashicons-yes"></span></td>
-                <td><span class="dashicons-before dashicons-yes"></span></td>
-            </tr>
-            <tr>
-                <td>
                     <h3>Mobile friendly</h3>
                     <p>Responsive layout</p>
                 </td>
