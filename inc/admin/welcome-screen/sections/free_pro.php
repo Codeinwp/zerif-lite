@@ -55,14 +55,14 @@
             </tr>
             <tr>
                 <td>
-                    <h3>Background slider</h3>
+                    <h3>Unlimited color option</h3>
                 </td>
                 <td><span class="dashicons-before dashicons-no-alt"></span></td>
                 <td><span class="dashicons-before dashicons-yes"></span></td>
             </tr>
             <tr>
                 <td>
-                    <h3>Background video</h3>
+                    <h3>Google map section</h3>
                 </td>
                 <td><span class="dashicons-before dashicons-no-alt"></span></td>
                 <td><span class="dashicons-before dashicons-yes"></span></td>
@@ -84,29 +84,21 @@
             </tr>
             <tr>
                 <td>
-                    <h3>Unlimited color option</h3>
+                    <h3>Background slider/video</h3>
                 </td>
                 <td><span class="dashicons-before dashicons-no-alt"></span></td>
                 <td><span class="dashicons-before dashicons-yes"></span></td>
             </tr>
             <tr>
                 <td>
-                    <h3>Google map section</h3>
+                    <h3>Support</h3>
                 </td>
                 <td><span class="dashicons-before dashicons-no-alt"></span></td>
                 <td><span class="dashicons-before dashicons-yes"></span></td>
             </tr>
             <tr>
                 <td>
-                    <h3>Packages section</h3>
-                    <p>Pricing tables</p>
-                </td>
-                <td><span class="dashicons-before dashicons-no-alt"></span></td>
-                <td><span class="dashicons-before dashicons-yes"></span></td>
-            </tr>
-            <tr>
-                <td>
-                    <h3>Subscribe section</h3>
+                    <h3>Packages/Subscribe sections</h3>
                 </td>
                 <td><span class="dashicons-before dashicons-no-alt"></span></td>
                 <td><span class="dashicons-before dashicons-yes"></span></td>
@@ -120,11 +112,13 @@
             </tr>
             <tr>
                 <td>
-                    <h3>Support</h3>
+                    <h3>No credit footer link</h3>
                 </td>
                 <td><span class="dashicons-before dashicons-no-alt"></span></td>
                 <td><span class="dashicons-before dashicons-yes"></span></td>
             </tr>
+
+
             <tr class="zerif-lite-text-center">
                 <td colspan="3"><a href="http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/" target="_blank" class="button button-primary">Get Zerif PRO now!</a></td>
             </tr>
