@@ -452,7 +452,7 @@ function zerif_customize_register( $wp_customize ) {
 		/* green button */
 		$wp_customize->add_setting( 'zerif_bigtitle_greenbutton_label', array('sanitize_callback' => 'zerif_sanitize_text','default' => __("What's inside",'zerif-lite')));
 		$wp_customize->add_control( 'zerif_bigtitle_greenbutton_label', array(
-			'label'    => __( 'Red button label', 'zerif-lite' ),
+			'label'    => __( 'Green button label', 'zerif-lite' ),
 			'section'  => 'zerif_bigtitle_section',
 			'settings' => 'zerif_bigtitle_greenbutton_label',
 			'priority'    => 5,
