@@ -307,7 +307,8 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 	if( isset($zerif_bigtitle_show) && $zerif_bigtitle_show != 1 ):
 
-		include get_template_directory() . "/sections/big_title.php";
+		get_template_part( 'sections/big_title' );
+
 	endif;
 
 
@@ -328,19 +329,15 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 	$zerif_ourfocus_show = get_theme_mod('zerif_ourfocus_show');
 
 	if( isset($zerif_ourfocus_show) && $zerif_ourfocus_show != 1 ):
-		include get_template_directory() . "/sections/our_focus.php";
+
+		get_template_part( 'sections/our_focus' );
+
 	endif;
 
 
 	/* RIBBON WITH BOTTOM BUTTON */
 
-
-	include get_template_directory() . "/sections/ribbon_with_bottom_button.php";
-
-
-
-
-
+	get_template_part( 'sections/ribbon_with_bottom_button' );
 
 
 	/* ABOUT US */
@@ -349,7 +346,8 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 	if( isset($zerif_aboutus_show) && $zerif_aboutus_show != 1 ):
 
-		include get_template_directory() . "/sections/about_us.php";
+		get_template_part( 'sections/about_us' );
+
 	endif;
 
 
@@ -359,7 +357,8 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 	if( isset($zerif_ourteam_show) && $zerif_ourteam_show != 1 ):
 
-		include get_template_directory() . "/sections/our_team.php";
+		get_template_part( 'sections/our_team' );
+
 	endif;
 
 
@@ -369,7 +368,8 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 	if( isset($zerif_testimonials_show) && $zerif_testimonials_show != 1 ):
 
-		include get_template_directory() . "/sections/testimonials.php";
+		get_template_part( 'sections/testimonials' );
+
 	endif;
 
 
@@ -377,9 +377,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 	/* RIBBON WITH RIGHT SIDE BUTTON */
 
-
-	include get_template_directory() . "/sections/ribbon_with_right_button.php";
-
+	get_template_part( 'sections/ribbon_with_right_button' );
 
 
 	/* LATEST NEWS */
@@ -387,7 +385,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 	if( isset($zerif_latestnews_show) && $zerif_latestnews_show != 1 ):
 
-		include get_template_directory() . "/sections/latest_news.php";
+		get_template_part( 'sections/latest_news' );
 
 	endif;
 
