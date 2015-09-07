@@ -172,9 +172,9 @@ function zerif_widgets_init()
 
         'after_widget' => '</aside>',
 
-        'before_title' => '<h1 class="widget-title">',
+        'before_title' => '<h2 class="widget-title">',
 
-        'after_title' => '</h1>',
+        'after_title' => '</h2>',
 
     ));
 
@@ -188,9 +188,9 @@ function zerif_widgets_init()
 
         'after_widget' => '',
 
-        'before_title' => '<h1 class="widget-title">',
+        'before_title' => '<h2 class="widget-title">',
 
-        'after_title' => '</h1>',
+        'after_title' => '</h2>',
 
     ));
 
@@ -204,9 +204,9 @@ function zerif_widgets_init()
 
         'after_widget' => '</aside>',
 
-        'before_title' => '<h1 class="widget-title">',
+        'before_title' => '<h2 class="widget-title">',
 
-        'after_title' => '</h1>',
+        'after_title' => '</h2>',
 
     ));
 
@@ -220,9 +220,9 @@ function zerif_widgets_init()
 
         'after_widget' => '',
 
-        'before_title' => '<h1 class="widget-title">',
+        'before_title' => '<h2 class="widget-title">',
 
-        'after_title' => '</h1>',
+        'after_title' => '</h2>',
 
     ));
 
@@ -236,9 +236,9 @@ function zerif_widgets_init()
 
         'after_widget' => '',
 
-        'before_title' => '<h1 class="widget-title">',
+        'before_title' => '<h2 class="widget-title">',
 
-        'after_title' => '</h1>',
+        'after_title' => '</h2>',
 
     ));
 
@@ -618,7 +618,7 @@ class zerif_ourfocus extends WP_Widget
             </div>
 			<?php endif; ?>
 
-            <h5 class="red-border-bottom"><?php if( !empty($instance['title']) ): echo apply_filters('widget_title', $instance['title']); endif; ?></h5>
+            <h3 class="red-border-bottom"><?php if( !empty($instance['title']) ): echo apply_filters('widget_title', $instance['title']); endif; ?></h3>
             <!-- FOCUS HEADING -->
 
 
@@ -708,7 +708,7 @@ class zerif_ourfocus extends WP_Widget
 
             if ( !empty($instance['image_uri']) ) :
 
-                echo '<img class="custom_media_image" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" /><br />';
+                echo '<img class="custom_media_image" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" alt="" /><br />';
 
             endif;
 
@@ -805,7 +805,7 @@ class zerif_testimonial_widget extends WP_Widget
 
                 <div class="client-info">
 
-					<a class="client-name" target="_blank" <?php if( !empty($instance['link']) ): echo 'href="'.esc_url($instance['link']).'"'; endif; ?>><?php if( !empty($instance['title']) ): echo apply_filters('widget_title', $instance['title'] ); endif; ?></a>
+					<a class="client-name" <?php if( !empty($instance['link']) ): echo 'href="'.esc_url($instance['link']).'"'; endif; ?>><?php if( !empty($instance['title']) ): echo apply_filters('widget_title', $instance['title'] ); endif; ?></a>
 					
 
 					<?php if( !empty($instance['details']) ): ?>
@@ -924,7 +924,7 @@ class zerif_testimonial_widget extends WP_Widget
 
             if ( !empty($instance['image_uri']) ) :
 
-                echo '<img class="custom_media_image_testimonial" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" /><br />';
+                echo '<img class="custom_media_image_testimonial" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" alt="" /><br />';
 
             endif;
 
@@ -1054,7 +1054,7 @@ class zerif_clients_widget extends WP_Widget
 
             if ( !empty($instance['image_uri']) ) :
 
-                echo '<img class="custom_media_image_clients" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" /><br />';
+                echo '<img class="custom_media_image_clients" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" alt="" /><br />';
 
             endif;
 
@@ -1150,7 +1150,7 @@ class zerif_team_widget extends WP_Widget
 
 					<?php if( !empty($instance['name']) ): ?>
 					
-						<h5 class="dark-text red-border-bottom"><?php echo apply_filters('widget_title', $instance['name']); ?></h5>
+						<h3 class="dark-text red-border-bottom"><?php echo apply_filters('widget_title', $instance['name']); ?></h3>
 						
 					<?php endif; ?>	
 
@@ -1372,7 +1372,7 @@ class zerif_team_widget extends WP_Widget
 
             if ( !empty($instance['image_uri']) ) :
 
-                echo '<img class="custom_media_image_team" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" /><br />';
+                echo '<img class="custom_media_image_team" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" alt="" /><br />';
 
             endif;
 
@@ -1457,8 +1457,8 @@ function zerif_lite_display_upsell() {
 				<div class="row">
 					<div id="upsell_header" class="col-md-12">
 						<h2>
-							<a href="https://themeisle.com" target="_blank">
-								<img src="<?php echo get_template_directory_uri(); ?>/images/logo-themeisle.png"/>
+							<a href="https://themeisle.com">
+								<img src="<?php echo get_template_directory_uri(); ?>/images/logo-themeisle.png" alt="" />
 							</a>
 						</h2>
 
@@ -1490,7 +1490,7 @@ function zerif_lite_display_upsell() {
 
 							<div id="<?php echo $theme->slug; ?>" class="theme-container col-md-6 col-lg-4">
 								<div class="image-container">
-									<img class="theme-screenshot" src="<?php echo $theme->screenshot_url ?>"/>
+									<img class="theme-screenshot" src="<?php echo $theme->screenshot_url ?>" alt="" />
 
 									<div class="theme-description">
 										<p><?php echo $theme->description; ?></p>
@@ -1498,7 +1498,7 @@ function zerif_lite_display_upsell() {
 								</div>
 								<div class="theme-details active">
 									<span class="theme-name"><?php echo $theme->name . ':' . __( 'Current theme', 'zerif-lite' ); ?></span>
-									<a class="button button-secondary customize right" target="_blank" href="<?php echo get_site_url(). '/wp-admin/customize.php' ?>">Customize</a>
+									<a class="button button-secondary customize right" href="<?php echo get_site_url(). '/wp-admin/customize.php' ?>">Customize</a>
 								</div>
 							</div>
 
@@ -1530,7 +1530,7 @@ function zerif_lite_display_upsell() {
 
 							<div id="<?php echo $theme->slug; ?>" class="theme-container col-md-6 col-lg-4 <?php echo $counter % 3 == 1 ? 'no-left-megin' : ""; ?>">
 								<div class="image-container">
-									<img class="theme-screenshot" src="<?php echo $theme->screenshot_url ?>"/>
+									<img class="theme-screenshot" src="<?php echo $theme->screenshot_url ?>" alt="" />
 
 									<div class="theme-description">
 										<p><?php echo $theme->description; ?></p>
@@ -1543,7 +1543,7 @@ function zerif_lite_display_upsell() {
 									<?php if( wp_get_theme( $theme->slug )->exists() ) { ?>
 
 										<!-- Show the tick image notifying the theme is already installed. -->
-										<img data-toggle="tooltip" title="<?php _e( 'Already installed', 'zerif-lite' ); ?>" data-placement="bottom" class="theme-exists" src="<?php echo $directory_uri ?>/core/images/tick.png"/>
+										<img data-toggle="tooltip" title="<?php _e( 'Already installed', 'zerif-lite' ); ?>" data-placement="bottom" class="theme-exists" src="<?php echo $directory_uri ?>/core/images/tick.png" alt="" />
 
 										<!-- Activate Button -->
 										<a  class="button button-primary activate right"
@@ -1562,7 +1562,7 @@ function zerif_lite_display_upsell() {
 									<?php } ?>
 
 									<!-- Preview button -->
-									<a class="button button-secondary preview right" target="_blank" href="<?php echo $theme->preview_url; ?>"><?php _e( 'Live Preview', 'zerif-lite' ); ?></a>
+									<a class="button button-secondary preview right" href="<?php echo $theme->preview_url; ?>"><?php _e( 'Live Preview', 'zerif-lite' ); ?></a>
 								</div>
 							</div>
 							<?php

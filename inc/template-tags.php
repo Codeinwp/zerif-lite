@@ -32,7 +32,7 @@ function zerif_paging_nav() {
 
 	<nav class="navigation paging-navigation" role="navigation">
 
-		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'zerif-lite' ); ?></h1>
+		<h2 class="screen-reader-text"><?php _e( 'Posts navigation', 'zerif-lite' ); ?></h2>
 
 		<div class="nav-links">
 
@@ -94,7 +94,7 @@ function zerif_post_nav() {
 
 	<nav class="navigation post-navigation" role="navigation">
 
-		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'zerif-lite' ); ?></h1>
+		<h2 class="screen-reader-text"><?php _e( 'Post navigation', 'zerif-lite' ); ?></h2>
 
 		<div class="nav-links">
 

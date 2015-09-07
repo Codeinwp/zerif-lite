@@ -28,13 +28,13 @@
 				if( !empty($zerif_aboutus_subtitle) ):
 
 
-					echo '<h6 class="white-text">';
+					echo '<div class="white-text section-legend">';
 
 
 						echo __($zerif_aboutus_subtitle,'zerif-lite');
 
 
-					echo '</h6>';
+					echo '</div>';
 
 
 				endif;
@@ -153,7 +153,7 @@
 							echo '<div class="skill-count">';
 
 
-								echo '<input type="text" value="'.$zerif_aboutus_feature1_nr.'" data-thickness=".2" class="skill1">';
+								echo '<input type="text" value="'.$zerif_aboutus_feature1_nr.'" data-thickness=".2" class="skill1" tabindex="-1">';
 
 
 							echo '</div>';
@@ -162,7 +162,7 @@
 						endif;
 
 						if( !empty($zerif_aboutus_feature1_title) ):
-							echo '<h6>'.__($zerif_aboutus_feature1_title,'zerif-lite').'</h6>';
+							echo '<div class="section-legend">'.__($zerif_aboutus_feature1_title,'zerif-lite').'</div>';
 						endif;
 
 						if( !empty($zerif_aboutus_feature1_text) ):
@@ -197,7 +197,7 @@
 							echo '<div class="skill-count">';
 
 
-								echo '<input type="text" value="'.$zerif_aboutus_feature2_nr.'" data-thickness=".2" class="skill2">';
+								echo '<input type="text" value="'.$zerif_aboutus_feature2_nr.'" data-thickness=".2" class="skill2" tabindex="-1">';
 
 
 							echo '</div>';
@@ -209,7 +209,7 @@
 						$zerif_aboutus_feature2_text = get_theme_mod('zerif_aboutus_feature2_text');
 
 						if( !empty($zerif_aboutus_feature2_title) ):
-							echo '<h6>'.__($zerif_aboutus_feature2_title,'zerif-lite').'</h6>';
+							echo '<div class="section-legend">'.__($zerif_aboutus_feature2_title,'zerif-lite').'</div>';
 						endif;
 
 						if( !empty($zerif_aboutus_feature2_text) ):
@@ -243,7 +243,7 @@
 							echo '<div class="skill-count">';
 
 
-								echo '<input type="text" value="'.$zerif_aboutus_feature3_nr.'" data-thickness=".2" class="skill3">';
+								echo '<input type="text" value="'.$zerif_aboutus_feature3_nr.'" data-thickness=".2" class="skill3" tabindex="-1">';
 
 
 							echo '</div>';
@@ -255,7 +255,7 @@
 						$zerif_aboutus_feature3_text = get_theme_mod('zerif_aboutus_feature3_text');
 
 						if( !empty($zerif_aboutus_feature3_title) ):
-							echo '<h6>'.__($zerif_aboutus_feature3_title,'zerif-lite').'</h6>';
+							echo '<div class="section-legend">'.__($zerif_aboutus_feature3_title,'zerif-lite').'</div>';
 						endif;
 
 						if( !empty($zerif_aboutus_feature3_text) ):
@@ -287,7 +287,7 @@
 							echo '<div class="skill-count">';
 
 
-								echo '<input type="text" value="'.$zerif_aboutus_feature4_nr.'" data-thickness=".2" class="skill4">';
+								echo '<input type="text" value="'.$zerif_aboutus_feature4_nr.'" data-thickness=".2" class="skill4" tabindex="-1">';
 
 
 							echo '</div>';
@@ -299,7 +299,7 @@
 						$zerif_aboutus_feature4_text = get_theme_mod('zerif_aboutus_feature4_text');
 
 						if( !empty($zerif_aboutus_feature4_title) ):
-							echo '<h6>'.__($zerif_aboutus_feature4_title,'zerif-lite').'</h6>';
+							echo '<div class="section-legend">'.__($zerif_aboutus_feature4_title,'zerif-lite').'</div>';
 						endif;
 
 						if( !empty($zerif_aboutus_feature4_text) ):
@@ -332,7 +332,7 @@
 	<?php
 		if(is_active_sidebar( 'sidebar-aboutus' )):
 			echo '<div class="our-clients">';
-				echo '<h5><span class="section-footer-title">'.__('OUR HAPPY CLIENTS','zerif-lite').'</span></h5>';
+				echo '<h2><span class="section-footer-title">'.__('OUR HAPPY CLIENTS','zerif-lite').'</span></h2>';
 			echo '</div>';
 
 			echo '<div class="client-list">';

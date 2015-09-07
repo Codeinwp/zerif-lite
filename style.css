@@ -154,6 +154,19 @@ p {
 	width: 100%;
 	margin: auto;
 }
+/* do not group these rules (placeholder colors) */
+*::-webkit-input-placeholder {
+    color: #777 !important;
+}
+*:-moz-placeholder {
+    color: #777 !important;
+}
+*::-moz-placeholder {
+    color: #777 !important;
+}
+*:-ms-input-placeholder {
+    color: #777 !important;
+}
 /*--------------------------------------------------------------
 2.0 Typography
 --------------------------------------------------------------*/
@@ -301,7 +314,7 @@ h6 {
 	background: #e96656;
 }
 .green-btn {
-	background: #20AA73;
+	background: #1e9e6b;
 }
 .blue-btn {
 	background: #3ab0e2;
@@ -659,6 +672,11 @@ input:focus {
 
   -webkit-box-shadow:none !important;
   box-shadow:none !important;
+}
+input:focus,
+textarea:focus {
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	outline: 0;
 }
  /*---------------------------------------
  **   5.0 Navigation                 -----
@@ -1117,7 +1135,9 @@ a:active {
 	border-color:#e96656;
 	color:#fff !important;
 }
-.comment-form #submit:hover {
+.comment-form #submit:hover,
+.comment-form #submit:focus, 
+.comment-form #submit:active {
 
 	background: #cb4332;
 }
@@ -1133,7 +1153,7 @@ a:active {
 }
 .comment-metadata,
 .comment-metadata a{
-	color: #bdbdbd;
+	color: #888;
 	font-style: italic;
 	font-size: 12px;
 	padding: 3px 0px;
@@ -1344,7 +1364,7 @@ object {
 	margin-top: 15px;
 	margin-bottom: 0;
 }
-.section-header h6 {
+.section-header .section-legend {
 	font-size: 16px;
 	margin-bottom: 0;
 	color: #808080;
@@ -1508,6 +1528,9 @@ object {
 .navbar-brand > img {
 	max-height: 100%;
 }
+.navbar-brand:focus {
+	border:1px dotted black;
+}
 .navbar-inverse .navbar-nav>li>a:hover {
 	color: #e96656;
 	outline: none;
@@ -1516,6 +1539,9 @@ object {
 	border: 0;
 	background-color: #808080;
 	margin-top: 23px;
+}
+.navbar-toggle:focus {
+	border:1px dotted black;
 }
 .navbar-inverse .navbar-toggle:hover,.navbar-inverse .navbar-toggle:focus {
 	background-color: #e96656;
@@ -1659,7 +1685,7 @@ ul.nav > li.current_page_item.current > a:before {
 .latesnews-content {
 	font-size: 14px;
 	line-height: 18px;
-	color: #909090;
+	color: #777777;
 }
 #carousel-homepage-latestnews .carousel-inner .item .latestnews-title {
 	margin-bottom: 15px;
@@ -1702,6 +1728,9 @@ ul.nav > li.current_page_item.current > a:before {
 }
 #carousel-homepage-latestnews .item .latestnews-box:nth-child(4n) .latestnews-title a:before {
 	background: #f7d861;
+}
+#carousel-homepage-latestnews .item .latestnews-box .latestnews-img .latestnews-img-a {
+	display:block;
 }
 #carousel-homepage-latestnews {
 	margin: 0 30px;
@@ -1798,7 +1827,7 @@ ul.nav > li.current_page_item.current > a:before {
 .focus-box:nth-child(4n+4) .red-border-bottom:before {
 	background: #f7d861;
 }
-.focus-box h5 {
+.focus-box h3 {
 	margin-bottom: 15px;
 	color: #404040;
 	position: relative;
@@ -2056,7 +2085,7 @@ width: -webkit-calc(100% / 4);
 	line-height: normal;
 	margin-top: -15px;
 }
-.about-us .section-header h6 {
+.about-us .section-header .section-legend {
 	color: #FFF;
 }
 .about-us p {
@@ -2093,7 +2122,7 @@ width: -webkit-calc(100% / 4);
 .skills .skill .skill1,.skill2,.skill3,.skill4 {
 	font-size: 16px !important;
 }
-.skills .skill h6 {
+.skills .skill .section-legend {
 	text-transform: uppercase;
 	font-weight: 700;
 	clear: none;
@@ -2119,7 +2148,7 @@ width: -webkit-calc(100% / 4);
 	padding: 0 15px;
 	color: #FFF;
 }
-.our-clients h5 {
+.our-clients h2 {
 	font-weight: 700;
 	float:none;
 	margin-top: 0;
@@ -2210,7 +2239,7 @@ width: -webkit-calc(100% / 4);
 	position: relative;
 	display: inline-block;
 }
-.stat h6 {
+.stat .section-legend {
 	color: #d1d1d1;
 	margin-top: 15px;
 }
@@ -2282,10 +2311,11 @@ width: -webkit-calc(100% / 4);
 	width: 100%;
 	height: 100%;
 }
-.team-member h5 {
+.team-member h3 {
 	text-transform: uppercase;
 	color: #404040;
 	font-weight: 700;
+	font-size: 17px;
 	position: relative;
 	margin-top: 15px;
 }
@@ -2612,10 +2642,10 @@ width: -webkit-calc(100% / 4);
  **   Testionial           -----
 -----------------------------------------*/
 .testimonial {
-	background: #dbbf56;
+	background: #8c7620;
 	padding-bottom: 90px;
 }
-.testimonial .section-header h6 {
+.testimonial .section-header .section-legend {
 	color: #FFF;
 }
 #client-feedbacks .feedback-box {
@@ -2633,7 +2663,7 @@ width: -webkit-calc(100% / 4);
 }
 .feedback-box .message {
 	font-size: 15px;
-	color: #909090;
+	color: #777777;
 }
 .feedback-box .client {
 	margin-top: 30px;
@@ -2718,7 +2748,7 @@ width: -webkit-calc(100% / 4);
 	background: rgba(0, 0, 0, 0.5);
 	padding-bottom: 95px;
 }
-.contact-us .section-header h6 {
+.contact-us .section-header .section-legend {
 	color: #FFF;
 }
 .contact-us .input-box,textarea {
@@ -2893,14 +2923,14 @@ article{
 	text-align: left;
 }
 article .entry-meta a{
-	color :#bdbdbd;
+	color :#888;
 	font-style: italic;
 }
 article .posted-on a:hover{
 	color: #e96656;
 }
 .entry-footer a{
-	color :#bdbdbd;
+	color :#888;
 	font-style: italic;
 }
 .entry-footer a:hover{
@@ -3672,7 +3702,7 @@ article .posted-on a:hover{
 }
 .woocommerce-page .woocommerce-message {
 	margin: 0px 0 40px;
-	background: #20AA73;
+	background: #1e9e6b;
 	border-radius: 3px;
 	color: #FFF;
 	list-style: none;
@@ -4846,4 +4876,5 @@ body.custom-background {
 
 .zerif-copyright-box {
 	width: 100%;
+    color: #666;
 }

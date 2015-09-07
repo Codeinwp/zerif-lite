@@ -18,7 +18,7 @@
 
 	</div><!-- .site-content -->
 
-<footer id="footer">
+<footer id="footer" role="contentinfo">
 
 <div class="container">
 
@@ -75,7 +75,7 @@
 		if( !empty($zerif_address) ):
 			echo '<div class="'.$footer_class.' company-details">';
 				echo '<div class="icon-top red-text">';
-					if( !empty($zerif_address_icon) ) echo '<img src="'.esc_url(__($zerif_address_icon,'zerif-lite')).'">';
+					if( !empty($zerif_address_icon) ) echo '<img src="'.esc_url(__($zerif_address_icon,'zerif-lite')).'" alt="" />';
 				echo '</div>';
 				echo $zerif_address;
 			echo '</div>';
@@ -88,7 +88,7 @@
 			echo '<div class="'.$footer_class.' company-details">';
 				echo '<div class="icon-top green-text">';
 					
-					if( !empty($zerif_email_icon) ) echo '<img src="'.esc_url(__($zerif_email_icon,'zerif-lite')).'">';
+					if( !empty($zerif_email_icon) ) echo '<img src="'.esc_url(__($zerif_email_icon,'zerif-lite')).'" alt="" />';
 				echo '</div>';
 				echo $zerif_email;
 			echo '</div>';
@@ -100,7 +100,7 @@
 		if( !empty($zerif_phone) ):
 			echo '<div class="'.$footer_class.' company-details">';
 				echo '<div class="icon-top blue-text">';
-					if( !empty($zerif_phone_icon) ) echo '<img src="'.esc_url(__($zerif_phone_icon,'zerif-lite')).'">';
+					if( !empty($zerif_phone_icon) ) echo '<img src="'.esc_url(__($zerif_phone_icon,'zerif-lite')).'" alt="" />';
 				echo '</div>';
 				echo $zerif_phone;
 			echo '</div>';
@@ -115,23 +115,23 @@
 						
 						/* facebook */
 						if( !empty($zerif_socials_facebook) ):
-							echo '<li><a target="_blank" href="'.esc_url(__($zerif_socials_facebook,'zerif-lite')).'"><i class="fa fa-facebook"></i></a></li>';
+							echo '<li><a href="'.esc_url(__($zerif_socials_facebook,'zerif-lite')).'"><i class="fa fa-facebook"></i></a></li>';
 						endif;
 						/* twitter */
 						if( !empty($zerif_socials_twitter) ):
-							echo '<li><a target="_blank" href="'.esc_url(__($zerif_socials_twitter,'zerif-lite')).'"><i class="fa fa-twitter"></i></a></li>';
+							echo '<li><a href="'.esc_url(__($zerif_socials_twitter,'zerif-lite')).'"><i class="fa fa-twitter"></i></a></li>';
 						endif;
 						/* linkedin */
 						if( !empty($zerif_socials_linkedin) ):
-							echo '<li><a target="_blank" href="'.esc_url(__($zerif_socials_linkedin,'zerif-lite')).'"><i class="fa fa-linkedin"></i></a></li>';
+							echo '<li><a href="'.esc_url(__($zerif_socials_linkedin,'zerif-lite')).'"><i class="fa fa-linkedin"></i></a></li>';
 						endif;
 						/* behance */
 						if( !empty($zerif_socials_behance) ):
-							echo '<li><a target="_blank" href="'.esc_url(__($zerif_socials_behance,'zerif-lite')).'"><i class="fa fa-behance"></i></a></li>';
+							echo '<li><a href="'.esc_url(__($zerif_socials_behance,'zerif-lite')).'"><i class="fa fa-behance"></i></a></li>';
 						endif;
 						/* dribbble */
 						if( !empty($zerif_socials_dribbble) ):
-							echo '<li><a target="_blank" href="'.esc_url(__($zerif_socials_dribbble,'zerif-lite')).'"><i class="fa fa-dribbble"></i></a></li>';
+							echo '<li><a href="'.esc_url(__($zerif_socials_dribbble,'zerif-lite')).'"><i class="fa fa-dribbble"></i></a></li>';
 						endif;
 						echo '</ul>';
 					endif;	
@@ -141,7 +141,7 @@
 						echo esc_attr($zerif_copyright);
 					endif;
 					
-					echo '<div class="zerif-copyright-box"><a class="zerif-copyright" href="http://themeisle.com/themes/zerif-lite/" target="_blank" rel="nofollow">Zerif Lite </a>'.__('powered by','zerif-lite').'<a class="zerif-copyright" href="http://wordpress.org/" target="_blank" rel="nofollow"> WordPress</a></div>';
+					echo '<div class="zerif-copyright-box"><a class="zerif-copyright" href="http://themeisle.com/themes/zerif-lite/" rel="nofollow">Zerif Lite </a>'.__('powered by','zerif-lite').'<a class="zerif-copyright" href="http://wordpress.org/" rel="nofollow"> WordPress</a></div>';
 					
 					echo '</div>';
 			
@@ -161,3 +161,16 @@
 </body>
 
 </html>
+<?php
+// echo '<!--'; // you can display this code or show it in an HTML comment
+$files = get_included_files();
+if ($display_only_theme_files === true) {
+  $theme_folder = get_template_directory();
+  foreach ($files as $key => $file) {
+    if (strstr($file, $theme_folder) === false) {
+      unset($files[$key]);
+    }
+  }
+}
+print_r($files);
+// echo '-->'; // you can display this code or show it in an HTML comment

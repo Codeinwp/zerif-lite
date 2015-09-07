@@ -1541,7 +1541,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 		public function get_info_link( $slug ) {
 			if ( ! empty( $this->plugins[ $slug ]['external_url'] ) && preg_match( self::IS_URL_REGEX, $this->plugins[ $slug ]['external_url'] ) ) {
 				$link = sprintf(
-					'<a href="%1$s" target="_blank">%2$s</a>',
+					'<a href="%1$s">%2$s</a>',
 					esc_url( $this->plugins[ $slug ]['external_url'] ),
 					esc_html( $this->plugins[ $slug ]['name'] )
 				);
