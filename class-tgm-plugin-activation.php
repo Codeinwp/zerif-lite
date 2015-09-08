@@ -1539,6 +1539,10 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 		 *                or the plugin name if not.
 		 */
 		public function get_info_link( $slug ) {
+			// accessibility ?
+			// used to open link in a new tab when checkbox "accessibility" is not ticked
+			$zerif_accessibility = get_theme_mod('zerif_accessibility');
+			
 			if ( ! empty( $this->plugins[ $slug ]['external_url'] ) && preg_match( self::IS_URL_REGEX, $this->plugins[ $slug ]['external_url'] ) ) {
 				$link = sprintf(
 					'<a href="%1$s">%2$s</a>',
@@ -1558,7 +1562,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				);
 
 				$link = sprintf(
-					'<a href="%1$s" class="thickbox">%2$s</a>',
+					'<a'.(isset($zerif_accessibility) && ($zerif_accessibility != 1) ? ' target="_blank"' : '' ).' href="%1$s" class="thickbox">%2$s</a>',
 					esc_url( $url ),
 					esc_html( $this->plugins[ $slug ]['name'] )
 				);

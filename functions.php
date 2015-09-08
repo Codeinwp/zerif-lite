@@ -776,7 +776,10 @@ class zerif_testimonial_widget extends WP_Widget
 
 
         echo $before_widget;
-
+		
+		$zerif_accessibility = get_theme_mod('zerif_accessibility');
+		// open link in a new tab when checkbox "accessibility" is not ticked
+		$attribut_new_tab = (isset($zerif_accessibility) && ($zerif_accessibility != 1) ? ' target="_blank"' : '' );
         ?>
 
 
@@ -805,7 +808,7 @@ class zerif_testimonial_widget extends WP_Widget
 
                 <div class="client-info">
 
-					<a class="client-name" <?php if( !empty($instance['link']) ): echo 'href="'.esc_url($instance['link']).'"'; endif; ?>><?php if( !empty($instance['title']) ): echo apply_filters('widget_title', $instance['title'] ); endif; ?></a>
+					<a<?php echo $attribut_new_tab; ?> class="client-name" <?php if( !empty($instance['link']) ): echo 'href="'.esc_url($instance['link']).'"'; endif; ?>><?php if( !empty($instance['title']) ): echo apply_filters('widget_title', $instance['title'] ); endif; ?></a>
 					
 
 					<?php if( !empty($instance['details']) ): ?>
@@ -1450,6 +1453,10 @@ function zerif_lite_display_upsell() {
 
 	// Set template directory uri
 	$directory_uri = get_template_directory_uri();
+	
+	$zerif_accessibility = get_theme_mod('zerif_accessibility');
+	// open link in a new tab when checkbox "accessibility" is not ticked
+	$attribut_new_tab = (isset($zerif_accessibility) && ($zerif_accessibility != 1) ? ' target="_blank"' : '' );
 	?>
 	<div class="wrap">
 		<div class="container-fluid">
@@ -1457,7 +1464,7 @@ function zerif_lite_display_upsell() {
 				<div class="row">
 					<div id="upsell_header" class="col-md-12">
 						<h2>
-							<a href="https://themeisle.com">
+							<a<?php echo $attribut_new_tab; ?> href="https://themeisle.com">
 								<img src="<?php echo get_template_directory_uri(); ?>/images/logo-themeisle.png" alt="<?php _e( 'Themeisle logo', 'zerif-lite' ); ?>" />
 							</a>
 						</h2>
@@ -1498,7 +1505,7 @@ function zerif_lite_display_upsell() {
 								</div>
 								<div class="theme-details active">
 									<span class="theme-name"><?php echo $theme->name . ':' . __( 'Current theme', 'zerif-lite' ); ?></span>
-									<a class="button button-secondary customize right" href="<?php echo get_site_url(). '/wp-admin/customize.php' ?>">Customize</a>
+									<a class="button button-secondary customize right"<?php echo $attribut_new_tab; ?> href="<?php echo get_site_url(). '/wp-admin/customize.php' ?>">Customize</a>
 								</div>
 							</div>
 
@@ -1562,7 +1569,7 @@ function zerif_lite_display_upsell() {
 									<?php } ?>
 
 									<!-- Preview button -->
-									<a class="button button-secondary preview right" href="<?php echo $theme->preview_url; ?>"><?php _e( 'Live Preview', 'zerif-lite' ); ?></a>
+									<a<?php echo $attribut_new_tab; ?> class="button button-secondary preview right" href="<?php echo $theme->preview_url; ?>"><?php _e( 'Live Preview', 'zerif-lite' ); ?></a>
 								</div>
 							</div>
 							<?php

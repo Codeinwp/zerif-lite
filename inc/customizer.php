@@ -137,6 +137,18 @@ function zerif_customize_register( $wp_customize ) {
 				)
 		);
 
+		/* Enable accessibility */
+		$wp_customize->add_setting( 'zerif_accessibility', array('sanitize_callback' => 'zerif_sanitize_text'));
+		$wp_customize->add_control(
+				'zerif_accessibility',
+				array(
+					'type' 		=> 'checkbox',
+					'label' 	=> __('Enable accessibility?','zerif-lite'),
+					'section' 	=> 'zerif_general_section',
+					'priority'	=> 3,
+				)
+		);
+
 		/* COPYRIGHT */
 		$wp_customize->add_setting( 'zerif_copyright', array('sanitize_callback' => 'zerif_sanitize_text'));
 		$wp_customize->add_control( 'zerif_copyright', array(
@@ -288,6 +300,18 @@ function zerif_customize_register( $wp_customize ) {
 				array(
 					'type' 		=> 'checkbox',
 					'label' 	=> __('Disable smooth scroll?','zerif-lite'),
+					'section' 	=> 'zerif_general_section',
+					'priority'	=> 3,
+				)
+		);
+
+		/* Enable accessibility */
+		$wp_customize->add_setting( 'zerif_accessibility', array('sanitize_callback' => 'zerif_sanitize_text'));
+		$wp_customize->add_control(
+				'zerif_accessibility',
+				array(
+					'type' 		=> 'checkbox',
+					'label' 	=> __('Enable accessibility?','zerif-lite'),
 					'section' 	=> 'zerif_general_section',
 					'priority'	=> 3,
 				)
@@ -1177,11 +1201,13 @@ function zerif_customize_register( $wp_customize ) {
 			'priority'    => 6,
 		)
 	);
+	
 	/* site key */
+	$attribut_new_tab = (isset($zerif_accessibility) && ($zerif_accessibility != 1) ? ' target="_blank"' : '' );
 	$wp_customize->add_setting( 'zerif_contactus_sitekey', array('sanitize_callback' => 'zerif_sanitize_text'));	
 	$wp_customize->add_control( 'zerif_contactus_sitekey', array(
 				'label'    => __( 'Site key', 'zerif-lite' ),
-				'description' => '<a href="https://www.google.com/recaptcha/admin#list">'.__('Create an account here','zerif').'</a> to get the Site key and the Secret key for the reCaptcha.',
+				'description' => '<a'.$attribut_new_tab.' href="https://www.google.com/recaptcha/admin#list">'.__('Create an account here','zerif').'</a> to get the Site key and the Secret key for the reCaptcha.',
 				'section'  => 'zerif_contactus_section',
 				'settings' => 'zerif_contactus_sitekey',
 				'priority'    => 7,
