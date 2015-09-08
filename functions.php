@@ -708,7 +708,7 @@ class zerif_ourfocus extends WP_Widget
 
             if ( !empty($instance['image_uri']) ) :
 
-                echo '<img class="custom_media_image" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" alt="" /><br />';
+                echo '<img class="custom_media_image" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" alt="'.__( 'Uploaded image', 'zerif-lite' ).'" /><br />';
 
             endif;
 
@@ -824,7 +824,7 @@ class zerif_testimonial_widget extends WP_Widget
 
 					echo '<div class="client-image hidden-xs">';
 
-					echo '<img src="' . esc_url($instance['image_uri']) . '" alt="">';
+					echo '<img src="' . esc_url($instance['image_uri']) . '" alt="'.__( 'Uploaded image', 'zerif-lite' ).'" />';
 
 					echo '</div>';
 				endif;	
@@ -924,7 +924,7 @@ class zerif_testimonial_widget extends WP_Widget
 
             if ( !empty($instance['image_uri']) ) :
 
-                echo '<img class="custom_media_image_testimonial" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" alt="" /><br />';
+                echo '<img class="custom_media_image_testimonial" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" alt="'.__( 'Uploaded image', 'zerif-lite' ).'" /><br />';
 
             endif;
 
@@ -997,7 +997,7 @@ class zerif_clients_widget extends WP_Widget
         ?>
 
         <a href="<?php if( !empty($instance['link']) ): echo apply_filters('widget_title', $instance['link']); endif; ?>"><img
-                src="<?php if( !empty($instance['image_uri']) ): echo esc_url($instance['image_uri']); endif; ?>" alt="Client"></a>
+                src="<?php if( !empty($instance['image_uri']) ): echo esc_url($instance['image_uri']); endif; ?>" alt="<?php _e( 'Client', 'zerif-lite' ); ?>"></a>
 
 
 
@@ -1054,7 +1054,7 @@ class zerif_clients_widget extends WP_Widget
 
             if ( !empty($instance['image_uri']) ) :
 
-                echo '<img class="custom_media_image_clients" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" alt="" /><br />';
+                echo '<img class="custom_media_image_clients" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" alt="'.__( 'Uploaded image', 'zerif-lite' ).'" /><br />';
 
             endif;
 
@@ -1138,7 +1138,7 @@ class zerif_team_widget extends WP_Widget
 					<figure class="profile-pic">
 
 
-						<img src="<?php echo esc_url($instance['image_uri']); ?>" alt="">
+						<img src="<?php echo esc_url($instance['image_uri']); ?>" alt="<?php _e( 'Uploaded image', 'zerif-lite' ); ?>" />
 
 
 					</figure>
@@ -1372,7 +1372,7 @@ class zerif_team_widget extends WP_Widget
 
             if ( !empty($instance['image_uri']) ) :
 
-                echo '<img class="custom_media_image_team" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" alt="" /><br />';
+                echo '<img class="custom_media_image_team" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" alt="'.__( 'Uploaded image', 'zerif-lite' ).'" /><br />';
 
             endif;
 
@@ -1458,7 +1458,7 @@ function zerif_lite_display_upsell() {
 					<div id="upsell_header" class="col-md-12">
 						<h2>
 							<a href="https://themeisle.com">
-								<img src="<?php echo get_template_directory_uri(); ?>/images/logo-themeisle.png" alt="" />
+								<img src="<?php echo get_template_directory_uri(); ?>/images/logo-themeisle.png" alt="<?php _e( 'Themeisle logo', 'zerif-lite' ); ?>" />
 							</a>
 						</h2>
 
@@ -1490,7 +1490,7 @@ function zerif_lite_display_upsell() {
 
 							<div id="<?php echo $theme->slug; ?>" class="theme-container col-md-6 col-lg-4">
 								<div class="image-container">
-									<img class="theme-screenshot" src="<?php echo $theme->screenshot_url ?>" alt="" />
+									<img class="theme-screenshot" src="<?php echo $theme->screenshot_url ?>" alt="<?php _e( 'Theme screenshot', 'zerif-lite' ); ?>" />
 
 									<div class="theme-description">
 										<p><?php echo $theme->description; ?></p>
@@ -1530,7 +1530,7 @@ function zerif_lite_display_upsell() {
 
 							<div id="<?php echo $theme->slug; ?>" class="theme-container col-md-6 col-lg-4 <?php echo $counter % 3 == 1 ? 'no-left-megin' : ""; ?>">
 								<div class="image-container">
-									<img class="theme-screenshot" src="<?php echo $theme->screenshot_url ?>" alt="" />
+									<img class="theme-screenshot" src="<?php echo $theme->screenshot_url ?>" alt="<?php _e( 'Theme screenshot', 'zerif-lite' ); ?>" />
 
 									<div class="theme-description">
 										<p><?php echo $theme->description; ?></p>
@@ -1543,7 +1543,7 @@ function zerif_lite_display_upsell() {
 									<?php if( wp_get_theme( $theme->slug )->exists() ) { ?>
 
 										<!-- Show the tick image notifying the theme is already installed. -->
-										<img data-toggle="tooltip" title="<?php _e( 'Already installed', 'zerif-lite' ); ?>" data-placement="bottom" class="theme-exists" src="<?php echo $directory_uri ?>/core/images/tick.png" alt="" />
+										<img data-toggle="tooltip" title="<?php _e( 'Already installed', 'zerif-lite' ); ?>" data-placement="bottom" class="theme-exists" src="<?php echo $directory_uri ?>/core/images/tick.png" alt="<?php _e( 'Already installed', 'zerif-lite' ); ?>" />
 
 										<!-- Activate Button -->
 										<a  class="button button-primary activate right"
