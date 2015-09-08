@@ -161,16 +161,3 @@
 </body>
 
 </html>
-<?php
-// echo '<!--'; // you can display this code or show it in an HTML comment
-$files = get_included_files();
-if ($display_only_theme_files === true) {
-  $theme_folder = get_template_directory();
-  foreach ($files as $key => $file) {
-    if (strstr($file, $theme_folder) === false) {
-      unset($files[$key]);
-    }
-  }
-}
-print_r($files);
-// echo '-->'; // you can display this code or show it in an HTML comment
