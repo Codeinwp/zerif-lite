@@ -393,6 +393,11 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
+#. translators: %s: Name of current post
+#: content-page.php:32
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
 #: content-large.php:86
 #: content-page.php:18
 #: content-single.php:1
@@ -666,6 +671,10 @@ msgstr ""
 
 #: header.php:91
 msgid "Toggle navigation"
+msgstr ""
+
+#: header.php:140
+msgid "Skip to content"
 msgstr ""
 
 #: search.php:47

@@ -179,9 +179,9 @@ function zerif_widgets_init()
 
         'after_widget' => '</aside>',
 
-        'before_title' => '<h1 class="widget-title">',
+        'before_title' => '<h2 class="widget-title">',
 
-        'after_title' => '</h1>',
+        'after_title' => '</h2>',
 
     ));
 
@@ -195,9 +195,9 @@ function zerif_widgets_init()
 
         'after_widget' => '',
 
-        'before_title' => '<h1 class="widget-title">',
+        'before_title' => '<h2 class="widget-title">',
 
-        'after_title' => '</h1>',
+        'after_title' => '</h2>',
 
     ));
 
@@ -211,9 +211,9 @@ function zerif_widgets_init()
 
         'after_widget' => '</aside>',
 
-        'before_title' => '<h1 class="widget-title">',
+        'before_title' => '<h2 class="widget-title">',
 
-        'after_title' => '</h1>',
+        'after_title' => '</h2>',
 
     ));
 
@@ -227,9 +227,9 @@ function zerif_widgets_init()
 
         'after_widget' => '',
 
-        'before_title' => '<h1 class="widget-title">',
+        'before_title' => '<h2 class="widget-title">',
 
-        'after_title' => '</h1>',
+        'after_title' => '</h2>',
 
     ));
 
@@ -243,9 +243,9 @@ function zerif_widgets_init()
 
         'after_widget' => '',
 
-        'before_title' => '<h1 class="widget-title">',
+        'before_title' => '<h2 class="widget-title">',
 
-        'after_title' => '</h1>',
+        'after_title' => '</h2>',
 
     ));
 
@@ -626,7 +626,7 @@ class zerif_ourfocus extends WP_Widget
             </div>
 			<?php endif; ?>
 
-            <h5 class="red-border-bottom"><?php if( !empty($instance['title']) ): echo apply_filters('widget_title', $instance['title']); endif; ?></h5>
+            <h3 class="red-border-bottom"><?php if( !empty($instance['title']) ): echo apply_filters('widget_title', $instance['title']); endif; ?></h3>
             <!-- FOCUS HEADING -->
 
 
@@ -716,7 +716,7 @@ class zerif_ourfocus extends WP_Widget
 
             if ( !empty($instance['image_uri']) ) :
 
-                echo '<img class="custom_media_image" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" /><br />';
+                echo '<img class="custom_media_image" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" alt="'.__( 'Uploaded image', 'zerif-lite' ).'" /><br />';
 
             endif;
 
@@ -780,7 +780,10 @@ class zerif_testimonial_widget extends WP_Widget
 
 
         echo $before_widget;
-
+		
+		$zerif_accessibility = get_theme_mod('zerif_accessibility');
+		// open link in a new tab when checkbox "accessibility" is not ticked
+		$attribut_new_tab = (isset($zerif_accessibility) && ($zerif_accessibility != 1) ? ' target="_blank"' : '' );
         ?>
 
 
@@ -809,7 +812,7 @@ class zerif_testimonial_widget extends WP_Widget
 
                 <div class="client-info">
 
-					<a class="client-name" target="_blank" <?php if( !empty($instance['link']) ): echo 'href="'.esc_url($instance['link']).'"'; endif; ?>><?php if( !empty($instance['title']) ): echo apply_filters('widget_title', $instance['title'] ); endif; ?></a>
+					<a<?php echo $attribut_new_tab; ?> class="client-name" <?php if( !empty($instance['link']) ): echo 'href="'.esc_url($instance['link']).'"'; endif; ?>><?php if( !empty($instance['title']) ): echo apply_filters('widget_title', $instance['title'] ); endif; ?></a>
 					
 
 					<?php if( !empty($instance['details']) ): ?>
@@ -828,7 +831,7 @@ class zerif_testimonial_widget extends WP_Widget
 
 					echo '<div class="client-image hidden-xs">';
 
-					echo '<img src="' . esc_url($instance['image_uri']) . '" alt="">';
+					echo '<img src="' . esc_url($instance['image_uri']) . '" alt="'.__( 'Uploaded image', 'zerif-lite' ).'" />';
 
 					echo '</div>';
 				endif;	
@@ -928,7 +931,7 @@ class zerif_testimonial_widget extends WP_Widget
 
             if ( !empty($instance['image_uri']) ) :
 
-                echo '<img class="custom_media_image_testimonial" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" /><br />';
+                echo '<img class="custom_media_image_testimonial" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" alt="'.__( 'Uploaded image', 'zerif-lite' ).'" /><br />';
 
             endif;
 
@@ -998,7 +1001,7 @@ class zerif_clients_widget extends WP_Widget
         ?>
 
         <a href="<?php if( !empty($instance['link']) ): echo apply_filters('widget_title', $instance['link']); endif; ?>"><img
-                src="<?php if( !empty($instance['image_uri']) ): echo esc_url($instance['image_uri']); endif; ?>" alt="Client"></a>
+                src="<?php if( !empty($instance['image_uri']) ): echo esc_url($instance['image_uri']); endif; ?>" alt="<?php _e( 'Client', 'zerif-lite' ); ?>"></a>
 
 
 
@@ -1055,7 +1058,7 @@ class zerif_clients_widget extends WP_Widget
 
             if ( !empty($instance['image_uri']) ) :
 
-                echo '<img class="custom_media_image_clients" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" /><br />';
+                echo '<img class="custom_media_image_clients" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" alt="'.__( 'Uploaded image', 'zerif-lite' ).'" /><br />';
 
             endif;
 
@@ -1135,7 +1138,7 @@ class zerif_team_widget extends WP_Widget
 					<figure class="profile-pic">
 
 
-						<img src="<?php echo esc_url($instance['image_uri']); ?>" alt="">
+						<img src="<?php echo esc_url($instance['image_uri']); ?>" alt="<?php _e( 'Uploaded image', 'zerif-lite' ); ?>" />
 
 
 					</figure>
@@ -1147,7 +1150,7 @@ class zerif_team_widget extends WP_Widget
 
 					<?php if( !empty($instance['name']) ): ?>
 					
-						<h5 class="dark-text red-border-bottom"><?php echo apply_filters('widget_title', $instance['name']); ?></h5>
+						<h3 class="dark-text red-border-bottom"><?php echo apply_filters('widget_title', $instance['name']); ?></h3>
 						
 					<?php endif; ?>	
 
@@ -1369,7 +1372,7 @@ class zerif_team_widget extends WP_Widget
 
             if ( !empty($instance['image_uri']) ) :
 
-                echo '<img class="custom_media_image_team" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" /><br />';
+                echo '<img class="custom_media_image_team" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" alt="'.__( 'Uploaded image', 'zerif-lite' ).'" /><br />';
 
             endif;
 
