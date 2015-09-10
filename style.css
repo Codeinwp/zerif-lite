@@ -1487,7 +1487,7 @@ object {
 	line-height: 35px;
 }
 .navbar-inverse .navbar-nav ul.sub-menu {
-	display: none;
+	left: -999em;
 	position: absolute; top: 100%;
 	background:#fff;
 	width:200px;
@@ -1499,7 +1499,6 @@ object {
 }
 .navbar-inverse .navbar-nav ul.sub-menu ul.sub-menu{
 	position: absolute;
-	left:100%;
 	top:0;
 }
 .navbar-inverse .navbar-nav ul.sub-menu li {
@@ -1511,11 +1510,24 @@ object {
 .navbar-inverse .navbar-nav ul.sub-menu li a {
 	color:#404040;
 }
-.navbar-inverse .navbar-nav ul.sub-menu li:hover > a {
+.navbar-inverse .navbar-nav ul.sub-menu li:hover > a,
+.navbar-inverse .navbar-nav ul.sub-menu li.link-focus > a {
 	color:#e96656;
 }
-.navbar-inverse .navbar-nav li:hover > ul.sub-menu {
-	display: block;
+.navbar-inverse ul ul {
+	left: -999em;
+}
+.navbar-inverse ul ul ul {
+	left: -999em;
+	top: 0;
+}
+.navbar-inverse ul li:hover > ul.sub-menu,
+.navbar-inverse ul li.link-focus > ul.sub-menu {
+	left: auto;
+}
+.navbar-inverse ul ul li:hover > ul.sub-menu,
+.navbar-inverse ul ul li.link-focus > ul.sub-menu {
+	left: 100%;
 }
 
 .navbar-brand {
@@ -1531,7 +1543,8 @@ object {
 .navbar-brand:focus {
 	border:1px dotted black;
 }
-.navbar-inverse .navbar-nav>li>a:hover {
+.navbar-inverse .navbar-nav>li>a:hover, 
+.navbar-inverse .navbar-nav>li>a.link-focus {
 	color: #e96656;
 	outline: none;
 }
