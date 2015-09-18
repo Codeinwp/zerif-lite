@@ -2066,7 +2066,17 @@ width: -webkit-calc(100% / 4);
 .pirate_forms .success p {
 	background: #34d293;
 }
-
+.pirate_forms .pirate-forms-submit-button {
+	float: right;
+	margin-right: 15px;
+	color: #FFF !important;
+	-webkit-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.pirate_forms .pirate-forms-submit-button:hover {
+	color: #FFF;
+	background: #cb4332;
+}
 
 /* media queries:  change number of items per row */
 @media screen and (max-width: 1190px) {
