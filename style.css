@@ -2063,8 +2063,13 @@ width: -webkit-calc(100% / 4);
 .pirate_forms .error p {
 	background: #E96656;
 }
-.pirate_forms .success p {
+.pirate_forms_thankyou_wrap p {
 	background: #34d293;
+	border-radius: 3px;
+	color: #FFF;
+	padding: 5px 10px;
+	display: inline-block;
+	margin-bottom: 10px;
 }
 .pirate_forms .pirate-forms-submit-button {
 	float: right;
