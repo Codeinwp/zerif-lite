@@ -748,22 +748,7 @@ a:active {
 .navbar-collapse{
 	overflow: visible !important;
 }
-/* Small menu */
-/*
-.menu-toggle {
-	cursor: pointer;
-	display: none;
-}
-@media screen and (max-width: 600px) {
-	.menu-toggle,
-	.main-navigation.toggled .nav-menu {
-		display: block;
-	}
-	.main-navigation ul {
-		display: none;
-	}
-}
-*/
+
 .site-main .comment-navigation,
 .site-main .paging-navigation,
 .site-main .post-navigation {
@@ -2026,6 +2011,63 @@ width: -webkit-calc(100% / 4);
 	top: 0;
 	opacity: 1;
 }
+
+/****************************************************************/
+/***********************  PIRATE FORMS style ********************/
+/****************************************************************/
+
+.pirate_forms {
+	padding-bottom: 95px;
+}
+.pirate_forms input, .pirate_forms textarea {
+	width: 100%;
+	margin: auto;
+	border-radius: 4px !important;
+}
+.pirate_forms input {
+	text-align: left;
+	text-transform: none;
+	padding: 9px;
+	min-height: 46px;
+	padding-left: 15px !important;
+	display: inline-block;
+	border-radius: 4px;
+	background: rgba(255,255,255, 0.95);
+}
+.pirate_forms textarea {
+	width: 100% !important;
+	text-align: left;
+	text-transform: none;
+	padding: 9px;
+	min-height: 250px;
+	padding-left: 15px;
+	display: inline-block;
+	border-radius: 4px;
+	background: rgba(255,255,255, 0.95);
+}
+.pirate_forms .custom-button {
+	float: right;
+	margin-right: 15px;
+}
+.pirate-forms-g-recaptcha {
+	margin-left: 15px;
+	display: none;
+}
+.pirate_forms .notification p {
+	border-radius: 3px;
+	color: #FFF;
+	padding: 5px 10px;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+.pirate_forms .error p {
+	background: #E96656;
+}
+.pirate_forms .success p {
+	background: #34d293;
+}
+
+
 /* media queries:  change number of items per row */
 @media screen and (max-width: 1190px) {
 	.cbp-rfgrid li {
