@@ -27,6 +27,6 @@ $zerif_lite = wp_get_theme( 'zerif-lite' );
 		}
 	}
 
-?>
+	?>
 	
 </div>
