@@ -401,9 +401,9 @@ function zerif_register_required_plugins()
 
 			array(
 	 
-				'name'      => 'Revive Old Post (Former Tweet Old Post)',
+				'name'      => 'Pirate Forms',
 	 
-				'slug'      => 'tweet-old-post',
+				'slug'      => 'pirate-forms',
 	 
 				'required'  => false,
 	 
@@ -427,9 +427,9 @@ function zerif_register_required_plugins()
 
 			array(
 	 
-				'name'      => 'Revive Old Post (Former Tweet Old Post)',
+				'name'      => 'Pirate Forms',
 	 
-				'slug'      => 'tweet-old-post',
+				'slug'      => 'pirate-forms',
 	 
 				'required'  => false,
 	 

@@ -11,7 +11,7 @@ jQuery(document).ready(function() {
 
 	if ( (typeof zerif_customizer_href !== 'undefined') && (typeof zerif_actionsRequired_nr !== 'undefined') && (typeof zerif_has_actionsRequired !== 'undefined') && (zerif_has_actionsRequired == 'yes') ) {
 
-		jQuery('#accordion-section-themes .accordion-section-title').append('<a href="' + zerif_customizer_href + '"><span class="zerif-lite-actions-count">' + zerif_actionsRequired_nr + '</span></a>');
+		jQuery('#accordion-section-themes .accordion-section-title').append('<a href="' + zerif_href + '"><span class="zerif-lite-actions-count">' + zerif_actionsRequired_nr + '</span></a>');
 
 	}
 
