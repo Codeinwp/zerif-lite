@@ -15,33 +15,17 @@ $zerif_lite = wp_get_theme( 'zerif-lite' );
 	</div>
 
 	<?php
-	$zerif_lite_changelog_file = @fopen(get_template_directory().'/CHANGELOG.md', 'r');
-	if($zerif_lite_changelog_file) {
-		while(!feof($zerif_lite_changelog_file)) {
-
-			$zerif_lite_changelog_line = fgets($zerif_lite_changelog_file);
-
-			if( !empty($zerif_lite_changelog_line) ) {
-				$zerif_lite_changelog_line_substr = substr($zerif_lite_changelog_line, 0, 3);
-
-				if( !empty($zerif_lite_changelog_line_substr) ){
-					if( strcmp($zerif_lite_changelog_line_substr,'###') == 0) {
-						?>
-						<hr />
-						<h1><?php echo substr($zerif_lite_changelog_line, 3); ?></h1>
-						<?php
-					}
-					else {
-						echo $zerif_lite_changelog_line.'<br>';
-					}
-				}
-
-			}
-
+	WP_Filesystem();
+	global $wp_filesystem;
+	$zerif_lite_changelog = $wp_filesystem->get_contents( get_template_directory().'/CHANGELOG.md' );
+	$zerif_lite_changelog_lines = explode(PHP_EOL, $zerif_lite_changelog);
+	foreach($zerif_lite_changelog_lines as $zerif_lite_changelog_line){
+		if(substr( $zerif_lite_changelog_line, 0, 3 ) === "###"){
+			echo '<hr /><h1>'.substr($zerif_lite_changelog_line,3).'</h1>';
+		} else {
+			echo $zerif_lite_changelog_line,'<br/>';
 		}
-		fclose($zerif_lite_changelog_file);
 	}
-
 
 ?>
 	
