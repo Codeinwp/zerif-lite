@@ -2060,8 +2060,13 @@ width: -webkit-calc(100% / 4);
 	display: inline-block;
 	margin-bottom: 10px;
 }
-.pirate_forms .error p {
+.pirate_forms_error_box li {
 	background: #E96656;
+	border-radius: 3px;
+	color: #FFF;
+	padding: 5px 10px;
+	display: inline-block;
+	margin-bottom: 10px;
 }
 .pirate_forms_thankyou_wrap p {
 	background: #34d293;
