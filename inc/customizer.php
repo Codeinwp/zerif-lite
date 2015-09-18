@@ -1108,7 +1108,7 @@ function zerif_customize_register( $wp_customize ) {
 		'zerif_testimonials_pinterest_style',
 		array(
 			'type' 			=> 'checkbox',
-			'label' 		=> __('Use pinterest layout?','zerif'),
+			'label' 		=> __('Use pinterest layout?','zerif-lite'),
 			'section' 		=> 'zerif_testimonials_section',
 			'priority'    	=> 2,
 		)
@@ -1360,7 +1360,7 @@ function zerif_customize_register( $wp_customize ) {
 	$wp_customize->add_setting( 'zerif_contactus_sitekey', array('sanitize_callback' => 'zerif_sanitize_text'));	
 	$wp_customize->add_control( 'zerif_contactus_sitekey', array(
 				'label'    => __( 'Site key', 'zerif-lite' ),
-				'description' => '<a'.$attribut_new_tab.' href="https://www.google.com/recaptcha/admin#list">'.__('Create an account here','zerif').'</a> to get the Site key and the Secret key for the reCaptcha.',
+				'description' => '<a'.$attribut_new_tab.' href="https://www.google.com/recaptcha/admin#list">'.__('Create an account here','zerif-lite').'</a> to get the Site key and the Secret key for the reCaptcha.',
 				'section'  => 'zerif_contactus_section',
 				'settings' => 'zerif_contactus_sitekey',
 				'priority'    => 7,

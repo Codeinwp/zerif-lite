@@ -617,7 +617,6 @@ jQuery(window).resize(function() {
     }
 });
 
-
 ;(function ($, window, document, undefined) {
     var defaults = {
             columns:                3,

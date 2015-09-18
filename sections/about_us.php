@@ -13,7 +13,7 @@
 			$zerif_aboutus_title = get_theme_mod('zerif_aboutus_title',__('About','zerif-lite'));
 			
 			if( !empty($zerif_aboutus_title) ):
-				echo '<h2 class="white-text">'.__($zerif_aboutus_title,'zerif-lite').'</h2>';
+				echo '<h2 class="white-text">'.$zerif_aboutus_title.'</h2>';
 			endif;
 			?>
 
@@ -31,7 +31,7 @@
 					echo '<div class="white-text section-legend">';
 
 
-						echo __($zerif_aboutus_subtitle,'zerif-lite');
+						echo $zerif_aboutus_subtitle;
 
 
 					echo '</div>';
@@ -86,7 +86,7 @@
 						echo '<div class="big-intro" data-scrollreveal="enter left after 0s over 1s">';
 
 
-							echo __($zerif_aboutus_biglefttitle,'zerif-lite');
+							echo $zerif_aboutus_biglefttitle;
 
 
 						echo '</div>';
@@ -106,7 +106,7 @@
 						echo '<p>';
 
 
-							echo __($zerif_aboutus_text,'zerif-lite');
+							echo $zerif_aboutus_text;
 
 
 						echo '</p>';
@@ -162,11 +162,11 @@
 						endif;
 
 						if( !empty($zerif_aboutus_feature1_title) ):
-							echo '<div class="section-legend">'.__($zerif_aboutus_feature1_title,'zerif-lite').'</div>';
+							echo '<div class="section-legend">'.$zerif_aboutus_feature1_title.'</div>';
 						endif;
 
 						if( !empty($zerif_aboutus_feature1_text) ):
-							echo '<p>'.__($zerif_aboutus_feature1_text,'zerif-lite').'</p>';
+							echo '<p>'.$zerif_aboutus_feature1_text.'</p>';
 						endif;
 
 
@@ -209,11 +209,11 @@
 						$zerif_aboutus_feature2_text = get_theme_mod('zerif_aboutus_feature2_text');
 
 						if( !empty($zerif_aboutus_feature2_title) ):
-							echo '<div class="section-legend">'.__($zerif_aboutus_feature2_title,'zerif-lite').'</div>';
+							echo '<div class="section-legend">'.$zerif_aboutus_feature2_title.'</div>';
 						endif;
 
 						if( !empty($zerif_aboutus_feature2_text) ):
-							echo '<p>'.__($zerif_aboutus_feature2_text,'zerif-lite').'</p>';
+							echo '<p>'.$zerif_aboutus_feature2_text.'</p>';
 						endif;
 
 
@@ -255,11 +255,11 @@
 						$zerif_aboutus_feature3_text = get_theme_mod('zerif_aboutus_feature3_text');
 
 						if( !empty($zerif_aboutus_feature3_title) ):
-							echo '<div class="section-legend">'.__($zerif_aboutus_feature3_title,'zerif-lite').'</div>';
+							echo '<div class="section-legend">'.$zerif_aboutus_feature3_title.'</div>';
 						endif;
 
 						if( !empty($zerif_aboutus_feature3_text) ):
-							echo '<p>'.__($zerif_aboutus_feature3_text,'zerif-lite').'</p>';
+							echo '<p>'.$zerif_aboutus_feature3_text.'</p>';
 						endif;
 
 
@@ -299,11 +299,11 @@
 						$zerif_aboutus_feature4_text = get_theme_mod('zerif_aboutus_feature4_text');
 
 						if( !empty($zerif_aboutus_feature4_title) ):
-							echo '<div class="section-legend">'.__($zerif_aboutus_feature4_title,'zerif-lite').'</div>';
+							echo '<div class="section-legend">'.$zerif_aboutus_feature4_title.'</div>';
 						endif;
 
 						if( !empty($zerif_aboutus_feature4_text) ):
-							echo '<p>'.__($zerif_aboutus_feature4_text,'zerif-lite').'</p>';
+							echo '<p>'.$zerif_aboutus_feature4_text.'</p>';
 						endif;
 
 
