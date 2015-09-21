@@ -187,7 +187,7 @@ function zerif_widgets_init()
 
     register_sidebar(array(
 
-        'name' => __('Our focus section', 'zerif-lite'),
+        'name' => __('Our focus section widgets', 'zerif-lite'),
 
         'id' => 'sidebar-ourfocus',
 
@@ -203,7 +203,7 @@ function zerif_widgets_init()
 
     register_sidebar(array(
 
-        'name' => __('Testimonials section', 'zerif-lite'),
+        'name' => __('Testimonials section widgets', 'zerif-lite'),
 
         'id' => 'sidebar-testimonials',
 
@@ -219,7 +219,7 @@ function zerif_widgets_init()
 
     register_sidebar(array(
 
-        'name' => __('About us section', 'zerif-lite'),
+        'name' => __('About us section widgets', 'zerif-lite'),
 
         'id' => 'sidebar-aboutus',
 
@@ -235,7 +235,7 @@ function zerif_widgets_init()
 
     register_sidebar(array(
 
-        'name' => __('Our team section', 'zerif-lite'),
+        'name' => __('Our team section widgets', 'zerif-lite'),
 
         'id' => 'sidebar-ourteam',
 
