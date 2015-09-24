@@ -1563,11 +1563,11 @@ function zerif_registers() {
 
 
     $zerif_lite_actions_required = 1;
-	if ( !class_exists( 'WPCF7_ContactForm' ) ) {
-		$zerif_lite_has_actions = 'yes';
+	if ( defined('PIRATE_FORMS_VERSION') ) {
+		$zerif_lite_has_actions = 'no';
 	}
 	else {
-		$zerif_lite_has_actions = 'no';
+		$zerif_lite_has_actions = 'yes';
 	}
 
 	wp_localize_script('zerif_customizer_script', 'zerifCustomizerScript', array(

@@ -13,16 +13,27 @@
 
     <div class="zerif-tab-pane-half zerif-tab-pane-first-half">
 
-        <h4><?php esc_html_e( '1. Install Pirate Forms' ,'zerif-lite' ); ?></h4>
-        <p><?php esc_html_e( 'Although Zerif Lite has integrated it\'s own contact form, we are facing a time where we need to replace it with a plugin. We hope it will be a smooth transition and keep everybody happy. Please install Pirate Forms now to make sure your site is updated.', 'zerif-lite' ); ?></p>
+	<?php if ( defined('PIRATE_FORMS_VERSION') ): ?>
+	
+		<div class="zerif-action-required-box">
+		
+	<?php else: ?>
 
-        <?php if ( defined('PIRATE_FORMS_VERSION') ) { ?>
-            <p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p>
-        <?php } else { ?>
-            <p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=pirate-forms' ), 'install-plugin_pirate-forms' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install Pirate Forms', 'zerif-lite' ); ?></a></p>
-        <?php } ?>
+		<div class="zerif-action-required-box active">
+	
+	<?php endif; ?>	
+	
+			<h4><?php esc_html_e( '1. Install Pirate Forms' ,'zerif-lite' ); ?></h4>
+			<p><?php esc_html_e( 'Although Zerif Lite has integrated it\'s own contact form, we are facing a time where we need to replace it with a plugin. We hope it will be a smooth transition and keep everybody happy. Please install Pirate Forms now to make sure your site is updated.', 'zerif-lite' ); ?></p>
 
-        <hr />
+			<?php if ( defined('PIRATE_FORMS_VERSION') ) { ?>
+				<p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p>
+			<?php } else { ?>
+				<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=pirate-forms' ), 'install-plugin_pirate-forms' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install Pirate Forms', 'zerif-lite' ); ?></a></p>
+			<?php } ?>
+
+			<hr />
+		</div>	
 
     </div>
     <div class="zerif-tab-pane-half">

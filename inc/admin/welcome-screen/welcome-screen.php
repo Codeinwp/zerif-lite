@@ -94,9 +94,9 @@ class Zerif_Welcome {
 			<li role="presentation" class="active"><a href="#getting_started" aria-controls="getting_started" role="tab" data-toggle="tab"><?php esc_html_e( 'Getting started','zerif-lite'); ?></a></li>
 
 			<!-- Actions required appears only if there is a news -->
-			<?php $zerif_lite_actions_required = 1; ?>
+			
 			<?php if ( !class_exists( 'WPCF7_ContactForm' ) ) { ?>
-				<li role="presentation" class="zerif-lite-w-red-tab"><a href="#actions_required" aria-controls="actions_required" role="tab" data-toggle="tab"><?php esc_html_e( 'Actions required','zerif-lite'); ?><?php if( !empty($zerif_lite_actions_required) ): echo '<span class="zerif-lite-actions-count">'.$zerif_lite_actions_required.'</span>'; endif; ?></a></li>
+				<li role="presentation" class="zerif-lite-w-red-tab"><a href="#actions_required" aria-controls="actions_required" role="tab" data-toggle="tab"><?php esc_html_e( 'Actions required','zerif-lite'); ?></a></li>
 			<?php } ?>
 			<li role="presentation"><a href="#child_themes" aria-controls="child_themes" role="tab" data-toggle="tab"><?php esc_html_e( 'Child themes','zerif-lite'); ?></a></li>
 			<li role="presentation"><a href="#github" aria-controls="github" role="tab" data-toggle="tab"><?php esc_html_e( 'Contribute','zerif-lite'); ?></a></li>
