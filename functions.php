@@ -357,7 +357,15 @@ function zerif_scripts()
 
     /* parallax effect */
     if ( !wp_is_mobile() ){
-        wp_enqueue_script( 'zerif_parallax', get_template_directory_uri() . '/js/parallax.js', array("jquery"), 'v1', true  );
+
+        /* include parallax only if on frontpage and the parallax effect is activated */
+        $zerif_parallax_use = get_theme_mod('zerif_parallax_show');
+
+        if ( !empty($zerif_parallax_use) && ($zerif_parallax_use == 1) && is_front_page() ):
+
+            wp_enqueue_script( 'zerif_parallax', get_template_directory_uri() . '/js/parallax.js', array("jquery"), 'v1', true  );
+
+        endif;
     }
 
 	add_editor_style('/css/custom-editor-style.css');
