@@ -93,38 +93,6 @@ function zerif_widgets_init() {
         'before_title' => '<h2 class="widget-title">',
         'after_title' => '</h2>',
     ));
-    register_sidebar(array(
-        'name' => __('Our focus section widgets', 'zerif-lite'),
-        'id' => 'sidebar-ourfocus',
-        'before_widget' => '',
-        'after_widget' => '',
-        'before_title' => '<h2 class="widget-title">',
-        'after_title' => '</h2>',
-    ));
-    register_sidebar(array(
-        'name' => __('Testimonials section widgets', 'zerif-lite'),
-        'id' => 'sidebar-testimonials',
-        'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-        'after_widget' => '</aside>',
-        'before_title' => '<h2 class="widget-title">',
-        'after_title' => '</h2>',
-    ));
-    register_sidebar(array(
-        'name' => __('About us section widgets', 'zerif-lite'),
-        'id' => 'sidebar-aboutus',
-        'before_widget' => '',
-        'after_widget' => '',
-        'before_title' => '<h2 class="widget-title">',
-        'after_title' => '</h2>',
-    ));
-    register_sidebar(array(
-        'name' => __('Our team section widgets', 'zerif-lite'),
-        'id' => 'sidebar-ourteam',
-        'before_widget' => '',
-        'after_widget' => '',
-        'before_title' => '<h2 class="widget-title">',
-        'after_title' => '</h2>',
-    ));
 
 }
 
@@ -353,6 +321,95 @@ function zerif_register_widgets() {
     register_widget('zerif_testimonial_widget');
     register_widget('zerif_clients_widget');
     register_widget('zerif_team_widget');
+	
+	
+	$zerif_lite_sidebars = array ( 'sidebar-ourfocus' => 'sidebar-ourfocus', 'sidebar-testimonials' => 'sidebar-testimonials', 'sidebar-aboutus' => 'sidebar-aboutus', 'sidebar-ourteam' => 'sidebar-ourteam' );
+	
+	/* Register sidebars */
+	foreach ( $zerif_lite_sidebars as $zerif_lite_sidebar ):
+	
+		if( $zerif_lite_sidebar == 'sidebar-ourfocus' ):
+		
+			$zerif_lite_name = __('Our focus section widgets', 'zerif-lite');
+		
+		elseif( $zerif_lite_sidebar == 'sidebar-testimonials' ):
+		
+			$zerif_lite_name = __('Testimonials section widgets', 'zerif-lite');
+			
+		elseif( $zerif_lite_sidebar == 'sidebar-aboutus' ):
+		
+			$zerif_lite_name = __('About us section widgets', 'zerif-lite');
+			
+		elseif( $zerif_lite_sidebar == 'sidebar-ourteam' ):
+		
+			$zerif_lite_name = __('Our team section widgets', 'zerif-lite');
+			
+		else:
+		
+			$zerif_lite_name = $zerif_lite_sidebar;
+			
+		endif;
+		
+        register_sidebar(
+            array (
+                'name'          => $zerif_lite_name,
+                'id'            => $zerif_lite_sidebar,
+                'before_widget' => '',
+                'after_widget'  => ''
+            )
+        );
+		
+    endforeach;
+	
+}
+
+/* Add default widgets */
+
+add_action('after_switch_theme', 'zerif_register_default_widgets');
+	
+function zerif_register_default_widgets() {
+
+	$zerif_lite_sidebars = array ( 'sidebar-ourfocus' => 'sidebar-ourfocus', 'sidebar-testimonials' => 'sidebar-testimonials', 'sidebar-aboutus' => 'sidebar-aboutus', 'sidebar-ourteam' => 'sidebar-ourteam' );
+
+	$active_widgets = get_option( 'sidebars_widgets' );	
+	
+
+	/* TO DO */
+	/* https://github.com/Codeinwp/Parallax-One/blob/4486d0fbdc884276ed551c689973fe5d4d7df35b/functions.php */
+	/* Default Our Services widgets */
+	
+	/*if ( empty ( $active_widgets[ $parallax_one_sidebars['parallax-one-services-sidebar'] ] ) ):
+		$parallax_one_counter = 1;
+		
+		$active_widgets[ 'parallax-one-services-sidebar' ][0] = 'parallax_one_our_services_widget-' . $parallax_one_counter;
+		
+		$our_services_content[ $parallax_one_counter ] = array ( 'service_title' => __( 'Lorem Ipsum','parallax-one' ), 'service_content' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.','parallax-one' ), 'services_icon' => 'icon-basic-webpage-multiple', 'image_uri' => '', 'parallax_one_icon_type_our_services' => 'parallax_icon' );
+		
+		update_option( 'widget_parallax_one_our_services_widget', $our_services_content );
+	 
+		$parallax_one_counter++;
+		
+		
+		$active_widgets[ 'parallax-one-services-sidebar' ][] = 'parallax_one_our_services_widget-' . $parallax_one_counter;
+		
+		$our_services_content[ $parallax_one_counter ] = array ( 'service_title' => __( 'Lorem Ipsum','parallax-one' ), 'service_content' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.','parallax-one' ), 'services_icon' => 'icon-ecommerce-graph3', 'image_uri' => '', 'parallax_one_icon_type_our_services' => 'parallax_icon' );
+		
+		update_option( 'widget_parallax_one_our_services_widget', $our_services_content );
+	 
+		$parallax_one_counter++;
+		
+		
+		$active_widgets[ 'parallax-one-services-sidebar' ][] = 'parallax_one_our_services_widget-' . $parallax_one_counter;
+		
+		$our_services_content[ $parallax_one_counter ] = array ( 'service_title' => __( 'Lorem Ipsum','parallax-one' ), 'service_content' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.','parallax-one' ), 'services_icon' => 'icon-basic-geolocalize-05', 'image_uri' => '', 'parallax_one_icon_type_our_services' => 'parallax_icon' );
+		
+		update_option( 'widget_parallax_one_our_services_widget', $our_services_content );
+	 
+		$parallax_one_counter++;
+		
+		update_option( 'sidebars_widgets', $active_widgets );
+		
+    endif;*/
 
 }
 
