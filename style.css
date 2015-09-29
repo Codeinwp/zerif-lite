@@ -5486,6 +5486,9 @@ body.custom-background {
 		left: 0px;
 		width: 50px;
 	}
+	.menu-align-center #site-navigation > ul ul {
+        left: 0;
+    }
 
     /* HOME */
 	.header {
