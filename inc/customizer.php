@@ -40,6 +40,14 @@ function zerif_customize_register( $wp_customize ) {
 			echo __('Check out the <a href="http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/">PRO version</a> for full control over the frontpage SECTIONS ORDER and the COLOR SCHEME!','zerif-lite');
 		}
 	}
+
+	class Zerif_Theme_Support_Videobackground extends WP_Customize_Control
+	{
+		public function render_content()
+		{
+			echo __('Check out the <a href="http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/">PRO version</a> to add a nice looking background video!','zerif-lite');
+		}
+	}
 	
 	class Zerif_Theme_Support_Googlemap extends WP_Customize_Control
 	{
@@ -517,6 +525,25 @@ function zerif_customize_register( $wp_customize ) {
 			'settings' 	=> 'zerif_parallax_img2',
 			'priority'	=> 2,
 		)));
+
+		/*************************************************************/
+		/************* Video background(available in pro) ************/
+		/*************************************************************/
+		$wp_customize->add_section( 'zerif_videobackground_in_pro_section' , array(
+			'title'       => __( 'Video background', 'zerif-lite' ),
+			'priority'    => 3,
+			'panel'       => 'panel_big_title'
+		));
+
+		$wp_customize->add_setting(
+			'zerif_videobackground_in_pro', array('sanitize_callback' => 'zerif_sanitize_pro_version')
+		);
+
+		$wp_customize->add_control( new Zerif_Theme_Support_Videobackground( $wp_customize, 'zerif_videobackground_in_pro',
+			array(
+				'section' => 'zerif_videobackground_in_pro_section',
+			)
+		));
 
 	else:
 
