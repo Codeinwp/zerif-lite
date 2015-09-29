@@ -21,10 +21,10 @@ jQuery(window).load(function() {
 
   // Focus styles for menus.
   jQuery( '.navbar-collapse' ).find( 'a' ).on( 'focus blur', function() {
-    console.info("apply focus on a");
-    jQuery( this ).parents().toggleClass( 'link-focus' );
-  } );
-})
+		jQuery( this ).parents().toggleClass( 'link-focus' );
+  });
+  
+});
 
 /*** DROPDOWN FOR MOBILE MENU */
 var callback_mobile_dropdown = function () {
