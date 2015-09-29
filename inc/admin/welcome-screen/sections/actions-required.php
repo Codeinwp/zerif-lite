@@ -38,8 +38,18 @@
     </div>
     <div class="zerif-tab-pane-half">
 
+		<div class="zerif-action-required-box">
 
-    </div>
+			<div class="zerif-action-required-box active">
+
+				<h4><?php esc_html_e( '2. Check the contact form after installing Pirate Forms' ,'zerif-lite' ); ?></h4>
+				<p><?php esc_html_e( 'After installing the Pirate Forms plugin, please make sure you check your frontpage contact form is working fine. Also, if you use Zerif Lite in other language(s) please make sure the translation is ok. If not, please translate the contact form again.', 'zerif-lite' ); ?></p>
+				
+				<hr />
+			</div>
+
+
+		</div>
 
     <div class="zerif-lite-clear"></div>
 
