@@ -135,9 +135,6 @@ function zerif_setup()
 
 		require get_template_directory() . '/inc/customizer.php';
 
-		require get_template_directory() . '/inc/category-dropdown-custom-control.php';
-
-
 		/* tgm-plugin-activation */
         require_once get_template_directory() . '/class-tgm-plugin-activation.php';
 
