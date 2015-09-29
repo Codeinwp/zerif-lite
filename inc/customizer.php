@@ -101,7 +101,7 @@ function zerif_customize_register( $wp_customize ) {
 		$wp_customize->add_setting( 'zerif_logo', array('sanitize_callback' => 'esc_url_raw'));
 		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themeslug_logo', array(
 				'label'    => __( 'Logo', 'zerif-lite' ),
-				'section'  => 'zerif_general_section',
+				'section'  => 'title_tagline',
 				'settings' => 'zerif_logo',
 				'priority'    => 1,
 		)));
