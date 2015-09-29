@@ -599,9 +599,9 @@ jQuery(document).ready(function(){
     exist_class = true;
     window_width_old = jQuery('.container').outerWidth();
     if( window_width_old < 970 ) {
-        jQuery('.testimonial-masonry').zerifgridpinterest({columns: 1,selector: '.zerif_testim'});
+        jQuery('.testimonial-masonry').zerifgridpinterest({columns: 1,selector: '.widget_zerif_testim-widget'});
     } else {
-        jQuery('.testimonial-masonry').zerifgridpinterest({columns: 3,selector: '.zerif_testim'});
+        jQuery('.testimonial-masonry').zerifgridpinterest({columns: 3,selector: '.widget_zerif_testim-widget'});
     }
   }
 });
@@ -610,9 +610,9 @@ jQuery(window).resize(function() {
     if( window_width_old != jQuery('.container').outerWidth() && exist_class === true ){
         window_width_old = jQuery('.container').outerWidth();
         if( window_width_old < 970 ) {
-            jQuery('.testimonial-masonry').zerifgridpinterest({columns: 1,selector: '.zerif_testim'});
+            jQuery('.testimonial-masonry').zerifgridpinterest({columns: 1,selector: '.widget_zerif_testim-widget'});
         } else {
-            jQuery('.testimonial-masonry').zerifgridpinterest({columns: 3,selector: '.zerif_testim'});
+            jQuery('.testimonial-masonry').zerifgridpinterest({columns: 3,selector: '.widget_zerif_testim-widget'});
         }
     }
 });
