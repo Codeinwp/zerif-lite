@@ -2,7 +2,7 @@
 Contributors:		codeinwp
 Tags:				black, gray, red, white, one-column, two-columns, right-sidebar, responsive-layout, custom-background, custom-menu, editor-style, featured-images, threaded-comments, translation-ready
 Requires at least:	3.3.0
-Tested up to:		4.0
+Tested up to:		4.3.1
 
 Zerif Lite
 == Description ==
@@ -23,23 +23,15 @@ The exceptions to this license are as follows:
     Copyright (c) 2012 Anthony Terrien
     Under MIT and GPL licenses.
 
-* jQuery One Page Nav Plugin
-    Copyright (c) 2010 Trevor Davis (http://trevordavis.net)
-    Dual licensed under the MIT and GPL licenses.
-
 * jquery.scrollTo.js
     Copyright (c) 2007-2013 Ariel Flesler - aflesler<a>gmail<d>com | http://flesler.blogspot.com
     Dual licensed under MIT and GPL.
 
-* jQuery Vegas
-     Copyright (C) 2010-2013 Jay Salvat - http://jaysalvat.com/
-     Licensed under the MIT license.
-
- * scrollReveal.js
+* scrollReveal.js
      Copyright (C) 2014  https://twitter.com/julianlloyd
      Licensed under the MIT license.
 
-  * Images	 
+* Images	 
 	 
 	License: All unsplash.com images are licensed under the terms of the Creative Commons Zero, http://creativecommons.org/publicdomain/zero/1.0/ 	  
 	 

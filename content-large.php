@@ -1,15 +1,3 @@
-<?php
-
-/**
-
- * @package zerif
-
- */
-
-?>
-
-
-
 <article class="large-container" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
 	<?php if ( ! is_search() ) : ?>
@@ -57,13 +45,7 @@
 
 		<h1 class="entry-title"><a href="<?php the_permalink(); ?>" rel="bookmark"><?php the_title(); ?></a></h1>
 
-
-
-		
-
 	</header><!-- .entry-header -->
-
-
 
 	<?php if ( is_search() ) : /* Only display Excerpts for Search */ ?>
 
@@ -78,7 +60,6 @@
 	<div class="entry-content">
 
 		<?php 
-
 			the_excerpt();
 
 			wp_link_pages( array(
@@ -88,7 +69,6 @@
 				'after'  => '</div>',
 
 			) );
-
 		?>
 
 	</div><!-- .entry-content -->
@@ -99,7 +79,6 @@
 
 	<footer class="entry-footer-large">
 
-
 		<?php if ( 'post' == get_post_type() ) : ?>
 
 		<div class="entry-meta-large">
@@ -109,7 +88,6 @@
 		</div><!-- .entry-meta -->
 
 		<?php endif; ?>
-
 
 		<div class="entry-footer-large-left">
 
@@ -132,8 +110,6 @@
 				</span>
 
 				<?php endif; ?>
-
-
 
 				<?php
 

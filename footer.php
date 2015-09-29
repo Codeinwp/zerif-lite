@@ -1,28 +1,16 @@
 <?php
-
 /**
-
  * The template for displaying the footer.
-
- *
-
  * Contains the closing of the #content div and all content after
-
- *
-
- * @package zerif
-
  */
 
 ?>
 
-	</div><!-- .site-content -->
+</div><!-- .site-content -->
 
 <footer id="footer" role="contentinfo">
 
 <div class="container">
-
-
 
 	<?php
 		$footer_sections = 0;
@@ -156,11 +144,7 @@
 
 </footer> <!-- / END FOOOTER  -->
 
-
-
 <?php wp_footer(); ?>
-
-
 
 </body>
 
