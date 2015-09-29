@@ -21,10 +21,10 @@
 
 		<div class="zerif-action-required-box active">
 	
-	<?php endif; ?>	
+	<?php endif; ?>
 	
 			<h4><?php esc_html_e( '1. Install Pirate Forms' ,'zerif-lite' ); ?></h4>
-			<p><?php esc_html_e( 'Although Zerif Lite has integrated it\'s own contact form, we are facing a time where we need to replace it with a plugin. We hope it will be a smooth transition and keep everybody happy. Please install Pirate Forms now to make sure your site is updated.', 'zerif-lite' ); ?></p>
+			<p><?php esc_html_e( 'In the next updates, Zerif Lite\'s default contact form will be removed. Please make sure you install th Pirate Forms plugin to keep your site updated,  and experience a smooth transition to the latest version.', 'zerif-lite' ); ?></p>
 
 			<?php if ( defined('PIRATE_FORMS_VERSION') ) { ?>
 				<p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p>
