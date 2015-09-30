@@ -94,6 +94,15 @@ function zerif_widgets_init() {
         'after_title' => '</h2>',
     ));
 
+    register_sidebar(array(
+        'name' => __('About us section', 'zerif-lite'),
+        'id' => 'sidebar-aboutus',
+        'before_widget' => '',
+        'after_widget' => '',
+        'before_title' => '<h1 class="widget-title">',
+        'after_title' => '</h1>',
+    ));
+
 }
 
 add_action('widgets_init', 'zerif_widgets_init');
@@ -323,7 +332,7 @@ function zerif_register_widgets() {
     register_widget('zerif_team_widget');
 	
 	
-	$zerif_lite_sidebars = array ( 'sidebar-ourfocus' => 'sidebar-ourfocus', 'sidebar-testimonials' => 'sidebar-testimonials', 'sidebar-aboutus' => 'sidebar-aboutus', 'sidebar-ourteam' => 'sidebar-ourteam' );
+	$zerif_lite_sidebars = array ( 'sidebar-ourfocus' => 'sidebar-ourfocus', 'sidebar-testimonials' => 'sidebar-testimonials', 'sidebar-ourteam' => 'sidebar-ourteam' );
 	
 	/* Register sidebars */
 	foreach ( $zerif_lite_sidebars as $zerif_lite_sidebar ):
@@ -335,10 +344,6 @@ function zerif_register_widgets() {
 		elseif( $zerif_lite_sidebar == 'sidebar-testimonials' ):
 		
 			$zerif_lite_name = __('Testimonials section widgets', 'zerif-lite');
-			
-		elseif( $zerif_lite_sidebar == 'sidebar-aboutus' ):
-		
-			$zerif_lite_name = __('About us section widgets', 'zerif-lite');
 			
 		elseif( $zerif_lite_sidebar == 'sidebar-ourteam' ):
 		
@@ -363,53 +368,143 @@ function zerif_register_widgets() {
 	
 }
 
-/* Add default widgets */
-
+/**
+ * Add default widgets
+ */
 add_action('after_switch_theme', 'zerif_register_default_widgets');
 	
 function zerif_register_default_widgets() {
 
-	$zerif_lite_sidebars = array ( 'sidebar-ourfocus' => 'sidebar-ourfocus', 'sidebar-testimonials' => 'sidebar-testimonials', 'sidebar-aboutus' => 'sidebar-aboutus', 'sidebar-ourteam' => 'sidebar-ourteam' );
+	$zerif_lite_sidebars = array ( 'sidebar-ourfocus' => 'sidebar-ourfocus', 'sidebar-testimonials' => 'sidebar-testimonials', 'sidebar-ourteam' => 'sidebar-ourteam' );
 
 	$active_widgets = get_option( 'sidebars_widgets' );	
-	
 
-	/* TO DO */
-	/* https://github.com/Codeinwp/Parallax-One/blob/4486d0fbdc884276ed551c689973fe5d4d7df35b/functions.php */
-	/* Default Our Services widgets */
-	
-	/*if ( empty ( $active_widgets[ $parallax_one_sidebars['parallax-one-services-sidebar'] ] ) ):
-		$parallax_one_counter = 1;
-		
-		$active_widgets[ 'parallax-one-services-sidebar' ][0] = 'parallax_one_our_services_widget-' . $parallax_one_counter;
-		
-		$our_services_content[ $parallax_one_counter ] = array ( 'service_title' => __( 'Lorem Ipsum','parallax-one' ), 'service_content' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.','parallax-one' ), 'services_icon' => 'icon-basic-webpage-multiple', 'image_uri' => '', 'parallax_one_icon_type_our_services' => 'parallax_icon' );
-		
-		update_option( 'widget_parallax_one_our_services_widget', $our_services_content );
-	 
-		$parallax_one_counter++;
-		
-		
-		$active_widgets[ 'parallax-one-services-sidebar' ][] = 'parallax_one_our_services_widget-' . $parallax_one_counter;
-		
-		$our_services_content[ $parallax_one_counter ] = array ( 'service_title' => __( 'Lorem Ipsum','parallax-one' ), 'service_content' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.','parallax-one' ), 'services_icon' => 'icon-ecommerce-graph3', 'image_uri' => '', 'parallax_one_icon_type_our_services' => 'parallax_icon' );
-		
-		update_option( 'widget_parallax_one_our_services_widget', $our_services_content );
-	 
-		$parallax_one_counter++;
-		
-		
-		$active_widgets[ 'parallax-one-services-sidebar' ][] = 'parallax_one_our_services_widget-' . $parallax_one_counter;
-		
-		$our_services_content[ $parallax_one_counter ] = array ( 'service_title' => __( 'Lorem Ipsum','parallax-one' ), 'service_content' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec purus feugiat, molestie ipsum et, consequat nibh. Etiam non elit dui. Nullam vel eros sit amet arcu vestibulum accumsan in in leo.','parallax-one' ), 'services_icon' => 'icon-basic-geolocalize-05', 'image_uri' => '', 'parallax_one_icon_type_our_services' => 'parallax_icon' );
-		
-		update_option( 'widget_parallax_one_our_services_widget', $our_services_content );
-	 
-		$parallax_one_counter++;
-		
+	/**
+     * Default Our Focus widgets
+     */
+	if ( empty ( $active_widgets[ $zerif_lite_sidebars['sidebar-ourfocus'] ] ) ):
+
+		$zerif_lite_counter = 1;
+
+        /* our focus widget #1 */
+		$active_widgets[ 'sidebar-ourfocus' ][0] = 'ctup-ads-widget-' . $zerif_lite_counter;
+        if ( file_exists( get_stylesheet_directory_uri().'/images/parallax.png' ) ):
+            $ourfocus_content[ $zerif_lite_counter ] = array ( 'title' => 'PARALLAX EFFECT', 'text' => 'Create memorable pages with smooth parallax effects that everyone loves. Also, use our lightweight content slider offering you smooth and great-looking animations.', 'link' => '#', 'image_uri' => get_stylesheet_directory_uri()."/images/parallax.png" );
+        else:
+            $ourfocus_content[ $zerif_lite_counter ] = array ( 'title' => 'PARALLAX EFFECT', 'text' => 'Create memorable pages with smooth parallax effects that everyone loves. Also, use our lightweight content slider offering you smooth and great-looking animations.', 'link' => '#', 'image_uri' => get_template_directory_uri()."/images/parallax.png" );
+        endif;
+        update_option( 'widget_ctup-ads-widget', $ourfocus_content );
+        $zerif_lite_counter++;
+
+        /* our focus widget #2 */
+        $active_widgets[ 'sidebar-ourfocus' ][] = 'ctup-ads-widget-' . $zerif_lite_counter;
+        if ( file_exists( get_stylesheet_directory_uri().'/images/woo.png' ) ):
+            $ourfocus_content[ $zerif_lite_counter ] = array ( 'title' => 'WOOCOMMERCE', 'text' => 'Build a front page for your WooCommerce store in a matter of minutes. The neat and clean presentation will help your sales and make your store accessible to everyone.', 'link' => '#', 'image_uri' => get_stylesheet_directory_uri()."/images/woo.png" );
+        else:
+            $ourfocus_content[ $zerif_lite_counter ] = array ( 'title' => 'WOOCOMMERCE', 'text' => 'Build a front page for your WooCommerce store in a matter of minutes. The neat and clean presentation will help your sales and make your store accessible to everyone.', 'link' => '#', 'image_uri' => get_template_directory_uri()."/images/woo.png" );
+        endif;
+        update_option( 'widget_ctup-ads-widget', $ourfocus_content );
+        $zerif_lite_counter++;
+
+        /* our focus widget #3 */
+        $active_widgets[ 'sidebar-ourfocus' ][] = 'ctup-ads-widget-' . $zerif_lite_counter;
+        if ( file_exists( get_stylesheet_directory_uri().'/images/ccc.png' ) ):
+            $ourfocus_content[ $zerif_lite_counter ] = array ( 'title' => 'CUSTOM CONTENT BLOCKS', 'text' => 'Showcase your team, products, clients, about info, testimonials, latest posts from the blog, contact form, additional calls to action. Everything translation ready.', 'link' => '#', 'image_uri' => get_stylesheet_directory_uri()."/images/ccc.png" );
+        else:
+            $ourfocus_content[ $zerif_lite_counter ] = array ( 'title' => 'CUSTOM CONTENT BLOCKS', 'text' => 'Showcase your team, products, clients, about info, testimonials, latest posts from the blog, contact form, additional calls to action. Everything translation ready.', 'link' => '#', 'image_uri' => get_template_directory_uri()."/images/ccc.png" );
+        endif;
+        update_option( 'widget_ctup-ads-widget', $ourfocus_content );
+        $zerif_lite_counter++;
+
+        /* our focus widget #4 */
+        $active_widgets[ 'sidebar-ourfocus' ][] = 'ctup-ads-widget-' . $zerif_lite_counter;
+        if ( file_exists( get_stylesheet_directory_uri().'/images/ti-logo.png' ) ):
+            $ourfocus_content[ $zerif_lite_counter ] = array ( 'title' => 'GO PRO FOR MORE FEATURES', 'text' => 'Get new content blocks: pricing table, Google Maps, and more. Change the sections order, display each block exactly where you need it, customize the blocks with whatever colors you wish.', 'link' => '#', 'image_uri' => get_stylesheet_directory_uri()."/images/ti-logo.png" );
+        else:
+            $ourfocus_content[ $zerif_lite_counter ] = array ( 'title' => 'GO PRO FOR MORE FEATURES', 'text' => 'Get new content blocks: pricing table, Google Maps, and more. Change the sections order, display each block exactly where you need it, customize the blocks with whatever colors you wish.', 'link' => '#', 'image_uri' => get_template_directory_uri()."/images/ti-logo.png" );
+        endif;
+        update_option( 'widget_ctup-ads-widget', $ourfocus_content );
+        $zerif_lite_counter++;
+
 		update_option( 'sidebars_widgets', $active_widgets );
 		
-    endif;*/
+    endif;
+
+    /**
+     * Default Testimonials widgets
+     */
+    if ( empty ( $active_widgets[ $zerif_lite_sidebars['sidebar-testimonials'] ] ) ):
+
+        $zerif_lite_counter = 1;
+
+        /* testimonial widget #1 */
+        $active_widgets[ 'sidebar-testimonials' ][0] = 'zerif_testim-widget-' . $zerif_lite_counter;
+        if ( file_exists( get_stylesheet_directory_uri().'/images/testimonial1.jpg' ) ):
+            $testimonial_content[ $zerif_lite_counter ] = array ( 'title' => 'Dana Lorem', 'text' => 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur nec sem vel sapien venenatis mattis non vitae augue. Nullam congue commodo lorem vitae facilisis. Suspendisse malesuada id turpis interdum dictum.', 'image_uri' => get_stylesheet_directory_uri()."/images/testimonial1.jpg" );
+        else:
+            $testimonial_content[ $zerif_lite_counter ] = array ( 'title' => 'Dana Lorem', 'text' => 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur nec sem vel sapien venenatis mattis non vitae augue. Nullam congue commodo lorem vitae facilisis. Suspendisse malesuada id turpis interdum dictum.', 'image_uri' => get_template_directory_uri()."/images/testimonial1.jpg" );
+        endif;
+        update_option( 'widget_zerif_testim-widget', $testimonial_content );
+        $zerif_lite_counter++;
+
+        /* testimonial widget #2 */
+        $active_widgets[ 'sidebar-testimonials' ][] = 'zerif_testim-widget-' . $zerif_lite_counter;
+        if ( file_exists( get_stylesheet_directory_uri().'/images/testimonial2.jpg' ) ):
+            $testimonial_content[ $zerif_lite_counter ] = array ( 'title' => 'Linda Guthrie', 'text' => 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur nec sem vel sapien venenatis mattis non vitae augue. Nullam congue commodo lorem vitae facilisis. Suspendisse malesuada id turpis interdum dictum.', 'image_uri' => get_stylesheet_directory_uri()."/images/testimonial2.jpg" );
+        else:
+            $testimonial_content[ $zerif_lite_counter ] = array ( 'title' => 'Linda Guthrie', 'text' => 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur nec sem vel sapien venenatis mattis non vitae augue. Nullam congue commodo lorem vitae facilisis. Suspendisse malesuada id turpis interdum dictum.', 'image_uri' => get_template_directory_uri()."/images/testimonial2.jpg" );
+        endif;
+        update_option( 'widget_zerif_testim-widget', $testimonial_content );
+        $zerif_lite_counter++;
+
+        /* testimonial widget #3 */
+        $active_widgets[ 'sidebar-testimonials' ][] = 'zerif_testim-widget-' . $zerif_lite_counter;
+        if ( file_exists( get_stylesheet_directory_uri().'/images/testimonial3.jpg' ) ):
+            $testimonial_content[ $zerif_lite_counter ] = array ( 'title' => 'Cynthia Henry', 'text' => 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur nec sem vel sapien venenatis mattis non vitae augue. Nullam congue commodo lorem vitae facilisis. Suspendisse malesuada id turpis interdum dictum.', 'image_uri' => get_stylesheet_directory_uri()."/images/testimonial3.jpg" );
+        else:
+            $testimonial_content[ $zerif_lite_counter ] = array ( 'title' => 'Cynthia Henry', 'text' => 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur nec sem vel sapien venenatis mattis non vitae augue. Nullam congue commodo lorem vitae facilisis. Suspendisse malesuada id turpis interdum dictum.', 'image_uri' => get_template_directory_uri()."/images/testimonial3.jpg" );
+        endif;
+        update_option( 'widget_zerif_testim-widget', $testimonial_content );
+        $zerif_lite_counter++;
+
+        update_option( 'sidebars_widgets', $active_widgets );
+
+    endif;
+
+    /**
+     * Default Our Team widgets
+     */
+    if ( empty ( $active_widgets[ $zerif_lite_sidebars['sidebar-ourteam'] ] ) ):
+
+        $zerif_lite_counter = 1;
+
+        /* our team widget #1 */
+        $active_widgets[ 'sidebar-ourteam' ][0] = 'zerif_team-widget-' . $zerif_lite_counter;
+        $ourteam_content[ $zerif_lite_counter ] = array ( 'name' => 'ASHLEY SIMMONS', 'position' => 'Project Manager', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dapibus, eros at accumsan auctor, felis eros condimentum quam, non porttitor est urna vel neque', 'fb_link' => '#', 'tw_link' => '#', 'bh_link' => '#', 'db_link' => '#', 'ln_link' => '#', 'image_uri' => get_template_directory_uri()."/images/team1.png" );
+        update_option( 'widget_zerif_team-widget', $ourteam_content );
+        $zerif_lite_counter++;
+
+        /* our team widget #2 */
+        $active_widgets[ 'sidebar-ourteam' ][] = 'zerif_team-widget-' . $zerif_lite_counter;
+        $ourteam_content[ $zerif_lite_counter ] = array ( 'name' => 'TIMOTHY SPRAY', 'position' => 'Art Director', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dapibus, eros at accumsan auctor, felis eros condimentum quam, non porttitor est urna vel neque', 'fb_link' => '#', 'tw_link' => '#', 'bh_link' => '#', 'db_link' => '#', 'ln_link' => '#', 'image_uri' => get_template_directory_uri()."/images/team2.png" );
+        update_option( 'widget_zerif_team-widget', $ourteam_content );
+        $zerif_lite_counter++;
+
+        /* our team widget #3 */
+        $active_widgets[ 'sidebar-ourteam' ][] = 'zerif_team-widget-' . $zerif_lite_counter;
+        $ourteam_content[ $zerif_lite_counter ] = array ( 'name' => 'TONYA GARCIA', 'position' => 'Account Manager', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dapibus, eros at accumsan auctor, felis eros condimentum quam, non porttitor est urna vel neque', 'fb_link' => '#', 'tw_link' => '#', 'bh_link' => '#', 'db_link' => '#', 'ln_link' => '#', 'image_uri' => get_template_directory_uri()."/images/team3.png" );
+        update_option( 'widget_zerif_team-widget', $ourteam_content );
+        $zerif_lite_counter++;
+
+        /* our team widget #4 */
+        $active_widgets[ 'sidebar-ourteam' ][] = 'zerif_team-widget-' . $zerif_lite_counter;
+        $ourteam_content[ $zerif_lite_counter ] = array ( 'name' => 'JASON LANE', 'position' => 'Business Development', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dapibus, eros at accumsan auctor, felis eros condimentum quam, non porttitor est urna vel neque', 'fb_link' => '#', 'tw_link' => '#', 'bh_link' => '#', 'db_link' => '#', 'ln_link' => '#', 'image_uri' => get_template_directory_uri()."/images/team4.png" );
+        update_option( 'widget_zerif_team-widget', $ourteam_content );
+        $zerif_lite_counter++;
+
+        update_option( 'sidebars_widgets', $active_widgets );
+
+    endif;
 
 }
 
