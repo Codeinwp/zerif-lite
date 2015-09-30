@@ -31,6 +31,9 @@ class Zerif_Welcome {
 		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_changelog' ), 				50 );
 		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_free_pro' ), 				60 );
 
+		add_action('wp_ajax_zerif_lite_dismiss_required_action', array( $this, 'zerif_lite_dismiss_required_action_callback'));
+		add_action('wp_ajax_nopriv_zerif_lite_dismiss_required_action', array($this, 'zerif_lite_dismiss_required_action_callback'));
+
 	}
 
 	/**
@@ -91,9 +94,26 @@ class Zerif_Welcome {
 
 			wp_localize_script( 'zerif-lite-welcome-screen-js', 'objectL10n2', array(
 				'nr_actions_required' => $nr_actions_required,
+				'ajaxurl' => admin_url( 'admin-ajax.php' )
 			) );
 		}
 	}
+
+	/**
+	 * Dismiss required actions
+	 * @since 1.8.2.4
+	 */
+	public function zerif_lite_dismiss_required_action_callback() {
+
+		$numPosts = (isset($_GET['dismiss_id'])) ? $_GET['dismiss_id'] : 0;
+		echo $numPosts;
+
+		/* TO DO */
+		/** de actualizat vectorul zerif_show_required_actions din baza de date cu false pt cele sterse   */
+
+		die(); // this is required to return a proper result
+	}
+
 
 	/**
 	 * Welcome screen content
