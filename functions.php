@@ -926,11 +926,9 @@ class zerif_team_widget extends WP_Widget{
 
                     <ul>
                         <?php
-                            $open_new_window = $instance['open_new_window'];
-                            if( !empty($open_new_window) ):
+                            $zerif_team_target = '_self';
+                            if( !empty($instance['open_new_window']) ):
                                 $zerif_team_target = '_blank';
-                            else:
-                                $zerif_team_target = '_self';
                             endif;
                         ?>
 
