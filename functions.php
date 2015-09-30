@@ -909,29 +909,37 @@ class zerif_team_widget extends WP_Widget{
                 <div class="social-icons">
 
                     <ul>
+                        <?php
+                            $open_new_window = $instance['open_new_window'];
+                            if( !empty($open_new_window) ):
+                                $zerif_team_target = '_blank';
+                            else:
+                                $zerif_team_target = '_self';
+                            endif;
+                        ?>
 
                         <?php if ( !empty($instance['fb_link']) ): ?>
-                            <li><a href="<?php echo apply_filters('widget_title', $instance['fb_link']); ?>"><i
+                            <li><a href="<?php echo apply_filters('widget_title', $instance['fb_link']); ?>" target="<?php echo $zerif_team_target; ?>"><i
                                         class="fa fa-facebook"></i></a></li>
                         <?php endif; ?>
 
                         <?php if ( !empty($instance['tw_link']) ): ?>
-                            <li><a href="<?php echo apply_filters('widget_title', $instance['tw_link']); ?>"><i
+                            <li><a href="<?php echo apply_filters('widget_title', $instance['tw_link']); ?>" target="<?php echo $zerif_team_target; ?>"><i
                                         class="fa fa-twitter"></i></a></li>
                         <?php endif; ?>
 
                         <?php if ( !empty($instance['bh_link']) ): ?>
-                            <li><a href="<?php echo apply_filters('widget_title', $instance['bh_link']); ?>"><i
+                            <li><a href="<?php echo apply_filters('widget_title', $instance['bh_link']); ?>" target="<?php echo $zerif_team_target; ?>"><i
                                         class="fa fa-behance"></i></a></li>
                         <?php endif; ?>
 
                         <?php if ( !empty($instance['db_link']) ): ?>
-                            <li><a href="<?php echo apply_filters('widget_title', $instance['db_link']); ?>"><i
+                            <li><a href="<?php echo apply_filters('widget_title', $instance['db_link']); ?>" target="<?php echo $zerif_team_target; ?>"><i
                                         class="fa fa-dribbble"></i></a></li>
                         <?php endif; ?>
 						
 						<?php if ( !empty($instance['ln_link']) ): ?>
-                            <li><a href="<?php echo apply_filters('widget_title', $instance['ln_link']); ?>"><i
+                            <li><a href="<?php echo apply_filters('widget_title', $instance['ln_link']); ?>" target="<?php echo $zerif_team_target; ?>"><i
                                         class="fa fa-linkedin"></i></a></li>
                         <?php endif; ?>
 
@@ -970,6 +978,7 @@ class zerif_team_widget extends WP_Widget{
         $instance['db_link'] = strip_tags($new_instance['db_link']);
 		$instance['ln_link'] = strip_tags($new_instance['ln_link']);
         $instance['image_uri'] = strip_tags($new_instance['image_uri']);
+        $instance['open_new_window'] = strip_tags($new_instance['open_new_window']);
 
         return $instance;
 
@@ -1015,6 +1024,9 @@ class zerif_team_widget extends WP_Widget{
 		<p>
             <label for="<?php echo $this->get_field_id('ln_link'); ?>"><?php _e('Linkedin link', 'zerif-lite'); ?></label><br/>
             <input type="text" name="<?php echo $this->get_field_name('ln_link'); ?>" id="<?php echo $this->get_field_id('ln_link'); ?>" value="<?php if( !empty($instance['ln_link']) ): echo $instance['ln_link']; endif; ?>" class="widefat">
+        </p>
+        <p>
+            <input type="checkbox" name="<?php echo $this->get_field_name('open_new_window'); ?>" id="<?php echo $this->get_field_id('open_new_window'); ?>" <?php checked( (bool) $instance['open_new_window'], true ); ?> ><?php _e( 'Open links in new window?','zerif-lite' ); ?><br>
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('image_uri'); ?>"><?php _e('Image', 'zerif-lite'); ?></label><br/>
