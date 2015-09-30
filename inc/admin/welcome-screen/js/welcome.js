@@ -9,9 +9,10 @@ jQuery(document).ready(function() {
     });
 	
 	/* If there are required actions, add an icon with the number of required actions */
-	var zerif_actions_required_boxes = jQuery( '.zerif-action-required-box.active' );
-	
-	if( zerif_actions_required_boxes.length ) {
-		jQuery('li.zerif-lite-w-red-tab a').append('<span class="zerif-lite-actions-count">' + zerif_actions_required_boxes.length + '</span>');
-	}	
+    var zerif_nr_actions_required = objectL10n2.nr_actions_required;
+
+    if ( typeof zerif_nr_actions_required !== 'undefined' ) {
+        jQuery('li.zerif-lite-w-red-tab a').append('<span class="zerif-lite-actions-count">' + objectL10n2.nr_actions_required + '</span>');
+    }
+
 });

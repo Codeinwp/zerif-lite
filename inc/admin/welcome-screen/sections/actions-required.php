@@ -11,48 +11,33 @@
     <!-- NEWS -->
     <hr />
 
-    <div class="zerif-tab-pane-half zerif-tab-pane-first-half">
+	<?php
+	global $zerif_required_actions;
 
-	<?php if ( defined('PIRATE_FORMS_VERSION') ): ?>
-	
-		<div class="zerif-action-required-box">
-		
-	<?php else: ?>
+	if( !empty($zerif_required_actions) ):
 
-		<div class="zerif-action-required-box active">
-	
-	<?php endif; ?>
-	
-			<h4><?php esc_html_e( '1. Install Pirate Forms' ,'zerif-lite' ); ?></h4>
-			<p><?php esc_html_e( 'In the next updates, Zerif Lite\'s default contact form will be removed. Please make sure you install th Pirate Forms plugin to keep your site updated,  and experience a smooth transition to the latest version.', 'zerif-lite' ); ?></p>
+		foreach( $zerif_required_actions as $zerif_required_action_key => $zerif_required_action_value ):
+			?>
+			<div class="zerif-action-required-box">
 
-			<?php if ( defined('PIRATE_FORMS_VERSION') ) { ?>
-				<p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p>
-			<?php } else { ?>
-				<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=pirate-forms' ), 'install-plugin_pirate-forms' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install Pirate Forms', 'zerif-lite' ); ?></a></p>
-			<?php } ?>
-
-			<hr />
-		</div>	
-
-    </div>
-    <div class="zerif-tab-pane-half">
-
-		<div class="zerif-action-required-box">
-
-			<div class="zerif-action-required-box active">
-
-				<h4><?php esc_html_e( '2. Check the contact form after installing Pirate Forms' ,'zerif-lite' ); ?></h4>
-				<p><?php esc_html_e( 'After installing the Pirate Forms plugin, please make sure you check your frontpage contact form is working fine. Also, if you use Zerif Lite in other language(s) please make sure the translation is ok. If not, please translate the contact form again.', 'zerif-lite' ); ?></p>
+				<h4><?php echo $zerif_required_action_key + 1; ?>. <?php if( !empty($zerif_required_action_value['title']) ): echo $zerif_required_action_value['title']; endif; ?></h4>
+				<p><?php if( !empty($zerif_required_action_value['description']) ): echo $zerif_required_action_value['description']; endif; ?></p>
+				<?php
+					if( isset($zerif_required_action_value['check']) ):
+						if( $zerif_required_action_value['check'] ):
+							?><p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p><?php
+						else:
+							?><p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin='.$zerif_required_action_value['plugin_slug'] ), 'install-plugin_'.$zerif_required_action_value['plugin_slug'] ) ); ?>" class="button button-primary"><?php if( !empty($zerif_required_action_value['title']) ): echo $zerif_required_action_value['title']; endif; ?></a></p><?php
+						endif;
+					endif;
+				?>
 
 				<hr />
 			</div>
+			<?php
+		endforeach;
 
-
-		</div>
-
-    <div class="zerif-lite-clear"></div>
-
-
+	endif;
+	?>
 
 </div>

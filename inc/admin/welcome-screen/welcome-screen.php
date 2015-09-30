@@ -76,6 +76,22 @@ class Zerif_Welcome {
 		if ( 'appearance_page_zerif-lite-welcome' == $hook_suffix ) {
 			wp_enqueue_style( 'zerif-lite-welcome-screen-css', get_template_directory_uri() . '/inc/admin/welcome-screen/css/welcome.css' );
 			wp_enqueue_script( 'zerif-lite-welcome-screen-js', get_template_directory_uri() . '/inc/admin/welcome-screen/js/welcome.js', array('jquery') );
+
+			global $zerif_required_actions;
+
+			$nr_actions_required = 0;
+
+			if( !empty($zerif_required_actions) ):
+				foreach( $zerif_required_actions as $zerif_required_action_value ):
+					if( !isset( $zerif_required_action_value['check'] ) || ( isset( $zerif_required_action_value['check'] ) && ( $zerif_required_action_value['check'] == false ) ) ):
+						$nr_actions_required++;
+					endif;
+				endforeach;
+			endif;
+
+			wp_localize_script( 'zerif-lite-welcome-screen-js', 'objectL10n2', array(
+				'nr_actions_required' => $nr_actions_required,
+			) );
 		}
 	}
 

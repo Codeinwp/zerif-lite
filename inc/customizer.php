@@ -1589,29 +1589,28 @@ function zerif_registers() {
 	wp_enqueue_script( 'zerif_customizer_script' );
 
 
-    $zerif_lite_actions_required = 1;
-	if ( defined('PIRATE_FORMS_VERSION') ) {
-		$zerif_lite_has_actions = 'no';
-	}
-	else {
-		$zerif_lite_has_actions = 'yes';
-	}
+	global $zerif_required_actions;
 
-	wp_localize_script('zerif_customizer_script', 'zerifCustomizerScript', array(
-		'themepageUrl' => esc_url( admin_url( 'themes.php?page=zerif-lite-welcome' ) ),
-		'customizerUrl' => esc_url( admin_url( 'customize.php#actions_required' ) ),
-		'actionsRequired' => $zerif_lite_actions_required,
-		'hasActionsRequired' => $zerif_lite_has_actions
-	));
+	$nr_actions_required = 0;
 
+	if( !empty($zerif_required_actions) ):
+		foreach( $zerif_required_actions as $zerif_required_action_value ):
+			if( !isset( $zerif_required_action_value['check'] ) || ( isset( $zerif_required_action_value['check'] ) && ( $zerif_required_action_value['check'] == false ) ) ):
+				$nr_actions_required++;
+			endif;
+		endforeach;
+	endif;
 	
 	wp_localize_script( 'zerif_customizer_script', 'objectL10n', array(
 		
 		'documentation' => __( 'View Documentation', 'zerif-lite' ),
 		'pro' => __('Upgrade to PRO','zerif-lite'),
 		'themeinfo' => __('View Theme Info','zerif-lite'),
-		'github' => __('Github','zerif-lite')
-		
+		'github' => __('Github','zerif-lite'),
+		'nr_actions_required' => $nr_actions_required,
+		'aboutpage' => esc_url( admin_url( 'themes.php?page=zerif-lite-welcome' ) ),
+		'customizerpage' => esc_url( admin_url( 'customize.php#actions_required' ) )
+
 	) );
 }
 add_action( 'customize_controls_enqueue_scripts', 'zerif_registers' );

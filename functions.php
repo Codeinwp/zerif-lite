@@ -73,6 +73,22 @@ function zerif_setup() {
 		
 	/* Welcome screen */
 	if ( is_admin() ) {
+
+        global $zerif_required_actions;
+        $zerif_required_actions = array(
+            array(
+                "title" => esc_html__( 'Install Pirate Forms' ,'zerif-lite' ),
+                "description"=> esc_html__( 'In the next updates, Zerif Lite\'s default contact form will be removed. Please make sure you install th Pirate Forms plugin to keep your site updated, and experience a smooth transition to the latest version.','zerif-lite' ),
+                "check" => defined("PIRATE_FORMS_VERSION"),
+                "plugin_slug" => 'pirate-forms'
+            ),
+            array(
+                "title" => esc_html__( 'Check the contact form after installing Pirate Forms' ,'zerif-lite' ),
+                "description"=> esc_html__( "After installing the Pirate Forms plugin, please make sure you check your frontpage contact form is working fine. Also, if you use Zerif Lite in other language(s) please make sure the translation is ok. If not, please translate the contact form again.",'zerif-lite' ),
+            ),
+
+        );
+
 		require get_template_directory() . '/inc/admin/welcome-screen/welcome-screen.php';
 	}
 }
