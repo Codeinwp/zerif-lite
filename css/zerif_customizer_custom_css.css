@@ -24,3 +24,13 @@
 #accordion-section-zerif_order_section .accordion-section-title:after, #accordion-section-zerif_googlemap_section .accordion-section-title:after, #accordion-section-zerif_pricing_section .accordion-section-title:after, #accordion-section-zerif_videobackground_in_pro_section .accordion-section-title:after {
 	content: "\f160";	
 }
+
+.zerif-upgrade-to-pro-button {
+	padding: 3px 6px !important;
+	line-height: 1.5 !important;
+	font-size: 9px !important;
+	color: #ffffff !important;
+	background-color: #d54e21;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+}

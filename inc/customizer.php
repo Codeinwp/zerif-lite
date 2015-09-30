@@ -1609,7 +1609,8 @@ function zerif_registers() {
 		
 		'documentation' => __( 'View Documentation', 'zerif-lite' ),
 		'pro' => __('Upgrade to PRO','zerif-lite'),
-		'themeinfo' => __('View Theme Info','zerif-lite')
+		'themeinfo' => __('View Theme Info','zerif-lite'),
+		'github' => __('Github','zerif-lite')
 		
 	) );
 }
