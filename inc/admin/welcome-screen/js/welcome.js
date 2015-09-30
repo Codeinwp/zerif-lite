@@ -26,23 +26,14 @@ jQuery(document).ready(function() {
             dataType   : "html",
             url        : objectL10n2.ajaxurl,
             beforeSend : function(data,settings){
-               // $content.append('<div id="temp_load" style="text-align:center">\
-                         //   <img src="' + $('#test').val() + '/images/ajax-loader.gif" />\
-                           // </div>');
-               // $(".loadMoreDiv").remove();
-                console.log(data);
+				jQuery('.zerif-lite-tab-pane#actions_required h1').append('<div id="temp_load" style="text-align:center"><img src="' + objectL10n2.template_directory + '/images/loading.gif" /></div>');
             },
             success    : function(data){
-               // $("#temp_load").remove();
-               // $data = $(data);
-                //$content.append($data);
-                console.log(data);
-                console.log('id-' + data);
+				jQuery("#temp_load").remove();
                 jQuery('#'+ data).parent().remove();
             },
             error     : function(jqXHR, textStatus, errorThrown) {
-                //$("#temp_load").remove();
-                alert(jqXHR + " :: " + textStatus + " :: " + errorThrown);
+                console.log(jqXHR + " :: " + textStatus + " :: " + errorThrown);
             }
         });
     });

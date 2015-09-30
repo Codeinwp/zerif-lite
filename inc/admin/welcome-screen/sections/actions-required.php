@@ -14,7 +14,7 @@
 	<?php
 	global $zerif_required_actions;
 
-	if( !empty($zerif_required_actions) ):
+	if( empty($zerif_required_actions) ):
 
 		/* zerif_show_required_actions is an array of true/false for each required action that was dismissed */
 		$zerif_show_required_actions = get_option("zerif_show_required_actions",array());
@@ -41,7 +41,6 @@
 			</div>
 			<?php
 		endforeach;
-
 	endif;
 	?>
 

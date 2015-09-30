@@ -94,7 +94,8 @@ class Zerif_Welcome {
 
 			wp_localize_script( 'zerif-lite-welcome-screen-js', 'objectL10n2', array(
 				'nr_actions_required' => $nr_actions_required,
-				'ajaxurl' => admin_url( 'admin-ajax.php' )
+				'ajaxurl' => admin_url( 'admin-ajax.php' ),
+				'template_directory' => get_template_directory_uri()
 			) );
 		}
 	}
