@@ -84,12 +84,21 @@ class Zerif_Welcome {
 
 			$nr_actions_required = 0;
 
-			if( !empty($zerif_required_actions) ):
-				foreach( $zerif_required_actions as $zerif_required_action_value ):
-					if( !isset( $zerif_required_action_value['check'] ) || ( isset( $zerif_required_action_value['check'] ) && ( $zerif_required_action_value['check'] == false ) ) ):
+			if( get_option('zerif_show_required_actions') ):
+				$zerif_show_required_actions = get_option('zerif_show_required_actions');
+				foreach( $zerif_show_required_actions as $zerif_show_required_action_id => $zerif_show_required_action_val ):
+					if( $zerif_show_required_action_val ):
 						$nr_actions_required++;
 					endif;
 				endforeach;
+			else:
+				if( !empty($zerif_required_actions) ):
+					foreach( $zerif_required_actions as $zerif_required_action_value ):
+						if( !isset( $zerif_required_action_value['check'] ) || ( isset( $zerif_required_action_value['check'] ) && ( $zerif_required_action_value['check'] == false ) ) ):
+							$nr_actions_required++;
+						endif;
+					endforeach;
+				endif;
 			endif;
 
 			wp_localize_script( 'zerif-lite-welcome-screen-js', 'objectL10n2', array(
@@ -106,11 +115,47 @@ class Zerif_Welcome {
 	 */
 	public function zerif_lite_dismiss_required_action_callback() {
 
-		$numPosts = (isset($_GET['dismiss_id'])) ? $_GET['dismiss_id'] : 0;
-		echo $numPosts;
+		global $zerif_required_actions;
 
-		/* TO DO */
-		/** de actualizat vectorul zerif_show_required_actions din baza de date cu false pt cele sterse   */
+		$zerif_dismiss_id = (isset($_GET['dismiss_id'])) ? $_GET['dismiss_id'] : 0;
+
+		echo $zerif_dismiss_id; /* this is needed and it's the id of the dismissable required action */
+
+		if( !empty($zerif_dismiss_id) ):
+
+			/* if the option exists, update the record for the specified id */
+			if( get_option('zerif_show_required_actions') ):
+
+				$zerif_show_required_actions = get_option('zerif_show_required_actions');
+
+				$zerif_show_required_actions[$zerif_dismiss_id] = false;
+
+				update_option( 'zerif_show_required_actions',$zerif_show_required_actions );
+
+			/* create the new option,with false for the specified id */
+			else:
+
+				$zerif_show_required_actions_new = array();
+
+				if( !empty($zerif_required_actions) ):
+
+					foreach( $zerif_required_actions as $zerif_required_action ):
+
+						if( $zerif_required_action['id'] == $zerif_dismiss_id ):
+							$zerif_show_required_actions_new[$zerif_required_action['id']] = false;
+						else:
+							$zerif_show_required_actions_new[$zerif_required_action['id']] = true;
+						endif;
+
+					endforeach;
+
+				update_option( 'zerif_show_required_actions', $zerif_show_required_actions_new );
+
+				endif;
+
+			endif;
+
+		endif;
 
 		die(); // this is required to return a proper result
 	}

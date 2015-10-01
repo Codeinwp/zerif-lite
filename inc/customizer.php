@@ -1592,13 +1592,21 @@ function zerif_registers() {
 	global $zerif_required_actions;
 
 	$nr_actions_required = 0;
-
-	if( !empty($zerif_required_actions) ):
-		foreach( $zerif_required_actions as $zerif_required_action_value ):
-			if( !isset( $zerif_required_action_value['check'] ) || ( isset( $zerif_required_action_value['check'] ) && ( $zerif_required_action_value['check'] == false ) ) ):
+	if( get_option('zerif_show_required_actions') ):
+		$zerif_show_required_actions = get_option('zerif_show_required_actions');
+		foreach( $zerif_show_required_actions as $zerif_show_required_action_id => $zerif_show_required_action_val ):
+			if( $zerif_show_required_action_val ):
 				$nr_actions_required++;
 			endif;
 		endforeach;
+	else:
+		if( !empty($zerif_required_actions) ):
+			foreach( $zerif_required_actions as $zerif_required_action_value ):
+				if( !isset( $zerif_required_action_value['check'] ) || ( isset( $zerif_required_action_value['check'] ) && ( $zerif_required_action_value['check'] == false ) ) ):
+					$nr_actions_required++;
+				endif;
+			endforeach;
+		endif;
 	endif;
 	
 	wp_localize_script( 'zerif_customizer_script', 'objectL10n', array(

@@ -86,7 +86,7 @@ function zerif_setup() {
          */
         $zerif_required_actions = array(
             array(
-                "id" => 'zerif-lite-req-ac-intall-pirate-forms',
+                "id" => 'zerif-lite-req-ac-install-pirate-forms',
                 "title" => esc_html__( 'Install Pirate Forms' ,'zerif-lite' ),
                 "description"=> esc_html__( 'In the next updates, Zerif Lite\'s default contact form will be removed. Please make sure you install th Pirate Forms plugin to keep your site updated, and experience a smooth transition to the latest version.','zerif-lite' ),
                 "check" => defined("PIRATE_FORMS_VERSION"),

@@ -14,12 +14,13 @@
 	<?php
 	global $zerif_required_actions;
 
-	if( empty($zerif_required_actions) ):
+	if( !empty($zerif_required_actions) ):
 
 		/* zerif_show_required_actions is an array of true/false for each required action that was dismissed */
-		$zerif_show_required_actions = get_option("zerif_show_required_actions",array());
+		$zerif_show_required_actions = get_option("zerif_show_required_actions");
 
 		foreach( $zerif_required_actions as $zerif_required_action_key => $zerif_required_action_value ):
+			if(@$zerif_show_required_actions[$zerif_required_action_value['id']] === false) continue;
 			?>
 			<div class="zerif-action-required-box">
 				<span class="dashicons dashicons-no-alt zerif-dismiss-required-action" id="<?php echo $zerif_required_action_value['id']; ?>"></span>

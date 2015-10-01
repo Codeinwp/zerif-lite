@@ -11,8 +11,8 @@ jQuery(document).ready(function() {
 	/* If there are required actions, add an icon with the number of required actions in the About Zerif page -> Actions required tab */
     var zerif_nr_actions_required = objectL10n2.nr_actions_required;
 
-    if ( typeof zerif_nr_actions_required !== 'undefined' ) {
-        jQuery('li.zerif-lite-w-red-tab a').append('<span class="zerif-lite-actions-count">' + objectL10n2.nr_actions_required + '</span>');
+    if ( (typeof zerif_nr_actions_required !== 'undefined') && (zerif_nr_actions_required != '0') ) {
+        jQuery('li.zerif-lite-w-red-tab a').append('<span class="zerif-lite-actions-count">' + zerif_nr_actions_required + '</span>');
     }
 
     /* Dismiss required actions */
@@ -26,11 +26,23 @@ jQuery(document).ready(function() {
             dataType   : "html",
             url        : objectL10n2.ajaxurl,
             beforeSend : function(data,settings){
-				jQuery('.zerif-lite-tab-pane#actions_required h1').append('<div id="temp_load" style="text-align:center"><img src="' + objectL10n2.template_directory + '/images/loading.gif" /></div>');
+				jQuery('.zerif-lite-tab-pane#actions_required h1').append('<div id="temp_load" style="text-align:center"><img src="' + objectL10n2.template_directory + '/inc/admin/welcome-screen/img/ajax-loader.gif" /></div>');
             },
             success    : function(data){
-				jQuery("#temp_load").remove();
-                jQuery('#'+ data).parent().remove();
+				jQuery("#temp_load").remove(); /* Remove loading gif */
+                jQuery('#'+ data).parent().remove(); /* Remove required action box */
+
+                var zerif_lite_actions_count = jQuery('.zerif-lite-actions-count').text(); /* Decrease or remove the counter for required actions */
+                if( typeof zerif_lite_actions_count !== 'undefined' ) {
+                    if( zerif_lite_actions_count == '1' ) {
+                        jQuery('.zerif-lite-actions-count').remove();
+                        //jQuery('#actions_required').remove();
+                        //jQuery('.zerif-lite-w-red-tab').remove();
+                    }
+                    else {
+                        jQuery('.zerif-lite-actions-count').text(parseInt(zerif_lite_actions_count) - 1);
+                    }
+                }
             },
             error     : function(jqXHR, textStatus, errorThrown) {
                 console.log(jqXHR + " :: " + textStatus + " :: " + errorThrown);
