@@ -1079,11 +1079,10 @@ class zerif_team_widget extends WP_Widget{
 
 }
 
-function zerif_customizer_custom_css() {   
+function zerif_customizer_custom_css() {
 
-	wp_register_style('zerif_customizer_custom_css', get_template_directory_uri() . '/css/zerif_customizer_custom_css.css');
+    wp_enqueue_style('zerif_customizer_custom_css', get_template_directory_uri() . '/css/zerif_customizer_custom_css.css');
 
-    wp_enqueue_style('zerif_customizer_custom_css');
 }
 add_action('customize_controls_print_styles', 'zerif_customizer_custom_css');
 
