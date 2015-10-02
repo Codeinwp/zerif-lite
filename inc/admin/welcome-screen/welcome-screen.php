@@ -19,16 +19,16 @@ class Zerif_Welcome {
 		add_action( 'admin_enqueue_scripts', array( $this, 'zerif_lite_welcome_style_and_scripts' ) );
 
 		/* load welcome screen */
-
 		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_getting_started' ), 	    10 );
-		add_action('zerif_lite_welcome', array($this, 'zerif_lite_welcome_actions_required'),           20 );
+		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_actions_required' ),        20 );
 		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_child_themes' ), 		    30 );
 		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_github' ), 		            40 );
 		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_changelog' ), 				50 );
 		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_free_pro' ), 				60 );
 
-		add_action('wp_ajax_zerif_lite_dismiss_required_action', array( $this, 'zerif_lite_dismiss_required_action_callback'));
-		add_action('wp_ajax_nopriv_zerif_lite_dismiss_required_action', array($this, 'zerif_lite_dismiss_required_action_callback'));
+		/* ajax callback for dismissable required actions */
+		add_action( 'wp_ajax_zerif_lite_dismiss_required_action', array( $this, 'zerif_lite_dismiss_required_action_callback') );
+		add_action( 'wp_ajax_nopriv_zerif_lite_dismiss_required_action', array($this, 'zerif_lite_dismiss_required_action_callback') );
 
 	}
 
