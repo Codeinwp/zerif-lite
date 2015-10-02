@@ -1,41 +1,27 @@
 jQuery(document).ready(function() {
 
-	jQuery( "#sortable" ).sortable();
-	jQuery( "#sortable" ).disableSelection();
-
-	var zerif_aboutpage = zerifLiteCustomizerObject.aboutpage;
-	var zerif_nr_actions_required = zerifLiteCustomizerObject.nr_actions_required;
-
-	/* Number of required actions */
-	if ( (typeof zerif_aboutpage !== 'undefined') && (typeof zerif_nr_actions_required !== 'undefined') && (zerif_nr_actions_required != '0') ) {
-
-		jQuery('#accordion-section-themes .accordion-section-title').append('<a href="' + zerif_aboutpage + '"><span class="zerif-lite-actions-count">' + zerif_nr_actions_required + '</span></a>');
-
+	/* Upsells in customizer (Documentation link, Github link and Upgrade to PRO link */
+	if( !jQuery( ".zerif-upsells" ).length ) {
+		jQuery('#customize-theme-controls > ul').prepend('<li class="accordion-section zerif-upsells">');
 	}
 
-	jQuery( '#customize-theme-controls > ul' ).prepend('<li class="accordion-section zerif-upsells">');
+	if( jQuery( ".zerif-upsells" ).length ) {
 
-	jQuery( '.zerif-upsells' ).append('<a style="width: 80%; margin: 5px auto 5px auto; display: block; text-align: center;" href="http://themeisle.com/documentation-zerif-lite" class="button" target="_blank">{documentation}</a>'.replace('{documentation}',zerifLiteCustomizerObject.documentation));
-
-	if (typeof zerif_aboutpage !== 'undefined') {
-
-		jQuery('.zerif-upsells').append('<a style="width: 80%; margin: 5px auto 5px auto; display: block; text-align: center;" href="' + zerif_aboutpage + '" class="button" target="_blank">{themeinfo}</a>'.replace('{themeinfo}', zerifLiteCustomizerObject.themeinfo));
+		jQuery('.zerif-upsells').append('<a style="width: 80%; margin: 5px auto 5px auto; display: block; text-align: center;" href="http://themeisle.com/documentation-zerif-lite" class="button" target="_blank">{documentation}</a>'.replace('{documentation}', zerifLiteCustomizerObject.documentation));
+		jQuery('.zerif-upsells').append('<a style="width: 80%; margin: 5px auto 5px auto; display: block; text-align: center;" href="https://github.com/Codeinwp/zerif-lite" class="button" target="_blank">{github}</a>'.replace('{github}', zerifLiteCustomizerObject.github));
 
 	}
-
-	jQuery( '.zerif-upsells' ).append('<a style="width: 80%; margin: 5px auto 5px auto; display: block; text-align: center;" href="https://github.com/Codeinwp/zerif-lite" class="button" target="_blank">{github}</a>'.replace('{github}',zerifLiteCustomizerObject.github));
-
 	jQuery('.preview-notice').append('<a class="zerif-upgrade-to-pro-button" href="http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/" class="button" target="_blank">{pro}</a>'.replace('{pro}',zerifLiteCustomizerObject.pro));
 
-	jQuery( '#customize-theme-controls > ul' ).prepend('</li>');
-	
-	
-	jQuery( '.ui-state-default' ).on( 'mousedown', function() {
+	if ( !jQuery( ".zerif-upsells" ).length ) {
+		jQuery('#customize-theme-controls > ul').prepend('</li>');
+	}
 
+	jQuery( '.ui-state-default' ).on( 'mousedown', function() {
 		jQuery( '#customize-header-actions #save' ).trigger( 'click' );
 
 	});
-	
+
 	/* Move our focus widgets in the our focus panel */
 	wp.customize.section( 'sidebar-widgets-sidebar-ourfocus' ).panel( 'panel_ourfocus' );
 	wp.customize.section( 'sidebar-widgets-sidebar-ourfocus' ).priority( '2' );
@@ -51,4 +37,4 @@ jQuery(document).ready(function() {
 	/* Move about us widgets in the about us panel */
 	wp.customize.section( 'sidebar-widgets-sidebar-aboutus' ).panel( 'panel_about' );
 	wp.customize.section( 'sidebar-widgets-sidebar-aboutus' ).priority( '7' );
-});	
+});

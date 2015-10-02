@@ -1,20 +1,6 @@
 .customize-control-widget_form .widget-control-save {
 	display:block !important;
 }
-.zerif-lite-actions-count {
-	padding: 0 6px;
-	display: inline-block;
-	background-color: #d54e21;
-	color: #fff;
-	font-size: 9px;
-	line-height: 17px;
-	font-weight: 600;
-	margin: 1px 0 0 2px;
-	vertical-align: top;
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
-	z-index: 26;
-}
 
 #accordion-section-zerif_order_section .accordion-section-title, #accordion-section-zerif_googlemap_section .accordion-section-title, #accordion-section-zerif_pricing_section .accordion-section-title, #accordion-section-zerif_videobackground_in_pro_section .accordion-section-title {
 	background-image:url(../images/gray-lines.png);

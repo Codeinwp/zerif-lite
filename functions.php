@@ -71,7 +71,10 @@ function zerif_setup() {
     /* woocommerce support */
 	add_theme_support( 'woocommerce' );
 		
-	/* Welcome screen */
+	/*******************************************/
+    /*************  Welcome screen *************/
+    /*******************************************/
+
 	if ( is_admin() ) {
 
         global $zerif_required_actions;

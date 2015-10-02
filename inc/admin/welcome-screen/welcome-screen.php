@@ -18,6 +18,9 @@ class Zerif_Welcome {
 		/* enqueue script and style for welcome screen */
 		add_action( 'admin_enqueue_scripts', array( $this, 'zerif_lite_welcome_style_and_scripts' ) );
 
+		/* enqueue script for customizer */
+		add_action( 'customize_controls_enqueue_scripts', array( $this, 'zerif_lite_welcome_scripts_for_customizer' ) );
+
 		/* load welcome screen */
 		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_getting_started' ), 	    10 );
 		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_actions_required' ),        20 );
@@ -80,21 +83,19 @@ class Zerif_Welcome {
 
 			$nr_actions_required = 0;
 
+			/* get number of required actions */
 			if( get_option('zerif_show_required_actions') ):
 				$zerif_show_required_actions = get_option('zerif_show_required_actions');
-				foreach( $zerif_show_required_actions as $zerif_show_required_action_id => $zerif_show_required_action_val ):
-					if( $zerif_show_required_action_val ):
+			else:
+				$zerif_show_required_actions = array();
+			endif;
+
+			if( !empty($zerif_required_actions) ):
+				foreach( $zerif_required_actions as $zerif_required_action_value ):
+					if(( !isset( $zerif_required_action_value['check'] ) || ( isset( $zerif_required_action_value['check'] ) && ( $zerif_required_action_value['check'] == false ) ) ) && ((isset($zerif_show_required_actions[$zerif_required_action_value['id']]) && ($zerif_show_required_actions[$zerif_required_action_value['id']] == true)) || !isset($zerif_show_required_actions[$zerif_required_action_value['id']]) )) :
 						$nr_actions_required++;
 					endif;
 				endforeach;
-			else:
-				if( !empty($zerif_required_actions) ):
-					foreach( $zerif_required_actions as $zerif_required_action_value ):
-						if( !isset( $zerif_required_action_value['check'] ) || ( isset( $zerif_required_action_value['check'] ) && ( $zerif_required_action_value['check'] == false ) ) ):
-							$nr_actions_required++;
-						endif;
-					endforeach;
-				endif;
 			endif;
 
 			wp_localize_script( 'zerif-lite-welcome-screen-js', 'zerifLiteWelcomeScreenObject', array(
@@ -104,6 +105,42 @@ class Zerif_Welcome {
 				'no_required_actions_text' => __( 'Hooray! There are no required actions for you right now.','zerif-lite' )
 			) );
 		}
+	}
+
+	/**
+	 * Load scripts for customizer page
+	 * @since  1.8.2.4
+	 */
+	public function zerif_lite_welcome_scripts_for_customizer() {
+
+		wp_enqueue_style( 'zerif-lite-welcome-screen-customizer-css', get_template_directory_uri() . '/inc/admin/welcome-screen/css/welcome_customizer.css' );
+		wp_enqueue_script( 'zerif-lite-welcome-screen-customizer-js', get_template_directory_uri() . '/inc/admin/welcome-screen/js/welcome_customizer.js', array('jquery'), '20120206', true );
+
+		global $zerif_required_actions;
+
+		$nr_actions_required = 0;
+
+		/* get number of required actions */
+		if( get_option('zerif_show_required_actions') ):
+			$zerif_show_required_actions = get_option('zerif_show_required_actions');
+		else:
+			$zerif_show_required_actions = array();
+		endif;
+
+		if( !empty($zerif_required_actions) ):
+			foreach( $zerif_required_actions as $zerif_required_action_value ):
+				if(( !isset( $zerif_required_action_value['check'] ) || ( isset( $zerif_required_action_value['check'] ) && ( $zerif_required_action_value['check'] == false ) ) ) && ((isset($zerif_show_required_actions[$zerif_required_action_value['id']]) && ($zerif_show_required_actions[$zerif_required_action_value['id']] == true)) || !isset($zerif_show_required_actions[$zerif_required_action_value['id']]) )) :
+					$nr_actions_required++;
+				endif;
+			endforeach;
+		endif;
+
+		wp_localize_script( 'zerif-lite-welcome-screen-customizer-js', 'zerifLiteWelcomeScreenCustomizerObject', array(
+			'nr_actions_required' => $nr_actions_required,
+			'aboutpage' => esc_url( admin_url( 'themes.php?page=zerif-lite-welcome' ) ),
+			'customizerpage' => esc_url( admin_url( 'customize.php#actions_required' ) ),
+			'themeinfo' => __('View Theme Info','zerif-lite'),
+		) );
 	}
 
 	/**

@@ -41,21 +41,19 @@
 
 	$nr_actions_required = 0;
 
+	/* get number of required actions */
 	if( get_option('zerif_show_required_actions') ):
 		$zerif_show_required_actions = get_option('zerif_show_required_actions');
-		foreach( $zerif_show_required_actions as $zerif_show_required_action_id => $zerif_show_required_action_val ):
-			if( $zerif_show_required_action_val ):
+	else:
+		$zerif_show_required_actions = array();
+	endif;
+
+	if( !empty($zerif_required_actions) ):
+		foreach( $zerif_required_actions as $zerif_required_action_value ):
+			if(( !isset( $zerif_required_action_value['check'] ) || ( isset( $zerif_required_action_value['check'] ) && ( $zerif_required_action_value['check'] == false ) ) ) && ((isset($zerif_show_required_actions[$zerif_required_action_value['id']]) && ($zerif_show_required_actions[$zerif_required_action_value['id']] == true)) || !isset($zerif_show_required_actions[$zerif_required_action_value['id']]) )) :
 				$nr_actions_required++;
 			endif;
 		endforeach;
-	else:
-		if( !empty($zerif_required_actions) ):
-			foreach( $zerif_required_actions as $zerif_required_action_value ):
-				if( !isset( $zerif_required_action_value['check'] ) || ( isset( $zerif_required_action_value['check'] ) && ( $zerif_required_action_value['check'] == false ) ) ):
-					$nr_actions_required++;
-				endif;
-			endforeach;
-		endif;
 	endif;
 
 	if( $nr_actions_required == 0 ):

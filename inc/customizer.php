@@ -1581,43 +1581,14 @@ function zerif_sanitize_number( $input ) {
     return force_balance_tags( $input );
 }
 function zerif_registers() {
-    wp_register_script( 'zerif_jquery_ui', '//code.jquery.com/ui/1.10.4/jquery-ui.js', array("jquery"), '20120206', true  );
-	wp_enqueue_script( 'zerif_jquery_ui' );
-	wp_register_style( 'zerif_jquery_ui_css', '//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css');
-	wp_enqueue_style( 'zerif_jquery_ui_css' );
-	wp_register_script( 'zerif_customizer_script', get_template_directory_uri() . '/js/zerif_customizer.js', array("jquery","zerif_jquery_ui"), '20120206', true  );
-	wp_enqueue_script( 'zerif_customizer_script' );
 
-
-	global $zerif_required_actions;
-
-	$nr_actions_required = 0;
-	if( get_option('zerif_show_required_actions') ):
-		$zerif_show_required_actions = get_option('zerif_show_required_actions');
-		foreach( $zerif_show_required_actions as $zerif_show_required_action_id => $zerif_show_required_action_val ):
-			if( $zerif_show_required_action_val ):
-				$nr_actions_required++;
-			endif;
-		endforeach;
-	else:
-		if( !empty($zerif_required_actions) ):
-			foreach( $zerif_required_actions as $zerif_required_action_value ):
-				if( !isset( $zerif_required_action_value['check'] ) || ( isset( $zerif_required_action_value['check'] ) && ( $zerif_required_action_value['check'] == false ) ) ):
-					$nr_actions_required++;
-				endif;
-			endforeach;
-		endif;
-	endif;
+	wp_enqueue_script( 'zerif_customizer_script', get_template_directory_uri() . '/js/zerif_customizer.js', array("jquery"), '20120206', true  );
 	
 	wp_localize_script( 'zerif_customizer_script', 'zerifLiteCustomizerObject', array(
 		
 		'documentation' => __( 'View Documentation', 'zerif-lite' ),
 		'pro' => __('Upgrade to PRO','zerif-lite'),
-		'themeinfo' => __('View Theme Info','zerif-lite'),
-		'github' => __('Github','zerif-lite'),
-		'nr_actions_required' => $nr_actions_required,
-		'aboutpage' => esc_url( admin_url( 'themes.php?page=zerif-lite-welcome' ) ),
-		'customizerpage' => esc_url( admin_url( 'customize.php#actions_required' ) )
+		'github' => __('Github','zerif-lite')
 
 	) );
 }
