@@ -101,10 +101,11 @@ class Zerif_Welcome {
 				endif;
 			endif;
 
-			wp_localize_script( 'zerif-lite-welcome-screen-js', 'objectL10n2', array(
+			wp_localize_script( 'zerif-lite-welcome-screen-js', 'zerifLiteWelcomeScreenObject', array(
 				'nr_actions_required' => $nr_actions_required,
 				'ajaxurl' => admin_url( 'admin-ajax.php' ),
-				'template_directory' => get_template_directory_uri()
+				'template_directory' => get_template_directory_uri(),
+				'no_required_actions_text' => __( 'Hooray! There are no required actions for you right now.','zerif-lite' )
 			) );
 		}
 	}

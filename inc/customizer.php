@@ -1609,7 +1609,7 @@ function zerif_registers() {
 		endif;
 	endif;
 	
-	wp_localize_script( 'zerif_customizer_script', 'objectL10n', array(
+	wp_localize_script( 'zerif_customizer_script', 'zerifLiteCustomizerObject', array(
 		
 		'documentation' => __( 'View Documentation', 'zerif-lite' ),
 		'pro' => __('Upgrade to PRO','zerif-lite'),

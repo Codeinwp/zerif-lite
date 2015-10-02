@@ -9,7 +9,7 @@ jQuery(document).ready(function() {
     });
 	
 	/* If there are required actions, add an icon with the number of required actions in the About Zerif page -> Actions required tab */
-    var zerif_nr_actions_required = objectL10n2.nr_actions_required;
+    var zerif_nr_actions_required = zerifLiteWelcomeScreenObject.nr_actions_required;
 
     if ( (typeof zerif_nr_actions_required !== 'undefined') && (zerif_nr_actions_required != '0') ) {
         jQuery('li.zerif-lite-w-red-tab a').append('<span class="zerif-lite-actions-count">' + zerif_nr_actions_required + '</span>');
@@ -24,9 +24,9 @@ jQuery(document).ready(function() {
             type       : "GET",
             data       : { action: 'zerif_lite_dismiss_required_action',dismiss_id : id },
             dataType   : "html",
-            url        : objectL10n2.ajaxurl,
+            url        : zerifLiteWelcomeScreenObject.ajaxurl,
             beforeSend : function(data,settings){
-				jQuery('.zerif-lite-tab-pane#actions_required h1').append('<div id="temp_load" style="text-align:center"><img src="' + objectL10n2.template_directory + '/inc/admin/welcome-screen/img/ajax-loader.gif" /></div>');
+				jQuery('.zerif-lite-tab-pane#actions_required h1').append('<div id="temp_load" style="text-align:center"><img src="' + zerifLiteWelcomeScreenObject.template_directory + '/inc/admin/welcome-screen/img/ajax-loader.gif" /></div>');
             },
             success    : function(data){
 				jQuery("#temp_load").remove(); /* Remove loading gif */
@@ -36,8 +36,7 @@ jQuery(document).ready(function() {
                 if( typeof zerif_lite_actions_count !== 'undefined' ) {
                     if( zerif_lite_actions_count == '1' ) {
                         jQuery('.zerif-lite-actions-count').remove();
-                        //jQuery('#actions_required').remove();
-                        //jQuery('.zerif-lite-w-red-tab').remove();
+                        jQuery('.zerif-lite-tab-pane#actions_required').append('<p>' + zerifLiteWelcomeScreenObject.no_required_actions_text + '</p>');
                     }
                     else {
                         jQuery('.zerif-lite-actions-count').text(parseInt(zerif_lite_actions_count) - 1);

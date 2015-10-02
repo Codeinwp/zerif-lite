@@ -195,4 +195,12 @@
     top: 0px;
     right: 0px;
     cursor: pointer;
+    background-color: #D24A4A;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 14px;
+    line-height: 20px;
+}
+.zerif-dismiss-required-action:hover {
+    background-color: #CC8C8C;
 }
