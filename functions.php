@@ -1148,9 +1148,11 @@ function zerif_lite_update_options_in_pirate_forms() {
             endif;
 
             if( isset($zerif_lite_current_mods['zerif_contactus_recaptcha_show']) && ($zerif_lite_current_mods['zerif_contactus_recaptcha_show'] == 1) ):
-                $pirate_forms_settings_array['pirateformsopt_label_submit_btn'] = '';
+                if( isset($pirate_forms_settings_array['pirateformsopt_recaptcha_field']) ):
+                    unset($pirate_forms_settings_array['pirateformsopt_recaptcha_field']);
+                endif;
             else:
-                $pirate_forms_settings_array['pirateformsopt_label_submit_btn'] = 'yes';
+                $pirate_forms_settings_array['pirateformsopt_recaptcha_field'] = 'yes';
             endif;
 
             if( isset($zerif_lite_current_mods['zerif_contactus_sitekey']) ):
