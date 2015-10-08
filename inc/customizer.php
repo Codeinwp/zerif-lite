@@ -1447,8 +1447,17 @@ function zerif_customize_register( $wp_customize ) {
 	/*******************************************************/
     /************	CONTACT US SECTION *********************/
 	/*******************************************************/
+
+	$zerif_contact_us_section_description = '';
+
+	/* if Pirate Forms is installed */
+	if( defined("PIRATE_FORMS_VERSION") ):
+		$zerif_contact_us_section_description = __( 'For more advanced settings please go to Settings -> Pirate Forms','zerif-lite' );
+	endif;
+
 	$wp_customize->add_section( 'zerif_contactus_section' , array(
 			'title'       => __( 'Contact us section', 'zerif-lite' ),
+			'description' => $zerif_contact_us_section_description,
     	  	'priority'    => 38
 	));
 	/* contact us show/hide */

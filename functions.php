@@ -1120,3 +1120,53 @@ function remove_class_function( $classes ) {
     return $classes;
 
 }
+
+/* Update Pirate Forms plugin when there is a change in Customizer Contact us section */
+
+add_action('customize_save_after', 'zerif_lite_update_options_in_pirate_forms', 99);
+
+function zerif_lite_update_options_in_pirate_forms() {
+
+    /* if Pirate Forms is installed */
+    if( defined("PIRATE_FORMS_VERSION") ):
+
+        $zerif_lite_current_mods = get_theme_mods(); /* all theme modification values in Customize for Zerif Lite */
+
+        $pirate_forms_settings_array = get_option( 'pirate_forms_settings_array' ); /* Pirate Forms's options's array */
+
+        if( !empty($zerif_lite_current_mods) ):
+
+            if( isset($zerif_lite_current_mods['zerif_contactus_button_label']) ):
+                $pirate_forms_settings_array['pirateformsopt_label_submit_btn'] = $zerif_lite_current_mods['zerif_contactus_button_label'];
+            endif;
+
+            if( isset($zerif_lite_current_mods['zerif_contactus_email']) ):
+
+                $pirate_forms_settings_array['pirateformsopt_email'] = $zerif_lite_current_mods['zerif_contactus_email'];
+                $pirate_forms_settings_array['pirateformsopt_email_recipients'] = $zerif_lite_current_mods['zerif_contactus_email'];
+
+            endif;
+
+            if( isset($zerif_lite_current_mods['zerif_contactus_recaptcha_show']) && ($zerif_lite_current_mods['zerif_contactus_recaptcha_show'] == 1) ):
+                $pirate_forms_settings_array['pirateformsopt_label_submit_btn'] = '';
+            else:
+                $pirate_forms_settings_array['pirateformsopt_label_submit_btn'] = 'yes';
+            endif;
+
+            if( isset($zerif_lite_current_mods['zerif_contactus_sitekey']) ):
+                $pirate_forms_settings_array['pirateformsopt_recaptcha_sitekey'] = $zerif_lite_current_mods['zerif_contactus_sitekey'];
+            endif;
+
+            if( isset($zerif_lite_current_mods['zerif_contactus_secretkey']) ):
+                $pirate_forms_settings_array['pirateformsopt_recaptcha_secretkey'] = $zerif_lite_current_mods['zerif_contactus_secretkey'];
+            endif;
+
+
+        endif;
+
+        if( !empty($pirate_forms_settings_array) ):
+            update_option('pirate_forms_settings_array', $pirate_forms_settings_array); /* Update the options */
+        endif;
+
+    endif;
+}
