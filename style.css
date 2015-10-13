@@ -156,16 +156,16 @@ p {
 }
 /* do not group these rules (placeholder colors) */
 *::-webkit-input-placeholder {
-    color: #777 !important;
+    color: #999 !important;
 }
 *:-moz-placeholder {
-    color: #777 !important;
+    color: #999 !important;
 }
 *::-moz-placeholder {
-    color: #777 !important;
+    color: #999 !important;
 }
 *:-ms-input-placeholder {
-    color: #777 !important;
+    color: #999 !important;
 }
 /*--------------------------------------------------------------
 2.0 Typography
