@@ -2882,6 +2882,9 @@ width: -webkit-calc(100% / 4);
 	margin-bottom: 20px;
 	border-radius: 4px;
 }
+.contact-us textarea {
+	border: 1px solid transparent;
+}
 .contact-us .custom-button {
 	float: right;
 	margin-right: 15px;
