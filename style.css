@@ -2060,6 +2060,9 @@ width: -webkit-calc(100% / 4);
 	display: inline-block;
 	margin-bottom: 10px;
 }
+.pirate_forms_error_box {
+	text-align:center;
+}
 .pirate_forms_error_box p {
 	background: #E96656;
 	border-radius: 3px;
