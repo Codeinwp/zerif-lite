@@ -1,5 +1,41 @@
 
 
+### 1.8.2.4 - 14/10/2015
+
+ Changes: 
+
+
+ * Update style.css
+ * Merge pull request #173 from gdarko/patch-2
+
+Typo
+ * Fixed documentation, support .. buttons in Customizer for WP 4.3
+ * Fixed #116, contact form sending mails to spam folder
+ * Fixed #172 Add optional parallax effect
+ * Fixed #172 Parallax effect issue
+ * Fixed #172 Parallax effect mobile issue
+ * Fixed #172 Optimized images
+ * Fixed #172 Image license
+ * Fixed #170 Mansory effect for testimonials
+ * Fixed #170 Mansory effect issue
+ * Fixed #170 Masonry effect testimonials issue
+ * Fixed #170 Masonry effect testimonials issue
+ * Fixed #176 BBpress style
+ * Fixed #180, Notice The called constructor method for WP_Widget is deprecated since version 4.3.0
+ * Zerif Lite Welcome page
+ * Fixed #175, green button label in customizer
+ * accessibility modification
+ * accessility modification (remove code in footer.php)
+ * accessility modification : add alternative text for image in backoffice
+ * accessility modification : checkbox to enable accessibility. Used to not open some links in a new tab
+ * Merge branch 'TonyArchambeau-master' into development
+ * accessility modification : add some translated sentances + adapt keyboard navigation for child link in menu
+ * Merge branch 'TonyArchambeau-master' into development
+ * Fixed #195, Accesibility ready tag
+ * Fixed #186, moved widgets inside corresponding sections in customizer for easier use
+ * Removed unused files and optimized images for child themes
+
+
 ### 1.8.2.3 - 24/07/2015
 
  Changes: 
