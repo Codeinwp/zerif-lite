@@ -98,6 +98,28 @@ msgstr ""
 msgid "Install Required Plugins"
 msgstr ""
 
+#: functions.php:711
+#: functions.php:827
+#: functions.php:927
+#: functions.php:1057
+#: functions.php:1141
+#: functions.php:1375
+msgid "Uploaded image"
+msgstr ""
+
+#: functions.php:1000
+msgid "Client"
+msgstr ""
+
+#: functions.php:1461
+msgid "Themeisle logo"
+msgstr ""
+
+#: functions.php:1493
+#: functions.php:1533
+msgid "Theme screenshot"
+msgstr ""
+
 #: class-tgm-plugin-activation.php:334
 #: functions.php:454
 msgid "Install Plugins"
@@ -393,6 +415,11 @@ msgstr ""
 msgid "Comments are closed."
 msgstr ""
 
+#. translators: %s: Name of current post
+#: content-page.php:32
+msgid "Continue reading %s <span class=\"meta-nav\">&rarr;</span>"
+msgstr ""
+
 #: content-large.php:86
 #: content-page.php:18
 #: content-single.php:1
@@ -666,6 +693,10 @@ msgstr ""
 
 #: header.php:91
 msgid "Toggle navigation"
+msgstr ""
+
+#: header.php:140
+msgid "Skip to content"
 msgstr ""
 
 #: search.php:47

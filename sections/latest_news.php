@@ -30,7 +30,7 @@
 
 					if( !empty($zerif_latestnews_subtitle) ):
 
-						echo '<h6 class="dark-text">'.$zerif_latestnews_subtitle.'</h6>';
+						echo '<div class="dark-text section-legend">'.$zerif_latestnews_subtitle.'</div>';
 
 					endif;
 				
@@ -71,12 +71,12 @@
 
 											echo '<div class="latestnews-img">';
 											
-												echo '<a href="'.get_permalink().'" title="'.get_the_title().'">';
+												echo '<a class="latestnews-img-a" href="'.get_permalink().'" title="'.get_the_title().'">';
 
 													if ( has_post_thumbnail() ) :
 														the_post_thumbnail();
 													else:
-														echo '<img src="'.esc_url( get_template_directory_uri() ).'/images/blank-latestposts.png">';
+														echo '<img src="'.esc_url( get_template_directory_uri() ).'/images/blank-latestposts.png" alt="'.get_the_title().'" />';
 													endif; 
 
 												echo '</a>';
@@ -85,7 +85,7 @@
 
 											echo '<div class="latesnews-content">';
 
-												echo '<h5 class="latestnews-title"><a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_title().'</a></h5>';
+												echo '<h3 class="latestnews-title"><a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_title().'</a></h3>';
 
 												the_excerpt();
 
@@ -105,16 +105,16 @@
 									echo '<div class="item '.$active.'">';
 										echo '<div class="col-md-3 latestnews-box">';
 											echo '<div class="latestnews-img">';
-												echo '<a href="'.get_permalink().'" title="'.get_the_title().'">';
+												echo '<a class="latestnews-img-a" href="'.get_permalink().'" title="'.get_the_title().'">';
 													if ( has_post_thumbnail() ) :
 														the_post_thumbnail();
 													else:
-														echo '<img src="'.esc_url( get_template_directory_uri() ).'/images/blank-latestposts.png">';
+														echo '<img src="'.esc_url( get_template_directory_uri() ).'/images/blank-latestposts.png" alt="'.get_the_title().'" />';
 													endif; 
 												echo '</a>';
 											echo '</div>';
 											echo '<div class="latesnews-content">';
-												echo '<h5 class="latestnews-title"><a href="'.get_the_permalink().'" title="'.get_the_title().'">'.get_the_title().'</a></h5>';
+												echo '<h3 class="latestnews-title"><a href="'.get_the_permalink().'" title="'.get_the_title().'">'.get_the_title().'</a></h3>';
 												the_excerpt();
 											echo '</div>';
 										echo '</div>';

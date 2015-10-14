@@ -1,10 +1,8 @@
 <?php
-/*
-Template Name: Blog
-*/
-
-get_header();
-?>
+/**
+ * Template Name: Blog
+ */
+get_header(); ?>
 <div class="clear"></div>
 
 </header> <!-- / END HOME SECTION  -->
@@ -50,6 +48,4 @@ get_header();
 		</div><!-- .sidebar-wrap -->
 
 	</div><!-- .container -->
-<?php
-get_footer();
-?>
+<?php get_footer(); ?>

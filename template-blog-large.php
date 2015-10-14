@@ -1,9 +1,9 @@
 <?php
-/*
-Template Name: Blog template with large images
-*/
-get_header();
-?>
+/**
+ * Template Name: Blog template with large images
+ */
+get_header(); ?>
+
 <div class="clear"></div>
 
 </header> <!-- / END HOME SECTION  -->
@@ -48,15 +48,11 @@ get_header();
 
 		</div><!-- .content-left-wrap -->
 
-
-
 		<div class="sidebar-wrap col-md-3 content-left-wrap">
 
 			<?php get_sidebar(); ?>
 
 		</div><!-- .sidebar-wrap -->
-
-
 
 	</div><!-- .container -->
 <?php get_footer(); ?>

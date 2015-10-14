@@ -1,27 +1,13 @@
 <?php
-
 /**
-
  * Custom template tags for this theme.
-
- *
-
  * Eventually, some of the functionality here could be replaced by core features.
-
- *
-
- * @package zerif
-
  */
-
-
 
 if ( ! function_exists( 'zerif_paging_nav' ) ) :
 
 /**
-
  * Display navigation to next/previous set of posts when applicable.
-
  */
 
 function zerif_paging_nav() {
@@ -32,11 +18,9 @@ function zerif_paging_nav() {
 
 	<nav class="navigation paging-navigation" role="navigation">
 
-		<h1 class="screen-reader-text"><?php _e( 'Posts navigation', 'zerif-lite' ); ?></h1>
+		<h2 class="screen-reader-text"><?php _e( 'Posts navigation', 'zerif-lite' ); ?></h2>
 
 		<div class="nav-links">
-
-
 
 			<?php if ( get_next_posts_link() ) : ?>
 
@@ -44,15 +28,11 @@ function zerif_paging_nav() {
 
 			<?php endif; ?>
 
-
-
 			<?php if ( get_previous_posts_link() ) : ?>
 
 			<div class="nav-next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', 'zerif-lite' ) ); ?></div>
 
 			<?php endif; ?>
-
-
 
 		</div><!-- .nav-links -->
 
@@ -64,15 +44,11 @@ function zerif_paging_nav() {
 
 endif;
 
-
-
 if ( ! function_exists( 'zerif_post_nav' ) ) :
 
 /**
-
- * Display navigation to next/previous post when applicable.
-
- */
+* Display navigation to next/previous post when applicable.
+*/
 
 function zerif_post_nav() {
 
@@ -81,8 +57,6 @@ function zerif_post_nav() {
 	$previous = ( is_attachment() ) ? get_post( get_post()->post_parent ) : get_adjacent_post( false, '', true );
 
 	$next     = get_adjacent_post( false, '', false );
-
-
 
 	if ( ! $next && ! $previous ) {
 
@@ -94,7 +68,7 @@ function zerif_post_nav() {
 
 	<nav class="navigation post-navigation" role="navigation">
 
-		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'zerif-lite' ); ?></h1>
+		<h2 class="screen-reader-text"><?php _e( 'Post navigation', 'zerif-lite' ); ?></h2>
 
 		<div class="nav-links">
 
@@ -116,8 +90,6 @@ function zerif_post_nav() {
 
 endif;
 
-
-
 if ( ! function_exists( 'zerif_posted_on' ) ) :
 
 /**
@@ -136,8 +108,6 @@ function zerif_posted_on() {
 
 	}
 
-
-
 	$time_string = sprintf( $time_string,
 
 		esc_attr( get_the_date( 'c' ) ),
@@ -149,8 +119,6 @@ function zerif_posted_on() {
 		esc_html( get_the_modified_date() )
 
 	);
-
-
 
 	printf( __( '<span class="posted-on">Posted on %1$s</span><span class="byline"> by %2$s</span>', 'zerif-lite' ),
 
@@ -175,8 +143,6 @@ function zerif_posted_on() {
 }
 
 endif;
-
-
 
 /**
 
@@ -238,17 +204,11 @@ function zerif_categorized_blog() {
 
 }
 
-
-
 /**
-
  * Flush out the transients used in zerif_categorized_blog.
-
  */
 
 function zerif_category_transient_flusher() {
-
-	// Like, beat it. Dig?
 
 	delete_transient( 'zerif_categories' );
 
@@ -257,4 +217,3 @@ function zerif_category_transient_flusher() {
 add_action( 'edit_category', 'zerif_category_transient_flusher' );
 
 add_action( 'save_post',     'zerif_category_transient_flusher' );
-
