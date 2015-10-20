@@ -1,5 +1,14 @@
 
 
+### 1.8.2.5 - 20/10/2015
+
+ Changes: 
+
+
+ * Fixed #224, error with TGM and MaxGalleria plugin
+ * Updated .pot file , plus romanian and spanish translations
+
+
 ### 1.8.2.4 - 14/10/2015
 
  Changes: 
