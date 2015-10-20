@@ -50,6 +50,14 @@ $customizer_url = admin_url() . 'customize.php' ;
 		<p><a href="http://docs.themeisle.com/article/13-replacing-big-title-section-with-an-image-slider/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr />
+		
+		
+		
+		<h4><?php esc_html_e( 'Translate Zerif Lite', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'In the below documentation you will find an easy way to translate Zerif Lite into your native language or any other language you need for you site.', 'zerif-lite' ); ?></p>
+		<p><a href="http://docs.themeisle.com/article/80-how-to-translate-zerif" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+
+		<hr />
 
 		<h4><?php esc_html_e( 'Change dimensions for footer social icons', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'In the below documentation you will find an easy way to change the default dimensions for you social icons.', 'zerif-lite' ); ?></p>
@@ -98,6 +106,12 @@ $customizer_url = admin_url() . 'customize.php' ;
 		<h4><?php esc_html_e( 'Remove the opacity', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'You don\'t like the way Zerif Lite looks with its background opacity? No problem. Just remove it using the steps below.', 'zerif-lite' ); ?></p>
 		<p><a href="http://docs.themeisle.com/article/30-removing-background-opacity-in-zerif/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+		
+		<hr />
+		
+		<h4><?php esc_html_e( 'Configure the portfolio', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'Set up your portfolio section in an easy way be following the link below.', 'zerif-lite' ); ?></p>
+		<p><a href="http://docs.themeisle.com/article/85-configuring-portfolio/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 	</div>
 
