@@ -74,6 +74,12 @@ $customizer_url = admin_url() . 'customize.php' ;
 		<h4><?php esc_html_e( 'Replace the skills section with an image', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'If you feel the default About us section is not exactly what you need, you can maybe try change it with an image.', 'zerif-lite' ); ?></p>
 		<p><a href="http://docs.themeisle.com/article/60-replacing-skills-section-with-an-image-in-zerif" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+		
+		<hr />
+		
+		<h4><?php esc_html_e( 'Add a search bar in the top menu', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'Find out how to add a search bar in the top menu bar, in an easy way be following the link below.', 'zerif-lite' ); ?></p>
+		<p><a href="http://docs.themeisle.com/article/78-zerif-adding-a-search-bar-in-the-top-menu" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 	</div>
 
@@ -112,6 +118,12 @@ $customizer_url = admin_url() . 'customize.php' ;
 		<h4><?php esc_html_e( 'Configure the portfolio', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'Set up your portfolio section in an easy way be following the link below.', 'zerif-lite' ); ?></p>
 		<p><a href="http://docs.themeisle.com/article/85-configuring-portfolio/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+		
+		<hr />
+		
+		<h4><?php esc_html_e( '30 Experts Share: The Top *Non-Obvious* WordPress Plugins That’ll Make You a Better Blogger', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( ' At the address below you will find a cool set of original WordPress plugins that can give you great benefits despite being a little lesser known out there.', 'zerif-lite' ); ?></p>
+		<p><a href="http://www.codeinwp.com/blog/top-non-obvious-wordpress-plugins/" class="button"><?php esc_html_e( 'Read more', 'zerif-lite' ); ?></a></p>
 
 	</div>
 
