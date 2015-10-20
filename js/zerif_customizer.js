@@ -1,6 +1,6 @@
 jQuery(document).ready(function() {
 
-	/* Upsells in customizer (Documentation link, Github link and Upgrade to PRO link */
+	/* Upsells in customizer (Documentation link and Upgrade to PRO link */
 	if( !jQuery( ".zerif-upsells" ).length ) {
 		jQuery('#customize-theme-controls > ul').prepend('<li class="accordion-section zerif-upsells">');
 	}
@@ -8,7 +8,6 @@ jQuery(document).ready(function() {
 	if( jQuery( ".zerif-upsells" ).length ) {
 
 		jQuery('.zerif-upsells').append('<a style="width: 80%; margin: 5px auto 5px auto; display: block; text-align: center;" href="http://themeisle.com/documentation-zerif-lite" class="button" target="_blank">{documentation}</a>'.replace('{documentation}', zerifLiteCustomizerObject.documentation));
-		jQuery('.zerif-upsells').append('<a style="width: 80%; margin: 5px auto 5px auto; display: block; text-align: center;" href="https://github.com/Codeinwp/zerif-lite" class="button" target="_blank">{github}</a>'.replace('{github}', zerifLiteCustomizerObject.github));
 
 	}
 	jQuery('.preview-notice').append('<a class="zerif-upgrade-to-pro-button" href="http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/" class="button" target="_blank">{pro}</a>'.replace('{pro}',zerifLiteCustomizerObject.pro));
