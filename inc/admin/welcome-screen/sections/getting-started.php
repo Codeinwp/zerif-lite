@@ -173,6 +173,26 @@ $customizer_url = admin_url() . 'customize.php' ;
 			<?php
 		}
 		?>
+		
+		<hr />
+		
+		<!-- Revive Old Post -->
+		<h4><?php esc_html_e( 'Revive Old Post', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'A plugin to share about your old posts on twitter, facebook, linkedin to get more hits for them and keep them alive.', 'zerif-lite' ); ?></p>
+
+		<?php if ( is_plugin_active( 'tweet-old-post/tweet-old-post.php' ) ) { ?>
+
+			<p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p>
+
+			<?php
+		}
+		else { ?>
+
+			<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=tweet-old-post' ), 'install-plugin_tweet-old-post' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install Revive Old Post', 'zerif-lite' ); ?></a></p>
+
+			<?php
+		}
+		?>
 
 	</div>
 
