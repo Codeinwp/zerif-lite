@@ -137,7 +137,7 @@ class Zerif_Welcome {
 
 		wp_localize_script( 'zerif-lite-welcome-screen-customizer-js', 'zerifLiteWelcomeScreenCustomizerObject', array(
 			'nr_actions_required' => $nr_actions_required,
-			'aboutpage' => esc_url( admin_url( 'themes.php?page=zerif-lite-welcome' ) ),
+			'aboutpage' => esc_url( admin_url( 'themes.php?page=zerif-lite-welcome#actions_required' ) ),
 			'customizerpage' => esc_url( admin_url( 'customize.php#actions_required' ) ),
 			'themeinfo' => __('View Theme Info','zerif-lite'),
 		) );
