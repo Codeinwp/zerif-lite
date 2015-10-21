@@ -1,12 +1,4 @@
 jQuery(document).ready(function() {
-    jQuery(".zerif-lite-nav-tabs a").click(function(event) {
-        event.preventDefault();
-        jQuery(this).parent().addClass("active");
-        jQuery(this).parent().siblings().removeClass("active");
-        var tab = jQuery(this).attr("href");
-        jQuery(".zerif-lite-tab-pane").not(tab).css("display", "none");
-        jQuery(tab).fadeIn();
-    });
 	
 	/* If there are required actions, add an icon with the number of required actions in the About Zerif page -> Actions required tab */
     var zerif_nr_actions_required = zerifLiteWelcomeScreenObject.nr_actions_required;
@@ -47,6 +39,26 @@ jQuery(document).ready(function() {
                 console.log(jqXHR + " :: " + textStatus + " :: " + errorThrown);
             }
         });
+    });
+	
+	/* Tabs in welcome page */
+	function zerif_welcome_page_tabs(event) {
+		jQuery(event).parent().addClass("active");
+        jQuery(event).parent().siblings().removeClass("active");
+        var tab = jQuery(event).attr("href");
+        jQuery(".zerif-lite-tab-pane").not(tab).css("display", "none");
+        jQuery(tab).fadeIn();
+	}
+	
+	var zerif_actions_anchor = location.hash;
+	
+	if( (typeof zerif_actions_anchor !== 'undefined') && (zerif_actions_anchor != '') ) {
+		zerif_welcome_page_tabs('a[href="'+ zerif_actions_anchor +'"]');
+	}
+	
+    jQuery(".zerif-lite-nav-tabs a").click(function(event) {
+        event.preventDefault();
+		zerif_welcome_page_tabs(this);
     });
 
 });
