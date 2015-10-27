@@ -1,5 +1,21 @@
 
 
+### 1.8.2.6 - 27/10/2015
+
+ Changes: 
+
+
+ * Fixed #229, recommend Revive Old Post
+ * Polish translations
+ * Create wpglobus-config.json
+
+Configuration file for multilingual Customizer with WPGlobus.
+See http://www.wpglobus.com/documentation/how-to-translate-strings-in-wordpress-customizer/
+ * Merge pull request #233 from tivnet/patch-1
+
+Create wpglobus-config.json
+
+
 ### 1.8.2.5 - 20/10/2015
 
  Changes: 
