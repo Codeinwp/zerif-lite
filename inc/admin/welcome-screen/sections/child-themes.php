@@ -33,7 +33,7 @@
 				<?php if ( 'ZBlackBeard' != $current_theme['Name'] ) { ?>
 					<div class="theme-details">
 						<span class="theme-name">Zblackbeard</span>
-						<a href="http://themeisle.com/checkout?edd_action=add_to_cart&download_id=3265260" class="button button-primary install right"><?php esc_html_e( 'Get now', 'zerif-lite' ); ?></a>
+						<a href="http://themeisle.com/themes/zblackbeard/#pricing-single" class="button button-primary install right"><?php esc_html_e( 'Get now', 'zerif-lite' ); ?></a>
 						<a class="button button-secondary preview right" target="_blank" href="https://wp-themes.com/zblackbeard"><?php esc_html_e( 'Live Preview','zerif-lite'); ?></a>
 						<div class="zerif-lite-clear"></div>
 					</div>
@@ -119,7 +119,7 @@
 				<?php if ( 'ResponsiveBoat' != $current_theme['Name'] ) { ?>
 					<div class="theme-details">
 						<span class="theme-name">ResponsiveBoat</span>
-						<a href="http://themeisle.com/checkout?edd_action=add_to_cart&download_id=3265337" class="button button-primary install right"><?php printf( __( 'Get %s now', 'zerif-lite' ), '<span class="screen-reader-text">ResponsiveBoat</span>' ); ?></a>
+						<a href="http://themeisle.com/themes/responsiveboat-theme/#pricing-single" class="button button-primary install right"><?php printf( __( 'Get %s now', 'zerif-lite' ), '<span class="screen-reader-text">ResponsiveBoat</span>' ); ?></a>
 						<a class="button button-secondary preview right" target="_blank" href="https://wp-themes.com/responsiveboat"><?php esc_html_e( 'Live Preview','zerif-lite'); ?></a>
 						<div class="zerif-lite-clear"></div>
 					</div>
