@@ -1596,8 +1596,7 @@ function zerif_registers() {
 	wp_localize_script( 'zerif_customizer_script', 'zerifLiteCustomizerObject', array(
 		
 		'documentation' => __( 'View Documentation', 'zerif-lite' ),
-		'pro' => __('Upgrade to PRO','zerif-lite'),
-		'github' => __('Github','zerif-lite')
+		'pro' => __('View PRO version','zerif-lite')
 
 	) );
 }
