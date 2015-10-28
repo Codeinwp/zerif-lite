@@ -55,6 +55,9 @@ function zerif_setup() {
         'comment-form',
         'gallery',
     ));
+	
+	/* Enable support for title-tag */
+	add_theme_support( 'title-tag' );
 
 	/* Custom template tags for this theme. */
 	require get_template_directory() . '/inc/template-tags.php';
