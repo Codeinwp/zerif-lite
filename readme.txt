@@ -2,7 +2,7 @@
 Contributors:		codeinwp
 Tags:				black, gray, red, white, one-column, two-columns, right-sidebar, responsive-layout, custom-background, custom-menu, editor-style, featured-images, threaded-comments, translation-ready
 Requires at least:	3.3.0
-Tested up to:		4.0
+Tested up to:		4.3.1
 
 Zerif Lite
 == Description ==
@@ -23,27 +23,50 @@ The exceptions to this license are as follows:
     Copyright (c) 2012 Anthony Terrien
     Under MIT and GPL licenses.
 
-* jQuery One Page Nav Plugin
-    Copyright (c) 2010 Trevor Davis (http://trevordavis.net)
-    Dual licensed under the MIT and GPL licenses.
-
 * jquery.scrollTo.js
     Copyright (c) 2007-2013 Ariel Flesler - aflesler<a>gmail<d>com | http://flesler.blogspot.com
     Dual licensed under MIT and GPL.
 
-* jQuery Vegas
-     Copyright (C) 2010-2013 Jay Salvat - http://jaysalvat.com/
-     Licensed under the MIT license.
-
- * scrollReveal.js
+* scrollReveal.js
      Copyright (C) 2014  https://twitter.com/julianlloyd
      Licensed under the MIT license.
 
- * images/bg.jpg
-    Copyright (C) 2014 http://jaymantri.com/
-	
- * images/focus.png
-    Copyright (C) 2014 https://www.iconfinder.com/icons/283043/album_cloud_frame_gallery_image_mountain_painting_photo_photos_pictures_sky_icon
+* Images	 
+	 
+	License: All unsplash.com images are licensed under the terms of the Creative Commons Zero, http://creativecommons.org/publicdomain/zero/1.0/ 	  
+	 
+		 * images/bg.jpg
+			Source: https://download.unsplash.com/27/perspective.jpg
+			
+		 * images/team1.png
+			Source: https://download.unsplash.com/photo-1427088625471-da8a7193afd3
+		 
+		 * images/team2.png
+			Source: https://download.unsplash.com/31/iqlYdAAYQiaOCoKnT6jE_kabia.jpg
+		 
+		 * images/team3.png
+			Source: https://download.unsplash.com/photo-1429362078931-9ba258af2ff0
+		 
+		 * images/team4.png
+			Source: https://download.unsplash.com/photo-1428471226620-c2698eadf413
+		 
+		 * images/testimonial1.jpg
+			Source: https://download.unsplash.com/7/girl-flowers.jpg
+		 
+		 * images/testimonial2.jpg
+			Source: https://download.unsplash.com/photo-1427096105551-15e2512fd2dc
+		  
+		 * images/testimonial3.jpg
+			Source: https://download.unsplash.com/photo-1428471226620-c2698eadf413
 
- * Font Awesome is fully open source and is GPL friendly. You can use it for commercial projects, open source projects, or really just about whatever you want.
-   http://fortawesome.github.io/Font-Awesome/license/
+		* images/background1.jpg
+			Source: https://images.unsplash.com/6/mountain.JPG?q=80&fm=jpg&s=29a8bc12575bcf1bb879cb20f2aa9493
+
+		* images/background2.png
+			Source: https://images.unsplash.com/photo-1434828927397-62ea053f7a35?q=80&fm=jpg&s=63163124f8cdba56cee68aeb55bcfbdf
+ 
+ * Font Awesome
+ 
+	License: SIL OFL 1.1
+	
+	URL: http://scripts.sil.org/OFL
