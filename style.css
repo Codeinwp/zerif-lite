@@ -1043,6 +1043,10 @@ a:active {
 .entry-meta{
 	margin-top: 10px;
 }
+.content-area .entry-header {
+	overflow: hidden;
+}
+
  /*---------------------------------------
  **   10.2 Asides                   -----
 -----------------------------------------*/
