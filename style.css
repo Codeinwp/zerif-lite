@@ -4364,6 +4364,9 @@ article .posted-on a:hover{
 	background: rgb(233, 102, 86);
 	color: #FFF;
 }
+.woocommerce div.product form.cart label {
+	color: #404040;
+}
 
 @media (max-width: 1200px) {
 	
