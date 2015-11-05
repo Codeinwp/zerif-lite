@@ -3104,6 +3104,17 @@ article .posted-on a:hover{
 	display: none;
 	content: "";
 }
+.entry-title:after {
+	position: absolute;
+	margin: auto;
+	z-index: 1;
+	content: "";
+	width: 10%;
+	height: 2px;
+	background: #e96656;
+	bottom: -9px;
+	left: 0;
+}
 .listpost-content-wrap .entry-title a:after {
 	position: absolute;
 	margin: auto;
@@ -3115,6 +3126,7 @@ article .posted-on a:hover{
 	bottom: -9px;
 	left: 0;
 	width: 50px;
+	display: none;
 }
 .post .entry-footer {
 }
