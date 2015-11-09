@@ -5297,6 +5297,36 @@ body.custom-background {
 	display: none;
 }
 
+/* mobile background fix */
+.mobile-bg-fix-wrap {
+	width: 100%;
+	overflow: hidden;
+}
+
+.mobile-bg-fix-wrap .mobile-bg-fix-img-wrap {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 0;
+}
+
+.mobile-bg-fix-wrap .mobile-bg-fix-img {
+	position: absolute;
+	width: 100%;
+	height: 125%;
+	left: 0;
+	top: 0;
+	background-size: cover;
+}
+
+.mobile-bg-fix-wrap .mobile-bg-fix-whole-site {
+	position: relative;
+	z-index: 1;
+}
+
+
 /*---------------------------------------
  **   Responsive            -----
 -----------------------------------------*/

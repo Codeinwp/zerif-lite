@@ -691,3 +691,16 @@ jQuery(window).resize(function() {
         });
     }
 })(jQuery);
+
+
+/* mobile background fix */
+jQuery( document ).ready( mobile_bg_fix );
+jQuery( window ).resize( mobile_bg_fix );
+
+function mobile_bg_fix() {
+    if( isMobile.any() && jQuery( 'body.custom-background' ) ){
+        jQuery( '#mobilebgfix' ).addClass( 'mobile-bg-fix-wrap' ).css( 'background', jQuery( 'body.custom-background' ).css( 'background' ) );
+    }
+}
+
+

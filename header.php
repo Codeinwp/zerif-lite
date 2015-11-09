@@ -48,6 +48,14 @@
 
 	endif; ?>
 
+
+<div id="mobilebgfix">
+	<div class="mobile-bg-fix-img-wrap">
+		<div class="mobile-bg-fix-img"></div>
+	</div>
+	<div class="mobile-bg-fix-whole-site">
+
+
 <header id="home" class="header">
 
 	<div id="main-nav" class="navbar navbar-inverse bs-docs-nav" role="banner">
