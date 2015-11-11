@@ -1,5 +1,26 @@
 
 
+### 1.8.2.7 - 11/11/2015
+
+ Changes: 
+
+
+ * Merge pull request #1 from Codeinwp/development
+
+Development
+ * Fixes issue with Open New Window in Our Team
+
+Checks if there's a value. Fixes:
+https://github.com/Codeinwp/zerif-lite/issues/241
+ * Merge pull request #242 from HardeepAsrani/development
+
+ Fixes issue with Open New Window in Our Team
+ * Fixed #244 Variable product label not visible
+ * Fixed #159 Content too close to headline
+ * Fixed #243 Problem with underlined large title on Firefox
+ * Fixed #247 Background image on mobile
+
+
 ### 1.8.2.6 - 27/10/2015
 
  Changes: 
