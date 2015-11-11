@@ -18,7 +18,18 @@
 <link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/ie.css" type="text/css">
 <![endif]-->
 
-<?php wp_head(); ?>
+<?php
+
+if ( ! function_exists( '_wp_render_title_tag' ) ) :
+    function zerif_old_render_title() {
+?>
+<title><?php wp_title( '-', true, 'right' ); ?></title>
+<?php
+    }
+    add_action( 'wp_head', 'zerif_old_render_title' );
+endif;
+
+wp_head(); ?>
 
 </head>
 
