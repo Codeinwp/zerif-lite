@@ -4,7 +4,7 @@ Theme URI: http://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: http://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.8.2.6
+Version: 1.8.2.7
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -1043,6 +1043,10 @@ a:active {
 .entry-meta{
 	margin-top: 10px;
 }
+.content-area .entry-header {
+	overflow: hidden;
+}
+
  /*---------------------------------------
  **   10.2 Asides                   -----
 -----------------------------------------*/
@@ -3100,6 +3104,17 @@ article .posted-on a:hover{
 	display: none;
 	content: "";
 }
+.entry-title:after {
+	position: absolute;
+	margin: auto;
+	z-index: 1;
+	content: "";
+	width: 10%;
+	height: 2px;
+	background: #e96656;
+	bottom: -9px;
+	left: 0;
+}
 .listpost-content-wrap .entry-title a:after {
 	position: absolute;
 	margin: auto;
@@ -3111,6 +3126,7 @@ article .posted-on a:hover{
 	bottom: -9px;
 	left: 0;
 	width: 50px;
+	display: none;
 }
 .post .entry-footer {
 }
@@ -4364,6 +4380,9 @@ article .posted-on a:hover{
 	background: rgb(233, 102, 86);
 	color: #FFF;
 }
+.woocommerce div.product form.cart label {
+	color: #404040;
+}
 
 @media (max-width: 1200px) {
 	
@@ -5277,6 +5296,36 @@ body.custom-background {
 .dropdownmenu {
 	display: none;
 }
+
+/* mobile background fix */
+.mobile-bg-fix-wrap {
+	width: 100%;
+	overflow: hidden;
+}
+
+.mobile-bg-fix-wrap .mobile-bg-fix-img-wrap {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 0;
+}
+
+.mobile-bg-fix-wrap .mobile-bg-fix-img {
+	position: absolute;
+	width: 100%;
+	height: 125%;
+	left: 0;
+	top: 0;
+	background-size: cover;
+}
+
+.mobile-bg-fix-wrap .mobile-bg-fix-whole-site {
+	position: relative;
+	z-index: 1;
+}
+
 
 /*---------------------------------------
  **   Responsive            -----

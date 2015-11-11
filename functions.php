@@ -55,6 +55,9 @@ function zerif_setup() {
         'comment-form',
         'gallery',
     ));
+	
+	/* Enable support for title-tag */
+	add_theme_support( 'title-tag' );
 
 	/* Custom template tags for this theme. */
 	require get_template_directory() . '/inc/template-tags.php';
@@ -1054,7 +1057,7 @@ class zerif_team_widget extends WP_Widget{
             <input type="text" name="<?php echo $this->get_field_name('ln_link'); ?>" id="<?php echo $this->get_field_id('ln_link'); ?>" value="<?php if( !empty($instance['ln_link']) ): echo $instance['ln_link']; endif; ?>" class="widefat">
         </p>
         <p>
-            <input type="checkbox" name="<?php echo $this->get_field_name('open_new_window'); ?>" id="<?php echo $this->get_field_id('open_new_window'); ?>" <?php checked( (bool) $instance['open_new_window'], true ); ?> ><?php _e( 'Open links in new window?','zerif-lite' ); ?><br>
+            <input type="checkbox" name="<?php echo $this->get_field_name('open_new_window'); ?>" id="<?php echo $this->get_field_id('open_new_window'); ?>" <?php if( !empty($instance['open_new_window']) ): checked( (bool) $instance['open_new_window'], true ); endif; ?> ><?php _e( 'Open links in new window?','zerif-lite' ); ?><br>
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('image_uri'); ?>"><?php _e('Image', 'zerif-lite'); ?></label><br/>
