@@ -1,5 +1,13 @@
 
 
+### 1.8.2.8 - 11/11/2015
+
+ Changes: 
+
+
+ * fixed backward compatibility for wp_title()
+
+
 ### 1.8.2.7 - 11/11/2015
 
  Changes: 
