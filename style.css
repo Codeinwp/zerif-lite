@@ -748,7 +748,15 @@ a:active {
 .navbar-collapse{
 	overflow: visible !important;
 }
-
+.navbar-inverse li.menu-item-open-left:hover > ul.sub-menu, 
+.navbar-inverse li.menu-item-open-left.link-focus > ul.sub-menu {
+	right: 0;
+}
+.navbar-inverse li.menu-item-open-left li:hover > ul.sub-menu, 
+.navbar-inverse ul ul li.link-focus > ul.sub-menu {
+	right: 100%;
+	left: auto;
+}
 .site-main .comment-navigation,
 .site-main .paging-navigation,
 .site-main .post-navigation {
