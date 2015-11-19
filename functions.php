@@ -31,7 +31,7 @@ function zerif_setup() {
     add_image_size( 'post-thumbnail-large', 750, 500, true ); /* blog thumbnail */
     add_image_size( 'post-thumbnail-large-table', 600, 300, true ); /* blog thumbnail for table */
     add_image_size( 'post-thumbnail-large-mobile', 400, 200, true ); /* blog thumbnail for mobile */
-	add_image_size('zerif_project_photo', 285, 214, true);
+    add_image_size('zerif_project_photo', 285, 214, true);
     add_image_size('zerif_our_team_photo', 174, 174, true);
 
 	/* Register primary menu */
