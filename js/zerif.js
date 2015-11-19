@@ -590,9 +590,9 @@ jQuery(document).ready(function(){
         exist_class = true;
         window_width_old = jQuery('.container').outerWidth();
         if( window_width_old < 970 ) {
-            jQuery('.testimonial-masonry').zerifgridpinterest({columns: 1,selector: '.widget_zerif_testim-widget'});
+            jQuery('.testimonial-masonry').zerifgridpinterest({columns: 1,selector: '.feedback-box'});
         } else {
-            jQuery('.testimonial-masonry').zerifgridpinterest({columns: 3,selector: '.widget_zerif_testim-widget'});
+            jQuery('.testimonial-masonry').zerifgridpinterest({columns: 3,selector: '.feedback-box'});
         }
     }
 });
@@ -601,9 +601,9 @@ jQuery(window).resize(function() {
     if( window_width_old != jQuery('.container').outerWidth() && exist_class === true ){
         window_width_old = jQuery('.container').outerWidth();
         if( window_width_old < 970 ) {
-            jQuery('.testimonial-masonry').zerifgridpinterest({columns: 1,selector: '.widget_zerif_testim-widget'});
+            jQuery('.testimonial-masonry').zerifgridpinterest({columns: 1,selector: '.feedback-box'});
         } else {
-            jQuery('.testimonial-masonry').zerifgridpinterest({columns: 3,selector: '.widget_zerif_testim-widget'});
+            jQuery('.testimonial-masonry').zerifgridpinterest({columns: 3,selector: '.feedback-box'});
         }
     }
 });
@@ -742,3 +742,87 @@ function type_view() {
 
 
 
+/* Menu levels */
+jQuery( document ).ready( function() {
+  jQuery( '#site-navigation' ).zerifsubmenuorientation();
+} );
+;(function ($, window) {
+    var defaults = {
+        // 'true'   -> if there is a big submenu all submenu will be aligned to the right
+        // 'false'  -> Only big submenu will be aligned to the right
+        allItems: false,
+      };
+    function ZerifSubmenuOrientation(element, options) {
+      this.element  = element;
+      this.options  = $.extend({}, defaults, options);
+      this.defaults = defaults;
+      this.init();
+    }
+    ZerifSubmenuOrientation.prototype.init = function () {
+      var self            = this,
+          $container      = $(this.element),
+          $select_options = $(this.element).children();
+      var resize_finish;
+      if( self.options.allItems !== true ) {
+        $(window).resize(function() {
+            clearTimeout(resize_finish);
+            resize_finish = setTimeout( function () {
+                self.make_magic($container, $select_options);
+            }, 11);
+        });
+      }
+      self.make_magic($container, $select_options);
+      if( self.options.allItems !== true ) {
+        setTimeout(function() {
+            $(window).resize();
+        }, 500);
+      }
+    };
+    ZerifSubmenuOrientation.prototype.make_magic = function (container, select_options) {
+      var self            = this,
+          $container      = $(container),
+          $select_options = $(select_options);
+      var itemWrap;
+      if( $container[0].tagName == 'UL' ) {
+        itemWrap = $container[0];
+      } else {
+        itemWrap = $container.find( 'ul' )[0];
+      }
+      var windowsWidth = window.innerWidth;
+      var itemId = '#' + itemWrap.id;
+      $( itemId ).children( 'li' ).each( function() {
+        var max_deep = self.max_deep( '#'+this.id );
+        var offsetLeft        = $( "#"+this.id ).offset().left;
+        var submenuWidthItem  = $( "#"+this.id ).find( 'ul' ).width();
+        var submenuTotalWidth = max_deep * submenuWidthItem;
+        if( submenuTotalWidth > 0 && windowsWidth < offsetLeft + submenuTotalWidth ) {
+          if( self.options.allItems === true ) {
+            $( '#'+itemWrap.id ).addClass( 'menu-item-open-left-all' );
+            return false;
+          }
+          $( '#'+this.id ).addClass( 'menu-item-open-left' );
+        } else if( $( '#'+this.id ).hasClass( 'menu-item-open-left' ) ) {
+          $( '#'+this.id ).removeClass( 'menu-item-open-left' );
+        }
+      } );
+    };
+    ZerifSubmenuOrientation.prototype.max_deep = function ( item ) {
+      var maxDepth      = -1, 
+          currentDepth  = -1;
+      $( item + " li:not(:has(ul))").each(function() {
+        currentDepth = $(this).parents("ul").length;
+        if (currentDepth > maxDepth) {
+           maxDepth = currentDepth;
+        }
+      });
+      return maxDepth - 1;
+    }
+    $.fn.zerifsubmenuorientation = function (options) {
+      return this.each(function () {
+        var value = '';
+          if (!$.data(this, value)) {
+              $.data(this, value, new ZerifSubmenuOrientation(this, options) );
+          }
+      });
+    }
+})(jQuery,window);

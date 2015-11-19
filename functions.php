@@ -5,7 +5,7 @@
 
 function zerif_setup() {    
 	
-	global $content_width;
+    global $content_width;
 	
     if (!isset($content_width)) {
         $content_width = 640;
@@ -31,10 +31,10 @@ function zerif_setup() {
     add_image_size( 'post-thumbnail-large', 750, 500, true ); /* blog thumbnail */
     add_image_size( 'post-thumbnail-large-table', 600, 300, true ); /* blog thumbnail for table */
     add_image_size( 'post-thumbnail-large-mobile', 400, 200, true ); /* blog thumbnail for mobile */
-	add_image_size('zerif_project_photo', 285, 214, true);
+    add_image_size('zerif_project_photo', 285, 214, true);
     add_image_size('zerif_our_team_photo', 174, 174, true);
 
-	/* Register primary menu */
+    /* Register primary menu */
     register_nav_menus(array(
         'primary' => __('Primary Menu', 'zerif-lite'),
     ));
@@ -102,6 +102,11 @@ function zerif_setup() {
                 "id" => 'zerif-lite-req-ac-check-pirate-forms',
                 "title" => esc_html__( 'Check the contact form after installing Pirate Forms' ,'zerif-lite' ),
                 "description"=> esc_html__( "After installing the Pirate Forms plugin, please make sure you check your frontpage contact form is working fine. Also, if you use Zerif Lite in other language(s) please make sure the translation is ok. If not, please translate the contact form again.",'zerif-lite' ),
+            ),
+			array(
+                "id" => 'zerif-lite-req-ac-frontpage-latest-news',
+                "title" => esc_html__( 'Get the one page template' ,'zerif-lite' ),
+                "description"=> esc_html__( 'If you just installed Zerif Lite, and are not able to see the one page template, you need to go to Settings -> Reading , Front page displays and select "Your latest posts".','zerif-lite' )
             ),
 
         );
