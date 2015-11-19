@@ -5,7 +5,7 @@
 
 function zerif_setup() {    
 	
-	global $content_width;
+    global $content_width;
 	
     if (!isset($content_width)) {
         $content_width = 640;
