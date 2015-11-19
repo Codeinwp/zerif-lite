@@ -34,7 +34,7 @@ function zerif_setup() {
     add_image_size('zerif_project_photo', 285, 214, true);
     add_image_size('zerif_our_team_photo', 174, 174, true);
 
-	/* Register primary menu */
+    /* Register primary menu */
     register_nav_menus(array(
         'primary' => __('Primary Menu', 'zerif-lite'),
     ));
