@@ -1,5 +1,14 @@
 
 
+### 1.8.2.9 - 19/11/2015
+
+ Changes: 
+
+
+ * Menu levels issue
+ * Fixed #237, page templates for static page
+
+
 ### 1.8.2.8 - 11/11/2015
 
  Changes: 
