@@ -5971,9 +5971,7 @@ body.custom-background {
 
 
 /* print */
-/*
 @media print {
-*/
 
 	body {
 		font-size: 11.25pt;
@@ -6159,6 +6157,4 @@ body.custom-background {
 		padding-top: 0;
 	}
 
-/*
 }
-*/
