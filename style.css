@@ -5290,7 +5290,16 @@ li.bbp-body div.hentry {
 
 
 /* Easy Digital Downloads style [version 2.4.9] */
-
+.edd_download{
+	float:left;
+	width: 33%; 
+}
+.edd_download:nth-child(4n+1){
+	clear:both;
+}
+.edd_download_excerpt p{
+	text-align:justify;
+}
 .edd-submit.button.red span,
 .edd-submit.button.blue span,
 .edd-submit.button.green span,
@@ -5317,9 +5326,24 @@ input[type=submit].edd-submit {
 	border: none;
 }
 
+#edd_checkout_cart a,
+.edd_discount_link a,
+.edd-lost-password a {
+	color: #f73f2e;
+}
+
+#edd_login_form input[type="submit"] {
+	margin-left: 0;
+}
+
 #edd_checkout_form_wrap select.edd-select {
     display: block;
     width: 70%;
+}
+
+.edd-cart-added-alert {
+    color: #D9534F;
+    width: 100%;
 }
 
 .edd_errors.edd-alert.edd-alert-error,
@@ -5494,6 +5518,36 @@ p.edd-alert-error,
     font-weight: 700;
     width: 100%;
     color: #333;
+}
+
+.edd_price_options.edd_multi_mode ul {
+	border: 1px solid rgba(0,0,0,.1);
+	margin: 0 -1px 24px 0;
+	text-align: left;
+	width: 100%;
+	border-collapse: separate;
+	border-radius: 5px;
+}
+
+.edd_price_options.edd_multi_mode ul li {
+	border-top: 1px solid rgba(0,0,0,.1);
+    padding: 6px 12px;
+}
+
+.edd_price_options.edd_multi_mode ul li:nth-child(1) {
+	border-top: none;
+}
+
+.edd-image-wrap {
+	float: right;
+	width: 100%;
+	max-width: 50%;
+	padding: 0 0 15px 15px;
+}
+
+.edd-image-wrap img {
+    width: 100%;
+    height: auto;
 }
 
 @media (max-width: 992px) {
