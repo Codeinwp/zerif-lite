@@ -2102,6 +2102,11 @@ width: -webkit-calc(100% / 4);
 	color: #FFF;
 	background: #cb4332;
 }
+.pirate_forms_wrap label {
+	width: 100%;
+	float: left;
+	height: 1px;
+}
 
 /* media queries:  change number of items per row */
 @media screen and (max-width: 1190px) {
