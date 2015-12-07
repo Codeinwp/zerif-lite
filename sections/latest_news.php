@@ -114,7 +114,7 @@
 												echo '</a>';
 											echo '</div>';
 											echo '<div class="latesnews-content">';
-												echo '<h3 class="latestnews-title"><a href="'.get_the_permalink().'" title="'.get_the_title().'">'.get_the_title().'</a></h3>';
+												echo '<h3 class="latestnews-title"><a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_title().'</a></h3>';
 												the_excerpt();
 											echo '</div>';
 										echo '</div>';
