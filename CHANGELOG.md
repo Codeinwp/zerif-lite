@@ -1,5 +1,13 @@
 
 
+### 1.8.3.1 - 14/12/2015
+
+ Changes: 
+
+
+ * Fixed #259, underline selected category item in menu
+
+
 ### 1.8.3.0 - 27/11/2015
 
  Changes: 
