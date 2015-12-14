@@ -4,7 +4,7 @@ Theme URI: http://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: http://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.8.3.0
+Version: 1.8.3.1
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -1628,7 +1628,7 @@ li.current>a:before {
 	bottom: 0px;
 	left: 12.5%;
 }
-ul.nav > li.current_page_item > a:before {
+ul.nav > li.current_page_item > a:before, ul.nav > li.current-menu-item > a:before {
 	position: absolute;
 	margin: auto;
 	z-index: 1;
@@ -2101,6 +2101,11 @@ width: -webkit-calc(100% / 4);
 .pirate_forms .pirate-forms-submit-button:hover {
 	color: #FFF;
 	background: #cb4332;
+}
+.pirate_forms_wrap label {
+	width: 100%;
+	float: left;
+	height: 1px;
 }
 
 /* media queries:  change number of items per row */
@@ -2965,6 +2970,52 @@ width: -webkit-calc(100% / 4);
 .copyright p {
 	margin-bottom: 0;
 	color: #939393;
+}
+.footer-widget-wrap > .container {
+	text-align: center;
+}
+.footer-widget {
+	float: none;
+	display: inline-block;
+	vertical-align: top;
+}
+.footer-widget ul {
+	margin-left: 0;
+	padding-left: 0;
+}
+.footer-widget li {
+	list-style: none;
+	margin-left: 0;
+}
+.footer-widget-wrap {
+	background: rgba(255,255,255,0.05);
+}
+.footer-widget-wrap .widget .widget-title {
+	color: #FFF;	
+}
+.footer-widget-wrap .widget li a {
+	color: #CCC;
+}
+.footer-widget-wrap .widget li a:hover {
+	color: #FFF;
+}
+.footer-widget-wrap .widget {
+	color: #CCC;
+	padding-bottom: 30px;
+}
+.footer-widget-wrap .widget_calendar tbody td {
+    background-color: rgba(249, 249, 249, 0.75);
+}
+.footer-widget-wrap .tagcloud a {
+	background: none;
+	padding: 2px 5px;
+	color: #CCC;
+}
+.footer-widget-wrap .tagcloud a:hover {
+	color: #FFF;
+}
+.footer-widget-wrap .widget #wp-calendar {
+	color: #333;
 }
 /*---------------------------------------
  **   Single page           -----

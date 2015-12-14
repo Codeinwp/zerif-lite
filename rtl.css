@@ -1435,6 +1435,30 @@ ul.nav > li.current_page_item > a:before {
 
 
 /*---------------------------------------
+ **   Pirate forms            -----
+-----------------------------------------*/
+.pirate-forms-submit-button {
+	float: left !important;
+}
+.pirate_forms input,
+.pirate_forms textarea {
+	text-align: right !important;
+}
+@media (min-width: 768px) {
+
+	.pirate_forms_wrap .contact_name_wrap {
+		float: right;
+	}
+	.pirate_forms_wrap .contact_email_wrap {
+		float: right;
+	}
+	.pirate_forms_wrap .contact_subject_wrap {
+		float: left;
+	}
+
+}
+
+/*---------------------------------------
  **   Responsive            -----
 -----------------------------------------*/
 @media (max-width: 1200px) {

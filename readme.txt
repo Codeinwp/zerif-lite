@@ -2,7 +2,7 @@
 Contributors:		codeinwp
 Tags:				black, gray, red, white, one-column, two-columns, right-sidebar, responsive-layout, custom-background, custom-menu, editor-style, featured-images, threaded-comments, translation-ready
 Requires at least:	3.3.0
-Tested up to:		4.3.1
+Tested up to:		4.4
 
 Zerif Lite
 == Description ==

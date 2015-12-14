@@ -94,7 +94,7 @@ function zerif_setup() {
             array(
                 "id" => 'zerif-lite-req-ac-install-pirate-forms',
                 "title" => esc_html__( 'Install Pirate Forms' ,'zerif-lite' ),
-                "description"=> esc_html__( 'In the next updates, Zerif Lite\'s default contact form will be removed. Please make sure you install th Pirate Forms plugin to keep your site updated, and experience a smooth transition to the latest version.','zerif-lite' ),
+                "description"=> esc_html__( 'In the next updates, Zerif Lite\'s default contact form will be removed. Please make sure you install the Pirate Forms plugin to keep your site updated, and experience a smooth transition to the latest version.','zerif-lite' ),
                 "check" => defined("PIRATE_FORMS_VERSION"),
                 "plugin_slug" => 'pirate-forms'
             ),
@@ -141,6 +141,18 @@ function zerif_widgets_init() {
         'after_title' => '</h1>',
     ));
 
+    register_sidebars( 
+        3, 
+        array(
+            'name'          => __('Footer area %d','zerif'),
+            'id'            => 'zerif-sidebar-footer',
+            'before_widget' => '<aside id="%1$s" class="widget footer-widget-footer %2$s">',
+            'after_widget'  => '</aside>',
+            'before_title'  => '<h1 class="widget-title">',
+            'after_title'   => '</h1>'
+        ) 
+    );
+    
 }
 
 add_action('widgets_init', 'zerif_widgets_init');
