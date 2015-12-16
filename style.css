@@ -2262,6 +2262,8 @@ width: -webkit-calc(100% / 4);
 .client-list {
 	padding-top: 5px;
 	margin-bottom: -17px;
+	float: left;
+        width: 100%;
 }
 .client-list ul{
 	margin: 0;
