@@ -2201,9 +2201,6 @@ width: -webkit-calc(100% / 4);
 .about-us .column {
 	margin-bottom: 78px;
 }
-.about-us .col-md-6.zerif_about_us_center.text_and_skills p {
-	text-align: right;
-}
 .about-us .col-md-12.zerif-rtl-big-title .big-intro,
 .about-us .col-md-12.zerif_about_us_center p {
 	text-align: center;
