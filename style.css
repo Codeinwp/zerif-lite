@@ -2172,12 +2172,11 @@ width: -webkit-calc(100% / 4);
 	border-radius: 5px;
 }
 /*---------------------------------------
- **   Section: Abot us;              -----
+ **   Section: About us;              -----
 -----------------------------------------*/
 .about-us {
 	background: #272727;
 	color: #FFF;
-	padding-bottom: 100px;
 }
 .about-us .row {
 	margin-left: -15px;
@@ -2201,6 +2200,13 @@ width: -webkit-calc(100% / 4);
 }
 .about-us .column {
 	margin-bottom: 78px;
+}
+.about-us .col-md-6.zerif_about_us_center.text_and_skills p {
+	text-align: right;
+}
+.about-us .col-md-12.zerif-rtl-big-title .big-intro,
+.about-us .col-md-12.zerif_about_us_center p {
+	text-align: center;
 }
 /*--SKILLS --*/
 .skills {
@@ -2261,9 +2267,9 @@ width: -webkit-calc(100% / 4);
 }
 .client-list {
 	padding-top: 5px;
-	margin-bottom: -17px;
 	float: left;
-        width: 100%;
+    width: 100%;
+    margin-bottom: 78px;
 }
 .client-list ul{
 	margin: 0;
@@ -3410,7 +3416,6 @@ article .posted-on a:hover{
 .woocommerce-page .products .product > a:first-child {
 	position: relative;
 	text-align: center;
-/*	min-height: 385px; */
 	display: block;
 }
 .woocommerce-page .products a.button {
@@ -5612,6 +5617,10 @@ p.edd-alert-error,
   	.edd_download a.edd-add-to-cart.button.red.edd-submit.edd-has-js span {
   		font-size: 12px;
   	}
+	.zerif_about_us_center p,
+	.about-us .col-md-6.zerif_about_us_center.text_and_skills p {
+		text-align: center;
+	}
 }
 
 @media (max-width: 768px) {
@@ -5773,6 +5782,9 @@ body.custom-background {
     }
     .header-content-wrap{
 		padding: 225px 0 150px;
+	}
+	.about-us .big-intro {
+		text-align: center;
 	}
 
 }
