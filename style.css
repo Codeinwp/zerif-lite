@@ -5733,9 +5733,9 @@ body.custom-background {
 	}
 
       /* FOOTER */
-	footer {
-		padding-top: 40px;
-	}
+	.footer-box-wrap .footer-box:first-child {
+  		padding-top: 40px;
+  	}		  	}
 	.company-details {
 		padding-top: 0;
 		padding-bottom: 33px;
