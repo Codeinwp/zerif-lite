@@ -95,7 +95,7 @@ wp_head(); ?>
 
 						echo '<a href="'.esc_url( home_url( '/' ) ).'" class="navbar-brand">';
 
-							echo '<img src="'.$zerif_logo.'" alt="'.get_bloginfo('title').'">';
+							echo '<img src="'.esc_url( $zerif_logo ).'" alt="'.esc_attr( get_bloginfo('title') ).'">';
 
 						echo '</a>';
 
@@ -105,11 +105,11 @@ wp_head(); ?>
 						
 							if( file_exists(get_stylesheet_directory()."/images/logo.png")):
 							
-								echo '<img src="'.get_stylesheet_directory_uri().'/images/logo.png" alt="'.get_bloginfo('title').'">';
+								echo '<img src="'.get_stylesheet_directory_uri().'/images/logo.png" alt="'.esc_attr( get_bloginfo('title') ).'">';
 							
 							else:
 								
-								echo '<img src="'.get_template_directory_uri().'/images/logo.png" alt="'.get_bloginfo('title').'">';
+								echo '<img src="'.get_template_directory_uri().'/images/logo.png" alt="'.esc_attr( get_bloginfo('title') ).'">';
 								
 							endif;
 

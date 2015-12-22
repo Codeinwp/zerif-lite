@@ -88,7 +88,7 @@
 				echo '<div class="icon-top red-text">';
 					if( !empty($zerif_address_icon) ) echo '<img src="'.esc_url($zerif_address_icon).'" alt="" />';
 				echo '</div>';
-				echo $zerif_address;
+				echo esc_html( $zerif_address );
 			echo '</div>';
 		endif;
 		
@@ -101,7 +101,7 @@
 					
 					if( !empty($zerif_email_icon) ) echo '<img src="'.esc_url($zerif_email_icon).'" alt="" />';
 				echo '</div>';
-				echo $zerif_email;
+				echo esc_html( $zerif_email );
 			echo '</div>';
 		endif;
 		
@@ -113,7 +113,7 @@
 				echo '<div class="icon-top blue-text">';
 					if( !empty($zerif_phone_icon) ) echo '<img src="'.esc_url($zerif_phone_icon).'" alt="" />';
 				echo '</div>';
-				echo $zerif_phone;
+				echo esc_html( $zerif_phone );
 			echo '</div>';
 		endif;
 		
