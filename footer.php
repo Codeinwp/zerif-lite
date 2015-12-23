@@ -88,7 +88,7 @@
 				echo '<div class="icon-top red-text">';
 					if( !empty($zerif_address_icon) ) echo '<img src="'.esc_url($zerif_address_icon).'" alt="" />';
 				echo '</div>';
-				echo esc_html( $zerif_address );
+				echo wp_kses_post( $zerif_address );
 			echo '</div>';
 		endif;
 		
@@ -101,7 +101,7 @@
 					
 					if( !empty($zerif_email_icon) ) echo '<img src="'.esc_url($zerif_email_icon).'" alt="" />';
 				echo '</div>';
-				echo esc_html( $zerif_email );
+				echo wp_kses_post( $zerif_email );
 			echo '</div>';
 		endif;
 		
@@ -113,7 +113,7 @@
 				echo '<div class="icon-top blue-text">';
 					if( !empty($zerif_phone_icon) ) echo '<img src="'.esc_url($zerif_phone_icon).'" alt="" />';
 				echo '</div>';
-				echo esc_html( $zerif_phone );
+				echo wp_kses_post( $zerif_phone );
 			echo '</div>';
 		endif;
 		
@@ -152,7 +152,7 @@
 			
 			
 					if( !empty($zerif_copyright) ):
-						echo esc_attr($zerif_copyright);
+						echo wp_kses_post($zerif_copyright);
 					endif;
 					
 					echo '<div class="zerif-copyright-box"><a class="zerif-copyright" href="http://themeisle.com/themes/zerif-lite/"'.$attribut_new_tab.' rel="nofollow">Zerif Lite </a>'.__('powered by','zerif-lite').'<a class="zerif-copyright" href="http://wordpress.org/"'.$attribut_new_tab.' rel="nofollow"> WordPress</a></div>';
