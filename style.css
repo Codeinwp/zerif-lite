@@ -5733,18 +5733,11 @@ body.custom-background {
 	}
 
       /* FOOTER */
-	.footer-box-wrap .footer-box:first-child {
-  		padding-top: 40px;
-  	}		  	}
-	.company-details {
-		padding-top: 0;
-		padding-bottom: 33px;
+	.container .company-details {
+		padding-top: 40px;
+		width: 33%;
 	}
-	.copyright {
-		width: 100%;
-		padding-top: 33px;
-		padding-bottom: 33px;
-	}
+
 }
 
 @media (max-width: 992px) {
@@ -5783,6 +5776,22 @@ body.custom-background {
 	.about-us .big-intro {
 		text-align: center;
 	}
+	.company-details {
+		padding-top: 0;
+		padding-bottom: 33px;
+	}
+	.container .company-details:first-child {
+		padding-top: 40px;
+	}
+	.copyright {
+		width: 100%;
+		padding-top: 33px;
+		padding-bottom: 33px;
+	}
+	.container .company-details {
+		width: 100%;
+	}
+
 
 }
 @media (max-width: 767px) {
@@ -5952,9 +5961,6 @@ body.custom-background {
 	}
 
       /* FOOTER */
-	footer {
-		padding-top: 40px;
-	}
 	.company-details {
 		padding-top: 0;
 		padding-bottom: 33px;
