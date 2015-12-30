@@ -102,7 +102,7 @@
 
 					echo '<p>';
 
-						echo esc_html( $zerif_aboutus_text );
+						echo wp_kses_post( $zerif_aboutus_text );
 
 					echo '</p>';
 
