@@ -131,7 +131,7 @@
 
 
             <tr class="zerif-lite-text-center">
-                <td colspan="3"><a href="http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/" target="_blank" class="button button-primary"><?php esc_html_e( 'Get Zerif PRO now!','zerif-lite' ); ?></a></td>
+                <td colspan="3"><a href="<?php echo esc_url( 'http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ); ?>" target="_blank" class="button button-primary"><?php esc_html_e( 'Get Zerif PRO now!','zerif-lite' ); ?></a></td>
             </tr>
         </tbody>
 

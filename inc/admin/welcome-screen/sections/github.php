@@ -13,13 +13,13 @@
 	<p><?php esc_html_e( 'GitHub is the place to go!','zerif-lite' ); ?></p>
 
 	<p>
-		<a href="https://github.com/Codeinwp/zerif-lite" class="button button-primary"><?php esc_html_e( 'Zerif Lite on GitHub', 'zerif-lite' ); ?></a>
+		<a href="<?php echo esc_url( 'https://github.com/Codeinwp/zerif-lite' ); ?>" class="button button-primary"><?php esc_html_e( 'Zerif Lite on GitHub', 'zerif-lite' ); ?></a>
 	</p>
 
 	<p><?php esc_html_e( 'Or would you like to translate Zerif Lite to your language? Get involved at wordpress.org.', 'zerif-lite' ); ?></p>
 	
 	<p>
-		<a href="https://translate.wordpress.org/projects/wp-themes/zerif-lite" class="button button-primary"><?php _e( 'Translate Zerif Lite', 'zerif-lite' ); ?></a>
+		<a href="<?php echo esc_url( 'https://translate.wordpress.org/projects/wp-themes/zerif-lite' ); ?>" class="button button-primary"><?php _e( 'Translate Zerif Lite', 'zerif-lite' ); ?></a>
 	</p>
 
 	<h4><?php esc_html_e( 'Are you enjoying Zerif Lite?', 'zerif-lite' ); ?></h4>

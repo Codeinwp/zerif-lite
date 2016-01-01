@@ -11,7 +11,7 @@
 			$zerif_aboutus_title = get_theme_mod('zerif_aboutus_title',__('About','zerif-lite'));
 			
 			if( !empty($zerif_aboutus_title) ):
-				echo '<h2 class="white-text">'.$zerif_aboutus_title.'</h2>';
+				echo '<h2 class="white-text">'. esc_html( $zerif_aboutus_title ) .'</h2>';
 			endif;
 			?>
 
@@ -25,7 +25,7 @@
 
 					echo '<div class="white-text section-legend">';
 
-						echo $zerif_aboutus_subtitle;
+						echo esc_html( $zerif_aboutus_subtitle );
 
 					echo '</div>';
 
@@ -88,7 +88,7 @@
 
 						echo '<div class="big-intro" data-scrollreveal="enter left after 0s over 1s">';
 
-							echo $zerif_aboutus_biglefttitle;
+							echo esc_html( $zerif_aboutus_biglefttitle );
 
 						echo '</div>';
 
@@ -102,7 +102,7 @@
 
 					echo '<p>';
 
-						echo $zerif_aboutus_text;
+						echo wp_kses_post( $zerif_aboutus_text );
 
 					echo '</p>';
 
@@ -146,18 +146,18 @@
 
 							echo '<div class="skill-count">';
 
-								echo '<input type="text" value="'.$zerif_aboutus_feature1_nr.'" data-thickness=".2" class="skill1" tabindex="-1">';
+								echo '<input type="text" value="'.esc_attr( $zerif_aboutus_feature1_nr ).'" data-thickness=".2" class="skill1" tabindex="-1">';
 
 							echo '</div>';
 
 						endif;
 
 						if( !empty($zerif_aboutus_feature1_title) ):
-							echo '<div class="section-legend">'.$zerif_aboutus_feature1_title.'</div>';
+							echo '<div class="section-legend">'.esc_html( $zerif_aboutus_feature1_title ).'</div>';
 						endif;
 
 						if( !empty($zerif_aboutus_feature1_text) ):
-							echo '<p>'.$zerif_aboutus_feature1_text.'</p>';
+							echo '<p>'.esc_html( $zerif_aboutus_feature1_text ).'</p>';
 						endif;
 
 					?>
@@ -180,7 +180,7 @@
 
 							echo '<div class="skill-count">';
 
-								echo '<input type="text" value="'.$zerif_aboutus_feature2_nr.'" data-thickness=".2" class="skill2" tabindex="-1">';
+								echo '<input type="text" value="'.esc_attr( $zerif_aboutus_feature2_nr ).'" data-thickness=".2" class="skill2" tabindex="-1">';
 
 							echo '</div>';
 
@@ -189,11 +189,11 @@
 
 
 						if( !empty($zerif_aboutus_feature2_title) ):
-							echo '<div class="section-legend">'.$zerif_aboutus_feature2_title.'</div>';
+							echo '<div class="section-legend">'.esc_html( $zerif_aboutus_feature2_title ).'</div>';
 						endif;
 
 						if( !empty($zerif_aboutus_feature2_text) ):
-							echo '<p>'.$zerif_aboutus_feature2_text.'</p>';
+							echo '<p>'.esc_html( $zerif_aboutus_feature2_text ).'</p>';
 						endif;
 
 					?>
@@ -214,18 +214,18 @@
 
 							echo '<div class="skill-count">';
 
-								echo '<input type="text" value="'.$zerif_aboutus_feature3_nr.'" data-thickness=".2" class="skill3" tabindex="-1">';
+								echo '<input type="text" value="'.esc_attr( $zerif_aboutus_feature3_nr ).'" data-thickness=".2" class="skill3" tabindex="-1">';
 
 							echo '</div>';
 
 						endif;
 
 						if( !empty($zerif_aboutus_feature3_title) ):
-							echo '<div class="section-legend">'.$zerif_aboutus_feature3_title.'</div>';
+							echo '<div class="section-legend">'.esc_html( $zerif_aboutus_feature3_title ).'</div>';
 						endif;
 
 						if( !empty($zerif_aboutus_feature3_text) ):
-							echo '<p>'.$zerif_aboutus_feature3_text.'</p>';
+							echo '<p>'.esc_html( $zerif_aboutus_feature3_text ).'</p>';
 						endif;
 
 					?>
@@ -247,18 +247,18 @@
 
 							echo '<div class="skill-count">';
 
-								echo '<input type="text" value="'.$zerif_aboutus_feature4_nr.'" data-thickness=".2" class="skill4" tabindex="-1">';
+								echo '<input type="text" value="'.esc_attr( $zerif_aboutus_feature4_nr ).'" data-thickness=".2" class="skill4" tabindex="-1">';
 
 							echo '</div>';
 
 						endif;
 
 						if( !empty($zerif_aboutus_feature4_title) ):
-							echo '<div class="section-legend">'.$zerif_aboutus_feature4_title.'</div>';
+							echo '<div class="section-legend">'.esc_html( $zerif_aboutus_feature4_title ).'</div>';
 						endif;
 
 						if( !empty($zerif_aboutus_feature4_text) ):
-							echo '<p>'.$zerif_aboutus_feature4_text.'</p>';
+							echo '<p>'.esc_html( $zerif_aboutus_feature4_text ).'</p>';
 						endif;
 
 					?>
