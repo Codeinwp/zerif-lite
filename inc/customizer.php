@@ -231,6 +231,15 @@ function zerif_customize_register( $wp_customize ) {
 				'settings' => 'zerif_socials_dribbble',
 				'priority'    => 8,
 		));
+		/* instagram */
+		$wp_customize->add_setting( 'zerif_socials_instagram', array(
+			'sanitize_callback' => 'esc_url_raw',
+		));
+		$wp_customize->add_control( 'zerif_socials_instagram', array(
+			'label'    => __( 'Instagram link', 'zerif-lite' ),
+			'section'  => 'zerif_general_socials_section',
+			'priority'    => 9,
+		));
 		
 		$wp_customize->add_section( 'zerif_general_footer_section' , array(
 				'title'       => __( 'Footer', 'zerif-lite' ),
@@ -392,13 +401,22 @@ function zerif_customize_register( $wp_customize ) {
 				'settings' => 'zerif_socials_dribbble',
 				'priority'    => 8,
 		));
+		/* instagram */
+		$wp_customize->add_setting( 'zerif_socials_instagram', array(
+			'sanitize_callback' => 'esc_url_raw',
+		));
+		$wp_customize->add_control( 'zerif_socials_instagram', array(
+			'label'    => __( 'Instagram link', 'zerif-lite' ),
+			'section'  => 'zerif_general_section',
+			'priority'    => 9,
+		));
 		/* email - ICON */
 		$wp_customize->add_setting( 'zerif_email_icon', array('sanitize_callback' => 'esc_url_raw','default' => get_template_directory_uri().'/images/envelope4-green.png'));
 		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'zerif_email_icon', array(
 					'label'    => __( 'Email section - icon', 'zerif-lite' ),
 					'section'  => 'zerif_general_section',
 					'settings' => 'zerif_email_icon',
-					'priority'    => 9,
+					'priority'    => 10,
 		)));
 			
 		/* email */   
@@ -407,7 +425,7 @@ function zerif_customize_register( $wp_customize ) {
 				'label'   => __( 'Email', 'zerif-lite' ),
 				'section' => 'zerif_general_section',
 				'settings'   => 'zerif_email',
-				'priority' => 10
+				'priority' => 11
 		)) );
 		
 		/* phone number - ICON */
@@ -416,7 +434,7 @@ function zerif_customize_register( $wp_customize ) {
 					'label'    => __( 'Phone number section - icon', 'zerif-lite' ),
 					'section'  => 'zerif_general_section',
 					'settings' => 'zerif_phone_icon',
-					'priority'    => 11,
+					'priority'    => 12,
 		)));
 		/* phone number */
 			
@@ -425,7 +443,7 @@ function zerif_customize_register( $wp_customize ) {
 				'label'   => __( 'Phone number', 'zerif-lite' ),
 				'section' => 'zerif_general_section',
 				'settings'   => 'zerif_phone',
-				'priority' => 12
+				'priority' => 13
 		)) );
 		
 		/* address - ICON */
@@ -434,7 +452,7 @@ function zerif_customize_register( $wp_customize ) {
 					'label'    => __( 'Address section - icon', 'zerif-lite' ),
 					'section'  => 'zerif_general_section',
 					'settings' => 'zerif_address_icon',
-					'priority'    => 13,
+					'priority'    => 14,
 		)));
 		/* address */
 			
@@ -443,7 +461,7 @@ function zerif_customize_register( $wp_customize ) {
 				'label'   => __( 'Address', 'zerif-lite' ),
 				'section' => 'zerif_general_section',
 				'settings'   => 'zerif_address',
-				'priority' => 14
+				'priority' => 15
 		)) ) ;
 	
 	endif;

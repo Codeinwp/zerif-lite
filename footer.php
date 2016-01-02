@@ -50,6 +50,7 @@
 		$zerif_socials_linkedin = get_theme_mod('zerif_socials_linkedin','#');
 		$zerif_socials_behance = get_theme_mod('zerif_socials_behance','#');
 		$zerif_socials_dribbble = get_theme_mod('zerif_socials_dribbble','#');
+		$zerif_socials_instagram = get_theme_mod('zerif_socials_instagram');
 		
 		$zerif_accessibility = get_theme_mod('zerif_accessibility');
 		$zerif_copyright = get_theme_mod('zerif_copyright');
@@ -65,8 +66,8 @@
 		if(!empty($zerif_phone) || !empty($zerif_phone_icon)):
 			$footer_sections++;
 		endif;
-		if(!empty($zerif_socials_facebook) || !empty($zerif_socials_twitter) || !empty($zerif_socials_linkedin) || !empty($zerif_socials_behance) || !empty($zerif_socials_dribbble) || 
-		!empty($zerif_copyright)):
+		if( !empty($zerif_socials_facebook) || !empty($zerif_socials_twitter) || !empty($zerif_socials_linkedin) || !empty($zerif_socials_behance) || !empty($zerif_socials_dribbble) || 
+		!empty($zerif_copyright) || !empty($zerif_socials_instagram) ):
 			$footer_sections++;
 		endif;
 		
@@ -121,7 +122,7 @@
 		$attribut_new_tab = (isset($zerif_accessibility) && ($zerif_accessibility != 1) ? ' target="_blank"' : '' );
 		
 		if( !empty($zerif_socials_facebook) || !empty($zerif_socials_twitter) || !empty($zerif_socials_linkedin) || !empty($zerif_socials_behance) || !empty($zerif_socials_dribbble) || 
-		!empty($zerif_copyright)):
+		!empty($zerif_copyright) || !empty($zerif_socials_instagram) ):
 		
 					echo '<div class="'.$footer_class.' copyright">';
 					if(!empty($zerif_socials_facebook) || !empty($zerif_socials_twitter) || !empty($zerif_socials_linkedin) || !empty($zerif_socials_behance) || !empty($zerif_socials_dribbble)):
@@ -146,6 +147,10 @@
 						/* dribbble */
 						if( !empty($zerif_socials_dribbble) ):
 							echo '<li><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_dribbble).'"><i class="fa fa-dribbble"></i></a></li>';
+						endif;
+						/* instagram */
+						if( !empty($zerif_socials_instagram) ):
+							echo '<li><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_instagram).'"><i class="fa fa-instagram"></i></a></li>';
 						endif;
 						echo '</ul>';
 					endif;	
