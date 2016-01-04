@@ -2108,6 +2108,10 @@ width: -webkit-calc(100% / 4);
 	height: 1px;
 }
 
+.zerif_hidden_if_not_customizer {
+	display: none !important;
+}
+
 /* media queries:  change number of items per row */
 @media screen and (max-width: 1190px) {
 	.cbp-rfgrid li {

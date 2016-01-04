@@ -1,5 +1,7 @@
 <?php 
 
+	global $wp_customize;
+
 	$zerif_total_posts = get_option('posts_per_page'); /* number of latest posts to show */
 	
 	if( !empty($zerif_total_posts) && ($zerif_total_posts > 0) ):
@@ -32,6 +34,10 @@
 
 						echo '<div class="dark-text section-legend">'.esc_html( $zerif_latestnews_subtitle ).'</div>';
 
+					elseif ( isset( $wp_customize ) ):
+					
+						echo '<div class="dark-text section-legend zerif_hidden_if_not_customizer"></div>';
+						
 					endif;
 				
 				echo '</div><!-- END .section-header -->';
