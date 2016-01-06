@@ -155,7 +155,7 @@
 						echo '</ul>';
 					endif;	
 			
-			
+					global $wp_customize;
 					if( !empty($zerif_copyright) ):
 						echo '<p id="zerif-copyright">'.wp_kses_post($zerif_copyright).'</p>';
 					elseif( isset( $wp_customize ) ):
