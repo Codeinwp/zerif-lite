@@ -91,6 +91,12 @@ function zerif_setup() {
          *
          */
         $zerif_required_actions = array(
+			array(
+                "id" => 'zerif-lite-req-ac-frontpage-latest-news',
+                "title" => esc_html__( 'Get the one page template' ,'zerif-lite' ),
+                "description"=> esc_html__( 'If you just installed Zerif Lite, and are not able to see the one page template, you need to go to Settings -> Reading , Front page displays and select "Your latest posts".','zerif-lite' ),
+				"check" => zerif_lite_is_not_latest_posts()
+            ),
             array(
                 "id" => 'zerif-lite-req-ac-install-pirate-forms',
                 "title" => esc_html__( 'Install Pirate Forms' ,'zerif-lite' ),
@@ -102,13 +108,7 @@ function zerif_setup() {
                 "id" => 'zerif-lite-req-ac-check-pirate-forms',
                 "title" => esc_html__( 'Check the contact form after installing Pirate Forms' ,'zerif-lite' ),
                 "description"=> esc_html__( "After installing the Pirate Forms plugin, please make sure you check your frontpage contact form is working fine. Also, if you use Zerif Lite in other language(s) please make sure the translation is ok. If not, please translate the contact form again.",'zerif-lite' ),
-            ),
-			array(
-                "id" => 'zerif-lite-req-ac-frontpage-latest-news',
-                "title" => esc_html__( 'Get the one page template' ,'zerif-lite' ),
-                "description"=> esc_html__( 'If you just installed Zerif Lite, and are not able to see the one page template, you need to go to Settings -> Reading , Front page displays and select "Your latest posts".','zerif-lite' )
-            ),
-
+            )
         );
 
 		require get_template_directory() . '/inc/admin/welcome-screen/welcome-screen.php';
@@ -116,6 +116,10 @@ function zerif_setup() {
 }
 
 add_action('after_setup_theme', 'zerif_setup');
+
+function zerif_lite_is_not_latest_posts() {
+	return ('posts' == get_option( 'show_on_front' ) ? true : false);
+}
 
 /**
  * Register widgetized area and update sidebar with default widgets.
