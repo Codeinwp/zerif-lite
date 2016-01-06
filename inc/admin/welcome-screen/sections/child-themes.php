@@ -26,7 +26,6 @@
 				<img src="<?php echo esc_url( get_template_directory_uri() ) . '/inc/admin/welcome-screen/img/zblackbeard.jpg'; ?>" alt="<?php esc_html_e( 'ZBlackBeard Child Theme', 'zerif-lite' ); ?>" />
 				<div class="zerif-lite-child-theme-description">
 					<h2><?php esc_html_e( 'ZBlackBeard', 'zerif-lite' ); ?></h2>
-					<p><?php esc_html_e( 'ZBlackbeard is a modern responsive WordPress Theme. It\'s perfect for web agencies, digital studios, corporate, product showcase, personal and business portfolio.', 'zerif-lite' ); ?></p>
 				</div>
 			</div>
 			<div class="zerif-lite-child-theme-details">
@@ -54,7 +53,6 @@
 				<img src="<?php echo esc_url( get_template_directory_uri() ) . '/inc/admin/welcome-screen/img/onepirate.jpg'; ?>" alt="<?php esc_html_e( 'OnePirate Child Theme', 'zerif-lite' ); ?>" />
 				<div class="zerif-lite-child-theme-description">
 					<h2><?php esc_html_e( 'OnePirate', 'zerif-lite' ); ?></h2>
-					<p><?php esc_html_e( 'One Pirate is a beautiful one-page WordPress theme, with a colorful and playful design, nice animations, full-screen layout, and elegant parallax effect. The theme comes with a full-width header and with catchy icons. Overall, One Pirate has a modern and interactive look, and a smooth transition from a section to another.', 'zerif-lite' ); ?></p>
 				</div>
 			</div>
 			<div class="zerif-lite-child-theme-details">
@@ -82,7 +80,6 @@
 				<img src="<?php echo esc_url( get_template_directory_uri() ) . '/inc/admin/welcome-screen/img/zifer-child.jpg'; ?>" alt="<?php esc_html_e( 'Zifer Child Theme', 'zerif-lite' ); ?>" />
 				<div class="zerif-lite-child-theme-description">
 					<h2><?php esc_html_e( 'Zifer', 'zerif-lite' ); ?></h2>
-					<p><?php esc_html_e( 'Zifer Child is a user optimized Photography WordPress Theme built with latest technologies, easy to customize. Use it to create an awesome photography portfolio.', 'zerif-lite' ); ?></p>
 				</div>
 			</div>
 			<div class="zerif-lite-child-theme-details">
@@ -112,7 +109,6 @@
 				<img src="<?php echo esc_url( get_template_directory_uri() ) . '/inc/admin/welcome-screen/img/responsiveboat.png'; ?>" alt="<?php esc_html_e( 'ResponsiveBoat', 'zerif-lite' ); ?>" />
 				<div class="zerif-lite-child-theme-description">
 					<h2><?php esc_html_e( 'ResponsiveBoat', 'zerif-lite' ); ?></h2>
-					<p><?php esc_html_e( 'ResponsiveBoat is a free responsive WordPress theme, with a friendly and colorful design. It comes with a full-screen layout, a full-width homepage header, elegant parallax effect, and nice animations. It can be used web agencies, digital studios, corporate, product showcase, personal and business portfolio. Overall, ResponsiveBoat looks very modern and interactive.', 'zerif-lite' ); ?></p>
 				</div>
 			</div>
 			<div class="zerif-lite-child-theme-details">
@@ -140,7 +136,6 @@
 				<img src="<?php echo esc_url( get_template_directory_uri() ) . '/inc/admin/welcome-screen/img/zerius.jpg'; ?>" alt="<?php esc_html_e( 'Zerius Child Theme', 'zerif-lite' ); ?>" />
 				<div class="zerif-lite-child-theme-description">
 					<h2><?php esc_html_e( 'Zerius', 'zerif-lite' ); ?></h2>
-					<p><?php esc_html_e( 'Zerius is a clean, modern, and animated free one-page parallax WordPress theme.', 'zerif-lite' ); ?></p>
 				</div>
 			</div>
 			<div class="zerif-lite-child-theme-details">

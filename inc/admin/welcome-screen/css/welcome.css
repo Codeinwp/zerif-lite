@@ -116,12 +116,7 @@
     -o-transition-delay: 500ms;
     transition-delay: 500ms;
 }
-.zerif-lite-child-theme-image-container:hover .zerif-lite-child-theme-description {
-    top: 0;
-    display: block;
-    padding: 0 15px;
-    opacity: 0.8;
-}
+
 .zerif-lite-child-theme-image-container {
     position: relative;
     overflow: hidden;
