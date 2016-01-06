@@ -283,11 +283,6 @@ function zerif_register_required_plugins() {
 				'slug' => 'widget-customizer', 
 				'required' => false 
 			),
-			array( 
-				'name'      => 'Login customizer',
-				'slug'      => 'login-customizer',
-				'required'  => false,
-			),
 			array(
 				'name'      => 'Pirate Forms',
 				'slug'      => 'pirate-forms',
@@ -298,11 +293,6 @@ function zerif_register_required_plugins() {
 	else:
 	
 		$plugins = array(
-			array(
-				'name'      => 'Login customizer',
-				'slug'      => 'login-customizer',
-				'required'  => false,
-			),
 			array(
 				'name'      => 'Pirate Forms',
 				'slug'      => 'pirate-forms',
