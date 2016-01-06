@@ -152,13 +152,13 @@ function zerif_customize_register( $wp_customize ) {
 		));
 		
 		$wp_customize->add_control( 'zerif_copyright', array(
-			'label'    => __( 'Copyright', 'zerif-lite' ),
+			'label'    => __( 'Footer Copyright', 'zerif-lite' ),
 			'section'  => 'zerif_general_section',
 			'priority'    => 3,
 		));
 		
 		$wp_customize->add_section( 'zerif_general_socials_section' , array(
-			'title' => __( 'Socials', 'zerif-lite' ),
+			'title' => __( 'Footer Social Icons', 'zerif-lite' ),
 			'priority' => 31,
 			'panel' => 'panel_general'
 		));
@@ -234,7 +234,7 @@ function zerif_customize_register( $wp_customize ) {
 		));
 		
 		$wp_customize->add_section( 'zerif_general_footer_section' , array(
-			'title' => __( 'Footer', 'zerif-lite' ),
+			'title' => __( 'Footer Content', 'zerif-lite' ),
 			'priority' => 32,
 			'panel' => 'panel_general'
 		));
@@ -374,7 +374,7 @@ function zerif_customize_register( $wp_customize ) {
 		));
 		
 		$wp_customize->add_control( 'zerif_copyright', array(
-			'label'    => __( 'Copyright', 'zerif-lite' ),
+			'label'    => __( 'Footer Copyright', 'zerif-lite' ),
 			'section'  => 'zerif_general_section',
 			'priority'    => 5,
 		));
