@@ -41,13 +41,13 @@ $customizer_url = admin_url() . 'customize.php' ;
 
 		<h4><?php esc_html_e( 'Create a child theme', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'If you want to make changes to the theme\'s files, those changes are likely to be overwritten when you next update the theme. In order to prevent that from happening, you need to create a child theme. For this, please follow the documentation below.', 'zerif-lite' ); ?></p>
-		<p><a href="http://docs.themeisle.com/article/14-how-to-create-a-child-theme/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/14-how-to-create-a-child-theme/' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr />
 
 		<h4><?php esc_html_e( 'Slider in big title section', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'If you are in the position where you want to change the default appearance of the big title section, you may want to replace it with a nice looking slider. This can be accomplished by following the documention below.', 'zerif-lite' ); ?></p>
-		<p><a href="http://docs.themeisle.com/article/13-replacing-big-title-section-with-an-image-slider/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/13-replacing-big-title-section-with-an-image-slider/' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr />
 		
@@ -55,31 +55,31 @@ $customizer_url = admin_url() . 'customize.php' ;
 		
 		<h4><?php esc_html_e( 'Translate Zerif Lite', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'In the below documentation you will find an easy way to translate Zerif Lite into your native language or any other language you need for you site.', 'zerif-lite' ); ?></p>
-		<p><a href="http://docs.themeisle.com/article/80-how-to-translate-zerif" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/80-how-to-translate-zerif' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr />
 
 		<h4><?php esc_html_e( 'Change dimensions for footer social icons', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'In the below documentation you will find an easy way to change the default dimensions for you social icons.', 'zerif-lite' ); ?></p>
-		<p><a href="http://docs.themeisle.com/article/38-change-dimensions-for-footer-icons/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/38-change-dimensions-for-footer-icons/' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr />
 
 		<h4><?php esc_html_e( 'Turn off the animations', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'You can turn off the animation effects you see when Zerif Lite loads a section in an easy way with just few changes. Check the documentation below.', 'zerif-lite' ); ?></p>
-		<p><a href="http://docs.themeisle.com/article/15-turn-off-loading-animations-in-zerif/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/15-turn-off-loading-animations-in-zerif/' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr />
 
 		<h4><?php esc_html_e( 'Replace the skills section with an image', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'If you feel the default About us section is not exactly what you need, you can maybe try change it with an image.', 'zerif-lite' ); ?></p>
-		<p><a href="http://docs.themeisle.com/article/60-replacing-skills-section-with-an-image-in-zerif" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/60-replacing-skills-section-with-an-image-in-zerif' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 		
 		<hr />
 		
 		<h4><?php esc_html_e( 'Add a search bar in the top menu', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'Find out how to add a search bar in the top menu bar, in an easy way be following the link below.', 'zerif-lite' ); ?></p>
-		<p><a href="http://docs.themeisle.com/article/78-zerif-adding-a-search-bar-in-the-top-menu" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/78-zerif-adding-a-search-bar-in-the-top-menu' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 	</div>
 
@@ -87,43 +87,43 @@ $customizer_url = admin_url() . 'customize.php' ;
 
 		<h4><?php esc_html_e( 'Speed up your site', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'If you find yourself in the situation where everything on your site is running very slow, you might consider having a look at the below documentation where you will find the most common issues causing this and possible solutions for each of the issues.', 'zerif-lite' ); ?></p>
-		<p><a href="http://docs.themeisle.com/article/63-speed-up-your-wordpress-site/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/63-speed-up-your-wordpress-site/' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr />
 
 		<h4><?php esc_html_e( 'Link Menu to sections', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'Linking the frontpage sections with the top menu is very simple, all you need to do is assign section anchors to the menu. In the below documentation you will find a nice tutorial about this.', 'zerif-lite' ); ?></p>
-		<p><a href="http://docs.themeisle.com/article/33-how-to-link-menus-to-sections-in-zerif/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/33-how-to-link-menus-to-sections-in-zerif/' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr />
 
 		<h4><?php esc_html_e( 'Change anchors', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'To better suit your site\'s needs, you can change each section\'s anchor to what you want. The entire process is described below.', 'zerif-lite' ); ?></p>
-		<p><a href="http://docs.themeisle.com/article/36-how-to-change-section-anchor-in-zerif/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/36-how-to-change-section-anchor-in-zerif/' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr />
 
 		<h4><?php esc_html_e( 'Change the page template', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'Zerif Lite has three page templates available, two for the blog and one for full width pages. To make sure you take full advantage of those page templates, make sure you read the documentation.', 'zerif-lite' ); ?></p>
-		<p><a href="http://docs.themeisle.com/article/32-how-to-change-the-page-template-in-wordpress" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/32-how-to-change-the-page-template-in-wordpress' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr />
 
 		<h4><?php esc_html_e( 'Remove the opacity', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'You don\'t like the way Zerif Lite looks with its background opacity? No problem. Just remove it using the steps below.', 'zerif-lite' ); ?></p>
-		<p><a href="http://docs.themeisle.com/article/30-removing-background-opacity-in-zerif/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/30-removing-background-opacity-in-zerif/' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 		
 		<hr />
 		
 		<h4><?php esc_html_e( 'Configure the portfolio', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'Set up your portfolio section in an easy way be following the link below.', 'zerif-lite' ); ?></p>
-		<p><a href="http://docs.themeisle.com/article/85-configuring-portfolio/" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/85-configuring-portfolio/' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 		
 		<hr />
 		
-		<h4><?php esc_html_e( '30 Experts Share: The Top *Non-Obvious* WordPress Plugins That’ll Make You a Better Blogger', 'zerif-lite' ); ?></h4>
+		<h4><?php esc_html_e( '30 Experts Share: The Top *Non-Obvious* WordPress Plugins That\'ll Make You a Better Blogger', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( ' At the address below you will find a cool set of original WordPress plugins that can give you great benefits despite being a little lesser known out there.', 'zerif-lite' ); ?></p>
-		<p><a href="http://www.codeinwp.com/blog/top-non-obvious-wordpress-plugins/" class="button"><?php esc_html_e( 'Read more', 'zerif-lite' ); ?></a></p>
+		<p><a href="<?php echo esc_url( 'http://www.codeinwp.com/blog/top-non-obvious-wordpress-plugins/' ); ?>" class="button"><?php esc_html_e( 'Read more', 'zerif-lite' ); ?></a></p>
 
 	</div>
 
@@ -135,7 +135,7 @@ $customizer_url = admin_url() . 'customize.php' ;
 
 		<h1><?php esc_html_e( 'View full documentation', 'zerif-lite' ); ?></h1>
 		<p><?php esc_html_e( 'Need more details? Please check our full documentation for detailed information on how to use Zerif Lite.', 'zerif-lite' ); ?></p>
-		<p><a href="http://themeisle.com/documentation-zerif-lite/" class="button button-primary"><?php esc_html_e( 'Read full documentation', 'zerif-lite' ); ?></a></p>
+		<p><a href="<?php echo esc_url( 'http://themeisle.com/documentation-zerif-lite/' ); ?>" class="button button-primary"><?php esc_html_e( 'Read full documentation', 'zerif-lite' ); ?></a></p>
 
 	</div>
 

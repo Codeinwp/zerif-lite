@@ -1,5 +1,7 @@
 <?php 
 
+	global $wp_customize;
+
 	$zerif_total_posts = get_option('posts_per_page'); /* number of latest posts to show */
 	
 	if( !empty($zerif_total_posts) && ($zerif_total_posts > 0) ):
@@ -17,7 +19,7 @@
 					/* title */
 					if( !empty($zerif_latestnews_title) ):
 					
-						echo '<h2 class="dark-text">' . $zerif_latestnews_title . '</h2>';
+						echo '<h2 class="dark-text">' . esc_html( $zerif_latestnews_title ) . '</h2>';
 						
 					else:
 					
@@ -30,8 +32,12 @@
 
 					if( !empty($zerif_latestnews_subtitle) ):
 
-						echo '<div class="dark-text section-legend">'.$zerif_latestnews_subtitle.'</div>';
+						echo '<div class="dark-text section-legend">'.esc_html( $zerif_latestnews_subtitle ).'</div>';
 
+					elseif ( isset( $wp_customize ) ):
+					
+						echo '<div class="dark-text section-legend zerif_hidden_if_not_customizer"></div>';
+						
 					endif;
 				
 				echo '</div><!-- END .section-header -->';
@@ -71,12 +77,12 @@
 
 											echo '<div class="latestnews-img">';
 											
-												echo '<a class="latestnews-img-a" href="'.get_permalink().'" title="'.get_the_title().'">';
+												echo '<a class="latestnews-img-a" href="'.esc_url( get_permalink() ).'" title="'.esc_attr( get_the_title() ).'">';
 
 													if ( has_post_thumbnail() ) :
 														the_post_thumbnail();
 													else:
-														echo '<img src="'.esc_url( get_template_directory_uri() ).'/images/blank-latestposts.png" alt="'.get_the_title().'" />';
+														echo '<img src="'.esc_url( get_template_directory_uri() ).'/images/blank-latestposts.png" alt="'.esc_attr( get_the_title() ).'" />';
 													endif; 
 
 												echo '</a>';
@@ -85,7 +91,7 @@
 
 											echo '<div class="latesnews-content">';
 
-												echo '<h3 class="latestnews-title"><a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_title().'</a></h3>';
+												echo '<h3 class="latestnews-title"><a href="'.esc_url( get_permalink() ).'" title="'.esc_attr( get_the_title() ).'">'.esc_html( get_the_title() ).'</a></h3>';
 
 												the_excerpt();
 
@@ -109,12 +115,12 @@
 													if ( has_post_thumbnail() ) :
 														the_post_thumbnail();
 													else:
-														echo '<img src="'.esc_url( get_template_directory_uri() ).'/images/blank-latestposts.png" alt="'.get_the_title().'" />';
+														echo '<img src="'.esc_url( get_template_directory_uri() ).'/images/blank-latestposts.png" alt="'.esc_attr( get_the_title() ).'" />';
 													endif; 
 												echo '</a>';
 											echo '</div>';
 											echo '<div class="latesnews-content">';
-												echo '<h3 class="latestnews-title"><a href="'.get_permalink().'" title="'.get_the_title().'">'.get_the_title().'</a></h3>';
+												echo '<h3 class="latestnews-title"><a href="'.esc_url( get_permalink() ).'" title="'.esc_attr( get_the_title() ).'">'.esc_html( get_the_title() ).'</a></h3>';
 												the_excerpt();
 											echo '</div>';
 										echo '</div>';
