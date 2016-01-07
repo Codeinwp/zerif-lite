@@ -121,7 +121,7 @@ $customizer_url = admin_url() . 'customize.php' ;
 		
 		<hr />
 		
-		<h4><?php esc_html_e( '30 Experts Share: The Top *Non-Obvious* WordPress Plugins That’ll Make You a Better Blogger', 'zerif-lite' ); ?></h4>
+		<h4><?php esc_html_e( '30 Experts Share: The Top *Non-Obvious* WordPress Plugins That\'ll Make You a Better Blogger', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( ' At the address below you will find a cool set of original WordPress plugins that can give you great benefits despite being a little lesser known out there.', 'zerif-lite' ); ?></p>
 		<p><a href="<?php echo esc_url( 'http://www.codeinwp.com/blog/top-non-obvious-wordpress-plugins/' ); ?>" class="button"><?php esc_html_e( 'Read more', 'zerif-lite' ); ?></a></p>
 

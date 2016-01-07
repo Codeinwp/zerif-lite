@@ -148,7 +148,7 @@ function zerif_widgets_init() {
     register_sidebars( 
         3, 
         array(
-            'name'          => __('Footer area %d','zerif'),
+            'name'          => __('Footer area %d','zerif-lite'),
             'id'            => 'zerif-sidebar-footer',
             'before_widget' => '<aside id="%1$s" class="widget footer-widget-footer %2$s">',
             'after_widget'  => '</aside>',
