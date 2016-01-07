@@ -1,5 +1,22 @@
 
 
+### 1.8.3.2 - 07/01/2016
+
+ Changes: 
+
+
+ * Escaping.
+ * I added wp_kses_post() function instead esc_html.
+ * Fixed #274 Broken footer
+ * About us section escaping fixed.
+ * Merge pull request #268 from robciucioan/development
+
+Escaping.
+ * Added an option for instagram link in footer
+ * #273 Transport option in customize for live preview changes
+ * #272, Improved user interaction in Customize, by using better descriptions and names
+
+
 ### 1.8.3.1 - 14/12/2015
 
  Changes: 
