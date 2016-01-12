@@ -14,7 +14,7 @@
 			$zerif_aboutus_title = get_theme_mod('zerif_aboutus_title',__('About','zerif-lite'));
 			
 			if( !empty($zerif_aboutus_title) ):
-				echo '<h2 class="white-text">'. esc_html( $zerif_aboutus_title ) .'</h2>';
+				echo '<h2 class="white-text">'. wp_kses_post( $zerif_aboutus_title ) .'</h2>';
 			elseif ( isset( $wp_customize ) ):	
 				echo '<h2 class="white-text zerif_hidden_if_not_customizer"></h2>';
 			endif;
@@ -30,7 +30,7 @@
 
 					echo '<div class="white-text section-legend">';
 
-						echo esc_html( $zerif_aboutus_subtitle );
+						echo wp_kses_post( $zerif_aboutus_subtitle );
 
 					echo '</div>';
 
@@ -97,7 +97,7 @@
 
 						echo '<div class="big-intro" data-scrollreveal="enter left after 0s over 1s">';
 
-							echo esc_html( $zerif_aboutus_biglefttitle );
+							echo wp_kses_post( $zerif_aboutus_biglefttitle );
 
 						echo '</div>';
 
@@ -109,7 +109,7 @@
 
 						echo '<div class="big-intro zerif_hidden_if_not_customizer" data-scrollreveal="enter left after 0s over 1s">';
 
-							echo esc_html( $zerif_aboutus_biglefttitle );
+							echo wp_kses_post( $zerif_aboutus_biglefttitle );
 
 						echo '</div>';
 
@@ -174,13 +174,13 @@
 						endif;
 
 						if( !empty($zerif_aboutus_feature1_title) ):
-							echo '<div class="section-legend">'.esc_html( $zerif_aboutus_feature1_title ).'</div>';
+							echo '<div class="section-legend">'.wp_kses_post( $zerif_aboutus_feature1_title ).'</div>';
 						elseif ( isset( $wp_customize ) ):
 							echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
 						endif;
 
 						if( !empty($zerif_aboutus_feature1_text) ):
-							echo '<p>'.esc_html( $zerif_aboutus_feature1_text ).'</p>';
+							echo '<p>'.wp_kses_post( $zerif_aboutus_feature1_text ).'</p>';
 						elseif ( isset( $wp_customize ) ):
 							echo '<p class="zerif_hidden_if_not_customizer"></p>';
 						endif;
@@ -214,13 +214,13 @@
 
 
 						if( !empty($zerif_aboutus_feature2_title) ):
-							echo '<div class="section-legend">'.esc_html( $zerif_aboutus_feature2_title ).'</div>';
+							echo '<div class="section-legend">'.wp_kses_post( $zerif_aboutus_feature2_title ).'</div>';
 						elseif ( isset( $wp_customize ) ):
 							echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
 						endif;
 
 						if( !empty($zerif_aboutus_feature2_text) ):
-							echo '<p>'.esc_html( $zerif_aboutus_feature2_text ).'</p>';
+							echo '<p>'.wp_kses_post( $zerif_aboutus_feature2_text ).'</p>';
 						elseif ( isset( $wp_customize ) ):
 							echo '<p class="zerif_hidden_if_not_customizer"></p>';
 						endif;
@@ -250,13 +250,13 @@
 						endif;
 
 						if( !empty($zerif_aboutus_feature3_title) ):
-							echo '<div class="section-legend">'.esc_html( $zerif_aboutus_feature3_title ).'</div>';
+							echo '<div class="section-legend">'.wp_kses_post( $zerif_aboutus_feature3_title ).'</div>';
 						elseif ( isset( $wp_customize ) ):
 							echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
 						endif;
 
 						if( !empty($zerif_aboutus_feature3_text) ):
-							echo '<p>'.esc_html( $zerif_aboutus_feature3_text ).'</p>';
+							echo '<p>'.wp_kses_post( $zerif_aboutus_feature3_text ).'</p>';
 						elseif ( isset( $wp_customize ) ):
 							echo '<p class="zerif_hidden_if_not_customizer"></p>';
 						endif;
@@ -287,13 +287,13 @@
 						endif;
 
 						if( !empty($zerif_aboutus_feature4_title) ):
-							echo '<div class="section-legend">'.esc_html( $zerif_aboutus_feature4_title ).'</div>';
+							echo '<div class="section-legend">'.wp_kses_post( $zerif_aboutus_feature4_title ).'</div>';
 						elseif ( isset( $wp_customize ) ):
 							echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
 						endif;
 
 						if( !empty($zerif_aboutus_feature4_text) ):
-							echo '<p>'.esc_html( $zerif_aboutus_feature4_text ).'</p>';
+							echo '<p>'.wp_kses_post( $zerif_aboutus_feature4_text ).'</p>';
 						elseif ( isset( $wp_customize ) ):
 							echo '<p class="zerif_hidden_if_not_customizer"></p>';
 						endif;

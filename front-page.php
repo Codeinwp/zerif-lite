@@ -254,14 +254,14 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 							$zerif_contactus_title = get_theme_mod('zerif_contactus_title',__('Get in touch','zerif-lite'));
 							if ( !empty($zerif_contactus_title) ):
-								echo '<h2 class="white-text">'.esc_html( $zerif_contactus_title ).'</h2>';
+								echo '<h2 class="white-text">'.wp_kses_post( $zerif_contactus_title ).'</h2>';
 							elseif ( isset( $wp_customize ) ):
 								echo '<h2 class="white-text zerif_hidden_if_not_customizer"></h2>';
 							endif;
 
 							$zerif_contactus_subtitle = get_theme_mod('zerif_contactus_subtitle');
 							if(isset($zerif_contactus_subtitle) && $zerif_contactus_subtitle != ""):
-								echo '<div class="white-text section-legend">'.esc_html( $zerif_contactus_subtitle ).'</div>';
+								echo '<div class="white-text section-legend">'.wp_kses_post( $zerif_contactus_subtitle ).'</div>';
 							elseif ( isset( $wp_customize ) ):
 								echo '<h6 class="white-text section-legend zerif_hidden_if_not_customizer">'.$zerif_contactus_subtitle.'</h6>';
 							endif;
