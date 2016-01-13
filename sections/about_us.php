@@ -103,18 +103,6 @@
 
 					echo '</div>';
 
-				elseif ( isset( $wp_customize ) ):
-				
-					echo '<div class="col-lg-' . $colCount . ' col-md-' . $colCount . ' column zerif-rtl-big-title">';
-
-						echo '<div class="big-intro zerif_hidden_if_not_customizer" data-scrollreveal="enter left after 0s over 1s">';
-
-							echo wp_kses_post( $zerif_aboutus_biglefttitle );
-
-						echo '</div>';
-
-					echo '</div>';
-				
 				endif;
 
 			if( !empty($zerif_aboutus_text) ):
