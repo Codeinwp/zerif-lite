@@ -1,5 +1,13 @@
 
 
+### 1.8.3.3 - 14/01/2016
+
+ Changes: 
+
+
+ * #279, fixed escaping errors from 1.8.3.2 version
+
+
 ### 1.8.3.2 - 07/01/2016
 
  Changes: 
