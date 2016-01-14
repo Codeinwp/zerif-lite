@@ -19,7 +19,7 @@
 					/* title */
 					if( !empty($zerif_latestnews_title) ):
 					
-						echo '<h2 class="dark-text">' . esc_html( $zerif_latestnews_title ) . '</h2>';
+						echo '<h2 class="dark-text">' . wp_kses_post( $zerif_latestnews_title ) . '</h2>';
 						
 					else:
 					
@@ -32,7 +32,7 @@
 
 					if( !empty($zerif_latestnews_subtitle) ):
 
-						echo '<div class="dark-text section-legend">'.esc_html( $zerif_latestnews_subtitle ).'</div>';
+						echo '<div class="dark-text section-legend">'.wp_kses_post( $zerif_latestnews_subtitle ).'</div>';
 
 					elseif ( isset( $wp_customize ) ):
 					
@@ -91,7 +91,7 @@
 
 											echo '<div class="latesnews-content">';
 
-												echo '<h3 class="latestnews-title"><a href="'.esc_url( get_permalink() ).'" title="'.esc_attr( get_the_title() ).'">'.esc_html( get_the_title() ).'</a></h3>';
+												echo '<h3 class="latestnews-title"><a href="'.esc_url( get_permalink() ).'" title="'.esc_attr( get_the_title() ).'">'.wp_kses_post( get_the_title() ).'</a></h3>';
 
 												the_excerpt();
 
@@ -120,7 +120,7 @@
 												echo '</a>';
 											echo '</div>';
 											echo '<div class="latesnews-content">';
-												echo '<h3 class="latestnews-title"><a href="'.esc_url( get_permalink() ).'" title="'.esc_attr( get_the_title() ).'">'.esc_html( get_the_title() ).'</a></h3>';
+												echo '<h3 class="latestnews-title"><a href="'.esc_url( get_permalink() ).'" title="'.esc_attr( get_the_title() ).'">'.wp_kses_post( get_the_title() ).'</a></h3>';
 												the_excerpt();
 											echo '</div>';
 										echo '</div>';

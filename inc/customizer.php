@@ -254,7 +254,8 @@ function zerif_customize_register( $wp_customize ) {
 		/* email */   
 		$wp_customize->add_setting( 'zerif_email', array( 
 			'sanitize_callback' => 'zerif_sanitize_text',
-			'default' => '<a href="mailto:contact@site.com">contact@site.com</a>'
+			'default' => '<a href="mailto:contact@site.com">contact@site.com</a>',
+			'transport' => 'postMessage'
 		));
 		
 		$wp_customize->add_control( new Zerif_Customize_Textarea_Control( $wp_customize, 'zerif_email', array(
@@ -278,7 +279,8 @@ function zerif_customize_register( $wp_customize ) {
 		/* phone number */	
 		$wp_customize->add_setting( 'zerif_phone', array(
 			'sanitize_callback' => 'zerif_sanitize_number',
-			'default' => '<a href="tel:0 332 548 954">0 332 548 954</a>'
+			'default' => '<a href="tel:0 332 548 954">0 332 548 954</a>',
+			'transport' => 'postMessage'
 		));
 		
 		$wp_customize->add_control(new Zerif_Customize_Textarea_Control( $wp_customize, 'zerif_phone', array(
@@ -302,7 +304,8 @@ function zerif_customize_register( $wp_customize ) {
 		/* address */
 		$wp_customize->add_setting( 'zerif_address', array( 
 			'sanitize_callback' => 'zerif_sanitize_text', 
-			'default' => __('Company address','zerif-lite') 
+			'default' => __('Company address','zerif-lite'),
+			'transport' => 'postMessage'
 		));
 		
 		$wp_customize->add_control( new Zerif_Customize_Textarea_Control( $wp_customize, 'zerif_address', array(
@@ -993,7 +996,6 @@ function zerif_customize_register( $wp_customize ) {
 		$wp_customize->add_setting( 'zerif_aboutus_biglefttitle', array(
 			'sanitize_callback' => 'zerif_sanitize_text',
 			'default' => __('Everything you see here is responsive and mobile-friendly.','zerif-lite'),
-			'transport' => 'postMessage'
 		));
 		
 		$wp_customize->add_control( 'zerif_aboutus_biglefttitle', array(
@@ -1006,7 +1008,6 @@ function zerif_customize_register( $wp_customize ) {
 		$wp_customize->add_setting( 'zerif_aboutus_text', array(
 			'sanitize_callback' => 'zerif_sanitize_text',
 			'default' => __('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros.<br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros. <br><br>Mauris vel nunc at ipsum fermentum pellentesque quis ut massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non adipiscing massa. Sed ut fringilla sapien. Cras sollicitudin, lectus sed tincidunt cursus, magna lectus vehicula augue, a lobortis dui orci et est.','zerif-lite'),
-			'transport' => 'postMessage'
 		));
 		
 		$wp_customize->add_control( 'zerif_aboutus_text', array(
@@ -1233,7 +1234,6 @@ function zerif_customize_register( $wp_customize ) {
 		$wp_customize->add_setting( 'zerif_aboutus_biglefttitle', array(
 			'sanitize_callback' => 'zerif_sanitize_text',
 			'default' => __('Everything you see here is responsive and mobile-friendly.','zerif-lite'),
-			'transport' => 'postMessage'
 		));
 		
 		$wp_customize->add_control( 'zerif_aboutus_biglefttitle', array(
@@ -1246,7 +1246,6 @@ function zerif_customize_register( $wp_customize ) {
 		$wp_customize->add_setting( 'zerif_aboutus_text', array(
 			'sanitize_callback' => 'zerif_sanitize_text',
 			'default' => __('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros.<br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros. <br><br>Mauris vel nunc at ipsum fermentum pellentesque quis ut massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non adipiscing massa. Sed ut fringilla sapien. Cras sollicitudin, lectus sed tincidunt cursus, magna lectus vehicula augue, a lobortis dui orci et est.','zerif-lite'),
-			'transport' => 'postMessage'
 		));
 		
 		$wp_customize->add_control( 'zerif_aboutus_text', array(
