@@ -83,40 +83,65 @@
 			$footer_class = 'col-md-3';
 		endif;
 		
-		/* COMPANY ADDRESS */
-		if( !empty($zerif_address) ):
+		global $wp_customize;
+		
+		
+		if( !empty($footer_class) ) {
+			
+			/* COMPANY ADDRESS */
 			echo '<div class="'.$footer_class.' company-details">';
-				echo '<div class="icon-top red-text">';
-					if( !empty($zerif_address_icon) ) echo '<img src="'.esc_url($zerif_address_icon).'" alt="" />';
-				echo '</div>';
-				echo wp_kses_post( $zerif_address );
+				
+				if( !empty($zerif_address_icon) ) { 
+					echo '<div class="icon-top red-text">';
+						 echo '<img src="'.esc_url($zerif_address_icon).'" alt="" />';
+					echo '</div>';
+				}
+				
+				if( !empty($zerif_address) ) {
+					echo '<div class="zerif-footer-address">';
+						echo wp_kses_post( $zerif_address );
+					echo '</div>';
+				} else if( isset( $wp_customize ) ) {
+					echo '<div class="zerif-footer-address zerif_hidden_if_not_customizer"></div>';
+				}
+				
 			echo '</div>';
-		endif;
-		
-		/* COMPANY EMAIL */
-		
-		
-		if( !empty($zerif_email) ):
+			
+			/* COMPANY EMAIL */
 			echo '<div class="'.$footer_class.' company-details">';
-				echo '<div class="icon-top green-text">';
-					
-					if( !empty($zerif_email_icon) ) echo '<img src="'.esc_url($zerif_email_icon).'" alt="" />';
-				echo '</div>';
-				echo wp_kses_post( $zerif_email );
+			
+				if( !empty($zerif_email_icon) ) {
+					echo '<div class="icon-top green-text">';
+						echo '<img src="'.esc_url($zerif_email_icon).'" alt="" />';
+					echo '</div>';
+				}
+				if( !empty($zerif_email) ) {
+					echo '<div class="zerif-footer-email">';	
+						echo wp_kses_post( $zerif_email );
+					echo '</div>';
+				} else if( isset( $wp_customize ) ) {
+					echo '<div class="zerif-footer-email zerif_hidden_if_not_customizer"></div>';
+				}	
+			
 			echo '</div>';
-		endif;
-		
-		/* COMPANY PHONE NUMBER */
-		
-		
-		if( !empty($zerif_phone) ):
+			
+			/* COMPANY PHONE NUMBER */
 			echo '<div class="'.$footer_class.' company-details">';
-				echo '<div class="icon-top blue-text">';
-					if( !empty($zerif_phone_icon) ) echo '<img src="'.esc_url($zerif_phone_icon).'" alt="" />';
-				echo '</div>';
-				echo wp_kses_post( $zerif_phone );
+				if( !empty($zerif_phone_icon) ) {
+					echo '<div class="icon-top blue-text">';
+						echo '<img src="'.esc_url($zerif_phone_icon).'" alt="" />';
+					echo '</div>';
+				}
+				if( !empty($zerif_phone) ) {
+					echo '<div class="zerif-footer-phone">';
+						echo wp_kses_post( $zerif_phone );
+					echo '</div>';	
+				} else if( isset( $wp_customize ) ) {
+					echo '<div class="zerif-footer-phone zerif_hidden_if_not_customizer"></div>';
+				}		
 			echo '</div>';
-		endif;
+			
+		}
 		
 		// open link in a new tab when checkbox "accessibility" is not ticked
 		$attribut_new_tab = (isset($zerif_accessibility) && ($zerif_accessibility != 1) ? ' target="_blank"' : '' );
@@ -155,7 +180,6 @@
 						echo '</ul>';
 					endif;	
 			
-					global $wp_customize;
 					if( !empty($zerif_copyright) ):
 						echo '<p id="zerif-copyright">'.wp_kses_post($zerif_copyright).'</p>';
 					elseif( isset( $wp_customize ) ):
