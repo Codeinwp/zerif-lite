@@ -5609,6 +5609,48 @@ p.edd-alert-error,
     height: auto;
 }
 
+/* WP MegaMenu */
+.wr-megamenu-container .preview-text,
+.wr-megamenu-container .preview-text p {
+    font-size: 14px;
+    color: #808080;
+    font-weight: normal;
+}
+.wr-megamenu-container .block-sub-menu a {
+	color: #808080;
+	padding: 5px;
+}
+.wr-element-submenu .submenu-items a {
+    padding: 6px 5px 6px 20px !important;
+}
+.wr-megamenu-container {
+	margin-top: 12px;
+}
+.it-responsive-mega {
+	display: none !important;
+}
+.jsn-bootstrap3 .glyphicon {
+	font-size: 10px;
+	margin-right: 2px;
+}
+.wr-element-container {
+	padding: 5px 0;
+}
+.jsn-bootstrap3 .glyphicon.glyphicon-chevron-right {
+	display: none !important;
+}
+.wr-element-container ul.sub-menu li a > i, 
+.wr-element-container ul.submenu-items li a > i {
+	margin-right: 7px;
+}
+@media only screen and (max-width: 783px) {
+	.wr-mega-menu .wr-menu-down {
+	    margin: -43px 5px 0 0 !important;
+	}
+}
+
+
+
 @media (max-width: 992px) {
 	.edd_download a.edd-add-to-cart.button.red.edd-submit.edd-has-js {
 		color: #FFF;
