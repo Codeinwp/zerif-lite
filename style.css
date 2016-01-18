@@ -2763,17 +2763,17 @@ width: -webkit-calc(100% / 4);
 	color: #FFF;
 }
 #client-feedbacks .feedback-box {
-	width: 30%;
-	float:left;
-	background: #FFFFFF;
-	padding: 25px;
-	margin: 13px;
-	text-align: left;
-	border-radius: 4px;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-	display: block;
-	z-index: 5;
+    width: 30%;
+    background: #FFFFFF;
+    padding: 25px;
+    margin: 13px;
+    text-align: left;
+    border-radius: 4px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    display: inline-block;
+    z-index: 5;
+    vertical-align: top;
 }
 .feedback-box .message {
 	font-size: 15px;
