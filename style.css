@@ -919,7 +919,7 @@ a:active {
 	padding: 0;
 	margin: 0;
 	background: url(images/search_icon.png) no-repeat center center;
-	text-indent: -99999999999px;
+	text-indent: -9999999px;
 }
 .widget_search label{
 	margin-bottom: 5px;
