@@ -691,8 +691,6 @@ class zerif_testimonial_widget extends WP_Widget {
     function widget($args, $instance) {
 
         extract($args);
-
-        echo $before_widget;
 		
 		$zerif_accessibility = get_theme_mod('zerif_accessibility');
 		// open link in a new tab when checkbox "accessibility" is not ticked
@@ -753,8 +751,6 @@ class zerif_testimonial_widget extends WP_Widget {
         </div> <!-- / END SINGLE FEEDBACK BOX-->
 
         <?php
-
-        echo $after_widget;
 
     }
 

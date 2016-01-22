@@ -93,7 +93,13 @@
 
 												echo '<h3 class="latestnews-title"><a href="'.esc_url( get_permalink() ).'" title="'.esc_attr( get_the_title() ).'">'.wp_kses_post( get_the_title() ).'</a></h3>';
 
-												the_excerpt();
+												$ismore = @strpos( $post->post_content, '<!--more-->');
+												
+												if($ismore) {
+													the_content( sprintf( esc_html__('[...]','zerif-lite'), '<span class="screen-reader-text">'.esc_html__('about ', 'zerif-lite').get_the_title().'</span>' ) );
+												} else {
+													the_excerpt();
+												}
 
 											echo '</div>';
 
@@ -121,7 +127,14 @@
 											echo '</div>';
 											echo '<div class="latesnews-content">';
 												echo '<h3 class="latestnews-title"><a href="'.esc_url( get_permalink() ).'" title="'.esc_attr( get_the_title() ).'">'.wp_kses_post( get_the_title() ).'</a></h3>';
-												the_excerpt();
+												
+												$ismore = @strpos( $post->post_content, '<!--more-->');
+												
+												if($ismore) {
+													the_content( sprintf( esc_html__('[...]','zerif-lite'), '<span class="screen-reader-text">'.esc_html__('about ', 'zerif-lite').get_the_title().'</span>' ) );
+												} else {
+													the_excerpt();
+												}
 											echo '</div>';
 										echo '</div>';
 									echo '</div>';

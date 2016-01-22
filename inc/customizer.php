@@ -239,6 +239,30 @@ function zerif_customize_register( $wp_customize ) {
 			'panel' => 'panel_general'
 		));
 		
+		/* address - ICON */
+		$wp_customize->add_setting( 'zerif_address_icon', array(
+			'sanitize_callback' => 'esc_url_raw',
+			'default' => get_template_directory_uri().'/images/map25-redish.png'
+		));
+		
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'zerif_address_icon', array(
+			'label'    => __( 'Address section - icon', 'zerif-lite' ),
+			'section'  => 'zerif_general_footer_section',
+			'priority' => 9,
+		)));
+		
+		/* address */
+		$wp_customize->add_setting( 'zerif_address', array( 
+			'sanitize_callback' => 'zerif_sanitize_text', 
+			'default' => __('Company address','zerif-lite'),
+		));
+		
+		$wp_customize->add_control( new Zerif_Customize_Textarea_Control( $wp_customize, 'zerif_address', array(
+			'label'   => __( 'Address', 'zerif-lite' ),
+			'section' => 'zerif_general_footer_section',
+			'priority' => 10
+		)));
+		
 		/* email - ICON */
 		$wp_customize->add_setting( 'zerif_email_icon', array(
 			'sanitize_callback' => 'esc_url_raw',
@@ -248,20 +272,19 @@ function zerif_customize_register( $wp_customize ) {
 		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'zerif_email_icon', array(
 			'label'    => __( 'Email section - icon', 'zerif-lite' ),
 			'section'  => 'zerif_general_footer_section',
-			'priority'    => 9,
+			'priority'    => 11,
 		)));
 			
 		/* email */   
 		$wp_customize->add_setting( 'zerif_email', array( 
 			'sanitize_callback' => 'zerif_sanitize_text',
 			'default' => '<a href="mailto:contact@site.com">contact@site.com</a>',
-			'transport' => 'postMessage'
 		));
 		
 		$wp_customize->add_control( new Zerif_Customize_Textarea_Control( $wp_customize, 'zerif_email', array(
 			'label'   => __( 'Email', 'zerif-lite' ),
 			'section' => 'zerif_general_footer_section',
-			'priority' => 10
+			'priority' => 12
 		)));
 		
 		/* phone number - ICON */
@@ -273,43 +296,17 @@ function zerif_customize_register( $wp_customize ) {
 		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'zerif_phone_icon', array(
 			'label'    => __( 'Phone number section - icon', 'zerif-lite' ),
 			'section'  => 'zerif_general_footer_section',
-			'priority' => 11,
+			'priority' => 13,
 		)));
 		
 		/* phone number */	
 		$wp_customize->add_setting( 'zerif_phone', array(
 			'sanitize_callback' => 'zerif_sanitize_number',
 			'default' => '<a href="tel:0 332 548 954">0 332 548 954</a>',
-			'transport' => 'postMessage'
 		));
 		
 		$wp_customize->add_control(new Zerif_Customize_Textarea_Control( $wp_customize, 'zerif_phone', array(
 			'label'   => __( 'Phone number', 'zerif-lite' ),
-			'section' => 'zerif_general_footer_section',
-			'priority' => 12
-		)));
-		
-		/* address - ICON */
-		$wp_customize->add_setting( 'zerif_address_icon', array(
-			'sanitize_callback' => 'esc_url_raw',
-			'default' => get_template_directory_uri().'/images/map25-redish.png'
-		));
-		
-		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'zerif_address_icon', array(
-			'label'    => __( 'Address section - icon', 'zerif-lite' ),
-			'section'  => 'zerif_general_footer_section',
-			'priority' => 13,
-		)));
-		
-		/* address */
-		$wp_customize->add_setting( 'zerif_address', array( 
-			'sanitize_callback' => 'zerif_sanitize_text', 
-			'default' => __('Company address','zerif-lite'),
-			'transport' => 'postMessage'
-		));
-		
-		$wp_customize->add_control( new Zerif_Customize_Textarea_Control( $wp_customize, 'zerif_address', array(
-			'label'   => __( 'Address', 'zerif-lite' ),
 			'section' => 'zerif_general_footer_section',
 			'priority' => 14
 		)));
@@ -442,54 +439,6 @@ function zerif_customize_register( $wp_customize ) {
 			'section'  => 'zerif_general_section',
 			'priority'    => 11,
 		));
-		/* email - ICON */
-		$wp_customize->add_setting( 'zerif_email_icon', array(
-			'sanitize_callback' => 'esc_url_raw',
-			'default' => get_template_directory_uri().'/images/envelope4-green.png'
-		));
-		
-		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'zerif_email_icon', array(
-			'label'    => __( 'Email section - icon', 'zerif-lite' ),
-			'section'  => 'zerif_general_section',
-			'priority'    => 12,
-		)));
-			
-		/* email */   
-		$wp_customize->add_setting( 'zerif_email', array( 
-			'sanitize_callback' => 'zerif_sanitize_text',
-			'default' => '<a href="mailto:contact@site.com">contact@site.com</a>'
-		));
-		
-		$wp_customize->add_control( new Zerif_Customize_Textarea_Control( $wp_customize, 'zerif_email', array(
-			'label'   => __( 'Email', 'zerif-lite' ),
-			'section' => 'zerif_general_section',
-			'priority' => 13
-		)));
-		
-		/* phone number - ICON */
-		$wp_customize->add_setting( 'zerif_phone_icon', array(
-			'sanitize_callback' => 'esc_url_raw',
-			'default' => get_template_directory_uri().'/images/telephone65-blue.png'
-		));
-		
-		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'zerif_phone_icon', array(
-			'label'    => __( 'Phone number section - icon', 'zerif-lite' ),
-			'section'  => 'zerif_general_section',
-			'priority' => 14,
-		)));
-		
-		/* phone number */	
-		$wp_customize->add_setting( 'zerif_phone', array(
-			'sanitize_callback' => 'zerif_sanitize_number',
-			'default' => '<a href="tel:0 332 548 954">0 332 548 954</a>'
-		));
-		
-		$wp_customize->add_control(new Zerif_Customize_Textarea_Control( $wp_customize, 'zerif_phone', array(
-			'label'   => __( 'Phone number', 'zerif-lite' ),
-			'section' => 'zerif_general_section',
-			'priority' => 15
-		)) );
-		
 		/* address - ICON */
 		$wp_customize->add_setting( 'zerif_address_icon', array(
 			'sanitize_callback' => 'esc_url_raw',
@@ -499,7 +448,7 @@ function zerif_customize_register( $wp_customize ) {
 		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'zerif_address_icon', array(
 			'label'    => __( 'Address section - icon', 'zerif-lite' ),
 			'section'  => 'zerif_general_section',
-			'priority' => 16,
+			'priority' => 12,
 		)));
 		
 		/* address */
@@ -511,8 +460,55 @@ function zerif_customize_register( $wp_customize ) {
 		$wp_customize->add_control( new Zerif_Customize_Textarea_Control( $wp_customize, 'zerif_address', array(
 			'label'   => __( 'Address', 'zerif-lite' ),
 			'section' => 'zerif_general_section',
-			'priority' => 17
+			'priority' => 13
 		)));
+		/* email - ICON */
+		$wp_customize->add_setting( 'zerif_email_icon', array(
+			'sanitize_callback' => 'esc_url_raw',
+			'default' => get_template_directory_uri().'/images/envelope4-green.png'
+		));
+		
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'zerif_email_icon', array(
+			'label'    => __( 'Email section - icon', 'zerif-lite' ),
+			'section'  => 'zerif_general_section',
+			'priority'    => 14,
+		)));
+			
+		/* email */   
+		$wp_customize->add_setting( 'zerif_email', array( 
+			'sanitize_callback' => 'zerif_sanitize_text',
+			'default' => '<a href="mailto:contact@site.com">contact@site.com</a>'
+		));
+		
+		$wp_customize->add_control( new Zerif_Customize_Textarea_Control( $wp_customize, 'zerif_email', array(
+			'label'   => __( 'Email', 'zerif-lite' ),
+			'section' => 'zerif_general_section',
+			'priority' => 15
+		)));
+		
+		/* phone number - ICON */
+		$wp_customize->add_setting( 'zerif_phone_icon', array(
+			'sanitize_callback' => 'esc_url_raw',
+			'default' => get_template_directory_uri().'/images/telephone65-blue.png'
+		));
+		
+		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'zerif_phone_icon', array(
+			'label'    => __( 'Phone number section - icon', 'zerif-lite' ),
+			'section'  => 'zerif_general_section',
+			'priority' => 16,
+		)));
+		
+		/* phone number */	
+		$wp_customize->add_setting( 'zerif_phone', array(
+			'sanitize_callback' => 'zerif_sanitize_number',
+			'default' => '<a href="tel:0 332 548 954">0 332 548 954</a>'
+		));
+		
+		$wp_customize->add_control(new Zerif_Customize_Textarea_Control( $wp_customize, 'zerif_phone', array(
+			'label'   => __( 'Phone number', 'zerif-lite' ),
+			'section' => 'zerif_general_section',
+			'priority' => 17
+		)) );
 	
 	endif;
 	

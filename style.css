@@ -4,7 +4,7 @@ Theme URI: http://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: http://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.8.3.3
+Version: 1.8.3.4
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -919,7 +919,7 @@ a:active {
 	padding: 0;
 	margin: 0;
 	background: url(images/search_icon.png) no-repeat center center;
-	text-indent: -99999999999px;
+	text-indent: -9999999px;
 }
 .widget_search label{
 	margin-bottom: 5px;
@@ -2763,17 +2763,17 @@ width: -webkit-calc(100% / 4);
 	color: #FFF;
 }
 #client-feedbacks .feedback-box {
-	width: 30%;
-	float:left;
-	background: #FFFFFF;
-	padding: 25px;
-	margin: 13px;
-	text-align: left;
-	border-radius: 4px;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-	display: block;
-	z-index: 5;
+    width: 30%;
+    background: #FFFFFF;
+    padding: 25px;
+    margin: 13px;
+    text-align: left;
+    border-radius: 4px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    display: inline-block;
+    z-index: 5;
+    vertical-align: top;
 }
 .feedback-box .message {
 	font-size: 15px;
@@ -5608,6 +5608,48 @@ p.edd-alert-error,
     width: 100%;
     height: auto;
 }
+
+/* WP MegaMenu */
+.wr-megamenu-container .preview-text,
+.wr-megamenu-container .preview-text p {
+    font-size: 14px;
+    color: #808080;
+    font-weight: normal;
+}
+.wr-megamenu-container .block-sub-menu a {
+	color: #808080;
+	padding: 5px;
+}
+.wr-element-submenu .submenu-items a {
+    padding: 6px 5px 6px 20px !important;
+}
+.wr-megamenu-container {
+	margin-top: 12px;
+}
+.it-responsive-mega {
+	display: none !important;
+}
+.jsn-bootstrap3 .glyphicon {
+	font-size: 10px;
+	margin-right: 2px;
+}
+.wr-element-container {
+	padding: 5px 0;
+}
+.jsn-bootstrap3 .glyphicon.glyphicon-chevron-right {
+	display: none !important;
+}
+.wr-element-container ul.sub-menu li a > i, 
+.wr-element-container ul.submenu-items li a > i {
+	margin-right: 7px;
+}
+@media only screen and (max-width: 783px) {
+	.wr-mega-menu .wr-menu-down {
+	    margin: -43px 5px 0 0 !important;
+	}
+}
+
+
 
 @media (max-width: 992px) {
 	.edd_download a.edd-add-to-cart.button.red.edd-submit.edd-has-js {

@@ -29,26 +29,26 @@ jQuery(window).load(function() {
 /*** DROPDOWN FOR MOBILE MENU */
 var callback_mobile_dropdown = function () {
 
-    var navLi = jQuery('#site-navigation li');
-
-    navLi.each(function(){
-        if ( jQuery(this).find('ul').length > 0 && !jQuery(this).hasClass('has_children') ){
-            jQuery(this).addClass('has_children');
-            jQuery(this).find('a').first().after('<p class="dropdownmenu"></p>');
-        }
-    });
-    jQuery('.dropdownmenu').click(function(){
-        if( jQuery(this).parent('li').hasClass('this-open') ){
-            jQuery(this).parent('li').removeClass('this-open');
-        }else{
-            jQuery(this).parent('li').addClass('this-open');
-        }
-    });
-
-    navLi.find('a').click(function(){
-        jQuery('.navbar-toggle').addClass('collapsed');
-        jQuery('.collapse').removeClass('in');
-    });
+    if( jQuery( '.wr-megamenu-container' ).length <= 0 ) {
+        var navLi = jQuery('#site-navigation li');
+        navLi.each(function(){
+            if ( jQuery(this).find('ul').length > 0 && !jQuery(this).hasClass('has_children') ){
+                jQuery(this).addClass('has_children');
+                jQuery(this).find('a').first().after('<p class="dropdownmenu"></p>');
+            }
+        });
+        jQuery('.dropdownmenu').click(function(){
+            if( jQuery(this).parent('li').hasClass('this-open') ){
+                jQuery(this).parent('li').removeClass('this-open');
+            }else{
+                jQuery(this).parent('li').addClass('this-open');
+            }
+        });
+        navLi.find('a').click(function(){
+            jQuery('.navbar-toggle').addClass('collapsed');
+            jQuery('.collapse').removeClass('in');
+        });
+    }
 
 };
 jQuery(document).ready(callback_mobile_dropdown);
@@ -161,7 +161,7 @@ jQuery(document).ready(function() {
  =================================== */
 
 jQuery(document).ready(function(){
-    jQuery('#site-navigation a[href*=#]:not([href=#]), header.header a[href*=#]:not([href=#])').bind('click',function () {
+    jQuery('#site-navigation a[href*="#"]:not([href="#"]), header.header a[href*="#"]:not([href="#"])').bind('click',function () {
         var headerHeight;
         var hash    = this.hash;
         var idName  = hash.substring(1);    // get id name
@@ -185,7 +185,7 @@ jQuery(document).ready(function(){
                 jQuery('html,body').animate({
                     scrollTop: target.offset().top - headerHeight + 10
                 }, 1200);
-                return false;
+                return false; 
             }
         }
     });
