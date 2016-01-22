@@ -1,5 +1,18 @@
 
 
+### 1.8.3.4 - 22/01/2016
+
+ Changes: 
+
+
+ * Fixed #276 WP MegaMenu compatible
+ * Fixed #286 Center testimonial setion
+ * Fixed #277 Small issue with search submit in chrome mobile
+ * Fixed #291 Footer messed up when one option is missing
+ * Fixed #289 Syntax error in smooth scroll function
+ * Fixed #287, more tag in latest news section and blog
+
+
 ### 1.8.3.3 - 14/01/2016
 
  Changes: 
