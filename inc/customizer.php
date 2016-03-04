@@ -2037,3 +2037,38 @@ function zerif_registers() {
 	) );
 }
 add_action( 'customize_controls_enqueue_scripts', 'zerif_registers' );
+
+/* ajax callback for dismissable Asking for reviews */
+add_action( 'wp_ajax_zerif_lite_dismiss_asking_for_reviews','zerif_lite_dismiss_asking_for_reviews_callback' );
+add_action( 'wp_ajax_nopriv_zerif_lite_dismiss_asking_for_reviews','zerif_lite_dismiss_asking_for_reviews_callback' );
+
+/**
+ * Dismiss asking for reviews
+ */
+function zerif_lite_dismiss_asking_for_reviews_callback() {
+	
+	if( !empty($_POST['ask']) ) {
+		set_theme_mod('zerif_lite_ask_for_review',esc_attr($_POST['ask']));
+	}
+
+	die();
+}
+
+add_action( 'customize_controls_enqueue_scripts', 'zerif_lite_asking_for_reviews_script' );
+
+function zerif_lite_asking_for_reviews_script() {
+	
+	$zerif_lite_review = 'yes';
+	
+	$zerif_lite_ask_for_review = get_theme_mod('zerif_lite_ask_for_review');
+	if( !empty($zerif_lite_ask_for_review) ) {
+		$zerif_lite_review = $zerif_lite_ask_for_review;
+	}
+
+	wp_enqueue_script( 'zerif-lite-asking-for-reviews-js', get_template_directory_uri() . '/js/zerif_reviews.js', array('jquery') );
+
+	wp_localize_script( 'zerif-lite-asking-for-reviews-js', 'zerifLiteAskingForReviewsObject', array(
+		'ask' => $zerif_lite_review,
+		'ajaxurl' => admin_url( 'admin-ajax.php' ),
+	) );
+}

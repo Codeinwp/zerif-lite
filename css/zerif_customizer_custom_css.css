@@ -57,3 +57,18 @@
 	margin-top: 4px;
 	z-index: 999;
 }
+
+.customizer-review-link {
+	padding-top: 10px;
+	text-align: center;
+}
+
+.customizer-review-link p {
+	font-size: 12px;
+	margin-bottom: 0;
+}
+
+.customizer-review-link span {
+	font-size: 12px;
+	width: 12px;
+}
