@@ -1,5 +1,5 @@
 jQuery(document).ready(function() {
-	
+
 	/* If there are required actions, add an icon with the number of required actions in the About Zerif page -> Actions required tab */
     var zerif_nr_actions_required = zerifLiteWelcomeScreenObject.nr_actions_required;
 
@@ -40,7 +40,7 @@ jQuery(document).ready(function() {
             }
         });
     });
-	
+
 	/* Tabs in welcome page */
 	function zerif_welcome_page_tabs(event) {
 		jQuery(event).parent().addClass("active");
@@ -49,16 +49,25 @@ jQuery(document).ready(function() {
         jQuery(".zerif-lite-tab-pane").not(tab).css("display", "none");
         jQuery(tab).fadeIn();
 	}
-	
+
 	var zerif_actions_anchor = location.hash;
-	
+
 	if( (typeof zerif_actions_anchor !== 'undefined') && (zerif_actions_anchor != '') ) {
 		zerif_welcome_page_tabs('a[href="'+ zerif_actions_anchor +'"]');
 	}
-	
+
     jQuery(".zerif-lite-nav-tabs a").click(function(event) {
         event.preventDefault();
 		zerif_welcome_page_tabs(this);
     });
+
+		/* Tab Content height matches admin menu height for scrolling purpouses */
+	 $tab = jQuery('.zerif-lite-tab-content > div');
+	 $admin_menu_height = jQuery('#adminmenu').height();
+	 if( (typeof $tab !== 'undefined') && (typeof $admin_menu_height !== 'undefined') )
+	 {
+		 $newheight = $admin_menu_height - 180;
+		 $tab.css('min-height',$newheight);
+	 }
 
 });

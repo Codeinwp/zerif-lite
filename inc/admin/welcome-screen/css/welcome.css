@@ -199,3 +199,61 @@
 .zerif-dismiss-required-action:hover {
     background-color: #CC8C8C;
 }
+
+#github {
+  text-align: center;
+}
+
+#github .zerif-tab-pane-half {
+  min-height: 160px;
+}
+
+#github .translate-button, #github .github-button {
+  margin-top: 20px;
+}
+
+#github .dashicons {
+  color: #0073aa;
+  font-size: 12px;
+  width: auto;
+}
+
+#github h4 {
+  margin:10px;;
+}
+
+#github p.review-link {
+  margin:0;
+}
+
+#github .zerif-tab-pane-half hr {
+  display: none;
+}
+
+/*Breakpoints*/
+
+@media (max-width: 1200px) {
+  .zerif-lite-tab-content {
+    width: 98%;
+  }
+  .zerif-tab-pane-half {
+    width: 43%;
+  }
+}
+@media (max-width: 782px) {
+  #github .zerif-tab-pane-half hr {
+    display:block;
+  }
+
+  .zerif-tab-pane-half {
+    width: auto;
+    float: none;
+    border-left: none;
+  }
+  .zerif-welcome-title, .zerif-lite-tab-content h1 {
+    line-height: 30px;
+  }
+  .zerif-lite-fre-pro table td {
+    padding: 30px 10px;
+  }
+}
