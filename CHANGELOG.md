@@ -1,5 +1,20 @@
 
 
+### 1.8.3.6 - 09/03/2016
+
+ Changes: 
+
+
+ * Added hooks to the theme, using plugin API.
+ * Merge pull request #299 from HardeepAsrani/development
+
+Added hooks to the theme, using plugin API.
+ * #293 New template for a fullwidth page with no title
+ * Merge pull request #309 from abaicus/development
+
+!!!Restyled Contribute tab and fixed responsive and scroll issues.
+
+
 ### 1.8.3.4 - 22/01/2016
 
  Changes: 
