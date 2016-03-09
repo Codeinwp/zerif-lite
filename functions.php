@@ -68,6 +68,9 @@ function zerif_setup() {
 	/* Customizer additions. */
 	require get_template_directory() . '/inc/customizer.php';
 
+	/* Enables user customization via WordPress plugin API. */
+	require get_template_directory() . '/inc/hooks.php';
+
 	/* tgm-plugin-activation */
     require_once get_template_directory() . '/class-tgm-plugin-activation.php';
 

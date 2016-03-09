@@ -44,14 +44,12 @@ $customizer_url = admin_url() . 'customize.php' ;
 		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/14-how-to-create-a-child-theme/' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr />
-
-		<h4><?php esc_html_e( 'Slider in big title section', 'zerif-lite' ); ?></h4>
-		<p><?php esc_html_e( 'If you are in the position where you want to change the default appearance of the big title section, you may want to replace it with a nice looking slider. This can be accomplished by following the documention below.', 'zerif-lite' ); ?></p>
-		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/13-replacing-big-title-section-with-an-image-slider/' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+		
+		<h4><?php esc_html_e( 'Build a landing page with a drag-and-drop content builder', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'In the below documentation you will find an easy way to build a great looking landing page using a drag-and-drop content builder plugin.', 'zerif-lite' ); ?></p>
+		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/219-how-to-build-a-landing-page-with-a-drag-and-drop-content-builder' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr />
-		
-		
 		
 		<h4><?php esc_html_e( 'Translate Zerif Lite', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'In the below documentation you will find an easy way to translate Zerif Lite into your native language or any other language you need for you site.', 'zerif-lite' ); ?></p>
@@ -70,16 +68,16 @@ $customizer_url = admin_url() . 'customize.php' ;
 		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/15-turn-off-loading-animations-in-zerif/' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr />
-
-		<h4><?php esc_html_e( 'Replace the skills section with an image', 'zerif-lite' ); ?></h4>
-		<p><?php esc_html_e( 'If you feel the default About us section is not exactly what you need, you can maybe try change it with an image.', 'zerif-lite' ); ?></p>
-		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/60-replacing-skills-section-with-an-image-in-zerif' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
-		
-		<hr />
 		
 		<h4><?php esc_html_e( 'Add a search bar in the top menu', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'Find out how to add a search bar in the top menu bar, in an easy way be following the link below.', 'zerif-lite' ); ?></p>
 		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/78-zerif-adding-a-search-bar-in-the-top-menu' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
+		
+		<hr />
+		
+		<h4><?php esc_html_e( 'Slider in big title section', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'If you are in the position where you want to change the default appearance of the big title section, you may want to replace it with a nice looking slider. This can be accomplished by following the documention below.', 'zerif-lite' ); ?></p>
+		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/13-replacing-big-title-section-with-an-image-slider/' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 	</div>
 
@@ -146,6 +144,27 @@ $customizer_url = admin_url() . 'customize.php' ;
 	</div>
 
 	<div class="zerif-tab-pane-half zerif-tab-pane-first-half">
+	
+		<!-- Page Builder by SiteOrigin -->
+		<h4><?php esc_html_e( 'Page Builder by SiteOrigin', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'Build responsive page layouts using the widgets you know and love using this simple drag and drop page builder.', 'zerif-lite' ); ?></p>
+
+		<?php if ( is_plugin_active( 'siteorigin-panels/siteorigin-panels.php' ) ) { ?>
+
+				<p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p>
+
+			<?php
+		}
+		else { ?>
+
+				<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=siteorigin-panels' ), 'install-plugin_siteorigin-panels' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install Page Builder by SiteOrigin', 'zerif-lite' ); ?></a></p>
+
+			<?php
+		}
+
+		?>
+
+		<hr />
 
 		<!-- WP Product Review -->
 		<h4><?php esc_html_e( 'WP Product Review', 'zerif-lite' ); ?></h4>
@@ -186,6 +205,49 @@ $customizer_url = admin_url() . 'customize.php' ;
 		}
 		?>
 		
+
+	</div>
+
+	<div class="zerif-tab-pane-half">
+
+		<!-- Visualizer: Charts and Graphs -->
+		<h4><?php esc_html_e( 'Visualizer: Charts and Graphs', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'A simple, easy to use and quite powerful chart tool to create, manage and embed interactive charts into your WordPress posts and pages.', 'zerif-lite' ); ?></p>
+
+		<?php if ( class_exists( 'Visualizer_Plugin' ) ) { ?>
+
+			<p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p>
+
+			<?php
+		}
+		else { ?>
+
+			<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=visualizer' ), 'install-plugin_visualizer' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install Visualizer', 'zerif-lite' ); ?></a></p>
+
+			<?php
+		}
+		?>
+		
+		<hr />
+		
+		<!-- ECPT -->
+		<h4><?php esc_html_e( 'Easy Content Types', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'Custom Post Types, Taxonomies and Metaboxes in Minutes', 'zerif-lite' ); ?></p>
+
+		<?php if ( is_plugin_active( 'easy-content-types/easy-content-types.php' ) ) { ?>
+
+				<p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p>
+
+			<?php
+		}
+		else { ?>
+
+				<p><a href="<?php echo esc_url( 'http://themeisle.com/plugins/easy-content-types/' ); ?>" class="button button-primary"><?php esc_html_e( 'Download Easy Content Types', 'zerif-lite' ); ?></a></p>
+
+			<?php
+		}
+		?>
+		
 		<hr />
 		
 		<!-- Revive Old Post -->
@@ -205,49 +267,6 @@ $customizer_url = admin_url() . 'customize.php' ;
 			<?php
 		}
 		?>
-
-	</div>
-
-	<div class="zerif-tab-pane-half">
-
-		<!-- ShortPixel Image Optimizer -->
-		<h4><?php esc_html_e( 'ShortPixel Image Optimizer', 'zerif-lite' ); ?></h4>
-		<p><?php esc_html_e( 'Fast, easy-to-use and lightweight plugin that optimizes images & PDFs. Preserve a high visual quality of images and make your website load faster!', 'zerif-lite' ); ?></p>
-
-		<?php if ( is_plugin_active( 'shortpixel-image-optimiser/wp-shortpixel.php' ) ) { ?>
-
-				<p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p>
-
-			<?php
-		}
-		else { ?>
-
-			<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=shortpixel-image-optimiser' ), 'install-plugin_shortpixel-image-optimiser' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install ShortPixel Image Optimizer', 'zerif-lite' ); ?></a></p>
-
-			<?php
-		}
-		?>
-
-		<hr />
-
-		<!-- Visualizer: Charts and Graphs -->
-		<h4><?php esc_html_e( 'Visualizer: Charts and Graphs', 'zerif-lite' ); ?></h4>
-		<p><?php esc_html_e( 'A simple, easy to use and quite powerful chart tool to create, manage and embed interactive charts into your WordPress posts and pages.', 'zerif-lite' ); ?></p>
-
-		<?php if ( class_exists( 'Visualizer_Plugin' ) ) { ?>
-
-			<p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p>
-
-			<?php
-		}
-		else { ?>
-
-			<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=visualizer' ), 'install-plugin_visualizer' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install Visualizer', 'zerif-lite' ); ?></a></p>
-
-			<?php
-		}
-		?>
-
 	</div>
 
 	<div class="zerif-lite-clear"></div>
