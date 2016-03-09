@@ -205,6 +205,49 @@ $customizer_url = admin_url() . 'customize.php' ;
 		}
 		?>
 		
+
+	</div>
+
+	<div class="zerif-tab-pane-half">
+
+		<!-- Visualizer: Charts and Graphs -->
+		<h4><?php esc_html_e( 'Visualizer: Charts and Graphs', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'A simple, easy to use and quite powerful chart tool to create, manage and embed interactive charts into your WordPress posts and pages.', 'zerif-lite' ); ?></p>
+
+		<?php if ( class_exists( 'Visualizer_Plugin' ) ) { ?>
+
+			<p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p>
+
+			<?php
+		}
+		else { ?>
+
+			<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=visualizer' ), 'install-plugin_visualizer' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install Visualizer', 'zerif-lite' ); ?></a></p>
+
+			<?php
+		}
+		?>
+		
+		<hr />
+		
+		<!-- ECPT -->
+		<h4><?php esc_html_e( 'Easy Content Types', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'Custom Post Types, Taxonomies and Metaboxes in Minutes', 'zerif-lite' ); ?></p>
+
+		<?php if ( is_plugin_active( 'easy-content-types/easy-content-types.php' ) ) { ?>
+
+				<p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p>
+
+			<?php
+		}
+		else { ?>
+
+				<p><a href="<?php echo esc_url( 'http://themeisle.com/plugins/easy-content-types/' ); ?>" class="button button-primary"><?php esc_html_e( 'Download Easy Content Types', 'zerif-lite' ); ?></a></p>
+
+			<?php
+		}
+		?>
+		
 		<hr />
 		
 		<!-- Revive Old Post -->
@@ -224,49 +267,6 @@ $customizer_url = admin_url() . 'customize.php' ;
 			<?php
 		}
 		?>
-
-	</div>
-
-	<div class="zerif-tab-pane-half">
-
-		<!-- ShortPixel Image Optimizer -->
-		<h4><?php esc_html_e( 'ShortPixel Image Optimizer', 'zerif-lite' ); ?></h4>
-		<p><?php esc_html_e( 'Fast, easy-to-use and lightweight plugin that optimizes images & PDFs. Preserve a high visual quality of images and make your website load faster!', 'zerif-lite' ); ?></p>
-
-		<?php if ( is_plugin_active( 'shortpixel-image-optimiser/wp-shortpixel.php' ) ) { ?>
-
-				<p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p>
-
-			<?php
-		}
-		else { ?>
-
-			<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=shortpixel-image-optimiser' ), 'install-plugin_shortpixel-image-optimiser' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install ShortPixel Image Optimizer', 'zerif-lite' ); ?></a></p>
-
-			<?php
-		}
-		?>
-
-		<hr />
-
-		<!-- Visualizer: Charts and Graphs -->
-		<h4><?php esc_html_e( 'Visualizer: Charts and Graphs', 'zerif-lite' ); ?></h4>
-		<p><?php esc_html_e( 'A simple, easy to use and quite powerful chart tool to create, manage and embed interactive charts into your WordPress posts and pages.', 'zerif-lite' ); ?></p>
-
-		<?php if ( class_exists( 'Visualizer_Plugin' ) ) { ?>
-
-			<p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p>
-
-			<?php
-		}
-		else { ?>
-
-			<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=visualizer' ), 'install-plugin_visualizer' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install Visualizer', 'zerif-lite' ); ?></a></p>
-
-			<?php
-		}
-		?>
-
 	</div>
 
 	<div class="zerif-lite-clear"></div>
