@@ -2093,7 +2093,7 @@ width: -webkit-calc(100% / 4);
 }
 .pirate_forms .pirate-forms-submit-button {
 	float: right;
-	margin-right: 15px;
+	margin-right: 0px;
 	color: #FFF !important;
 	-webkit-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
