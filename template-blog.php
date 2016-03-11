@@ -15,7 +15,7 @@ get_header(); ?>
 
 			<div id="primary" class="content-area">
 
-				<main id="main" class="site-main" role="main">
+				<main id="main" class="site-main" role="main" itemscope itemtype="http://schema.org/Blog">
 					<?php
 					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
 					$wp_query = new WP_Query( array('post_type' => 'post', 'showposts' => '8', 'paged' => $paged) );

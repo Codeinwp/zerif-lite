@@ -13,7 +13,7 @@ get_header(); ?>
 	<div class="container">
 		<div class="content-left-wrap col-md-9">
 			<div id="primary" class="content-area">
-				<main id="main" class="site-main" role="main">
+				<main itemscope itemtype="http://schema.org/WebPageElement" itemprop="mainContentOfPage" id="main" class="site-main" role="main">
 				<?php while ( have_posts() ) : the_post(); 
 						
 						 get_template_part( 'content', 'single' );

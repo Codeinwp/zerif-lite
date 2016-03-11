@@ -1,4 +1,4 @@
-<article class="large-container" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<article class="large-container" id="post-<?php the_ID(); ?>" <?php post_class(); ?> itemtype="http://schema.org/BlogPosting" itemtype="http://schema.org/BlogPosting">
 
 	<?php if ( ! is_search() ) : ?>
 
