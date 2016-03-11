@@ -2062,7 +2062,6 @@ width: -webkit-calc(100% / 4);
 	margin-right: 15px;
 }
 .pirate-forms-g-recaptcha {
-	margin-left: 15px;
 	display: none;
 }
 .pirate_forms .notification p {
@@ -5976,6 +5975,17 @@ body.custom-background {
         float: left;
         width: 100%;
     }
+    .pirate-forms-g-recaptcha > div {
+    	display: inline-block;
+	}
+	.pirate_forms .pirate-forms-submit-button {
+		float: none;
+		display: inline-block;
+		text-align: center;
+	}
+	.contact_submit_wrap {
+		text-align: center;
+	}
 
       /* ABOUT US */
 	.big-intro {
