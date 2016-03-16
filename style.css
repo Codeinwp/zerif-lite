@@ -4,7 +4,7 @@ Theme URI: http://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: http://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.8.3.6
+Version: 1.8.3.7
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -2062,7 +2062,6 @@ width: -webkit-calc(100% / 4);
 	margin-right: 15px;
 }
 .pirate-forms-g-recaptcha {
-	margin-left: 15px;
 	display: none;
 }
 .pirate_forms .notification p {
@@ -2093,7 +2092,7 @@ width: -webkit-calc(100% / 4);
 }
 .pirate_forms .pirate-forms-submit-button {
 	float: right;
-	margin-right: 15px;
+	margin-right: 0px;
 	color: #FFF !important;
 	-webkit-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
@@ -2932,6 +2931,10 @@ width: -webkit-calc(100% / 4);
 .contact-us .success p {
 	background: #34d293;
 }
+.contact_submit_wrap {
+	float: right;
+}
+
 
 /*---------------------------------------
  **   Footer           -----
@@ -5976,6 +5979,17 @@ body.custom-background {
         float: left;
         width: 100%;
     }
+    .pirate-forms-g-recaptcha > div {
+    	display: inline-block;
+	}
+	.pirate_forms .pirate-forms-submit-button {
+		float: none;
+		display: inline-block;
+		text-align: center;
+	}
+	.contact_submit_wrap {
+		text-align: center;
+	}
 
       /* ABOUT US */
 	.big-intro {
