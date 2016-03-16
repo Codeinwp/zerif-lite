@@ -1,5 +1,18 @@
 
 
+### 1.8.3.7 - 16/03/2016
+
+ Changes: 
+
+
+ * Merge pull request #311 from abaicus/development
+
+!!!Changed CSS selector to more specific ones. Edits added to #309.
+ * Fixed layout issue with pirate forms #313
+ * Fixed google webmaster structure data #187
+ * Fixed small issue with Pirate Forms plugin
+
+
 ### 1.8.3.6 - 09/03/2016
 
  Changes: 
