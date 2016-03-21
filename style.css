@@ -4581,27 +4581,6 @@ article .posted-on a:hover{
 		width: 100%;
 	}
 	/* cart page */
-	.woocommerce table.shop_table th {
-		padding: 5px 5px;
-		font-size: 8px;
-	}
-	.woocommerce-page .woocommerce .product-name a {
-		font-size: 12px;
-		line-height: 16px;
-		float: left;
-	}
-	.woocommerce table.shop_table td {
-		padding: 6px 4px;
-	}
-	.woocommerce table.shop_table td,
-	.woocommerce table.shop_table td span,
-	.woocommerce table.shop_table td a,
-	.woocommerce table.shop_table td strong {
-		font-size: 12px;
-	}
-	.woocommerce table.shop_table td .amount {
-		font-size: 12px;
-	}
 	.woocommerce-page .woocommerce .product-quantity input.qty {
 		width: 45px;
 	}
