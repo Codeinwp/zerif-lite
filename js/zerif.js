@@ -784,23 +784,25 @@ jQuery( document ).ready( function() {
         itemWrap = $container.find( 'ul' )[0];
       }
       var windowsWidth = window.innerWidth;
-      var itemId = '#' + itemWrap.id;
-      $( itemId ).children( 'li' ).each( function() {
-        if ( this.id == '' ) { return; }
-        var max_deep = self.max_deep( '#'+this.id );
-        var offsetLeft        = $( "#"+this.id ).offset().left;
-        var submenuWidthItem  = $( "#"+this.id ).find( 'ul' ).width();
-        var submenuTotalWidth = max_deep * submenuWidthItem;
-        if( submenuTotalWidth > 0 && windowsWidth < offsetLeft + submenuTotalWidth ) {
-          if( self.options.allItems === true ) {
-            $( '#'+itemWrap.id ).addClass( 'menu-item-open-left-all' );
-            return false;
-          }
-          $( '#'+this.id ).addClass( 'menu-item-open-left' );
-        } else if( $( '#'+this.id ).hasClass( 'menu-item-open-left' ) ) {
-          $( '#'+this.id ).removeClass( 'menu-item-open-left' );
-        }
-      } );
+	  if( typeof itemWrap != 'undefined' ) {
+		  var itemId = '#' + itemWrap.id;
+		  $( itemId ).children( 'li' ).each( function() {
+			if ( this.id == '' ) { return; }
+			var max_deep = self.max_deep( '#'+this.id );
+			var offsetLeft        = $( "#"+this.id ).offset().left;
+			var submenuWidthItem  = $( "#"+this.id ).find( 'ul' ).width();
+			var submenuTotalWidth = max_deep * submenuWidthItem;
+			if( submenuTotalWidth > 0 && windowsWidth < offsetLeft + submenuTotalWidth ) {
+			  if( self.options.allItems === true ) {
+				$( '#'+itemWrap.id ).addClass( 'menu-item-open-left-all' );
+				return false;
+			  }
+			  $( '#'+this.id ).addClass( 'menu-item-open-left' );
+			} else if( $( '#'+this.id ).hasClass( 'menu-item-open-left' ) ) {
+			  $( '#'+this.id ).removeClass( 'menu-item-open-left' );
+			}
+		  } );
+	  }
     };
     ZerifSubmenuOrientation.prototype.max_deep = function ( item ) {
       var maxDepth      = -1, 
