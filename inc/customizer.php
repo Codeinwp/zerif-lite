@@ -157,6 +157,16 @@ function zerif_customize_register( $wp_customize ) {
 			'priority'    => 3,
 		));
 		
+		/* Change the template to full width for page.php */
+        $wp_customize->add_setting( 'zerif_change_to_full_width' );
+ 
+        $wp_customize->add_control( 'zerif_change_to_full_width', array(
+             'type' 		=> 'checkbox',
+             'label' 	=> __( 'Change the template to Full width for all the pages?','zerif' ),
+             'section' 	=> 'zerif_general_section',
+             'priority'	=> 4
+         ) );
+		
 		$wp_customize->add_section( 'zerif_general_socials_section' , array(
 			'title' => __( 'Footer Social Icons', 'zerif-lite' ),
 			'priority' => 31,
