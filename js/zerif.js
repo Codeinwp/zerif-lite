@@ -217,7 +217,7 @@ function zerif_lite_scrolled() {
         var isInOneSection = 'no';                              // used for checking if the cursor is in one section or not
 
         // for all sections check if the cursor is inside a section
-        jQuery("section").each( function() {
+        jQuery("section, header").each( function() {
             var thisID = '#' + jQuery(this).attr('id');           // section id
             var zerif_offset = jQuery(this).offset().top;         // distance between top and our section
             var thisHeight  = jQuery(this).outerHeight();         // section height
