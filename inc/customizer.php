@@ -167,6 +167,15 @@ function zerif_customize_register( $wp_customize ) {
              'priority'	=> 4
          ) );
 		
+        $wp_customize->add_setting( 'zerif_use_safe_font' );
+ 
+        $wp_customize->add_control( 'zerif_use_safe_font', array(
+             'type' 		=> 'checkbox',
+             'label' 	=> __( 'Use safe font?','zerif' ),
+             'section' 	=> 'zerif_general_section',
+             'priority'	=> 5
+         ) );
+
 		$wp_customize->add_section( 'zerif_general_socials_section' , array(
 			'title' => __( 'Footer Social Icons', 'zerif-lite' ),
 			'priority' => 31,

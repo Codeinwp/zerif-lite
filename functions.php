@@ -177,9 +177,12 @@ function zerif_slug_fonts_url() {
     * into your own language.
     */
     $monserrat = _x( 'on', 'Monserrat font: on or off', 'zerif-lite' );
-     if ( 'off' !== $lato || 'off' !== $monserrat|| 'off' !== $homemade ) {
+
+    $zerif_use_safe_font = get_theme_mod('zerif_use_safe_font');
+    
+    if ( ( 'off' !== $lato || 'off' !== $monserrat || 'off' !== $homemade ) && isset($zerif_use_safe_font) && ($zerif_use_safe_font != 1) ) {
         $font_families = array();
-         
+
         if ( 'off' !== $lato ) {
             $font_families[] = 'Lato:300,400,700,400italic';
         }
