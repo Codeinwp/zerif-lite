@@ -4453,6 +4453,11 @@ article .posted-on a:hover{
 .woocommerce div.product form.cart label {
 	color: #404040;
 }
+.woocommerce p.stars a:before, 
+.woocommerce p.stars a:hover~a:before {
+	content: "";
+	display: none;
+}
 
 @media (max-width: 1200px) {
 	
