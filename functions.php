@@ -899,7 +899,7 @@ class zerif_clients_widget extends WP_Widget{
 				} elseif( !empty($instance['custom_media_id']) ) {
 			
 					$zerif_clients_custom_media_id = wp_get_attachment_image_src($instance["custom_media_id"] );
-					if( !empty(zerif_clients_custom_media_id) && !empty($zerif_clients_custom_media_id[0]) ) {
+					if( !empty($zerif_clients_custom_media_id) && !empty($zerif_clients_custom_media_id[0]) ) {
 						
 						echo '<img src="'.esc_url($zerif_clients_custom_media_id[0]).'" alt="'.__( 'Client', 'zerif-lite' ).'">';
 				
