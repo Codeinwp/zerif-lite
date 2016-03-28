@@ -769,14 +769,27 @@ class zerif_testimonial_widget extends WP_Widget {
 
                 <?php
 				
-				if( !empty($instance['image_uri']) ):
+				if( !empty($instance['image_uri']) && ($instance['image_uri'] != 'Upload Image') ) {
 
 					echo '<div class="client-image hidden-xs">';
 
-					echo '<img src="' . esc_url($instance['image_uri']) . '" alt="'.__( 'Uploaded image', 'zerif-lite' ).'" />';
+						echo '<img src="' . esc_url($instance['image_uri']) . '" alt="'.__( 'Uploaded image', 'zerif-lite' ).'" />';
 
 					echo '</div>';
-				endif;	
+					
+				} elseif( !empty($instance['custom_media_id']) ) {
+			
+					$zerif_testimonials_custom_media_id = wp_get_attachment_image_src($instance["custom_media_id"] );
+					if( !empty($zerif_testimonials_custom_media_id) && !empty($zerif_testimonials_custom_media_id[0]) ) {
+						
+						echo '<div class="client-image hidden-xs">';
+
+							echo '<img src="' . esc_url($zerif_testimonials_custom_media_id[0]) . '" alt="'.__( 'Uploaded image', 'zerif-lite' ).'" />';
+
+						echo '</div>';
+				
+					}
+				} 
 
                 ?>
 
@@ -797,6 +810,7 @@ class zerif_testimonial_widget extends WP_Widget {
         $instance['details'] = strip_tags($new_instance['details']);
         $instance['image_uri'] = strip_tags($new_instance['image_uri']);
 		$instance['link'] = strip_tags( $new_instance['link'] );
+		$instance['custom_media_id'] = strip_tags($new_instance['custom_media_id']);
 
         return $instance;
 
@@ -834,6 +848,8 @@ class zerif_testimonial_widget extends WP_Widget {
             <input type="text" class="widefat custom_media_url_testimonial" name="<?php echo $this->get_field_name('image_uri'); ?>" id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php if( !empty($instance['image_uri']) ): echo $instance['image_uri']; endif; ?>" style="margin-top:5px;">
             <input type="button" class="button button-primary custom_media_button_testimonial" id="custom_media_button_testimonial" name="<?php echo $this->get_field_name('image_uri'); ?>" value="<?php _e('Upload Image','zerif-lite'); ?>" style="margin-top:5px;">
         </p>
+		
+		<input class="custom_media_id" id="<?php echo $this->get_field_id( 'custom_media_id' ); ?>" name="<?php echo $this->get_field_name( 'custom_media_id' ); ?>" type="hidden" value="<?php if( !empty($instance["custom_media_id"]) ): echo $instance["custom_media_id"]; endif; ?>" />
 
     <?php
 
@@ -843,7 +859,7 @@ class zerif_testimonial_widget extends WP_Widget {
 
 /****************************/
 
-/****** clients widget **/
+/****** clients widget ******/
 
 /***************************/
 
@@ -874,7 +890,23 @@ class zerif_clients_widget extends WP_Widget{
 
         ?>
 
-        <a href="<?php if( !empty($instance['link']) ): echo apply_filters('widget_title', $instance['link']); endif; ?>"><img src="<?php if( !empty($instance['image_uri']) ): echo esc_url($instance['image_uri']); endif; ?>" alt="<?php _e( 'Client', 'zerif-lite' ); ?>"></a>
+        <a href="<?php if( !empty($instance['link']) ): echo apply_filters('widget_title', $instance['link']); endif; ?>">
+			<?php 
+				if( && ($instance['image_uri'] != 'Upload Image') ) {
+					
+					echo '<img src="'.esc_url($instance['image_uri']).'" alt="'.__( 'Client', 'zerif-lite' ).'">';
+					
+				} elseif( !empty($instance['custom_media_id']) ) {
+			
+					$zerif_clients_custom_media_id = wp_get_attachment_image_src($instance["custom_media_id"] );
+					if( !empty(zerif_clients_custom_media_id) && !empty($zerif_clients_custom_media_id[0]) ) {
+						
+						echo '<img src="'.esc_url($zerif_clients_custom_media_id[0]).'" alt="'.__( 'Client', 'zerif-lite' ).'">';
+				
+					}
+				} 
+			?>		
+		</a>
 
         <?php
 
@@ -889,6 +921,8 @@ class zerif_clients_widget extends WP_Widget{
         $instance['link'] = strip_tags($new_instance['link']);
 
         $instance['image_uri'] = strip_tags($new_instance['image_uri']);
+		
+		$instance['custom_media_id'] = strip_tags($new_instance['custom_media_id']);
 
         return $instance;
 
@@ -914,6 +948,7 @@ class zerif_clients_widget extends WP_Widget{
             <input type="button" class="button button-primary custom_media_button_clients" id="custom_media_button_clients" name="<?php echo $this->get_field_name('image_uri'); ?>" value="<?php _e('Upload Image','zerif-lite'); ?>" style="margin-top:5px;">
         </p>
 
+		<input class="custom_media_id" id="<?php echo $this->get_field_id( 'custom_media_id' ); ?>" name="<?php echo $this->get_field_name( 'custom_media_id' ); ?>" type="hidden" value="<?php if( !empty($instance["custom_media_id"]) ): echo $instance["custom_media_id"]; endif; ?>" />
     <?php
 
     }
