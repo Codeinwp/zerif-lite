@@ -892,7 +892,7 @@ class zerif_clients_widget extends WP_Widget{
 
         <a href="<?php if( !empty($instance['link']) ): echo apply_filters('widget_title', $instance['link']); endif; ?>">
 			<?php 
-				if( && ($instance['image_uri'] != 'Upload Image') ) {
+				if( !empty($instance['image_uri']) && ($instance['image_uri'] != 'Upload Image') ) {
 					
 					echo '<img src="'.esc_url($instance['image_uri']).'" alt="'.__( 'Client', 'zerif-lite' ).'">';
 					
