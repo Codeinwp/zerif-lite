@@ -955,15 +955,30 @@ class zerif_team_widget extends WP_Widget{
 
             <div class="team-member">
 
-				<?php if( !empty($instance['image_uri']) ): ?>
+				<?php if( !empty($instance['image_uri']) && ($instance['image_uri'] != 'Upload Image') ) { ?>
 				
 					<figure class="profile-pic">
 
 						<img src="<?php echo esc_url($instance['image_uri']); ?>" alt="<?php _e( 'Uploaded image', 'zerif-lite' ); ?>" />
 
 					</figure>
-				
-				<?php endif; ?>
+				<?php
+					} elseif( !empty($instance['custom_media_id']) ) {
+			
+						$zerif_team_custom_media_id = wp_get_attachment_image_src($instance["custom_media_id"] );
+						if( !empty($zerif_team_custom_media_id) && !empty($zerif_team_custom_media_id[0]) ) {
+							?>
+
+								<figure class="profile-pic">
+
+									<img src="<?php echo esc_url($zerif_team_custom_media_id[0]); ?>" alt="<?php _e( 'Uploaded image', 'zerif-lite' ); ?>" />
+
+								</figure>
+					
+							<?php
+						}
+					} 
+				?>
 
                 <div class="member-details">
 
@@ -1052,6 +1067,7 @@ class zerif_team_widget extends WP_Widget{
 		$instance['ln_link'] = strip_tags($new_instance['ln_link']);
         $instance['image_uri'] = strip_tags($new_instance['image_uri']);
         $instance['open_new_window'] = strip_tags($new_instance['open_new_window']);
+		$instance['custom_media_id'] = strip_tags($new_instance['custom_media_id']);
 
         return $instance;
 
@@ -1117,6 +1133,8 @@ class zerif_team_widget extends WP_Widget{
             <input type="text" class="widefat custom_media_url_team" name="<?php echo $this->get_field_name('image_uri'); ?>" id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php if( !empty($instance['image_uri']) ): echo $instance['image_uri']; endif; ?>" style="margin-top:5px;">
             <input type="button" class="button button-primary custom_media_button_team" id="custom_media_button_clients" name="<?php echo $this->get_field_name('image_uri'); ?>" value="<?php _e('Upload Image','zerif-lite'); ?>" style="margin-top:5px;">
         </p>
+		
+		<input class="custom_media_id" id="<?php echo $this->get_field_id( 'custom_media_id' ); ?>" name="<?php echo $this->get_field_name( 'custom_media_id' ); ?>" type="hidden" value="<?php if( !empty($instance["custom_media_id"]) ): echo $instance["custom_media_id"]; endif; ?>" />
 
     <?php
 
