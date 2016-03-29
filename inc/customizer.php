@@ -96,14 +96,16 @@ function zerif_customize_register( $wp_customize ) {
 			'panel' => 'panel_general'
 		));
 		
-		$wp_customize->add_setting( 'zerif_use_safe_font' );
+		$wp_customize->add_setting( 'zerif_use_safe_font', array(
+			'sanitize_callback' => 'zerif_sanitize_text'
+		) );
  
-        $wp_customize->add_control( 'zerif_use_safe_font', array(
-             'type' 		=> 'checkbox',
-             'label' 	=> __( 'Use safe font?','zerif' ),
-             'section' 	=> 'zerif_general_section',
-             'priority'	=> 1
-         ) );
+	        $wp_customize->add_control( 'zerif_use_safe_font', array(
+	             'type' 		=> 'checkbox',
+	             'label' 	=> __( 'Use safe font?','zerif' ),
+	             'section' 	=> 'zerif_general_section',
+	             'priority'	=> 1
+	         ) );
 		
 		/* LOGO	*/
 		$wp_customize->add_setting( 'zerif_logo', array(
@@ -167,7 +169,9 @@ function zerif_customize_register( $wp_customize ) {
 		));
 		
 		/* Change the template to full width for page.php */
-        $wp_customize->add_setting( 'zerif_change_to_full_width' );
+        $wp_customize->add_setting( 'zerif_change_to_full_width', array(
+			'sanitize_callback' => 'zerif_sanitize_text'
+		) );
  
         $wp_customize->add_control( 'zerif_change_to_full_width', array(
              'type' 		=> 'checkbox',
