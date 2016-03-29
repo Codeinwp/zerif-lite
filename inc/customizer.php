@@ -96,6 +96,15 @@ function zerif_customize_register( $wp_customize ) {
 			'panel' => 'panel_general'
 		));
 		
+		$wp_customize->add_setting( 'zerif_use_safe_font' );
+ 
+        $wp_customize->add_control( 'zerif_use_safe_font', array(
+             'type' 		=> 'checkbox',
+             'label' 	=> __( 'Use safe font?','zerif' ),
+             'section' 	=> 'zerif_general_section',
+             'priority'	=> 1
+         ) );
+		
 		/* LOGO	*/
 		$wp_customize->add_setting( 'zerif_logo', array(
 			'sanitize_callback' => 'esc_url_raw',
@@ -142,7 +151,7 @@ function zerif_customize_register( $wp_customize ) {
 			'type' 		=> 'checkbox',
 			'label' 	=> __('Enable accessibility?','zerif-lite'),
 			'section' 	=> 'zerif_general_section',
-			'priority'	=> 3,
+			'priority'	=> 4,
 		));
 
 		/* COPYRIGHT */
@@ -154,7 +163,7 @@ function zerif_customize_register( $wp_customize ) {
 		$wp_customize->add_control( 'zerif_copyright', array(
 			'label'    => __( 'Footer Copyright', 'zerif-lite' ),
 			'section'  => 'zerif_general_section',
-			'priority'    => 3,
+			'priority'    => 5,
 		));
 		
 		/* Change the template to full width for page.php */
@@ -164,16 +173,7 @@ function zerif_customize_register( $wp_customize ) {
              'type' 		=> 'checkbox',
              'label' 	=> __( 'Change the template to Full width for all the pages?','zerif' ),
              'section' 	=> 'zerif_general_section',
-             'priority'	=> 4
-         ) );
-		
-        $wp_customize->add_setting( 'zerif_use_safe_font' );
- 
-        $wp_customize->add_control( 'zerif_use_safe_font', array(
-             'type' 		=> 'checkbox',
-             'label' 	=> __( 'Use safe font?','zerif' ),
-             'section' 	=> 'zerif_general_section',
-             'priority'	=> 5
+             'priority'	=> 6
          ) );
 
 		$wp_customize->add_section( 'zerif_general_socials_section' , array(
