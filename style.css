@@ -4,7 +4,7 @@ Theme URI: http://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: http://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.8.3.8
+Version: 1.8.3.9
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -91,7 +91,7 @@ a img {
 	border: 0;
 }
 body {
-	font-family: 'Lato', sans-serif !important;
+	font-family: 'Lato', Helvetica, sans-serif !important;
 	font-size: 14px;
 	color: #808080;
 	font-weight: normal;
@@ -263,7 +263,7 @@ h1, h2, h3, h4, h5, h6 {
 	clear: both;
 }
 h1,h2 {
-	font-family: 'Montserrat', 'sans-serif';
+	font-family: 'Montserrat', Helvetica, sans-serif;
 	font-weight: 700;
 	line-height: 35px;
 }
@@ -2741,7 +2741,7 @@ width: -webkit-calc(100% / 4);
 .newsletter h3 {
 	font-size: 28px;
 	text-transform: uppercase;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Montserrat', Helvetica, sans-serif;
 	font-weight: 700;
 	margin-bottom: 8px;
 }
@@ -4453,6 +4453,11 @@ article .posted-on a:hover{
 .woocommerce div.product form.cart label {
 	color: #404040;
 }
+.woocommerce p.stars a:before, 
+.woocommerce p.stars a:hover~a:before {
+	content: "";
+	display: none;
+}
 
 @media (max-width: 1200px) {
 	
@@ -4581,27 +4586,6 @@ article .posted-on a:hover{
 		width: 100%;
 	}
 	/* cart page */
-	.woocommerce table.shop_table th {
-		padding: 5px 5px;
-		font-size: 8px;
-	}
-	.woocommerce-page .woocommerce .product-name a {
-		font-size: 12px;
-		line-height: 16px;
-		float: left;
-	}
-	.woocommerce table.shop_table td {
-		padding: 6px 4px;
-	}
-	.woocommerce table.shop_table td,
-	.woocommerce table.shop_table td span,
-	.woocommerce table.shop_table td a,
-	.woocommerce table.shop_table td strong {
-		font-size: 12px;
-	}
-	.woocommerce table.shop_table td .amount {
-		font-size: 12px;
-	}
 	.woocommerce-page .woocommerce .product-quantity input.qty {
 		width: 45px;
 	}
@@ -5260,7 +5244,7 @@ span.bbp-admin-links a:hover {
     font-size: 20px;
     line-height: 22px;
     color: #404040;
-    font-family: 'Montserrat', 'sans-serif';
+    font-family: 'Montserrat', Helvetica, sans-serif;
     font-weight: 500;
     position: relative;
     margin-bottom: 30px;

@@ -38,6 +38,8 @@ jQuery(document).ready(function() {
 	wp.customize.section( 'sidebar-widgets-sidebar-aboutus' ).priority( '7' );
 	
 	/* Tooltips for General Options */
+	jQuery('#customize-control-zerif_use_safe_font label').append('<span class="dashicons dashicons-info zerif-moreinfo-icon"></span><div class="zerif-moreinfo-content">Zerif Lite main font is Montserrat, which only supports the Latin script. <br><br> If you are using other scripts like Cyrillic or Greek , you need to check this box to enable the safe fonts for better compatibility.</div>');
+	
 	jQuery('#customize-control-zerif_accessibility label').append('<div class="dashicons dashicons-info zerif-moreinfo-icon"></div><div class="zerif-moreinfo-content">Web accessibility means that people with disabilities can use the Web. More specifically, Web accessibility means that people with disabilities can perceive, understand, navigate, and interact with the Web, and that they can contribute to the Web. <br><br>Web accessibility also benefits others, including older people with changing abilities due to aging.<br><br>By checking this box, you will enable this option on the site.</div>');
 	
 	jQuery('#customize-control-zerif_disable_smooth_scroll label').append('<span class="dashicons dashicons-info zerif-moreinfo-icon"></span><div class="zerif-moreinfo-content">Smooth scrolling can be very useful if you read a lot of long pages. Normally, when you press Page Down, the view jumps directly down one page. <br><br>With smooth scrolling, it slides down smoothly, so you can see how much it scrolls. This makes it easier to resume reading from where you were before.<br><br>By checking this box, the smooth scroll will be disabled.</div>');

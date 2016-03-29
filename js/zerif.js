@@ -113,17 +113,12 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
 
  =================================== */
 
-
-
 jQuery(document).ready(function() {
 
-
-
     // Sticky Header - http://jqueryfordesigners.com/fixed-floating-elements/
-
-    var top = jQuery('#main-nav').offset().top - parseFloat(jQuery('#main-nav').css('margin-top').replace(/auto/, 0));
-
-
+	if( typeof jQuery('#main-nav') != 'undefined' && typeof jQuery('#main-nav').offset() != 'undefined' ) {
+		var top = jQuery('#main-nav').offset().top - parseFloat(jQuery('#main-nav').css('margin-top').replace(/auto/, 0));
+	}
 
     jQuery(window).scroll(function (event) {
 
@@ -222,7 +217,7 @@ function zerif_lite_scrolled() {
         var isInOneSection = 'no';                              // used for checking if the cursor is in one section or not
 
         // for all sections check if the cursor is inside a section
-        jQuery("section").each( function() {
+        jQuery("section, header").each( function() {
             var thisID = '#' + jQuery(this).attr('id');           // section id
             var zerif_offset = jQuery(this).offset().top;         // distance between top and our section
             var thisHeight  = jQuery(this).outerHeight();         // section height
@@ -789,23 +784,25 @@ jQuery( document ).ready( function() {
         itemWrap = $container.find( 'ul' )[0];
       }
       var windowsWidth = window.innerWidth;
-      var itemId = '#' + itemWrap.id;
-      $( itemId ).children( 'li' ).each( function() {
-        if ( this.id == '' ) { return; }
-        var max_deep = self.max_deep( '#'+this.id );
-        var offsetLeft        = $( "#"+this.id ).offset().left;
-        var submenuWidthItem  = $( "#"+this.id ).find( 'ul' ).width();
-        var submenuTotalWidth = max_deep * submenuWidthItem;
-        if( submenuTotalWidth > 0 && windowsWidth < offsetLeft + submenuTotalWidth ) {
-          if( self.options.allItems === true ) {
-            $( '#'+itemWrap.id ).addClass( 'menu-item-open-left-all' );
-            return false;
-          }
-          $( '#'+this.id ).addClass( 'menu-item-open-left' );
-        } else if( $( '#'+this.id ).hasClass( 'menu-item-open-left' ) ) {
-          $( '#'+this.id ).removeClass( 'menu-item-open-left' );
-        }
-      } );
+	  if( typeof itemWrap != 'undefined' ) {
+		  var itemId = '#' + itemWrap.id;
+		  $( itemId ).children( 'li' ).each( function() {
+			if ( this.id == '' ) { return; }
+			var max_deep = self.max_deep( '#'+this.id );
+			var offsetLeft        = $( "#"+this.id ).offset().left;
+			var submenuWidthItem  = $( "#"+this.id ).find( 'ul' ).width();
+			var submenuTotalWidth = max_deep * submenuWidthItem;
+			if( submenuTotalWidth > 0 && windowsWidth < offsetLeft + submenuTotalWidth ) {
+			  if( self.options.allItems === true ) {
+				$( '#'+itemWrap.id ).addClass( 'menu-item-open-left-all' );
+				return false;
+			  }
+			  $( '#'+this.id ).addClass( 'menu-item-open-left' );
+			} else if( $( '#'+this.id ).hasClass( 'menu-item-open-left' ) ) {
+			  $( '#'+this.id ).removeClass( 'menu-item-open-left' );
+			}
+		  } );
+	  }
     };
     ZerifSubmenuOrientation.prototype.max_deep = function ( item ) {
       var maxDepth      = -1, 
