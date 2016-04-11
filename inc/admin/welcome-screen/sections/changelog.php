@@ -23,7 +23,7 @@ $zerif_lite = wp_get_theme( 'zerif-lite' );
 		if(substr( $zerif_lite_changelog_line, 0, 3 ) === "###"){
 			echo '<hr /><h1>'.substr($zerif_lite_changelog_line,3).'</h1>';
 		} else {
-			echo $zerif_lite_changelog_line,'<br/>';
+			echo $zerif_lite_changelog_line.'<br/>';
 		}
 	}
 
