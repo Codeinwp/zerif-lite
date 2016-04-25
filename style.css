@@ -2111,6 +2111,14 @@ width: -webkit-calc(100% / 4);
 	display: none !important;
 }
 
+.pixeden  {
+    height: 63px;
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    display: block;
+}
+
 /* media queries:  change number of items per row */
 @media screen and (max-width: 1190px) {
 	.cbp-rfgrid li {
