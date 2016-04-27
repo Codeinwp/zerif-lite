@@ -1,5 +1,15 @@
 
 
+### 1.8.4.1 - 27/04/2016
+
+ Changes: 
+
+
+ * Fixed how change log is displayed.
+ * Fixed #336 Added style for <q> tag
+ * Fixed #337 Google structured data errors
+
+
 ### 1.8.3.9 - 29/03/2016
 
  Changes: 
