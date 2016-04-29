@@ -207,8 +207,8 @@ $customizer_url = admin_url() . 'customize.php' ;
 		
 		<hr />
 		
-		<!-- FEEDZY RSS Feeds -->
-		<h4><?php esc_html_e( 'Adblock Notify', 'zerif-lite' ); ?></h4>
+		<!-- Adblock Notify -->
+		<h4>Adblock Notify</h4>
 
 		<?php if ( is_plugin_active( 'adblock-notify-by-bweb/adblock-notify.php' ) ) { ?>
 
@@ -218,7 +218,7 @@ $customizer_url = admin_url() . 'customize.php' ;
 		}
 		else { ?>
 
-			<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=adblock-notify-by-bweb' ), 'install-plugin_adblock-notify-by-bweb' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install Adblock Notify', 'zerif-lite' ); ?></a></p>
+			<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=adblock-notify-by-bweb' ), 'install-plugin_adblock-notify-by-bweb' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install', 'zerif-lite' ); ?> Adblock Notify</a></p>
 
 			<?php
 		} 
@@ -289,7 +289,7 @@ $customizer_url = admin_url() . 'customize.php' ;
 		<hr />
 		
 		<!-- FEEDZY RSS Feeds -->
-		<h4><?php esc_html_e( 'FEEDZY RSS Feeds', 'zerif-lite' ); ?></h4>
+		<h4>FEEDZY RSS Feeds</h4>
 
 		<?php if ( is_plugin_active( 'feedzy-rss-feeds/feedzy-rss-feed.php' ) ) { ?>
 
@@ -299,7 +299,7 @@ $customizer_url = admin_url() . 'customize.php' ;
 		}
 		else { ?>
 
-			<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=feedzy-rss-feeds' ), 'install-plugin_feedzy-rss-feeds' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install FEEDZY RSS Feeds', 'zerif-lite' ); ?></a></p>
+			<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=feedzy-rss-feeds' ), 'install-plugin_feedzy-rss-feeds' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install', 'zerif-lite' ); ?> FEEDZY RSS Feeds</a></p>
 
 			<?php
 		}
