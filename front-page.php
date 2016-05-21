@@ -112,7 +112,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 				
 				if( empty($zerif_contactus_email) && !is_email($zerif_contactus_email) ):
 
-					$zerif_mail = get_theme_mod('zerif_email');
+					$zerif_email = get_theme_mod('zerif_email');
 
 					$emailTo = is_email($zerif_email);
 
