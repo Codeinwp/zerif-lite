@@ -8,7 +8,7 @@
  * or theme author for support.
  *
  * @package   TGM-Plugin-Activation
- * @version   2.6.0 for parent theme Zerif Lite for publication on WordPress.org
+ * @version   2.6.1 for parent theme Zerif Lite for publication on WordPress.org
  * @link      http://tgmpluginactivation.com/
  * @author    Thomas Griffin, Gary Jones, Juliette Reinders Folmer
  * @copyright Copyright (c) 2011, Thomas Griffin
@@ -55,7 +55,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 		 *
 		 * @const string Version number.
 		 */
-		const TGMPA_VERSION = '2.6.0';
+		const TGMPA_VERSION = '2.6.1';
 
 		/**
 		 * Regular expression to test if a URL is a WP plugin repo URL.
@@ -332,37 +332,37 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				'updating'                        => __( 'Updating Plugin: %s', 'zerif-lite' ),
 				'oops'                            => __( 'Something went wrong with the plugin API.', 'zerif-lite' ),
 				'notice_can_install_required'     => _n_noop(
-				/* translators: 1: plugin name(s). */
+					/* translators: 1: plugin name(s). */
 					'This theme requires the following plugin: %1$s.',
 					'This theme requires the following plugins: %1$s.',
 					'zerif-lite'
 				),
 				'notice_can_install_recommended'  => _n_noop(
-				/* translators: 1: plugin name(s). */
+					/* translators: 1: plugin name(s). */
 					'This theme recommends the following plugin: %1$s.',
 					'This theme recommends the following plugins: %1$s.',
 					'zerif-lite'
 				),
 				'notice_ask_to_update'            => _n_noop(
-				/* translators: 1: plugin name(s). */
+					/* translators: 1: plugin name(s). */
 					'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.',
 					'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.',
 					'zerif-lite'
 				),
 				'notice_ask_to_update_maybe'      => _n_noop(
-				/* translators: 1: plugin name(s). */
+					/* translators: 1: plugin name(s). */
 					'There is an update available for: %1$s.',
 					'There are updates available for the following plugins: %1$s.',
 					'zerif-lite'
 				),
 				'notice_can_activate_required'    => _n_noop(
-				/* translators: 1: plugin name(s). */
+					/* translators: 1: plugin name(s). */
 					'The following required plugin is currently inactive: %1$s.',
 					'The following required plugins are currently inactive: %1$s.',
 					'zerif-lite'
 				),
 				'notice_can_activate_recommended' => _n_noop(
-				/* translators: 1: plugin name(s). */
+					/* translators: 1: plugin name(s). */
 					'The following recommended plugin is currently inactive: %1$s.',
 					'The following recommended plugins are currently inactive: %1$s.',
 					'zerif-lite'
@@ -958,7 +958,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 
 				if ( is_wp_error( $activate ) ) {
 					echo '<div id="message" class="error"><p>', wp_kses_post( $activate->get_error_message() ), '</p></div>',
-					'<p><a href="', esc_url( $this->get_tgmpa_url() ), '" target="_parent">', esc_html( $this->strings['return'] ), '</a></p>';
+						'<p><a href="', esc_url( $this->get_tgmpa_url() ), '" target="_parent">', esc_html( $this->strings['return'] ), '</a></p>';
 
 					return false; // End it here if there is an error with activation.
 				} else {
@@ -977,22 +977,22 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				// No simpler message format provided as this message should never be encountered
 				// on the plugin install page.
 				echo '<div id="message" class="error"><p>',
-				sprintf(
-					esc_html( $this->strings['plugin_already_active'] ),
-					'<strong>' . esc_html( $this->plugins[ $slug ]['name'] ) . '</strong>'
-				),
-				'</p></div>';
+					sprintf(
+						esc_html( $this->strings['plugin_already_active'] ),
+						'<strong>' . esc_html( $this->plugins[ $slug ]['name'] ) . '</strong>'
+					),
+					'</p></div>';
 			} elseif ( $this->does_plugin_require_update( $slug ) ) {
 				if ( ! $automatic ) {
 					// Make sure message doesn't display again if bulk activation is performed
 					// immediately after a single activation.
 					if ( ! isset( $_POST['action'] ) ) { // WPCS: CSRF OK.
 						echo '<div id="message" class="error"><p>',
-						sprintf(
-							esc_html( $this->strings['plugin_needs_higher_version'] ),
-							'<strong>' . esc_html( $this->plugins[ $slug ]['name'] ) . '</strong>'
-						),
-						'</p></div>';
+							sprintf(
+								esc_html( $this->strings['plugin_needs_higher_version'] ),
+								'<strong>' . esc_html( $this->plugins[ $slug ]['name'] ) . '</strong>'
+							),
+							'</p></div>';
 					}
 				} else {
 					// Simpler message layout for use on the plugin install page.
@@ -1976,14 +1976,14 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 		 */
 		public function show_tgmpa_version() {
 			echo '<p style="float: right; padding: 0em 1.5em 0.5em 0;"><strong><small>',
-			esc_html(
-				sprintf(
-				/* translators: %s: version number */
-					__( 'TGMPA v%s', 'zerif-lite' ),
-					self::TGMPA_VERSION
-				)
-			),
-			'</small></strong></p>';
+				esc_html(
+					sprintf(
+						/* translators: %s: version number */
+						__( 'TGMPA v%s', 'zerif-lite' ),
+						self::TGMPA_VERSION
+					)
+				),
+				'</small></strong></p>';
 		}
 
 		/**
@@ -2338,7 +2338,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 			}
 
 			return sprintf(
-			/* translators: 1: install status, 2: update status */
+				/* translators: 1: install status, 2: update status */
 				_x( '%1$s, %2$s', 'Install/Update Status', 'zerif-lite' ),
 				$install_status,
 				$update_status
@@ -2599,19 +2599,19 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 
 			// Display the 'Install' action link if the plugin is not yet available.
 			if ( ! $this->tgmpa->is_plugin_installed( $item['slug'] ) ) {
-				/* translators: %s: plugin name in screen reader markup */
-				$actions['install'] = __( 'Install %s', 'zerif-lite' );
+				/* translators: %2$s: plugin name in screen reader markup */
+				$actions['install'] = __( 'Install %2$s', 'zerif-lite' );
 			} else {
 				// Display the 'Update' action link if an update is available and WP complies with plugin minimum.
 				if ( false !== $this->tgmpa->does_plugin_have_update( $item['slug'] ) && $this->tgmpa->can_plugin_update( $item['slug'] ) ) {
-					/* translators: %s: plugin name in screen reader markup */
-					$actions['update'] = __( 'Update %s', 'zerif-lite' );
+					/* translators: %2$s: plugin name in screen reader markup */
+					$actions['update'] = __( 'Update %2$s', 'zerif-lite' );
 				}
 
 				// Display the 'Activate' action link, but only if the plugin meets the minimum version.
 				if ( $this->tgmpa->can_plugin_activate( $item['slug'] ) ) {
-					/* translators: %s: plugin name in screen reader markup */
-					$actions['activate'] = __( 'Activate %s', 'zerif-lite' );
+					/* translators: %2$s: plugin name in screen reader markup */
+					$actions['activate'] = __( 'Activate %2$s', 'zerif-lite' );
 				}
 			}
 
@@ -2630,7 +2630,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 				);
 
 				$action_links[ $action ] = sprintf(
-					'<a href="%1$s">' . esc_html( $text ) . '</a>',
+					'<a href="%1$s">' . esc_html( $text ) . '</a>', // $text contains the second placeholder.
 					esc_url( $nonce_url ),
 					'<span class="screen-reader-text">' . esc_html( $item['sanitized_plugin'] ) . '</span>'
 				);
@@ -2681,8 +2681,8 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 				<tr class="plugin-update-tr">
 					<td colspan="', absint( $this->get_column_count() ), '" class="plugin-update colspanchange">
 						<div class="update-message">',
-			esc_html__( 'Upgrade message from the plugin author:', 'zerif-lite' ),
-			' <strong>', wp_kses_data( $item['upgrade_notice'] ), '</strong>
+							esc_html__( 'Upgrade message from the plugin author:', 'zerif-lite' ),
+							' <strong>', wp_kses_data( $item['upgrade_notice'] ), '</strong>
 						</div>
 					</td>
 				</tr>';
@@ -2877,7 +2877,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 
 				// Wrap the install process with the appropriate HTML.
 				echo '<div class="tgmpa">',
-				'<h2 style="font-size: 23px; font-weight: 400; line-height: 29px; margin: 0; padding: 9px 15px 4px 0;">', esc_html( get_admin_page_title() ), '</h2>
+					'<h2 style="font-size: 23px; font-weight: 400; line-height: 29px; margin: 0; padding: 9px 15px 4px 0;">', esc_html( get_admin_page_title() ), '</h2>
 					<div class="update-php" style="width: 100%; height: 98%; min-height: 850px; padding-top: 1px;">';
 
 				// Process the bulk installation submissions.
