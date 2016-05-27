@@ -1003,7 +1003,7 @@ a:active {
 }
 .single .byline,
 .group-blog .byline {
-	display: inline;
+	display: none;
 }
 .entry-meta-large .byline,
 .entry-meta-large .updated {
