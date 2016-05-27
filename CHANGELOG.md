@@ -1,4 +1,12 @@
 
+### 1.8.4.2 - 27/05/2016
+**Changes:** 
+- Improved sanitization and validation of data
+- Updated TGMPA
+- Replaced input fields in About us section and Ribbon section to textareas to allow more content
+- Fixed issue with author name displaying on pages
+- Recommend Adblock Notify and Feedzy RSS plugins on the About Zerif page
+
 
 ### 1.8.4.1 - 27/04/2016
 
@@ -265,7 +273,8 @@ Typo
  Changes: 
 
 
- * Changed new line separator to \n from old mac separator \r.
+ * Changed new line separator to 
+ from old mac separator .
  * Updated about us section to be display in col-lg 4, 6 or 12 depending on what texts are set.
  * Fixed closing tag.
  * Updated contact us form style, error and success messages, made field required.
