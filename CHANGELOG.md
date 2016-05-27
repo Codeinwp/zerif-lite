@@ -1,4 +1,7 @@
 
+### 1.8.4.3 - 27/05/2016
+**Changes:** 
+
 ### 1.8.4.2 - 27/05/2016
 **Changes:** 
 - Improved sanitization and validation of data
