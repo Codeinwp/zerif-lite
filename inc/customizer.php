@@ -72,7 +72,7 @@ function zerif_customize_register( $wp_customize ) {
 	));
 	
 	$wp_customize->add_setting( 'zerif_order_section', array(
-		'sanitize_callback' => 'zerif_sanitize_text'
+		'sanitize_callback' => 'sanitize_text_field'
 	));
 	
 	$wp_customize->add_control( new Zerif_Theme_Support( $wp_customize, 'zerif_order_section', array(
@@ -98,14 +98,14 @@ function zerif_customize_register( $wp_customize ) {
 		
 		$wp_customize->add_setting( 'zerif_use_safe_font', array(
 			'sanitize_callback' => 'zerif_sanitize_checkbox'
-		) );
+		));
  
-	        $wp_customize->add_control( 'zerif_use_safe_font', array(
-	             'type' 		=> 'checkbox',
-	             'label' 	=> __( 'Use safe font?','zerif' ),
-	             'section' 	=> 'zerif_general_section',
-	             'priority'	=> 1
-	         ) );
+		$wp_customize->add_control( 'zerif_use_safe_font', array(
+	        'type' 		=> 'checkbox',
+	        'label' 	=> __( 'Use safe font?','zerif' ),
+	        'section' 	=> 'zerif_general_section',
+	        'priority'	=> 1
+		));
 		
 		/* LOGO	*/
 		$wp_customize->add_setting( 'zerif_logo', array(
@@ -688,7 +688,7 @@ function zerif_customize_register( $wp_customize ) {
 		));
 
 		$wp_customize->add_setting( 'zerif_videobackground_in_pro', array(
-			'sanitize_callback' => 'zerif_sanitize_text'
+			'sanitize_callback' => 'sanitize_text_field'
 		));
 
 		$wp_customize->add_control( new Zerif_Theme_Support_Videobackground( $wp_customize, 'zerif_videobackground_in_pro', array(
@@ -800,7 +800,7 @@ function zerif_customize_register( $wp_customize ) {
 
 		/* IMAGE 1*/
 		$wp_customize->add_setting( 'zerif_parallax_img1', array(
-			'sanitize_callback' => 'esc_url',
+			'sanitize_callback' => 'esc_url_raw',
 			'default' => get_template_directory_uri() . '/images/background1.jpg'
 		));
 
@@ -834,7 +834,7 @@ function zerif_customize_register( $wp_customize ) {
 		));
 
 		$wp_customize->add_setting( 'zerif_videobackground_in_pro', array(
-			'sanitize_callback' => 'zerif_sanitize_text'
+			'sanitize_callback' => 'sanitize_text_field'
 		));
 
 		$wp_customize->add_control( new Zerif_Theme_Support_Videobackground( $wp_customize, 'zerif_videobackground_in_pro', array(
@@ -2004,7 +2004,7 @@ function zerif_customize_register( $wp_customize ) {
 	));
 	
 	$wp_customize->add_setting(	'zerif_googlemap_section', array(
-		'sanitize_callback' => 'zerif_sanitize_text'
+		'sanitize_callback' => 'sanitize_text_field'
 	));
 	
 	$wp_customize->add_control( new Zerif_Theme_Support_Googlemap( $wp_customize, 'zerif_googlemap_section', array(
@@ -2021,7 +2021,7 @@ function zerif_customize_register( $wp_customize ) {
 	));
 	
 	$wp_customize->add_setting( 'zerif_pricing_section', array(
-		'sanitize_callback' => 'zerif_sanitize_text'
+		'sanitize_callback' => 'sanitize_text_field'
 	));
 	
 	$wp_customize->add_control( new Zerif_Theme_Support_Pricing( $wp_customize, 'zerif_pricing_section', array(
