@@ -36,7 +36,7 @@
 
 				elseif ( isset( $wp_customize ) ):
 					
-					echo '<div class="white-text section-legend zerif_hidden_if_not_customizer">'.$zerif_aboutus_subtitle.'</h6>';
+					echo '<div class="white-text section-legend zerif_hidden_if_not_customizer">'.wp_kses_post( $zerif_aboutus_subtitle ).'</div>';
 
 				endif;
 
@@ -127,7 +127,7 @@
 				!empty($zerif_aboutus_feature4_title) || !empty($zerif_aboutus_feature4_text) ? $there_is_skills='yes' : 
 				$there_is_skills='');
 
-			$zerif_aboutus_feature1_nr 	= get_theme_mod('zerif_aboutus_feature1_nr', '74');
+			$zerif_aboutus_feature1_nr 	= get_theme_mod('zerif_aboutus_feature1_nr', '80');
 			$zerif_aboutus_feature2_nr 	= get_theme_mod('zerif_aboutus_feature2_nr', '91');
 			$zerif_aboutus_feature3_nr 	= get_theme_mod('zerif_aboutus_feature3_nr', '88');
 			$zerif_aboutus_feature4_nr 	= get_theme_mod('zerif_aboutus_feature4_nr', '95');
@@ -148,8 +148,6 @@
 				<li class="skill skill_1">
 
 					<?php
-
-						$zerif_aboutus_feature1_nr = get_theme_mod('zerif_aboutus_feature1_nr','80');
 
 						if( !empty($zerif_aboutus_feature1_nr) ):
 

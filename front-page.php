@@ -18,7 +18,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 			if( isset($zerif_contactus_recaptcha_show) && $zerif_contactus_recaptcha_show != 1 && !empty($zerif_contactus_sitekey) && !empty($zerif_contactus_secretkey) ) :
 
-		        $captcha;
+		        $captcha='';
 
 		        if( isset($_POST['g-recaptcha-response']) ){
 
@@ -32,7 +32,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 		          
 		        }
 
-		        $response = wp_remote_get( "https://www.google.com/recaptcha/api/siteverify?secret=".$zerif_contactus_secretkey."&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR'] );
+		        $response = wp_remote_get( "https://www.google.com/recaptcha/api/siteverify?secret=".esc_html($zerif_contactus_secretkey)."&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR'] );
 
 		        if($response['body'].success==false) {
 
@@ -110,10 +110,12 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 				$zerif_contactus_email = get_theme_mod('zerif_contactus_email');
 				
-				if( empty($zerif_contactus_email) ):
-				
-					$emailTo = get_theme_mod('zerif_email');
-				
+				if( empty($zerif_contactus_email) && !is_email($zerif_contactus_email) ):
+
+					$zerif_email = get_theme_mod('zerif_email');
+
+					$emailTo = is_email($zerif_email);
+
 				else:
 					
 					$emailTo = $zerif_contactus_email;
