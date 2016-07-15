@@ -137,6 +137,14 @@ function zerif_setup() {
 	add_action( 'zerif_our_team_header_title', 'zerif_our_team_header_title_function' ); #Outputs the title in Our team section
 	add_action( 'zerif_our_team_header_subtitle', 'zerif_our_team_header_subtitle_function' ); #Outputs the subtitle in Our team section
 
+	add_action( 'zerif_testimonials_header_title', 'zerif_testimonials_header_title_function' ); #Outputs the title in Testimonials section
+	add_action( 'zerif_testimonials_header_subtitle', 'zerif_testimonials_header_subtitle_function' ); #Outputs the subtitle in Testimonials section
+
+	add_action( 'zerif_latest_news_header_title', 'zerif_latest_news_header_title_function' ); #Outputs the title in Latest news section
+	add_action( 'zerif_latest_news_header_subtitle', 'zerif_latest_news_header_subtitle_function' ); #Outputs the subtitle in Latest news section
+
+	add_action( 'zerif_big_title_text', 'zerif_big_title_text_function' ); #Outputs the text in Big title section
+
 }
 
 add_action('after_setup_theme', 'zerif_setup');

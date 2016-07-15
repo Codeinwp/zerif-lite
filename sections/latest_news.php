@@ -1,12 +1,14 @@
-<?php 
-
-	global $wp_customize;
+<?php
 
 	$zerif_total_posts = get_option('posts_per_page'); /* number of latest posts to show */
 	
 	if( !empty($zerif_total_posts) && ($zerif_total_posts > 0) ):
+
+		zerif_before_latest_news_trigger();
 	
 		echo '<section class="latest-news" id="latestnews">';
+
+			zerif_top_latest_news_trigger();
 		
 			echo '<div class="container">';
 
@@ -14,31 +16,11 @@
 				
 				echo '<div class="section-header">';
 
-					$zerif_latestnews_title = get_theme_mod('zerif_latestnews_title');
+					/* Title */
+					zerif_latest_news_header_title_trigger();
 
-					/* title */
-					if( !empty($zerif_latestnews_title) ):
-					
-						echo '<h2 class="dark-text">' . wp_kses_post( $zerif_latestnews_title ) . '</h2>';
-						
-					else:
-					
-						echo '<h2 class="dark-text">' . __('Latest news','zerif-lite') . '</h2>';
-						
-					endif;
-
-					/* subtitle */
-					$zerif_latestnews_subtitle = get_theme_mod('zerif_latestnews_subtitle');
-
-					if( !empty($zerif_latestnews_subtitle) ):
-
-						echo '<div class="dark-text section-legend">'.wp_kses_post( $zerif_latestnews_subtitle ).'</div>';
-
-					elseif ( isset( $wp_customize ) ):
-					
-						echo '<div class="dark-text section-legend zerif_hidden_if_not_customizer"></div>';
-						
-					endif;
+					/* Subtitle */
+					zerif_latest_news_header_subtitle_trigger();
 				
 				echo '</div><!-- END .section-header -->';
 
@@ -169,6 +151,11 @@
 				echo '</div><!-- #carousel-homepage-latestnews -->';
 
 			echo '</div><!-- .container -->';
+
+			zerif_bottom_latest_news_trigger();
+
 		echo '</section>';
+
+	zerif_after_latest_news_trigger();
 
 endif; ?>

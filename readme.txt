@@ -111,6 +111,8 @@ The exceptions to this license are as follows:
   zerif_after_latest_news
   zerif_top_latest_news
   zerif_bottom_latest_news
+  zerif_latest_news_header_title
+  zerif_latest_news_header_subtitle
 
   zerif_before_our_team
   zerif_after_our_team
@@ -123,9 +125,12 @@ The exceptions to this license are as follows:
   zerif_after_testimonials
   zerif_top_testimonials
   zerif_bottom_testimonials
+  zerif_testimonials_header_title
+  zerif_testimonials_header_subtitle
 
   zerif_big_title_buttons_top
   zerif_big_title_buttons_bottom
+  zerif_big_title_text
 
   zerif_page_header_title_archive
   zerif_page_term_description_archive

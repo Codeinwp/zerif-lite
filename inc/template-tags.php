@@ -397,3 +397,78 @@ function zerif_our_team_header_subtitle_function() {
 
 	endif;
 }
+
+function zerif_testimonials_header_title_function() {
+
+	$zerif_testimonials_title = get_theme_mod('zerif_testimonials_title',__('Testimonials','zerif-lite'));
+
+	if( !empty($zerif_testimonials_title) ):
+
+		echo '<h2 class="white-text">'.wp_kses_post( $zerif_testimonials_title ).'</h2>';
+
+	elseif ( is_customize_preview() ):
+
+		echo '<h2 class="white-text zerif_hidden_if_not_customizer"></h2>';
+
+	endif;
+}
+
+function zerif_testimonials_header_subtitle_function() {
+
+	$zerif_testimonials_subtitle = get_theme_mod('zerif_testimonials_subtitle');
+
+	if( !empty($zerif_testimonials_subtitle) ):
+
+		echo '<h6 class="white-text section-legend">'.wp_kses_post( $zerif_testimonials_subtitle ).'</h6>';
+
+	elseif ( is_customize_preview() ):
+
+		echo '<h6 class="white-text section-legend zerif_hidden_if_not_customizer"></h6>';
+
+	endif;
+}
+
+function zerif_latest_news_header_title_function() {
+
+	$zerif_latestnews_title = get_theme_mod('zerif_latestnews_title');
+
+	if( !empty($zerif_latestnews_title) ):
+
+		echo '<h2 class="dark-text">' . wp_kses_post( $zerif_latestnews_title ) . '</h2>';
+
+	else:
+
+		echo '<h2 class="dark-text">' . __('Latest news','zerif-lite') . '</h2>';
+
+	endif;
+}
+
+function zerif_latest_news_header_subtitle_function() {
+
+	$zerif_latestnews_subtitle = get_theme_mod('zerif_latestnews_subtitle');
+
+	if( !empty($zerif_latestnews_subtitle) ):
+
+		echo '<div class="dark-text section-legend">'.wp_kses_post( $zerif_latestnews_subtitle ).'</div>';
+
+	elseif ( is_customize_preview() ):
+
+		echo '<div class="dark-text section-legend zerif_hidden_if_not_customizer"></div>';
+
+	endif;
+}
+
+function zerif_big_title_text_function() {
+	
+	$zerif_bigtitle_title = get_theme_mod('zerif_bigtitle_title',__('ONE OF THE TOP 10 MOST POPULAR THEMES ON WORDPRESS.ORG','zerif-lite'));
+
+	if( !empty($zerif_bigtitle_title) ):
+
+		echo '<h1 class="intro-text">'.wp_kses_post( $zerif_bigtitle_title ).'</h1>';
+
+	elseif ( is_customize_preview() ):
+
+		echo '<h1 class="intro-text zerif_hidden_if_not_customizer"></h1>';
+
+	endif;
+}
