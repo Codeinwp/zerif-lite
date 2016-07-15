@@ -47,12 +47,10 @@ wp_head(); ?>
 <?php endif;
 
 	zerif_top_body_trigger();
-
-	global $wp_customize;
 	
 	/* Preloader */
 
-	if(is_front_page() && !isset( $wp_customize ) && get_option( 'show_on_front' ) != 'page' ): 
+	if(is_front_page() && !is_customize_preview() && get_option( 'show_on_front' ) != 'page' ):
  
 		$zerif_disable_preloader = get_theme_mod('zerif_disable_preloader');
 		

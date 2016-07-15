@@ -101,11 +101,17 @@ The exceptions to this license are as follows:
 
   zerif_before_our_focus
   zerif_after_our_focus
+  zerif_top_our_focus
+  zerif_bottom_our_focus
   zerif_our_focus_header_title
   zerif_our_focus_header_subtitle
 
   zerif_before_about_us
   zerif_after_about_us
+  zerif_top_about_us
+  zerif_bottom_about_us
+  zerif_about_us_header_title
+  zerif_about_us_header_subtitle
 
   zerif_before_latest_news
   zerif_after_latest_news

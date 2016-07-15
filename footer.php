@@ -67,9 +67,6 @@
 			$footer_class = 'col-md-3';
 		endif;
 		
-		global $wp_customize;
-		
-		
 		if( !empty($footer_class) ) {
 			
 			/* COMPANY ADDRESS */
@@ -86,7 +83,7 @@
 						echo '<div class="zerif-footer-address">';
 							echo wp_kses_post( $zerif_address );
 						echo '</div>';
-					} else if( isset( $wp_customize ) ) {
+					} else if( is_customize_preview() ) {
 						echo '<div class="zerif-footer-address zerif_hidden_if_not_customizer"></div>';
 					}
 					
@@ -106,7 +103,7 @@
 						echo '<div class="zerif-footer-email">';	
 							echo wp_kses_post( $zerif_email );
 						echo '</div>';
-					} else if( isset( $wp_customize ) ) {
+					} else if( is_customize_preview() ) {
 						echo '<div class="zerif-footer-email zerif_hidden_if_not_customizer"></div>';
 					}	
 				
@@ -125,7 +122,7 @@
 						echo '<div class="zerif-footer-phone">';
 							echo wp_kses_post( $zerif_phone );
 						echo '</div>';	
-					} else if( isset( $wp_customize ) ) {
+					} else if( is_customize_preview() ) {
 						echo '<div class="zerif-footer-phone zerif_hidden_if_not_customizer"></div>';
 					}		
 				echo '</div>';
@@ -171,7 +168,7 @@
 			
 					if( !empty($zerif_copyright) ):
 						echo '<p id="zerif-copyright">'.wp_kses_post($zerif_copyright).'</p>';
-					elseif( isset( $wp_customize ) ):
+					elseif( is_customize_preview() ):
 						echo '<p id="zerif-copyright" class="zerif_hidden_if_not_customizer"></p>';
 					endif;
 					

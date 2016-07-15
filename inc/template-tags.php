@@ -459,7 +459,7 @@ function zerif_latest_news_header_subtitle_function() {
 }
 
 function zerif_big_title_text_function() {
-	
+
 	$zerif_bigtitle_title = get_theme_mod('zerif_bigtitle_title',__('ONE OF THE TOP 10 MOST POPULAR THEMES ON WORDPRESS.ORG','zerif-lite'));
 
 	if( !empty($zerif_bigtitle_title) ):
@@ -469,6 +469,34 @@ function zerif_big_title_text_function() {
 	elseif ( is_customize_preview() ):
 
 		echo '<h1 class="intro-text zerif_hidden_if_not_customizer"></h1>';
+
+	endif;
+}
+
+function zerif_about_us_header_title_function() {
+	$zerif_aboutus_title = get_theme_mod('zerif_aboutus_title',__('About','zerif-lite'));
+
+	if( !empty($zerif_aboutus_title) ):
+		echo '<h2 class="white-text">'. wp_kses_post( $zerif_aboutus_title ) .'</h2>';
+	elseif ( is_customize_preview() ):
+		echo '<h2 class="white-text zerif_hidden_if_not_customizer"></h2>';
+	endif;
+}
+
+function zerif_about_us_header_subtitle_function() {
+	$zerif_aboutus_subtitle = get_theme_mod('zerif_aboutus_subtitle',__('Use this section to showcase important details about your business.','zerif-lite'));
+
+	if( !empty($zerif_aboutus_subtitle) ):
+
+		echo '<div class="white-text section-legend">';
+
+		echo wp_kses_post( $zerif_aboutus_subtitle );
+
+		echo '</div>';
+
+	elseif ( is_customize_preview() ):
+
+		echo '<div class="white-text section-legend zerif_hidden_if_not_customizer">'.wp_kses_post( $zerif_aboutus_subtitle ).'</div>';
 
 	endif;
 }

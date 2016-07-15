@@ -1,46 +1,25 @@
+<?php zerif_before_about_us_trigger(); ?>
+
 <section class="about-us" id="aboutus">
+
+	<?php zerif_top_about_us_trigger(); ?>
+
 	<div class="container">
 
 		<!-- SECTION HEADER -->
 
 		<div class="section-header">
 
-			<!-- SECTION TITLE -->
-
-			<?php 
-			
-			global $wp_customize;
-			
-			$zerif_aboutus_title = get_theme_mod('zerif_aboutus_title',__('About','zerif-lite'));
-			
-			if( !empty($zerif_aboutus_title) ):
-				echo '<h2 class="white-text">'. wp_kses_post( $zerif_aboutus_title ) .'</h2>';
-			elseif ( isset( $wp_customize ) ):	
-				echo '<h2 class="white-text zerif_hidden_if_not_customizer"></h2>';
-			endif;
-			?>
-
-			<!-- SHORT DESCRIPTION ABOUT THE SECTION -->
-
 			<?php
 
-				$zerif_aboutus_subtitle = get_theme_mod('zerif_aboutus_subtitle',__('Use this section to showcase important details about your business.','zerif-lite'));
+			/* Title */
+			zerif_about_us_header_title_trigger();
 
-				if( !empty($zerif_aboutus_subtitle) ):
-
-					echo '<div class="white-text section-legend">';
-
-						echo wp_kses_post( $zerif_aboutus_subtitle );
-
-					echo '</div>';
-
-				elseif ( isset( $wp_customize ) ):
-					
-					echo '<div class="white-text section-legend zerif_hidden_if_not_customizer">'.wp_kses_post( $zerif_aboutus_subtitle ).'</div>';
-
-				endif;
+			/* Subtitle */
+			zerif_about_us_header_subtitle_trigger();
 
 			?>
+
 		</div><!-- / END SECTION HEADER -->
 
 		<!-- 3 COLUMNS OF ABOUT US-->
@@ -53,7 +32,7 @@
 
 			$zerif_aboutus_biglefttitle 	= get_theme_mod('zerif_aboutus_biglefttitle',__('Everything you see here is responsive and mobile-friendly.','zerif-lite'));
 			$zerif_aboutus_text 			= get_theme_mod('zerif_aboutus_text','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros.<br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros. <br><br>Mauris vel nunc at ipsum fermentum pellentesque quis ut massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non adipiscing massa. Sed ut fringilla sapien. Cras sollicitudin, lectus sed tincidunt cursus, magna lectus vehicula augue, a lobortis dui orci et est.');
-			
+
 			$zerif_aboutus_feature1_title 	= get_theme_mod('zerif_aboutus_feature1_title',__('YOUR SKILL #1','zerif-lite'));
 			$zerif_aboutus_feature1_text 	= get_theme_mod('zerif_aboutus_feature1_text');
 
@@ -70,14 +49,14 @@
 			switch (
 				(empty($zerif_aboutus_biglefttitle) ? 0 : 1)
 				+ (empty($zerif_aboutus_text) ? 0 : 1)
-				+ 						
-					( empty($zerif_aboutus_feature1_title) && empty($zerif_aboutus_feature1_text) ? 
-					( empty($zerif_aboutus_feature2_title) && empty($zerif_aboutus_feature2_text) ? 
-					( empty($zerif_aboutus_feature3_title) && empty($zerif_aboutus_feature3_text) ? 
-					( empty($zerif_aboutus_feature4_title) && empty($zerif_aboutus_feature4_text) ? 
+				+
+					( empty($zerif_aboutus_feature1_title) && empty($zerif_aboutus_feature1_text) ?
+					( empty($zerif_aboutus_feature2_title) && empty($zerif_aboutus_feature2_text) ?
+					( empty($zerif_aboutus_feature3_title) && empty($zerif_aboutus_feature3_text) ?
+					( empty($zerif_aboutus_feature4_title) && empty($zerif_aboutus_feature4_text) ?
 					0 && $text_and_skills=''
-					: 1 && $text_and_skills='text_and_skills' ) 
-					: 1 && $text_and_skills='text_and_skills' ) 
+					: 1 && $text_and_skills='text_and_skills' )
+					: 1 && $text_and_skills='text_and_skills' )
 					: 1 && $text_and_skills='text_and_skills' )
 					: 1 && $text_and_skills='text_and_skills' )
 				) {
@@ -120,11 +99,11 @@
 			endif;
 
 			$there_is_skills = '';
-			( 
+			(
 				!empty($zerif_aboutus_feature1_title) || !empty($zerif_aboutus_feature1_text) ? $there_is_skills='yes' :
-				!empty($zerif_aboutus_feature2_title) || !empty($zerif_aboutus_feature2_text) ? $there_is_skills='yes' : 
-				!empty($zerif_aboutus_feature3_title) || !empty($zerif_aboutus_feature3_text) ? $there_is_skills='yes' : 
-				!empty($zerif_aboutus_feature4_title) || !empty($zerif_aboutus_feature4_text) ? $there_is_skills='yes' : 
+				!empty($zerif_aboutus_feature2_title) || !empty($zerif_aboutus_feature2_text) ? $there_is_skills='yes' :
+				!empty($zerif_aboutus_feature3_title) || !empty($zerif_aboutus_feature3_text) ? $there_is_skills='yes' :
+				!empty($zerif_aboutus_feature4_title) || !empty($zerif_aboutus_feature4_text) ? $there_is_skills='yes' :
 				$there_is_skills='');
 
 			$zerif_aboutus_feature1_nr 	= get_theme_mod('zerif_aboutus_feature1_nr', '80');
@@ -135,7 +114,7 @@
 			/* COLUMN 1 - SKILS */
 
 			if ( $there_is_skills!='' ) :
-			
+
 		?>
 		<div class="col-lg-<?php echo $colCount; ?> col-md-<?php echo $colCount; ?> column zerif-rtl-skills ">
 
@@ -161,13 +140,13 @@
 
 						if( !empty($zerif_aboutus_feature1_title) ):
 							echo '<div class="section-legend">'.wp_kses_post( $zerif_aboutus_feature1_title ).'</div>';
-						elseif ( isset( $wp_customize ) ):
+						elseif ( is_customize_preview() ):
 							echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
 						endif;
 
 						if( !empty($zerif_aboutus_feature1_text) ):
 							echo '<p>'.wp_kses_post( $zerif_aboutus_feature1_text ).'</p>';
-						elseif ( isset( $wp_customize ) ):
+						elseif ( is_customize_preview() ):
 							echo '<p class="zerif_hidden_if_not_customizer"></p>';
 						endif;
 
@@ -179,7 +158,7 @@
 
 				<!-- SKILL TWO -->
 
-				<?php	
+				<?php
 					if( !empty($zerif_aboutus_feature2_nr) || !empty($zerif_aboutus_feature2_title) || !empty($zerif_aboutus_feature2_text) ):
 				?>
 
@@ -201,13 +180,13 @@
 
 						if( !empty($zerif_aboutus_feature2_title) ):
 							echo '<div class="section-legend">'.wp_kses_post( $zerif_aboutus_feature2_title ).'</div>';
-						elseif ( isset( $wp_customize ) ):
+						elseif ( is_customize_preview() ):
 							echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
 						endif;
 
 						if( !empty($zerif_aboutus_feature2_text) ):
 							echo '<p>'.wp_kses_post( $zerif_aboutus_feature2_text ).'</p>';
-						elseif ( isset( $wp_customize ) ):
+						elseif ( is_customize_preview() ):
 							echo '<p class="zerif_hidden_if_not_customizer"></p>';
 						endif;
 
@@ -218,7 +197,7 @@
 				<?php endif; ?>
 
 				<!-- SKILL THREE -->
-				<?php						
+				<?php
 					if( !empty($zerif_aboutus_feature3_nr) || !empty($zerif_aboutus_feature3_title) || !empty($zerif_aboutus_feature3_text) ):
 				?>
 				<li class="skill skill_3">
@@ -237,13 +216,13 @@
 
 						if( !empty($zerif_aboutus_feature3_title) ):
 							echo '<div class="section-legend">'.wp_kses_post( $zerif_aboutus_feature3_title ).'</div>';
-						elseif ( isset( $wp_customize ) ):
+						elseif ( is_customize_preview() ):
 							echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
 						endif;
 
 						if( !empty($zerif_aboutus_feature3_text) ):
 							echo '<p>'.wp_kses_post( $zerif_aboutus_feature3_text ).'</p>';
-						elseif ( isset( $wp_customize ) ):
+						elseif ( is_customize_preview() ):
 							echo '<p class="zerif_hidden_if_not_customizer"></p>';
 						endif;
 
@@ -254,7 +233,7 @@
 				<?php endif; ?>
 
 				<!-- SKILL FOUR -->
-				<?php	
+				<?php
 					if( !empty($zerif_aboutus_feature4_nr) || !empty($zerif_aboutus_feature4_title) || !empty($zerif_aboutus_feature4_text) ):
 				?>
 
@@ -274,13 +253,13 @@
 
 						if( !empty($zerif_aboutus_feature4_title) ):
 							echo '<div class="section-legend">'.wp_kses_post( $zerif_aboutus_feature4_title ).'</div>';
-						elseif ( isset( $wp_customize ) ):
+						elseif ( is_customize_preview() ):
 							echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
 						endif;
 
 						if( !empty($zerif_aboutus_feature4_text) ):
 							echo '<p>'.wp_kses_post( $zerif_aboutus_feature4_text ).'</p>';
-						elseif ( isset( $wp_customize ) ):
+						elseif ( is_customize_preview() ):
 							echo '<p class="zerif_hidden_if_not_customizer"></p>';
 						endif;
 
@@ -313,6 +292,10 @@
 		endif;
 	?>
 
-</div> <!-- / END CONTAINER -->
+	</div> <!-- / END CONTAINER -->
+
+	<?php zerif_bottom_about_us_trigger(); ?>
 
 </section> <!-- END ABOUT US SECTION -->
+
+<?php zerif_after_about_us_trigger(); ?>
