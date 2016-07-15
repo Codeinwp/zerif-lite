@@ -68,9 +68,6 @@ function zerif_setup() {
 	/* Customizer additions. */
 	require get_template_directory() . '/inc/customizer.php';
 
-	/* Enables user customization via WordPress plugin API. */
-	require get_template_directory() . '/inc/hooks.php';
-
 	/* tgm-plugin-activation */
     require_once get_template_directory() . '/class-tgm-plugin-activation.php';
 
@@ -116,6 +113,22 @@ function zerif_setup() {
 
 		require get_template_directory() . '/inc/admin/welcome-screen/welcome-screen.php';
 	}
+
+	/***********************************/
+	/**************  HOOKS *************/
+	/***********************************/
+
+	/* Enables user customization via WordPress plugin API. */
+	require get_template_directory() . '/inc/hooks.php';
+
+	add_action( 'zerif_404_title', 'zerif_404_title_function' ); # Outputs the title on 404 pages
+	add_action( 'zerif_404_content', 'zerif_404_content_function' ); # Outputs a helpful message on 404 pages
+
+	add_action( 'zerif_page_header', 'zerif_page_header_function' ); # Outputs the title on pages
+
+	add_action( 'zerif_page_header_title_archive', 'zerif_page_header_title_archive_function' ); # Outputs the title on archive pages
+	add_action( 'zerif_page_term_description_archive', 'zerif_page_term_description_archive_function' ); # Outputs the term description
+
 }
 
 add_action('after_setup_theme', 'zerif_setup');

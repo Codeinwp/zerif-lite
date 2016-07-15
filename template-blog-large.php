@@ -16,7 +16,7 @@ get_header(); ?>
 
 			<div id="primary" class="content-area">
 
-				<main id="main" class="site-main" role="main" itemscope itemtype="http://schema.org/Blog">
+				<main id="main" class="site-main" itemscope itemtype="http://schema.org/Blog">
 
 					<?php 
 				

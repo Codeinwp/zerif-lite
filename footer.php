@@ -8,7 +8,7 @@
 
 </div><!-- .site-content -->
 
-<footer id="footer" role="contentinfo">
+<footer id="footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
 
 <?php 
 	if(is_active_sidebar( 'zerif-sidebar-footer' ) || is_active_sidebar( 'zerif-sidebar-footer-2' ) || is_active_sidebar( 'zerif-sidebar-footer-3' )):

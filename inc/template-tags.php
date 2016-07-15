@@ -16,7 +16,7 @@ function zerif_paging_nav() {
 
 	?>
 
-	<nav class="navigation paging-navigation" role="navigation">
+	<nav class="navigation paging-navigation">
 
 		<h2 class="screen-reader-text"><?php _e( 'Posts navigation', 'zerif-lite' ); ?></h2>
 
@@ -66,7 +66,7 @@ function zerif_post_nav() {
 
 	?>
 
-	<nav class="navigation post-navigation" role="navigation">
+	<nav class="navigation post-navigation">
 
 		<h2 class="screen-reader-text"><?php _e( 'Post navigation', 'zerif-lite' ); ?></h2>
 
@@ -217,3 +217,113 @@ function zerif_category_transient_flusher() {
 add_action( 'edit_category', 'zerif_category_transient_flusher' );
 
 add_action( 'save_post',     'zerif_category_transient_flusher' );
+
+/********************************/
+/*********** HOOKS **************/
+/********************************/
+
+function zerif_404_title_function() {
+
+	?><h1 class="entry-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'zerif-lite' ); ?></h1><?php
+
+}
+
+function zerif_404_content_function() {
+
+	?><p><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'zerif-lite' ); ?></p><?php
+
+}
+
+function zerif_page_header_function() {
+
+	?><h1 class="entry-title" itemprop="headline"><?php the_title(); ?></h1><?php
+
+}
+
+function zerif_page_header_title_archive_function() {
+	?>
+	<h1 class="page-title">
+
+		<?php
+
+		if ( is_category() ) :
+
+			single_cat_title();
+
+		elseif ( is_tag() ) :
+
+			single_tag_title();
+
+		elseif ( is_author() ) :
+
+			printf( __( 'Author: %s', 'zerif-lite' ), '<span class="vcard">' . get_the_author() . '</span>' );
+
+		elseif ( is_day() ) :
+
+			printf( __( 'Day: %s', 'zerif-lite' ), '<span>' . get_the_date() . '</span>' );
+
+		elseif ( is_month() ) :
+
+			printf( __( 'Month: %s', 'zerif-lite' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'zerif-lite' ) ) . '</span>' );
+
+		elseif ( is_year() ) :
+
+			printf( __( 'Year: %s', 'zerif-lite' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'zerif-lite' ) ) . '</span>' );
+
+		elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
+
+			_e( 'Asides', 'zerif-lite' );
+
+		elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) :
+
+			_e( 'Galleries', 'zerif-lite');
+
+		elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
+
+			_e( 'Images', 'zerif-lite');
+
+		elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
+
+			_e( 'Videos', 'zerif-lite' );
+
+		elseif ( is_tax( 'post_format', 'post-format-quote' ) ) :
+
+			_e( 'Quotes', 'zerif-lite' );
+
+		elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
+
+			_e( 'Links', 'zerif-lite' );
+
+		elseif ( is_tax( 'post_format', 'post-format-status' ) ) :
+
+			_e( 'Statuses', 'zerif-lite' );
+
+		elseif ( is_tax( 'post_format', 'post-format-audio' ) ) :
+
+			_e( 'Audios', 'zerif-lite' );
+
+		elseif ( is_tax( 'post_format', 'post-format-chat' ) ) :
+
+			_e( 'Chats', 'zerif-lite' );
+
+		else :
+
+			_e( 'Archives', 'zerif-lite' );
+
+		endif;
+
+		?>
+
+	</h1>
+	<?php
+}
+
+function zerif_page_term_description_archive_function() {
+	$term_description = term_description();
+
+	if ( ! empty( $term_description ) ) :
+
+		printf( '<div class="taxonomy-description">%s</div>', $term_description );
+
+	endif;
+}
