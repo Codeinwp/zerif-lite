@@ -129,6 +129,14 @@ function zerif_setup() {
 	add_action( 'zerif_page_header_title_archive', 'zerif_page_header_title_archive_function' ); # Outputs the title on archive pages
 	add_action( 'zerif_page_term_description_archive', 'zerif_page_term_description_archive_function' ); # Outputs the term description
 
+	add_action( 'zerif_footer_widgets', 'zerif_footer_widgets_function' ); #Outputs the 3 sidebars in footer
+
+	add_action( 'zerif_our_focus_header_title', 'zerif_our_focus_header_title_function' ); #Outputs the title in Our focus section
+	add_action( 'zerif_our_focus_header_subtitle', 'zerif_our_focus_header_subtitle_function' ); #Outputs the subtitle in Our focus section
+
+	add_action( 'zerif_our_team_header_title', 'zerif_our_team_header_title_function' ); #Outputs the title in Our team section
+	add_action( 'zerif_our_team_header_subtitle', 'zerif_our_team_header_subtitle_function' ); #Outputs the subtitle in Our team section
+
 }
 
 add_action('after_setup_theme', 'zerif_setup');

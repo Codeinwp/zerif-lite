@@ -8,31 +8,15 @@
 
 </div><!-- .site-content -->
 
+<?php zerif_before_footer_trigger(); ?>
+
 <footer id="footer" itemscope="itemscope" itemtype="http://schema.org/WPFooter">
 
-<?php 
-	if(is_active_sidebar( 'zerif-sidebar-footer' ) || is_active_sidebar( 'zerif-sidebar-footer-2' ) || is_active_sidebar( 'zerif-sidebar-footer-3' )):
-		echo '<div class="footer-widget-wrap"><div class="container">';
-		if(is_active_sidebar( 'zerif-sidebar-footer' )):
-			echo '<div class="footer-widget col-xs-12 col-sm-4">';
-			dynamic_sidebar( 'zerif-sidebar-footer' );
-			echo '</div>';
-		endif;
-		if(is_active_sidebar( 'zerif-sidebar-footer-2' )):
-			echo '<div class="footer-widget col-xs-12 col-sm-4">';
-			dynamic_sidebar( 'zerif-sidebar-footer-2' );
-			echo '</div>';
-		endif;
-		if(is_active_sidebar( 'zerif-sidebar-footer-3' )):
-			echo '<div class="footer-widget col-xs-12 col-sm-4">';
-			dynamic_sidebar( 'zerif-sidebar-footer-3' );
-			echo '</div>';
-		endif;
-		echo '</div></div>';
-	endif;
-?>
+	<?php zerif_footer_widgets_trigger(); ?>
 
 <div class="container">
+
+	<?php zerif_top_footer_trigger(); ?>
 
 	<?php
 		$footer_sections = 0;
@@ -197,17 +181,20 @@
 			
 		endif;
 	?>
-
+	<?php zerif_bottom_footer_trigger(); ?>
 </div> <!-- / END CONTAINER -->
 
 </footer> <!-- / END FOOOTER  -->
 
+<?php zerif_after_footer_trigger(); ?>
 
 	</div><!-- mobile-bg-fix-whole-site -->
 </div><!-- .mobile-bg-fix-wrap -->
 
 
 <?php wp_footer(); ?>
+
+<?php zerif_bottom_body_trigger(); ?>
 
 </body>
 

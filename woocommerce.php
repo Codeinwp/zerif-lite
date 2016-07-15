@@ -7,7 +7,7 @@ get_header(); ?>
 <div class="clear"></div>
 
 </header> <!-- / END HOME SECTION  -->
-
+<?php zerif_after_header_trigger(); ?>
 <div id="content" class="site-content">
 
 	<div class="container">

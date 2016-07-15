@@ -73,11 +73,19 @@ The exceptions to this license are as follows:
 
 * Available hooks:
 
-  zerif_404_title zerif_404_content
+  zerif_404_title
+  zerif_404_content
 
-  zerif_before_sidebar zerif_after_sidebar zerif_top_sidebar zerif_bottom_sidebar
+  zerif_before_sidebar
+  zerif_after_sidebar
+  zerif_top_sidebar
+  zerif_bottom_sidebar
 
-  zerif_before_footer zerif_after_footer zerif_top_footer zerif_bottom_footer
+  zerif_before_footer
+  zerif_after_footer
+  zerif_top_footer
+  zerif_bottom_footer
+  zerif_footer_widgets
 
   zerif_before_search zerif_after_search
 
@@ -85,26 +93,47 @@ The exceptions to this license are as follows:
 
   zerif_top_head zerif_bottom_head
 
-  zerif_top_page_content zerif_bottom_page_content zerif_before_page_content zerif_after_page_content zerif_page_header
+  zerif_top_page_content
+  zerif_bottom_page_content
+  zerif_before_page_content
+  zerif_after_page_content
+  zerif_page_header
 
-  zerif_before_our_focus zerif_after_our_focus
+  zerif_before_our_focus
+  zerif_after_our_focus
+  zerif_our_focus_header_title
+  zerif_our_focus_header_subtitle
 
-  zerif_before_about_us zerif_after_about_us
+  zerif_before_about_us
+  zerif_after_about_us
 
-  zerif_before_latest_news zerif_after_latest_news zerif_top_latest_news zerif_bottom_latest_news
+  zerif_before_latest_news
+  zerif_after_latest_news
+  zerif_top_latest_news
+  zerif_bottom_latest_news
 
-  zerif_before_our_team zerif_after_our_team zerif_top_our_team zerif_bottom_our_team
+  zerif_before_our_team
+  zerif_after_our_team
+  zerif_top_our_team
+  zerif_bottom_our_team
+  zerif_our_team_header_title
+  zerif_our_team_header_subtitle
 
-  zerif_before_testimonials zerif_after_testimonials zerif_top_testimonials zerif_bottom_testimonials
+  zerif_before_testimonials
+  zerif_after_testimonials
+  zerif_top_testimonials
+  zerif_bottom_testimonials
 
-  zerif_before_subscribe zerif_after_subscribe zerif_top_subscribe zerif_bottom_subscribe
+  zerif_big_title_buttons_top
+  zerif_big_title_buttons_bottom
 
-  zerif_before_packages zerif_after_packages zerif_top_packages zerif_bottom_packages
-
-  zerif_before_portfolio zerif_after_portfolio zerif_top_portfolio zerif_bottom_portfolio zerif_portfolio_header
-
-  zerif_big_title_buttons_top zerif_big_title_buttons_bottom
+  zerif_page_header_title_archive
+  zerif_page_term_description_archive
+  zerif_before_archive_content_trigger
+  zerif_top_archive_content_trigger
+  zerif_bottom_archive_content_trigger
+  zerif_after_archive_content_trigger
 
 * Available filters:
 
-  zerif_latest_news_parameters - (array) Parameters passed to WP_Query for displaying Latest news section zerif_portfolio_parameters - (array) Parameters passed to WP_Query for displaying Portfolio section
+  zerif_latest_news_parameters - (array) Parameters passed to WP_Query for displaying Latest news section

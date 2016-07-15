@@ -8,6 +8,8 @@
 <html <?php language_attributes(); ?>>
 
 <head>
+
+<?php zerif_top_head_trigger(); ?>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
@@ -31,6 +33,7 @@ endif;
 
 wp_head(); ?>
 
+<?php zerif_bottom_head_trigger(); ?>
 </head>
 
 <?php if(isset($_POST['scrollPosition'])): ?>
@@ -41,7 +44,9 @@ wp_head(); ?>
 
 	<body <?php body_class(); ?> >
 
-<?php endif; 
+<?php endif;
+
+	zerif_top_body_trigger();
 
 	global $wp_customize;
 	

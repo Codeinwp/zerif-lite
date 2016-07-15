@@ -178,7 +178,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 ?>
 
 </header> <!-- / END HOME SECTION  -->
-
+<?php zerif_after_header_trigger(); ?>
 <div id="content" class="site-content">
 
 <?php

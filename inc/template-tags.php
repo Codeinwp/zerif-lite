@@ -327,3 +327,73 @@ function zerif_page_term_description_archive_function() {
 
 	endif;
 }
+
+function zerif_footer_widgets_function() {
+	if(is_active_sidebar( 'zerif-sidebar-footer' ) || is_active_sidebar( 'zerif-sidebar-footer-2' ) || is_active_sidebar( 'zerif-sidebar-footer-3' )):
+		echo '<div class="footer-widget-wrap"><div class="container">';
+		if(is_active_sidebar( 'zerif-sidebar-footer' )):
+			echo '<div class="footer-widget col-xs-12 col-sm-4">';
+			dynamic_sidebar( 'zerif-sidebar-footer' );
+			echo '</div>';
+		endif;
+		if(is_active_sidebar( 'zerif-sidebar-footer-2' )):
+			echo '<div class="footer-widget col-xs-12 col-sm-4">';
+			dynamic_sidebar( 'zerif-sidebar-footer-2' );
+			echo '</div>';
+		endif;
+		if(is_active_sidebar( 'zerif-sidebar-footer-3' )):
+			echo '<div class="footer-widget col-xs-12 col-sm-4">';
+			dynamic_sidebar( 'zerif-sidebar-footer-3' );
+			echo '</div>';
+		endif;
+		echo '</div></div>';
+	endif;
+}
+
+function zerif_our_focus_header_title_function() {
+
+	$zerif_ourfocus_title = get_theme_mod('zerif_ourfocus_title',__('FEATURES','zerif-lite'));
+
+	if( !empty($zerif_ourfocus_title) ):
+		echo '<h2 class="dark-text">'.wp_kses_post( $zerif_ourfocus_title ).'</h2>';
+	elseif ( is_customize_preview() ):
+		echo '<h2 class="dark-text zerif_hidden_if_not_customizer"></h2>';
+	endif;
+}
+
+function zerif_our_focus_header_subtitle_function() {
+
+	$zerif_ourfocus_subtitle = get_theme_mod('zerif_ourfocus_subtitle',__('What makes this single-page WordPress theme unique.','zerif-lite'));
+
+	if( !empty($zerif_ourfocus_subtitle) ):
+		echo '<div class="section-legend">'.wp_kses_post( $zerif_ourfocus_subtitle ).'</div>';
+	elseif ( is_customize_preview() ):
+		echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
+	endif;
+}
+
+function zerif_our_team_header_title_function() {
+
+	$zerif_ourteam_title = get_theme_mod('zerif_ourteam_title',__('YOUR TEAM','zerif-lite'));
+
+	if( !empty($zerif_ourteam_title) ):
+		echo '<h2 class="dark-text">'.wp_kses_post( $zerif_ourteam_title ).'</h2>';
+	elseif ( is_customize_preview() ):
+		echo '<h2 class="dark-text zerif_hidden_if_not_customizer"></h2>';
+	endif;
+}
+
+function zerif_our_team_header_subtitle_function() {
+
+	$zerif_ourteam_subtitle = get_theme_mod('zerif_ourteam_subtitle',__('Prove that you have real people working for you, with some nice looking profile pictures and links to social media.','zerif-lite'));
+
+	if( !empty($zerif_ourteam_subtitle) ):
+
+		echo '<div class="section-legend">'.wp_kses_post( $zerif_ourteam_subtitle ).'</div>';
+
+	elseif ( is_customize_preview() ):
+
+		echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
+
+	endif;
+}
