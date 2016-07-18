@@ -148,6 +148,8 @@ function zerif_setup() {
 	add_action( 'zerif_about_us_header_title', 'zerif_about_us_header_title_function' ); #Outputs the title in About us section
 	add_action( 'zerif_about_us_header_subtitle', 'zerif_about_us_header_subtitle_function' ); #Outputs the subtitle in About us section
 
+	add_action( 'zerif_sidebar', 'zerif_sidebar_function' ); #Outputs the sidebar
+
 }
 
 add_action('after_setup_theme', 'zerif_setup');

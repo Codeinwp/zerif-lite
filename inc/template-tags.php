@@ -500,3 +500,11 @@ function zerif_about_us_header_subtitle_function() {
 
 	endif;
 }
+
+function zerif_sidebar_function() {
+	?>
+	<div class="sidebar-wrap col-md-3 content-left-wrap">
+		<?php get_sidebar(); ?>
+	</div><!-- .sidebar-wrap -->
+	<?php
+}

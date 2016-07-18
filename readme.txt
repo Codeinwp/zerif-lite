@@ -80,6 +80,7 @@ The exceptions to this license are as follows:
   zerif_after_sidebar
   zerif_top_sidebar
   zerif_bottom_sidebar
+  zerif_sidebar
 
   zerif_before_footer
   zerif_after_footer
@@ -87,11 +88,14 @@ The exceptions to this license are as follows:
   zerif_bottom_footer
   zerif_footer_widgets
 
-  zerif_before_search zerif_after_search
+  zerif_before_search
+  zerif_after_search
 
-  zerif_top_body zerif_bottom_body
+  zerif_top_body
+  zerif_bottom_body
 
-  zerif_top_head zerif_bottom_head
+  zerif_top_head
+  zerif_bottom_head
 
   zerif_top_page_content
   zerif_bottom_page_content
@@ -144,6 +148,11 @@ The exceptions to this license are as follows:
   zerif_top_archive_content_trigger
   zerif_bottom_archive_content_trigger
   zerif_after_archive_content_trigger
+
+  zerif_top_single_post
+  zerif_bottom_single_post
+  zerif_before_single_post
+  zerif_after_single_post
 
 * Available filters:
 

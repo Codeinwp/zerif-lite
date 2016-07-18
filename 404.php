@@ -42,11 +42,7 @@ get_header(); ?>
 
 		</div>
 
-		<div class="sidebar-wrap col-md-3 content-left-wrap">
-
-			<?php get_sidebar(); ?>
-
-		</div><!-- .sidebar-wrap -->
+		<?php zerif_sidebar_trigger(); ?>
 
 	</div><!-- .container -->
 

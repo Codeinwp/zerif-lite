@@ -12,7 +12,11 @@ get_header(); ?>
 
 	<div class="container">
 
+		<?php zerif_before_page_content_trigger(); ?>
+
 		<div class="content-left-wrap col-md-12">
+
+			<?php zerif_top_page_content_trigger(); ?>
 
 			<div id="primary" class="content-area">
 
@@ -35,7 +39,11 @@ get_header(); ?>
 
 			</div><!-- #primary -->
 
+			<?php zerif_bottom_page_content_trigger(); ?>
+
 		</div><!-- .content-left-wrap -->
+
+		<?php zerif_after_page_content_trigger(); ?>
 
 	</div><!-- .container -->
 
