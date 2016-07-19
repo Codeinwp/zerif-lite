@@ -2198,10 +2198,6 @@ width: -webkit-calc(100% / 4);
 	background: #272727;
 	color: #FFF;
 }
-.about-us .row {
-	margin-left: -15px;
-	margin-right: -15px;
-}
 .about-us .big-intro {
 	text-align: right;
 	font-weight: 300;
