@@ -2091,7 +2091,7 @@ function zerif_lite_asking_for_reviews_script() {
 	wp_enqueue_script( 'zerif-lite-asking-for-reviews-js', get_template_directory_uri() . '/js/zerif_reviews.js', array('jquery') );
 
 	wp_localize_script( 'zerif-lite-asking-for-reviews-js', 'zerifLiteAskingForReviewsObject', array(
-		'ask' => $zerif_lite_review,
+		'ask' => esc_attr( $zerif_lite_review ),
 		'ajaxurl' => admin_url( 'admin-ajax.php' ),
 	) );
 }
