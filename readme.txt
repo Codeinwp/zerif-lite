@@ -154,6 +154,13 @@ The exceptions to this license are as follows:
   zerif_before_single_post
   zerif_after_single_post
 
+  zerif_primary_navigation
+
 * Available filters:
 
   zerif_latest_news_parameters - (array) Parameters passed to WP_Query for displaying Latest news section
+  zerif_latest_news_left_arrow - (string) Carousel left arrow on Latest news section
+  zerif_latest_news_right_arrow - (string) Carousel right arrow on Latest news section
+
+  zerif_template_blog_parameters - (array) Parameters passed to WP_Query in template-blog.php
+  zerif_template_blog_large_parameters - (array) Parameters passed to WP_Query in template-blog-large.php

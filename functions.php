@@ -150,6 +150,8 @@ function zerif_setup() {
 
 	add_action( 'zerif_sidebar', 'zerif_sidebar_function' ); #Outputs the sidebar
 
+	add_action( 'zerif_primary_navigation', 'zerif_primary_navigation_function' ); #Outputs the navigation menu
+
 }
 
 add_action('after_setup_theme', 'zerif_setup');

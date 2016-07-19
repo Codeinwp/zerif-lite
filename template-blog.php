@@ -17,8 +17,7 @@ get_header(); ?>
 
 				<main id="main" class="site-main" itemscope itemtype="http://schema.org/Blog">
 					<?php
-					$paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-					$wp_query = new WP_Query( array('post_type' => 'post', 'showposts' => '8', 'paged' => $paged) );
+					$wp_query = new WP_Query( apply_filters( 'zerif_template_blog_parameters', array('post_type' => 'post', 'posts_per_page' => '8', 'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1 ) ) ) );
 
 					if( $wp_query->have_posts() ):
 					 

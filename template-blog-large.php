@@ -18,13 +18,15 @@ get_header(); ?>
 
 				<main id="main" class="site-main" itemscope itemtype="http://schema.org/Blog">
 
-					<?php 
-				
-					query_posts( array( 'post_type' => 'post', 'posts_per_page' => 6, 'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1 ) ) );
+					<?php
 
-					if ( have_posts() ) :
+					$wp_query = new WP_Query( apply_filters( 'zerif_template_blog_large_parameters', array( 'post_type' => 'post', 'posts_per_page' => 6, 'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1 ) ) ) );
 
-						while ( have_posts() ) : the_post();
+					if ( $wp_query->have_posts() ) :
+
+						while ( $wp_query->have_posts() ) :
+
+							$wp_query->the_post();
 						
 							get_template_part( 'content-large' );
 						

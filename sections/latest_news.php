@@ -31,10 +31,9 @@
 					/* Wrapper for slides */
 					
 					echo '<div class="carousel-inner" role="listbox">';
-						
-						
-						$zerif_latest_loop = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => $zerif_total_posts, 'order' => 'DESC','ignore_sticky_posts' => true ) );
-						
+
+						$zerif_latest_loop = new WP_Query( apply_filters( 'zerif_latest_news_parameters', array( 'post_type' => 'post', 'posts_per_page' => $zerif_total_posts, 'order' => 'DESC','ignore_sticky_posts' => true )) );
+
 						$newSlideActive = '<div class="item active">';
 						$newSlide 		= '<div class="item">';
 						$newSlideClose 	= '<div class="clear"></div></div>';
@@ -140,14 +139,14 @@
 					echo '</div><!-- .carousel-inner -->';
 
 					/* Controls */
-					echo '<a class="left carousel-control" href="#carousel-homepage-latestnews" role="button" data-slide="prev">';
-						echo '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>';
-						echo '<span class="sr-only">'.__('Previous','zerif-lite').'</span>';
-					echo '</a>';
-					echo '<a class="right carousel-control" href="#carousel-homepage-latestnews" role="button" data-slide="next">';
-						echo '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>';
-						echo '<span class="sr-only">'.__('Next','zerif-lite').'</span>';
-					echo '</a>';
+					echo apply_filters( 'zerif_latest_news_left_arrow','<a class="left carousel-control" href="#carousel-homepage-latestnews" role="button" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						<span class="sr-only">'.__('Previous','zerif-lite').'</span>
+					</a>' );
+					echo apply_filters( 'zerif_latest_news_right_arrow','<a class="right carousel-control" href="#carousel-homepage-latestnews" role="button" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						<span class="sr-only">'.__('Next','zerif-lite').'</span>
+					</a>' );
 				echo '</div><!-- #carousel-homepage-latestnews -->';
 
 			echo '</div><!-- .container -->';
