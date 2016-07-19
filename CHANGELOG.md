@@ -1,4 +1,10 @@
 
+### 1.8.4.5 - 19/07/2016
+**Changes:** 
+- Added a number of hooks and filter to make child theme creation easier (The whole list can be found in readme.txt)
+- Fixed some escaping issues
+- Fixed alignment issue on mobile devices in About us section
+
 ### 1.8.4.4 - 27/05/2016
 **Changes:** 
 - Small fixes to tgmp
