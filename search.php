@@ -7,7 +7,7 @@ get_header(); ?>
 <div class="clear"></div>
 
 </header> <!-- / END HOME SECTION  -->
-
+<?php zerif_after_header_trigger(); ?>
 <div id="content" class="site-content">
 
 	<div class="container">
@@ -16,41 +16,37 @@ get_header(); ?>
 
 			<div id="primary" class="content-area">
 
-				<main id="main" class="site-main" role="main">
+				<main id="main" class="site-main">
+					<?php zerif_before_search_trigger(); ?>
+					<?php if ( have_posts() ) : ?>
 
-				<?php if ( have_posts() ) : ?>
+						<header class="page-header">
 
-					<header class="page-header">
+							<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'zerif-lite' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 
-						<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'zerif-lite' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+						</header><!-- .page-header -->
 
-					</header><!-- .page-header -->
+						<?php while ( have_posts() ) : the_post(); ?>
 
-					<?php while ( have_posts() ) : the_post(); ?>
+							<?php get_template_part( 'content', get_post_format() ); ?>
 
-						<?php get_template_part( 'content', get_post_format() ); ?>
+						<?php endwhile; ?>
 
-					<?php endwhile; ?>
+						<?php zerif_paging_nav(); ?>
 
-					<?php zerif_paging_nav(); ?>
+					<?php else : ?>
 
-				<?php else : ?>
+						<?php get_template_part( 'content', 'none' ); ?>
 
-					<?php get_template_part( 'content', 'none' ); ?>
-
-				<?php endif; ?>
-
+					<?php endif; ?>
+					<?php zerif_after_search_trigger(); ?>
 				</main><!-- #main -->
 
 			</div><!-- #primary -->
 
 		</div><!-- .content-left-wrap -->
 
-		<div class="sidebar-wrap col-md-3 content-left-wrap">
-
-			<?php get_sidebar(); ?>
-
-		</div><!-- .sidebar-wrap -->
+		<?php zerif_sidebar_trigger(); ?>
 
 	</div><!-- .container -->
 

@@ -7,138 +7,66 @@ get_header(); ?>
 <div class="clear"></div>
 
 </header> <!-- / END HOME SECTION  -->
-
+<?php zerif_after_header_trigger(); ?>
 <div id="content" class="site-content">
 
 <div class="container">
 
-<div class="content-left-wrap col-md-12">
+	<?php zerif_before_archive_content_trigger(); ?>
 
-	<div id="primary" class="content-area">
+	<div class="content-left-wrap col-md-12">
 
-		<main id="main" class="site-main" role="main">
+		<?php zerif_top_archive_content_trigger(); ?>
 
-		<?php if ( have_posts() ) : ?>
+		<div id="primary" class="content-area">
 
-			<header class="page-header">
+			<main id="main" class="site-main">
 
-				<h1 class="page-title">
+			<?php if ( have_posts() ) : ?>
+
+				<header class="page-header">
 
 					<?php
+					/* Title */
+					zerif_page_header_title_archive_trigger();
 
-						if ( is_category() ) :
-
-							single_cat_title();
-
-						elseif ( is_tag() ) :
-
-							single_tag_title();
-
-						elseif ( is_author() ) :
-
-							printf( __( 'Author: %s', 'zerif-lite' ), '<span class="vcard">' . get_the_author() . '</span>' );
-
-						elseif ( is_day() ) :
-
-							printf( __( 'Day: %s', 'zerif-lite' ), '<span>' . get_the_date() . '</span>' );
-
-						elseif ( is_month() ) :
-
-							printf( __( 'Month: %s', 'zerif-lite' ), '<span>' . get_the_date( _x( 'F Y', 'monthly archives date format', 'zerif-lite' ) ) . '</span>' );
-
-						elseif ( is_year() ) :
-
-							printf( __( 'Year: %s', 'zerif-lite' ), '<span>' . get_the_date( _x( 'Y', 'yearly archives date format', 'zerif-lite' ) ) . '</span>' );
-
-						elseif ( is_tax( 'post_format', 'post-format-aside' ) ) :
-
-							_e( 'Asides', 'zerif-lite' );
-
-						elseif ( is_tax( 'post_format', 'post-format-gallery' ) ) :
-
-							_e( 'Galleries', 'zerif-lite');
-
-						elseif ( is_tax( 'post_format', 'post-format-image' ) ) :
-
-							_e( 'Images', 'zerif-lite');
-
-						elseif ( is_tax( 'post_format', 'post-format-video' ) ) :
-
-							_e( 'Videos', 'zerif-lite' );
-
-						elseif ( is_tax( 'post_format', 'post-format-quote' ) ) :
-
-							_e( 'Quotes', 'zerif-lite' );
-
-						elseif ( is_tax( 'post_format', 'post-format-link' ) ) :
-
-							_e( 'Links', 'zerif-lite' );
-
-						elseif ( is_tax( 'post_format', 'post-format-status' ) ) :
-
-							_e( 'Statuses', 'zerif-lite' );
-
-						elseif ( is_tax( 'post_format', 'post-format-audio' ) ) :
-
-							_e( 'Audios', 'zerif-lite' );
-
-						elseif ( is_tax( 'post_format', 'post-format-chat' ) ) :
-
-							_e( 'Chats', 'zerif-lite' );
-
-						else :
-
-							_e( 'Archives', 'zerif-lite' );
-
-						endif;
-
+					/* Optional term description */
+					zerif_page_term_description_archive_trigger();
 					?>
 
-				</h1>
+				</header><!-- .page-header -->
 
-				<?php
+				<?php while ( have_posts() ) : the_post();
 
-					// Show an optional term description.
+						/* Include the Post-Format-specific template for the content.
 
-					$term_description = term_description();
+						 * If you want to override this in a child theme, then include a file
 
-					if ( ! empty( $term_description ) ) :
+						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 
-						printf( '<div class="taxonomy-description">%s</div>', $term_description );
+						 */
 
-					endif;
+						get_template_part( 'content', 'archive-download' );
 
-				?>
+					endwhile;
 
-			</header><!-- .page-header -->
+					zerif_paging_nav();
 
-			<?php while ( have_posts() ) : the_post();
+				else:
 
-					/* Include the Post-Format-specific template for the content.
+					get_template_part( 'content', 'none' );
 
-					 * If you want to override this in a child theme, then include a file
+				endif; ?>
 
-					 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+			</main><!-- #main -->
 
-					 */
+		</div><!-- #primary -->
 
-					get_template_part( 'content', 'archive-download' );
+		<?php zerif_bottom_archive_content_trigger(); ?>
 
-				endwhile;  
-				
-				zerif_paging_nav(); 
-				
-			else:
-			
-				get_template_part( 'content', 'none' );
-				
-			endif; ?>
+	</div><!-- .content-left-wrap -->
 
-		</main><!-- #main -->
-
-	</div><!-- #primary -->
-
-</div><!-- .content-left-wrap -->
+	<?php zerif_after_archive_content_trigger(); ?>
 
 </div><!-- .container -->
 

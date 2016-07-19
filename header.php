@@ -8,6 +8,8 @@
 <html <?php language_attributes(); ?>>
 
 <head>
+
+<?php zerif_top_head_trigger(); ?>
 <meta charset="<?php bloginfo( 'charset' ); ?>">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="profile" href="http://gmpg.org/xfn/11">
@@ -31,6 +33,7 @@ endif;
 
 wp_head(); ?>
 
+<?php zerif_bottom_head_trigger(); ?>
 </head>
 
 <?php if(isset($_POST['scrollPosition'])): ?>
@@ -41,13 +44,13 @@ wp_head(); ?>
 
 	<body <?php body_class(); ?> >
 
-<?php endif; 
+<?php endif;
 
-	global $wp_customize;
+	zerif_top_body_trigger();
 	
 	/* Preloader */
 
-	if(is_front_page() && !isset( $wp_customize ) && get_option( 'show_on_front' ) != 'page' ): 
+	if(is_front_page() && !is_customize_preview() && get_option( 'show_on_front' ) != 'page' ):
  
 		$zerif_disable_preloader = get_theme_mod('zerif_disable_preloader');
 		
@@ -67,7 +70,7 @@ wp_head(); ?>
 	<div class="mobile-bg-fix-whole-site">
 
 
-<header id="home" class="header">
+<header id="home" class="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
 
 	<div id="main-nav" class="navbar navbar-inverse bs-docs-nav" role="banner">
 
@@ -121,10 +124,7 @@ wp_head(); ?>
 
 			</div>
 
-			<nav class="navbar-collapse bs-navbar-collapse collapse" role="navigation"   id="site-navigation">
-				<a class="screen-reader-text skip-link" href="#content"><?php _e( 'Skip to content', 'zerif-lite' ); ?></a>
-				<?php wp_nav_menu( array('theme_location' => 'primary', 'container' => false, 'menu_class' => 'nav navbar-nav navbar-right responsive-nav main-nav-list', 'fallback_cb'     => 'zerif_wp_page_menu')); ?>
-			</nav>
+			<?php zerif_primary_navigation_trigger(); ?>
 
 		</div>
 

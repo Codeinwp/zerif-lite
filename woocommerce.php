@@ -7,7 +7,7 @@ get_header(); ?>
 <div class="clear"></div>
 
 </header> <!-- / END HOME SECTION  -->
-
+<?php zerif_after_header_trigger(); ?>
 <div id="content" class="site-content">
 
 	<div class="container">
@@ -16,7 +16,7 @@ get_header(); ?>
 
 			<div id="primary" class="content-area">
 
-				<main id="main" class="site-main" role="main">
+				<main id="main" class="site-main">
 
 					<?php woocommerce_content(); ?>
 

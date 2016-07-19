@@ -7,16 +7,20 @@ get_header(); ?>
 <div class="clear"></div>
 
 </header> <!-- / END HOME SECTION  -->
-
+<?php zerif_after_header_trigger(); ?>
 <div id="content" class="site-content">
 
 	<div class="container">
 
+		<?php zerif_before_page_content_trigger(); ?>
+
 		<div class="content-left-wrap col-md-12">
+
+			<?php zerif_top_page_content_trigger(); ?>
 
 			<div id="primary" class="content-area">
 
-				<main id="main" class="site-main" role="main">
+				<main id="main" class="site-main">
 
 					<?php 
 						while ( have_posts() ) : the_post(); 
@@ -35,7 +39,11 @@ get_header(); ?>
 
 			</div><!-- #primary -->
 
+			<?php zerif_bottom_page_content_trigger(); ?>
+
 		</div><!-- .content-left-wrap -->
+
+		<?php zerif_after_page_content_trigger(); ?>
 
 	</div><!-- .container -->
 

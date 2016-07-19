@@ -65,8 +65,102 @@ The exceptions to this license are as follows:
 		* images/background2.png
 			Source: https://images.unsplash.com/photo-1434828927397-62ea053f7a35?q=80&fm=jpg&s=63163124f8cdba56cee68aeb55bcfbdf
  
- * Font Awesome
+* Font Awesome
  
 	License: SIL OFL 1.1
 	
 	URL: http://scripts.sil.org/OFL
+
+* Available hooks:
+
+  zerif_404_title
+  zerif_404_content
+
+  zerif_before_sidebar
+  zerif_after_sidebar
+  zerif_top_sidebar
+  zerif_bottom_sidebar
+  zerif_sidebar
+
+  zerif_before_footer
+  zerif_after_footer
+  zerif_top_footer
+  zerif_bottom_footer
+  zerif_footer_widgets
+
+  zerif_before_search
+  zerif_after_search
+
+  zerif_top_body
+  zerif_bottom_body
+
+  zerif_top_head
+  zerif_bottom_head
+
+  zerif_top_page_content
+  zerif_bottom_page_content
+  zerif_before_page_content
+  zerif_after_page_content
+  zerif_page_header
+
+  zerif_before_our_focus
+  zerif_after_our_focus
+  zerif_top_our_focus
+  zerif_bottom_our_focus
+  zerif_our_focus_header_title
+  zerif_our_focus_header_subtitle
+
+  zerif_before_about_us
+  zerif_after_about_us
+  zerif_top_about_us
+  zerif_bottom_about_us
+  zerif_about_us_header_title
+  zerif_about_us_header_subtitle
+
+  zerif_before_latest_news
+  zerif_after_latest_news
+  zerif_top_latest_news
+  zerif_bottom_latest_news
+  zerif_latest_news_header_title
+  zerif_latest_news_header_subtitle
+
+  zerif_before_our_team
+  zerif_after_our_team
+  zerif_top_our_team
+  zerif_bottom_our_team
+  zerif_our_team_header_title
+  zerif_our_team_header_subtitle
+
+  zerif_before_testimonials
+  zerif_after_testimonials
+  zerif_top_testimonials
+  zerif_bottom_testimonials
+  zerif_testimonials_header_title
+  zerif_testimonials_header_subtitle
+
+  zerif_big_title_buttons_top
+  zerif_big_title_buttons_bottom
+  zerif_big_title_text
+
+  zerif_page_header_title_archive
+  zerif_page_term_description_archive
+  zerif_before_archive_content_trigger
+  zerif_top_archive_content_trigger
+  zerif_bottom_archive_content_trigger
+  zerif_after_archive_content_trigger
+
+  zerif_top_single_post
+  zerif_bottom_single_post
+  zerif_before_single_post
+  zerif_after_single_post
+
+  zerif_primary_navigation
+
+* Available filters:
+
+  zerif_latest_news_parameters - (array) Parameters passed to WP_Query for displaying Latest news section
+  zerif_latest_news_left_arrow - (string) Carousel left arrow on Latest news section
+  zerif_latest_news_right_arrow - (string) Carousel right arrow on Latest news section
+
+  zerif_template_blog_parameters - (array) Parameters passed to WP_Query in template-blog.php
+  zerif_template_blog_large_parameters - (array) Parameters passed to WP_Query in template-blog-large.php

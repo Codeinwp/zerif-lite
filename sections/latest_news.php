@@ -1,12 +1,14 @@
-<?php 
-
-	global $wp_customize;
+<?php
 
 	$zerif_total_posts = get_option('posts_per_page'); /* number of latest posts to show */
 	
 	if( !empty($zerif_total_posts) && ($zerif_total_posts > 0) ):
+
+		zerif_before_latest_news_trigger();
 	
 		echo '<section class="latest-news" id="latestnews">';
+
+			zerif_top_latest_news_trigger();
 		
 			echo '<div class="container">';
 
@@ -14,31 +16,11 @@
 				
 				echo '<div class="section-header">';
 
-					$zerif_latestnews_title = get_theme_mod('zerif_latestnews_title');
+					/* Title */
+					zerif_latest_news_header_title_trigger();
 
-					/* title */
-					if( !empty($zerif_latestnews_title) ):
-					
-						echo '<h2 class="dark-text">' . wp_kses_post( $zerif_latestnews_title ) . '</h2>';
-						
-					else:
-					
-						echo '<h2 class="dark-text">' . __('Latest news','zerif-lite') . '</h2>';
-						
-					endif;
-
-					/* subtitle */
-					$zerif_latestnews_subtitle = get_theme_mod('zerif_latestnews_subtitle');
-
-					if( !empty($zerif_latestnews_subtitle) ):
-
-						echo '<div class="dark-text section-legend">'.wp_kses_post( $zerif_latestnews_subtitle ).'</div>';
-
-					elseif ( isset( $wp_customize ) ):
-					
-						echo '<div class="dark-text section-legend zerif_hidden_if_not_customizer"></div>';
-						
-					endif;
+					/* Subtitle */
+					zerif_latest_news_header_subtitle_trigger();
 				
 				echo '</div><!-- END .section-header -->';
 
@@ -49,10 +31,9 @@
 					/* Wrapper for slides */
 					
 					echo '<div class="carousel-inner" role="listbox">';
-						
-						
-						$zerif_latest_loop = new WP_Query( array( 'post_type' => 'post', 'posts_per_page' => $zerif_total_posts, 'order' => 'DESC','ignore_sticky_posts' => true ) );
-						
+
+						$zerif_latest_loop = new WP_Query( apply_filters( 'zerif_latest_news_parameters', array( 'post_type' => 'post', 'posts_per_page' => $zerif_total_posts, 'order' => 'DESC','ignore_sticky_posts' => true )) );
+
 						$newSlideActive = '<div class="item active">';
 						$newSlide 		= '<div class="item">';
 						$newSlideClose 	= '<div class="clear"></div></div>';
@@ -158,17 +139,22 @@
 					echo '</div><!-- .carousel-inner -->';
 
 					/* Controls */
-					echo '<a class="left carousel-control" href="#carousel-homepage-latestnews" role="button" data-slide="prev">';
-						echo '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>';
-						echo '<span class="sr-only">'.__('Previous','zerif-lite').'</span>';
-					echo '</a>';
-					echo '<a class="right carousel-control" href="#carousel-homepage-latestnews" role="button" data-slide="next">';
-						echo '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>';
-						echo '<span class="sr-only">'.__('Next','zerif-lite').'</span>';
-					echo '</a>';
+					echo apply_filters( 'zerif_latest_news_left_arrow','<a class="left carousel-control" href="#carousel-homepage-latestnews" role="button" data-slide="prev">
+						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+						<span class="sr-only">'.__('Previous','zerif-lite').'</span>
+					</a>' );
+					echo apply_filters( 'zerif_latest_news_right_arrow','<a class="right carousel-control" href="#carousel-homepage-latestnews" role="button" data-slide="next">
+						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+						<span class="sr-only">'.__('Next','zerif-lite').'</span>
+					</a>' );
 				echo '</div><!-- #carousel-homepage-latestnews -->';
 
 			echo '</div><!-- .container -->';
+
+			zerif_bottom_latest_news_trigger();
+
 		echo '</section>';
+
+	zerif_after_latest_news_trigger();
 
 endif; ?>

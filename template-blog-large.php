@@ -7,7 +7,7 @@ get_header(); ?>
 <div class="clear"></div>
 
 </header> <!-- / END HOME SECTION  -->
-
+<?php zerif_after_header_trigger(); ?>
 <div id="content" class="site-content">
 
 	<div class="container">
@@ -16,15 +16,17 @@ get_header(); ?>
 
 			<div id="primary" class="content-area">
 
-				<main id="main" class="site-main" role="main" itemscope itemtype="http://schema.org/Blog">
+				<main id="main" class="site-main" itemscope itemtype="http://schema.org/Blog">
 
-					<?php 
-				
-					query_posts( array( 'post_type' => 'post', 'posts_per_page' => 6, 'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1 ) ) );
+					<?php
 
-					if ( have_posts() ) :
+					$wp_query = new WP_Query( apply_filters( 'zerif_template_blog_large_parameters', array( 'post_type' => 'post', 'posts_per_page' => 6, 'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1 ) ) ) );
 
-						while ( have_posts() ) : the_post();
+					if ( $wp_query->have_posts() ) :
+
+						while ( $wp_query->have_posts() ) :
+
+							$wp_query->the_post();
 						
 							get_template_part( 'content-large' );
 						
@@ -48,11 +50,7 @@ get_header(); ?>
 
 		</div><!-- .content-left-wrap -->
 
-		<div class="sidebar-wrap col-md-3 content-left-wrap">
-
-			<?php get_sidebar(); ?>
-
-		</div><!-- .sidebar-wrap -->
+		<?php zerif_sidebar_trigger(); ?>
 
 	</div><!-- .container -->
 <?php get_footer(); ?>

@@ -68,9 +68,6 @@ function zerif_setup() {
 	/* Customizer additions. */
 	require get_template_directory() . '/inc/customizer.php';
 
-	/* Enables user customization via WordPress plugin API. */
-	require get_template_directory() . '/inc/hooks.php';
-
 	/* tgm-plugin-activation */
     require_once get_template_directory() . '/class-tgm-plugin-activation.php';
 
@@ -116,6 +113,45 @@ function zerif_setup() {
 
 		require get_template_directory() . '/inc/admin/welcome-screen/welcome-screen.php';
 	}
+
+	/***********************************/
+	/**************  HOOKS *************/
+	/***********************************/
+
+	/* Enables user customization via WordPress plugin API. */
+	require get_template_directory() . '/inc/hooks.php';
+
+	add_action( 'zerif_404_title', 'zerif_404_title_function' ); # Outputs the title on 404 pages
+	add_action( 'zerif_404_content', 'zerif_404_content_function' ); # Outputs a helpful message on 404 pages
+
+	add_action( 'zerif_page_header', 'zerif_page_header_function' ); # Outputs the title on pages
+
+	add_action( 'zerif_page_header_title_archive', 'zerif_page_header_title_archive_function' ); # Outputs the title on archive pages
+	add_action( 'zerif_page_term_description_archive', 'zerif_page_term_description_archive_function' ); # Outputs the term description
+
+	add_action( 'zerif_footer_widgets', 'zerif_footer_widgets_function' ); #Outputs the 3 sidebars in footer
+
+	add_action( 'zerif_our_focus_header_title', 'zerif_our_focus_header_title_function' ); #Outputs the title in Our focus section
+	add_action( 'zerif_our_focus_header_subtitle', 'zerif_our_focus_header_subtitle_function' ); #Outputs the subtitle in Our focus section
+
+	add_action( 'zerif_our_team_header_title', 'zerif_our_team_header_title_function' ); #Outputs the title in Our team section
+	add_action( 'zerif_our_team_header_subtitle', 'zerif_our_team_header_subtitle_function' ); #Outputs the subtitle in Our team section
+
+	add_action( 'zerif_testimonials_header_title', 'zerif_testimonials_header_title_function' ); #Outputs the title in Testimonials section
+	add_action( 'zerif_testimonials_header_subtitle', 'zerif_testimonials_header_subtitle_function' ); #Outputs the subtitle in Testimonials section
+
+	add_action( 'zerif_latest_news_header_title', 'zerif_latest_news_header_title_function' ); #Outputs the title in Latest news section
+	add_action( 'zerif_latest_news_header_subtitle', 'zerif_latest_news_header_subtitle_function' ); #Outputs the subtitle in Latest news section
+
+	add_action( 'zerif_big_title_text', 'zerif_big_title_text_function' ); #Outputs the text in Big title section
+
+	add_action( 'zerif_about_us_header_title', 'zerif_about_us_header_title_function' ); #Outputs the title in About us section
+	add_action( 'zerif_about_us_header_subtitle', 'zerif_about_us_header_subtitle_function' ); #Outputs the subtitle in About us section
+
+	add_action( 'zerif_sidebar', 'zerif_sidebar_function' ); #Outputs the sidebar
+
+	add_action( 'zerif_primary_navigation', 'zerif_primary_navigation_function' ); #Outputs the navigation menu
+
 }
 
 add_action('after_setup_theme', 'zerif_setup');
@@ -594,7 +630,7 @@ class zerif_ourfocus extends WP_Widget {
 					
 					<?php if( !empty($instance['link']) ) { ?>
 					
-						<a href="<?php echo $instance['link']; ?>"><i class="pixeden" style="background:url(<?php echo esc_url($instance['image_uri']); ?>) no-repeat center;width:100%; height:100%;"></i> <!-- FOCUS ICON--></a>
+						<a href="<?php echo esc_url($instance['link']); ?>"><i class="pixeden" style="background:url(<?php echo esc_url($instance['image_uri']); ?>) no-repeat center;width:100%; height:100%;"></i> <!-- FOCUS ICON--></a>
 					
 					<?php } else { ?>
 					
@@ -614,7 +650,7 @@ class zerif_ourfocus extends WP_Widget {
 					
 								<?php if( !empty($instance['link']) ) { ?>
 								
-									<a href="<?php echo $instance['link']; ?>"><i class="pixeden" style="background:url(<?php echo esc_url($zerif_ourfocus_custom_media_id[0]); ?>) no-repeat center;width:100%; height:100%;"></i> <!-- FOCUS ICON--></a>
+									<a href="<?php echo esc_url($instance['link']); ?>"><i class="pixeden" style="background:url(<?php echo esc_url($zerif_ourfocus_custom_media_id[0]); ?>) no-repeat center;width:100%; height:100%;"></i> <!-- FOCUS ICON--></a>
 								
 								<?php } else { ?>
 								
@@ -675,7 +711,7 @@ class zerif_ourfocus extends WP_Widget {
         </p>
 		<p>
 			<label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Link','zerif-lite'); ?></label><br />
-			<input type="text" name="<?php echo $this->get_field_name('link'); ?>" id="<?php echo $this->get_field_id('link'); ?>" value="<?php if( !empty($instance['link']) ): echo $instance['link']; endif; ?>" class="widefat">
+			<input type="text" name="<?php echo $this->get_field_name('link'); ?>" id="<?php echo $this->get_field_id('link'); ?>" value="<?php if( !empty($instance['link']) ): echo esc_url($instance['link']); endif; ?>" class="widefat">
 		</p>
         <p>
             <label for="<?php echo $this->get_field_id('image_uri'); ?>"><?php _e('Image', 'zerif-lite'); ?></label><br/>
@@ -823,7 +859,7 @@ class zerif_testimonial_widget extends WP_Widget {
         </p>
 		<p>
 			<label for="<?php echo $this->get_field_id('link'); ?>"><?php _e('Author link','zerif-lite'); ?></label><br />
-			<input type="text" name="<?php echo $this->get_field_name('link'); ?>" id="<?php echo $this->get_field_id('link'); ?>" value="<?php if( !empty($instance['link']) ): echo $instance['link']; endif; ?>" class="widefat">
+			<input type="text" name="<?php echo $this->get_field_name('link'); ?>" id="<?php echo $this->get_field_id('link'); ?>" value="<?php if( !empty($instance['link']) ): echo esc_url($instance['link']); endif; ?>" class="widefat">
 		</p>
         <p>
             <label for="<?php echo $this->get_field_id('details'); ?>"><?php _e('Author details', 'zerif-lite'); ?></label><br/>
