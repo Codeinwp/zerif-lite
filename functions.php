@@ -782,7 +782,7 @@ class zerif_testimonial_widget extends WP_Widget {
 
                 <div class="quote red-text">
 
-                    <i class="icon-fontawesome-webfont-294"></i>
+                    <i class="fa fa-quote-left"></i>
 
                 </div>
 
