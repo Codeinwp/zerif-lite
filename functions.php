@@ -614,15 +614,6 @@ function zerif_register_default_widgets() {
 /****** our focus widget */
 /************************/
 
-add_action('admin_enqueue_scripts', 'zerif_ourfocus_widget_scripts');
-
-function zerif_ourfocus_widget_scripts() {    
-
-	wp_enqueue_media();
-    wp_enqueue_script('zerif_our_focus_widget_script', get_template_directory_uri() . '/js/widget.js', false, '1.0', true);
-	
-}
-
 class zerif_ourfocus extends WP_Widget {
 	
 	public function __construct() {
@@ -630,7 +621,15 @@ class zerif_ourfocus extends WP_Widget {
 			'ctUp-ads-widget',
 			__( 'Zerif - Our focus widget', 'zerif-lite' )
 		);
+		add_action('admin_enqueue_scripts', array($this, 'widget_scripts'));
 	}
+
+	function widget_scripts($hook) {
+        if( $hook != 'widgets.php' ) 
+            return;
+	    wp_enqueue_media();
+        wp_enqueue_script('zerif_our_focus_widget_script', get_template_directory_uri() . '/js/widget.js', false, '1.0', true);
+    }
 
     function widget($args, $instance) {
 
@@ -756,16 +755,6 @@ class zerif_ourfocus extends WP_Widget {
 /****** testimonial widget **/
 /***************************/
 
-add_action('admin_enqueue_scripts', 'zerif_testimonial_widget_scripts');
-
-function zerif_testimonial_widget_scripts() {    
-
-	wp_enqueue_media();
-
-    wp_enqueue_script('zerif_testimonial_widget_script', get_template_directory_uri() . '/js/widget-testimonials.js', false, '1.0', true);
-
-}
-
 class zerif_testimonial_widget extends WP_Widget {	
 
 	public function __construct() {
@@ -773,7 +762,15 @@ class zerif_testimonial_widget extends WP_Widget {
 			'zerif_testim-widget',
 			__( 'Zerif - Testimonial widget', 'zerif-lite' )
 		);
+		add_action('admin_enqueue_scripts', array($this, 'widget_scripts'));
 	}
+
+	function widget_scripts($hook) {
+        if( $hook != 'widgets.php' ) 
+            return;
+	    wp_enqueue_media();
+        wp_enqueue_script('zerif_testimonial_widget_script', get_template_directory_uri() . '/js/widget-testimonials.js', false, '1.0', true);
+    }
 
     function widget($args, $instance) {
 
@@ -915,16 +912,6 @@ class zerif_testimonial_widget extends WP_Widget {
 
 /***************************/
 
-add_action('admin_enqueue_scripts', 'zerif_clients_widget_scripts');
-
-function zerif_clients_widget_scripts(){    
-
-	wp_enqueue_media();
-
-    wp_enqueue_script('zerif_clients_widget_script', get_template_directory_uri() . '/js/widget-clients.js', false, '1.0', true);
-
-}
-
 class zerif_clients_widget extends WP_Widget{	
 
 	public function __construct() {
@@ -932,7 +919,15 @@ class zerif_clients_widget extends WP_Widget{
 			'zerif_clients-widget',
 			__( 'Zerif - Clients widget', 'zerif-lite' )
 		);
+		add_action('admin_enqueue_scripts', array($this, 'widget_scripts'));
 	}
+
+	function widget_scripts($hook) {
+        if( $hook != 'widgets.php' ) 
+            return;
+	    wp_enqueue_media();
+        wp_enqueue_script('zerif_clients_widget_script', get_template_directory_uri() . '/js/widget-clients.js', false, '1.0', true);
+    }
 
     function widget($args, $instance) {
 
@@ -1011,16 +1006,6 @@ class zerif_clients_widget extends WP_Widget{
 /****** team member widget **/
 /***************************/
 
-add_action('admin_enqueue_scripts', 'zerif_team_widget_scripts');
-
-function zerif_team_widget_scripts() {    
-
-	wp_enqueue_media();
-
-    wp_enqueue_script('zerif_team_widget_script', get_template_directory_uri() . '/js/widget-team.js', false, '1.0', true);
-
-}
-
 class zerif_team_widget extends WP_Widget{	
 
 	public function __construct() {
@@ -1028,7 +1013,15 @@ class zerif_team_widget extends WP_Widget{
 			'zerif_team-widget',
 			__( 'Zerif - Team member widget', 'zerif-lite' )
 		);
+		add_action('admin_enqueue_scripts', array($this, 'widget_scripts'));
 	}
+
+	function widget_scripts($hook) {
+        if( $hook != 'widgets.php' ) 
+            return;
+	    wp_enqueue_media();
+        wp_enqueue_script('zerif_team_widget_script', get_template_directory_uri() . '/js/widget-team.js', false, '1.0', true);
+    }
 
     function widget($args, $instance) {
 
