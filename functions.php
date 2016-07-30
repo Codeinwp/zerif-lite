@@ -279,10 +279,8 @@ function zerif_scripts() {
     
     }
 
-    wp_enqueue_script('jquery');
-
     /* Bootstrap script */
-    wp_enqueue_script('zerif_bootstrap_script', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '20120206', true);
+    wp_enqueue_script('zerif_bootstrap_script', get_template_directory_uri() . '/js/bootstrap.min.js', array("jquery"), '20120206', true);
 
     /* Knob script */
     wp_enqueue_script('zerif_knob_nav', get_template_directory_uri() . '/js/jquery.knob.js', array("jquery"), '20120206', true);
