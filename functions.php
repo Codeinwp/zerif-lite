@@ -225,7 +225,7 @@ function zerif_slug_fonts_url() {
     * supported by Open Sans, translate this to 'off'. Do not translate
     * into your own language.
     */
-    $monserrat = _x( 'on', 'Monserrat font: on or off', 'zerif-lite' );
+    $monserrat = _x( 'on', 'Montserrat font: on or off', 'zerif-lite' );
 
     $zerif_use_safe_font = get_theme_mod('zerif_use_safe_font');
     
@@ -236,7 +236,7 @@ function zerif_slug_fonts_url() {
             $font_families[] = 'Lato:300,400,700,400italic';
         }
          if ( 'off' !== $monserrat ) {
-            $font_families[] = 'Montserrat:700';
+            $font_families[] = 'Montserrat:400,700';
         }
         
         if ( 'off' !== $homemade ) {
