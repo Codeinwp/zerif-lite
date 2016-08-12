@@ -6054,6 +6054,9 @@ body.custom-background {
 		padding-top: 33px;
 		padding-bottom: 33px;
 	}
+	footer.entry-footer {
+		padding-top: 0;
+	}
 	/* comments */
 	.comment-metadata {
 		position: relative;
@@ -6093,9 +6096,6 @@ body.custom-background {
 		width: 100%;
 		margin-top: 20px;
 		float: left;
-	}
-	.entry-content p {
-  		margin: 4px 0px 0px 0px;
 	}
 	.post-img-wrap a {
 		float: none;
