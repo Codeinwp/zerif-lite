@@ -225,7 +225,7 @@ function zerif_slug_fonts_url() {
     * supported by Open Sans, translate this to 'off'. Do not translate
     * into your own language.
     */
-    $monserrat = _x( 'on', 'Montserrat font: on or off', 'zerif-lite' );
+    $monserrat = _x( 'on', 'Monserrat font: on or off', 'zerif-lite' );
 
     $zerif_use_safe_font = get_theme_mod('zerif_use_safe_font');
     
