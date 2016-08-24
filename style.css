@@ -1637,7 +1637,10 @@ li.current>a:before {
 	bottom: 0px;
 	left: 12.5%;
 }
-ul.nav > li.current_page_item > a:before, ul.nav > li.current-menu-item > a:before {
+ul.nav > li.current > a:before,
+.page ul.nav > li.current-menu-item > a:before,
+.single-post ul.nav > li.current-menu-item > a:before,
+.archive ul.nav > li.current-menu-item > a:before {
 	position: absolute;
 	margin: auto;
 	z-index: 1;
