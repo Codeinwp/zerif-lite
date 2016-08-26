@@ -32,9 +32,11 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 		          
 		        }
 
-		        $response = wp_remote_get( "https://www.google.com/recaptcha/api/siteverify?secret=".esc_html($zerif_contactus_secretkey)."&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR'] );
+		        $zerif_response = wp_remote_get( "https://www.google.com/recaptcha/api/siteverify?secret=".esc_html($zerif_contactus_secretkey)."&response=".$captcha."&remoteip=".$_SERVER['REMOTE_ADDR'] );
 
-		        if($response['body'].success==false) {
+				$zerif_response_body = json_decode( wp_remote_retrieve_body( $zerif_response ),true);
+
+		        if($zerif_response_body['success'] == false) {
 
 		        	$hasError = true;
 

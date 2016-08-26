@@ -156,6 +156,19 @@ function zerif_setup() {
 
 add_action('after_setup_theme', 'zerif_setup');
 
+
+/**
+ * To add backwards compatibility for titles
+ */
+if ( ! function_exists( '_wp_render_title_tag' ) ) {
+	function zerif_old_render_title() {
+?>
+<title><?php wp_title( '|', true, 'right' ); ?></title>
+<?php
+	}
+	add_action( 'wp_head', 'zerif_old_render_title' );
+}
+
 function zerif_lite_is_not_latest_posts() {
 	return ('posts' == get_option( 'show_on_front' ) ? true : false);
 }
@@ -223,7 +236,7 @@ function zerif_slug_fonts_url() {
             $font_families[] = 'Lato:300,400,700,400italic';
         }
          if ( 'off' !== $monserrat ) {
-            $font_families[] = 'Montserrat:700';
+            $font_families[] = 'Montserrat:400,700';
         }
         
         if ( 'off' !== $homemade ) {
@@ -257,16 +270,17 @@ function zerif_scripts() {
 
     wp_enqueue_style('zerif_responsive_style', get_template_directory_uri() . '/css/responsive.css', array('zerif_style'), 'v1');
 
+    wp_enqueue_style('zerif_ie_style', get_template_directory_uri() . '/css/ie.css', array('zerif_style'), 'v1');
+    wp_style_add_data( 'zerif_ie_style', 'conditional', 'lt IE 9' );
+
     if ( wp_is_mobile() ){
         
         wp_enqueue_style( 'zerif_style_mobile', get_template_directory_uri() . '/css/style-mobile.css', array('zerif_bootstrap_style', 'zerif_style'),'v1' );
     
     }
 
-    wp_enqueue_script('jquery');
-
     /* Bootstrap script */
-    wp_enqueue_script('zerif_bootstrap_script', get_template_directory_uri() . '/js/bootstrap.min.js', array(), '20120206', true);
+    wp_enqueue_script('zerif_bootstrap_script', get_template_directory_uri() . '/js/bootstrap.min.js', array("jquery"), '20120206', true);
 
     /* Knob script */
     wp_enqueue_script('zerif_knob_nav', get_template_directory_uri() . '/js/jquery.knob.js', array("jquery"), '20120206', true);
@@ -290,6 +304,10 @@ function zerif_scripts() {
         wp_enqueue_script('comment-reply');
 
     }
+
+    /* HTML5Shiv*/
+    wp_enqueue_script( 'zerif_html5', get_template_directory_uri() . '/js/html5.js');
+    wp_script_add_data( 'zerif_html5', 'conditional', 'lt IE 9' );
 
     /* parallax effect */
     if ( !wp_is_mobile() ){
@@ -596,15 +614,6 @@ function zerif_register_default_widgets() {
 /****** our focus widget */
 /************************/
 
-add_action('admin_enqueue_scripts', 'zerif_ourfocus_widget_scripts');
-
-function zerif_ourfocus_widget_scripts() {    
-
-	wp_enqueue_media();
-    wp_enqueue_script('zerif_our_focus_widget_script', get_template_directory_uri() . '/js/widget.js', false, '1.0', true);
-	
-}
-
 class zerif_ourfocus extends WP_Widget {
 	
 	public function __construct() {
@@ -612,7 +621,15 @@ class zerif_ourfocus extends WP_Widget {
 			'ctUp-ads-widget',
 			__( 'Zerif - Our focus widget', 'zerif-lite' )
 		);
+		add_action('admin_enqueue_scripts', array($this, 'widget_scripts'));
 	}
+
+	function widget_scripts($hook) {
+        if( $hook != 'widgets.php' ) 
+            return;
+	    wp_enqueue_media();
+        wp_enqueue_script('zerif_our_focus_widget_script', get_template_directory_uri() . '/js/widget.js', false, '1.0', true);
+    }
 
     function widget($args, $instance) {
 
@@ -738,16 +755,6 @@ class zerif_ourfocus extends WP_Widget {
 /****** testimonial widget **/
 /***************************/
 
-add_action('admin_enqueue_scripts', 'zerif_testimonial_widget_scripts');
-
-function zerif_testimonial_widget_scripts() {    
-
-	wp_enqueue_media();
-
-    wp_enqueue_script('zerif_testimonial_widget_script', get_template_directory_uri() . '/js/widget-testimonials.js', false, '1.0', true);
-
-}
-
 class zerif_testimonial_widget extends WP_Widget {	
 
 	public function __construct() {
@@ -755,7 +762,15 @@ class zerif_testimonial_widget extends WP_Widget {
 			'zerif_testim-widget',
 			__( 'Zerif - Testimonial widget', 'zerif-lite' )
 		);
+		add_action('admin_enqueue_scripts', array($this, 'widget_scripts'));
 	}
+
+	function widget_scripts($hook) {
+        if( $hook != 'widgets.php' ) 
+            return;
+	    wp_enqueue_media();
+        wp_enqueue_script('zerif_testimonial_widget_script', get_template_directory_uri() . '/js/widget-testimonials.js', false, '1.0', true);
+    }
 
     function widget($args, $instance) {
 
@@ -782,7 +797,7 @@ class zerif_testimonial_widget extends WP_Widget {
 
                 <div class="quote red-text">
 
-                    <i class="icon-fontawesome-webfont-294"></i>
+                    <i class="fa fa-quote-left"></i>
 
                 </div>
 
@@ -897,16 +912,6 @@ class zerif_testimonial_widget extends WP_Widget {
 
 /***************************/
 
-add_action('admin_enqueue_scripts', 'zerif_clients_widget_scripts');
-
-function zerif_clients_widget_scripts(){    
-
-	wp_enqueue_media();
-
-    wp_enqueue_script('zerif_clients_widget_script', get_template_directory_uri() . '/js/widget-clients.js', false, '1.0', true);
-
-}
-
 class zerif_clients_widget extends WP_Widget{	
 
 	public function __construct() {
@@ -914,7 +919,15 @@ class zerif_clients_widget extends WP_Widget{
 			'zerif_clients-widget',
 			__( 'Zerif - Clients widget', 'zerif-lite' )
 		);
+		add_action('admin_enqueue_scripts', array($this, 'widget_scripts'));
 	}
+
+	function widget_scripts($hook) {
+        if( $hook != 'widgets.php' ) 
+            return;
+	    wp_enqueue_media();
+        wp_enqueue_script('zerif_clients_widget_script', get_template_directory_uri() . '/js/widget-clients.js', false, '1.0', true);
+    }
 
     function widget($args, $instance) {
 
@@ -993,16 +1006,6 @@ class zerif_clients_widget extends WP_Widget{
 /****** team member widget **/
 /***************************/
 
-add_action('admin_enqueue_scripts', 'zerif_team_widget_scripts');
-
-function zerif_team_widget_scripts() {    
-
-	wp_enqueue_media();
-
-    wp_enqueue_script('zerif_team_widget_script', get_template_directory_uri() . '/js/widget-team.js', false, '1.0', true);
-
-}
-
 class zerif_team_widget extends WP_Widget{	
 
 	public function __construct() {
@@ -1010,7 +1013,15 @@ class zerif_team_widget extends WP_Widget{
 			'zerif_team-widget',
 			__( 'Zerif - Team member widget', 'zerif-lite' )
 		);
+		add_action('admin_enqueue_scripts', array($this, 'widget_scripts'));
 	}
+
+	function widget_scripts($hook) {
+        if( $hook != 'widgets.php' ) 
+            return;
+	    wp_enqueue_media();
+        wp_enqueue_script('zerif_team_widget_script', get_template_directory_uri() . '/js/widget-team.js', false, '1.0', true);
+    }
 
     function widget($args, $instance) {
 

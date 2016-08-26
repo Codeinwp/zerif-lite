@@ -2,7 +2,9 @@
 /**
  * Template Name: Blog
  */
-get_header(); ?>
+get_header();
+global $wp_query;
+global $paged; ?>
 <div class="clear"></div>
 
 </header> <!-- / END HOME SECTION  -->
@@ -17,23 +19,44 @@ get_header(); ?>
 
 				<main id="main" class="site-main" itemscope itemtype="http://schema.org/Blog">
 					<?php
-					$wp_query = new WP_Query( apply_filters( 'zerif_template_blog_parameters', array('post_type' => 'post', 'posts_per_page' => '8', 'paged' => ( get_query_var('paged') ? get_query_var('paged') : 1 ) ) ) );
+					// Define custom query parameters
+					$zerif_posts_per_page = ( get_option('posts_per_page') ) ? get_option('posts_per_page') : '6';
+					$zerif_custom_query_args = array(
+						/* Parameters go here */
+						'post_type' => 'post',
+						'posts_per_page' => $zerif_posts_per_page );
 
-					if( $wp_query->have_posts() ):
-					 
-						while ($wp_query->have_posts()) : 
-						
-							$wp_query->the_post();
+					// Get current page and append to custom query parameters array
+					$zerif_custom_query_args['paged'] = ( get_query_var('paged') ? get_query_var('paged') : ( get_query_var('page') ? get_query_var('page') : 1) );
+					$paged = $zerif_custom_query_args['paged'];
+
+					// Instantiate custom query
+					$zerif_custom_query = new WP_Query( apply_filters( 'zerif_template_blog_parameters', $zerif_custom_query_args ) );
+
+					// Pagination fix
+					$zerif_temp_query = $wp_query;
+					$wp_query   = NULL;
+					$wp_query   = $zerif_custom_query;
+
+					// Output custom query loop
+					if ( $zerif_custom_query->have_posts() ) :
+						while ( $zerif_custom_query->have_posts() ) :
+							$zerif_custom_query->the_post();
+							// Loop output goes here
 							get_template_part( 'content', get_post_format() );
-
 						endwhile;
-
+					else :
+						get_template_part( 'content', 'none' );
 					endif;
-
-					zerif_paging_nav();
-
+					// Reset postdata
 					wp_reset_postdata();
-					?>
+
+					// Custom query loop pagination
+					zerif_paging_nav($zerif_custom_query->max_num_pages);
+
+					// Reset main query object
+					$wp_query = NULL;
+					$wp_query = $zerif_temp_query; ?>
 				</main><!-- #main -->
 
 			</div><!-- #primary -->
