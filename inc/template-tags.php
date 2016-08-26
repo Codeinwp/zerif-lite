@@ -10,7 +10,7 @@ if ( ! function_exists( 'zerif_paging_nav' ) ) :
  * Display navigation to next/previous set of posts when applicable.
  */
 
-function zerif_paging_nav() {
+function zerif_paging_nav($max_num_pages = 0) {
 
 	echo '<div class="clear"></div>';
 
@@ -24,7 +24,7 @@ function zerif_paging_nav() {
 
 			<?php if ( get_next_posts_link() ) : ?>
 
-			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'zerif-lite' ) ); ?></div>
+			<div class="nav-previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', 'zerif-lite' ), $max_num_pages ); ?></div>
 
 			<?php endif; ?>
 
