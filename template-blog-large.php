@@ -22,7 +22,8 @@ global $paged;?>
 
 					<?php
 					// Define custom query parameters
-					$zerif_posts_per_page = get_option('posts_per_page');
+					$zerif_posts_per_page = ( get_option('posts_per_page') ) ? get_option('posts_per_page') : '6';
+
 					$zerif_custom_query_args = array(
 						/* Parameters go here */
 						'post_type' => 'post',
