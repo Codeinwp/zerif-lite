@@ -1,4 +1,8 @@
 
+### 1.8.4.7 - 26/08/2016
+**Changes:** 
+- Replace back string for template name
+
 ### 1.8.4.6 - 26/08/2016
 **Changes:** 
 - Compatibility with SiteOrigin styles
