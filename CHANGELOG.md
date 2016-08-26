@@ -1,4 +1,14 @@
 
+### 1.8.4.6 - 26/08/2016
+**Changes:** 
+- Compatibility with SiteOrigin styles
+- Added back the quote mark in Testimonials section
+- Fixed issue with pagebreaks disappearing on mobile devices
+- Fixed issue with navbar links underline after Pirate Forms submission.
+- Fixed issue with navigation when the blog template is used as homepage
+- Fixed issues with menu on mobile devices
+- Improved parts of the code
+
 ### 1.8.4.5 - 19/07/2016
 **Changes:** 
 - Added a number of hooks and filter to make child theme creation easier (The whole list can be found in readme.txt)
