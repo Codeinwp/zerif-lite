@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Full width, no title (SiteOrigin Page builder Template)
+ * Template Name: Full width with no title template
  */
 get_header(); ?>
 
