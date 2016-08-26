@@ -29,7 +29,7 @@ jQuery(window).load(function() {
 /*** DROPDOWN FOR MOBILE MENU */
 var callback_mobile_dropdown = function () {
 
-    if( jQuery( '.wr-megamenu-container' ).length <= 0 ) {
+    if( jQuery( '.wr-megamenu-container' ).length <= 0 && jQuery( '.mega-menu-wrap' ).length <= 0  ) {
         var navLi = jQuery('#site-navigation li');
         navLi.each(function(){
             if ( jQuery(this).find('ul').length > 0 && !jQuery(this).hasClass('has_children') ){
@@ -46,7 +46,7 @@ var callback_mobile_dropdown = function () {
         });
         navLi.find('a').click(function(){
             jQuery('.navbar-toggle').addClass('collapsed');
-            jQuery('.collapse').removeClass('in');
+            jQuery('#site-navigation .collapse').removeClass('in');
         });
     }
 
@@ -163,10 +163,10 @@ jQuery(document).ready(function(){
         var alink   = this;                 // this button pressed
         // check if there is a section that had same id as the button pressed
         if ( jQuery('section [id*=' + idName + ']').length > 0 && jQuery(window).width() >= 751 ){
-            jQuery('.current').removeClass('current');
+            jQuery('#site-navigation .current').removeClass('current');
             jQuery(alink).parent('li').addClass('current');
         }else{
-            jQuery('.current').removeClass('current');
+            jQuery('#site-navigation .current').removeClass('current');
         }
         if ( jQuery(window).width() >= 751 ) {
             headerHeight = jQuery('#main-nav').height();
@@ -188,7 +188,7 @@ jQuery(document).ready(function(){
 
 jQuery(document).ready(function(){
     var headerHeight;
-    jQuery('.current').removeClass('current');
+    jQuery('#site-navigation .current').removeClass('current');
     jQuery('#site-navigation a[href$="' + window.location.hash + '"]').parent('li').addClass('current');
     if ( jQuery(window).width() >= 751 ) {
         headerHeight = jQuery('#main-nav').height();
@@ -227,12 +227,12 @@ function zerif_lite_scrolled() {
             // if position of the cursor is inside of the this section
             if ( zerif_scrollTop >= thisBegin && zerif_scrollTop <= thisEnd ) {
                 isInOneSection = 'yes';
-                jQuery('.current').removeClass('current');
+                jQuery('#site-navigation .current').removeClass('current');
                 jQuery('#site-navigation a[href$="' + thisID + '"]').parent('li').addClass('current');    // find the menu button with the same ID section
                 return false;
             }
             if (isInOneSection == 'no') {
-                jQuery('.current').removeClass('current');
+                jQuery('#site-navigation .current').removeClass('current');
             }
         });
     }
