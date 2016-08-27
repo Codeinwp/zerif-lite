@@ -1204,6 +1204,27 @@ function zerif_customize_register( $wp_customize ) {
 			'priority' => 17
 		)));
 
+        /* ABOUT US CLIENTS TITLE */
+
+        $wp_customize->add_section( 'zerif_aboutus_clients_title_section' , array(
+            'title'       => __( 'Clients area title', 'zerif' ),
+            'priority'    => 7,
+            'panel' => 'panel_about'
+        ));
+
+        $wp_customize->add_setting( 'zerif_aboutus_clients_title_text', array(
+            'sanitize_callback' => 'zerif_sanitize_input',
+            'default' => __( 'OUR HAPPY CLIENTS','zerif' ),
+            'transport' => 'postMessage'
+        ) );
+
+        $wp_customize->add_control( 'zerif_aboutus_clients_title_text', array(
+            'label'    => __( 'Title', 'zerif' ),
+            'description' => __( 'This title appears only if you have widgets in the About us sidebar.','zerif' ),
+            'section'  => 'zerif_aboutus_clients_title_section',
+            'priority'    => 1,
+        ));
+
 	else:	/* Old versions of WordPress */
 
 		$wp_customize->add_section( 'zerif_aboutus_section' , array(
@@ -1416,6 +1437,18 @@ function zerif_customize_register( $wp_customize ) {
 			'section' => 'zerif_aboutus_section',
 			'priority'    => 17
 		)));
+
+        $wp_customize->add_setting( 'zerif_aboutus_clients_title_text', array(
+            'sanitize_callback' => 'zerif_sanitize_input',
+            'default' => __( 'OUR HAPPY CLIENTS','zerif' )
+        ) );
+
+        $wp_customize->add_control( 'zerif_aboutus_clients_title_text', array(
+            'label'    => __( 'Clients widgets area title', 'zerif' ),
+            'description' => __( 'This title appears only if you have widgets in the About us sidebar.','zerif' ),
+            'section'  => 'zerif_aboutus_section',
+            'priority'    => 18,
+        ));
 
 	endif;
 
