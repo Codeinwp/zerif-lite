@@ -1,4 +1,10 @@
 
+### 1.8.4.8 - 29/08/2016
+**Changes:** 
+- NEW option to change the Clients area title
+- Changed the way locked sections link to pro page
+- Add note in readme.txt regarding the background image
+
 ### 1.8.4.7 - 26/08/2016
 **Changes:** 
 - Replace back string for template name
