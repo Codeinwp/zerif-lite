@@ -35,27 +35,13 @@ function zerif_customize_register( $wp_customize ) {
 	}
 	class Zerif_Theme_Support extends WP_Customize_Control {
 		public function render_content() {
-			echo __('Check out the <a href="http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/">PRO version</a> for full control over the frontpage SECTIONS ORDER and the COLOR SCHEME!','zerif-lite');
 		}
 	}
 
 	class Zerif_Theme_Support_Videobackground extends WP_Customize_Control {
 		public function render_content() {
-			echo __('Check out the <a href="http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/">PRO version</a> to add a nice looking background video!','zerif-lite');
 		}
 	}
-	
-	class Zerif_Theme_Support_Googlemap extends WP_Customize_Control {
-		public function render_content() {
-			echo __('Check out the <a href="http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/">PRO version</a> to add a google maps section !','zerif-lite');
-		}
-	} 
-	
-	class Zerif_Theme_Support_Pricing extends WP_Customize_Control {
-		public function render_content() {
-			echo __('Check out the <a href="http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/">PRO version</a> to add a pricing section !','zerif-lite');
-		}
-	} 
 	
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
@@ -2026,40 +2012,6 @@ function zerif_customize_register( $wp_customize ) {
 		'section'  => 'zerif_contactus_section',
 		'priority'    => 8,
 	));
-
-	/****************************************/
-	/*******	Google maps section *********/
-	/****************************************/
-	
-	$wp_customize->add_section( 'zerif_googlemap_section' , array(
-		'title'       => __( 'Google maps section', 'zerif-lite' ),
-		'priority'    => 120
-	));
-	
-	$wp_customize->add_setting(	'zerif_googlemap_section', array(
-		'sanitize_callback' => 'sanitize_text_field'
-	));
-	
-	$wp_customize->add_control( new Zerif_Theme_Support_Googlemap( $wp_customize, 'zerif_googlemap_section', array(
-		'section' => 'zerif_googlemap_section',
-	)));
-	
-	/***************************************/
-	/**********	  Pricing section   ********/
-	/***************************************/
-	
-	$wp_customize->add_section( 'zerif_pricing_section' , array(
-		'title'       => __( 'Pricing section', 'zerif-lite' ),
-		'priority'    => 121
-	));
-	
-	$wp_customize->add_setting( 'zerif_pricing_section', array(
-		'sanitize_callback' => 'sanitize_text_field'
-	));
-	
-	$wp_customize->add_control( new Zerif_Theme_Support_Pricing( $wp_customize, 'zerif_pricing_section', array(
-		'section' => 'zerif_pricing_section',
-	)));
 	
 }
 add_action( 'customize_register', 'zerif_customize_register' );
