@@ -12,6 +12,8 @@ Zerif Lite is a modern responsive Wordpress Theme. It's perfect for web agencies
 Zerif Lite WordPress theme, Copyright (C) 2014 ThemeIsle.com
 Zerif Lite WordPress theme is licensed under the GPL3.
 
+Note: The custom background only applies to the blog posts index.
+
 Unless otherwise specified, all the theme files, scripts and images are licensed under GNU General Public License.
 The exceptions to this license are as follows:
 

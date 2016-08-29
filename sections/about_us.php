@@ -280,16 +280,29 @@
 	<!-- CLIENTS -->
 	<?php
 		if(is_active_sidebar( 'sidebar-aboutus' )):
-			echo '<div class="our-clients">';
-				echo '<h2><span class="section-footer-title">'.__('OUR HAPPY CLIENTS','zerif-lite').'</span></h2>';
-			echo '</div>';
+			
+				$zerif_aboutus_clients_title_text = get_theme_mod('zerif_aboutus_clients_title_text',__('OUR HAPPY CLIENTS','zerif-lite'));
+			
+				echo '<div class="our-clients">';
+				
+					if( !empty($zerif_aboutus_clients_title_text) ):
+				
+						echo '<h5><span class="section-footer-title">'.wp_kses_post($zerif_aboutus_clients_title_text).'</span></h5>';
+						
+					else:
+					
+						echo '<h5><span class="section-footer-title">'.__('OUR HAPPY CLIENTS','zerif-lite').'</span></h5>';
 
-			echo '<div class="client-list">';
-				echo '<div data-scrollreveal="enter right move 60px after 0.00s over 2.5s">';
-				dynamic_sidebar( 'sidebar-aboutus' );
+					endif;
+					
 				echo '</div>';
-			echo '</div> ';
-		endif;
+				
+				echo '<div class="client-list">';
+					echo '<div data-scrollreveal="enter right move 60px after 0.00s over 2.5s">';
+					dynamic_sidebar( 'sidebar-aboutus' );
+					echo '</div>';
+				echo '</div> ';
+			endif;
 	?>
 
 	</div> <!-- / END CONTAINER -->
