@@ -281,7 +281,7 @@
 	<?php
 		if(is_active_sidebar( 'sidebar-aboutus' )):
 			
-				$zerif_aboutus_clients_title_text = get_theme_mod('zerif_aboutus_clients_title_text',__('OUR HAPPY CLIENTS','zerif'));
+				$zerif_aboutus_clients_title_text = get_theme_mod('zerif_aboutus_clients_title_text',__('OUR HAPPY CLIENTS','zerif-lite'));
 			
 				echo '<div class="our-clients">';
 				
@@ -291,7 +291,7 @@
 						
 					else:
 					
-						echo '<h5><span class="section-footer-title">'.__('OUR HAPPY CLIENTS','zerif').'</span></h5>';
+						echo '<h5><span class="section-footer-title">'.__('OUR HAPPY CLIENTS','zerif-lite').'</span></h5>';
 
 					endif;
 					
