@@ -1,4 +1,11 @@
 
+### 1.8.4.9 - 30/08/2016
+**Changes:** 
+- Use core function for archive title and description
+- Remove wp_title backward compatibility
+- Fixed issue with background image when using a child theme
+- Redo upsell section using Customizer API
+
 ### 1.8.4.8 - 29/08/2016
 **Changes:** 
 - NEW option to change the Clients area title
