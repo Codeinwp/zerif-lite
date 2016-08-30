@@ -42,12 +42,36 @@ function zerif_customize_register( $wp_customize ) {
 		public function render_content() {
 		}
 	}
-	
+
+	class Zerif_Customizer_Upsell extends WP_Customize_Section {
+		public $type = 'zerif-upsell';
+		public function render() {
+			$classes = 'accordion-section control-section-' . $this->type;
+			$id = 'zerif-upsell-buttons-section';
+			?>
+			<li id="accordion-section-<?php echo esc_attr($this->id); ?>"class="<?php echo esc_attr($classes); ?>">
+				<a class="zerif-upgrade-to-pro-button" href="http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/" class="button" target="_blank"><?php echo __('View PRO version', 'zerif-lite'); ?></a>
+				<a style="width: 80%; margin: 10px auto 5px auto; display: block; text-align: center;" href="http://themeisle.com/documentation-zerif-lite" class="button" target="_blank">
+			<?php echo __('View Documentation','zerif-lite'); ?> </a>
+				<a style="width: 80%; margin: 5px auto 10px auto; display: block; text-align: center;" href="<?php echo esc_url( admin_url( 'themes.php?page=zerif-lite-welcome#actions_required' ) ); ?>" class="button" target="_blank"><?php echo __('View Theme Info','zerif-lite'); ?></a>
+			</li>
+			<?php
+		}
+	}
+
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 	$wp_customize->remove_section('colors');
-	
+
+	/***********************************************/
+	/******************* UPSELL ********************/
+	/***********************************************/
+
+	$wp_customize->add_section( new Zerif_Customizer_Upsell( $wp_customize, 'zerif-upsell', array(
+		'priority'   => '-1',
+	) ) );
+
 	/**********************************************/
 	/*************** ORDER ************************/
 	/**********************************************/
