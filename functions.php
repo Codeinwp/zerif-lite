@@ -43,9 +43,15 @@ function zerif_setup() {
     add_theme_support('post-formats', array('aside', 'image', 'video', 'quote', 'link'));
 
     /* Setup the WordPress core custom background feature. */
+
+    if( file_exists(get_stylesheet_directory() . "/images/bg.jpg") ) {
+        $zerif_default_image = get_stylesheet_directory_uri() . "/images/bg.jpg";
+    } else {
+        $zerif_default_image = get_template_directory_uri() . "/images/bg.jpg";
+    }
     add_theme_support('custom-background', apply_filters('zerif_custom_background_args', array(
         'default-color' => 'ffffff',
-        'default-image' => get_stylesheet_directory_uri() . "/images/bg.jpg",
+        'default-image' => $zerif_default_image,
     )));
 
     /* Enable support for HTML5 markup. */
