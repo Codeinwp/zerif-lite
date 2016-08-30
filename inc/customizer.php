@@ -53,7 +53,7 @@ function zerif_customize_register( $wp_customize ) {
 				<a class="zerif-upgrade-to-pro-button" href="http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/" class="button" target="_blank"><?php echo __('View PRO version', 'zerif-lite'); ?></a>
 				<a style="width: 80%; margin: 10px auto 5px auto; display: block; text-align: center;" href="http://themeisle.com/documentation-zerif-lite" class="button" target="_blank">
 			<?php echo __('View Documentation','zerif-lite'); ?> </a>
-				<a style="width: 80%; margin: 5px auto 10px auto; display: block; text-align: center;" href="http://localhost/wordpress/wp-admin/themes.php?page=zerif-lite-welcome#actions_required" class="button" target="_blank"><?php echo __('View Theme Info','zerif-lite'); ?></a>
+				<a style="width: 80%; margin: 5px auto 10px auto; display: block; text-align: center;" href="<?php echo esc_url( admin_url( 'themes.php?page=zerif-lite-welcome#actions_required' ) ); ?>" class="button" target="_blank"><?php echo __('View Theme Info','zerif-lite'); ?></a>
 			</li>
 			<?php
 		}
