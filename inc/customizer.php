@@ -37,6 +37,11 @@ function zerif_customize_register( $wp_customize ) {
 		public function render_content() {
 		}
 	}
+
+	class Zerif_Theme_Support_Videobackground extends WP_Customize_Control {
+		public function render_content() {
+		}
+	}
 	
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
@@ -658,6 +663,24 @@ function zerif_customize_register( $wp_customize ) {
 			'priority'	=> 2,
 		)));
 
+		/*************************************************************/
+		/************* Video background(available in pro) ************/
+		/*************************************************************/
+
+		$wp_customize->add_section( 'zerif_videobackground_in_pro_section' , array(
+			'title'       => __( 'Video background', 'zerif-lite' ),
+			'priority'    => 3,
+			'panel'       => 'panel_big_title'
+		));
+
+		$wp_customize->add_setting( 'zerif_videobackground_in_pro', array(
+			'sanitize_callback' => 'sanitize_text_field'
+		));
+
+		$wp_customize->add_control( new Zerif_Theme_Support_Videobackground( $wp_customize, 'zerif_videobackground_in_pro', array(
+			'section' => 'zerif_videobackground_in_pro_section',
+		)));
+
 	else:
 
 		$wp_customize->add_section( 'zerif_bigtitle_section' , array(
@@ -785,6 +808,23 @@ function zerif_customize_register( $wp_customize ) {
 			'section'  	=> 'zerif_parallax_section',
 			'settings' 	=> 'zerif_parallax_img2',
 			'priority'	=> 2,
+		)));
+
+		/*************************************************************/
+		/************* Video background(available in pro) ************/
+		/*************************************************************/
+
+		$wp_customize->add_section( 'zerif_videobackground_in_pro_section' , array(
+			'title'       => __( 'Video background', 'zerif-lite' ),
+			'priority'    => 61
+		));
+
+		$wp_customize->add_setting( 'zerif_videobackground_in_pro', array(
+			'sanitize_callback' => 'sanitize_text_field'
+		));
+
+		$wp_customize->add_control( new Zerif_Theme_Support_Videobackground( $wp_customize, 'zerif_videobackground_in_pro', array(
+			'section' => 'zerif_videobackground_in_pro_section',
 		)));
 
 	endif;
