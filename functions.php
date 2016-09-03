@@ -320,6 +320,10 @@ function zerif_scripts() {
 }
 add_action('wp_enqueue_scripts', 'zerif_scripts');
 
+
+/**
+ * Adjust content width based on template.
+ */
 function zerif_adjust_content_width() {
     global $content_width;
 
@@ -329,6 +333,16 @@ function zerif_adjust_content_width() {
 
 }
 add_action( 'template_redirect', 'zerif_adjust_content_width' );
+
+
+/**
+ * Remove Yoast rel="prev/next" link from header
+ */
+function zerif_remove_yoast_rel_link() {
+	return false;
+}
+add_filter( 'wpseo_prev_rel_link', 'zerif_remove_yoast_rel_link' );
+add_filter( 'wpseo_next_rel_link', 'zerif_remove_yoast_rel_link' );
 
 add_action('tgmpa_register', 'zerif_register_required_plugins');
 
