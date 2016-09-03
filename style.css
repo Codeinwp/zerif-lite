@@ -791,6 +791,17 @@ a:active {
 	float: left;
 	width: 100%;
 }
+
+.nav .has_children > a:after{
+	content: '\f0d7';
+	font-family: FontAwesome;
+	margin: 0 0 0 6px;
+	color: inherit;
+}
+    
+.nav .sub-menu .has_children > a:after{
+	content: '\f0da';
+}
  /*---------------------------------------
  **   6.0 Accessibility                   -----
 -----------------------------------------*/
