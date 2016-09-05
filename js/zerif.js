@@ -721,6 +721,9 @@ function mobile_bg_fix() {
                     'background-repeat':    imgRepeat,
                     'background-image':     imgURL
                     } );
+                if( !imgURL ) {
+                    jQuery('.mobile-bg-fix-wrap .mobile-bg-fix-img-wrap' ).css('display','none');
+                }
             }
         }
     }
