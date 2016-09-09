@@ -791,6 +791,17 @@ a:active {
 	float: left;
 	width: 100%;
 }
+
+.nav .has_children > a:after{
+	content: '\f0d7';
+	font-family: FontAwesome;
+	margin: 0 0 0 6px;
+	color: inherit;
+}
+    
+.nav .sub-menu .has_children > a:after{
+	content: '\f0da';
+}
  /*---------------------------------------
  **   6.0 Accessibility                   -----
 -----------------------------------------*/
@@ -3370,6 +3381,14 @@ article .posted-on a:hover{
 .entry-content p {
 	text-align:justify;
 }
+.entry-content blockquote {
+	font: 14px/22px normal helvetica, sans-serif;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	padding-left: 15px;
+	border-left: 3px solid #e96656;
+} 
 .post-img-wrap-large a img{
 	max-width: 100%;
 	width: 100%;
