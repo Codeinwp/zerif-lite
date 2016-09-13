@@ -1846,28 +1846,28 @@ ul.nav > li.current_page_item.current > a:before {
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
-.focus-box:nth-child(4n+1) .service-icon:hover {
+#focus span:nth-child(4n+1) .focus-box .service-icon:hover {
 	border: 10px solid #e96656;
 }
-.focus-box:nth-child(4n+2) .service-icon:hover{
+#focus span:nth-child(4n+2)  .focus-box .service-icon:hover{
 	border: 10px solid #34d293;
 }
-.focus-box:nth-child(4n+3) .service-icon:hover {
+#focus span:nth-child(4n+3) .focus-box .service-icon:hover {
 	border: 10px solid #3ab0e2;
 }
-.focus-box:nth-child(4n+4) .service-icon:hover{
+#focus span:nth-child(4n+4) .focus-box .service-icon:hover{
 	border: 10px solid #f7d861;
 }
-.focus-box:nth-child(4n+1) .red-border-bottom:before {
+#focus span:nth-child(4n+1) .focus-box .red-border-bottom:before {
 	background: #e96656;
 }
-.focus-box:nth-child(4n+2) .red-border-bottom:before {
+#focus span:nth-child(4n+2) .focus-box .red-border-bottom:before {
 	background: #34d293;
 }
-.focus-box:nth-child(4n+3) .red-border-bottom:before {
+#focus span:nth-child(4n+3) .focus-box .red-border-bottom:before {
 	background: #3ab0e2;
 }
-.focus-box:nth-child(4n+4) .red-border-bottom:before {
+#focus span:nth-child(4n+4) .focus-box .red-border-bottom:before {
 	background: #f7d861;
 }
 .focus-box h3 {
@@ -2330,7 +2330,7 @@ width: -webkit-calc(100% / 4);
 .client-list div{
 	margin: 0;
 }
-.client-list div a{
+.client-list div span{
     margin-right: 24px;
 }
 .client-list div a:last-child{
@@ -2482,16 +2482,16 @@ width: -webkit-calc(100% / 4);
 .team-member .social-icons ul li a:hover {
 	color: #e96656;
 }
-.our-team .row > div:nth-child(4n+1) .red-border-bottom:before{
+.our-team .row > span:nth-child(4n+1) .red-border-bottom:before{
     background: #e96656;
 }
-.our-team .row > div:nth-child(4n+2) .red-border-bottom:before{
+.our-team .row > span:nth-child(4n+2) .red-border-bottom:before{
     background: #34d293;
 }
-.our-team .row > div:nth-child(4n+3) .red-border-bottom:before{
+.our-team .row > span:nth-child(4n+3) .red-border-bottom:before{
     background: #3ab0e2;
 }
-.our-team .row > div:nth-child(4n+4) .red-border-bottom:before{
+.our-team .row > span:nth-child(4n+4) .red-border-bottom:before{
     background: #f7d861;
 }
 
