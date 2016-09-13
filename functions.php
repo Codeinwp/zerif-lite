@@ -79,7 +79,10 @@ function zerif_setup() {
 
     /* woocommerce support */
 	add_theme_support( 'woocommerce' );
-		
+
+	/* selective widget refresh */
+	add_theme_support( 'customize-selective-refresh-widgets' );
+
 	/*******************************************/
     /*************  Welcome screen *************/
     /*******************************************/
@@ -184,8 +187,8 @@ function zerif_widgets_init() {
     register_sidebar(array(
         'name' => __('About us section', 'zerif-lite'),
         'id' => 'sidebar-aboutus',
-        'before_widget' => '',
-        'after_widget' => '',
+        'before_widget' => '<span id="%1$s">',
+        'after_widget'  => '</span>',
         'before_title' => '<h1 class="widget-title">',
         'after_title' => '</h1>',
     ));
@@ -478,8 +481,8 @@ function zerif_register_widgets() {
             array (
                 'name'          => $zerif_lite_name,
                 'id'            => $zerif_lite_sidebar,
-                'before_widget' => '',
-                'after_widget'  => ''
+                'before_widget' => '<span id="%1$s">',
+                'after_widget' => '</span>',
             )
         );
 		
@@ -636,7 +639,10 @@ class zerif_ourfocus extends WP_Widget {
 	public function __construct() {
 		parent::__construct(
 			'ctUp-ads-widget',
-			__( 'Zerif - Our focus widget', 'zerif-lite' )
+			__( 'Zerif - Our focus widget', 'zerif-lite' ),
+			array (
+				'customize_selective_refresh' => true,
+			)
 		);
 		add_action('admin_enqueue_scripts', array($this, 'widget_scripts'));
 	}
@@ -777,7 +783,10 @@ class zerif_testimonial_widget extends WP_Widget {
 	public function __construct() {
 		parent::__construct(
 			'zerif_testim-widget',
-			__( 'Zerif - Testimonial widget', 'zerif-lite' )
+			__( 'Zerif - Testimonial widget', 'zerif-lite' ),
+			array (
+				'customize_selective_refresh' => true,
+			)
 		);
 		add_action('admin_enqueue_scripts', array($this, 'widget_scripts'));
 	}
@@ -796,7 +805,10 @@ class zerif_testimonial_widget extends WP_Widget {
 		$zerif_accessibility = get_theme_mod('zerif_accessibility');
 		// open link in a new tab when checkbox "accessibility" is not ticked
 		$attribut_new_tab = (isset($zerif_accessibility) && ($zerif_accessibility != 1) ? ' target="_blank"' : '' );
-        ?>
+
+		echo $before_widget;
+
+	    ?>
 
         <div class="feedback-box">
 
@@ -866,6 +878,8 @@ class zerif_testimonial_widget extends WP_Widget {
 
         <?php
 
+	    echo $after_widget;
+
     }
 
     function update($new_instance, $old_instance) {
@@ -924,9 +938,7 @@ class zerif_testimonial_widget extends WP_Widget {
 }
 
 /****************************/
-
 /****** clients widget ******/
-
 /***************************/
 
 class zerif_clients_widget extends WP_Widget{	
@@ -934,7 +946,10 @@ class zerif_clients_widget extends WP_Widget{
 	public function __construct() {
 		parent::__construct(
 			'zerif_clients-widget',
-			__( 'Zerif - Clients widget', 'zerif-lite' )
+			__( 'Zerif - Clients widget', 'zerif-lite' ),
+			array (
+				'customize_selective_refresh' => true,
+			)
 		);
 		add_action('admin_enqueue_scripts', array($this, 'widget_scripts'));
 	}
@@ -1028,7 +1043,10 @@ class zerif_team_widget extends WP_Widget{
 	public function __construct() {
 		parent::__construct(
 			'zerif_team-widget',
-			__( 'Zerif - Team member widget', 'zerif-lite' )
+			__( 'Zerif - Team member widget', 'zerif-lite' ),
+			array (
+				'customize_selective_refresh' => true,
+			)
 		);
 		add_action('admin_enqueue_scripts', array($this, 'widget_scripts'));
 	}
