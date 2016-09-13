@@ -4,12 +4,12 @@ Theme URI: http://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: http://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.8.4.9
+Version: 1.8.5.0
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
 Domain Path: /languages/
-Tags: one-column, two-columns, right-sidebar,front-page-post-form,full-width-template,rtl-language-support,sticky-post,theme-options, custom-background, custom-menu, editor-style, featured-images, threaded-comments, translation-ready, footer-widgets, portfolio
+Tags: one-column, two-columns, right-sidebar,front-page-post-form,full-width-template,rtl-language-support,sticky-post,theme-options, custom-background, custom-menu, editor-style, featured-images, threaded-comments, translation-ready, footer-widgets, portfolio, e-commerce, blog
 */
 
 
@@ -791,6 +791,17 @@ a:active {
 	float: left;
 	width: 100%;
 }
+
+.nav .has_children > a:after{
+	content: '\f0d7';
+	font-family: FontAwesome;
+	margin: 0 0 0 6px;
+	color: inherit;
+}
+    
+.nav .sub-menu .has_children > a:after{
+	content: '\f0da';
+}
  /*---------------------------------------
  **   6.0 Accessibility                   -----
 -----------------------------------------*/
@@ -1211,7 +1222,7 @@ a:active {
 	text-align: center;
 }
 .wp-caption .wp-caption-text {
-	margin: 0.8075em 0;
+	margin: 0.8075em 1.2%;
 }
 .site-main .gallery {
 	margin-bottom: 1.5em;
@@ -3370,6 +3381,13 @@ article .posted-on a:hover{
 .entry-content p {
 	text-align:justify;
 }
+.entry-content blockquote {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	padding-left: 15px;
+	border-left: 3px solid #e96656;
+} 
 .post-img-wrap-large a img{
 	max-width: 100%;
 	width: 100%;

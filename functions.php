@@ -320,6 +320,30 @@ function zerif_scripts() {
 }
 add_action('wp_enqueue_scripts', 'zerif_scripts');
 
+
+/**
+ * Adjust content width based on template.
+ */
+function zerif_adjust_content_width() {
+    global $content_width;
+
+	$zerif_change_to_full_width = get_theme_mod( 'zerif_change_to_full_width' );
+    if ( is_page_template( 'template-fullwidth.php' ) || is_page_template( 'template-fullwidth-no-title.php' ) || is_page_template( 'woocommerce.php' ) || is_page_template( 'single-download.php' ) || ( is_page_template( 'page.php' ) && !empty($zerif_change_to_full_width) ) )
+	    $content_width = 1110;
+
+}
+add_action( 'template_redirect', 'zerif_adjust_content_width' );
+
+
+/**
+ * Remove Yoast rel="prev/next" link from header
+ */
+function zerif_remove_yoast_rel_link() {
+	return false;
+}
+add_filter( 'wpseo_prev_rel_link', 'zerif_remove_yoast_rel_link' );
+add_filter( 'wpseo_next_rel_link', 'zerif_remove_yoast_rel_link' );
+
 add_action('tgmpa_register', 'zerif_register_required_plugins');
 
 function zerif_register_required_plugins() {	
