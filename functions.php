@@ -458,13 +458,13 @@ function zerif_register_widgets() {
 	
 	/* Register sidebars */
 	foreach ( $zerif_lite_sidebars as $zerif_lite_sidebar ):
-	
+		$extra_class = '';
 		if( $zerif_lite_sidebar == 'sidebar-ourfocus' ):
 		
 			$zerif_lite_name = __('Our focus section widgets', 'zerif-lite');
 		
 		elseif( $zerif_lite_sidebar == 'sidebar-testimonials' ):
-		
+			$extra_class = 'feedback-box';
 			$zerif_lite_name = __('Testimonials section widgets', 'zerif-lite');
 			
 		elseif( $zerif_lite_sidebar == 'sidebar-ourteam' ):
@@ -481,7 +481,7 @@ function zerif_register_widgets() {
             array (
                 'name'          => $zerif_lite_name,
                 'id'            => $zerif_lite_sidebar,
-                'before_widget' => '<span id="%1$s">',
+                'before_widget' => '<span id="%1$s" class="'.$extra_class.'">',
                 'after_widget' => '</span>',
             )
         );
@@ -810,7 +810,6 @@ class zerif_testimonial_widget extends WP_Widget {
 
 	    ?>
 
-        <div class="feedback-box">
 
             <!-- MESSAGE OF THE CLIENT -->
 
@@ -874,7 +873,6 @@ class zerif_testimonial_widget extends WP_Widget {
             </div>
             <!-- / END CLIENT INFORMATION-->
 
-        </div> <!-- / END SINGLE FEEDBACK BOX-->
 
         <?php
 
