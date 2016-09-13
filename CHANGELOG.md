@@ -1,4 +1,14 @@
 
+### 1.8.5.0 - 13/09/2016
+**Changes:** 
+- Added padding to image captions
+- Added dropdown icons to sub-menus
+- Fixed issue with Yoast navigation
+- Fixed issue with vertical line on Samsung Galaxy S6
+- Update tags
+- Improved the blockquote design
+- Fixed issue with Jetpacks Photon module
+
 ### 1.8.4.9 - 30/08/2016
 **Changes:** 
 - Use core function for archive title and description
