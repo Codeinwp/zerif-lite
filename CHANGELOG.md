@@ -1,4 +1,8 @@
 
+### 2.0.0 - 14/09/2016
+**Changes:** 
+- Updated license
+
 ### 1.8.5.0 - 13/09/2016
 **Changes:** 
 - Added padding to image captions
