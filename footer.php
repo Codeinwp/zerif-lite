@@ -141,27 +141,27 @@
 
 							/* facebook */
 							if( !empty($zerif_socials_facebook) ):
-								echo '<li><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_facebook).'"><i class="fa fa-facebook"></i></a></li>';
+								echo '<li><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_facebook).'"><span class="sr-only">' . __( 'Go to Facebook', 'zerif-lite' ) . '</span> <i class="fa fa-facebook"></i></a></li>';
 							endif;
 							/* twitter */
 							if( !empty($zerif_socials_twitter) ):
-								echo '<li><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_twitter).'"><i class="fa fa-twitter"></i></a></li>';
+								echo '<li><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_twitter).'"><span class="sr-only">' . __( 'Go to Twitter', 'zerif-lite' ) . '</span> <i class="fa fa-twitter"></i></a></li>';
 							endif;
 							/* linkedin */
 							if( !empty($zerif_socials_linkedin) ):
-								echo '<li><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_linkedin).'"><i class="fa fa-linkedin"></i></a></li>';
+								echo '<li><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_linkedin).'"><span class="sr-only">' . __( 'Go to Linkedin', 'zerif-lite' ) . '</span> <i class="fa fa-linkedin"></i></a></li>';
 							endif;
 							/* behance */
 							if( !empty($zerif_socials_behance) ):
-								echo '<li><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_behance).'"><i class="fa fa-behance"></i></a></li>';
+								echo '<li><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_behance).'"><span class="sr-only">' . __( 'Go to Behance', 'zerif-lite' ) . '</span> <i class="fa fa-behance"></i></a></li>';
 							endif;
 							/* dribbble */
 							if( !empty($zerif_socials_dribbble) ):
-								echo '<li><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_dribbble).'"><i class="fa fa-dribbble"></i></a></li>';
+								echo '<li><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_dribbble).'"><span class="sr-only">' . __( 'Go to Dribble', 'zerif-lite' ) . '</span> <i class="fa fa-dribbble"></i></a></li>';
 							endif;
 							/* instagram */
 							if( !empty($zerif_socials_instagram) ):
-								echo '<li><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_instagram).'"><i class="fa fa-instagram"></i></a></li>';
+								echo '<li><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_instagram).'"><span class="sr-only">' . __( 'Go to Instagram', 'zerif-lite' ) . '</span> <i class="fa fa-instagram"></i></a></li>';
 							endif;
 							echo '</ul>';
 						endif;

@@ -132,14 +132,14 @@
 
 							echo '<div class="skill-count">';
 
-								echo '<input type="text" value="'.esc_attr( $zerif_aboutus_feature1_nr ).'" data-thickness=".2" class="skill1" tabindex="-1">';
+								echo '<input role="presentation" type="text" id="' . sanitize_title($zerif_aboutus_feature1_title) . '" value="'.esc_attr( $zerif_aboutus_feature1_nr ).'" data-thickness=".2" class="skill1" tabindex="-1">';
 
 							echo '</div>';
 
 						endif;
 
 						if( !empty($zerif_aboutus_feature1_title) ):
-							echo '<div class="section-legend">'.wp_kses_post( $zerif_aboutus_feature1_title ).'</div>';
+							echo '<div class="section-legend"><label for="' . sanitize_title($zerif_aboutus_feature1_title) . '">'.wp_kses_post( $zerif_aboutus_feature1_title ).'</label></div>';
 						elseif ( is_customize_preview() ):
 							echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
 						endif;
@@ -170,7 +170,7 @@
 
 							echo '<div class="skill-count">';
 
-								echo '<input type="text" value="'.esc_attr( $zerif_aboutus_feature2_nr ).'" data-thickness=".2" class="skill2" tabindex="-1">';
+								echo '<input role="presentation" type="text" id="' . sanitize_title($zerif_aboutus_feature2_title) . '" value="'.esc_attr( $zerif_aboutus_feature2_nr ).'" data-thickness=".2" class="skill2" tabindex="-1">';
 
 							echo '</div>';
 
@@ -179,7 +179,7 @@
 
 
 						if( !empty($zerif_aboutus_feature2_title) ):
-							echo '<div class="section-legend">'.wp_kses_post( $zerif_aboutus_feature2_title ).'</div>';
+							echo '<div class="section-legend"><label for="' . sanitize_title($zerif_aboutus_feature2_title) . '">'.wp_kses_post( $zerif_aboutus_feature2_title ).'</label></div>';
 						elseif ( is_customize_preview() ):
 							echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
 						endif;
@@ -208,14 +208,14 @@
 
 							echo '<div class="skill-count">';
 
-								echo '<input type="text" value="'.esc_attr( $zerif_aboutus_feature3_nr ).'" data-thickness=".2" class="skill3" tabindex="-1">';
+								echo '<input role="presentation" type="text" id="' . sanitize_title($zerif_aboutus_feature3_title) . '" value="'.esc_attr( $zerif_aboutus_feature3_nr ).'" data-thickness=".2" class="skill3" tabindex="-1">';
 
 							echo '</div>';
 
 						endif;
 
 						if( !empty($zerif_aboutus_feature3_title) ):
-							echo '<div class="section-legend">'.wp_kses_post( $zerif_aboutus_feature3_title ).'</div>';
+							echo '<div class="section-legend"><label for="' . sanitize_title($zerif_aboutus_feature3_title) . '">'.wp_kses_post( $zerif_aboutus_feature3_title ).'</label></div>';
 						elseif ( is_customize_preview() ):
 							echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
 						endif;
@@ -245,14 +245,14 @@
 
 							echo '<div class="skill-count">';
 
-								echo '<input type="text" value="'.esc_attr( $zerif_aboutus_feature4_nr ).'" data-thickness=".2" class="skill4" tabindex="-1">';
+								echo '<input role="presentation" type="text" id="' . sanitize_title($zerif_aboutus_feature4_title) . '" value="'.esc_attr( $zerif_aboutus_feature4_nr ).'" data-thickness=".2" class="skill4" tabindex="-1">';
 
 							echo '</div>';
 
 						endif;
 
 						if( !empty($zerif_aboutus_feature4_title) ):
-							echo '<div class="section-legend">'.wp_kses_post( $zerif_aboutus_feature4_title ).'</div>';
+							echo '<div class="section-legend"><label for="' . sanitize_title($zerif_aboutus_feature4_title) . '">'.wp_kses_post( $zerif_aboutus_feature4_title ).'</label></div>';
 						elseif ( is_customize_preview() ):
 							echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
 						endif;

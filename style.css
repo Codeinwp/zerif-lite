@@ -165,16 +165,16 @@ p {
 }
 /* do not group these rules (placeholder colors) */
 *::-webkit-input-placeholder {
-    color: #999 !important;
+    color: #000 !important;
 }
 *:-moz-placeholder {
-    color: #999 !important;
+    color: #000 !important;
 }
 *::-moz-placeholder {
-    color: #999 !important;
+    color: #000 !important;
 }
 *:-ms-input-placeholder {
-    color: #999 !important;
+    color: #000 !important;
 }
 /*--------------------------------------------------------------
 2.0 Typography
@@ -1382,7 +1382,7 @@ object {
 .section-header .section-legend {
 	font-size: 16px;
 	margin-bottom: 0;
-	color: #808080;
+	color: #000;
 	padding-top: 0;
 }
 /* PRE LOADER */
@@ -1782,6 +1782,12 @@ ul.nav > li.current_page_item.current > a:before {
 	width: 45px;
 	background: none;
 }
+
+#carousel-homepage-latestnews .carousel-control:focus, #carousel-homepage-latestnews .carousel-control:hover {
+	outline: 1px solid #000;
+	outline-offset: 0;
+}
+
 .carousel-control.left {
 	margin-left: -45px;
 }
@@ -1829,6 +1835,7 @@ ul.nav > li.current_page_item.current > a:before {
 }
 /* FOCUS BOX */
 .focus-box .service-icon {
+	display: block;
 	margin-bottom: 30px;
 	width: 145px;
 	height: 145px;
@@ -1846,16 +1853,16 @@ ul.nav > li.current_page_item.current > a:before {
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
-#focus span:nth-child(4n+1) .focus-box .service-icon:hover {
+#focus span:nth-child(4n+1) .focus-box .service-icon:hover, #focus span:nth-child(4n+1) .focus-box .service-icon:focus {
 	border: 10px solid #e96656;
 }
-#focus span:nth-child(4n+2)  .focus-box .service-icon:hover{
+#focus span:nth-child(4n+2)  .focus-box .service-icon:hover, #focus span:nth-child(4n+2)  .focus-box .service-icon:focus {
 	border: 10px solid #34d293;
 }
-#focus span:nth-child(4n+3) .focus-box .service-icon:hover {
+#focus span:nth-child(4n+3) .focus-box .service-icon:hover, #focus span:nth-child(4n+3) .focus-box .service-icon:focus {
 	border: 10px solid #3ab0e2;
 }
-#focus span:nth-child(4n+4) .focus-box .service-icon:hover{
+#focus span:nth-child(4n+4) .focus-box .service-icon:hover, #focus span:nth-child(4n+4) .focus-box .service-icon:focus {
 	border: 10px solid #f7d861;
 }
 #focus span:nth-child(4n+1) .focus-box .red-border-bottom:before {
@@ -2418,7 +2425,7 @@ width: -webkit-calc(100% / 4);
 	display: inline-block;
 	padding-bottom: 5px;
 }
-.team-member:hover .details {
+.team-member:hover .details, .team-member:focus .details {
 	top: 0;
 	background: #333;
 	color: white;
@@ -2803,7 +2810,7 @@ width: -webkit-calc(100% / 4);
 }
 .feedback-box .message {
 	font-size: 15px;
-	color: #777777;
+	color: #000;
 }
 .feedback-box .client {
 	margin-top: 30px;
