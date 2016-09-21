@@ -28,9 +28,9 @@ function zerif_setup() {
 
     /* Set the image size by cropping the image */
     add_image_size('post-thumbnail', 250, 250, true);
-    add_image_size( 'post-thumbnail-large', 750, 500, true ); /* blog thumbnail */
-    add_image_size( 'post-thumbnail-large-table', 600, 300, true ); /* blog thumbnail for table */
-    add_image_size( 'post-thumbnail-large-mobile', 400, 200, true ); /* blog thumbnail for mobile */
+    add_image_size('post-thumbnail-large', 750, 500, true ); /* blog thumbnail */
+    add_image_size('post-thumbnail-large-table', 600, 300, true ); /* blog thumbnail for table */
+    add_image_size('post-thumbnail-large-mobile', 400, 200, true ); /* blog thumbnail for mobile */
     add_image_size('zerif_project_photo', 285, 214, true);
     add_image_size('zerif_our_team_photo', 174, 174, true);
 
@@ -998,7 +998,9 @@ class zerif_clients_widget extends WP_Widget{
         $instance['link'] = strip_tags($new_instance['link']);
 
         $instance['image_uri'] = strip_tags($new_instance['image_uri']);
-		
+
+	    $instance['image_in_customizer'] = strip_tags($new_instance['image_in_customizer']);
+
 		$instance['custom_media_id'] = strip_tags($new_instance['custom_media_id']);
 
         return $instance;
@@ -1014,11 +1016,21 @@ class zerif_clients_widget extends WP_Widget{
         </p>
         <p>
             <label for="<?php echo $this->get_field_id('image_uri'); ?>"><?php _e('Image', 'zerif-lite'); ?></label><br/>
-            <?php
-            if ( !empty($instance['image_uri']) ) :
-                echo '<img class="custom_media_image_clients" src="' . $instance['image_uri'] . '" style="margin:0;padding:0;max-width:100px;float:left;display:inline-block" alt="'.__( 'Uploaded image', 'zerif-lite' ).'" /><br />';
-            endif;
-            ?>
+
+	            <?php
+	            $image_in_customizer = '';
+                $display = 'none';
+                if( !empty($instance['image_in_customizer']) ){
+	                $image_in_customizer = esc_url($instance['image_in_customizer']);
+	                $display = 'inline-block';
+                } else {
+	                if( !empty($instance['image_uri']) ){
+		                $image_in_customizer = esc_url($instance['image_uri']);
+		                $display = 'inline-block';
+	                }
+                } ?>
+		        <input type="hidden" class="custom_media_display_in_customizer" name="<?php if(!empty($this->get_field_name('image_in_customizer'))) { echo $this->get_field_name('image_in_customizer'); } ?>" value="<?php if( !empty($instance['image_in_customizer']) ): echo $instance['image_in_customizer']; endif; ?>">
+		        <img class="custom_media_image_clients" src="<?php echo $image_in_customizer; ?>" style="margin:0;padding:0;max-width:100px;float:left;display:<?php echo $display; ?>" alt="<?php echo __( 'Uploaded image', 'zerif-lite' ); ?>" /><br />
 
             <input type="text" class="widefat custom_media_url_clients" name="<?php echo $this->get_field_name('image_uri'); ?>" id="<?php echo $this->get_field_id('image_uri'); ?>" value="<?php if( !empty($instance['image_uri']) ): echo $instance['image_uri']; endif; ?>" style="margin-top:5px;">
 

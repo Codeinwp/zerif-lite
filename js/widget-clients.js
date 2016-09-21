@@ -1,27 +1,1 @@
-jQuery(document).ready( function($) {
-    function media_upload(button_class) {
-        var _custom_media = true,
-        _orig_send_attachment = wp.media.editor.send.attachment;
-
-        $('body').on('click', button_class, function(e) {
-            var button_id ='#'+$(this).attr('id');
-            var self = $(button_id);
-            var send_attachment_bkp = wp.media.editor.send.attachment;
-            var button = $(button_id);
-            var id = button.attr('id').replace('_button', '');
-            _custom_media = true;
-            wp.media.editor.send.attachment = function(props, attachment){
-                if ( _custom_media  ) {
-                    $('.custom_media_id').val(attachment.id);
-                    $('.custom_media_url_clients').val(attachment.url);
-                    $('.custom_media_image_clients').attr('src',attachment.url).css('display','block');
-                } else {
-                    return _orig_send_attachment.apply( button_id, [props, attachment] );
-                }
-            }
-            wp.media.editor.open(button);
-                return false;
-        });
-    }
-    media_upload('.custom_media_button_clients.button');
-});
+/* global jQuery *//* global wp */jQuery(document).ready( function($) {    'use strict';    function media_upload(button_class) {        var _custom_media = true;        $('body').on('click', button_class, function() {            var button_id ='#'+$(this).attr('id');            var media_id = jQuery(this).parent().parent().children('.custom_media_id');            var display_field = jQuery(this).parent().children('input:text');            var display_image = jQuery(this).parent().children('.custom_media_image_clients');            var image_in_customizer = jQuery(this).parent().children('.custom_media_display_in_customizer');            _custom_media = true;            wp.media.editor.send.attachment = function(props, attachment){                if ( _custom_media  ) {                    if (typeof display_field !== 'undefined') {                        media_id.val(attachment.id);                        display_image.attr('src',attachment.sizes.thumbnail.url).css('display','block');                        image_in_customizer.val(attachment.sizes.thumbnail.url);                        switch (props.size) {                            case 'full':                                display_field.val(attachment.sizes.full.url);                                break;                            case 'medium':                                display_field.val(attachment.sizes.medium.url);                                break;                            case 'thumbnail':                                display_field.val(attachment.sizes.thumbnail.url);                                break;                            default:                                display_field.val(attachment.url);                                break;                        }                    }                } else {                    return wp.media.editor.send.attachment(button_id, [props, attachment]);                }            };            wp.media.editor.open(button_class);            window.send_to_editor = function (html) {            };            return false;        });    }    media_upload('.custom_media_button_clients');});
