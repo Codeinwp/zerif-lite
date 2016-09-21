@@ -4,12 +4,12 @@ Theme URI: http://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: http://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.8.4.9
+Version: 2.0.0
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
 Domain Path: /languages/
-Tags: one-column, two-columns, right-sidebar,front-page-post-form,full-width-template,rtl-language-support,sticky-post,theme-options, custom-background, custom-menu, editor-style, featured-images, threaded-comments, translation-ready, footer-widgets, portfolio
+Tags: one-column, two-columns, right-sidebar,front-page-post-form,full-width-template,rtl-language-support,sticky-post,theme-options, custom-background, custom-menu, editor-style, featured-images, threaded-comments, translation-ready, footer-widgets, portfolio, e-commerce, blog
 */
 
 
@@ -790,6 +790,17 @@ a:active {
 .site-main .post-navigation {
 	float: left;
 	width: 100%;
+}
+
+.nav .has_children > a:after{
+	content: '\f0d7';
+	font-family: FontAwesome;
+	margin: 0 0 0 6px;
+	color: inherit;
+}
+    
+.nav .sub-menu .has_children > a:after{
+	content: '\f0da';
 }
  /*---------------------------------------
  **   6.0 Accessibility                   -----
@@ -1835,28 +1846,28 @@ ul.nav > li.current_page_item.current > a:before {
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
-.focus-box:nth-child(4n+1) .service-icon:hover {
+#focus span:nth-child(4n+1) .focus-box .service-icon:hover {
 	border: 10px solid #e96656;
 }
-.focus-box:nth-child(4n+2) .service-icon:hover{
+#focus span:nth-child(4n+2)  .focus-box .service-icon:hover{
 	border: 10px solid #34d293;
 }
-.focus-box:nth-child(4n+3) .service-icon:hover {
+#focus span:nth-child(4n+3) .focus-box .service-icon:hover {
 	border: 10px solid #3ab0e2;
 }
-.focus-box:nth-child(4n+4) .service-icon:hover{
+#focus span:nth-child(4n+4) .focus-box .service-icon:hover{
 	border: 10px solid #f7d861;
 }
-.focus-box:nth-child(4n+1) .red-border-bottom:before {
+#focus span:nth-child(4n+1) .focus-box .red-border-bottom:before {
 	background: #e96656;
 }
-.focus-box:nth-child(4n+2) .red-border-bottom:before {
+#focus span:nth-child(4n+2) .focus-box .red-border-bottom:before {
 	background: #34d293;
 }
-.focus-box:nth-child(4n+3) .red-border-bottom:before {
+#focus span:nth-child(4n+3) .focus-box .red-border-bottom:before {
 	background: #3ab0e2;
 }
-.focus-box:nth-child(4n+4) .red-border-bottom:before {
+#focus span:nth-child(4n+4) .focus-box .red-border-bottom:before {
 	background: #f7d861;
 }
 .focus-box h3 {
@@ -2319,7 +2330,7 @@ width: -webkit-calc(100% / 4);
 .client-list div{
 	margin: 0;
 }
-.client-list div a{
+.client-list div span{
     margin-right: 24px;
 }
 .client-list div a:last-child{
@@ -2471,16 +2482,16 @@ width: -webkit-calc(100% / 4);
 .team-member .social-icons ul li a:hover {
 	color: #e96656;
 }
-.our-team .row > div:nth-child(4n+1) .red-border-bottom:before{
+.our-team .row > span:nth-child(4n+1) .red-border-bottom:before{
     background: #e96656;
 }
-.our-team .row > div:nth-child(4n+2) .red-border-bottom:before{
+.our-team .row > span:nth-child(4n+2) .red-border-bottom:before{
     background: #34d293;
 }
-.our-team .row > div:nth-child(4n+3) .red-border-bottom:before{
+.our-team .row > span:nth-child(4n+3) .red-border-bottom:before{
     background: #3ab0e2;
 }
-.our-team .row > div:nth-child(4n+4) .red-border-bottom:before{
+.our-team .row > span:nth-child(4n+4) .red-border-bottom:before{
     background: #f7d861;
 }
 
@@ -3370,6 +3381,13 @@ article .posted-on a:hover{
 .entry-content p {
 	text-align:justify;
 }
+.entry-content blockquote {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	padding-left: 15px;
+	border-left: 3px solid #e96656;
+} 
 .post-img-wrap-large a img{
 	max-width: 100%;
 	width: 100%;
