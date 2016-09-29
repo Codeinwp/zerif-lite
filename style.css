@@ -3348,7 +3348,7 @@ article .posted-on a:hover{
  **   SiteOrigin Page Builder styles -----
 -----------------------------------------*/
 
-.siteorigin-panels .content-left-wrap {
+.siteorigin-panels.page-template-template-fullwidth-no-title .content-left-wrap {
   padding-top: 0;
 }
 
