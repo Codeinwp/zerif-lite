@@ -34,7 +34,7 @@
 
 						$zerif_latest_loop = new WP_Query( apply_filters( 'zerif_latest_news_parameters', array( 'post_type' => 'post', 'posts_per_page' => $zerif_total_posts, 'order' => 'DESC','ignore_sticky_posts' => true )) );
 
-						$newSlideActive = '<div class="item active">';
+						$newSlideActive = '<div class="item active" role="option">';
 						$newSlide 		= '<div class="item">';
 						$newSlideClose 	= '<div class="clear"></div></div>';
 						$i_latest_posts= 0;
@@ -77,7 +77,7 @@
 												$ismore = @strpos( $post->post_content, '<!--more-->');
 												
 												if($ismore) {
-													the_content( sprintf( esc_html__('[...]','zerif-lite'), '<span class="screen-reader-text">'.esc_html__('about ', 'zerif-lite').get_the_title().'</span>' ) );
+													the_content( esc_html__('Read more', 'zerif-lite') .' <span class="sr-only">' . esc_html__('about ', 'zerif-lite').get_the_title() );
 												} else {
 													the_excerpt();
 												}
@@ -95,7 +95,7 @@
 
 									if( $i_latest_posts == 1 ) $active = 'active'; else $active = ''; 
 			
-									echo '<div class="item '.$active.'">';
+									echo '<div class="item '.$active.'" role="option">';
 										echo '<div class="col-md-3 latestnews-box">';
 											echo '<div class="latestnews-img">';
 												echo '<a class="latestnews-img-a" href="'.get_permalink().'" title="'.get_the_title().'">';
@@ -112,7 +112,7 @@
 												$ismore = @strpos( $post->post_content, '<!--more-->');
 												
 												if($ismore) {
-													the_content( sprintf( esc_html__('[...]','zerif-lite'), '<span class="screen-reader-text">'.esc_html__('about ', 'zerif-lite').get_the_title().'</span>' ) );
+													the_content( esc_html__('Read more', 'zerif-lite') .' <span class="sr-only">' . esc_html__('about ', 'zerif-lite').get_the_title() );
 												} else {
 													the_excerpt();
 												}
