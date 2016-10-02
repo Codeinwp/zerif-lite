@@ -3356,20 +3356,20 @@ article .posted-on a:hover{
 -----------------------------------------*/
 
 .siteorigin-panels.page-template-template-fullwidth-no-title .content-left-wrap {
-  padding-top: 0;
+	padding-top: 0;
 }
 
-.siteorigin-panels .type-page .entry-content {
-  margin-top: 0;
+.siteorigin-panels.page-template-template-fullwidth-no-title .type-page .entry-content {
+	margin-top: 0;
 }
 
-.siteorigin-panels article.hentry{
+.siteorigin-panels.page-template-template-fullwidth-no-title article.hentry{
 	margin-bottom: 0;
 	padding-bottom: 0;
 	border-bottom: none;
 }
 
-.siteorigin-panels .hentry {
+.siteorigin-panels.page-template-template-fullwidth-no-title .hentry {
 	margin: 0;
 }
 
