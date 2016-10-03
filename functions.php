@@ -673,21 +673,28 @@ class zerif_ourfocus extends WP_Widget {
 
         <div class="col-lg-3 col-sm-3 focus-box" data-scrollreveal="enter left after 0.15s over 1s">
 
-			<?php if( !empty($instance['image_uri']) && ($instance['image_uri'] != 'Upload Image') ) { ?>
-			
-				
-					
-                <?php if( !empty($instance['link']) ) { ?>
-                
-                    <a href="<?php echo esc_url($instance['link']); ?>" class="service-icon"><span class="sr-only"><?php _e( 'Go to', 'zerif-lite' ); ?> <?php echo apply_filters('widget_title', $instance['title']); ?></span> <i class="pixeden" style="background:url(<?php echo esc_url($instance['image_uri']); ?>) no-repeat center;width:100%; height:100%;"></i></a>
-                
-                <?php } else { ?>
-                
+			<?php
+			if( !empty($instance['image_uri']) && ($instance['image_uri'] != 'Upload Image') ) {
+				if( !empty($instance['link']) ) { ?>
+                    <a href="<?php echo esc_url($instance['link']); ?>" class="service-icon">
+	                    <?php
+	                    if(!empty($instance['title'])){ ?>
+		                    <span class="sr-only">
+			                    <?php _e( 'Go to', 'zerif-lite' ); ?>
+			                    <?php echo apply_filters('widget_title', $instance['title']); ?>
+		                    </span>
+		                    <?php
+	                    } ?>
+
+	                    <i class="pixeden" style="background:url(<?php echo esc_url($instance['image_uri']); ?>) no-repeat center;width:100%; height:100%;"></i>
+                    </a>
+                    <?php
+				} else { ?>
                     <div class="service-icon" tabindex="0">
                         <i class="pixeden" style="background:url(<?php echo esc_url($instance['image_uri']); ?>) no-repeat center;width:100%; height:100%;"></i> <!-- FOCUS ICON-->
                     </div>
-                
-                <?php } ?>
+                    <?php
+				} ?>
 
 				
 				
@@ -695,21 +702,26 @@ class zerif_ourfocus extends WP_Widget {
 			
 					$zerif_ourfocus_custom_media_id = wp_get_attachment_image_src($instance["custom_media_id"] );
 					if( !empty($zerif_ourfocus_custom_media_id) && !empty($zerif_ourfocus_custom_media_id[0]) ) {
-						?>
 
-							
-					
-                        <?php if( !empty($instance['link']) ) { ?>
-                        
-                            <a href="<?php echo esc_url($instance['link']); ?>" class="service-icon"><span class="sr-only"><?php _e( 'Go to', 'zerif-lite' ); ?> <?php echo apply_filters('widget_title', $instance['title']); ?> </span> <i class="pixeden" style="background:url(<?php echo esc_url($zerif_ourfocus_custom_media_id[0]); ?>) no-repeat center;width:100%; height:100%;"></i></a>
-                        
-                        <?php } else { ?>
-                        
+						if( !empty($instance['link']) ) { ?>
+                            <a href="<?php echo esc_url($instance['link']); ?>" class="service-icon">
+	                            <?php
+	                            if(!empty($instance['title'])){ ?>
+		                            <span class="sr-only">
+			                            <?php _e( 'Go to', 'zerif-lite' ); ?>
+			                            <?php echo apply_filters('widget_title', $instance['title']); ?>
+		                            </span>
+	                            	<?php
+	                            } ?>
+	                            <i class="pixeden" style="background:url(<?php echo esc_url($zerif_ourfocus_custom_media_id[0]); ?>) no-repeat center;width:100%; height:100%;"></i>
+                            </a>
+                            <?php
+						} else { ?>
                             <div class="service-icon" tabindex="0">
                                 <i class="pixeden" style="background:url(<?php echo esc_url($zerif_ourfocus_custom_media_id[0]); ?>) no-repeat center;width:100%; height:100%;"></i> <!-- FOCUS ICON-->
                             </div>
-                        
-                        <?php } 
+                            <?php
+						}
 					}
 			
 				} 
