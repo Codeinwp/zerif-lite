@@ -1176,30 +1176,91 @@ class zerif_team_widget extends WP_Widget{
                             endif;
                         ?>
 
-                        <?php if ( !empty($instance['fb_link']) ): ?>
-                            <li><a href="<?php echo apply_filters('widget_title', $instance['fb_link']); ?>" target="<?php echo $zerif_team_target; ?>"><span class="sr-only"><?php _e( 'Facebook account of', 'zerif-lite' ); ?> <?php echo apply_filters('widget_title', $instance['name']); ?></span><i
-                                        class="fa fa-facebook"></i></a></li>
-                        <?php endif; ?>
+                        <?php
+                        if ( !empty($instance['fb_link']) ): ?>
+                            <li>
+	                            <a href="<?php echo apply_filters('widget_title', $instance['fb_link']); ?>" target="<?php echo $zerif_team_target; ?>">
+		                            <?php
+		                            if(!empty($instance['name'])) { ?>
+			                            <span class="sr-only">
+				                            <?php _e( 'Facebook account of', 'zerif-lite' ); ?>
+				                            <?php echo apply_filters( 'widget_title', $instance['name'] ); ?>
+			                            </span>
+			                            <?php
+		                            } ?>
+		                            <i class="fa fa-facebook"></i>
+	                            </a>
+                            </li>
+                            <?php
+                        endif;
 
-                        <?php if ( !empty($instance['tw_link']) ): ?>
-                            <li><a href="<?php echo apply_filters('widget_title', $instance['tw_link']); ?>" target="<?php echo $zerif_team_target; ?>"><span class="sr-only"><?php _e( 'Twitter account of', 'zerif-lite' ); ?> <?php echo apply_filters('widget_title', $instance['name']); ?></span><i
-                                        class="fa fa-twitter"></i></a></li>
-                        <?php endif; ?>
+                        if ( !empty($instance['tw_link']) ): ?>
+                            <li>
+	                            <a href="<?php echo apply_filters('widget_title', $instance['tw_link']); ?>" target="<?php echo $zerif_team_target; ?>">
+		                            <?php
+		                            if(!empty($instance['name'])) { ?>
+			                            <span class="sr-only">
+				                            <?php _e( 'Twitter account of', 'zerif-lite' ); ?>
+				                            <?php echo apply_filters('widget_title', $instance['name']); ?>
+			                            </span>
+		                                <?php
+		                            } ?>
+		                            <i class="fa fa-twitter"></i>
+	                            </a>
+                            </li>
+                            <?php
+                        endif;
 
-                        <?php if ( !empty($instance['bh_link']) ): ?>
-                            <li><a href="<?php echo apply_filters('widget_title', $instance['bh_link']); ?>" target="<?php echo $zerif_team_target; ?>"><span class="sr-only"><?php _e( 'Behance account of', 'zerif-lite' ); ?> <?php echo apply_filters('widget_title', $instance['name']); ?></span><i
-                                        class="fa fa-behance"></i></a></li>
-                        <?php endif; ?>
+                        if ( !empty($instance['bh_link']) ): ?>
+                            <li>
+	                            <a href="<?php echo apply_filters('widget_title', $instance['bh_link']); ?>" target="<?php echo $zerif_team_target; ?>">
+		                            <?php
+		                            if(!empty($instance['name'])) { ?>
+			                            <span class="sr-only">
+				                            <?php _e( 'Behance account of', 'zerif-lite' ); ?>
+				                            <?php echo apply_filters('widget_title', $instance['name']); ?>
+			                            </span>
+		                                <?php
+		                            } ?>
+		                            <i class="fa fa-behance"></i>
+	                            </a>
+                            </li>
+                            <?php
+                        endif;
 
-                        <?php if ( !empty($instance['db_link']) ): ?>
-                            <li><a href="<?php echo apply_filters('widget_title', $instance['db_link']); ?>" target="<?php echo $zerif_team_target; ?>"><span class="sr-only"><?php _e( 'Dribble account of', 'zerif-lite' ); ?> <?php echo apply_filters('widget_title', $instance['name']); ?></span><i
-                                        class="fa fa-dribbble"></i></a></li>
-                        <?php endif; ?>
-						
-						<?php if ( !empty($instance['ln_link']) ): ?>
-                            <li><a href="<?php echo apply_filters('widget_title', $instance['ln_link']); ?>" target="<?php echo $zerif_team_target; ?>"><span class="sr-only"><?php _e( 'Linkedin account of', 'zerif-lite' ); ?> <?php echo apply_filters('widget_title', $instance['name']); ?></span><i
-                                        class="fa fa-linkedin"></i></a></li>
-                        <?php endif; ?>
+                        if ( !empty($instance['db_link']) ): ?>
+                            <li>
+	                            <a href="<?php echo apply_filters('widget_title', $instance['db_link']); ?>" target="<?php echo $zerif_team_target; ?>">
+		                            <?php
+		                            if(!empty($instance['name'])) { ?>
+			                            <span class="sr-only">
+				                            <?php _e( 'Dribble account of', 'zerif-lite' ); ?>
+				                            <?php echo apply_filters('widget_title', $instance['name']); ?>
+			                            </span>
+		                                <?php
+		                            } ?>
+		                            <i class="fa fa-dribbble"></i>
+	                            </a>
+                            </li>
+                            <?php
+                        endif;
+
+                        if ( !empty($instance['ln_link']) ): ?>
+                            <li>
+	                            <a href="<?php echo apply_filters('widget_title', $instance['ln_link']); ?>" target="<?php echo $zerif_team_target; ?>">
+		                            <?php
+		                            if(!empty($instance['name'])) { ?>
+			                            <span class="sr-only">
+				                            <?php _e( 'Linkedin account of', 'zerif-lite' ); ?>
+				                            <?php echo apply_filters('widget_title', $instance['name']); ?>
+			                            </span>
+			                            <?php
+		                            } ?>
+		                            <i class="fa fa-linkedin"></i>
+	                            </a>
+                            </li>
+                            <?php
+                        endif; ?>
 
                     </ul>
 
