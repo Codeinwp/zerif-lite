@@ -164,14 +164,14 @@ function zerif_setup() {
 
 	add_action( 'zerif_primary_navigation', 'zerif_primary_navigation_function' ); #Outputs the navigation menu
 
-    add_filter( 'excerpt_more', 'wpdocs_excerpt_more' );
+    add_filter( 'excerpt_more', 'zerif_excerpt_more' );
 
 }
 
 add_action('after_setup_theme', 'zerif_setup');
 
-function wpdocs_excerpt_more( $more ) {
-    return ' ... <a href="'.get_the_permalink().'" rel="nofollow">'. esc_html__('Read more', 'zerif-lite') .' <span class="sr-only">' . esc_html__('about ', 'zerif-lite').get_the_title() . '</span>...</a>';
+function zerif_excerpt_more( $more ) {
+    return ' <a href="'.get_the_permalink().'" rel="nofollow"><span class="sr-only">' . esc_html__('Read more about ', 'zerif-lite').get_the_title() . '</span>[...]</a>';
 }
 
 function zerif_lite_is_not_latest_posts() {
@@ -1313,10 +1313,6 @@ function zerif_customizer_custom_css() {
 }
 add_action('customize_controls_print_styles', 'zerif_customizer_custom_css');
 
-function zerif_excerpt_more( $more ) {
-	return '<a href="'.get_permalink().'">[...]</a>';
-}
-add_filter('excerpt_more', 'zerif_excerpt_more');
 
 /* Enqueue Google reCAPTCHA scripts */
 add_action( 'wp_enqueue_scripts', 'recaptcha_scripts' );
