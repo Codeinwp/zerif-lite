@@ -5,10 +5,6 @@ jQuery(document).ready(function() {
 
 	});
 
-	/* Move our focus widgets in the our focus panel */
-	wp.customize.section( 'sidebar-widgets-sidebar-ourfocus' ).panel( 'panel_ourfocus' );
-	wp.customize.section( 'sidebar-widgets-sidebar-ourfocus' ).priority( '2' );
-
 	/* Move our team widgets in the our team panel */
 	wp.customize.section( 'sidebar-widgets-sidebar-ourteam' ).panel( 'panel_ourteam' );
 	wp.customize.section( 'sidebar-widgets-sidebar-ourteam' ).priority( '2' );

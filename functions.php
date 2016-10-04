@@ -780,7 +780,7 @@ class zerif_ourfocus extends WP_Widget {
 		    <?php
 		    $image_in_customizer = '';
 		    $display = 'none';
-		    if( !empty($instance['image_in_customizer']) ){
+		    if( !empty($instance['image_in_customizer']) && !empty($instance['image_uri']) ){
 			    $image_in_customizer = esc_url($instance['image_in_customizer']);
 			    $display = 'inline-block';
 		    } else {
@@ -952,7 +952,7 @@ class zerif_testimonial_widget extends WP_Widget {
 		    <?php
 		    $image_in_customizer = '';
 		    $display = 'none';
-		    if( !empty($instance['image_in_customizer']) ){
+		    if( !empty($instance['image_in_customizer']) && !empty($instance['image_uri']) ){
 			    $image_in_customizer = esc_url($instance['image_in_customizer']);
 			    $display = 'inline-block';
 		    } else {
@@ -1062,7 +1062,7 @@ class zerif_clients_widget extends WP_Widget{
 	            <?php
 	            $image_in_customizer = '';
                 $display = 'none';
-                if( !empty($instance['image_in_customizer']) ){
+                if( !empty($instance['image_in_customizer']) && !empty($instance['image_uri']) ){
 	                $image_in_customizer = esc_url($instance['image_in_customizer']);
 	                $display = 'inline-block';
                 } else {
@@ -1354,7 +1354,7 @@ class zerif_team_widget extends WP_Widget{
 		    <?php
 		    $image_in_customizer = '';
 		    $display = 'none';
-		    if( !empty($instance['image_in_customizer']) ){
+		    if( !empty($instance['image_in_customizer']) && !empty($instance['image_uri']) ){
 			    $image_in_customizer = esc_url($instance['image_in_customizer']);
 			    $display = 'inline-block';
 		    } else {
