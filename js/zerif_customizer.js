@@ -4,14 +4,6 @@ jQuery(document).ready(function() {
 		jQuery( '#customize-header-actions #save' ).trigger( 'click' );
 
 	});
-
-	/* Move our team widgets in the our team panel */
-	wp.customize.section( 'sidebar-widgets-sidebar-ourteam' ).panel( 'panel_ourteam' );
-	wp.customize.section( 'sidebar-widgets-sidebar-ourteam' ).priority( '2' );
-	
-	/* Move testimonial widgets in the testimonials panel */
-	wp.customize.section( 'sidebar-widgets-sidebar-testimonials' ).panel( 'panel_testimonials' );
-	wp.customize.section( 'sidebar-widgets-sidebar-testimonials' ).priority( '2' );
 	
 	/* Move about us widgets in the about us panel */
 	wp.customize.section( 'sidebar-widgets-sidebar-aboutus' ).panel( 'panel_about' );
