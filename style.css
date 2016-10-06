@@ -1783,7 +1783,7 @@ ul.nav > li.current_page_item.current > a:before {
 	background: none;
 }
 
-#carousel-homepage-latestnews .carousel-control:focus, #carousel-homepage-latestnews .carousel-control:hover {
+.carousel-control.link-focus:focus {
 	outline: 1px solid #000;
 	outline-offset: 0;
 }
@@ -1793,6 +1793,10 @@ ul.nav > li.current_page_item.current > a:before {
 }
 .carousel-control.right {
 	margin-right: -45px;
+}
+
+.carousel-control .glyphicon-chevron-right {
+	 right: auto;
 }
 #carousel-homepage-latestnews .glyphicon-chevron-left:before{
 	content: "";

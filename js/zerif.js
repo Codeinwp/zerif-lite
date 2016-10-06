@@ -24,6 +24,15 @@ jQuery(window).load(function() {
         jQuery( this ).parents().toggleClass( 'link-focus' );
     });
 
+    jQuery( '#carousel-homepage-latestnews' ).find('.carousel-control').on( 'keyup', function(e) {
+        var code = e.keyCode || e.which;
+        jQuery( '.carousel-control' ).removeClass('link-focus');
+        if (code == '9') {
+            jQuery( this ).toggleClass( 'link-focus' );
+            return false;
+        }
+    });
+
 });
 
 /*** DROPDOWN FOR MOBILE MENU */
