@@ -1784,7 +1784,7 @@ ul.nav > li.current_page_item.current > a:before {
 }
 
 .carousel-control.link-focus:focus {
-	outline: 1px solid #000;
+	outline: thin dotted #cb4332;
 	outline-offset: 0;
 }
 
