@@ -1783,9 +1783,13 @@ ul.nav > li.current_page_item.current > a:before {
 	background: none;
 }
 
-.carousel-control.link-focus:focus {
+.carousel-control:focus {
 	outline: thin dotted #cb4332;
 	outline-offset: 0;
+}
+
+.carousel-control:active {
+	outline: 0;
 }
 
 .carousel-control.left {
