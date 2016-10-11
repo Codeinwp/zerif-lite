@@ -132,7 +132,7 @@
 
 							echo '<div class="skill-count">';
 
-								echo '<input role="presentation" type="text" id="' . sanitize_title($zerif_aboutus_feature1_title) . '" value="'.esc_attr( $zerif_aboutus_feature1_nr ).'" data-thickness=".2" class="skill1" tabindex="-1">';
+								echo '<input role="presentation" type="text" id="' . ( !empty($zerif_aboutus_feature1_title) ? sanitize_title($zerif_aboutus_feature1_title) : '' ) . '" value="'.esc_attr( $zerif_aboutus_feature1_nr ).'" data-thickness=".2" class="skill1" tabindex="-1">';
 
 							echo '</div>';
 
@@ -170,7 +170,7 @@
 
 							echo '<div class="skill-count">';
 
-								echo '<input role="presentation" type="text" id="' . sanitize_title($zerif_aboutus_feature2_title) . '" value="'.esc_attr( $zerif_aboutus_feature2_nr ).'" data-thickness=".2" class="skill2" tabindex="-1">';
+								echo '<input role="presentation" type="text" id="' . ( !empty($zerif_aboutus_feature2_title) ? sanitize_title($zerif_aboutus_feature2_title) : '' )  . '" value="'.esc_attr( $zerif_aboutus_feature2_nr ).'" data-thickness=".2" class="skill2" tabindex="-1">';
 
 							echo '</div>';
 
@@ -208,7 +208,7 @@
 
 							echo '<div class="skill-count">';
 
-								echo '<input role="presentation" type="text" id="' . sanitize_title($zerif_aboutus_feature3_title) . '" value="'.esc_attr( $zerif_aboutus_feature3_nr ).'" data-thickness=".2" class="skill3" tabindex="-1">';
+								echo '<input role="presentation" type="text" id="' . ( !empty($zerif_aboutus_feature3_title) ? sanitize_title($zerif_aboutus_feature3_title) : '' ) . '" value="'.esc_attr( $zerif_aboutus_feature3_nr ).'" data-thickness=".2" class="skill3" tabindex="-1">';
 
 							echo '</div>';
 
@@ -245,7 +245,7 @@
 
 							echo '<div class="skill-count">';
 
-								echo '<input role="presentation" type="text" id="' . sanitize_title($zerif_aboutus_feature4_title) . '" value="'.esc_attr( $zerif_aboutus_feature4_nr ).'" data-thickness=".2" class="skill4" tabindex="-1">';
+								echo '<input role="presentation" type="text" id="' . ( !empty($zerif_aboutus_feature4_title) ? sanitize_title($zerif_aboutus_feature4_title) : '' ) . '" value="'.esc_attr( $zerif_aboutus_feature4_nr ).'" data-thickness=".2" class="skill4" tabindex="-1">';
 
 							echo '</div>';
 

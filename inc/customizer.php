@@ -12,7 +12,7 @@
 function zerif_customize_register( $wp_customize ) {
 	class Zerif_Customize_Textarea_Control extends WP_Customize_Control {
 		public $type = 'textarea';
-	 
+
 		public function render_content() {
 			?>
 			<label>
@@ -48,69 +48,71 @@ function zerif_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 	$wp_customize->remove_section('colors');
 
+
+
 	/**********************************************/
 	/*************** ORDER ************************/
 	/**********************************************/
-	
+
 	$wp_customize->add_section( 'zerif_order_section', array(
 		'title'	=> __( 'Sections order and Colors', 'zerif-lite' ),
 		'priority' => 28
 	));
-	
+
 	$wp_customize->add_setting( 'zerif_order_section', array(
 		'sanitize_callback' => 'sanitize_text_field'
 	));
-	
+
 	$wp_customize->add_control( new Zerif_Theme_Support( $wp_customize, 'zerif_order_section', array(
 	    'section' => 'zerif_order_section',
 	)));
-	
+
 	/***********************************************/
 	/************** GENERAL OPTIONS  ***************/
 	/***********************************************/
 	if ( class_exists( 'WP_Customize_Panel' ) ):
-	
+
 		$wp_customize->add_panel( 'panel_general', array(
 			'priority' => 30,
 			'capability' => 'edit_theme_options',
 			'title' => __( 'General options', 'zerif-lite' )
 		));
-		
+
 		$wp_customize->add_section( 'zerif_general_section' , array(
 			'title' => __( 'General', 'zerif-lite' ),
 			'priority' => 30,
 			'panel' => 'panel_general'
 		));
-		
+
 		$wp_customize->add_setting( 'zerif_use_safe_font', array(
 			'sanitize_callback' => 'zerif_sanitize_checkbox'
 		));
- 
+
 		$wp_customize->add_control( 'zerif_use_safe_font', array(
 	        'type' 		=> 'checkbox',
 	        'label' 	=> 'Use safe font?',
 	        'section' 	=> 'zerif_general_section',
 	        'priority'	=> 1
 		));
-		
+
 		/* LOGO	*/
 		$wp_customize->add_setting( 'zerif_logo', array(
 			'sanitize_callback' => 'esc_url_raw',
 			'transport' => 'postMessage'
 		));
-		
+
 		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themeslug_logo', array(
 			'label' => __( 'Logo', 'zerif-lite' ),
 			'section' => 'title_tagline',
 			'settings' => 'zerif_logo',
 			'priority' => 1,
 		)));
-		
+
 		/* Disable preloader */
 		$wp_customize->add_setting( 'zerif_disable_preloader', array(
 			'sanitize_callback' => 'zerif_sanitize_checkbox'
 		));
-		
+
 		$wp_customize->add_control( 'zerif_disable_preloader', array(
 			'type' => 'checkbox',
 			'label' => __('Disable preloader?','zerif-lite'),
@@ -122,7 +124,7 @@ function zerif_customize_register( $wp_customize ) {
 		$wp_customize->add_setting( 'zerif_disable_smooth_scroll', array(
 			'sanitize_callback' => 'zerif_sanitize_checkbox'
 		));
-		
+
 		$wp_customize->add_control( 'zerif_disable_smooth_scroll', array(
 			'type' 		=> 'checkbox',
 			'label' 	=> __('Disable smooth scroll?','zerif-lite'),
@@ -134,7 +136,7 @@ function zerif_customize_register( $wp_customize ) {
 		$wp_customize->add_setting( 'zerif_accessibility', array(
 			'sanitize_callback' => 'zerif_sanitize_checkbox'
 		));
-		
+
 		$wp_customize->add_control( 'zerif_accessibility', array(
 			'type' 		=> 'checkbox',
 			'label' 	=> __('Enable accessibility?','zerif-lite'),
@@ -833,107 +835,64 @@ function zerif_customize_register( $wp_customize ) {
 	/********************************************************************/
 	/*************  OUR FOCUS SECTION **********************************/
 	/********************************************************************/
-	if ( class_exists( 'WP_Customize_Panel' ) ):
 
-		$wp_customize->add_panel( 'panel_ourfocus', array(
-			'priority' => 32,
-			'capability' => 'edit_theme_options',
-			'title' => __( 'Our focus section', 'zerif-lite' )
-		));
 
-		$wp_customize->add_section( 'zerif_ourfocus_section' , array(
-			'title'       => __( 'Content', 'zerif-lite' ),
-			'priority'    => 1,
-			'panel'       => 'panel_ourfocus'
-		));
+	$wp_customize->add_section( 'zerif_ourfocus_section' , array(
+		'title'       => __( 'Content', 'zerif-lite' ),
+		'priority'    => 1
+	));
 
-		/* show/hide */
-		$wp_customize->add_setting( 'zerif_ourfocus_show', array(
-			'sanitize_callback' => 'zerif_sanitize_checkbox',
-			'transport' => 'postMessage'
-		));
+	/* show/hide */
+	$wp_customize->add_setting( 'zerif_ourfocus_show', array(
+		'sanitize_callback' => 'zerif_sanitize_checkbox',
+		'transport' => 'postMessage'
+	));
 
-		$wp_customize->add_control( 'zerif_ourfocus_show', array(
-			'type' => 'checkbox',
-			'label' => __('Hide our focus section?','zerif-lite'),
-			'section' => 'zerif_ourfocus_section',
-			'priority'    => 1,
-		));
+	$wp_customize->add_control( 'zerif_ourfocus_show', array(
+		'type' => 'checkbox',
+		'label' => __('Hide our focus section?','zerif-lite'),
+		'section'  => 'zerif_ourfocus_section',
+		'priority'    => -3,
+	));
 
-		/* our focus title */
-		$wp_customize->add_setting( 'zerif_ourfocus_title', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('FEATURES','zerif-lite'),
-			'transport' => 'postMessage'
-		));
+	/* our focus title */
+	$wp_customize->add_setting( 'zerif_ourfocus_title', array(
+		'sanitize_callback' => 'zerif_sanitize_input',
+		'default' => __('FEATURES','zerif-lite'),
+		'transport' => 'postMessage'
+	));
 
-		$wp_customize->add_control( 'zerif_ourfocus_title', array(
-			'label'    => __( 'Title', 'zerif-lite' ),
-			'section'  => 'zerif_ourfocus_section',
-			'priority'    => 2,
-		));
+	$wp_customize->add_control( 'zerif_ourfocus_title', array(
+		'label'    => __( 'Title', 'zerif-lite' ),
+		'section'  => 'zerif_ourfocus_section',
+		'priority'    => -2,
+	));
 
-		/* our focus subtitle */
-		$wp_customize->add_setting( 'zerif_ourfocus_subtitle', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('What makes this single-page WordPress theme unique.','zerif-lite'),
-			'transport' => 'postMessage'
-		));
+	/* our focus subtitle */
+	$wp_customize->add_setting( 'zerif_ourfocus_subtitle', array(
+		'sanitize_callback' => 'zerif_sanitize_input',
+		'default' => __('What makes this single-page WordPress theme unique.','zerif-lite'),
+		'transport' => 'postMessage'
+	));
 
-		$wp_customize->add_control( 'zerif_ourfocus_subtitle', array(
-			'label'    => __( 'Our focus subtitle', 'zerif-lite' ),
-			'section'  => 'zerif_ourfocus_section',
-			'priority'    => 3,
-		));
+	$wp_customize->add_control( 'zerif_ourfocus_subtitle', array(
+		'label'    => __( 'Our focus subtitle', 'zerif-lite' ),
+		'section'  => 'zerif_ourfocus_section',
+		'priority'    => -1,
+	));
 
-	else:
 
-		$wp_customize->add_section( 'zerif_ourfocus_section' , array(
-			'title'       => __( 'Our focus section', 'zerif-lite' ),
-			'priority'    => 32,
-			'description' => __( 'The main content of this section is customizable in: Dashboard -> Appearance -> Widgets -> Our focus section. There you must add the "Zerif - Our focus widget"', 'zerif-lite' )
-		));
+	$our_focus_section = $wp_customize->get_section('sidebar-widgets-sidebar-ourfocus');
+	if(!empty($our_focus_section)) {
+		$our_focus_section->panel                                        = '';
+		$our_focus_section->title                                        = __( 'Our focus section', 'zerif-lite' );
+		$our_focus_section->priority                                     = 32;
+		$wp_customize->get_control( 'zerif_ourfocus_show' )->section     = 'sidebar-widgets-sidebar-ourfocus';
+		$wp_customize->get_control( 'zerif_ourfocus_title' )->section    = 'sidebar-widgets-sidebar-ourfocus';
+		$wp_customize->get_control( 'zerif_ourfocus_subtitle' )->section = 'sidebar-widgets-sidebar-ourfocus';
+	}
 
-		/* show/hide */
-		$wp_customize->add_setting( 'zerif_ourfocus_show', array(
-			'sanitize_callback' => 'zerif_sanitize_checkbox',
-			'transport' => 'postMessage'
-		));
 
-		$wp_customize->add_control( 'zerif_ourfocus_show', array(
-			'type' => 'checkbox',
-			'label' => __('Hide our focus section?','zerif-lite'),
-			'section' => 'zerif_ourfocus_section',
-			'priority'    => 1,
-		));
-
-		/* our focus title */
-		$wp_customize->add_setting( 'zerif_ourfocus_title', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('FEATURES','zerif-lite'),
-			'transport' => 'postMessage'
-		));
-
-		$wp_customize->add_control( 'zerif_ourfocus_title', array(
-			'label'    => __( 'Title', 'zerif-lite' ),
-			'section'  => 'zerif_ourfocus_section',
-			'priority'    => 2,
-		));
-
-		/* our focus subtitle */
-		$wp_customize->add_setting( 'zerif_ourfocus_subtitle', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('What makes this single-page WordPress theme unique.','zerif-lite'),
-			'transport' => 'postMessage'
-		));
-
-		$wp_customize->add_control( 'zerif_ourfocus_subtitle', array(
-			'label'    => __( 'Our focus subtitle', 'zerif-lite' ),
-			'section'  => 'zerif_ourfocus_section',
-			'priority'    => 3,
-		));
-
-	endif;
 
 	/************************************/
 	/******* ABOUT US SECTION ***********/
@@ -1441,233 +1400,131 @@ function zerif_customize_register( $wp_customize ) {
 	/******************************************/
     /**********	OUR TEAM SECTION **************/
 	/******************************************/
-	if ( class_exists( 'WP_Customize_Panel' ) ):
 
-		$wp_customize->add_panel( 'panel_ourteam', array(
-			'priority' => 35,
-			'capability' => 'edit_theme_options',
-			'title' => __( 'Our team section', 'zerif-lite' )
-		));
+	$wp_customize->add_section( 'zerif_ourteam_section' , array(
+		'title'       => __( 'Content', 'zerif-lite' ),
+		'priority'    => 1,
+	));
 
-		$wp_customize->add_section( 'zerif_ourteam_section' , array(
-			'title'       => __( 'Content', 'zerif-lite' ),
-			'priority'    => 1,
-			'panel'       => 'panel_ourteam'
-		));
+	/* our team show/hide */
+	$wp_customize->add_setting( 'zerif_ourteam_show', array(
+		'sanitize_callback' => 'zerif_sanitize_checkbox',
+		'transport' => 'postMessage'
+	));
 
-		/* our team show/hide */
-		$wp_customize->add_setting( 'zerif_ourteam_show', array(
-			'sanitize_callback' => 'zerif_sanitize_checkbox',
-			'transport' => 'postMessage'
-		));
+	$wp_customize->add_control( 'zerif_ourteam_show', array(
+		'type' => 'checkbox',
+		'label' => __('Hide our team section?','zerif-lite'),
+		'section' => 'zerif_ourteam_section',
+		'priority'    => -3,
+	));
 
-		$wp_customize->add_control( 'zerif_ourteam_show', array(
-			'type' => 'checkbox',
-			'label' => __('Hide our team section?','zerif-lite'),
-			'section' => 'zerif_ourteam_section',
-			'priority'    => 1,
-		));
+	/* our team title */
+	$wp_customize->add_setting( 'zerif_ourteam_title', array(
+		'sanitize_callback' => 'zerif_sanitize_input',
+		'default' => __('YOUR TEAM','zerif-lite'),
+		'transport' => 'postMessage'
+	));
 
-		/* our team title */
-		$wp_customize->add_setting( 'zerif_ourteam_title', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('YOUR TEAM','zerif-lite'),
-			'transport' => 'postMessage'
-		));
+	$wp_customize->add_control( 'zerif_ourteam_title', array(
+		'label'    => __( 'Title', 'zerif-lite' ),
+		'section'  => 'zerif_ourteam_section',
+		'priority'    => -2,
+	));
 
-		$wp_customize->add_control( 'zerif_ourteam_title', array(
-			'label'    => __( 'Title', 'zerif-lite' ),
-			'section'  => 'zerif_ourteam_section',
-			'priority'    => 2,
-		));
+	/* our team subtitle */
+	$wp_customize->add_setting( 'zerif_ourteam_subtitle', array(
+		'sanitize_callback' => 'zerif_sanitize_input',
+		'default' => __('Prove that you have real people working for you, with some nice looking profile pictures and links to social media.','zerif-lite'),'transport' => 'postMessage'
+	));
 
-		/* our team subtitle */
-		$wp_customize->add_setting( 'zerif_ourteam_subtitle', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('Prove that you have real people working for you, with some nice looking profile pictures and links to social media.','zerif-lite'),'transport' => 'postMessage'
-		));
+	$wp_customize->add_control( 'zerif_ourteam_subtitle', array(
+		'label'    => __( 'Our team subtitle', 'zerif-lite' ),
+		'section'  => 'zerif_ourteam_section',
+		'priority'    => -1,
+	));
 
-		$wp_customize->add_control( 'zerif_ourteam_subtitle', array(
-			'label'    => __( 'Our team subtitle', 'zerif-lite' ),
-			'section'  => 'zerif_ourteam_section',
-			'priority'    => 3,
-		));
+	$our_team_section = $wp_customize->get_section('sidebar-widgets-sidebar-ourteam');
+	if(!empty($our_team_section)) {
+		$our_team_section->panel                                        = '';
+		$our_team_section->title                                        = __( 'Our team section', 'zerif-lite' );
+		$our_team_section->priority                                     = 35;
+		$wp_customize->get_control( 'zerif_ourteam_show' )->section     = 'sidebar-widgets-sidebar-ourteam';
+		$wp_customize->get_control( 'zerif_ourteam_title' )->section    = 'sidebar-widgets-sidebar-ourteam';
+		$wp_customize->get_control( 'zerif_ourteam_subtitle' )->section = 'sidebar-widgets-sidebar-ourteam';
+	}
 
-	else:
 
-		$wp_customize->add_section( 'zerif_ourteam_section' , array(
-			'title'       => __( 'Our team section', 'zerif-lite' ),
-			'priority'    => 35,
-			'description' => __( 'The main content of this section is customizable in: Dashboard -> Appearance -> Widgets -> Our team section. There you must add the "Zerif - Team member widget"', 'zerif-lite' )
-		));
-
-		/* our team show/hide */
-		$wp_customize->add_setting( 'zerif_ourteam_show', array(
-			'sanitize_callback' => 'zerif_sanitize_checkbox',
-			'transport' => 'postMessage'
-		));
-
-		$wp_customize->add_control( 'zerif_ourteam_show', array(
-			'type' => 'checkbox',
-			'label' => __('Hide our team section?','zerif-lite'),
-			'section' => 'zerif_ourteam_section',
-			'priority'    => 1,
-		));
-
-		/* our team title */
-		$wp_customize->add_setting( 'zerif_ourteam_title', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('YOUR TEAM','zerif-lite'),
-			'transport' => 'postMessage'
-		));
-
-		$wp_customize->add_control( 'zerif_ourteam_title', array(
-			'label'    => __( 'Title', 'zerif-lite' ),
-			'section'  => 'zerif_ourteam_section',
-			'priority'    => 2,
-		));
-
-		/* our team subtitle */
-		$wp_customize->add_setting( 'zerif_ourteam_subtitle', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('Prove that you have real people working for you, with some nice looking profile pictures and links to social media.','zerif-lite'),
-			'transport' => 'postMessage'
-		));
-
-		$wp_customize->add_control( 'zerif_ourteam_subtitle', array(
-			'label'    => __( 'Our team subtitle', 'zerif-lite' ),
-			'section'  => 'zerif_ourteam_section',
-			'priority'    => 3,
-		));
-
-	endif;
 
 	/**********************************************/
     /**********	TESTIMONIALS SECTION **************/
 	/**********************************************/
-	if ( class_exists( 'WP_Customize_Panel' ) ):
 
-		$wp_customize->add_panel( 'panel_testimonials', array(
-			'priority' => 36,
-			'capability' => 'edit_theme_options',
-			'title' => __( 'Testimonials section', 'zerif-lite' )
-		) );
+	$wp_customize->add_section( 'zerif_testimonials_section' , array(
+		'title'       => __( 'Testimonials section', 'zerif-lite' ),
+		'priority'    => 1,
+	));
 
-		$wp_customize->add_section( 'zerif_testimonials_section' , array(
-			'title'       => __( 'Testimonials section', 'zerif-lite' ),
-			'priority'    => 1,
-			'panel'       => 'panel_testimonials'
-		));
+	/* testimonials show/hide */
+	$wp_customize->add_setting( 'zerif_testimonials_show', array(
+		'sanitize_callback' => 'zerif_sanitize_checkbox',
+		'transport' => 'postMessage'
+	));
 
-		/* testimonials show/hide */
-		$wp_customize->add_setting( 'zerif_testimonials_show', array(
-			'sanitize_callback' => 'zerif_sanitize_checkbox',
-			'transport' => 'postMessage'
-		));
+	$wp_customize->add_control( 'zerif_testimonials_show', array(
+		'type' => 'checkbox',
+		'label' => __('Hide testimonials section?','zerif-lite'),
+		'section' => 'zerif_testimonials_section',
+		'priority'    => -4,
+	));
 
-		$wp_customize->add_control( 'zerif_testimonials_show', array(
-			'type' => 'checkbox',
-			'label' => __('Hide testimonials section?','zerif-lite'),
-			'section' => 'zerif_testimonials_section',
-			'priority'    => 1,
-		));
+	/* testimonial pinterest layout */
+	$wp_customize->add_setting( 'zerif_testimonials_pinterest_style', array(
+		'sanitize_callback' => 'zerif_sanitize_checkbox'
+	));
 
-		/* testimonial pinterest layout */
-		$wp_customize->add_setting( 'zerif_testimonials_pinterest_style', array(
-			'sanitize_callback' => 'zerif_sanitize_checkbox'
-		));
+	$wp_customize->add_control( 'zerif_testimonials_pinterest_style', array(
+		'type' 			=> 'checkbox',
+		'label' 		=> __('Use pinterest layout?','zerif-lite'),
+		'section' 		=> 'zerif_testimonials_section',
+		'priority'    	=> -3,
+	));
 
-		$wp_customize->add_control( 'zerif_testimonials_pinterest_style', array(
-			'type' 			=> 'checkbox',
-			'label' 		=> __('Use pinterest layout?','zerif-lite'),
-			'section' 		=> 'zerif_testimonials_section',
-			'priority'    	=> 2,
-		));
+	/* testimonials title */
+	$wp_customize->add_setting( 'zerif_testimonials_title', array(
+		'sanitize_callback' => 'zerif_sanitize_input',
+		'default' => __('Testimonials','zerif-lite'),
+		'transport' => 'postMessage'
+	));
 
-		/* testimonials title */
-		$wp_customize->add_setting( 'zerif_testimonials_title', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('Testimonials','zerif-lite'),
-			'transport' => 'postMessage'
-		));
+	$wp_customize->add_control( 'zerif_testimonials_title', array(
+		'label'    => __( 'Title', 'zerif-lite' ),
+		'section'  => 'zerif_testimonials_section',
+		'priority'    => -2,
+	));
 
-		$wp_customize->add_control( 'zerif_testimonials_title', array(
-			'label'    => __( 'Title', 'zerif-lite' ),
-			'section'  => 'zerif_testimonials_section',
-			'priority'    => 2,
-		));
+	/* testimonials subtitle */
+	$wp_customize->add_setting( 'zerif_testimonials_subtitle', array(
+		'sanitize_callback' => 'zerif_sanitize_input',
+		'transport' => 'postMessage'
+	));
 
-		/* testimonials subtitle */
-		$wp_customize->add_setting( 'zerif_testimonials_subtitle', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'transport' => 'postMessage'
-		));
+	$wp_customize->add_control( 'zerif_testimonials_subtitle', array(
+		'label'    => __( 'Testimonials subtitle', 'zerif-lite' ),
+		'section'  => 'zerif_testimonials_section',
+		'priority'    => -1,
+	));
 
-		$wp_customize->add_control( 'zerif_testimonials_subtitle', array(
-			'label'    => __( 'Testimonials subtitle', 'zerif-lite' ),
-			'section'  => 'zerif_testimonials_section',
-			'priority'    => 3,
-		));
-
-	else:
-
-		$wp_customize->add_section( 'zerif_testimonials_section' , array(
-			'title'       => __( 'Testimonials section', 'zerif-lite' ),
-			'priority'    => 36,
-			'description' => __( 'The main content of this section is customizable in: Dashboard -> Appearance -> Widgets -> Testimonials section. There you must add the "Zerif - Testimonial widget"', 'zerif-lite' )
-		));
-
-		/* testimonials show/hide */
-		$wp_customize->add_setting( 'zerif_testimonials_show', array(
-			'sanitize_callback' => 'zerif_sanitize_checkbox',
-			'transport' => 'postMessage'
-		));
-
-		$wp_customize->add_control( 'zerif_testimonials_show', array(
-			'type' => 'checkbox',
-			'label' => __('Hide testimonials section?','zerif-lite'),
-			'section' => 'zerif_testimonials_section',
-			'priority'    => 1,
-		));
-
-		/* testimonial pinterest layout */
-		$wp_customize->add_setting( 'zerif_testimonials_pinterest_style', array(
-			'sanitize_callback' => 'zerif_sanitize_checkbox'
-		));
-
-		$wp_customize->add_control( 'zerif_testimonials_pinterest_style', array(
-			'type' 			=> 'checkbox',
-			'label' 		=> __('Use pinterest layout?','zerif-lite'),
-			'section' 		=> 'zerif_testimonials_section',
-			'priority'    	=> 2,
-		));
-
-		/* testimonials title */
-		$wp_customize->add_setting( 'zerif_testimonials_title', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('Testimonials','zerif-lite'),
-			'transport' => 'postMessage'
-		));
-
-		$wp_customize->add_control( 'zerif_testimonials_title', array(
-			'label'    => __( 'Title', 'zerif-lite' ),
-			'section'  => 'zerif_testimonials_section',
-			'priority'    => 2,
-		));
-
-		/* testimonials subtitle */
-		$wp_customize->add_setting( 'zerif_testimonials_subtitle', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'transport' => 'postMessage'
-		));
-
-		$wp_customize->add_control( 'zerif_testimonials_subtitle', array(
-			'label'    => __( 'Testimonials subtitle', 'zerif-lite' ),
-			'section'  => 'zerif_testimonials_section',
-			'priority'    => 3,
-		));
-
-	endif;
+	$testimonials_section = $wp_customize->get_section('sidebar-widgets-sidebar-testimonials');
+	if(!empty($our_team_section)) {
+		$testimonials_section->panel                                        = '';
+		$testimonials_section->title                                        = __( 'Testimonials section', 'zerif-lite' );
+		$testimonials_section->priority                                     = 36;
+		$wp_customize->get_control( 'zerif_testimonials_show' )->section     = 'sidebar-widgets-sidebar-testimonials';
+		$wp_customize->get_control( 'zerif_testimonials_pinterest_style' )->section     = 'sidebar-widgets-sidebar-testimonials';
+		$wp_customize->get_control( 'zerif_testimonials_title' )->section    = 'sidebar-widgets-sidebar-testimonials';
+		$wp_customize->get_control( 'zerif_testimonials_subtitle' )->section = 'sidebar-widgets-sidebar-testimonials';
+	}
 
 	/**********************************************/
     /**********	LATEST NEWS SECTION ***************/
@@ -2016,6 +1873,11 @@ function zerif_customize_register( $wp_customize ) {
 }
 add_action( 'customize_register', 'zerif_customize_register' );
 
+
+function zerif_customize_late_register( $wp_customize ) {
+
+}
+add_action( 'customize_register', 'zerif_customize_late_register',999 );
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
@@ -2035,8 +1897,8 @@ function zerif_sanitize_checkbox( $input ){
 
 function zerif_registers() {
 
-	wp_enqueue_script( 'zerif_customizer_script', get_template_directory_uri() . '/js/zerif_customizer.js', array("jquery"), '20120206', true  );
-	
+	wp_enqueue_script( 'zerif_customizer_script', get_template_directory_uri() . '/js/zerif_customizer.js', array("jquery"), '1.0.7', true  );
+
 	wp_localize_script( 'zerif_customizer_script', 'zerifLiteCustomizerObject', array(
 
 		'documentation' => __( 'View Documentation', 'zerif-lite' ),
@@ -2045,6 +1907,18 @@ function zerif_registers() {
 	) );
 }
 add_action( 'customize_controls_enqueue_scripts', 'zerif_registers' );
+
+function zerif_late_registers(){
+	wp_enqueue_script( 'zerif_customizer_script', get_template_directory_uri() . '/js/zerif_customizer.js', array("jquery"), '1.0.7', true  );
+
+	wp_localize_script( 'zerif_customizer_script', 'zerifLiteCustomizerObject', array(
+
+		'documentation' => __( 'View Documentation', 'zerif-lite' ),
+		'pro' => __('View PRO version','zerif-lite')
+
+	) );
+}
+add_action( 'customize_controls_enqueue_scripts', 'zerif_late_registers', 99 );
 
 /* ajax callback for dismissable Asking for reviews */
 add_action( 'wp_ajax_zerif_lite_dismiss_asking_for_reviews','zerif_lite_dismiss_asking_for_reviews_callback' );
