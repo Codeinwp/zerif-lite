@@ -1,4 +1,13 @@
 
+### 2.0.1 - 11/10/2016
+**Changes:** 
+- Improved user experience by using Selective Refresh for widgets.
+- Improved compatibility with Max Mega Menu plugin for mobile
+- Update Font Awesome to the latest version
+- Improved Customizer layout
+- Improved accessibility options
+- Fixed issue with media image uploader
+
 ### 2.0.0 - 14/09/2016
 **Changes:** 
 - Updated license
