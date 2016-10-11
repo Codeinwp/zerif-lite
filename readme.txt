@@ -33,6 +33,10 @@ The exceptions to this license are as follows:
      Copyright (C) 2014  https://twitter.com/julianlloyd
      Licensed under the MIT license.
 
+* Upsell section for the customizer
+     Copyright (C) 2016 Justin Tadlock. https://github.com/justintadlock/trt-customizer-pro
+     Licensed under the GNU GENERAL PUBLIC LICENSE
+
 * Images	 
 	 
 	License: All unsplash.com images are licensed under the terms of the Creative Commons Zero, http://creativecommons.org/publicdomain/zero/1.0/ 	  

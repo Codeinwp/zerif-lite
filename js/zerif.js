@@ -24,6 +24,10 @@ jQuery(window).load(function() {
         jQuery( this ).parents().toggleClass( 'link-focus' );
     });
 
+    jQuery('.carousel-control').click(function() {
+        this.blur();
+    });
+
 });
 
 /*** DROPDOWN FOR MOBILE MENU */

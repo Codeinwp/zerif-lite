@@ -4,7 +4,7 @@ Theme URI: http://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: http://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 2.0.0
+Version: 2.0.1
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -165,16 +165,16 @@ p {
 }
 /* do not group these rules (placeholder colors) */
 *::-webkit-input-placeholder {
-    color: #999 !important;
+    color: #000 !important;
 }
 *:-moz-placeholder {
-    color: #999 !important;
+    color: #000 !important;
 }
 *::-moz-placeholder {
-    color: #999 !important;
+    color: #000 !important;
 }
 *:-ms-input-placeholder {
-    color: #999 !important;
+    color: #000 !important;
 }
 /*--------------------------------------------------------------
 2.0 Typography
@@ -1382,7 +1382,7 @@ object {
 .section-header .section-legend {
 	font-size: 16px;
 	margin-bottom: 0;
-	color: #808080;
+	color: #000;
 	padding-top: 0;
 }
 /* PRE LOADER */
@@ -1782,11 +1782,25 @@ ul.nav > li.current_page_item.current > a:before {
 	width: 45px;
 	background: none;
 }
+
+.carousel-control:focus {
+	outline: thin dotted #cb4332;
+	outline-offset: 0;
+}
+
+.carousel-control:active {
+	outline: 0;
+}
+
 .carousel-control.left {
 	margin-left: -45px;
 }
 .carousel-control.right {
 	margin-right: -45px;
+}
+
+.carousel-control .glyphicon-chevron-right {
+	 right: auto;
 }
 #carousel-homepage-latestnews .glyphicon-chevron-left:before{
 	content: "";
@@ -1829,6 +1843,7 @@ ul.nav > li.current_page_item.current > a:before {
 }
 /* FOCUS BOX */
 .focus-box .service-icon {
+	display: block;
 	margin-bottom: 30px;
 	width: 145px;
 	height: 145px;
@@ -1846,28 +1861,28 @@ ul.nav > li.current_page_item.current > a:before {
 	-webkit-transition: all 0.2s ease-in-out;
 	transition: all 0.2s ease-in-out;
 }
-.focus-box:nth-child(4n+1) .service-icon:hover {
+#focus span:nth-child(4n+1) .focus-box .service-icon:hover, #focus span:nth-child(4n+1) .focus-box .service-icon:focus {
 	border: 10px solid #e96656;
 }
-.focus-box:nth-child(4n+2) .service-icon:hover{
+#focus span:nth-child(4n+2)  .focus-box .service-icon:hover, #focus span:nth-child(4n+2)  .focus-box .service-icon:focus {
 	border: 10px solid #34d293;
 }
-.focus-box:nth-child(4n+3) .service-icon:hover {
+#focus span:nth-child(4n+3) .focus-box .service-icon:hover, #focus span:nth-child(4n+3) .focus-box .service-icon:focus {
 	border: 10px solid #3ab0e2;
 }
-.focus-box:nth-child(4n+4) .service-icon:hover{
+#focus span:nth-child(4n+4) .focus-box .service-icon:hover, #focus span:nth-child(4n+4) .focus-box .service-icon:focus {
 	border: 10px solid #f7d861;
 }
-.focus-box:nth-child(4n+1) .red-border-bottom:before {
+#focus span:nth-child(4n+1) .focus-box .red-border-bottom:before {
 	background: #e96656;
 }
-.focus-box:nth-child(4n+2) .red-border-bottom:before {
+#focus span:nth-child(4n+2) .focus-box .red-border-bottom:before {
 	background: #34d293;
 }
-.focus-box:nth-child(4n+3) .red-border-bottom:before {
+#focus span:nth-child(4n+3) .focus-box .red-border-bottom:before {
 	background: #3ab0e2;
 }
-.focus-box:nth-child(4n+4) .red-border-bottom:before {
+#focus span:nth-child(4n+4) .focus-box .red-border-bottom:before {
 	background: #f7d861;
 }
 .focus-box h3 {
@@ -2330,7 +2345,7 @@ width: -webkit-calc(100% / 4);
 .client-list div{
 	margin: 0;
 }
-.client-list div a{
+.client-list div span{
     margin-right: 24px;
 }
 .client-list div a:last-child{
@@ -2418,7 +2433,7 @@ width: -webkit-calc(100% / 4);
 	display: inline-block;
 	padding-bottom: 5px;
 }
-.team-member:hover .details {
+.team-member:hover .details, .team-member:focus .details {
 	top: 0;
 	background: #333;
 	color: white;
@@ -2482,16 +2497,16 @@ width: -webkit-calc(100% / 4);
 .team-member .social-icons ul li a:hover {
 	color: #e96656;
 }
-.our-team .row > div:nth-child(4n+1) .red-border-bottom:before{
+.our-team .row > span:nth-child(4n+1) .red-border-bottom:before{
     background: #e96656;
 }
-.our-team .row > div:nth-child(4n+2) .red-border-bottom:before{
+.our-team .row > span:nth-child(4n+2) .red-border-bottom:before{
     background: #34d293;
 }
-.our-team .row > div:nth-child(4n+3) .red-border-bottom:before{
+.our-team .row > span:nth-child(4n+3) .red-border-bottom:before{
     background: #3ab0e2;
 }
-.our-team .row > div:nth-child(4n+4) .red-border-bottom:before{
+.our-team .row > span:nth-child(4n+4) .red-border-bottom:before{
     background: #f7d861;
 }
 
@@ -2803,7 +2818,7 @@ width: -webkit-calc(100% / 4);
 }
 .feedback-box .message {
 	font-size: 15px;
-	color: #777777;
+	color: #000;
 }
 .feedback-box .client {
 	margin-top: 30px;
@@ -3348,21 +3363,21 @@ article .posted-on a:hover{
  **   SiteOrigin Page Builder styles -----
 -----------------------------------------*/
 
-.siteorigin-panels .content-left-wrap {
-  padding-top: 0;
+.siteorigin-panels.page-template-template-fullwidth-no-title .content-left-wrap {
+	padding-top: 0;
 }
 
-.siteorigin-panels .type-page .entry-content {
-  margin-top: 0;
+.siteorigin-panels.page-template-template-fullwidth-no-title .type-page .entry-content {
+	margin-top: 0;
 }
 
-.siteorigin-panels article.hentry{
+.siteorigin-panels.page-template-template-fullwidth-no-title article.hentry{
 	margin-bottom: 0;
 	padding-bottom: 0;
 	border-bottom: none;
 }
 
-.siteorigin-panels .hentry {
+.siteorigin-panels.page-template-template-fullwidth-no-title .hentry {
 	margin: 0;
 }
 
@@ -5770,6 +5785,17 @@ body.custom-background {
 	z-index: 1;
 }
 
+/*---------------------------------------
+ **   Max Mega Menu                 -----
+-----------------------------------------*/
+#mega-menu-wrap-primary .mega-menu-toggle + #mega-menu-primary {
+    display: block !important;
+    margin-top: 15px;
+}
+
+#mega-menu-wrap-primary .mega-menu-toggle {
+    display: none !important;
+}
 
 /*---------------------------------------
  **   Responsive            -----

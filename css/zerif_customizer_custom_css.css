@@ -14,17 +14,6 @@
 	content: "\f160";	
 }
 
-.zerif-upgrade-to-pro-button {
-	padding: 3px 6px !important;
-	line-height: 1.5 !important;
-	font-size: 9px !important;
-	color: #ffffff !important;
-	background-color: #EA6F60;
-	letter-spacing: 1px;
-	text-transform: uppercase;
-	margin-left: 30px;
-}
-
 /* Tooltips */
 .zerif-moreinfo-icon {
 	color: #888;
@@ -72,9 +61,5 @@
 .customizer-review-link span {
 	font-size: 12px;
 	width: 12px;
-}
-
-#accordion-section-zerif-upsell {
-	display: block !important;
 }
 
