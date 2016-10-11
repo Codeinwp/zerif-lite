@@ -63,7 +63,7 @@
         padding-bottom: 75px !important;
     }
     .focus, .works, .about-us, .features, .packages, .products, .testimonial, .contact-us {
-        padding-top: 100 !important;
+        padding-top: 100px !important;
         padding-bottom: 100px !important;
     }
 	.header {
@@ -228,9 +228,7 @@
 	.bs-navbar-collapse {
 		border: 0;
 	}
-	header .navbar-toggle {
-		display: ;
-	}
+
 	.col-lg-4 {
 		width: 33%;
 		display: inline-block;
