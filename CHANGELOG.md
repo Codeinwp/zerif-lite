@@ -1,4 +1,8 @@
 
+### 2.0.2 - 11/10/2016
+**Changes:** 
+- Fixed issue with view pro button layout
+
 ### 2.0.1 - 11/10/2016
 **Changes:** 
 - Improved user experience by using Selective Refresh for widgets.
