@@ -1,4 +1,9 @@
 
+### 2.0.3 - 12/10/2016
+**Changes:** 
+- Fixed fatal error with lower versions of PHP
+- Fixed small css bugs
+
 ### 2.0.2 - 11/10/2016
 **Changes:** 
 - Fixed issue with view pro button layout
