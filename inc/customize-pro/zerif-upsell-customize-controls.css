@@ -8,8 +8,8 @@
 	text-transform: uppercase;
 	margin-left: 30px;
 	margin-bottom: 10px;
-	width: 96px;
-	display: block;
+	width: auto;
+	display: inline-block;
 }
 
 .zerif-upgrade-to-pro-button:hover{
@@ -22,9 +22,19 @@
 	box-shadow: 0 0 0 1px #5b9dd9,0 0 2px 1px rgba(30,140,190,.8);
 }
 
-.upsell-button.button{
+.wp-core-ui.wp-customizer .upsell-button.button{
 	width: 80%;
 	margin: 0px auto 5px auto;
 	display: block;
 	text-align: center;
+}
+
+@media screen and (max-width: 640px) {
+	.zerif-upgrade-to-pro-button {
+		display: block;
+		text-align: center;
+		width: 78%;
+		margin: 0 auto 5px;
+		font-size: 11px;
+	}
 }
