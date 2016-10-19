@@ -4,7 +4,7 @@ Theme URI: http://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: http://themeisle.com
 Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 2.0.3
+Version: 2.0.4
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -2803,7 +2803,7 @@ width: -webkit-calc(100% / 4);
 .testimonial .section-header .section-legend {
 	color: #FFF;
 }
-#client-feedbacks .feedback-box {
+#client-feedbacks .feedback-box, .testimonial .widget_zerif_testim-widget {
     width: 30%;
     background: #FFFFFF;
     padding: 25px;
@@ -2816,34 +2816,34 @@ width: -webkit-calc(100% / 4);
     z-index: 5;
     vertical-align: top;
 }
-.feedback-box .message {
+.feedback-box .message, .testimonial .widget_zerif_testim-widget .message {
 	font-size: 15px;
 	color: #000;
 }
-.feedback-box .client {
+.feedback-box .client, .testimonial .widget_zerif_testim-widget .client {
 	margin-top: 30px;
 	height: 73px;
 	position: relative;
 }
-.feedback-box .quote {
+.feedback-box .quote, .testimonial .widget_zerif_testim-widget .quote {
 	float: left;
 	font-size: 45px;
 	line-height: 80px;
 }
-.feedback-box .client-info {
+.feedback-box .client-info, .testimonial .widget_zerif_testim-widget .client-info {
 	float: left;
 	margin-left: 18px;
 	padding-top: 15px;
 }
-.feedback-box .client-info .client-name {
+.feedback-box .client-info .client-name, .testimonial .widget_zerif_testim-widget .client-name {
 	font-family: 'Homemade Apple', serif;
 	color: #404040;
 }
-.feedback-box .client-info .client-company {
+.feedback-box .client-info .client-company, .testimonial .widget_zerif_testim-widget .client-company {
 	font-size: 13px;
 	margin-top: -3px;
 }
-.feedback-box .client-image {
+.feedback-box .client-image, .testimonial .widget_zerif_testim-widget .client-image {
 	float: right;
 	width: 73px;
 	height: 73px;
@@ -2851,7 +2851,7 @@ width: -webkit-calc(100% / 4);
 	overflow: hidden;
 	border: 3px solid #f6f6f6;
 }
-.feedback-box .client-image img {
+.feedback-box .client-image img, .testimonial .widget_zerif_testim-widget .client-image img {
 	width:100%;
 	height:100%;
 }

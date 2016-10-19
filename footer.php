@@ -188,6 +188,35 @@
 	</div><!-- mobile-bg-fix-whole-site -->
 </div><!-- .mobile-bg-fix-wrap -->
 
+<?php
+/*
+ *  Fix for sections with widgets not appearing anymore after the hide button is selected for each section
+ * */
+if ( is_customize_preview() ) {
+
+	if ( is_active_sidebar( 'sidebar-ourfocus' ) ) {
+		echo '<div class="zerif_hidden_if_not_customizer">';
+			dynamic_sidebar( 'sidebar-ourfocus' );
+		echo '</div>';
+	}
+	if ( is_active_sidebar( 'sidebar-aboutus' ) ) {
+		echo '<div class="zerif_hidden_if_not_customizer">';
+			dynamic_sidebar( 'sidebar-aboutus' );
+		echo '</div>';
+	}
+	if ( is_active_sidebar( 'sidebar-ourteam' ) ) {
+		echo '<div class="zerif_hidden_if_not_customizer">';
+			dynamic_sidebar( 'sidebar-ourteam' );
+		echo '</div>';
+	}
+	if ( is_active_sidebar( 'sidebar-testimonials' ) ) {
+		echo '<div class="zerif_hidden_if_not_customizer">';
+			dynamic_sidebar( 'sidebar-testimonials' );
+		echo '</div>';
+	}
+}
+
+?>
 
 <?php wp_footer(); ?>
 
