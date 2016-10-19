@@ -1,4 +1,9 @@
 
+### 2.0.4 - 19/10/2016
+**Changes:** 
+- Fixed for sections with widgets not appearing anymore after the hide button is selected for each section
+- Fixed testimonials default widgets style
+
 ### 2.0.2 - 11/10/2016
 **Changes:** 
 - Fixed issue with view pro button layout
