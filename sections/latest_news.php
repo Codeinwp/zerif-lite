@@ -4,8 +4,6 @@
 	
 	if( !empty($zerif_total_posts) && ($zerif_total_posts > 0) ):
 
-		zerif_before_latest_news_trigger();
-	
 		echo '<section class="latest-news" id="latestnews">';
 
 			zerif_top_latest_news_trigger();
@@ -154,7 +152,5 @@
 			zerif_bottom_latest_news_trigger();
 
 		echo '</section>';
-
-	zerif_after_latest_news_trigger();
 
 endif; ?>
