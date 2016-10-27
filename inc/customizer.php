@@ -1810,66 +1810,6 @@ function zerif_customize_register( $wp_customize ) {
 		'priority'    => 3,
 	));
 
-	/* contactus email */
-	$wp_customize->add_setting( 'zerif_contactus_email', array(
-		'sanitize_callback' => 'sanitize_email'
-	));
-
-	$wp_customize->add_control( 'zerif_contactus_email', array(
-		'label'    => __( 'Email address', 'zerif-lite' ),
-		'section'  => 'zerif_contactus_section',
-		'priority'    => 4,
-	));
-
-	/* contactus button label */
-	$wp_customize->add_setting( 'zerif_contactus_button_label', array(
-		'sanitize_callback' => 'zerif_sanitize_input',
-		'default' => __('Send Message','zerif-lite'),
-		'transport' => 'postMessage'
-	));
-			
-	$wp_customize->add_control( 'zerif_contactus_button_label', array(
-		'label'    => __( 'Button label', 'zerif-lite' ),
-		'section'  => 'zerif_contactus_section',
-		'priority'    => 5,
-	));
-	
-	/* recaptcha */
-	$wp_customize->add_setting( 'zerif_contactus_recaptcha_show', array(
-		'sanitize_callback' => 'zerif_sanitize_checkbox'
-	));
-	
-	$wp_customize->add_control( 'zerif_contactus_recaptcha_show', array(
-		'type' => 'checkbox',
-		'label' => __('Hide reCaptcha?','zerif-lite'),
-		'section' => 'zerif_contactus_section',
-		'priority'    => 6,
-	));
-	
-	/* site key */
-	$attribut_new_tab = (isset($zerif_accessibility) && ($zerif_accessibility != 1) ? ' target="_blank"' : '' );
-	$wp_customize->add_setting( 'zerif_contactus_sitekey', array(
-		'sanitize_callback' => 'sanitize_text_field'
-	));
-	
-	$wp_customize->add_control( 'zerif_contactus_sitekey', array(
-		'label'    => __( 'Site key', 'zerif-lite' ),
-		'description' => '<a'.$attribut_new_tab.' href="https://www.google.com/recaptcha/admin#list">'.__('Create an account here','zerif-lite').'</a> to get the Site key and the Secret key for the reCaptcha.',
-		'section'  => 'zerif_contactus_section',
-		'priority'    => 7,
-	));
-	
-	/* secret key */
-	$wp_customize->add_setting( 'zerif_contactus_secretkey', array(
-		'sanitize_callback' => 'sanitize_text_field'
-	));
-	
-	$wp_customize->add_control( 'zerif_contactus_secretkey', array(
-		'label'    => __( 'Secret key', 'zerif-lite' ),
-		'section'  => 'zerif_contactus_section',
-		'priority'    => 8,
-	));
-	
 }
 add_action( 'customize_register', 'zerif_customize_register' );
 

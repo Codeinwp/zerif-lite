@@ -614,18 +614,5 @@
 			$( 'section#contact .section-header h6' ).html( to );
 		} );
 	} );
-	
-	/* zerif_contactus_button_label */
-	wp.customize( 'zerif_contactus_button_label', function( value ) {
-		value.bind( function( to ) {
-			if( to != '' ) {
-				$( 'section#contact form button' ).removeClass( 'zerif_hidden_if_not_customizer' );
-			}
-			else {
-				$( 'section#contact form button' ).addClass( 'zerif_hidden_if_not_customizer' );
-			}
-			$( 'section#contact form button' ).html( to );
-		} );
-	} );
 
 } )( jQuery );
