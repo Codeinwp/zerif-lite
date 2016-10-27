@@ -25,7 +25,7 @@ jQuery(document).ready(function() {
 	});
 
 	//Locked sections
-	jQuery('#accordion-section-zerif_order_section, #accordion-section-zerif_videobackground_in_pro_section').click(function() {
+	jQuery('#accordion-section-zerif_videobackground_in_pro_section').click(function() {
 		jQuery('.wp-full-overlay').removeClass('section-open');
 		jQuery('#accordion-section-zerif_order_section, #accordion-section-zerif_videobackground_in_pro_section').removeClass('open');
 		window.location.href = "http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/";
