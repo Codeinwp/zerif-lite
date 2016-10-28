@@ -1749,6 +1749,33 @@ function zerif_customize_register( $wp_customize ) {
 		'priority'    => 3,
 	));
 
+
+	/*********************************/
+	/*********  Theme Info  **********/
+	/*********************************/
+
+	if ( class_exists( 'WP_Customize_Panel' ) ):
+
+		require_once get_template_directory() . '/inc/class/class-zerif-theme-info.php';
+
+		$wp_customize->add_section('zerif_theme_info', array(
+				'title' => __('Theme info', 'zerif-lite'),
+				'priority' => 0,
+			)
+		);
+		$wp_customize->add_setting('zerif_theme_info', array(
+				'capability'        => 'edit_theme_options',
+				'sanitize_callback' => 'zerif_sanitize_input'
+			)
+		);
+		$wp_customize->add_control( new Zerif_Theme_Info( $wp_customize, 'zerif_theme_info', array(
+				'section' => 'zerif_theme_info',
+				'priority' => 10
+			) )
+		);
+
+	endif;
+
 }
 add_action( 'customize_register', 'zerif_customize_register' );
 

@@ -49,3 +49,10 @@
 	width: 12px;
 }
 
+.zerif-theme-info {
+    text-align: center;
+}
+
+.zerif-theme-info hr {
+    margin: 10px auto;
+}
