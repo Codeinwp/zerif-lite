@@ -3,8 +3,8 @@
  * Customizer info singleton class file.
  *
  * @package WordPress
- * @subpackage Hestia
- * @since Hestia 1.0
+ * @subpackage Zerif Lite
+ * @since Zerif Lite 1.8.5.5
  */
 
 /**
@@ -13,7 +13,7 @@
  * @since  1.0.0
  * @access public
  */
-final class Customizer_Info_Singleton {
+final class Zerif_Customizer_Info_Singleton {
 
 	/**
 	 * Returns the instance.
@@ -73,17 +73,17 @@ final class Customizer_Info_Singleton {
 		require_once( trailingslashit( get_template_directory() ) . 'inc/customizer-info/class/class-customizer-info-section.php' );
 
 		// Register custom section types.
-		$manager->register_section_type( 'Customizer_Info' );
+		$manager->register_section_type( 'Zerif_Customizer_Info' );
 
 		// Register sections.
-		$manager->add_section( new Customizer_Info( $manager, 'zerif-upsell-big-title-section', array(
-			'section_text' => sprintf( wp_kses( __( '<a href="%s">View PRO version</a>. It adds a background video and a background slider.', 'zerif-lite' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( 'http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ) ),
+		$manager->add_section( new Zerif_Customizer_Info( $manager, 'zerif-upsell-big-title-section', array(
+			'section_text' => sprintf( '<a href="'.esc_url( 'http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ).'" target="_blank">%s</a>' , __( 'View PRO version','zerif-lite' ) ).'. '.__( 'It adds a background video and a background slider.', 'zerif-lite' ),
 			'panel' => 'panel_big_title',
 			'priority' => 500,
 		) ) );
 
-		$manager->add_section( new Customizer_Info( $manager, 'zerif-upsell-general-sections', array(
-			'section_text' => sprintf( wp_kses( __( '<a href="%s">View PRO version</a>. It adds 5 new sections, the ability to re-order existing ones and easily add custom content to frontpage.', 'zerif-lite' ), array( 'a' => array( 'href' => array() ) ) ), esc_url( 'http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ) ),
+		$manager->add_section( new Zerif_Customizer_Info( $manager, 'zerif-upsell-general-sections', array(
+			'section_text' => sprintf( '<a href="'.esc_url( 'http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ).'" target="_blank">%s</a>' , __( 'View PRO version','zerif-lite' ) ).'. '.__( 'It adds 5 new sections, the ability to re-order existing ones and easily add custom content to frontpage.', 'zerif-lite' ),
 			'panel' => 'panel_general',
 			'priority' => 500,
 		) ) );
@@ -103,4 +103,4 @@ final class Customizer_Info_Singleton {
 	}
 }
 
-Customizer_Info_Singleton::get_instance();
+Zerif_Customizer_Info_Singleton::get_instance();

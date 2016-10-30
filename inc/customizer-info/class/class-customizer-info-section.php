@@ -3,8 +3,8 @@
  * Customizer info main class.
  *
  * @package WordPress
- * @subpackage Hestia
- * @since Hestia 1.0
+ * @subpackage Zerif Lite
+ * @since Zerif Lite 1.8.5.5
  */
 
 /**
@@ -13,7 +13,7 @@
  * @since  1.0.0
  * @access public
  */
-class Customizer_Info extends WP_Customize_Section {
+class Zerif_Customizer_Info extends WP_Customize_Section {
 
 	/**
 	 * The type of customize section being rendered.
