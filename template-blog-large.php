@@ -1,7 +1,4 @@
 <?php
-/**
- * Template Name: Blog template with large images
- */
 get_header();
 global $wp_query;
 global $paged;?>
