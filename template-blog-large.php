@@ -1,7 +1,4 @@
 <?php
-/**
- *
- */
 get_header();
 global $wp_query;
 global $paged;?>
