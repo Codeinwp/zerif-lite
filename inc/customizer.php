@@ -37,7 +37,16 @@ function zerif_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
+	$wp_customize->get_setting( 'custom_logo' )->transport = 'postMessage';
 	$wp_customize->remove_section('colors');
+
+	if ( isset( $wp_customize->selective_refresh ) ) {
+		$wp_customize->selective_refresh->add_partial( 'custom_logo', array(
+			'selector' => '.navbar-brand',
+			'settings' => 'custom_logo',
+			'render_callback' => 'zerif_custom_logo_callback',
+		));
+	}
 
 	/***********************************************/
 	/************** GENERAL OPTIONS  ***************/
@@ -66,19 +75,6 @@ function zerif_customize_register( $wp_customize ) {
 	        'section' 	=> 'zerif_general_section',
 	        'priority'	=> 1
 		));
-
-		/* LOGO	*/
-		$wp_customize->add_setting( 'zerif_logo', array(
-			'sanitize_callback' => 'esc_url_raw',
-			'transport' => 'postMessage'
-		));
-
-		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themeslug_logo', array(
-			'label' => __( 'Logo', 'zerif-lite' ),
-			'section' => 'title_tagline',
-			'settings' => 'zerif_logo',
-			'priority' => 1,
-		)));
 
 		/* Disable preloader */
 		$wp_customize->add_setting( 'zerif_disable_preloader', array(
@@ -1825,3 +1821,18 @@ function zerif_late_registers(){
 	) );
 }
 add_action( 'customize_controls_enqueue_scripts', 'zerif_late_registers', 99 );
+
+/**
+ * Custom logo callback function.
+ *
+ * @return string
+ */
+function zerif_custom_logo_callback() {
+	if ( get_theme_mod( 'custom_logo' ) ) {
+		$logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ) , 'full' );
+		$logo = '<img src="' . esc_url( $logo[0] ) . '">';
+	} else {
+		$logo = '<h1 class="site-title">' . get_bloginfo( 'name' ) . '</h1><p class="site-description">' . get_bloginfo('description') . '</p>';
+	}
+	return $logo;
+}

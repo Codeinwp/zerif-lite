@@ -76,35 +76,36 @@
 
 				<?php
 
-					$zerif_logo = get_theme_mod('zerif_logo');
+					$zerif_logo = wp_get_attachment_image_url( get_theme_mod( 'custom_logo' ) ); ?>
 
-					if(isset($zerif_logo) && $zerif_logo != ""):
+					<a href=" <?php echo esc_url( home_url( '/' ) ) ?> " class="navbar-brand">
 
-						echo '<a href="'.esc_url( home_url( '/' ) ).'" class="navbar-brand">';
+						<?php
+
+						if(isset($zerif_logo) && $zerif_logo != ""):
 
 							echo '<img src="'.esc_url( $zerif_logo ).'" alt="'.esc_attr( get_bloginfo('title') ).'">';
 
-						echo '</a>';
+						else:
 
-					else:
+						?>
 
-						echo '<a href="'.esc_url( home_url( '/' ) ).'" class="navbar-brand">';
-						
-							if( file_exists(get_stylesheet_directory()."/images/logo.png")):
-							
-								echo '<img src="'.get_stylesheet_directory_uri().'/images/logo.png" alt="'.esc_attr( get_bloginfo('title') ).'">';
-							
-							else:
-								
-								echo '<img src="'.get_template_directory_uri().'/images/logo.png" alt="'.esc_attr( get_bloginfo('title') ).'">';
-								
-							endif;
+							<h1 class="site-title"><?php bloginfo( 'title' ) ?></h1>
 
-						echo '</a>';
+						<?php
+
+							$description = get_bloginfo( 'description', 'display' );
+
+							if ( $description ) : ?>
+
+								<p class="site-description"><?php echo $description; ?></p>
+
+							<?php endif;
 
 					endif;
 
 				?>
+					</a>
 
 			</div>
 

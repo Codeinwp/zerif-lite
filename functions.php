@@ -65,6 +65,13 @@ function zerif_setup() {
 	/* Enable support for title-tag */
 	add_theme_support( 'title-tag' );
 
+    /* Enable support for custom logo */
+	add_theme_support( 'custom-logo', array(
+		'height'        => 76,
+		'width'         => 140,
+		'flex-width'    => true,
+	) );
+
 	/* Custom template tags for this theme. */
 	require get_template_directory() . '/inc/template-tags.php';
 
@@ -170,6 +177,20 @@ function zerif_setup() {
 }
 
 add_action('after_setup_theme', 'zerif_setup');
+
+/* Migrate logo from theme to core */
+function zerif_migrate_logo(){
+
+	if ( get_theme_mod('zerif_logo') ) {
+		$logo = attachment_url_to_postid( get_theme_mod( 'zerif_logo' ) );
+		if ( is_int( $logo ) ) {
+			set_theme_mod( 'custom_logo', $logo );
+		}
+		remove_theme_mod( 'zerif_logo' );
+	}
+}
+
+add_action( 'after_setup_theme', 'zerif_migrate_logo' );
 
 function zerif_excerpt_more( $more ) {
     return ' <a href="'.get_the_permalink().'" rel="nofollow"><span class="sr-only">' . esc_html__('Read more about ', 'zerif-lite').get_the_title() . '</span>[...]</a>';

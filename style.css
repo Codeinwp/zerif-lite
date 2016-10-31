@@ -1556,13 +1556,21 @@ object {
 .navbar-inverse ul ul li.link-focus > ul.sub-menu {
 	left: 100%;
 }
-
 .navbar-brand {
 	height: 76px;
 	position: relative;
 	line-height: 60px;
 	padding: 7px 15px;
 	display: inline-block;
+	text-align: center;
+}
+.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+	color: #e96656;
+}
+.navbar-inverse .navbar-brand p.site-description,
+.navbar-inverse .navbar-brand h1.site-title {
+	margin-bottom: 0;
+	line-height: normal;
 }
 .navbar-brand > img {
 	max-height: 100%;

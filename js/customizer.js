@@ -40,21 +40,6 @@
 	/*****************************************************/
     /***************** 	GENERAL   ************************/
 	/*****************************************************/
-	
-	wp.customize( 'zerif_logo', function( value ) {
-		value.bind( function( to ) {
-			if( to != '' ) {
-				$( '.navbar-brand img' ).removeClass( 'zerif_hidden_if_not_customizer' );
-				$( '.zerif_header_title' ).addClass( 'zerif_hidden_if_not_customizer' );
-			}
-			else {
-				$( '.navbar-brand img' ).addClass( 'zerif_hidden_if_not_customizer' );
-				$( '.zerif_header_title' ).removeClass( 'zerif_hidden_if_not_customizer' );
-			}
-			$( '.navbar-brand img' ).attr( 'src', to );
-		} );
-	} );
-	
 	/* zerif_copyright */
 	wp.customize( 'zerif_copyright', function( value ) {
 		value.bind( function( to ) {
