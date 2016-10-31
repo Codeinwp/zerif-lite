@@ -76,38 +76,56 @@
 
 				<?php
 
-					$zerif_logo = wp_get_attachment_image_url( get_theme_mod( 'custom_logo' ) ); ?>
+					$logo = get_theme_mod ( 'custom_logo' );
 
-					<a href=" <?php echo esc_url( home_url( '/' ) ) ?> " class="navbar-brand">
+					$zerif_logo = wp_get_attachment_image_url( $logo );
 
-						<?php
+					if( ! empty( $zerif_logo ) ) : ?>
 
-						if(isset($zerif_logo) && $zerif_logo != ""):
+						<a href=" <?php echo esc_url( home_url( '/' ) ) ?> " class="navbar-brand">
+
+							<?php
 
 							echo '<img src="'.esc_url( $zerif_logo ).'" alt="'.esc_attr( get_bloginfo('title') ).'">';
 
-						else:
+							?>
 
-						?>
+						</a>
 
-							<h1 class="site-title"><?php bloginfo( 'title' ) ?></h1>
+					<?php
 
-						<?php
+					else:
+
+					?>
+
+						<div class="navbar-brand">
+							<h1 class="site-title">
+								<a href=" <?php echo esc_url( home_url( '/' ) ) ?> ">
+									<?php bloginfo( 'title' ) ?>
+								</a>
+							</h1>
+
+							<?php
 
 							$description = get_bloginfo( 'description', 'display' );
 
-							if ( $description ) : ?>
+							if ( ! empty( $description ) ) : ?>
 
-								<p class="site-description"><?php echo $description; ?></p>
+								<p class="site-description">
+									<?php echo $description; ?>
+								</p>
 
-							<?php endif;
+							<?php endif; ?>
+
+						</div>
+
+						<?php
 
 					endif;
 
-				?>
-					</a>
+					?>
 
-			</div>
+				</div>
 
 			<?php zerif_primary_navigation_trigger(); ?>
 

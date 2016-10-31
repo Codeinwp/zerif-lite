@@ -1564,12 +1564,28 @@ object {
 	display: inline-block;
 	text-align: center;
 }
-.navbar-inverse .navbar-brand:hover, .navbar-inverse .navbar-brand:focus {
+.navbar-inverse .navbar-brand > a:hover,
+.navbar-inverse .navbar-brand .site-title > a:focus {
 	color: #e96656;
 }
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus,
+.navbar-inverse .navbar-brand .site-title > a {
+	color: #999;
+	text-decoration: none;
+}
 .navbar-inverse .navbar-brand p.site-description,
-.navbar-inverse .navbar-brand h1.site-title {
+.navbar-inverse .navbar-brand .site-title a {
+	font-size: 24px;
+	line-height: normal;
+	margin-bottom: 5px;
+}
+.navbar-inverse .navbar-brand .site-title {
 	margin-bottom: 0;
+}
+
+.navbar-inverse .navbar-brand p.site-description {
+	font-size: 16px;
 	line-height: normal;
 }
 .navbar-brand > img {
@@ -1631,6 +1647,9 @@ object {
 .menu-align-center .responsive-logo > a{
 	float: none;
 	display: inline-block;
+}
+.menu-align-center .navbar-brand {
+	float: none;
 }
 .navbar-inverse .navbar-nav>li>a:hover,
 .navbar-inverse .navbar-nav>li>a:focus {

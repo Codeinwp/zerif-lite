@@ -181,12 +181,16 @@ add_action('after_setup_theme', 'zerif_setup');
 /* Migrate logo from theme to core */
 function zerif_migrate_logo(){
 
-	if ( get_theme_mod('zerif_logo') ) {
+	$old_logo = get_theme_mod( 'zerif_logo' );
+
+	if ( ! empty( $old_logo ) ) {
+
 		$logo = attachment_url_to_postid( get_theme_mod( 'zerif_logo' ) );
 		if ( is_int( $logo ) ) {
 			set_theme_mod( 'custom_logo', $logo );
 		}
 		remove_theme_mod( 'zerif_logo' );
+
 	}
 }
 
