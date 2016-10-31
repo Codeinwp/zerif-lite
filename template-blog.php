@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Blog
+ *
  */
 get_header();
 global $wp_query;
