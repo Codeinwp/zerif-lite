@@ -498,12 +498,16 @@ function zerif_default_title($title) {
 
 add_action('widgets_init', 'zerif_register_widgets');
 
-function zerif_register_widgets() {    
+function zerif_register_widgets() {
 
-	register_widget('zerif_ourfocus');
-    register_widget('zerif_testimonial_widget');
-    register_widget('zerif_clients_widget');
-    register_widget('zerif_team_widget');
+	if ( !defined("THEMEISLE_COMPANION_VERSION") ) {
+
+		register_widget( 'zerif_ourfocus' );
+		register_widget( 'zerif_testimonial_widget' );
+		register_widget( 'zerif_clients_widget' );
+		register_widget( 'zerif_team_widget' );
+		
+	}
 	
 	
 	$zerif_lite_sidebars = array ( 'sidebar-ourfocus' => 'sidebar-ourfocus', 'sidebar-testimonials' => 'sidebar-testimonials', 'sidebar-ourteam' => 'sidebar-ourteam' );
