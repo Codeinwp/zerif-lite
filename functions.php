@@ -128,7 +128,14 @@ function zerif_setup() {
                 "id" => 'zerif-lite-req-ac-check-pirate-forms',
                 "title" => esc_html__( 'Check the contact form after installing Pirate Forms' ,'zerif-lite' ),
                 "description"=> esc_html__( "After installing the Pirate Forms plugin, please make sure you check your frontpage contact form is working fine. Also, if you use Zerif Lite in other language(s) please make sure the translation is ok. If not, please translate the contact form again.",'zerif-lite' ),
-            )
+            ),
+	        array(
+		        "id" => 'zerif-lite-req-ac-install-themeisle-companion',
+		        "title" => esc_html__( 'Install ThemeIsle Companion' ,'zerif-lite' ),
+		        "description"=> esc_html__( 'In the next updates, Zerif Lite\'s default widgets will be removed. Please make sure you install the ThemeIsle Companion plugin to keep your site updated, and experience a smooth transition to the latest version.','zerif-lite' ),
+		        "check" => defined("THEMEISLE_COMPANION_VERSION"),
+		        "plugin_slug" => 'themeisle-companion'
+	        )
         );
 
 		require get_template_directory() . '/inc/admin/welcome-screen/welcome-screen.php';
