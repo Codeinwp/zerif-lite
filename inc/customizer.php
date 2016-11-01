@@ -1828,11 +1828,18 @@ add_action( 'customize_controls_enqueue_scripts', 'zerif_late_registers', 99 );
  * @return string
  */
 function zerif_custom_logo_callback() {
-	if ( get_theme_mod( 'custom_logo' ) ) {
-		$logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ) , 'full' );
-		$logo = '<img src="' . esc_url( $logo[0] ) . '">';
+	$logo = '';
+	$zerif_custom_logo = get_theme_mod( 'custom_logo' );
+
+	if ( !empty( $zerif_custom_logo ) ) {
+		$logo = wp_get_attachment_image_src( $zerif_custom_logo , 'full' );
+		if ( !empty( $logo ) ) {
+			if ( !empty( $logo[0] ) ) {
+				$logo = '<a href="'.esc_url( home_url( '/' ) ).'" class="navbar-brand"><img src="' . esc_url( $logo[0] ) . '"></a>';
+			}
+		}
 	} else {
-		$logo = '<h1 class="site-title">' . get_bloginfo( 'name' ) . '</h1><p class="site-description">' . get_bloginfo('description') . '</p>';
+		$logo = '<h1 class="site-title"><a href="'.esc_url( home_url( '/' ) ).'">' . get_bloginfo( 'name' ) . '</a></h1><p class="site-description">' . get_bloginfo('description') . '</p>';
 	}
 	return $logo;
 }

@@ -100,8 +100,8 @@
 
 						<div class="navbar-brand">
 							<h1 class="site-title">
-								<a href=" <?php echo esc_url( home_url( '/' ) ) ?> ">
-									<?php bloginfo( 'title' ) ?>
+								<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
+									<?php bloginfo( 'title' ); ?>
 								</a>
 							</h1>
 
@@ -109,13 +109,13 @@
 
 							$description = get_bloginfo( 'description', 'display' );
 
-							if ( ! empty( $description ) ) : ?>
+							if ( ! empty( $description ) ) {
 
-								<p class="site-description">
-									<?php echo $description; ?>
-								</p>
+								echo '<p class="site-description">'.$description.'</p>';
 
-							<?php endif; ?>
+							}
+
+							?>
 
 						</div>
 
