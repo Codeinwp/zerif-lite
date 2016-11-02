@@ -95,6 +95,63 @@ function zerif_customize_register( $wp_customize ) {
 				return get_theme_mod('zerif_ourteam_subtitle');
 			},
 		) );
+		$wp_customize->selective_refresh->add_partial( 'zerif_aboutus_title', array(
+			'selector' => '#aboutus .section-header h2',
+			'settings' => 'zerif_aboutus_title',
+			'render_callback' => function() {
+				return get_theme_mod('zerif_aboutus_title');
+			},
+		) );
+		$wp_customize->selective_refresh->add_partial( 'zerif_aboutus_subtitle', array(
+			'selector' => '#aboutus .section-header div.section-legend',
+			'settings' => 'zerif_aboutus_subtitle',
+			'render_callback' => function() {
+				return get_theme_mod('zerif_aboutus_subtitle');
+			},
+		) );
+		$wp_customize->selective_refresh->add_partial( 'zerif_aboutus_biglefttitle', array(
+			'selector' => '#aboutus .big-intro',
+			'settings' => 'zerif_aboutus_biglefttitle',
+			'render_callback' => function() {
+				return get_theme_mod('zerif_aboutus_biglefttitle');
+			},
+		) );
+		$wp_customize->selective_refresh->add_partial( 'zerif_aboutus_text', array(
+			'selector' => '#aboutus .text_and_skills p',
+			'settings' => 'zerif_aboutus_text',
+			'render_callback' => function() {
+				return get_theme_mod('zerif_aboutus_text');
+			},
+		) );
+		$wp_customize->selective_refresh->add_partial( 'zerif_aboutus_feature1_title', array(
+			'selector' => '#aboutus .skill_1 label',
+			'settings' => 'zerif_aboutus_feature1_title',
+			'render_callback' => function() {
+				return get_theme_mod('zerif_aboutus_feature1_title');
+			},
+		) );
+		$wp_customize->selective_refresh->add_partial( 'zerif_aboutus_feature2_title', array(
+			'selector' => '#aboutus .skill_2 label',
+			'settings' => 'zerif_aboutus_feature2_title',
+			'render_callback' => function() {
+				return get_theme_mod('zerif_aboutus_feature2_title');
+			},
+		) );
+		$wp_customize->selective_refresh->add_partial( 'zerif_aboutus_feature3_title', array(
+			'selector' => '#aboutus .skill_3 label',
+			'settings' => 'zerif_aboutus_feature3_title',
+			'render_callback' => function() {
+				return get_theme_mod('zerif_aboutus_feature3_title');
+			},
+		) );
+		$wp_customize->selective_refresh->add_partial( 'zerif_aboutus_feature4_title', array(
+			'selector' => '#aboutus .skill_4 label',
+			'settings' => 'zerif_aboutus_feature4_title',
+			'render_callback' => function() {
+				return get_theme_mod('zerif_aboutus_feature4_title');
+			},
+		) );
+
 
 	}
 
@@ -973,11 +1030,18 @@ function zerif_customize_register( $wp_customize ) {
 		));
 
 		/* title */
-		$wp_customize->add_setting( 'zerif_aboutus_title', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('About','zerif-lite'),
-			'transport' => 'postMessage'
-		));
+		if ( current_user_can( 'edit_theme_options' ) ) {
+			$wp_customize->add_setting( 'zerif_aboutus_title', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'default'           => sprintf( __( 'Change this title in %s','zerif-lite' ), __( 'About us section','zerif-lite' ) ),
+				'transport'         => 'postMessage'
+			) );
+		} else {
+			$wp_customize->add_setting( 'zerif_aboutus_title', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'transport'         => 'postMessage'
+			) );
+		}
 
 		$wp_customize->add_control( 'zerif_aboutus_title', array(
 			'label'    => __( 'Title', 'zerif-lite' ),
@@ -986,11 +1050,18 @@ function zerif_customize_register( $wp_customize ) {
 		));
 
 		/* subtitle */
-		$wp_customize->add_setting( 'zerif_aboutus_subtitle', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('Use this section to showcase important details about your business.','zerif-lite'),
-			'transport' => 'postMessage'
-		));
+		if ( current_user_can( 'edit_theme_options' ) ) {
+			$wp_customize->add_setting( 'zerif_aboutus_subtitle', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'default'           => sprintf( __( 'Change this subtitle in %s','zerif-lite' ), __( 'About us section','zerif-lite' ) ),
+				'transport'         => 'postMessage'
+			) );
+		} else {
+			$wp_customize->add_setting( 'zerif_aboutus_subtitle', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'transport'         => 'postMessage'
+			) );
+		}
 
 		$wp_customize->add_control( 'zerif_aboutus_subtitle', array(
 			'label'    => __( 'Subtitle', 'zerif-lite' ),
@@ -1001,7 +1072,7 @@ function zerif_customize_register( $wp_customize ) {
 		/* big left title */
 		$wp_customize->add_setting( 'zerif_aboutus_biglefttitle', array(
 			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('Everything you see here is responsive and mobile-friendly.','zerif-lite'),
+			'transport' => 'postMessage'
 		));
 
 		$wp_customize->add_control( 'zerif_aboutus_biglefttitle', array(
@@ -1011,10 +1082,18 @@ function zerif_customize_register( $wp_customize ) {
 		));
 
 		/* text */
-		$wp_customize->add_setting( 'zerif_aboutus_text', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros.<br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros. <br><br>Mauris vel nunc at ipsum fermentum pellentesque quis ut massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non adipiscing massa. Sed ut fringilla sapien. Cras sollicitudin, lectus sed tincidunt cursus, magna lectus vehicula augue, a lobortis dui orci et est.','zerif-lite'),
-		));
+		if ( current_user_can( 'edit_theme_options' ) ) {
+			$wp_customize->add_setting( 'zerif_aboutus_text', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'default'           => sprintf( __( 'Change this text in %s','zerif-lite' ), __( 'About us section','zerif-lite' ) ),
+				'transport' => 'postMessage'
+			) );
+		} else {
+			$wp_customize->add_setting( 'zerif_aboutus_text', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'transport' => 'postMessage'
+			) );
+		}
 
 		$wp_customize->add_control( 'zerif_aboutus_text', array(
 			'type'	=>	'textarea',
@@ -1030,11 +1109,18 @@ function zerif_customize_register( $wp_customize ) {
 		));
 
 		/* feature no#1 */
-		$wp_customize->add_setting( 'zerif_aboutus_feature1_title', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('YOUR SKILL #1','zerif-lite'),
-			'transport' => 'postMessage'
-		));
+		if ( current_user_can( 'edit_theme_options' ) ) {
+			$wp_customize->add_setting( 'zerif_aboutus_feature1_title', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'default'           => __( 'Edit skill','zerif-lite' ),
+				'transport'         => 'postMessage'
+			) );
+		} else {
+			$wp_customize->add_setting( 'zerif_aboutus_feature1_title', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'transport'         => 'postMessage'
+			) );
+		}
 
 		$wp_customize->add_control( 'zerif_aboutus_feature1_title', array(
 			'label'    => __( 'Feature no1 title', 'zerif-lite' ),
@@ -1072,11 +1158,18 @@ function zerif_customize_register( $wp_customize ) {
 		));
 
 		/* feature no#2 */
-		$wp_customize->add_setting( 'zerif_aboutus_feature2_title', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('YOUR SKILL #2','zerif-lite'),
-			'transport' => 'postMessage'
-		));
+		if ( current_user_can( 'edit_theme_options' ) ) {
+			$wp_customize->add_setting( 'zerif_aboutus_feature2_title', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'default'           => __( 'Edit skill','zerif-lite' ),
+				'transport'         => 'postMessage'
+			) );
+		} else {
+			$wp_customize->add_setting( 'zerif_aboutus_feature2_title', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'transport'         => 'postMessage'
+			) );
+		}
 
 		$wp_customize->add_control( 'zerif_aboutus_feature2_title', array(
 			'label'    => __( 'Feature no2 title', 'zerif-lite' ),
@@ -1114,11 +1207,18 @@ function zerif_customize_register( $wp_customize ) {
 		));
 
 		/* feature no#3 */
-		$wp_customize->add_setting( 'zerif_aboutus_feature3_title', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('YOUR SKILL #3','zerif-lite'),
-			'transport' => 'postMessage'
-		));
+		if ( current_user_can( 'edit_theme_options' ) ) {
+			$wp_customize->add_setting( 'zerif_aboutus_feature3_title', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'default'           => __( 'Edit skill','zerif-lite' ),
+				'transport'         => 'postMessage'
+			) );
+		} else {
+			$wp_customize->add_setting( 'zerif_aboutus_feature3_title', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'transport'         => 'postMessage'
+			) );
+		}
 
 		$wp_customize->add_control( 'zerif_aboutus_feature3_title', array(
 			'label'    => __( 'Feature no3 title', 'zerif-lite' ),
@@ -1156,12 +1256,18 @@ function zerif_customize_register( $wp_customize ) {
 		));
 
 		/* feature no#4 */
-		$wp_customize->add_setting( 'zerif_aboutus_feature4_title', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('YOUR SKILL #4','zerif-lite'),
-			'transport' => 'postMessage'
-		));
-
+		if ( current_user_can( 'edit_theme_options' ) ) {
+			$wp_customize->add_setting( 'zerif_aboutus_feature4_title', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'default'           => __( 'Edit skill','zerif-lite' ),
+				'transport'         => 'postMessage'
+			) );
+		} else {
+			$wp_customize->add_setting( 'zerif_aboutus_feature4_title', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'transport'         => 'postMessage'
+			) );
+		}
 		$wp_customize->add_control( 'zerif_aboutus_feature4_title', array(
 			'label'    => __( 'Feature no4 title', 'zerif-lite' ),
 			'section'  => 'zerif_aboutus_feat4_section',
@@ -1233,11 +1339,18 @@ function zerif_customize_register( $wp_customize ) {
 		));
 
 		/* title */
-		$wp_customize->add_setting( 'zerif_aboutus_title', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('About','zerif-lite'),
-			'transport' => 'postMessage'
-		));
+		if ( current_user_can( 'edit_theme_options' ) ) {
+			$wp_customize->add_setting( 'zerif_aboutus_title', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'default'           => sprintf( __( 'Change this title in %s','zerif-lite' ), __( 'About us section','zerif-lite' ) ),
+				'transport'         => 'postMessage'
+			) );
+		} else {
+			$wp_customize->add_setting( 'zerif_aboutus_title', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'transport'         => 'postMessage'
+			) );
+		}
 
 		$wp_customize->add_control( 'zerif_aboutus_title', array(
 			'label'    => __( 'Title', 'zerif-lite' ),
@@ -1246,11 +1359,18 @@ function zerif_customize_register( $wp_customize ) {
 		));
 
 		/* subtitle */
-		$wp_customize->add_setting( 'zerif_aboutus_subtitle', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('Use this section to showcase important details about your business.','zerif-lite'),
-			'transport' => 'postMessage'
-		));
+		if ( current_user_can( 'edit_theme_options' ) ) {
+			$wp_customize->add_setting( 'zerif_aboutus_subtitle', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'default'           => sprintf( __( 'Change this subtitle in %s','zerif-lite' ), __( 'About us section','zerif-lite' ) ),
+				'transport'         => 'postMessage'
+			) );
+		} else {
+			$wp_customize->add_setting( 'zerif_aboutus_subtitle', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'transport'         => 'postMessage'
+			) );
+		}
 
 		$wp_customize->add_control( 'zerif_aboutus_subtitle', array(
 			'label'    => __( 'Subtitle', 'zerif-lite' ),
@@ -1261,7 +1381,7 @@ function zerif_customize_register( $wp_customize ) {
 		/* big left title */
 		$wp_customize->add_setting( 'zerif_aboutus_biglefttitle', array(
 			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('Everything you see here is responsive and mobile-friendly.','zerif-lite'),
+			'transport' => 'postMessage'
 		));
 
 		$wp_customize->add_control( 'zerif_aboutus_biglefttitle', array(
@@ -1271,10 +1391,18 @@ function zerif_customize_register( $wp_customize ) {
 		));
 
 		/* text */
-		$wp_customize->add_setting( 'zerif_aboutus_text', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros.<br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros. <br><br>Mauris vel nunc at ipsum fermentum pellentesque quis ut massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non adipiscing massa. Sed ut fringilla sapien. Cras sollicitudin, lectus sed tincidunt cursus, magna lectus vehicula augue, a lobortis dui orci et est.','zerif-lite'),
-		));
+		if ( current_user_can( 'edit_theme_options' ) ) {
+			$wp_customize->add_setting( 'zerif_aboutus_text', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'default'           => sprintf( __( 'Change this text in %s','zerif-lite' ), __( 'About us section','zerif-lite' ) ),
+				'transport' => 'postMessage'
+			) );
+		} else {
+			$wp_customize->add_setting( 'zerif_aboutus_text', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'transport' => 'postMessage'
+			) );
+		}
 
 		$wp_customize->add_control( 'zerif_aboutus_text', array(
 			'label'    => __( 'Text', 'zerif-lite' ),
@@ -1283,11 +1411,18 @@ function zerif_customize_register( $wp_customize ) {
 		));
 
 		/* feature no#1 */
-		$wp_customize->add_setting( 'zerif_aboutus_feature1_title', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('YOUR SKILL #1','zerif-lite'),
-			'transport' => 'postMessage'
-		));
+		if ( current_user_can( 'edit_theme_options' ) ) {
+			$wp_customize->add_setting( 'zerif_aboutus_feature1_title', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'default'           => __( 'Edit skill','zerif-lite' ),
+				'transport'         => 'postMessage'
+			) );
+		} else {
+			$wp_customize->add_setting( 'zerif_aboutus_feature1_title', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'transport'         => 'postMessage'
+			) );
+		}
 
 		$wp_customize->add_control( 'zerif_aboutus_feature1_title', array(
 			'label'    => __( 'Feature no1 title', 'zerif-lite' ),
@@ -1319,11 +1454,18 @@ function zerif_customize_register( $wp_customize ) {
 		)));
 
 		/* feature no#2 */
-		$wp_customize->add_setting( 'zerif_aboutus_feature2_title', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('YOUR SKILL #2','zerif-lite'),
-			'transport' => 'postMessage'
-		));
+		if ( current_user_can( 'edit_theme_options' ) ) {
+			$wp_customize->add_setting( 'zerif_aboutus_feature2_title', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'default'           => __( 'Edit skill','zerif-lite' ),
+				'transport'         => 'postMessage'
+			) );
+		} else {
+			$wp_customize->add_setting( 'zerif_aboutus_feature2_title', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'transport'         => 'postMessage'
+			) );
+		}
 
 		$wp_customize->add_control( 'zerif_aboutus_feature2_title', array(
 			'label'    => __( 'Feature no2 title', 'zerif-lite' ),
@@ -1354,11 +1496,18 @@ function zerif_customize_register( $wp_customize ) {
 		)));
 
 		/* feature no#3 */
-		$wp_customize->add_setting( 'zerif_aboutus_feature3_title', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('YOUR SKILL #3','zerif-lite'),
-			'transport' => 'postMessage'
-		));
+		if ( current_user_can( 'edit_theme_options' ) ) {
+			$wp_customize->add_setting( 'zerif_aboutus_feature3_title', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'default'           => __( 'Edit skill','zerif-lite' ),
+				'transport'         => 'postMessage'
+			) );
+		} else {
+			$wp_customize->add_setting( 'zerif_aboutus_feature3_title', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'transport'         => 'postMessage'
+			) );
+		}
 
 		$wp_customize->add_control( 'zerif_aboutus_feature3_title', array(
 			'label'    => __( 'Feature no3 title', 'zerif-lite' ),
@@ -1390,11 +1539,18 @@ function zerif_customize_register( $wp_customize ) {
 		)));
 
 		/* feature no#4 */
-		$wp_customize->add_setting( 'zerif_aboutus_feature4_title', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => __('YOUR SKILL #4','zerif-lite'),
-			'transport' => 'postMessage'
-		));
+		if ( current_user_can( 'edit_theme_options' ) ) {
+			$wp_customize->add_setting( 'zerif_aboutus_feature4_title', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'default'           => __( 'Edit skill','zerif-lite' ),
+				'transport'         => 'postMessage'
+			) );
+		} else {
+			$wp_customize->add_setting( 'zerif_aboutus_feature4_title', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'transport'         => 'postMessage'
+			) );
+		}
 
 		$wp_customize->add_control( 'zerif_aboutus_feature4_title', array(
 			'label'    => __( 'Feature no4 title', 'zerif-lite' ),

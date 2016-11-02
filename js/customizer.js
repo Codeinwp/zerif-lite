@@ -191,7 +191,7 @@
 
 		} );
 	} );
-	
+
 	/* title */
 	wp.customize( 'zerif_aboutus_title', function( value ) {
 		value.bind( function( to ) {

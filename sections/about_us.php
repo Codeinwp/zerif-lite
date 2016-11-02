@@ -30,19 +30,40 @@
 
 		<?php
 
-			$zerif_aboutus_biglefttitle 	= get_theme_mod('zerif_aboutus_biglefttitle',__('Everything you see here is responsive and mobile-friendly.','zerif-lite'));
-			$zerif_aboutus_text 			= get_theme_mod('zerif_aboutus_text','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros.<br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros. <br><br>Mauris vel nunc at ipsum fermentum pellentesque quis ut massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non adipiscing massa. Sed ut fringilla sapien. Cras sollicitudin, lectus sed tincidunt cursus, magna lectus vehicula augue, a lobortis dui orci et est.');
+			$zerif_aboutus_biglefttitle 	= get_theme_mod( 'zerif_aboutus_biglefttitle' );
 
-			$zerif_aboutus_feature1_title 	= get_theme_mod('zerif_aboutus_feature1_title',__('YOUR SKILL #1','zerif-lite'));
+			if ( current_user_can( 'edit_theme_options' ) ) {
+				$zerif_aboutus_text = get_theme_mod( 'zerif_aboutus_text', sprintf( __( 'Change this text in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_aboutus_text' ).'">%s</a>', __( 'About us section','zerif-lite' ) ) ) );
+			} else {
+				$zerif_aboutus_text = get_theme_mod( 'zerif_aboutus_text' );
+			}
+
+			if ( current_user_can( 'edit_theme_options' ) ) {
+				$zerif_aboutus_feature1_title = get_theme_mod( 'zerif_aboutus_feature1_title', sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_aboutus_feature1_title' ).'">%s</a>', __( 'Edit skill','zerif-lite' ) ) );
+			} else {
+				$zerif_aboutus_feature1_title = get_theme_mod( 'zerif_aboutus_feature1_title' );
+			}
 			$zerif_aboutus_feature1_text 	= get_theme_mod('zerif_aboutus_feature1_text');
 
-			$zerif_aboutus_feature2_title 	= get_theme_mod('zerif_aboutus_feature2_title',__('YOUR SKILL #2','zerif-lite'));
+			if ( current_user_can( 'edit_theme_options' ) ) {
+				$zerif_aboutus_feature2_title = get_theme_mod( 'zerif_aboutus_feature2_title', sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_aboutus_feature2_title' ).'">%s</a>', __( 'Edit skill','zerif-lite' ) ) );
+			} else {
+				$zerif_aboutus_feature2_title = get_theme_mod( 'zerif_aboutus_feature2_title' );
+			}
 			$zerif_aboutus_feature2_text 	= get_theme_mod('zerif_aboutus_feature2_text');
 
-			$zerif_aboutus_feature3_title 	= get_theme_mod('zerif_aboutus_feature3_title',__('YOUR SKILL #3','zerif-lite'));
+			if ( current_user_can( 'edit_theme_options' ) ) {
+				$zerif_aboutus_feature3_title = get_theme_mod( 'zerif_aboutus_feature3_title', sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_aboutus_feature3_title' ).'">%s</a>', __( 'Edit skill','zerif-lite' ) ) );
+			} else {
+				$zerif_aboutus_feature3_title = get_theme_mod( 'zerif_aboutus_feature3_title' );
+			}
 			$zerif_aboutus_feature3_text 	= get_theme_mod('zerif_aboutus_feature3_text');
 
-			$zerif_aboutus_feature4_title 	= get_theme_mod('zerif_aboutus_feature4_title',__('YOUR SKILL #4','zerif-lite'));
+			if ( current_user_can( 'edit_theme_options' ) ) {
+				$zerif_aboutus_feature4_title = get_theme_mod( 'zerif_aboutus_feature4_title', sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_aboutus_feature4_title' ).'">%s</a>', __( 'Edit skill','zerif-lite' ) ) );
+			} else {
+				$zerif_aboutus_feature4_title = get_theme_mod( 'zerif_aboutus_feature4_title' );
+			}
 			$zerif_aboutus_feature4_text 	= get_theme_mod('zerif_aboutus_feature4_text');
 
 			$text_and_skills = '';

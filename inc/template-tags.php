@@ -417,7 +417,12 @@ function zerif_big_title_text_function() {
 }
 
 function zerif_about_us_header_title_function() {
-	$zerif_aboutus_title = get_theme_mod('zerif_aboutus_title',__('About','zerif-lite'));
+
+	if ( current_user_can( 'edit_theme_options' ) ) {
+		$zerif_aboutus_title = get_theme_mod( 'zerif_aboutus_title', sprintf( __( 'Change this title in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_aboutus_title' ).'">%s</a>', __( 'About us section','zerif-lite' ) ) ) );
+	} else {
+		$zerif_aboutus_title = get_theme_mod( 'zerif_aboutus_title' );
+	}
 
 	if( !empty($zerif_aboutus_title) ):
 		echo '<h2 class="white-text">'. wp_kses_post( $zerif_aboutus_title ) .'</h2>';
@@ -427,7 +432,12 @@ function zerif_about_us_header_title_function() {
 }
 
 function zerif_about_us_header_subtitle_function() {
-	$zerif_aboutus_subtitle = get_theme_mod('zerif_aboutus_subtitle',__('Use this section to showcase important details about your business.','zerif-lite'));
+
+	if ( current_user_can( 'edit_theme_options' ) ) {
+		$zerif_aboutus_subtitle = get_theme_mod( 'zerif_aboutus_subtitle', sprintf( __( 'Change this subtitle in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_aboutus_subtitle' ).'">%s</a>', __( 'About us section','zerif-lite' ) ) ) );
+	} else {
+		$zerif_aboutus_subtitle = get_theme_mod( 'zerif_aboutus_subtitle' );
+	}
 
 	if( !empty($zerif_aboutus_subtitle) ):
 
