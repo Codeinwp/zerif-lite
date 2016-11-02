@@ -81,6 +81,20 @@ function zerif_customize_register( $wp_customize ) {
 				return get_theme_mod('zerif_ourfocus_subtitle');
 			},
 		) );
+		$wp_customize->selective_refresh->add_partial( 'zerif_ourteam_title', array(
+			'selector' => '#team .section-header h2',
+			'settings' => 'zerif_ourteam_title',
+			'render_callback' => function() {
+				return get_theme_mod('zerif_ourteam_title');
+			},
+		) );
+		$wp_customize->selective_refresh->add_partial( 'zerif_ourteam_subtitle', array(
+			'selector' => '#team .section-header div.section-legend',
+			'settings' => 'zerif_ourteam_subtitle',
+			'render_callback' => function() {
+				return get_theme_mod('zerif_ourteam_subtitle');
+			},
+		) );
 
 	}
 
@@ -1448,11 +1462,18 @@ function zerif_customize_register( $wp_customize ) {
 	));
 
 	/* our team title */
-	$wp_customize->add_setting( 'zerif_ourteam_title', array(
-		'sanitize_callback' => 'zerif_sanitize_input',
-		'default' => __('YOUR TEAM','zerif-lite'),
-		'transport' => 'postMessage'
-	));
+	if ( current_user_can( 'edit_theme_options' ) ) {
+		$wp_customize->add_setting( 'zerif_ourteam_title', array(
+			'sanitize_callback' => 'zerif_sanitize_input',
+			'default'           => sprintf( __( 'Change this title in %s','zerif-lite' ), __( 'Our team section','zerif-lite' ) ),
+			'transport'         => 'postMessage'
+		) );
+	} else {
+		$wp_customize->add_setting( 'zerif_ourteam_title', array(
+			'sanitize_callback' => 'zerif_sanitize_input',
+			'transport'         => 'postMessage'
+		) );
+	}
 
 	$wp_customize->add_control( 'zerif_ourteam_title', array(
 		'label'    => __( 'Title', 'zerif-lite' ),
@@ -1461,10 +1482,18 @@ function zerif_customize_register( $wp_customize ) {
 	));
 
 	/* our team subtitle */
-	$wp_customize->add_setting( 'zerif_ourteam_subtitle', array(
-		'sanitize_callback' => 'zerif_sanitize_input',
-		'default' => __('Prove that you have real people working for you, with some nice looking profile pictures and links to social media.','zerif-lite'),'transport' => 'postMessage'
-	));
+	if ( current_user_can( 'edit_theme_options' ) ) {
+		$wp_customize->add_setting( 'zerif_ourteam_subtitle', array(
+			'sanitize_callback' => 'zerif_sanitize_input',
+			'default'           => sprintf( __( 'Change this subtitle in %s','zerif-lite' ), __( 'Our team section','zerif-lite' ) ),
+			'transport'         => 'postMessage'
+		) );
+	} else {
+		$wp_customize->add_setting( 'zerif_ourteam_subtitle', array(
+			'sanitize_callback' => 'zerif_sanitize_input',
+			'transport'         => 'postMessage'
+		) );
+	}
 
 	$wp_customize->add_control( 'zerif_ourteam_subtitle', array(
 		'label'    => __( 'Our team subtitle', 'zerif-lite' ),

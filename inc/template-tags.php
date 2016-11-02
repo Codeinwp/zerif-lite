@@ -305,7 +305,11 @@ function zerif_our_focus_header_subtitle_function() {
 
 function zerif_our_team_header_title_function() {
 
-	$zerif_ourteam_title = get_theme_mod('zerif_ourteam_title',__('YOUR TEAM','zerif-lite'));
+	if ( current_user_can( 'edit_theme_options' ) ) {
+		$zerif_ourteam_title = get_theme_mod( 'zerif_ourteam_title', sprintf( __( 'Change this title in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_ourteam_title' ).'">%s</a>', __( 'Our team section','zerif-lite' ) ) ) );
+	} else {
+		$zerif_ourteam_title = get_theme_mod( 'zerif_ourteam_title' );
+	}
 
 	if( !empty($zerif_ourteam_title) ):
 		echo '<h2 class="dark-text">'.wp_kses_post( $zerif_ourteam_title ).'</h2>';
@@ -316,7 +320,11 @@ function zerif_our_team_header_title_function() {
 
 function zerif_our_team_header_subtitle_function() {
 
-	$zerif_ourteam_subtitle = get_theme_mod('zerif_ourteam_subtitle',__('Prove that you have real people working for you, with some nice looking profile pictures and links to social media.','zerif-lite'));
+	if ( current_user_can( 'edit_theme_options' ) ) {
+		$zerif_ourteam_subtitle = get_theme_mod( 'zerif_ourteam_subtitle', sprintf( __( 'Change this subtitle in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_ourteam_subtitle' ).'">%s</a>', __( 'Our team section','zerif-lite' ) ) ) );
+	} else {
+		$zerif_ourteam_subtitle = get_theme_mod( 'zerif_ourteam_subtitle' );
+	}
 
 	if( !empty($zerif_ourteam_subtitle) ):
 
