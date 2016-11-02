@@ -78,58 +78,59 @@
 
 					$logo = get_theme_mod ( 'custom_logo' );
 
-					$zerif_logo = wp_get_attachment_image_url( $logo );
+					$zerif_logo = wp_get_attachment_image_url( $logo, 'full' ); ?>
 
-					if( ! empty( $zerif_logo ) ) : ?>
+					<div class="navbar-brand">
 
-						<a href=" <?php echo esc_url( home_url( '/' ) ) ?> " class="navbar-brand">
+						<?php if( ! empty( $zerif_logo ) ) : ?>
 
-							<?php
+							<a href="<?php echo esc_url( home_url( '/' ) ) ?> ">
 
-							echo '<img src="'.esc_url( $zerif_logo ).'" alt="'.esc_attr( get_bloginfo('title') ).'">';
+								<?php
 
-							?>
+								echo '<img src="'.esc_url( $zerif_logo ).'" alt="'.esc_attr( get_bloginfo('title') ).'">';
 
-						</a>
+								?>
 
-					<?php
-
-					else:
-
-					?>
-
-						<div class="navbar-brand">
-							<h1 class="site-title">
-								<a href=" <?php echo esc_url( home_url( '/' ) ) ?> ">
-									<?php bloginfo( 'title' ) ?>
-								</a>
-							</h1>
-
-							<?php
-
-							$description = get_bloginfo( 'description', 'display' );
-
-							if ( ! empty( $description ) ) : ?>
-
-								<p class="site-description">
-									<?php echo $description; ?>
-								</p>
-
-							<?php endif; ?>
-
-						</div>
+							</a>
 
 						<?php
 
-					endif;
+						else:
 
-					?>
+						?>
+							<div class="site-title-tagline-wrapper">
+								<h1 class="site-title">
+									<a href=" <?php echo esc_url( home_url( '/' ) ) ?> ">
+										<?php bloginfo( 'title' ) ?>
+									</a>
+								</h1>
 
-				</div>
+								<?php
+
+								$description = get_bloginfo( 'description', 'display' );
+
+								if ( ! empty( $description ) ) : ?>
+
+									<p class="site-description">
+
+										<?php echo $description; ?>
+
+									</p> <!-- /.site-description -->
+
+								<?php endif; ?>
+
+							</div> <!-- /.site-title-tagline-wrapper -->
+
+						<?php endif; ?>
+
+					</div> <!-- /.navbar-brand -->
+
+				</div> <!-- /.navbar-header -->
 
 			<?php zerif_primary_navigation_trigger(); ?>
 
-		</div>
+		</div> <!-- /.container -->
 
-	</div>
+	</div> <!-- /#main-nav -->
 	<!-- / END TOP BAR -->

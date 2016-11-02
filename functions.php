@@ -67,8 +67,6 @@ function zerif_setup() {
 
     /* Enable support for custom logo */
 	add_theme_support( 'custom-logo', array(
-		'height'        => 76,
-		'width'         => 140,
 		'flex-width'    => true,
 	) );
 
