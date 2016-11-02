@@ -275,7 +275,11 @@ function zerif_footer_widgets_function() {
 
 function zerif_our_focus_header_title_function() {
 
-	$zerif_ourfocus_title = get_theme_mod('zerif_ourfocus_title',__('FEATURES','zerif-lite'));
+	if ( current_user_can( 'edit_theme_options' ) ) {
+		$zerif_ourfocus_title = get_theme_mod( 'zerif_ourfocus_title', sprintf( __( 'Change this title in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_ourfocus_title' ).'">%s</a>', __( 'Our focus section','zerif-lite' ) ) ) );
+	} else {
+		$zerif_ourfocus_title = get_theme_mod( 'zerif_ourfocus_title' );
+	}
 
 	if( !empty($zerif_ourfocus_title) ):
 		echo '<h2 class="dark-text">'.wp_kses_post( $zerif_ourfocus_title ).'</h2>';
@@ -286,7 +290,11 @@ function zerif_our_focus_header_title_function() {
 
 function zerif_our_focus_header_subtitle_function() {
 
-	$zerif_ourfocus_subtitle = get_theme_mod('zerif_ourfocus_subtitle',__('What makes this single-page WordPress theme unique.','zerif-lite'));
+	if ( current_user_can( 'edit_theme_options' ) ) {
+		$zerif_ourfocus_subtitle = get_theme_mod( 'zerif_ourfocus_subtitle', sprintf( __( 'Change this subtitle in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_ourfocus_subtitle' ).'">%s</a>', __( 'Our focus section','zerif-lite' ) ) ) );
+	} else {
+		$zerif_ourfocus_subtitle = get_theme_mod( 'zerif_ourfocus_subtitle' );
+	}
 
 	if( !empty($zerif_ourfocus_subtitle) ):
 		echo '<div class="section-legend">'.wp_kses_post( $zerif_ourfocus_subtitle ).'</div>';

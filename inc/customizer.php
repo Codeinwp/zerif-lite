@@ -67,6 +67,20 @@ function zerif_customize_register( $wp_customize ) {
 				return get_theme_mod('zerif_bigtitle_greenbutton_label');
 			},
 		) );
+		$wp_customize->selective_refresh->add_partial( 'zerif_ourfocus_title', array(
+			'selector' => '#focus .section-header h2',
+			'settings' => 'zerif_ourfocus_title',
+			'render_callback' => function() {
+				return get_theme_mod('zerif_ourfocus_title');
+			},
+		) );
+		$wp_customize->selective_refresh->add_partial( 'zerif_ourfocus_subtitle', array(
+			'selector' => '#focus .section-header div.section-legend',
+			'settings' => 'zerif_ourfocus_subtitle',
+			'render_callback' => function() {
+				return get_theme_mod('zerif_ourfocus_subtitle');
+			},
+		) );
 
 	}
 
@@ -856,11 +870,18 @@ function zerif_customize_register( $wp_customize ) {
 	));
 
 	/* our focus title */
-	$wp_customize->add_setting( 'zerif_ourfocus_title', array(
-		'sanitize_callback' => 'zerif_sanitize_input',
-		'default' => __('FEATURES','zerif-lite'),
-		'transport' => 'postMessage'
-	));
+	if ( current_user_can( 'edit_theme_options' ) ) {
+		$wp_customize->add_setting( 'zerif_ourfocus_title', array(
+			'sanitize_callback' => 'zerif_sanitize_input',
+			'default'           => sprintf( __( 'Change this title in %s','zerif-lite' ), __( 'Our focus section','zerif-lite' ) ),
+			'transport'         => 'postMessage'
+		) );
+	} else {
+		$wp_customize->add_setting( 'zerif_ourfocus_title', array(
+			'sanitize_callback' => 'zerif_sanitize_input',
+			'transport'         => 'postMessage'
+		) );
+	}
 
 	$wp_customize->add_control( 'zerif_ourfocus_title', array(
 		'label'    => __( 'Title', 'zerif-lite' ),
@@ -869,11 +890,18 @@ function zerif_customize_register( $wp_customize ) {
 	));
 
 	/* our focus subtitle */
-	$wp_customize->add_setting( 'zerif_ourfocus_subtitle', array(
-		'sanitize_callback' => 'zerif_sanitize_input',
-		'default' => __('What makes this single-page WordPress theme unique.','zerif-lite'),
-		'transport' => 'postMessage'
-	));
+	if ( current_user_can( 'edit_theme_options' ) ) {
+		$wp_customize->add_setting( 'zerif_ourfocus_subtitle', array(
+			'sanitize_callback' => 'zerif_sanitize_input',
+			'default'           => sprintf( __( 'Change this subtitle in %s','zerif-lite' ), __( 'Our focus section','zerif-lite' ) ),
+			'transport'         => 'postMessage'
+		) );
+	} else {
+		$wp_customize->add_setting( 'zerif_ourfocus_subtitle', array(
+			'sanitize_callback' => 'zerif_sanitize_input',
+			'transport'         => 'postMessage'
+		) );
+	}
 
 	$wp_customize->add_control( 'zerif_ourfocus_subtitle', array(
 		'label'    => __( 'Our focus subtitle', 'zerif-lite' ),
