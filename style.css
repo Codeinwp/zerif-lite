@@ -1719,7 +1719,7 @@ ul.nav > li.current_page_item.current > a:before {
 	font-size: 55px;
 	float:none;
 }
-.intro-text{
+.intro-text, .intro-text a{
 	text-align: center;
 	color: #FFF;
 	line-height: 65px;
