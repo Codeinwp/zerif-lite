@@ -1369,7 +1369,7 @@ object {
 	text-align: center;
 	padding-bottom: 75px;
 }
-.section-header h2 {
+.section-header h2, #focus .section-header h2 a, #team .section-header h2 a {
 	padding-bottom: 10px;
 	line-height: 40px;
 	position: relative;
@@ -1726,7 +1726,7 @@ ul.nav > li.current_page_item.current > a:before {
 	font-size: 55px;
 	float:none;
 }
-.intro-text{
+.intro-text, .intro-text a{
 	text-align: center;
 	color: #FFF;
 	line-height: 65px;
