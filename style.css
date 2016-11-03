@@ -1369,7 +1369,7 @@ object {
 	text-align: center;
 	padding-bottom: 75px;
 }
-.section-header h2, #focus .section-header h2 a, #team .section-header h2 a, #aboutus .section-header h2 a {
+.section-header h2, #focus .section-header h2 a, #team .section-header h2 a, #aboutus .section-header h2 a, #testimonials .section-header h2 a, #contact .section-header h2 a {
 	padding-bottom: 10px;
 	line-height: 40px;
 	position: relative;
