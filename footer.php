@@ -20,21 +20,37 @@
 
 		<?php
 			$footer_sections = 0;
-			$zerif_address = get_theme_mod('zerif_address',__('Company address','zerif-lite'));
-			$zerif_address_icon = get_theme_mod('zerif_address_icon',get_template_directory_uri().'/images/map25-redish.png');
 
-			$zerif_email = get_theme_mod('zerif_email','<a href="mailto:contact@site.com">contact@site.com</a>');
-			$zerif_email_icon = get_theme_mod('zerif_email_icon',get_template_directory_uri().'/images/envelope4-green.png');
+			if ( current_user_can( 'edit_theme_options' ) ) {
+				$zerif_address = get_theme_mod( 'zerif_address',sprintf( __( 'Change this text in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_address' ).'">%s</a>', __( 'General options','zerif-lite' ) ) ) );
+			} else {
+				$zerif_address = get_theme_mod( 'zerif_address' );
+			}
 
-			$zerif_phone = get_theme_mod('zerif_phone','<a href="tel:0 332 548 954">0 332 548 954</a>');
-			$zerif_phone_icon = get_theme_mod('zerif_phone_icon',get_template_directory_uri().'/images/telephone65-blue.png');
+			$zerif_address_icon = get_theme_mod( 'zerif_address_icon' );
 
-			$zerif_socials_facebook = get_theme_mod('zerif_socials_facebook','#');
-			$zerif_socials_twitter = get_theme_mod('zerif_socials_twitter','#');
-			$zerif_socials_linkedin = get_theme_mod('zerif_socials_linkedin','#');
-			$zerif_socials_behance = get_theme_mod('zerif_socials_behance','#');
-			$zerif_socials_dribbble = get_theme_mod('zerif_socials_dribbble','#');
-			$zerif_socials_instagram = get_theme_mod('zerif_socials_instagram');
+			if ( current_user_can( 'edit_theme_options' ) ) {
+				$zerif_email = get_theme_mod( 'zerif_email',sprintf( __( 'Change this text in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_email' ).'">%s</a>', __( 'General options','zerif-lite' ) ) ) );
+			} else {
+				$zerif_email = get_theme_mod( 'zerif_email' );
+			}
+
+			$zerif_email_icon = get_theme_mod( 'zerif_email_icon' );
+
+			if ( current_user_can( 'edit_theme_options' ) ) {
+				$zerif_phone = get_theme_mod( 'zerif_phone',sprintf( __( 'Change this text in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_phone' ).'">%s</a>', __( 'General options','zerif-lite' ) ) ) );
+			} else {
+				$zerif_phone = get_theme_mod( 'zerif_phone' );
+			}
+
+			$zerif_phone_icon = get_theme_mod( 'zerif_phone_icon' );
+
+			$zerif_socials_facebook = get_theme_mod( 'zerif_socials_facebook' );
+			$zerif_socials_twitter = get_theme_mod( 'zerif_socials_twitter' );
+			$zerif_socials_linkedin = get_theme_mod( 'zerif_socials_linkedin' );
+			$zerif_socials_behance = get_theme_mod( 'zerif_socials_behance' );
+			$zerif_socials_dribbble = get_theme_mod( 'zerif_socials_dribbble' );
+			$zerif_socials_instagram = get_theme_mod( 'zerif_socials_instagram' );
 
 			$zerif_accessibility = get_theme_mod('zerif_accessibility');
 			$zerif_copyright = get_theme_mod('zerif_copyright');
@@ -141,27 +157,27 @@
 
 							/* facebook */
 							if( !empty($zerif_socials_facebook) ):
-								echo '<li><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_facebook).'"><span class="sr-only">' . __( 'Go to Facebook', 'zerif-lite' ) . '</span> <i class="fa fa-facebook"></i></a></li>';
+								echo '<li id="facebook"><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_facebook).'"><span class="sr-only">' . __( 'Go to Facebook', 'zerif-lite' ) . '</span> <i class="fa fa-facebook"></i></a></li>';
 							endif;
 							/* twitter */
 							if( !empty($zerif_socials_twitter) ):
-								echo '<li><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_twitter).'"><span class="sr-only">' . __( 'Go to Twitter', 'zerif-lite' ) . '</span> <i class="fa fa-twitter"></i></a></li>';
+								echo '<li id="twitter"><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_twitter).'"><span class="sr-only">' . __( 'Go to Twitter', 'zerif-lite' ) . '</span> <i class="fa fa-twitter"></i></a></li>';
 							endif;
 							/* linkedin */
 							if( !empty($zerif_socials_linkedin) ):
-								echo '<li><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_linkedin).'"><span class="sr-only">' . __( 'Go to Linkedin', 'zerif-lite' ) . '</span> <i class="fa fa-linkedin"></i></a></li>';
+								echo '<li id="linkedin"><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_linkedin).'"><span class="sr-only">' . __( 'Go to Linkedin', 'zerif-lite' ) . '</span> <i class="fa fa-linkedin"></i></a></li>';
 							endif;
 							/* behance */
 							if( !empty($zerif_socials_behance) ):
-								echo '<li><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_behance).'"><span class="sr-only">' . __( 'Go to Behance', 'zerif-lite' ) . '</span> <i class="fa fa-behance"></i></a></li>';
+								echo '<li id="behance"><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_behance).'"><span class="sr-only">' . __( 'Go to Behance', 'zerif-lite' ) . '</span> <i class="fa fa-behance"></i></a></li>';
 							endif;
 							/* dribbble */
 							if( !empty($zerif_socials_dribbble) ):
-								echo '<li><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_dribbble).'"><span class="sr-only">' . __( 'Go to Dribble', 'zerif-lite' ) . '</span> <i class="fa fa-dribbble"></i></a></li>';
+								echo '<li id="dribbble"><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_dribbble).'"><span class="sr-only">' . __( 'Go to Dribble', 'zerif-lite' ) . '</span> <i class="fa fa-dribbble"></i></a></li>';
 							endif;
 							/* instagram */
 							if( !empty($zerif_socials_instagram) ):
-								echo '<li><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_instagram).'"><span class="sr-only">' . __( 'Go to Instagram', 'zerif-lite' ) . '</span> <i class="fa fa-instagram"></i></a></li>';
+								echo '<li id="instagram"><a'.$attribut_new_tab.' href="'.esc_url($zerif_socials_instagram).'"><span class="sr-only">' . __( 'Go to Instagram', 'zerif-lite' ) . '</span> <i class="fa fa-instagram"></i></a></li>';
 							endif;
 							echo '</ul>';
 						endif;
