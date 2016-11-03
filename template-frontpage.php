@@ -109,7 +109,11 @@ endif;
 
 					<?php
 
-					$zerif_contactus_title = get_theme_mod('zerif_contactus_title',__('Get in touch','zerif-lite'));
+					if ( current_user_can( 'edit_theme_options' ) ) {
+						$zerif_contactus_title = get_theme_mod( 'zerif_contactus_title', sprintf( __( 'Change this title in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_contactus_title' ).'">%s</a>', __( 'Contact us section','zerif-lite' ) ) ) );
+					} else {
+						$zerif_contactus_title = get_theme_mod( 'zerif_contactus_title' );
+					}
 					if ( !empty($zerif_contactus_title) ):
 						echo '<h2 class="white-text">'.wp_kses_post( $zerif_contactus_title ).'</h2>';
 					elseif ( is_customize_preview() ):

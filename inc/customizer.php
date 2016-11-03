@@ -158,7 +158,13 @@ function zerif_customize_register( $wp_customize ) {
 				return get_theme_mod('zerif_testimonials_title');
 			},
 		) );
-
+		$wp_customize->selective_refresh->add_partial( 'zerif_contactus_title', array(
+			'selector' => '#contact .section-header h2',
+			'settings' => 'zerif_contactus_title',
+			'render_callback' => function() {
+				return get_theme_mod('zerif_contactus_title');
+			},
+		) );
 
 	}
 
@@ -2013,11 +2019,18 @@ function zerif_customize_register( $wp_customize ) {
 	));
 
 	/* contactus title */
-	$wp_customize->add_setting( 'zerif_contactus_title', array(
-		'sanitize_callback' => 'zerif_sanitize_input',
-		'default' => __('Get in touch','zerif-lite'),
-		'transport' => 'postMessage'
-	));
+	if ( current_user_can( 'edit_theme_options' ) ) {
+		$wp_customize->add_setting( 'zerif_contactus_title', array(
+			'sanitize_callback' => 'zerif_sanitize_input',
+			'default'           => sprintf( __( 'Change this title in %s','zerif-lite' ), __( 'Contact us section','zerif-lite' ) ),
+			'transport'         => 'postMessage'
+		) );
+	} else {
+		$wp_customize->add_setting( 'zerif_contactus_title', array(
+			'sanitize_callback' => 'zerif_sanitize_input',
+			'transport'         => 'postMessage'
+		) );
+	}
 
 	$wp_customize->add_control( 'zerif_contactus_title', array(
 		'label'    => __( 'Contact us section title', 'zerif-lite' ),
