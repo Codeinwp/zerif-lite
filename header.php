@@ -20,13 +20,19 @@
 <?php zerif_bottom_head_trigger(); ?>
 </head>
 
+<?php
+	$body_class = '';
+if( is_page_template( 'template-frontpage.php' ) ) {
+	$body_class = 'custom-background';
+} ?>
+
 <?php if(isset($_POST['scrollPosition'])): ?>
 
-	<body <?php body_class(); ?> onLoad="window.scrollTo(0,<?php echo intval($_POST['scrollPosition']); ?>)">
+	<body <?php body_class( $body_class ); ?> onLoad="window.scrollTo(0,<?php echo intval($_POST['scrollPosition']); ?>)">
 
 <?php else: ?>
 
-	<body <?php body_class(); ?> >
+	<body <?php body_class( $body_class ); ?> >
 
 <?php endif;
 
