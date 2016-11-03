@@ -996,7 +996,8 @@ a:active {
 .site-content {
 	background: #FFF;
 }
-.home .site-content {
+.home .site-content,
+.page-template-template-frontpage .site-content {
 	background: none;
 }
 
