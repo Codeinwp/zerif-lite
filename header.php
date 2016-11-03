@@ -118,6 +118,10 @@
 
 									</p> <!-- /.site-description -->
 
+								<?php elseif( is_customize_preview() ): ?>
+
+								<p class="site-description"></p>
+
 								<?php endif; ?>
 
 							</div> <!-- /.site-title-tagline-wrapper -->
