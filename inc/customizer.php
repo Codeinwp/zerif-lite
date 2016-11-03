@@ -151,6 +151,13 @@ function zerif_customize_register( $wp_customize ) {
 				return get_theme_mod('zerif_aboutus_feature4_title');
 			},
 		) );
+		$wp_customize->selective_refresh->add_partial( 'zerif_testimonials_title', array(
+			'selector' => '#testimonials .section-header h2',
+			'settings' => 'zerif_testimonials_title',
+			'render_callback' => function() {
+				return get_theme_mod('zerif_testimonials_title');
+			},
+		) );
 
 
 	}
@@ -1704,11 +1711,18 @@ function zerif_customize_register( $wp_customize ) {
 	));
 
 	/* testimonials title */
-	$wp_customize->add_setting( 'zerif_testimonials_title', array(
-		'sanitize_callback' => 'zerif_sanitize_input',
-		'default' => __('Testimonials','zerif-lite'),
-		'transport' => 'postMessage'
-	));
+	if ( current_user_can( 'edit_theme_options' ) ) {
+		$wp_customize->add_setting( 'zerif_testimonials_title', array(
+			'sanitize_callback' => 'zerif_sanitize_input',
+			'default' => sprintf( __( 'Change this title in %s','zerif-lite' ), __( 'Testimonials section','zerif-lite' ) ),
+			'transport' => 'postMessage'
+		));
+	} else {
+		$wp_customize->add_setting( 'zerif_testimonials_title', array(
+			'sanitize_callback' => 'zerif_sanitize_input',
+			'transport' => 'postMessage'
+		));
+	}
 
 	$wp_customize->add_control( 'zerif_testimonials_title', array(
 		'label'    => __( 'Title', 'zerif-lite' ),
