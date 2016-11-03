@@ -339,7 +339,11 @@ function zerif_our_team_header_subtitle_function() {
 
 function zerif_testimonials_header_title_function() {
 
-	$zerif_testimonials_title = get_theme_mod('zerif_testimonials_title',__('Testimonials','zerif-lite'));
+	if ( current_user_can( 'edit_theme_options' ) ) {
+		$zerif_testimonials_title = get_theme_mod( 'zerif_testimonials_title', sprintf( __( 'Change this title in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_testimonials_title' ).'">%s</a>', __( 'Testimonials section','zerif-lite' ) ) ) );
+	} else {
+		$zerif_testimonials_title = get_theme_mod( 'zerif_testimonials_title' );
+	}
 
 	if( !empty($zerif_testimonials_title) ):
 
