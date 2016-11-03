@@ -5773,13 +5773,17 @@ p.edd-alert-error,
 /* [end] Easy Digital Downloads */
 
 
-body.home.page {
+body.home.page:not(.page-template-template-frontpage) {
 	background-image: none !important;
 }
 
 body.custom-background {
 	background-position: top center !important;
 	background-attachment: fixed !important;
+}
+
+.blog .blog-site-content.site-content {
+	background: #fff;
 }
 
 .zerif_team:nth-child(4n+1), .our-team .col-lg-3:nth-child(4n+1) {

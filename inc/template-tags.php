@@ -403,10 +403,18 @@ function zerif_latest_news_header_subtitle_function() {
 
 function zerif_big_title_text_function() {
 
-	if ( current_user_can( 'edit_theme_options' ) ) {
-		$zerif_bigtitle_title = get_theme_mod( 'zerif_bigtitle_title', sprintf( __( 'This piece of text can be changed in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_bigtitle_title' ).'">%s</a>', __( 'Big title section','zerif-lite' ) ) ) );
+	$zerif_bigtitle_title_default = get_theme_mod( 'zerif_bigtitle_title' );
+
+	if( ! empty ( $zerif_bigtitle_title_default ) ) {
+
+		$zerif_bigtitle_title = get_theme_mod( 'zerif_bigtitle_title_2', $zerif_bigtitle_title_default );
+
+	} elseif ( current_user_can( 'edit_theme_options' ) ) {
+
+		$zerif_bigtitle_title = get_theme_mod ( 'zerif_bigtitle_title_2', sprintf( __( 'This piece of text can be changed in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_bigtitle_title' ).'">%s</a>', __( 'Big title section','zerif-lite' ) ) ) );
+
 	} else {
-		$zerif_bigtitle_title = get_theme_mod( 'zerif_bigtitle_title' );
+		$zerif_bigtitle_title = get_theme_mod ( 'zerif_bigtitle_title_2' );
 	}
 
 	if( !empty($zerif_bigtitle_title) ):
