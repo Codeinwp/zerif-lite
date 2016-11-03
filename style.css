@@ -1564,8 +1564,15 @@ object {
 	display: inline-block;
 	text-align: center;
 }
-.navbar-inverse .navbar-brand > a:hover,
-.navbar-inverse .navbar-brand .site-title > a:focus {
+.navbar-brand > a > img {
+	max-height: 100%;
+}
+.navbar-brand .site-title-tagline-wrapper {
+	display: inline-block;
+	vertical-align: middle;
+}
+.navbar-inverse .navbar-brand .site-title-tagline-wrapper .site-title > a:hover,
+.navbar-inverse .navbar-brand .site-title-tagline-wrapper .site-title > a:focus {
 	color: #e96656;
 }
 .navbar-inverse .navbar-brand:hover,
