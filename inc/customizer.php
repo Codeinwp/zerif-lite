@@ -46,11 +46,11 @@ function zerif_customize_register( $wp_customize ) {
 			'settings' => 'custom_logo',
 			'render_callback' => 'zerif_custom_logo_callback',
 		));
-		$wp_customize->selective_refresh->add_partial( 'zerif_bigtitle_title', array(
+		$wp_customize->selective_refresh->add_partial( 'zerif_bigtitle_title_2', array(
 			'selector' => '.intro-text',
-			'settings' => 'zerif_bigtitle_title',
+			'settings' => 'zerif_bigtitle_title_2',
 			'render_callback' => function() {
-				return get_theme_mod('zerif_bigtitle_title');
+				return get_theme_mod('zerif_bigtitle_title_2');
 			},
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_bigtitle_redbutton_label', array(
@@ -630,20 +630,23 @@ function zerif_customize_register( $wp_customize ) {
 		));
 
 		/* title */
+
+		$zerif_bigtitle_title_default = get_theme_mod( 'zerif_bigtitle_title' );
+
 		if ( current_user_can( 'edit_theme_options' ) ) {
-			$wp_customize->add_setting( 'zerif_bigtitle_title', array(
+			$wp_customize->add_setting( 'zerif_bigtitle_title_2', array(
 				'sanitize_callback' => 'zerif_sanitize_input',
-				'default' => sprintf( __( 'This piece of text can be changed in %s','zerif-lite' ), __( 'Big title section','zerif-lite' ) ),
+				'default' => ! empty( $zerif_bigtitle_title_default ) ? $zerif_bigtitle_title_default : sprintf( __( 'This piece of text can be changed in %s','zerif-lite' ), __( 'Big title section','zerif-lite' ) ),
 				'transport' => 'postMessage'
 			));
 		} else {
-			$wp_customize->add_setting( 'zerif_bigtitle_title', array(
+			$wp_customize->add_setting( 'zerif_bigtitle_title_2', array(
 				'sanitize_callback' => 'zerif_sanitize_input',
 				'transport' => 'postMessage'
 			));
 		}
 
-		$wp_customize->add_control( 'zerif_bigtitle_title', array(
+		$wp_customize->add_control( 'zerif_bigtitle_title_2', array(
 			'label'    => __( 'Title', 'zerif-lite' ),
 			'section'  => 'zerif_bigtitle_section',
 			'priority'    => 2,
@@ -784,19 +787,19 @@ function zerif_customize_register( $wp_customize ) {
 
 		/* title */
 		if ( current_user_can( 'edit_theme_options' ) ) {
-			$wp_customize->add_setting( 'zerif_bigtitle_title', array(
+			$wp_customize->add_setting( 'zerif_bigtitle_title_2', array(
 				'sanitize_callback' => 'zerif_sanitize_input',
-				'default' => sprintf( __( 'This piece of text can be changed in %s','zerif-lite' ), __( 'Big title section','zerif-lite' ) ),
+				'default' => ! empty( $zerif_bigtitle_title_default ) ? $zerif_bigtitle_title_default : sprintf( __( 'This piece of text can be changed in %s','zerif-lite' ), __( 'Big title section','zerif-lite' ) ),
 				'transport' => 'postMessage'
 			));
 		} else {
-			$wp_customize->add_setting( 'zerif_bigtitle_title', array(
+			$wp_customize->add_setting( 'zerif_bigtitle_title_2', array(
 				'sanitize_callback' => 'zerif_sanitize_input',
 				'transport' => 'postMessage'
 			));
 		}
 
-		$wp_customize->add_control( 'zerif_bigtitle_title', array(
+		$wp_customize->add_control( 'zerif_bigtitle_title_2', array(
 			'label'    => __( 'Title', 'zerif-lite' ),
 			'section'  => 'zerif_bigtitle_section',
 			'priority'    => 2,

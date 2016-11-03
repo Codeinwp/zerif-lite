@@ -74,7 +74,7 @@
 	} );
 	
 	/* zerif_bigtitle_title */
-	wp.customize( 'zerif_bigtitle_title', function( value ) {
+	wp.customize( 'zerif_bigtitle_title_2', function( value ) {
 		value.bind( function( to ) {
 			if( to != '' ) {
 				$( '.header-content-wrap h1.intro-text' ).removeClass( 'zerif_hidden_if_not_customizer' );
