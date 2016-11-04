@@ -526,18 +526,6 @@ function zerif_customize_register( $wp_customize ) {
 			'description' => __('Zerif theme general options','zerif-lite'),
 		));
 
-		/* LOGO	*/
-		$wp_customize->add_setting( 'zerif_logo', array(
-			'sanitize_callback' => 'esc_url_raw'
-		));
-
-		$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'themeslug_logo', array(
-			'label'    => __( 'Logo', 'zerif-lite' ),
-			'section'  => 'zerif_general_section',
-			'settings' => 'zerif_logo',
-			'priority'    => 1,
-		)));
-
 		/* Disable preloader */
 		$wp_customize->add_setting( 'zerif_disable_preloader', array(
 			'sanitize_callback' => 'zerif_sanitize_checkbox'
@@ -2269,17 +2257,15 @@ add_action( 'customize_controls_enqueue_scripts', 'zerif_late_registers', 99 );
  * @return string
  */
 function zerif_custom_logo_callback() {
-	if ( get_theme_mod( 'custom_logo' ) ) {
-		$logo              = '';
-		$zerif_custom_logo = get_theme_mod( 'custom_logo' );
+	$logo              = '';
+	$zerif_custom_logo = get_theme_mod( 'custom_logo' );
 
-		if ( ! empty( $zerif_custom_logo ) ) {
-			$custom_logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
-			$logo        = '<a href="' . esc_url( home_url( '/' ) ) . '"><img src="' . esc_url( $custom_logo[0] ) . '"></a>';
-		} else {
-			$logo = '<div class="site-title-tagline-wrapper"><h1 class="site-title"><a href="' . esc_url( home_url( '/' ) ) . '">' . get_bloginfo( 'name' ) . '</a></h1><p class="site-description">' . get_bloginfo( 'description' ) . '</p></div>';
-		}
-
-		return $logo;
+	if ( ! empty( $zerif_custom_logo ) ) {
+		$custom_logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
+		$logo        = '<a href="' . esc_url( home_url( '/' ) ) . '"><img src="' . esc_url( $custom_logo[0] ) . '"></a>';
+	} else {
+		$logo = '<div class="site-title-tagline-wrapper"><h1 class="site-title"><a href="' . esc_url( home_url( '/' ) ) . '">' . get_bloginfo( 'name' ) . '</a></h1><p class="site-description">' . get_bloginfo( 'description' ) . '</p></div>';
 	}
+
+	return $logo;
 }
