@@ -1583,14 +1583,22 @@ object {
 	text-decoration: none;
 }
 .navbar-inverse .navbar-brand p.site-description,
-.navbar-inverse .navbar-brand .site-title a {
-	font-size: 24px;
+.navbar-inverse .navbar-brand .site-title {
+    font-family: 'Montserrat', Helvetica, sans-serif;
+    font-weight: bold;
+	font-size: 16px;
 	line-height: normal;
-	margin-bottom: 5px;
+    margin-bottom: 0;
+    color: #000;
 }
 .navbar-inverse .navbar-brand .site-title {
-	margin-bottom: 0;
+    margin-bottom: 5px;
 }
+.navbar-inverse .navbar-brand .site-title a {
+    color: #000;
+}
+
+
 
 .navbar-inverse .navbar-brand p.site-description {
 	font-size: 16px;
