@@ -20,21 +20,21 @@
 
 		<?php
 			$footer_sections = 0;
-			$zerif_address = get_theme_mod('zerif_address',__('Company address','zerif-lite'));
-			$zerif_address_icon = get_theme_mod('zerif_address_icon',get_template_directory_uri().'/images/map25-redish.png');
+			$zerif_address = get_theme_mod( 'zerif_address',apply_filters( 'zerif_address_default_filter', __('Company address','zerif-lite') ) );
+			$zerif_address_icon = get_theme_mod( 'zerif_address_icon',apply_filters( 'zerif_address_icon_default_filter', get_template_directory_uri().'/images/map25-redish.png' ) );
 
-			$zerif_email = get_theme_mod('zerif_email','<a href="mailto:contact@site.com">contact@site.com</a>');
-			$zerif_email_icon = get_theme_mod('zerif_email_icon',get_template_directory_uri().'/images/envelope4-green.png');
+			$zerif_email = get_theme_mod( 'zerif_email',apply_filters( 'zerif_email_default_filter','<a href="mailto:contact@site.com">contact@site.com</a>' ) );
+			$zerif_email_icon = get_theme_mod( 'zerif_email_icon',apply_filters( 'zerif_email_icon_default_filter',get_template_directory_uri().'/images/envelope4-green.png' ) );
 
-			$zerif_phone = get_theme_mod('zerif_phone','<a href="tel:0 332 548 954">0 332 548 954</a>');
-			$zerif_phone_icon = get_theme_mod('zerif_phone_icon',get_template_directory_uri().'/images/telephone65-blue.png');
+			$zerif_phone = get_theme_mod( 'zerif_phone',apply_filters( 'zerif_phone_default_filter','<a href="tel:0 332 548 954">0 332 548 954</a>' ) );
+			$zerif_phone_icon = get_theme_mod( 'zerif_phone_icon',apply_filters( 'zerif_phone_icon_default_filter',get_template_directory_uri().'/images/telephone65-blue.png' ) );
 
-			$zerif_socials_facebook = get_theme_mod('zerif_socials_facebook','#');
-			$zerif_socials_twitter = get_theme_mod('zerif_socials_twitter','#');
-			$zerif_socials_linkedin = get_theme_mod('zerif_socials_linkedin','#');
-			$zerif_socials_behance = get_theme_mod('zerif_socials_behance','#');
-			$zerif_socials_dribbble = get_theme_mod('zerif_socials_dribbble','#');
-			$zerif_socials_instagram = get_theme_mod('zerif_socials_instagram');
+			$zerif_socials_facebook = get_theme_mod( 'zerif_socials_facebook','#' );
+			$zerif_socials_twitter = get_theme_mod( 'zerif_socials_twitter','#' );
+			$zerif_socials_linkedin = get_theme_mod( 'zerif_socials_linkedin','#' );
+			$zerif_socials_behance = get_theme_mod( 'zerif_socials_behance','#' );
+			$zerif_socials_dribbble = get_theme_mod( 'zerif_socials_dribbble','#' );
+			$zerif_socials_instagram = get_theme_mod( 'zerif_socials_instagram' );
 
 			$zerif_accessibility = get_theme_mod('zerif_accessibility');
 			$zerif_copyright = get_theme_mod('zerif_copyright');
