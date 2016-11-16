@@ -276,7 +276,7 @@ function zerif_footer_widgets_function() {
 function zerif_our_focus_header_title_function() {
 
 	if ( current_user_can( 'edit_theme_options' ) ) {
-		$zerif_ourfocus_title = get_theme_mod( 'zerif_ourfocus_title', sprintf( __( 'Change this title in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_ourfocus_title' ).'">%s</a>', __( 'Our focus section','zerif-lite' ) ) ) );
+		$zerif_ourfocus_title = get_theme_mod( 'zerif_ourfocus_title', sprintf( __( 'Change this title in %s','zerif-lite' ), sprintf( '<a href="'.esc_url( admin_url( 'customize.php?autofocus[control]=zerif_ourfocus_title' ) ).'">%s</a>', __( 'Our focus section','zerif-lite' ) ) ) );
 	} else {
 		$zerif_ourfocus_title = get_theme_mod( 'zerif_ourfocus_title' );
 	}
@@ -291,7 +291,7 @@ function zerif_our_focus_header_title_function() {
 function zerif_our_focus_header_subtitle_function() {
 
 	if ( current_user_can( 'edit_theme_options' ) ) {
-		$zerif_ourfocus_subtitle = get_theme_mod( 'zerif_ourfocus_subtitle', sprintf( __( 'Change this subtitle in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_ourfocus_subtitle' ).'">%s</a>', __( 'Our focus section','zerif-lite' ) ) ) );
+		$zerif_ourfocus_subtitle = get_theme_mod( 'zerif_ourfocus_subtitle', sprintf( __( 'Change this subtitle in %s','zerif-lite' ), sprintf( '<a href="'.esc_url( admin_url( 'customize.php?autofocus[control]=zerif_ourfocus_subtitle' ) ).'">%s</a>', __( 'Our focus section','zerif-lite' ) ) ) );
 	} else {
 		$zerif_ourfocus_subtitle = get_theme_mod( 'zerif_ourfocus_subtitle' );
 	}
@@ -306,7 +306,7 @@ function zerif_our_focus_header_subtitle_function() {
 function zerif_our_team_header_title_function() {
 
 	if ( current_user_can( 'edit_theme_options' ) ) {
-		$zerif_ourteam_title = get_theme_mod( 'zerif_ourteam_title', sprintf( __( 'Change this title in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_ourteam_title' ).'">%s</a>', __( 'Our team section','zerif-lite' ) ) ) );
+		$zerif_ourteam_title = get_theme_mod( 'zerif_ourteam_title', sprintf( __( 'Change this title in %s','zerif-lite' ), sprintf( '<a href="'.esc_url( admin_url( 'customize.php?autofocus[control]=zerif_ourteam_title' ) ).'">%s</a>', __( 'Our team section','zerif-lite' ) ) ) );
 	} else {
 		$zerif_ourteam_title = get_theme_mod( 'zerif_ourteam_title' );
 	}
@@ -321,7 +321,7 @@ function zerif_our_team_header_title_function() {
 function zerif_our_team_header_subtitle_function() {
 
 	if ( current_user_can( 'edit_theme_options' ) ) {
-		$zerif_ourteam_subtitle = get_theme_mod( 'zerif_ourteam_subtitle', sprintf( __( 'Change this subtitle in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_ourteam_subtitle' ).'">%s</a>', __( 'Our team section','zerif-lite' ) ) ) );
+		$zerif_ourteam_subtitle = get_theme_mod( 'zerif_ourteam_subtitle', sprintf( __( 'Change this subtitle in %s','zerif-lite' ), sprintf( '<a href="'.esc_url( admin_url( 'customize.php?autofocus[control]=zerif_ourteam_subtitle' ) ).'">%s</a>', __( 'Our team section','zerif-lite' ) ) ) );
 	} else {
 		$zerif_ourteam_subtitle = get_theme_mod( 'zerif_ourteam_subtitle' );
 	}
@@ -340,7 +340,7 @@ function zerif_our_team_header_subtitle_function() {
 function zerif_testimonials_header_title_function() {
 
 	if ( current_user_can( 'edit_theme_options' ) ) {
-		$zerif_testimonials_title = get_theme_mod( 'zerif_testimonials_title', sprintf( __( 'Change this title in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_testimonials_title' ).'">%s</a>', __( 'Testimonials section','zerif-lite' ) ) ) );
+		$zerif_testimonials_title = get_theme_mod( 'zerif_testimonials_title', sprintf( __( 'Change this title in %s','zerif-lite' ), sprintf( '<a href="'.esc_url( admin_url( 'customize.php?autofocus[control]=zerif_testimonials_title' ) ).'">%s</a>', __( 'Testimonials section','zerif-lite' ) ) ) );
 	} else {
 		$zerif_testimonials_title = get_theme_mod( 'zerif_testimonials_title' );
 	}
@@ -411,7 +411,7 @@ function zerif_big_title_text_function() {
 
 	} elseif ( current_user_can( 'edit_theme_options' ) ) {
 
-		$zerif_bigtitle_title = get_theme_mod ( 'zerif_bigtitle_title_2', sprintf( __( 'This piece of text can be changed in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_bigtitle_title' ).'">%s</a>', __( 'Big title section','zerif-lite' ) ) ) );
+		$zerif_bigtitle_title = get_theme_mod ( 'zerif_bigtitle_title_2', sprintf( __( 'This piece of text can be changed in %s','zerif-lite' ), sprintf( '<a href="'.esc_url( admin_url( 'customize.php?autofocus[control]=zerif_bigtitle_title' ) ).'">%s</a>', __( 'Big title section','zerif-lite' ) ) ) );
 
 	} else {
 		$zerif_bigtitle_title = get_theme_mod ( 'zerif_bigtitle_title_2' );
@@ -431,7 +431,7 @@ function zerif_big_title_text_function() {
 function zerif_about_us_header_title_function() {
 
 	if ( current_user_can( 'edit_theme_options' ) ) {
-		$zerif_aboutus_title = get_theme_mod( 'zerif_aboutus_title', sprintf( __( 'Change this title in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_aboutus_title' ).'">%s</a>', __( 'About us section','zerif-lite' ) ) ) );
+		$zerif_aboutus_title = get_theme_mod( 'zerif_aboutus_title', sprintf( __( 'Change this title in %s','zerif-lite' ), sprintf( '<a href="'.esc_url( admin_url( 'customize.php?autofocus[control]=zerif_aboutus_title' ) ).'">%s</a>', __( 'About us section','zerif-lite' ) ) ) );
 	} else {
 		$zerif_aboutus_title = get_theme_mod( 'zerif_aboutus_title' );
 	}
@@ -446,7 +446,7 @@ function zerif_about_us_header_title_function() {
 function zerif_about_us_header_subtitle_function() {
 
 	if ( current_user_can( 'edit_theme_options' ) ) {
-		$zerif_aboutus_subtitle = get_theme_mod( 'zerif_aboutus_subtitle', sprintf( __( 'Change this subtitle in %s','zerif-lite' ), sprintf( '<a href="'.admin_url( 'customize.php?autofocus[control]=zerif_aboutus_subtitle' ).'">%s</a>', __( 'About us section','zerif-lite' ) ) ) );
+		$zerif_aboutus_subtitle = get_theme_mod( 'zerif_aboutus_subtitle', sprintf( __( 'Change this subtitle in %s','zerif-lite' ), sprintf( '<a href="'.esc_url( admin_url( 'customize.php?autofocus[control]=zerif_aboutus_subtitle' ) ).'">%s</a>', __( 'About us section','zerif-lite' ) ) ) );
 	} else {
 		$zerif_aboutus_subtitle = get_theme_mod( 'zerif_aboutus_subtitle' );
 	}
