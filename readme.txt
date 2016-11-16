@@ -30,12 +30,33 @@ The exceptions to this license are as follows:
     Dual licensed under MIT and GPL.
 
 * scrollReveal.js
-     Copyright (C) 2014  https://twitter.com/julianlloyd
-     Licensed under the MIT license.
+    Copyright (C) 2014  https://twitter.com/julianlloyd
+    Licensed under the MIT license(http://www.opensource.org/licenses/mit-license.php).
 
 * Upsell section for the customizer
-     Copyright (C) 2016 Justin Tadlock. https://github.com/justintadlock/trt-customizer-pro
-     Licensed under the GNU GENERAL PUBLIC LICENSE
+    Copyright (C) 2016 Justin Tadlock. https://github.com/justintadlock/trt-customizer-pro
+    Licensed under the GNU GENERAL PUBLIC LICENSE
+
+* Font Awesome
+    License: SIL OFL 1.1
+    URL: http://scripts.sil.org/OFL
+
+* html5.js
+    Copyright (c) 2014 Alexander Farkas (aFarkas).
+    This software is licensed under a dual license system (MIT or GPL version 2).
+    https://github.com/aFarkas/html5shiv/blob/master/MIT%20and%20GPL2%20licenses.md
+
+* parallax.js
+    Copyright Matthew Wagerfield (@wagerfield).
+    Licensed under the MIT license (http://www.opensource.org/licenses/mit-license.php).
+
+* respond.min.js
+    Copyright 2014 Scott Jehl
+    Licensed under MIT
+    http://j.mp/respondjs
+
+* smoothscroll.js
+    Licensed under the terms of the MIT license (http://www.opensource.org/licenses/mit-license.php).
 
 * Images	 
 	 
@@ -70,12 +91,6 @@ The exceptions to this license are as follows:
 		  
 		 * images/testimonial3.jpg
 			Source: https://unsplash.com/photos/MA7VYLQ_9ao
- 
-* Font Awesome
- 
-	License: SIL OFL 1.1
-	
-	URL: http://scripts.sil.org/OFL
 
 * Available hooks:
 
