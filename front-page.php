@@ -154,8 +154,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 	} else {
 	//For new users. Display the correct WordPress content.
-			global $wp_query;
-			global $paged; ?>
+		?>
 			<div class="clear"></div>
 
 			</header> <!-- / END HOME SECTION  -->
@@ -170,44 +169,27 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 							<main id="main" class="site-main" itemscope itemtype="http://schema.org/Blog">
 								<?php
-								// Define custom query parameters
-								$zerif_posts_per_page = ( get_option('posts_per_page') ) ? get_option('posts_per_page') : '6';
-								$zerif_custom_query_args = array(
-									/* Parameters go here */
-									'post_type' => 'post',
-									'posts_per_page' => $zerif_posts_per_page );
+								if ( have_posts() ) :
 
-								// Get current page and append to custom query parameters array
-								$zerif_custom_query_args['paged'] = ( get_query_var('paged') ? get_query_var('paged') : ( get_query_var('page') ? get_query_var('page') : 1) );
-								$paged = $zerif_custom_query_args['paged'];
+									while ( have_posts() ) : the_post();
 
-								// Instantiate custom query
-								$zerif_custom_query = new WP_Query( apply_filters( 'zerif_template_blog_parameters', $zerif_custom_query_args ) );
+										/* Include the Post-Format-specific template for the content.
+										 * If you want to override this in a child theme, then include a file
+										 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+										 */
 
-								// Pagination fix
-								$zerif_temp_query = $wp_query;
-								$wp_query   = NULL;
-								$wp_query   = $zerif_custom_query;
-
-								// Output custom query loop
-								if ( $zerif_custom_query->have_posts() ) :
-									while ( $zerif_custom_query->have_posts() ) :
-										$zerif_custom_query->the_post();
-										// Loop output goes here
 										get_template_part( 'content', get_post_format() );
+
 									endwhile;
+
+									zerif_paging_nav();
+
 								else :
+
 									get_template_part( 'content', 'none' );
+
 								endif;
-								// Reset postdata
-								wp_reset_postdata();
-
-								// Custom query loop pagination
-								zerif_paging_nav($zerif_custom_query->max_num_pages);
-
-								// Reset main query object
-								$wp_query = NULL;
-								$wp_query = $zerif_temp_query; ?>
+								?>
 							</main><!-- #main -->
 
 						</div><!-- #primary -->
