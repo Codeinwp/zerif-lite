@@ -10,18 +10,7 @@
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function zerif_customize_register( $wp_customize ) {
-	class Zerif_Customize_Textarea_Control extends WP_Customize_Control {
-		public $type = 'textarea';
-
-		public function render_content() {
-			?>
-			<label>
-			<span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
-			<textarea rows="5" style="width:100%;" <?php $this->link(); ?>><?php echo esc_textarea( $this->value() ); ?></textarea>
-			</label>
-			<?php
-		}
-	}
+	
 	class Zerif_Customizer_Number_Control extends WP_Customize_Control {
 		public $type = 'number';
 		public function render_content() {
@@ -448,11 +437,12 @@ function zerif_customize_register( $wp_customize ) {
 			) );
 		}
 
-		$wp_customize->add_control( new Zerif_Customize_Textarea_Control( $wp_customize, 'zerif_address', array(
+		$wp_customize->add_control( 'zerif_address', array(
 			'label'   => __( 'Address', 'zerif-lite' ),
+			'type' => 'textarea',
 			'section' => 'zerif_general_footer_section',
 			'priority' => 10
-		)));
+		));
 
 		/* email - ICON */
 		$wp_customize->add_setting( 'zerif_email_icon', array(
@@ -480,11 +470,12 @@ function zerif_customize_register( $wp_customize ) {
 			));
 		}
 
-		$wp_customize->add_control( new Zerif_Customize_Textarea_Control( $wp_customize, 'zerif_email', array(
+		$wp_customize->add_control( 'zerif_email', array(
 			'label'   => __( 'Email', 'zerif-lite' ),
+			'type' => 'textarea',
 			'section' => 'zerif_general_footer_section',
 			'priority' => 12
-		)));
+		));
 
 		/* phone number - ICON */
 		$wp_customize->add_setting( 'zerif_phone_icon', array(
@@ -512,11 +503,12 @@ function zerif_customize_register( $wp_customize ) {
 			));
 		}
 
-		$wp_customize->add_control(new Zerif_Customize_Textarea_Control( $wp_customize, 'zerif_phone', array(
+		$wp_customize->add_control( 'zerif_phone', array(
 			'label'   => __( 'Phone number', 'zerif-lite' ),
+			'type' => 'textarea',
 			'section' => 'zerif_general_footer_section',
 			'priority' => 14
-		)));
+		));
 
 	else: /* Old versions of WordPress */
 
@@ -661,11 +653,12 @@ function zerif_customize_register( $wp_customize ) {
 			) );
 		}
 
-		$wp_customize->add_control( new Zerif_Customize_Textarea_Control( $wp_customize, 'zerif_address', array(
+		$wp_customize->add_control( 'zerif_address', array(
 			'label'   => __( 'Address', 'zerif-lite' ),
+			'type' => 'textarea',
 			'section' => 'zerif_general_section',
 			'priority' => 13
-		)));
+		));
 		/* email - ICON */
 		$wp_customize->add_setting( 'zerif_email_icon', array(
 			'sanitize_callback' => 'esc_url_raw',
@@ -692,11 +685,12 @@ function zerif_customize_register( $wp_customize ) {
 			));
 		}
 
-		$wp_customize->add_control( new Zerif_Customize_Textarea_Control( $wp_customize, 'zerif_email', array(
+		$wp_customize->add_control( 'zerif_email', array(
 			'label'   => __( 'Email', 'zerif-lite' ),
+			'type' => 'textarea',
 			'section' => 'zerif_general_section',
 			'priority' => 15
-		)));
+		));
 
 		/* phone number - ICON */
 		$wp_customize->add_setting( 'zerif_phone_icon', array(
@@ -724,11 +718,12 @@ function zerif_customize_register( $wp_customize ) {
 			));
 		}
 
-		$wp_customize->add_control(new Zerif_Customize_Textarea_Control( $wp_customize, 'zerif_phone', array(
+		$wp_customize->add_control( 'zerif_phone', array(
 			'label'   => __( 'Phone number', 'zerif-lite' ),
+			'type' => 'textarea',
 			'section' => 'zerif_general_section',
 			'priority' => 17
-		)) );
+		));
 
 	endif;
 
