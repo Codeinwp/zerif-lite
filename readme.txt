@@ -39,37 +39,37 @@ The exceptions to this license are as follows:
 
 * Images	 
 	 
-	License: All unsplash.com images are licensed under the terms of the Creative Commons Zero, http://creativecommons.org/publicdomain/zero/1.0/ 	  
+	License: All unsplash.com images are licensed under the terms of the Creative Commons Zero, http://creativecommons.org/publicdomain/zero/1.0/
+
+	 	 * images/background1.jpg
+          	Source: https://unsplash.com/photos/d19by2PLaPc
+
+         * images/background2.png
+          	Source: https://unsplash.com/photos/hv5pLutRkCI
 	 
 		 * images/bg.jpg
-			Source: https://download.unsplash.com/27/perspective.jpg
+			Source: https://unsplash.com/photos/3EYK2njhLxc
 			
 		 * images/team1.png
-			Source: https://download.unsplash.com/photo-1427088625471-da8a7193afd3
+			Source: https://unsplash.com/photos/ca9NRoZcSPA
 		 
 		 * images/team2.png
-			Source: https://download.unsplash.com/31/iqlYdAAYQiaOCoKnT6jE_kabia.jpg
+			Source: https://unsplash.com/photos/JygLXMC19EU
 		 
 		 * images/team3.png
-			Source: https://download.unsplash.com/photo-1429362078931-9ba258af2ff0
+			Source: https://unsplash.com/photos/vPagbp9n3FI
 		 
 		 * images/team4.png
-			Source: https://download.unsplash.com/photo-1428471226620-c2698eadf413
+			Source: https://unsplash.com/photos/h1BuNJZzpC8
 		 
 		 * images/testimonial1.jpg
-			Source: https://download.unsplash.com/7/girl-flowers.jpg
+			Source: https://unsplash.com/photos/AHBiSKaENwc
 		 
 		 * images/testimonial2.jpg
-			Source: https://download.unsplash.com/photo-1427096105551-15e2512fd2dc
+			Source: https://unsplash.com/photos/0xDnGYaRq3M
 		  
 		 * images/testimonial3.jpg
-			Source: https://download.unsplash.com/photo-1428471226620-c2698eadf413
-
-		* images/background1.jpg
-			Source: https://images.unsplash.com/6/mountain.JPG?q=80&fm=jpg&s=29a8bc12575bcf1bb879cb20f2aa9493
-
-		* images/background2.png
-			Source: https://images.unsplash.com/photo-1434828927397-62ea053f7a35?q=80&fm=jpg&s=63163124f8cdba56cee68aeb55bcfbdf
+			Source: https://unsplash.com/photos/MA7VYLQ_9ao
  
 * Font Awesome
  
