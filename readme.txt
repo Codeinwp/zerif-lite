@@ -1,6 +1,6 @@
 === Zerif Lite ===
 Contributors:		codeinwp
-Tags:				black, gray, red, white, one-column, two-columns, right-sidebar, responsive-layout, custom-background, custom-menu, editor-style, featured-images, threaded-comments, translation-ready
+Tags:				one-column, two-columns, right-sidebar,full-width-template,rtl-language-support,sticky-post,theme-options, custom-background, custom-menu, editor-style, featured-images, threaded-comments, translation-ready, footer-widgets, portfolio, e-commerce, blog
 Requires at least:	3.3.0
 Tested up to:		4.4
 
