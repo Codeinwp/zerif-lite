@@ -188,7 +188,7 @@
 							echo '<p id="zerif-copyright" class="zerif_hidden_if_not_customizer"></p>';
 						endif;
 
-						echo '<div class="zerif-copyright-box"><a class="zerif-copyright" href="http://themeisle.com/themes/zerif-lite/"'.$attribut_new_tab.' rel="nofollow">Zerif Lite </a>'.__('powered by','zerif-lite').'<a class="zerif-copyright" href="http://wordpress.org/"'.$attribut_new_tab.' rel="nofollow"> WordPress</a></div>';
+						echo '<div class="zerif-copyright-box"><a class="zerif-copyright" href="http://themeisle.com/themes/zerif-lite/"'.$attribut_new_tab.' rel="nofollow">Zerif Lite </a>'.__('powered by','zerif-lite').' '.'<a class="zerif-copyright" href="'.esc_url( __( 'http://wordpress.org/','zerif-lite' ) ).'" '.$attribut_new_tab.' rel="nofollow"> '.__('WordPress','zerif-lite').'</a></div>';
 
 						echo '</div>';
 
