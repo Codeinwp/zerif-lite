@@ -6,7 +6,7 @@ Tested up to:		4.4
 
 Zerif Lite
 == Description ==
-Zerif Lite is a modern responsive Wordpress Theme. It's perfect for web agencies, digital studios, corporate, product showcase, personal and business portfolio.
+Zerif Lite is a modern responsive WordPress Theme. It's perfect for web agencies, digital studios, corporate, product showcase, personal and business portfolio.
 
 = License =
 Zerif Lite WordPress theme, Copyright (C) 2014 ThemeIsle.com
