@@ -202,7 +202,7 @@ function zerif_migrate_logo(){
 add_action( 'after_setup_theme', 'zerif_migrate_logo' );
 
 function zerif_excerpt_more( $more ) {
-    return ' <a href="'.get_the_permalink().'" rel="nofollow"><span class="sr-only">' . esc_html__('Read more about ', 'zerif-lite').get_the_title() . '</span>[...]</a>';
+    return ' <a href="'.get_the_permalink().'" rel="nofollow"><span class="sr-only">' . esc_html__('Read more about ', 'zerif-lite').get_the_title() . '</span>[&hellip;]</a>';
 }
 
 function zerif_lite_is_not_latest_posts() {

@@ -63,7 +63,7 @@
 			$ismore = @strpos( $post->post_content, '<!--more-->');
 			
 			if($ismore) {
-				the_content( sprintf( esc_html__('[...]','zerif-lite'), '<span class="screen-reader-text">'.esc_html__('about ', 'zerif-lite').get_the_title().'</span>' ) );
+				the_content( sprintf( esc_html__('[&hellip;]','zerif-lite'), '<span class="screen-reader-text">'.esc_html__('about ', 'zerif-lite').get_the_title().'</span>' ) );
 			} else {
 				the_excerpt();
 			}
