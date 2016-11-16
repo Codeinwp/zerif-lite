@@ -10,7 +10,7 @@
  * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
 function zerif_customize_register( $wp_customize ) {
-	
+
 	class Zerif_Customizer_Number_Control extends WP_Customize_Control {
 		public $type = 'number';
 		public function render_content() {
