@@ -117,7 +117,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 						<?php
 							if ( current_user_can( 'edit_theme_options' ) ) {
-								$zerif_contactus_title = get_theme_mod( 'zerif_contactus_title', sprintf( __( 'Change this title in %s','zerif-lite' ), sprintf( '<a href="'.esc_url( admin_url( 'customize.php?autofocus[control]=zerif_contactus_title' ) ).'">%s</a>', __( 'Contact us section','zerif-lite' ) ) ) );
+								$zerif_contactus_title = get_theme_mod( 'zerif_contactus_title', sprintf( __( 'Change this title in %s','zerif-lite' ), sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_contactus_title' ) ), __( 'Contact us section','zerif-lite' ) ) ) );
 							} else {
 								$zerif_contactus_title = get_theme_mod( 'zerif_contactus_title' );
 							}

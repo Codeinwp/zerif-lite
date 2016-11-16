@@ -22,7 +22,7 @@
 			$footer_sections = 0;
 
 			if ( current_user_can( 'edit_theme_options' ) ) {
-				$zerif_address = get_theme_mod( 'zerif_address',sprintf( __( 'Change this text in %s','zerif-lite' ), sprintf( '<a href="'.esc_url( admin_url( 'customize.php?autofocus[control]=zerif_address' ) ).'">%s</a>', __( 'General options','zerif-lite' ) ) ) );
+				$zerif_address = get_theme_mod( 'zerif_address',sprintf( __( 'Change this text in %s','zerif-lite' ), sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_address' ) ), __( 'General options','zerif-lite' ) ) ) );
 			} else {
 				$zerif_address = get_theme_mod( 'zerif_address' );
 			}
@@ -30,7 +30,7 @@
 			$zerif_address_icon = get_theme_mod( 'zerif_address_icon' );
 
 			if ( current_user_can( 'edit_theme_options' ) ) {
-				$zerif_email = get_theme_mod( 'zerif_email',sprintf( __( 'Change this text in %s','zerif-lite' ), sprintf( '<a href="'.esc_url( admin_url( 'customize.php?autofocus[control]=zerif_email' ) ).'">%s</a>', __( 'General options','zerif-lite' ) ) ) );
+				$zerif_email = get_theme_mod( 'zerif_email',sprintf( __( 'Change this text in %s','zerif-lite' ), sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_email' ) ), __( 'General options','zerif-lite' ) ) ) );
 			} else {
 				$zerif_email = get_theme_mod( 'zerif_email' );
 			}
@@ -38,7 +38,7 @@
 			$zerif_email_icon = get_theme_mod( 'zerif_email_icon' );
 
 			if ( current_user_can( 'edit_theme_options' ) ) {
-				$zerif_phone = get_theme_mod( 'zerif_phone',sprintf( __( 'Change this text in %s','zerif-lite' ), sprintf( '<a href="'.esc_url( admin_url( 'customize.php?autofocus[control]=zerif_phone' ) ).'">%s</a>', __( 'General options','zerif-lite' ) ) ) );
+				$zerif_phone = get_theme_mod( 'zerif_phone',sprintf( __( 'Change this text in %s','zerif-lite' ), sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_phone' ) ), __( 'General options','zerif-lite' ) ) ) );
 			} else {
 				$zerif_phone = get_theme_mod( 'zerif_phone' );
 			}
