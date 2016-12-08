@@ -56,11 +56,11 @@ function zerif_customize_register( $wp_customize ) {
 				return get_theme_mod('zerif_bigtitle_greenbutton_label');
 			},
 		) );
-		$wp_customize->selective_refresh->add_partial( 'zerif_ourfocus_title', array(
+		$wp_customize->selective_refresh->add_partial( 'zerif_ourfocus_title_2', array(
 			'selector' => '#focus .section-header h2',
-			'settings' => 'zerif_ourfocus_title',
+			'settings' => 'zerif_ourfocus_title_2',
 			'render_callback' => function() {
-				return get_theme_mod('zerif_ourfocus_title');
+				return get_theme_mod('zerif_ourfocus_title_2');
 			},
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_ourfocus_subtitle', array(
@@ -1102,24 +1102,33 @@ function zerif_customize_register( $wp_customize ) {
 	));
 
 	/* our focus title */
-	if ( current_user_can( 'edit_theme_options' ) ) {
-		$wp_customize->add_setting( 'zerif_ourfocus_title', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default'           => sprintf( __( 'Change this title in %s','zerif-lite' ), __( 'Our focus section','zerif-lite' ) ),
-			'transport'         => 'postMessage'
-		) );
-	} else {
-		$wp_customize->add_setting( 'zerif_ourfocus_title', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'transport'         => 'postMessage'
-		) );
-	}
 
-	$wp_customize->add_control( 'zerif_ourfocus_title', array(
-		'label'    => __( 'Title', 'zerif-lite' ),
-		'section'  => 'zerif_ourfocus_section',
-		'priority'    => -2,
-	));
+    /*
+     * define a new option with _2 to be used to differentiate between the old users and new ones
+     *
+     * get the old option's value and put it as default for the new _2 option
+     *
+     */
+
+    $zerif_ourfocus_title_default = get_theme_mod( 'zerif_ourfocus_title' );
+
+    if ( current_user_can( 'edit_theme_options' ) ) {
+        $wp_customize->add_setting( 'zerif_ourfocus_title_2', array(
+            'sanitize_callback' => 'zerif_sanitize_input',
+            'default' => ! empty( $zerif_ourfocus_title_default ) ? $zerif_ourfocus_title_default : sprintf( __( 'Change this title in %s','zerif-lite' ), __( 'Our focus section','zerif-lite' ) ),
+            'transport' => 'postMessage'
+        ));
+    } else {
+        $wp_customize->add_setting( 'zerif_ourfocus_title_2', array(
+            'sanitize_callback' => 'zerif_sanitize_input',
+            'transport' => 'postMessage'
+        ));
+    }
+    $wp_customize->add_control( 'zerif_ourfocus_title_2', array(
+        'label'    => __( 'Title', 'zerif-lite' ),
+        'section'  => 'zerif_ourfocus_section',
+        'priority'    => -2,
+    ));
 
 	/* our focus subtitle */
 	if ( current_user_can( 'edit_theme_options' ) ) {
@@ -1148,7 +1157,7 @@ function zerif_customize_register( $wp_customize ) {
 		$our_focus_section->title                                        = __( 'Our focus section', 'zerif-lite' );
 		$our_focus_section->priority                                     = 32;
 		$wp_customize->get_control( 'zerif_ourfocus_show' )->section     = 'sidebar-widgets-sidebar-ourfocus';
-		$wp_customize->get_control( 'zerif_ourfocus_title' )->section    = 'sidebar-widgets-sidebar-ourfocus';
+		$wp_customize->get_control( 'zerif_ourfocus_title_2' )->section    = 'sidebar-widgets-sidebar-ourfocus';
 		$wp_customize->get_control( 'zerif_ourfocus_subtitle' )->section = 'sidebar-widgets-sidebar-ourfocus';
 	}
 
