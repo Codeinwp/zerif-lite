@@ -2,6 +2,7 @@
 
 //Check if version 1.8.5 or less has been previously installed.
 $old_zerif_option = get_theme_mod( 'zerif_bigtitle_title' );
+$old_zerif_option_2 = get_theme_mod( 'zerif_bigtitle_redbutton_label' );
 
 //If static page is front-page, get it's template.
 if ( get_option( 'show_on_front' ) == 'page' ) {
@@ -10,7 +11,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
 
 } else {
 //For users who had previously installed 1.8.5 or less. Keep the old settings.
-	if( ! empty( $old_zerif_option ) ) {
+	if( ! empty( $old_zerif_option ) || ! empty( $old_zerif_option_2 ) ) {
 
 	$zerif_bigtitle_show = get_theme_mod('zerif_bigtitle_show');
 

@@ -27,7 +27,7 @@ function zerif_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 	$wp_customize->get_setting( 'custom_logo' )->transport = 'postMessage';
-	//$wp_customize->remove_section('colors');
+
 
 	if ( isset( $wp_customize->selective_refresh ) ) {
 		$wp_customize->selective_refresh->add_partial( 'custom_logo', array(
@@ -42,11 +42,11 @@ function zerif_customize_register( $wp_customize ) {
 				return get_theme_mod('zerif_bigtitle_title_2');
 			},
 		) );
-		$wp_customize->selective_refresh->add_partial( 'zerif_bigtitle_redbutton_label', array(
+		$wp_customize->selective_refresh->add_partial( 'zerif_bigtitle_redbutton_label_2', array(
 			'selector' => '.buttons a.red-btn',
-			'settings' => 'zerif_bigtitle_redbutton_label',
+			'settings' => 'zerif_bigtitle_redbutton_label_2',
 			'render_callback' => function() {
-				return get_theme_mod('zerif_bigtitle_redbutton_label');
+				return get_theme_mod('zerif_bigtitle_redbutton_label_2');
 			},
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_bigtitle_greenbutton_label', array(
@@ -760,6 +760,12 @@ function zerif_customize_register( $wp_customize ) {
 
 		/* title */
 
+        /*
+         * define a new option with _2 to be used to differentiate between the old users and new ones
+         *
+         * get the old option's value and put it as default for the new _2 option
+         */
+
 		$zerif_bigtitle_title_default = get_theme_mod( 'zerif_bigtitle_title' );
 
 		if ( current_user_can( 'edit_theme_options' ) ) {
@@ -781,25 +787,34 @@ function zerif_customize_register( $wp_customize ) {
 			'priority'    => 2,
 		));
 
-		/* red button */
-		if ( current_user_can( 'edit_theme_options' ) ) {
-			$wp_customize->add_setting( 'zerif_bigtitle_redbutton_label', array(
-				'sanitize_callback' => 'zerif_sanitize_input',
-				'default' => __('Customize this button','zerif-lite'),
-				'transport' => 'postMessage'
-			));
-		} else {
-			$wp_customize->add_setting( 'zerif_bigtitle_redbutton_label', array(
-				'sanitize_callback' => 'zerif_sanitize_input',
-				'transport' => 'postMessage'
-			));
-		}
 
-		$wp_customize->add_control( 'zerif_bigtitle_redbutton_label', array(
-			'label'    => __( 'Red button label', 'zerif-lite' ),
-			'section'  => 'zerif_bigtitle_section',
-			'priority'    => 3,
-		));
+		/* red button */
+
+		/*
+		 * define a new option with _2 to be used to differentiate between the old users and new ones
+		 *
+		 * get the old option's value and put it as default for the new _2 option
+		 */
+        $zerif_bigtitle_redbutton_label_default = get_theme_mod( 'zerif_bigtitle_redbutton_label' );
+
+        if ( current_user_can( 'edit_theme_options' ) ) {
+            $wp_customize->add_setting( 'zerif_bigtitle_redbutton_label_2', array(
+                'sanitize_callback' => 'zerif_sanitize_input',
+                'default' => ! empty( $zerif_bigtitle_redbutton_label_default ) ? $zerif_bigtitle_redbutton_label_default : __('Customize this button','zerif-lite'),
+                'transport' => 'postMessage'
+            ));
+        } else {
+            $wp_customize->add_setting( 'zerif_bigtitle_redbutton_label_2', array(
+                'sanitize_callback' => 'zerif_sanitize_input',
+                'transport' => 'postMessage'
+            ));
+        }
+
+        $wp_customize->add_control( 'zerif_bigtitle_redbutton_label_2', array(
+            'label'    => __( 'Red button label', 'zerif-lite' ),
+            'section'  => 'zerif_bigtitle_section',
+            'priority'    => 3,
+        ));
 
 		$wp_customize->add_setting( 'zerif_bigtitle_redbutton_url', array(
 			'sanitize_callback' => 'esc_url_raw',
@@ -915,6 +930,13 @@ function zerif_customize_register( $wp_customize ) {
 		));
 
 		/* title */
+
+        /*
+         * define a new option with _2 to be used to differentiate between the old users and new ones
+         *
+         * get the old option's value and put it as default for the new _2 option
+         */
+
 		if ( current_user_can( 'edit_theme_options' ) ) {
 			$wp_customize->add_setting( 'zerif_bigtitle_title_2', array(
 				'sanitize_callback' => 'zerif_sanitize_input',
@@ -935,24 +957,31 @@ function zerif_customize_register( $wp_customize ) {
 		));
 
 		/* red button */
-		if ( current_user_can( 'edit_theme_options' ) ) {
-			$wp_customize->add_setting( 'zerif_bigtitle_redbutton_label', array(
-				'sanitize_callback' => 'zerif_sanitize_input',
-				'default'           => __( 'Customize this button', 'zerif-lite' ),
-				'transport'         => 'postMessage'
-			) );
-		} else {
-			$wp_customize->add_setting( 'zerif_bigtitle_redbutton_label', array(
-				'sanitize_callback' => 'zerif_sanitize_input',
-				'transport'         => 'postMessage'
-			) );
-		}
 
-		$wp_customize->add_control( 'zerif_bigtitle_redbutton_label', array(
-			'label'    => __( 'Red button label', 'zerif-lite' ),
-			'section'  => 'zerif_bigtitle_section',
-			'priority'    => 3,
-		));
+        /*
+         * define a new option with _2 to be used to differentiate between the old users and new ones
+         *
+         * get the old option's value and put it as default for the new _2 option
+         */
+
+        if ( current_user_can( 'edit_theme_options' ) ) {
+            $wp_customize->add_setting( 'zerif_bigtitle_redbutton_label_2', array(
+                'sanitize_callback' => 'zerif_sanitize_input',
+                'default' => ! empty( $zerif_bigtitle_redbutton_label_default ) ? $zerif_bigtitle_redbutton_label_default : __( 'Customize this button', 'zerif-lite' ) ,
+                'transport' => 'postMessage'
+            ));
+        } else {
+            $wp_customize->add_setting( 'zerif_bigtitle_redbutton_label_2', array(
+                'sanitize_callback' => 'zerif_sanitize_input',
+                'transport' => 'postMessage'
+            ));
+        }
+
+        $wp_customize->add_control( 'zerif_bigtitle_redbutton_label_2', array(
+            'label'    => __( 'Red button label', 'zerif-lite' ),
+            'section'  => 'zerif_bigtitle_section',
+            'priority'    => 3,
+        ));
 
 		$wp_customize->add_setting( 'zerif_bigtitle_redbutton_url', array(
 			'sanitize_callback' => 'esc_url_raw',

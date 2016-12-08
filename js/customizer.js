@@ -73,7 +73,7 @@
 		} );
 	} );
 	
-	/* zerif_bigtitle_title */
+	/* zerif_bigtitle_title_2 */
 	wp.customize( 'zerif_bigtitle_title_2', function( value ) {
 		value.bind( function( to ) {
 			if( to != '' ) {
@@ -86,8 +86,8 @@
 		} );
 	} );
 	
-	/* zerif_bigtitle_redbutton_label */
-	wp.customize( 'zerif_bigtitle_redbutton_label', function( value ) {
+	/* zerif_bigtitle_redbutton_label_2 */
+	wp.customize( 'zerif_bigtitle_redbutton_label_2', function( value ) {
 		value.bind( function( to ) {
 			if( to != '' ) {
 				$( '.header-content-wrap .buttons .red-btn' ).removeClass( 'zerif_hidden_if_not_customizer' );
