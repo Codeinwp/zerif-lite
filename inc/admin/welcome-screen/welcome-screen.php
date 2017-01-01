@@ -159,7 +159,7 @@ class Zerif_Welcome {
 
 		global $zerif_required_actions;
 
-		$zerif_dismiss_id = (isset($_GET['dismiss_id'])) ? $_GET['dismiss_id'] : 0;
+		$zerif_dismiss_id = (isset($_GET['dismiss_id'])) ? esc_html( $_GET['dismiss_id'] ) : 0;
 
 		echo $zerif_dismiss_id; /* this is needed and it's the id of the dismissable required action */
 
