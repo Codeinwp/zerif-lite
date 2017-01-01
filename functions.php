@@ -862,12 +862,12 @@ if ( !class_exists( 'zerif_testimonial_widget' ) ) {
 
 			$instance                        = $old_instance;
 			$instance['text']                = stripslashes( wp_filter_post_kses( $new_instance['text'] ) );
-			$instance['title']               = strip_tags( $new_instance['title'] );
-			$instance['details']             = strip_tags( $new_instance['details'] );
-			$instance['image_uri']           = strip_tags( $new_instance['image_uri'] );
-			$instance['link']                = strip_tags( $new_instance['link'] );
-			$instance['custom_media_id']     = strip_tags( $new_instance['custom_media_id'] );
-			$instance['image_in_customizer'] = strip_tags( $new_instance['image_in_customizer'] );
+			$instance['title']               = sanitize_text_field( $new_instance['title'] );
+			$instance['details']             = sanitize_text_field( $new_instance['details'] );
+			$instance['image_uri']           = esc_url( $new_instance['image_uri'] );
+			$instance['link']                = esc_url( $new_instance['link'] );
+			$instance['custom_media_id']     = sanitize_text_field( $new_instance['custom_media_id'] );
+			$instance['image_in_customizer'] = esc_url( $new_instance['image_in_customizer'] );
 
 			return $instance;
 
