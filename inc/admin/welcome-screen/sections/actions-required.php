@@ -20,8 +20,13 @@
 		$zerif_show_required_actions = get_option("zerif_show_required_actions");
 
 		foreach( $zerif_required_actions as $zerif_required_action_key => $zerif_required_action_value ):
-			if(@$zerif_show_required_actions[$zerif_required_action_value['id']] === false) continue;
-			if(@$zerif_required_action_value['check']) continue;
+
+            if ( $zerif_show_required_actions[ $zerif_required_action_value['id'] ] === false ) {
+		        continue;
+            }
+            if ( isset( $zerif_required_action_value['check'] ) && $zerif_required_action_value['check'] ) {
+		        continue;
+            }
 			?>
 			<div class="zerif-action-required-box">
 				<span class="dashicons dashicons-no-alt zerif-dismiss-required-action" id="<?php echo $zerif_required_action_value['id']; ?>"></span>
