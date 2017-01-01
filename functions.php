@@ -1301,18 +1301,18 @@ if ( !class_exists( 'zerif_team_widget' ) ) {
 
 			$instance = $old_instance;
 
-			$instance['name']                = strip_tags( $new_instance['name'] );
+			$instance['name']                = sanitize_text_field( $new_instance['name'] );
 			$instance['position']            = stripslashes( wp_filter_post_kses( $new_instance['position'] ) );
 			$instance['description']         = stripslashes( wp_filter_post_kses( $new_instance['description'] ) );
-			$instance['fb_link']             = strip_tags( $new_instance['fb_link'] );
-			$instance['tw_link']             = strip_tags( $new_instance['tw_link'] );
-			$instance['bh_link']             = strip_tags( $new_instance['bh_link'] );
-			$instance['db_link']             = strip_tags( $new_instance['db_link'] );
-			$instance['ln_link']             = strip_tags( $new_instance['ln_link'] );
-			$instance['image_uri']           = strip_tags( $new_instance['image_uri'] );
+			$instance['fb_link']             = esc_url( $new_instance['fb_link'] );
+			$instance['tw_link']             = esc_url( $new_instance['tw_link'] );
+			$instance['bh_link']             = esc_url( $new_instance['bh_link'] );
+			$instance['db_link']             = esc_url( $new_instance['db_link'] );
+			$instance['ln_link']             = esc_url( $new_instance['ln_link'] );
+			$instance['image_uri']           = esc_url( $new_instance['image_uri'] );
 			$instance['open_new_window']     = strip_tags( $new_instance['open_new_window'] );
-			$instance['custom_media_id']     = strip_tags( $new_instance['custom_media_id'] );
-			$instance['image_in_customizer'] = strip_tags( $new_instance['image_in_customizer'] );
+			$instance['custom_media_id']     = sanitize_text_field( $new_instance['custom_media_id'] );
+			$instance['image_in_customizer'] = esc_url( $new_instance['image_in_customizer'] );
 
 			return $instance;
 
