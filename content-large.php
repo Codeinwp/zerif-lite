@@ -59,10 +59,12 @@
 
 	<div class="entry-content">
 
-		<?php 
-			$ismore = @strpos( $post->post_content, '<!--more-->');
+		<?php
+            if ( ! empty( $post->post_content ) ) {
+                $ismore = strpos($post->post_content, '<!--more-->');
+            }
 			
-			if($ismore) {
+			if ( $ismore ) {
 				the_content( sprintf( esc_html__('[&hellip;]','zerif-lite'), '<span class="screen-reader-text">'.esc_html__('about ', 'zerif-lite').get_the_title().'</span>' ) );
 			} else {
 				the_excerpt();
