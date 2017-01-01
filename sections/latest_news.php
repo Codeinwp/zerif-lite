@@ -74,9 +74,11 @@
 
 												echo '<h3 class="latestnews-title"><a href="'.esc_url( get_permalink() ).'" title="'.esc_attr( get_the_title() ).'">'.wp_kses_post( get_the_title() ).'</a></h3>';
 
-												$ismore = @strpos( $post->post_content, '<!--more-->');
+												if ( ! empty( $post->post_content ) ) {
+													$ismore = strpos( $post->post_content, '<!--more-->');
+												}
 												
-												if($ismore) {
+												if ( $ismore ) {
 													the_content( esc_html__('Read more', 'zerif-lite') .' <span class="sr-only">' . esc_html__('about ', 'zerif-lite').get_the_title() );
 												} else {
 													the_excerpt();
@@ -108,10 +110,12 @@
 											echo '</div>';
 											echo '<div class="latesnews-content">';
 												echo '<h3 class="latestnews-title"><a href="'.esc_url( get_permalink() ).'" title="'.esc_attr( get_the_title() ).'">'.wp_kses_post( get_the_title() ).'</a></h3>';
+
+												if ( ! empty( $post->post_content ) ) {
+                                                    $ismore = strpos($post->post_content, '<!--more-->');
+                                                }
 												
-												$ismore = @strpos( $post->post_content, '<!--more-->');
-												
-												if($ismore) {
+												if ( $ismore ) {
 													the_content( esc_html__('Read more', 'zerif-lite') .' <span class="sr-only">' . esc_html__('about ', 'zerif-lite').get_the_title() );
 												} else {
 													the_excerpt();
