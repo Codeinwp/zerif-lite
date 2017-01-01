@@ -10,9 +10,9 @@
 
 					<?php 
 						$image_id = get_post_thumbnail_id();
-						$image_url_big = wp_get_attachment_image_src($image_id,'post-thumbnail-large', true);
-						$image_url_tablet = wp_get_attachment_image_src($image_id,'post-thumbnail-large-table', true);
-						$image_url_mobile = wp_get_attachment_image_src($image_id,'post-thumbnail-large-mobile', true);
+						$image_url_big = wp_get_attachment_image_src($image_id,'zerif-post-thumbnail-large', true);
+						$image_url_tablet = wp_get_attachment_image_src($image_id,'zerif-post-thumbnail-large-table', true);
+						$image_url_mobile = wp_get_attachment_image_src($image_id,'zerif-post-thumbnail-large-mobile', true);
 					?>
 
 			 		<picture>
