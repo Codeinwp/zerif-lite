@@ -6,37 +6,68 @@
 }
 
 /* Tooltips */
+#customize-theme-controls .customize-pane-child.accordion-section-content#sub-accordion-section-zerif_general_section {
+    overflow: visible;
+}
+
 .zerif-moreinfo-icon {
-	color: #888;
-	position:relative;
+    transition: all .3s ease;
+    position:relative;
+    padding: 0 20px;
+    color: #888;
 }
-.zerif-moreinfo-icon:after {
-	display:none;
-	content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 5px;
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-bottom: 5px solid black;
-}
-.zerif-moreinfo-icon:hover:after {
-	content: "";
-	display:block;
-}
+
 .zerif-moreinfo-content {
-	display: none;
-    background: rgba(0,0,0,.8);
+    background: rgba(0, 0, 0, .8);
+    transition: all .3s ease;
     border-radius: 5px;
-    color: #fff;
-    padding: 15px;
     position: absolute;
-    font-size: 11px;
     line-height: 16px;
+    font-size: 11px;
+    margin-top: 4px;
+    padding: 15px;
+    z-index: 999;
+    color: #fff;
     right: 5%;
     left: 5%;
-	margin-top: 4px;
-	z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.zerif-moreinfo-icon:after {
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-bottom: 5px solid black;
+    transition: all .3s ease;
+    position: absolute;
+    bottom: -4px;
+    content: "";
+    left: 25px;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.zerif-moreinfo-icon:hover {
+    transition: all .3s ease;
+    color: #e96656;
+}
+
+.zerif-moreinfo-icon:hover:after {
+    transition: all .3s ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+.zerif-moreinfo-icon:hover ~ .zerif-moreinfo-content {
+    transition: all .3s ease;
+    opacity: 1;
+    visibility: visible;
+}
+
+.zerif-moreinfo-content:hover {
+    transition: all .3s ease;
+    opacity: 1;
+    visibility: visible;
 }
 
 .customizer-review-link p {
