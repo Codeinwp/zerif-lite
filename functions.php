@@ -193,8 +193,14 @@ function zerif_migrate_logo(){
 		$zerif_old_logo_id = attachment_url_to_postid( $zerif_old_logo );
 		if ( is_int( $zerif_old_logo_id ) ) {
 			set_theme_mod( 'custom_logo', $zerif_old_logo_id );
+
+			$zerif_migrated_logo = get_theme_mod( 'custom_logo' );
+			if ( ! empty( $zerif_migrated_logo ) ) {
+				if ( $zerif_migrated_logo == $zerif_old_logo_id ) {
+					remove_theme_mod( 'zerif_logo' );
+				}
+			}
 		}
-		remove_theme_mod( 'zerif_logo' );
 
 	}
 }
