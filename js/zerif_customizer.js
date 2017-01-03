@@ -17,10 +17,5 @@ jQuery(document).ready(function() {
 	jQuery('#customize-control-zerif_disable_smooth_scroll label').append('<span class="dashicons dashicons-info zerif-moreinfo-icon"></span><div class="zerif-moreinfo-content">' + zerifLiteCustomizerObject.tooltip_smoothscroll + '</div>');
 	
 	jQuery('#customize-control-zerif_disable_preloader label').append('<span class="dashicons dashicons-info zerif-moreinfo-icon"></span><div class="zerif-moreinfo-content">' + zerifLiteCustomizerObject.tooltip_preloader + '</div>');
-	
-	jQuery('.zerif-moreinfo-icon').hover(function() {
-		jQuery(this).next('.zerif-moreinfo-content').show();
-	},function(){
-		jQuery(this).next('.zerif-moreinfo-content').hide();
-	});
+
 });
