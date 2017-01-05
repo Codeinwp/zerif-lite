@@ -1,4 +1,11 @@
 
+### 2.0.5 - 05/01/2017
+**Changes:** 
+- Fixed fatal error issues with Themeisle Companion plugin installed
+- Reorganized customizer upsells
+- Added hooks and filters for use in child themes
+- Removed doubled hook trigers from latest news section
+
 ### 2.0.4 - 19/10/2016
 **Changes:** 
 - Fixed for sections with widgets not appearing anymore after the hide button is selected for each section
