@@ -33,39 +33,11 @@ function zerif_customize_register( $wp_customize ) {
 		<?php
 		}
 	}
-	class Zerif_Theme_Support extends WP_Customize_Control {
-		public function render_content() {
-		}
-	}
-
-	class Zerif_Theme_Support_Videobackground extends WP_Customize_Control {
-		public function render_content() {
-		}
-	}
 
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
 	$wp_customize->remove_section('colors');
-
-
-
-	/**********************************************/
-	/*************** ORDER ************************/
-	/**********************************************/
-
-	$wp_customize->add_section( 'zerif_order_section', array(
-		'title'	=> __( 'Sections order and Colors', 'zerif-lite' ),
-		'priority' => 28
-	));
-
-	$wp_customize->add_setting( 'zerif_order_section', array(
-		'sanitize_callback' => 'sanitize_text_field'
-	));
-
-	$wp_customize->add_control( new Zerif_Theme_Support( $wp_customize, 'zerif_order_section', array(
-	    'section' => 'zerif_order_section',
-	)));
 
 	/***********************************************/
 	/************** GENERAL OPTIONS  ***************/
@@ -665,24 +637,6 @@ function zerif_customize_register( $wp_customize ) {
 			'priority'	=> 2,
 		)));
 
-		/*************************************************************/
-		/************* Video background(available in pro) ************/
-		/*************************************************************/
-
-		$wp_customize->add_section( 'zerif_videobackground_in_pro_section' , array(
-			'title'       => __( 'Video background', 'zerif-lite' ),
-			'priority'    => 3,
-			'panel'       => 'panel_big_title'
-		));
-
-		$wp_customize->add_setting( 'zerif_videobackground_in_pro', array(
-			'sanitize_callback' => 'sanitize_text_field'
-		));
-
-		$wp_customize->add_control( new Zerif_Theme_Support_Videobackground( $wp_customize, 'zerif_videobackground_in_pro', array(
-			'section' => 'zerif_videobackground_in_pro_section',
-		)));
-
 	else:
 
 		$wp_customize->add_section( 'zerif_bigtitle_section' , array(
@@ -810,23 +764,6 @@ function zerif_customize_register( $wp_customize ) {
 			'section'  	=> 'zerif_parallax_section',
 			'settings' 	=> 'zerif_parallax_img2',
 			'priority'	=> 2,
-		)));
-
-		/*************************************************************/
-		/************* Video background(available in pro) ************/
-		/*************************************************************/
-
-		$wp_customize->add_section( 'zerif_videobackground_in_pro_section' , array(
-			'title'       => __( 'Video background', 'zerif-lite' ),
-			'priority'    => 61
-		));
-
-		$wp_customize->add_setting( 'zerif_videobackground_in_pro', array(
-			'sanitize_callback' => 'sanitize_text_field'
-		));
-
-		$wp_customize->add_control( new Zerif_Theme_Support_Videobackground( $wp_customize, 'zerif_videobackground_in_pro', array(
-			'section' => 'zerif_videobackground_in_pro_section',
 		)));
 
 	endif;
@@ -1869,6 +1806,29 @@ function zerif_customize_register( $wp_customize ) {
 		'section'  => 'zerif_contactus_section',
 		'priority'    => 8,
 	));
+
+
+	/*********************************/
+	/*********  Theme Info  **********/
+	/*********************************/
+	if ( class_exists( 'WP_Customize_Panel' ) ):
+		require_once get_template_directory() . '/inc/class/class-zerif-theme-info.php';
+		$wp_customize->add_section('zerif_theme_info', array(
+				'title' => __('Theme info', 'zerif-lite'),
+				'priority' => 0,
+			)
+		);
+		$wp_customize->add_setting('zerif_theme_info', array(
+				'capability'        => 'edit_theme_options',
+				'sanitize_callback' => 'zerif_sanitize_input'
+			)
+		);
+		$wp_customize->add_control( new Zerif_Theme_Info( $wp_customize, 'zerif_theme_info', array(
+				'section' => 'zerif_theme_info',
+				'priority' => 10
+			) )
+		);
+	endif;
 	
 }
 add_action( 'customize_register', 'zerif_customize_register' );
@@ -1899,58 +1859,11 @@ function zerif_registers() {
 
 	wp_enqueue_script( 'zerif_customizer_script', get_template_directory_uri() . '/js/zerif_customizer.js', array("jquery"), '1.0.7', true  );
 
-	wp_localize_script( 'zerif_customizer_script', 'zerifLiteCustomizerObject', array(
-
-		'documentation' => __( 'View Documentation', 'zerif-lite' ),
-		'pro' => __('View PRO version','zerif-lite')
-
-	) );
 }
 add_action( 'customize_controls_enqueue_scripts', 'zerif_registers' );
 
 function zerif_late_registers(){
 	wp_enqueue_script( 'zerif_customizer_script', get_template_directory_uri() . '/js/zerif_customizer.js', array("jquery"), '1.0.7', true  );
 
-	wp_localize_script( 'zerif_customizer_script', 'zerifLiteCustomizerObject', array(
-
-		'documentation' => __( 'View Documentation', 'zerif-lite' ),
-		'pro' => __('View PRO version','zerif-lite')
-
-	) );
 }
 add_action( 'customize_controls_enqueue_scripts', 'zerif_late_registers', 99 );
-
-/* ajax callback for dismissable Asking for reviews */
-add_action( 'wp_ajax_zerif_lite_dismiss_asking_for_reviews','zerif_lite_dismiss_asking_for_reviews_callback' );
-add_action( 'wp_ajax_nopriv_zerif_lite_dismiss_asking_for_reviews','zerif_lite_dismiss_asking_for_reviews_callback' );
-
-/**
- * Dismiss asking for reviews
- */
-function zerif_lite_dismiss_asking_for_reviews_callback() {
-	
-	if( !empty($_POST['ask']) ) {
-		set_theme_mod('zerif_lite_ask_for_review',esc_attr($_POST['ask']));
-	}
-
-	die();
-}
-
-add_action( 'customize_controls_enqueue_scripts', 'zerif_lite_asking_for_reviews_script' );
-
-function zerif_lite_asking_for_reviews_script() {
-	
-	$zerif_lite_review = 'yes';
-	
-	$zerif_lite_ask_for_review = get_theme_mod('zerif_lite_ask_for_review');
-	if( !empty($zerif_lite_ask_for_review) ) {
-		$zerif_lite_review = $zerif_lite_ask_for_review;
-	}
-
-	wp_enqueue_script( 'zerif-lite-asking-for-reviews-js', get_template_directory_uri() . '/js/zerif_reviews.js', array('jquery') );
-
-	wp_localize_script( 'zerif-lite-asking-for-reviews-js', 'zerifLiteAskingForReviewsObject', array(
-		'ask' => esc_attr( $zerif_lite_review ),
-		'ajaxurl' => admin_url( 'admin-ajax.php' ),
-	) );
-}

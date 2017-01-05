@@ -53,8 +53,11 @@
 	</div>
 	<div class="mobile-bg-fix-whole-site">
 
+<?php zerif_before_header_trigger(); ?>
 
-<header id="home" class="header" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+<header id="<?php echo apply_filters( 'zerif_header_id_filter','home' ); ?>" class="<?php echo apply_filters('zerif_header_class_filter','header'); ?>" itemscope="itemscope" itemtype="http://schema.org/WPHeader">
+
+	<?php zerif_top_header_trigger(); ?>
 
 	<div id="main-nav" class="navbar navbar-inverse bs-docs-nav" role="banner">
 
@@ -113,4 +116,5 @@
 		</div>
 
 	</div>
+	<?php zerif_bottom_header_trigger(); ?>
 	<!-- / END TOP BAR -->
