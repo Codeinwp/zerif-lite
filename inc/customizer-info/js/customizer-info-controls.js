@@ -12,8 +12,8 @@
         }
     } );
 
-    // Extends our custom "zerif-upsell-big-title-section" section.
-    api.sectionConstructor['zerif-upsell-big-title-section'] = api.Section.extend( {
+    // Extends our custom "zerif-upsell-pro" section.
+    api.sectionConstructor['zerif-upsell-pro'] = api.Section.extend( {
 
         // No events for this type of section.
         attachEvents: function () {},
@@ -24,8 +24,8 @@
         }
     } );
 
-    // Extends our custom "zerif-upsell-general-sections" section.
-    api.sectionConstructor['zerif-upsell-general-sections'] = api.Section.extend( {
+    // Extends our custom "zerif-upsell-features-1" section.
+    api.sectionConstructor['zerif-upsell-features-1'] = api.Section.extend( {
 
         // No events for this type of section.
         attachEvents: function () {},

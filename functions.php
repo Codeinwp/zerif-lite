@@ -78,7 +78,7 @@ function zerif_setup() {
     require_once get_template_directory() . '/class-tgm-plugin-activation.php';
 
 	/* Customizer info */
-	require_once get_template_directory() . '/inc/customizer-info/class/class-singleton-customizer-info-section.php';
+	require_once get_template_directory() . '/inc/customizer-info/class/class-zerif-customize-upsell.php';
 
     /* woocommerce support */
 	add_theme_support( 'woocommerce' );
