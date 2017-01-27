@@ -74,8 +74,13 @@
 					echo '<div class="'.$footer_class.' company-details">';
 
 						if( !empty($zerif_address_icon) ) {
+
+							$zerif_address_icon_alt = '';
+
+							$zerif_address_icon_alt = get_post_meta( attachment_url_to_postid( $zerif_address_icon ), '_wp_attachment_image_alt', true );
+
 							echo '<div class="icon-top red-text">';
-								 echo '<img src="'.esc_url($zerif_address_icon).'" alt="" />';
+								 echo '<img src="'.esc_url($zerif_address_icon).'" alt="'.esc_attr( $zerif_address_icon_alt ).'" />';
 							echo '</div>';
 						}
 
@@ -95,8 +100,12 @@
 					echo '<div class="'.$footer_class.' company-details">';
 
 						if( !empty($zerif_email_icon) ) {
+
+							$zerif_email_icon_alt = '';
+							$zerif_email_icon_alt = get_post_meta( attachment_url_to_postid( $zerif_email_icon ), '_wp_attachment_image_alt', true );
+
 							echo '<div class="icon-top green-text">';
-								echo '<img src="'.esc_url($zerif_email_icon).'" alt="" />';
+								echo '<img src="'.esc_url($zerif_email_icon).'" alt="' . esc_attr( $zerif_email_icon_alt ) . '" />';
 							echo '</div>';
 						}
 						if( !empty($zerif_email) ) {
@@ -114,8 +123,12 @@
 				if( !empty($zerif_phone_icon) || !empty($zerif_phone) ) {
 					echo '<div class="'.$footer_class.' company-details">';
 						if( !empty($zerif_phone_icon) ) {
+
+							$zerif_phone_icon_alt = '';
+							$zerif_phone_icon_alt = get_post_meta( attachment_url_to_postid( $zerif_phone_icon ), '_wp_attachment_image_alt', true );
+
 							echo '<div class="icon-top blue-text">';
-								echo '<img src="'.esc_url($zerif_phone_icon).'" alt="" />';
+								echo '<img src="'.esc_url($zerif_phone_icon).'" alt="' . esc_attr( $zerif_phone_icon_alt ) . '" />';
 							echo '</div>';
 						}
 						if( !empty($zerif_phone) ) {
