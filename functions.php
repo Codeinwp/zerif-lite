@@ -112,8 +112,8 @@ function zerif_setup() {
 			array(
                 "id" => 'zerif-lite-req-ac-frontpage-latest-news',
                 "title" => esc_html__( 'Get the one page template' ,'zerif-lite' ),
-                "description"=> esc_html__( 'If you just installed Zerif Lite, and are not able to see the one page template, you need to go to Settings -> Reading , Front page displays and select "Your latest posts".','zerif-lite' ),
-				"check" => zerif_lite_is_not_latest_posts()
+                "description"=> esc_html__( 'If you just installed Zerif Lite, and are not able to see the one page template, you need to create a page and select the template "Frontpage" for that page. After that, go to Appearance -> Customize -> Static Front Page and under "Static Front Page" select "A static page". Finally, for "Front page" choose the page you previously created.','zerif-lite' ),
+				"check" => zerif_lite_is_static_frontpage()
             ),
             array(
                 "id" => 'zerif-lite-req-ac-install-pirate-forms',
@@ -213,6 +213,19 @@ function zerif_excerpt_more( $more ) {
 
 function zerif_lite_is_not_latest_posts() {
 	return ('posts' == get_option( 'show_on_front' ) ? true : false);
+}
+
+function zerif_lite_is_static_frontpage() {
+	if ( 'posts' == get_option( 'show_on_front' ) ) {
+		return false;
+	} else {
+		$frontpage_id = get_option( 'page_on_front' );
+		if ( 'template-frontpage.php' == get_post_meta( $frontpage_id, '_wp_page_template', true ) ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
 
 /**
