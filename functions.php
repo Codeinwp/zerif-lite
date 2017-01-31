@@ -631,8 +631,8 @@ if ( !class_exists( 'zerif_ourfocus' ) && zerif_check_if_old_version_of_theme() 
 
 				<?php } elseif ( ! empty( $instance['custom_media_id'] ) ) {
 
-					$zerif_ourfocus_custom_media_id = wp_get_attachment_image_src( $instance["custom_media_id"] );
-					if ( ! empty( $zerif_ourfocus_custom_media_id ) && ! empty( $zerif_ourfocus_custom_media_id[0] ) ) {
+					$zerif_ourfocus_custom_media_id = wp_get_attachment_image_url( $instance["custom_media_id"] );
+					if ( ! empty( $zerif_ourfocus_custom_media_id ) ) {
 
 						if ( ! empty( $instance['link'] ) ) { ?>
 							<a href="<?php echo esc_url( $instance['link'] ); ?>" class="service-icon">
@@ -645,13 +645,13 @@ if ( !class_exists( 'zerif_ourfocus' ) && zerif_check_if_old_version_of_theme() 
 									<?php
 								} ?>
 								<i class="pixeden"
-								   style="background:url(<?php echo esc_url( $zerif_ourfocus_custom_media_id[0] ); ?>) no-repeat center;width:100%; height:100%;"></i>
+								   style="background:url(<?php echo esc_url( $zerif_ourfocus_custom_media_id ); ?>) no-repeat center;width:100%; height:100%;"></i>
 							</a>
 							<?php
 						} else { ?>
 							<div class="service-icon" tabindex="0">
 								<i class="pixeden"
-								   style="background:url(<?php echo esc_url( $zerif_ourfocus_custom_media_id[0] ); ?>) no-repeat center;width:100%; height:100%;"></i>
+								   style="background:url(<?php echo esc_url( $zerif_ourfocus_custom_media_id ); ?>) no-repeat center;width:100%; height:100%;"></i>
 								<!-- FOCUS ICON-->
 							</div>
 							<?php
@@ -783,14 +783,14 @@ if ( !class_exists( 'zerif_testimonial_widget' ) && zerif_check_if_old_version_o
 
 				} elseif ( ! empty( $instance['custom_media_id'] ) ) {
 
-					$zerif_testimonials_custom_media_id = wp_get_attachment_image_src( $instance["custom_media_id"] );
+					$zerif_testimonials_custom_media_id = wp_get_attachment_image_url( $instance["custom_media_id"] );
 					$alt                                = get_post_meta( $instance['custom_media_id'], '_wp_attachment_image_alt', true );
 
-					if ( ! empty( $zerif_testimonials_custom_media_id ) && ! empty( $zerif_testimonials_custom_media_id[0] ) ) {
+					if ( ! empty( $zerif_testimonials_custom_media_id ) ) {
 
 						echo '<div class="client-image hidden-xs">';
 
-						echo '<img src="' . esc_url( $zerif_testimonials_custom_media_id[0] ) . '" alt="' . $alt . '" />';
+						echo '<img src="' . esc_url( $zerif_testimonials_custom_media_id ) . '" alt="' . esc_attr( $alt ) . '" />';
 
 						echo '</div>';
 
@@ -949,10 +949,10 @@ if ( !class_exists( 'zerif_clients_widget' ) && zerif_check_if_old_version_of_th
 
 				} elseif ( ! empty( $instance['custom_media_id'] ) ) {
 
-					$zerif_clients_custom_media_id = wp_get_attachment_image_src( $instance["custom_media_id"] );
-					if ( ! empty( $zerif_clients_custom_media_id ) && ! empty( $zerif_clients_custom_media_id[0] ) ) {
+					$zerif_clients_custom_media_id = wp_get_attachment_image_url( $instance["custom_media_id"] );
+					if ( ! empty( $zerif_clients_custom_media_id ) ) {
 
-						echo '<img src="' . esc_url( $zerif_clients_custom_media_id[0] ) . '" alt="' . __( 'Client', 'zerif-lite' ) . '">';
+						echo '<img src="' . esc_url( $zerif_clients_custom_media_id ) . '" alt="' . __( 'Client', 'zerif-lite' ) . '">';
 
 					}
 				}
@@ -1090,16 +1090,15 @@ if ( !class_exists( 'zerif_team_widget' ) && zerif_check_if_old_version_of_theme
 						<?php
 					} elseif ( ! empty( $instance['custom_media_id'] ) ) {
 
-						$zerif_team_custom_media_id = wp_get_attachment_image_src( $instance["custom_media_id"] );
+						$zerif_team_custom_media_id = wp_get_attachment_image_url( $instance["custom_media_id"] );
 						$alt                        = get_post_meta( $instance['custom_media_id'], '_wp_attachment_image_alt', true );
 
-						if ( ! empty( $zerif_team_custom_media_id ) && ! empty( $zerif_team_custom_media_id[0] ) ) {
+						if ( ! empty( $zerif_team_custom_media_id ) ) {
 							?>
 
 							<figure class="profile-pic">
 
-								<img src="<?php echo esc_url( $zerif_team_custom_media_id[0] ); ?>"
-								     alt="<?php echo $alt; ?>"/>
+								<img src="<?php echo esc_url( $zerif_team_custom_media_id ); ?>" alt="<?php echo esc_attr( $alt ); ?>"/>
 
 							</figure>
 

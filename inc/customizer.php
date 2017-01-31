@@ -2283,8 +2283,8 @@ function zerif_custom_logo_callback() {
 	$zerif_custom_logo = get_theme_mod( 'custom_logo' );
 
 	if ( ! empty( $zerif_custom_logo ) ) {
-		$custom_logo = wp_get_attachment_image_src( get_theme_mod( 'custom_logo' ), 'full' );
-		$logo        = '<a href="' . esc_url( home_url( '/' ) ) . '"><img src="' . esc_url( $custom_logo[0] ) . '"></a>';
+		$custom_logo = wp_get_attachment_image_url( get_theme_mod( 'custom_logo' ), 'full' );
+		$logo        = '<a href="' . esc_url( home_url( '/' ) ) . '"><img src="' . esc_url( $custom_logo ) . '"></a>';
 	} else {
 		$logo = '<div class="site-title-tagline-wrapper"><h1 class="site-title"><a href="' . esc_url( home_url( '/' ) ) . '">' . get_bloginfo( 'name' ) . '</a></h1><p class="site-description">' . get_bloginfo( 'description' ) . '</p></div>';
 	}

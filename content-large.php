@@ -10,15 +10,15 @@
 
 					<?php 
 						$image_id = get_post_thumbnail_id();
-						$image_url_big = wp_get_attachment_image_src($image_id,'zerif-post-thumbnail-large', true);
-						$image_url_tablet = wp_get_attachment_image_src($image_id,'zerif-post-thumbnail-large-table', true);
-						$image_url_mobile = wp_get_attachment_image_src($image_id,'zerif-post-thumbnail-large-mobile', true);
+						$image_url_big = wp_get_attachment_image_url($image_id,'zerif-post-thumbnail-large', true);
+						$image_url_tablet = wp_get_attachment_image_url($image_id,'zerif-post-thumbnail-large-table', true);
+						$image_url_mobile = wp_get_attachment_image_url($image_id,'zerif-post-thumbnail-large-mobile', true);
 					?>
 
 			 		<picture>
-						<source media="(max-width: 600px)" srcset="<?php echo esc_url( $image_url_mobile[0] ); ?>">
-						<source media="(max-width: 768px)" srcset="<?php echo esc_url( $image_url_tablet[0] ); ?>">
-						<img src="<?php echo esc_url( $image_url_big[0] ); ?>" alt="<?php the_title_attribute(); ?>">
+						<source media="(max-width: 600px)" srcset="<?php echo esc_url( $image_url_mobile ); ?>">
+						<source media="(max-width: 768px)" srcset="<?php echo esc_url( $image_url_tablet ); ?>">
+						<img src="<?php echo esc_url( $image_url_big ); ?>" alt="<?php the_title_attribute(); ?>">
 					</picture>
 
 				</a>
