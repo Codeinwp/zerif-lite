@@ -204,25 +204,6 @@ $customizer_url = admin_url() . 'customize.php' ;
 			<?php
 		}
 		?>
-		
-		<hr />
-		
-		<!-- Adblock Notify -->
-		<h4>Adblock Notify</h4>
-
-		<?php if ( is_plugin_active( 'adblock-notify-by-bweb/adblock-notify.php' ) ) { ?>
-
-			<p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p>
-
-			<?php
-		}
-		else { ?>
-
-			<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=adblock-notify-by-bweb' ), 'install-plugin_adblock-notify-by-bweb' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install', 'zerif-lite' ); ?> Adblock Notify</a></p>
-
-			<?php
-		} 
-		?>
 
 	</div>
 
@@ -241,26 +222,6 @@ $customizer_url = admin_url() . 'customize.php' ;
 		else { ?>
 
 			<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=visualizer' ), 'install-plugin_visualizer' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install Visualizer', 'zerif-lite' ); ?></a></p>
-
-			<?php
-		}
-		?>
-		
-		<hr />
-		
-		<!-- ECPT -->
-		<h4><?php esc_html_e( 'Easy Content Types', 'zerif-lite' ); ?></h4>
-		<p><?php esc_html_e( 'Custom Post Types, Taxonomies and Metaboxes in Minutes', 'zerif-lite' ); ?></p>
-
-		<?php if ( is_plugin_active( 'easy-content-types/easy-content-types.php' ) ) { ?>
-
-				<p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p>
-
-			<?php
-		}
-		else { ?>
-
-				<p><a href="<?php echo esc_url( 'http://themeisle.com/plugins/easy-content-types/' ); ?>" class="button button-primary"><?php esc_html_e( 'Download Easy Content Types', 'zerif-lite' ); ?></a></p>
 
 			<?php
 		}
@@ -304,6 +265,24 @@ $customizer_url = admin_url() . 'customize.php' ;
 			<?php
 		}
 		?>
+
+		<hr />
+
+		<!-- Adblock Notify -->
+		<h4>Adblock Notify</h4>
+
+		<?php if ( is_plugin_active( 'adblock-notify-by-bweb/adblock-notify.php' ) ) { ?>
+
+			<p><span class="zerif-lite-w-activated button"><?php esc_html_e( 'Already activated', 'zerif-lite' ); ?></span></p>
+
+			<?php
+		}
+		else { ?>
+
+			<p><a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=adblock-notify-by-bweb' ), 'install-plugin_adblock-notify-by-bweb' ) ); ?>" class="button button-primary"><?php esc_html_e( 'Install', 'zerif-lite' ); ?> Adblock Notify</a></p>
+
+			<?php
+		} ?>
 
 	</div>
 
