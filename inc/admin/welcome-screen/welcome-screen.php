@@ -208,10 +208,6 @@ class Zerif_Welcome {
 	 * @since 1.8.2.4
 	 */
 	public function zerif_lite_welcome_screen() {
-
-		require_once( ABSPATH . 'wp-load.php' );
-		require_once( ABSPATH . 'wp-admin/admin.php' );
-		require_once( ABSPATH . 'wp-admin/admin-header.php' );
 		?>
 
 		<ul class="zerif-lite-nav-tabs" role="tablist">

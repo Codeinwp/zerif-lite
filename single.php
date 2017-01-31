@@ -20,7 +20,7 @@ get_header(); ?>
 				<?php while ( have_posts() ) : the_post(); 
 
 						get_template_part( 'content', 'single' );
-					
+
 						the_post_navigation( array( 'next_text' => _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'zerif-lite' ), 'prev_text' => _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'zerif-lite' ) ) );
 
 						// If comments are open or we have at least one comment, load up the comment template
