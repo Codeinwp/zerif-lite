@@ -29,9 +29,9 @@ get_header(); ?>
 							get_template_part( 'content', get_post_format() );
 
 						endwhile;
-						
-						zerif_paging_nav();
-						
+
+						echo get_the_posts_navigation( array( 'next_text' => sprintf( __( 'Newer posts %s','zerif-lite' ), '<span class="meta-nav">&rarr;</span>' ), 'prev_text' => sprintf( __( '%s Older posts', 'zerif-lite' ) , '<span class="meta-nav">&larr;</span>' ) ) );
+
 					else :
 					
 						get_template_part( 'content', 'none' );

@@ -32,7 +32,7 @@ get_header(); ?>
 
 						<?php endwhile; ?>
 
-						<?php zerif_paging_nav(); ?>
+						<?php echo get_the_posts_navigation( array( 'next_text' => sprintf( __( 'Newer posts %s','zerif-lite' ), '<span class="meta-nav">&rarr;</span>' ), 'prev_text' => sprintf( __( '%s Older posts', 'zerif-lite' ) , '<span class="meta-nav">&larr;</span>' ) ) ); ?>
 
 					<?php else : ?>
 

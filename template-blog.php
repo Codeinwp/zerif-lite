@@ -48,8 +48,8 @@ global $paged; ?>
 					// Reset postdata
 					wp_reset_postdata();
 
-					// Custom query loop pagination
-					zerif_paging_nav($zerif_custom_query->max_num_pages);
+					echo get_the_posts_navigation( array( 'next_text' => sprintf( __( 'Newer posts %s','zerif-lite' ), '<span class="meta-nav">&rarr;</span>' ), 'prev_text' => sprintf( __( '%s Older posts', 'zerif-lite' ) , '<span class="meta-nav">&larr;</span>' ) ) );
+
 
 					// Reset main query object
 					$wp_query = NULL;

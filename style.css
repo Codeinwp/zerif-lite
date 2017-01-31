@@ -774,12 +774,12 @@ a:active {
 }
 .comment-navigation .nav-previous,
 .paging-navigation .nav-previous,
-.post-navigation .nav-previous {
+.posts-navigation .nav-previous {
 	float: left;
 }
 .comment-navigation .nav-next,
 .paging-navigation .nav-next,
-.post-navigation .nav-next {
+.posts-navigation .nav-next {
 	float: right;
 	text-align: right;
 	width: 50%;
