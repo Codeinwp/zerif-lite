@@ -74,29 +74,15 @@
 
 				</button>
 
-				<?php
-
-					$logo = get_theme_mod ( 'custom_logo' );
-
-					$zerif_logo = wp_get_attachment_image_url( $logo, 'full' ); ?>
-
 					<div class="navbar-brand">
-
-						<?php if( ! empty( $zerif_logo ) ) : ?>
-
-							<a href="<?php echo esc_url( home_url( '/' ) ) ?> ">
-
-								<?php
-
-								echo '<img src="'.esc_url( $zerif_logo ).'" alt="'.esc_attr( get_bloginfo('title') ).'">';
-
-								?>
-
-							</a>
 
 						<?php
 
-						else:
+						if( has_custom_logo() ) {
+
+							the_custom_logo();
+
+						} else {
 
 						?>
 							<div class="site-title-tagline-wrapper">
@@ -126,7 +112,7 @@
 
 							</div> <!-- /.site-title-tagline-wrapper -->
 
-						<?php endif; ?>
+						<?php } ?>
 
 					</div> <!-- /.navbar-brand -->
 

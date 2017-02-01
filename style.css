@@ -1569,6 +1569,7 @@ object {
 }
 .navbar-brand > a > img {
 	max-height: 100%;
+	width: auto;
 }
 .navbar-brand .site-title-tagline-wrapper {
 	display: inline-block;
