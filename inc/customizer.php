@@ -2207,33 +2207,6 @@ function zerif_customize_register( $wp_customize ) {
 		'priority'    => 3,
 	));
 
-
-	/*********************************/
-	/*********  Theme Info  **********/
-	/*********************************/
-
-	if ( class_exists( 'WP_Customize_Panel' ) ):
-
-		require_once get_template_directory() . '/inc/class/class-zerif-theme-info.php';
-
-		$wp_customize->add_section('zerif_theme_info', array(
-				'title' => __('Theme info', 'zerif-lite'),
-				'priority' => 0,
-			)
-		);
-		$wp_customize->add_setting('zerif_theme_info', array(
-				'capability'        => 'edit_theme_options',
-				'sanitize_callback' => 'zerif_sanitize_input'
-			)
-		);
-		$wp_customize->add_control( new Zerif_Theme_Info( $wp_customize, 'zerif_theme_info', array(
-				'section' => 'zerif_theme_info',
-				'priority' => 10
-			) )
-		);
-
-	endif;
-
 }
 add_action( 'customize_register', 'zerif_customize_register' );
 
@@ -2263,8 +2236,6 @@ function zerif_late_registers(){
 
 	wp_localize_script( 'zerif_customizer_script', 'zerifLiteCustomizerObject', array(
 
-		'documentation' => __( 'View Documentation', 'zerif-lite' ),
-		'pro' => __('View PRO version','zerif-lite'),
 		'tooltip_safefont' => sprintf( '%1$s <br><br> %2$s', __( 'Zerif Lite main font is Montserrat, which only supports the Latin script.','zerif-lite' ), __( 'If you are using other scripts like Cyrillic or Greek , you need to check this box to enable the safe fonts for better compatibility.','zerif-lite' ) ),
 		'tooltip_accessibility' => sprintf( '%1$s <br><br> %2$s <br><br> %3$s', __( 'Web accessibility means that people with disabilities can use the Web. More specifically, Web accessibility means that people with disabilities can perceive, understand, navigate, and interact with the Web, and that they can contribute to the Web.','zerif-lite' ), __( 'Web accessibility also benefits others, including older people with changing abilities due to aging.','zerif-lite' ), __( 'By checking this box, you will enable this option on the site.','zerif-lite' ) ),
 		'tooltip_smoothscroll' => sprintf( '%1$s <br><br> %2$s <br><br> %3$s', __( 'Smooth scrolling can be very useful if you read a lot of long pages. Normally, when you press Page Down, the view jumps directly down one page.','zerif-lite' ), __( 'With smooth scrolling, it slides down smoothly, so you can see how much it scrolls. This makes it easier to resume reading from where you were before.','zerif-lite' ), __( 'By checking this box, the smooth scroll will be disabled.','zerif-lite' ) ),
