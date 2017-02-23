@@ -30,7 +30,7 @@ function zerif_customize_register( $wp_customize ) {
 
     $wp_customize->add_section( 'zerif_theme_info_main_section', array(
         'title'    => __( 'View PRO version', 'zerif-lite' ),
-        'priority' => 0,
+        'priority' => 1,
     ) );
     $wp_customize->add_setting( 'zerif_theme_info_main_control', array(
         'sanitize_callback' => 'esc_html',

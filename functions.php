@@ -429,6 +429,11 @@ function zerif_setup() {
 	);
 	TI_About_Page::init( $config );
 
+	/*
+	 * Recommended plugins/actions in customize
+	 */
+	require get_template_directory() . '/inc/admin/customizer-notify/welcome-page-setup.php';
+
 }
 
 add_action('after_setup_theme', 'zerif_setup');
