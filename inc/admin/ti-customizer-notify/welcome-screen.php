@@ -3,7 +3,7 @@
 /**
  * Welcome Screen Class
  */
-class Affluent_Welcome {
+class Ti_Customizer_Notify_Welcome {
 
 	/**
 	 * Constructor for the welcome screen
@@ -11,24 +11,24 @@ class Affluent_Welcome {
 	public function __construct() {
 
 		/* ajax callback for dismissable required actions */
-		add_action( 'wp_ajax_affluent_dismiss_required_action', array(
+		add_action( 'wp_ajax_ti_customizer_notify_dismiss_required_action', array(
 			$this,
-			'affluent_dismiss_required_action_callback'
+			'ti_customizer_notify_dismiss_required_action_callback'
 		) );
 
 		add_action( 'wp_ajax_affluent_dismiss_recommended_plugins', array(
 			$this,
-			'affluent_dismiss_recommended_plugins_callback'
+			'ti_customizer_notify_dismiss_recommended_plugins_callback'
 		) );
 
 
-		add_action( 'admin_init', array( $this, 'affluent_activate_plugin' ) );
-		add_action( 'admin_init', array( $this, 'affluent_deactivate_plugin' ) );
+		add_action( 'admin_init', array( $this, 'ti_customizer_notify_activate_plugin' ) );
+		add_action( 'admin_init', array( $this, 'ti_customizer_notify_deactivate_plugin' ) );
 	}
 
 
 
-	public function affluent_activate_plugin() {
+	public function ti_customizer_notify_activate_plugin() {
 		if ( ! empty( $_GET ) ) {
 			/**
 			 * Check action
@@ -41,7 +41,7 @@ class Affluent_Welcome {
 		}
 	}
 
-	public function affluent_deactivate_plugin() {
+	public function ti_customizer_notify_deactivate_plugin() {
 		if ( ! empty( $_GET ) ) {
 			/**
 			 * Check action
@@ -65,8 +65,8 @@ class Affluent_Welcome {
 	 *
 	 * @since 1.8.2.4
 	 */
-	public function affluent_dismiss_required_action_callback() {
-		global $affluent_required_actions;
+	public function ti_customizer_notify_dismiss_required_action_callback() {
+		global $ti_customizer_notify_required_actions;
 		$action_id = ( isset( $_GET['id'] ) ) ? $_GET['id'] : 0;
 		echo $action_id; /* this is needed and it's the id of the dismissable required action */
 		if ( ! empty( $action_id ) ):
@@ -85,8 +85,8 @@ class Affluent_Welcome {
 			/* create the new option,with false for the specified id */
 			else:
 				$affluent_show_required_actions_new = array();
-				if ( ! empty( $affluent_required_actions ) ):
-					foreach ( $affluent_required_actions as $affluent_required_action ):
+				if ( ! empty( $ti_customizer_notify_required_actions ) ):
+					foreach ( $ti_customizer_notify_required_actions as $affluent_required_action ):
 						if ( $affluent_required_action['id'] == $action_id ):
 							$affluent_show_required_actions_new[ $affluent_required_action['id'] ] = false;
 						else:
@@ -100,7 +100,7 @@ class Affluent_Welcome {
 		die(); // this is required to return a proper result
 	}
 
-	public function affluent_dismiss_recommended_plugins_callback() {
+	public function ti_customizer_notify_dismiss_recommended_plugins_callback() {
 		$action_id = ( isset( $_GET['id'] ) ) ? $_GET['id'] : 0;
 		echo $action_id; /* this is needed and it's the id of the dismissable required action */
 		if ( ! empty( $action_id ) ):
@@ -122,4 +122,4 @@ class Affluent_Welcome {
 	}
 }
 
-new Affluent_Welcome();
+new Ti_Customizer_Notify_Welcome();

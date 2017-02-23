@@ -1,10 +1,10 @@
 <?php
 
-if ( ! class_exists( 'MT_Notify_System' ) ) {
+if ( ! class_exists( 'Ti_Customizer_Notify_Notify_System' ) ) {
 	/**
-	 * Class MT_Notify_System
+	 * Class Ti_Customizer_Notify_Notify_System
 	 */
-	class MT_Notify_System {
+	class Ti_Customizer_Notify_Notify_System {
 		/**
 		 * @param $ver
 		 *
@@ -163,29 +163,29 @@ if ( ! class_exists( 'MT_Notify_System' ) ) {
 		public static function widget_importer_exporter_title() {
 			$installed = self::check_plugin_is_installed( 'widget-importer-exporter' );
 			if ( ! $installed ) {
-				return __( 'Install: Widget Importer Exporter Plugin', 'affluent' );
+				return __( 'Install: Widget Importer Exporter Plugin', 'zerif-lite' );
 			}
 
 			$active = self::check_plugin_is_active( 'widget-importer-exporter' );
 			if ( $installed && ! $active ) {
-				return __( 'Activate: Widget Importer Exporter Plugin', 'affluent' );
+				return __( 'Activate: Widget Importer Exporter Plugin', 'zerif-lite' );
 			}
 
-			return __( 'Install: Widget Importer Exporter Plugin', 'affluent' );
+			return __( 'Install: Widget Importer Exporter Plugin', 'zerif-lite' );
 		}
 
 		public static function wordpress_importer_title() {
 			$installed = self::check_plugin_is_installed( 'wordpress-importer' );
 			if ( ! $installed ) {
-				return __( 'Install: WordPress Importer', 'affluent' );
+				return __( 'Install: WordPress Importer', 'zerif-lite' );
 			}
 
 			$active = self::check_plugin_is_active( 'wordpress-importer' );
 			if ( $installed && ! $active ) {
-				return __( 'Activate: WordPress Importer', 'affluent' );
+				return __( 'Activate: WordPress Importer', 'zerif-lite' );
 			}
 
-			return __( 'Install: WordPress Importer', 'affluent' );
+			return __( 'Install: WordPress Importer', 'zerif-lite' );
 		}
 
 		/**
@@ -194,29 +194,29 @@ if ( ! class_exists( 'MT_Notify_System' ) ) {
 		public static function wordpress_importer_description() {
 			$installed = self::check_plugin_is_installed( 'wordpress-importer' );
 			if ( ! $installed ) {
-				return __( 'Please install the WordPress Importer to create the demo content.', 'affluent' );
+				return __( 'Please install the WordPress Importer to create the demo content.', 'zerif-lite' );
 			}
 
 			$active = self::check_plugin_is_active( 'wordpress-importer' );
 			if ( $installed && ! $active ) {
-				return __( 'Please activate the WordPress Importer to create the demo content.', 'affluent' );
+				return __( 'Please activate the WordPress Importer to create the demo content.', 'zerif-lite' );
 			}
 
-			return __( 'Please install the WordPress Importer to create the demo content.', 'affluent' );
+			return __( 'Please install the WordPress Importer to create the demo content.', 'zerif-lite' );
 		}
 
 		public static function widget_importer_exporter_description() {
 			$installed = self::check_plugin_is_installed( 'widget-importer-exporter' );
 			if ( ! $installed ) {
-				return __( 'Please install the WordPress widget importer to create the demo content', 'affluent' );
+				return __( 'Please install the WordPress widget importer to create the demo content', 'zerif-lite' );
 			}
 
 			$active = self::check_plugin_is_active( 'widget-importer-exporter' );
 			if ( $installed && ! $active ) {
-				return __( 'Please activate the WordPress Widget Importer to create the demo content.', 'affluent' );
+				return __( 'Please activate the WordPress Widget Importer to create the demo content.', 'zerif-lite' );
 			}
 
-			return __( 'Please install the WordPress widget importer to create the demo content', 'affluent' );
+			return __( 'Please install the WordPress widget importer to create the demo content', 'zerif-lite' );
 
 		}
 
@@ -243,15 +243,6 @@ if ( ! class_exists( 'MT_Notify_System' ) ) {
 				return '';
 			}
 
-		}
-
-		/**
-		 * @return bool
-		 */
-		public static function is_not_template_front_page() {
-			$page_id = get_option( 'page_on_front' );
-
-			return get_page_template_slug( $page_id ) == 'page-templates/frontpage-template.php' ? true : false;
 		}
 	}
 }

@@ -5,7 +5,7 @@
  * @since  1.0.0
  * @access public
  */
-class Affluent_Customize_Section_Recommend extends WP_Customize_Section {
+class Ti_Customizer_Notify_Customize_Section_Recommend extends WP_Customize_Section {
 	/**
 	 * The type of customize section being rendered.
 	 *
@@ -114,10 +114,10 @@ class Affluent_Customize_Section_Recommend extends WP_Customize_Section {
 	 */
 	public function json() {
 		$json = parent::json();
-		global $affluent_required_actions, $affluent_recommended_plugins;
+		global $ti_customizer_notify_required_actions, $affluent_recommended_plugins;
 		$formatted_array = array();
 		$affluent_show_required_actions = get_option( "affluent_show_required_actions" );
-		foreach ( $affluent_required_actions as $key => $affluent_required_action ) {
+		foreach ( $ti_customizer_notify_required_actions as $key => $affluent_required_action ) {
 			if ( @$affluent_show_required_actions[ $affluent_required_action['id'] ] === false ) {
 				continue;
 			}
@@ -139,15 +139,15 @@ class Affluent_Customize_Section_Recommend extends WP_Customize_Section {
 				switch ( $active['needs'] ) {
 					case 'install':
 						$affluent_required_action['button_class'] = 'install-now button';
-						$affluent_required_action['button_label'] = __( 'Install', 'affluent' );
+						$affluent_required_action['button_label'] = __( 'Install', 'zerif-lite' );
 						break;
 					case 'activate':
 						$affluent_required_action['button_class'] = 'activate-now button button-primary';
-						$affluent_required_action['button_label'] = __( 'Activate', 'affluent' );
+						$affluent_required_action['button_label'] = __( 'Activate', 'zerif-lite' );
 						break;
 					case 'deactivate':
 						$affluent_required_action['button_class'] = 'deactivate-now button';
-						$affluent_required_action['button_label'] = __( 'Deactivate', 'affluent' );
+						$affluent_required_action['button_label'] = __( 'Deactivate', 'zerif-lite' );
 						break;
 				}
 
@@ -163,7 +163,7 @@ class Affluent_Customize_Section_Recommend extends WP_Customize_Section {
 				continue;
 			}
 
-			if ( MT_Notify_System::has_import_plugin( $slug ) ) {
+			if ( Ti_Customizer_Notify_Notify_System::has_import_plugin( $slug ) ) {
 				continue;
 			}
 
@@ -182,15 +182,15 @@ class Affluent_Customize_Section_Recommend extends WP_Customize_Section {
 			switch ( $active['needs'] ) {
 				case 'install':
 					$affluent_recommended_plugin['button_class'] = 'install-now button';
-					$affluent_recommended_plugin['button_label'] = __( 'Install', 'affluent' );
+					$affluent_recommended_plugin['button_label'] = __( 'Install', 'zerif-lite' );
 					break;
 				case 'activate':
 					$affluent_recommended_plugin['button_class'] = 'activate-now button button-primary';
-					$affluent_recommended_plugin['button_label'] = __( 'Activate', 'affluent' );
+					$affluent_recommended_plugin['button_label'] = __( 'Activate', 'zerif-lite' );
 					break;
 				case 'deactivate':
 					$affluent_recommended_plugin['button_class'] = 'deactivate-now button';
-					$affluent_recommended_plugin['button_label'] = __( 'Deactivate', 'affluent' );
+					$affluent_recommended_plugin['button_label'] = __( 'Deactivate', 'zerif-lite' );
 					break;
 			}
 			$info   = $this->call_plugin_api( $slug );
@@ -206,7 +206,7 @@ class Affluent_Customize_Section_Recommend extends WP_Customize_Section {
 
 		$json['required_actions'] = $formatted_array;
 		$json['recommended_plugins'] = $customize_plugins;
-		$json['total_actions'] = count($affluent_required_actions);
+		$json['total_actions'] = count($ti_customizer_notify_required_actions);
 		$json['plugin_text'] = $this->plugin_text;
 		$json['dismiss_button'] = $this->dismiss_button;
 		return $json;

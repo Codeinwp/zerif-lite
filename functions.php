@@ -432,7 +432,7 @@ function zerif_setup() {
 	/*
 	 * Recommended plugins/actions in customize
 	 */
-	require get_template_directory() . '/inc/admin/customizer-notify/welcome-page-setup.php';
+	require get_template_directory() . '/inc/admin/ti-customizer-notify/welcome-page-setup.php';
 
 }
 

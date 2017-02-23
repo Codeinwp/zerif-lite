@@ -1,5 +1,5 @@
 /* global wp */
-/* global affluentWelcomeScreenObject */
+/* global tiCustomizerNotifyWelcomeScreenObject */
 /* global console */
 ( function( api ) {
 
@@ -25,11 +25,11 @@ jQuery(document).ready(function(){
             action = jQuery(this).attr('data-action');
         jQuery.ajax({
             type: 'GET',
-            data: { action: 'affluent_dismiss_required_action', id: id, todo: action },
+            data: { action: 'ti_customizer_notify_dismiss_required_action', id: id, todo: action },
             dataType: 'html',
-            url: affluentWelcomeScreenObject.ajaxurl,
+            url: tiCustomizerNotifyWelcomeScreenObject.ajaxurl,
             beforeSend: function (data, settings) {
-                jQuery('#' + id).parent().append('<div id="temp_load" style="text-align:center"><img src="' + affluentWelcomeScreenObject.base_path + '/images/spinner-2x.gif" /></div>');
+                jQuery('#' + id).parent().append('<div id="temp_load" style="text-align:center"><img src="' + tiCustomizerNotifyWelcomeScreenObject.base_path + '/images/spinner-2x.gif" /></div>');
             },
             success: function (data) {
                 var container = jQuery('#' + data).parent().parent();
@@ -65,9 +65,9 @@ jQuery(document).ready(function(){
             type: 'GET',
             data: { action: 'affluent_dismiss_recommended_plugins', id: id, todo: action },
             dataType: 'html',
-            url: affluentWelcomeScreenObject.ajaxurl,
+            url: tiCustomizerNotifyWelcomeScreenObject.ajaxurl,
             beforeSend: function (data, settings) {
-                jQuery('#' + id).parent().append('<div id="temp_load" style="text-align:center"><img src="' + affluentWelcomeScreenObject.base_path + '/images/spinner-2x.gif" /></div>');
+                jQuery('#' + id).parent().append('<div id="temp_load" style="text-align:center"><img src="' + tiCustomizerNotifyWelcomeScreenObject.base_path + '/images/spinner-2x.gif" /></div>');
             },
             success: function (data) {
                 var container = jQuery('#' + data).parent().parent();
