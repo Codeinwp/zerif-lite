@@ -53,7 +53,6 @@
  *             ),
  *            // Child themes array.
  *            'child_themes'            => array(
- *                'title'                 => __( 'List of child themes to use with Flymag', 'flymag' ),
  *                'download_button_label' => 'Download',
  *                'preview_button_label'  => 'Live preview',
  *                'content'               => array(
