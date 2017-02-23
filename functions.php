@@ -132,7 +132,7 @@ function zerif_setup() {
 	        )
         );
 
-		require get_template_directory() . '/inc/admin/welcome-screen/welcome-screen.php';
+		
 	}
 
 	/***********************************/
