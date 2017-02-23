@@ -402,10 +402,10 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 
 				if ( ! empty( $welcome_title ) ) {
 					echo '<h1>';
-						echo esc_html( $welcome_title );
-						if ( ! empty( $this->theme_version ) ) {
-							echo esc_html( $this->theme_version ) . ' </sup>';
-						}
+					echo esc_html( $welcome_title );
+					if ( ! empty( $this->theme_version ) ) {
+						echo esc_html( $this->theme_version ) . ' </sup>';
+					}
 					echo '</h1>';
 				}
 				if ( ! empty( $welcome_content ) ) {
@@ -425,19 +425,19 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 						if ( ( $tab_key != 'changelog' ) || ( ( $tab_key == 'changelog' ) && isset( $_GET['show'] ) && ( $_GET['show'] == 'yes' ) ) ) {
 
 							echo '<a href="' . esc_url( admin_url( 'themes.php?page=' . $this->theme_slug . '-welcome' ) ) . '&tab=' . $tab_key . '" class="nav-tab ' . ( $active_tab == $tab_key ? 'nav-tab-active' : '' ) . '" role="tab" data-toggle="tab">';
-								echo esc_html( $tab_name );
-								if ( $tab_key == 'recommended_actions' ) {
-									$count = 0;
+							echo esc_html( $tab_name );
+							if ( $tab_key == 'recommended_actions' ) {
+								$count = 0;
 
-									$actions_count = $this->get_required_actions();
+								$actions_count = $this->get_required_actions();
 
-									if ( ! empty( $actions_count ) ) {
-										$count = count( $actions_count );
-									}
-									if ( $count > 0 ) {
-										echo '<span class="badge-action-count">' . esc_html( $count ) . '</span>';
-									}
+								if ( ! empty( $actions_count ) ) {
+									$count = count( $actions_count );
 								}
+								if ( $count > 0 ) {
+									echo '<span class="badge-action-count">' . esc_html( $count ) . '</span>';
+								}
+							}
 							echo '</a>';
 						}
 
@@ -581,39 +581,39 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 					foreach ( $getting_started as $getting_started_item ) {
 
 						echo '<div class="col">';
-							if ( ! empty( $getting_started_item['title'] ) ) {
-								echo '<h3>' . $getting_started_item['title'] . '</h3>';
+						if ( ! empty( $getting_started_item['title'] ) ) {
+							echo '<h3>' . $getting_started_item['title'] . '</h3>';
+						}
+						if ( ! empty( $getting_started_item['text'] ) ) {
+							echo '<p>' . $getting_started_item['text'] . '</p>';
+						}
+						if ( ! empty( $getting_started_item['button_link'] ) && ! empty( $getting_started_item['button_label'] ) ) {
+
+							echo '<p>';
+							$button_class = '';
+							if ( $getting_started_item['is_button'] ) {
+								$button_class = 'button button-primary';
 							}
-							if ( ! empty( $getting_started_item['text'] ) ) {
-								echo '<p>' . $getting_started_item['text'] . '</p>';
+
+							$count = 0;
+
+							$actions_count = $this->get_required_actions();
+
+							if ( ! empty( $actions_count ) ) {
+								$count = count( $actions_count );
 							}
-							if ( ! empty( $getting_started_item['button_link'] ) && ! empty( $getting_started_item['button_label'] ) ) {
 
-								echo '<p>';
-									$button_class = '';
-									if ( $getting_started_item['is_button'] ) {
-										$button_class = 'button button-primary';
-									}
-
-									$count = 0;
-
-									$actions_count = $this->get_required_actions();
-
-									if ( ! empty( $actions_count ) ) {
-										$count = count( $actions_count );
-									}
-
-									if ( $getting_started_item['recommended_actions'] && isset( $count ) ) {
-										if ( $count == 0 ) {
-											echo '<span class="dashicons dashicons-yes"></span>';
-										} else {
-											echo '<span class="dashicons dashicons-no-alt"></span>';
-										}
-									}
-
-									echo '<a target="_blank" href="' . $getting_started_item['button_link'] . '"class="' . $button_class . '">' . $getting_started_item['button_label'] . '</a>';
-								echo '</p>';
+							if ( $getting_started_item['recommended_actions'] && isset( $count ) ) {
+								if ( $count == 0 ) {
+									echo '<span class="dashicons dashicons-yes"></span>';
+								} else {
+									echo '<span class="dashicons dashicons-no-alt"></span>';
+								}
 							}
+
+							echo '<a target="_blank" href="' . $getting_started_item['button_link'] . '"class="' . $button_class . '">' . $getting_started_item['button_label'] . '</a>';
+							echo '</p>';
+						}
 
 						echo '</div><!-- .col -->';
 					}
@@ -800,31 +800,21 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 		 * Child themes
 		 */
 		public function child_themes() {
-			echo '<div id="child_themes" class="ti-about-page-tab-pane">';
+			echo '<div id="child-themes" class="ti-about-page-tab-pane">';
 			$child_themes = isset( $this->config['child_themes'] ) ? $this->config['child_themes'] : array();
 			if ( ! empty( $child_themes ) ) {
 				if ( ! empty( $child_themes['content'] ) && is_array( $child_themes['content'] ) ) {
-					if ( ! empty( $child_themes['title'] ) ) {
-						echo '<div class="ti-about-page-tab-pane-center">';
-						echo esc_html( $child_themes['title'] );
-						echo '</div>';
-					}
-					echo '<div class="ti-about-page-tab-pane-half ti-about-page-tab-pane-first-half">';
+					echo '<div class="ti-about-row">';
 					for ( $i = 0; $i < count( $child_themes['content'] ); $i ++ ) {
-						if ( $i == ceil( count( $child_themes['content'] ) / 2 ) ) {
+						if( ( $i !== 0 ) && ( $i / 3 === 0 ) ) {
 							echo '</div>';
-							echo '<div class="ti-about-page-tab-pane-half ti-about-page-tab-pane-first-half">';
+							echo '<div class="ti-about-row">';
 						}
 						$child = $child_themes['content'][ $i ];
 						if ( ! empty( $child['image'] ) ) {
-							echo '<div class="ti-about-page-child-theme-container">';
-							echo '<div class="ti-about-page-child-theme-image-container">';
+							echo '<div class="ti-about-child-theme">';
+							echo '<div class="ti-about-page-child-theme-image">';
 							echo '<img src="' . esc_url( $child['image'] ) . '" alt="' . ( ! empty( $child['image_alt'] ) ? esc_html( $child['image_alt'] ) : '' ) . '" />';
-							if ( ! empty( $child['description'] ) ) {
-								echo '<div class="ti-about-page-child-theme-description">';
-								echo '<h2>' . wp_kses_post( $child['description'] ) . '</h2>';
-								echo '</div>';
-							}
 							if ( ! empty( $child['title'] ) ) {
 								echo '<div class="ti-about-page-child-theme-details">';
 								if ( $child['title'] != $this->theme_name ) {
@@ -836,13 +826,12 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 									if ( ! empty( $child['preview_link'] ) && ! empty( $child_themes['preview_button_label'] ) ) {
 										echo '<a class="button button-secondary preview right" target="_blank" href="' . $child['preview_link'] . '">' . esc_html( $child_themes['preview_button_label'] ) . '</a>';
 									}
-									echo '<div class="ti-about-page-clear"></div>';
 									echo '</div>';
 								}
 								echo '</div>';
 							}
-							echo '</div><!-- .ti-about-page-child-theme-image-container -->';
-							echo '</div><!-- .ti-about-page-child-theme-container -->';
+							echo '</div><!--ti-about-page-child-theme-image-->';
+							echo '</div><!--ti-about-child-theme-->';
 						}// End if().
 					}// End for().
 					echo '</div>';
@@ -857,54 +846,54 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 		public function support() {
 			echo '<div class="feature-section three-col">';
 
-				if ( ! empty( $this->config['support_content'] ) ) {
+			if ( ! empty( $this->config['support_content'] ) ) {
 
-					$support_steps = $this->config['support_content'];
+				$support_steps = $this->config['support_content'];
 
-					if ( ! empty( $support_steps ) ) {
+				if ( ! empty( $support_steps ) ) {
 
-						foreach ( $support_steps as $support_step ) {
+					foreach ( $support_steps as $support_step ) {
 
-							echo '<div class="col">';
+						echo '<div class="col">';
 
-								if ( ! empty( $support_step['title'] ) ) {
-									echo '<h3>';
-									if ( ! empty( $support_step['icon'] ) ) {
-										echo '<i class="' . $support_step['icon'] . '"></i>';
-									}
-									echo $support_step['title'];
-									echo '</h3>';
-								}
-
-								if ( ! empty( $support_step['text'] ) ) {
-									echo '<p><i>' . $support_step['text'] . '</i></p>';
-								}
-
-								if ( ! empty( $support_step['button_link'] ) && ! empty( $support_step['button_label'] ) ) {
-
-									echo '<p>';
-									$button_class = '';
-									if ( $support_step['is_button'] ) {
-										$button_class = 'button button-primary';
-									}
-
-									$button_new_tab = '_self';
-									if ( isset( $support_step['is_new_tab'] ) ) {
-										if ( $support_step['is_new_tab'] ) {
-											$button_new_tab = '_blank';
-										}
-									}
-									echo '<a target="' . $button_new_tab . '" href="' . $support_step['button_link'] . '"class="' . $button_class . '">' . $support_step['button_label'] . '</a>';
-									echo '</p>';
-								}
-
-							echo '</div>';
-
+						if ( ! empty( $support_step['title'] ) ) {
+							echo '<h3>';
+							if ( ! empty( $support_step['icon'] ) ) {
+								echo '<i class="' . $support_step['icon'] . '"></i>';
+							}
+							echo $support_step['title'];
+							echo '</h3>';
 						}
+
+						if ( ! empty( $support_step['text'] ) ) {
+							echo '<p><i>' . $support_step['text'] . '</i></p>';
+						}
+
+						if ( ! empty( $support_step['button_link'] ) && ! empty( $support_step['button_label'] ) ) {
+
+							echo '<p>';
+							$button_class = '';
+							if ( $support_step['is_button'] ) {
+								$button_class = 'button button-primary';
+							}
+
+							$button_new_tab = '_self';
+							if ( isset( $support_step['is_new_tab'] ) ) {
+								if ( $support_step['is_new_tab'] ) {
+									$button_new_tab = '_blank';
+								}
+							}
+							echo '<a target="' . $button_new_tab . '" href="' . $support_step['button_link'] . '"class="' . $button_class . '">' . $support_step['button_label'] . '</a>';
+							echo '</p>';
+						}
+
+						echo '</div>';
 
 					}
 
 				}
+
+			}
 
 			echo '</div>';
 		}
@@ -969,7 +958,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 			$free_pro = isset( $this->config['free_pro'] ) ? $this->config['free_pro'] : array();
 			if ( ! empty( $free_pro ) ) {
 				if ( ! empty( $free_pro['free_theme_name'] ) && ! empty( $free_pro['pro_theme_name'] ) && ! empty( $free_pro['features'] ) && is_array( $free_pro['features'] ) ) {
-				    echo '<div class="feature-section">';
+					echo '<div class="feature-section">';
 					echo '<div id="free_pro" class="ti-about-page-tab-pane ti-about-page-fre-pro">';
 					echo '<table class="free-pro-table">';
 					echo '<thead>';
