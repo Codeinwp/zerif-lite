@@ -88,53 +88,6 @@ function zerif_setup() {
 	/* selective widget refresh */
 	add_theme_support( 'customize-selective-refresh-widgets' );
 
-	/*******************************************/
-    /*************  Welcome screen *************/
-    /*******************************************/
-
-	if ( is_admin() ) {
-
-        global $zerif_required_actions;
-
-        /*
-         * id - unique id; required
-         * title
-         * description
-         * check - check for plugins (if installed)
-         * plugin_slug - the plugin's slug (used for installing the plugin)
-         *
-         */
-        $zerif_required_actions = array(
-			array(
-                "id" => 'zerif-lite-req-ac-frontpage-latest-news',
-                "title" => esc_html__( 'Get the one page template' ,'zerif-lite' ),
-                "description"=> esc_html__( 'If you just installed Zerif Lite, and are not able to see the one page template, you need to create a page and select the template "Frontpage" for that page. After that, go to Appearance -> Customize -> Static Front Page and under "Static Front Page" select "A static page". Finally, for "Front page" choose the page you previously created.','zerif-lite' ),
-				"check" => zerif_lite_is_static_frontpage()
-            ),
-            array(
-                "id" => 'zerif-lite-req-ac-install-pirate-forms',
-                "title" => esc_html__( 'Install Pirate Forms' ,'zerif-lite' ),
-                "description"=> esc_html__( 'In the next updates, Zerif Lite\'s default contact form will be removed. Please make sure you install the Pirate Forms plugin to keep your site updated, and experience a smooth transition to the latest version.','zerif-lite' ),
-                "check" => defined("PIRATE_FORMS_VERSION"),
-                "plugin_slug" => 'pirate-forms'
-            ),
-            array(
-                "id" => 'zerif-lite-req-ac-check-pirate-forms',
-                "title" => esc_html__( 'Check the contact form after installing Pirate Forms' ,'zerif-lite' ),
-                "description"=> esc_html__( "After installing the Pirate Forms plugin, please make sure you check your frontpage contact form is working fine. Also, if you use Zerif Lite in other language(s) please make sure the translation is ok. If not, please translate the contact form again.",'zerif-lite' ),
-            ),
-	        array(
-		        "id" => 'zerif-lite-req-ac-install-themeisle-companion',
-		        "title" => esc_html__( 'Install ThemeIsle Companion' ,'zerif-lite' ),
-		        "description"=> esc_html__( 'In the next updates, Zerif Lite\'s default widgets will be removed. Please make sure you install the ThemeIsle Companion plugin to keep your site updated, and experience a smooth transition to the latest version.','zerif-lite' ),
-		        "check" => defined("THEMEISLE_COMPANION_VERSION"),
-		        "plugin_slug" => 'themeisle-companion'
-	        )
-        );
-
-		
-	}
-
 	/***********************************/
 	/**************  HOOKS *************/
 	/***********************************/
