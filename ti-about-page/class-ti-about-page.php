@@ -516,6 +516,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 		 * @return mixed
 		 */
 		public function get_plugin_icon( $arr ) {
+
 			if ( ! empty( $arr['svg'] ) ) {
 				$plugin_icon_url = $arr['svg'];
 			} elseif ( ! empty( $arr['2x'] ) ) {
@@ -523,7 +524,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 			} elseif ( ! empty( $arr['1x'] ) ) {
 				$plugin_icon_url = $arr['1x'];
 			} else {
-				$plugin_icon_url = $arr['default'];
+				$plugin_icon_url = get_template_directory_uri() . '/ti-about-page/images/placeholder_plugin.png';
 			}
 
 			return $plugin_icon_url;
