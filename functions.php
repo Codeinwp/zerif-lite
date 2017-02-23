@@ -130,6 +130,305 @@ function zerif_setup() {
 
     require_once( trailingslashit( get_template_directory() ) . 'inc/class/class-customizer-theme-info-control/class-customizer-theme-info-root.php' );
 
+	/**
+	 * About page class
+	 */
+	require_once get_template_directory() . '/ti-about-page/class-ti-about-page.php';
+
+	/*
+	* About page instance
+	*/
+	$config = array(
+		// Menu name under Appearance.
+		'menu_name'               => __( 'About Zerif Lite', 'zerif-lite' ),
+		// Page title.
+		'page_name'               => __( 'About Zerif Lite', 'zerif-lite' ),
+		// Main welcome title
+		'welcome_title'         => sprintf( __( 'Welcome to %s! - Version ', 'zerif-lite' ), 'Zerif Lite' ),
+		// Main welcome content
+		'welcome_content'       => sprintf( __( '%1$s is now installed and ready to use! We want to make sure you have the best experience using %2$s and that is why we gathered here all the necessary information for you. We hope you will enjoy using %3$s, as much as we enjoy creating great products.','zerif-lite' ), 'Zerif Lite', 'Zerif Lite', 'Zerif Lite' ),
+		/**
+		 * Tabs array.
+		 *
+		 * The key needs to be ONLY consisted from letters and underscores. If we want to define outside the class a function to render the tab,
+		 * the will be the name of the function which will be used to render the tab content.
+		 */
+		'tabs'                    => array(
+			'getting_started'  => __( 'Getting Started', 'zerif-lite' ),
+			'recommended_actions' => __( 'Recommended Actions', 'zerif-lite' ),
+			'recommended_plugins' => __( 'Recommended Plugins','zerif-lite' ),
+			'child_themes' => __( 'Child themes','zerif-lite' ),
+			'support'       => __( 'Support', 'zerif-lite' ),
+			'changelog'        => __( 'Changelog', 'zerif-lite' ),
+			'free_pro'         => __( 'Free VS PRO', 'zerif-lite' ),
+		),
+		// Support content tab.
+		'support_content'      => array(
+			'first' => array (
+				'title' => esc_html__( 'Contact Support','zerif-lite' ),
+				'icon' => 'dashicons dashicons-sos',
+				'text' => esc_html__( 'We offer excellent support through our advanced ticketing system. Make sure to register your purchase before contacting support!','zerif-lite' ),
+				'button_label' => esc_html__( 'Contact Support','zerif-lite' ),
+				'button_link' => esc_url( 'https://themeisle.com/contact/' ),
+				'is_button' => true,
+				'is_new_tab' => true
+			),
+			'second' => array(
+				'title' => esc_html__( 'Documentation','zerif-lite' ),
+				'icon' => 'dashicons dashicons-book-alt',
+				'text' => sprintf( esc_html__( 'This is the place to go to reference different aspects of the theme. Our online documentation is an incredible resource for learning the ins and outs of using %s.','zerif-lite' ), 'Zerif Lite' ),
+				'button_label' => esc_html__( 'See our full documentation','zerif-lite' ),
+				'button_link' => 'http://docs.themeisle.com/article/5-zerif-lite-documentation',
+				'is_button' => false,
+				'is_new_tab' => true
+			),
+			'third' => array(
+				'title' => esc_html__( 'Changelog','zerif-lite' ),
+				'icon' => 'dashicons dashicons-portfolio',
+				'text' => esc_html__( 'Want to get the gist on the latest theme changes? Just consult our changelog below to get a taste of the recent fixes and features implemented.','zerif-lite' ),
+				'button_label' => esc_html__( 'See changelog','zerif-lite' ),
+				'button_link' => esc_url( admin_url( 'themes.php?page=zerif-lite-welcome&tab=changelog&show=yes' ) ),
+				'is_button' => false,
+				'is_new_tab' => false
+			),
+			'fourth' => array(
+				'title' => esc_html__( 'Create a child theme','zerif-lite' ),
+				'icon' => 'dashicons dashicons-admin-customizer',
+				'text' => esc_html__( "If you want to make changes to the theme's files, those changes are likely to be overwritten when you next update the theme. In order to prevent that from happening, you need to create a child theme. For this, please follow the documentation below.",'zerif-lite' ),
+				'button_label' => esc_html__( 'View how to do this','zerif-lite' ),
+				'button_link' => 'http://docs.themeisle.com/article/14-how-to-create-a-child-theme',
+				'is_button' => false,
+				'is_new_tab' => true
+			),
+			'fifth' => array(
+				'title' => esc_html__( 'Speed up your site','zerif-lite' ),
+				'icon' => 'dashicons dashicons-controls-skipforward',
+				'text' => esc_html__( 'If you find yourself in the situation where everything on your site is running very slow, you might consider having a look at the below documentation where you will find the most common issues causing this and possible solutions for each of the issues.','zerif-lite' ),
+				'button_label' => esc_html__( 'View how to do this','zerif-lite' ),
+				'button_link' => 'http://docs.themeisle.com/article/63-speed-up-your-wordpress-site',
+				'is_button' => false,
+				'is_new_tab' => true
+			),
+			'sixth' => array(
+				'title' => esc_html__( 'Build a landing page with a drag-and-drop content builder','zerif-lite' ),
+				'icon' => 'dashicons dashicons-images-alt2',
+				'text' => esc_html__( 'In the below documentation you will find an easy way to build a great looking landing page using a drag-and-drop content builder plugin.','zerif-lite' ),
+				'button_label' => esc_html__( 'View how to do this','zerif-lite' ),
+				'button_link' => 'http://docs.themeisle.com/article/219-how-to-build-a-landing-page-with-a-drag-and-drop-content-builder',
+				'is_button' => false,
+				'is_new_tab' => true
+			)
+		),
+		// Getting started tab
+		'getting_started' => array(
+			'first' => array (
+				'title' => esc_html__( 'Step 1 - Implement recommended actions','zerif-lite' ),
+				'text' => esc_html__( 'We have compiled a list of steps for you, to take make sure the experience you will have using one of our products is very easy to follow.','zerif-lite' ),
+				'button_label' => esc_html__( 'Check recommended actions','zerif-lite' ),
+				'button_link' => esc_url( admin_url( 'themes.php?page=zerif-lite-welcome&tab=recommended_actions' ) ),
+				'is_button' => false,
+				'recommended_actions' => true
+			),
+			'second' => array(
+				'title' => esc_html__( 'Step 2 - Check our documentation','zerif-lite' ),
+				'text' => esc_html__( 'Even if you are a long-time WordPress user, we still believe you should give our documentation a very quick Read.','zerif-lite' ),
+				'button_label' => esc_html__( 'Full documentation','zerif-lite' ),
+				'button_link' => 'http://docs.themeisle.com/article/5-zerif-lite-documentation',
+				'is_button' => false,
+				'recommended_actions' => false
+			),
+			'third' => array(
+				'title' => esc_html__( 'Step 3 - Customize everything','zerif-lite' ),
+				'text' => esc_html__( 'Using the WordPress Customizer you can easily customize every aspect of the theme.','zerif-lite' ),
+				'button_label' => esc_html__( 'Go to Customizer','zerif-lite' ),
+				'button_link' => esc_url( admin_url( 'customize.php' ) ),
+				'is_button' => true,
+				'recommended_actions' => false
+			)
+		),
+		// Child themes array.
+		'child_themes'            => array(
+			'download_button_label' => 'Download',
+			'preview_button_label'  => 'Live preview',
+			'content'               => array(
+				 array(
+					'title'         => 'ResponsiveBoat',
+					'image'         =>  get_template_directory_uri() . '/images/responsiveboat.png',
+					'image_alt'     => 'ResponsiveBoat',
+					'download_link' => 'https://wordpress.org/themes/responsiveboat/',
+					'preview_link'  => 'https://wp-themes.com/responsiveboat/',
+				),
+				array(
+					'title'         => 'Zblackbeard',
+					'image'         => get_template_directory_uri() . '/images/zblackbeard.jpg',
+					'image_alt'     => 'Zblackbeard',
+					'download_link' => 'https://wordpress.org/themes/zblackbeard/',
+					'preview_link'  => 'https://wp-themes.com/zblackbeard/',
+				),
+				array(
+					'title'         => 'OnePirate',
+					'image'         => get_template_directory_uri() . '/images/onepirate.jpg',
+					'image_alt'     => 'OnePirate',
+					'download_link' => 'https://wordpress.org/themes/onepirate/',
+					'preview_link'  => 'https://wp-themes.com/onepirate/',
+				),
+				array(
+					'title'         => 'Zerius',
+					'image'         => get_template_directory_uri() . '/images/zerius.jpg',
+					'image_alt'     => 'Zerius',
+					'download_link' => 'https://wordpress.org/themes/zerius/',
+					'preview_link'  => 'https://wp-themes.com/zerius/',
+				),
+				array(
+					'title'         => 'Zifer Child',
+					'image'         => get_template_directory_uri() . '/images/zifer-child.jpg',
+					'image_alt'     => 'Zifer Child',
+					'download_link' => 'https://wordpress.org/themes/zifer-child/',
+					'preview_link'  => 'https://wp-themes.com/zifer-child/',
+				)
+
+			),
+		),
+		// Free vs pro array.
+		'free_pro'                => array(
+			'free_theme_name'     => 'Zerif Lite',
+			'pro_theme_name'      => 'Zerif PRO',
+			'pro_theme_link'      => 'https://themeisle.com/themes/zerif-pro/',
+			'get_pro_theme_label' => sprintf( __( 'Get %s now!', 'zerif-lite' ), 'Zerif Pro' ),
+			'features'            => array(
+				array(
+					'title'       => __( 'Parallax effect', 'zerif-lite' ),
+					'description' => __( 'Smooth, catchy and easy scrolling experience.', 'zerif-lite' ),
+					'is_in_lite'  => 'true',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Mobile friendly', 'zerif-lite' ),
+					'description' => __( 'Responsive layout. Works on every device.', 'zerif-lite' ),
+					'is_in_lite'  => 'true',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'WooCommerce Compatible', 'zerif-lite' ),
+					'description' => __( 'Ready for e-commerce. You can build an online store here.', 'zerif-lite' ),
+					'is_in_lite'  => 'true',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Frontpage sections', 'zerif-lite' ),
+					'description' => __( 'Big title, Our focus, About us, Our team, Testimonials, Ribbons, Latest news, Contat us', 'zerif-lite' ),
+					'is_in_lite'  => 'true',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Background image', 'zerif-lite' ),
+					'description' => __( 'You can use any background image you want.', 'zerif-lite' ),
+					'is_in_lite'  => 'true',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Unlimited color option', 'zerif-lite' ),
+					'description' => __( 'You can change the colors of each section. You have unlimited options.', 'zerif-lite' ),
+					'is_in_lite'  => 'false',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Google map section', 'zerif-lite' ),
+					'description' => __( 'Embed your current location to your website by using a Google map.','zerif-lite' ),
+					'is_in_lite'  => 'false',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Portfolio', 'zerif-lite' ),
+					'description' => __( 'Showcase your best projects in the portfolio section.', 'zerif-lite' ),
+					'is_in_lite'  => 'false',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Sections order', 'zerif-lite' ),
+					'description' => __( 'Arrange the sections by your priorities.', 'zerif-lite' ),
+					'is_in_lite'  => 'false',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Background slider/video', 'zerif-lite' ),
+					'description' => __( 'Apart from static images, you can use videos or sliders on the background.', 'zerif-lite' ),
+					'is_in_lite'  => 'false',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Support', 'zerif-lite' ),
+					'description' => __( 'You will benefit of our full support for any issues you have with the theme.', 'zerif-lite' ),
+					'is_in_lite'  => 'false',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Packages/Subscribe sections', 'zerif-lite' ),
+					'description' => __( 'Add pricing tables for your products and use newsletter forms to attract the clients.', 'zerif-lite' ),
+					'is_in_lite'  => 'false',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Change labels for the Contact Us section', 'zerif-lite' ),
+					'description' => __( 'Write an original text in each Contact us section field.', 'zerif-lite' ),
+					'is_in_lite'  => 'false',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'No credit footer link', 'zerif-lite' ),
+					'description' => __( 'Remove "Zerif Lite powered by WordPress" copyright from the footer.', 'zerif-lite' ),
+					'is_in_lite'  => 'false',
+					'is_in_pro'   => 'true',
+				)
+			),
+		),
+		// Plugins array.
+		'recommended_plugins'        => array(
+			'already_activated_message' => esc_html__( 'Already activated', 'zerif-lite' ),
+			'version_label' => esc_html__( 'Version: ', 'zerif-lite' ),
+			'install_label' => esc_html__( 'Install', 'zerif-lite' ),
+			'activate_label' => esc_html__( 'Activate', 'zerif-lite' ),
+			'deactivate_label' => esc_html__( 'Deactivate', 'zerif-lite' ),
+			'content'                   => array(
+				array(
+					'slug'        => 'themeisle-companion',
+				),
+				array(
+					'slug'        => 'pirate-forms',
+				),
+				array(
+					'slug'        => 'siteorigin-panels',
+				)
+			),
+		),
+		// Required actions array.
+		'recommended_actions'        => array(
+			'install_label' => esc_html__( 'Install', 'zerif-lite' ),
+			'activate_label' => esc_html__( 'Activate', 'zerif-lite' ),
+			'deactivate_label' => esc_html__( 'Deactivate', 'zerif-lite' ),
+			'content'            => array(
+				'themeisle-companion' => array(
+					'title'       => __( 'ThemeIsle Companion', 'zerif-lite' ),
+					'description' => __( 'It is highly recommended that you install the companion plugin to have access to the frontpage sections widgets.', 'zerif-lite' ),
+					'link_label'  => __( 'Install ThemeIsle Companion', 'zerif-lite' ),
+					'check'       => defined( 'THEMEISLE_COMPANION_VERSION' ),
+					'plugin_slug' => 'themeisle-companion',
+					'id' => 'themeisle-companion'
+				),
+				'pirate-forms' => array(
+					'title'       => __( 'Pirate Forms', 'zerif-lite' ),
+					'description' => __( 'Makes your contact page more engaging by creating a good-looking contact form on your website. The interaction with your visitors was never easier.', 'zerif-lite' ),
+					'link_label'  => __( 'Install Pirate Forms', 'zerif-lite' ),
+					'check'       => defined( 'PIRATE_FORMS_VERSION' ),
+					'plugin_slug' => 'pirate-forms',
+					'id' => 'pirate-forms'
+				),
+
+			),
+		),
+	);
+	TI_About_Page::init( $config );
+
 }
 
 add_action('after_setup_theme', 'zerif_setup');
