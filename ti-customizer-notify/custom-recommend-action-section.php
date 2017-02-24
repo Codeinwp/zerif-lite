@@ -13,7 +13,7 @@ class Ti_Customizer_Notify_Customize_Section_Recommend extends WP_Customize_Sect
 	 * @access public
 	 * @var    string
 	 */
-	public $type = 'affluent-recommended-section';
+	public $type = 'ti-customizer-notify-recommended-section';
 	/**
 	 * Custom button text to output.
 	 *
@@ -114,7 +114,8 @@ class Ti_Customizer_Notify_Customize_Section_Recommend extends WP_Customize_Sect
 	 */
 	public function json() {
 		$json = parent::json();
-		global $ti_customizer_notify_required_actions, $affluent_recommended_plugins;
+		global $ti_customizer_notify_required_actions;
+		global $ti_customizer_notify_recommended_plugins;
 		$formatted_array = array();
 		$affluent_show_required_actions = get_option( "affluent_show_required_actions" );
 		foreach ( $ti_customizer_notify_required_actions as $key => $affluent_required_action ) {
@@ -156,8 +157,13 @@ class Ti_Customizer_Notify_Customize_Section_Recommend extends WP_Customize_Sect
 		}
 
 		$customize_plugins = array();
+
 		$affluent_show_recommended_plugins = get_option( "affluent_show_recommended_plugins" );
-		foreach ( $affluent_recommended_plugins as $slug => $plugin_opt ) {
+
+		print_r($ti_customizer_notify_recommended_plugins);
+
+		foreach ( $ti_customizer_notify_recommended_plugins as $slug => $plugin_opt ) {
+
 			
 			if ( !$plugin_opt['recommended'] ) {
 				continue;

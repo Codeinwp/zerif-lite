@@ -1,10 +1,10 @@
 /* global wp */
-/* global tiCustomizerNotifyWelcomeScreenObject */
+/* global tiCustomizerNotifyObject */
 /* global console */
 ( function( api ) {
 
 	// Extends our custom "affluent-pro-section" section.
-	api.sectionConstructor['affluent-recommended-section'] = api.Section.extend( {
+	api.sectionConstructor['ti-customizer-notify-recommended-section'] = api.Section.extend( {
 
 		// No events for this type of section.
 		attachEvents: function () {},
@@ -27,9 +27,9 @@ jQuery(document).ready(function(){
             type: 'GET',
             data: { action: 'ti_customizer_notify_dismiss_required_action', id: id, todo: action },
             dataType: 'html',
-            url: tiCustomizerNotifyWelcomeScreenObject.ajaxurl,
+            url: tiCustomizerNotifyObject.ajaxurl,
             beforeSend: function (data, settings) {
-                jQuery('#' + id).parent().append('<div id="temp_load" style="text-align:center"><img src="' + tiCustomizerNotifyWelcomeScreenObject.base_path + '/images/spinner-2x.gif" /></div>');
+                jQuery('#' + id).parent().append('<div id="temp_load" style="text-align:center"><img src="' + tiCustomizerNotifyObject.base_path + '/images/spinner-2x.gif" /></div>');
             },
             success: function (data) {
                 var container = jQuery('#' + data).parent().parent();
@@ -65,9 +65,9 @@ jQuery(document).ready(function(){
             type: 'GET',
             data: { action: 'affluent_dismiss_recommended_plugins', id: id, todo: action },
             dataType: 'html',
-            url: tiCustomizerNotifyWelcomeScreenObject.ajaxurl,
+            url: tiCustomizerNotifyObject.ajaxurl,
             beforeSend: function (data, settings) {
-                jQuery('#' + id).parent().append('<div id="temp_load" style="text-align:center"><img src="' + tiCustomizerNotifyWelcomeScreenObject.base_path + '/images/spinner-2x.gif" /></div>');
+                jQuery('#' + id).parent().append('<div id="temp_load" style="text-align:center"><img src="' + tiCustomizerNotifyObject.base_path + '/images/spinner-2x.gif" /></div>');
             },
             success: function (data) {
                 var container = jQuery('#' + data).parent().parent();

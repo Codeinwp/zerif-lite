@@ -1,14 +1,121 @@
 <?php
 
 /**
- * Welcome Screen Class
+ * TI Customizer Notify Class
  */
-class Ti_Customizer_Notify_Welcome {
+class Ti_Customizer_Notify {
+
+	/**
+	 * Recommended actions
+	 *
+	 * @var array $recommended_actions Recommended actions displayed in customize notification system.
+	 */
+	private $recommended_actions;
+
+	/**
+	 * Recommended plugins
+	 *
+	 * @var array $recommended_plugins Recommended plugins displayed in customize notification system.
+	 */
+	private $recommended_plugins;
+
+	/**
+	 * The single instance of Ti_Customizer_Notify
+	 *
+	 * @var Ti_Customizer_Notify $instance The Ti_Customizer_Notify instance.
+	 */
+	private static $instance;
+
+	/**
+	 * The Main Ti_Customizer_Notify instance.
+	 *
+	 * We make sure that only one instance of Ti_Customizer_Notify exists in the memory at one time.
+	 *
+	 * @param array $config The configuration array.
+	 */
+	public static function init( $config ) {
+		if ( ! isset( self::$instance ) && ! ( self::$instance instanceof Ti_Customizer_Notify ) ) {
+			self::$instance = new Ti_Customizer_Notify;
+			if ( ! empty( $config ) && is_array( $config ) ) {
+				self::$instance->config = $config;
+				self::$instance->setup_config();
+				self::$instance->setup_actions();
+			}
+		}
+
+	}
+
+	/**
+	 * Scripts and styles used in the Ti_Customizer_Notify class
+	 */
+	public function ti_customizer_notify_scripts_for_customizer(){
+
+		wp_enqueue_style( 'ti-customizer-notify-customizer-css', get_template_directory_uri() . '/ti-customizer-notify/css/ti-customizer-notify-customizer.css' );
+
+		wp_enqueue_style( 'plugin-install' );
+		wp_enqueue_script( 'plugin-install' );
+		wp_add_inline_script( 'plugin-install', 'var pagenow = "customizer";' );
+
+		wp_enqueue_script( 'updates' );
+
+		wp_enqueue_script( 'ti-customizer-notify-customizer-js', get_template_directory_uri() . '/ti-customizer-notify/js/ti-customizer-notify-customizer.js', array( 'customize-controls' ) );
+		wp_localize_script( 'ti-customizer-notify-customizer-js', 'tiCustomizerNotifyObject', array(
+			'ajaxurl'                  => admin_url( 'admin-ajax.php' ),
+			'template_directory'       => get_template_directory_uri(),
+			'base_path'                => admin_url(),
+		) );
+
+	}
+
+	public function ti_customizer_notify_customize_register($wp_customize){
+
+		require_once get_template_directory() . '/ti-customizer-notify/custom-recommend-action-section.php';
+		$wp_customize->register_section_type( 'Ti_Customizer_Notify_Customize_Section_Recommend' );
+
+		// Recomended Actions
+		$wp_customize->add_section(
+			new Ti_Customizer_Notify_Customize_Section_Recommend(
+				$wp_customize,
+				'ti-customizer-notify-recommended-section',
+				array(
+					'title'    => esc_html__( 'Recomended Actions', 'zerif-lite' ),
+					'plugin_text'	=> esc_html__( 'Recomended Plugins :', 'zerif-lite' ),
+					'dismiss_button' => esc_html__( 'Dismiss', 'zerif-lite' ),
+					'priority' => 0
+				)
+			)
+		);
+
+	}
 
 	/**
 	 * Constructor for the welcome screen
 	 */
-	public function __construct() {
+	public function setup_config() {
+		$this->recommended_actions = isset( $this->config['recommended_actions'] ) ? $this->config['recommended_actions'] : array();
+		$this->recommended_plugins = isset( $this->config['recommended_plugins'] ) ? $this->config['recommended_plugins'] : array();
+
+		global $ti_customizer_notify_recommended_plugins;
+		$ti_customizer_notify_recommended_plugins= $this->recommended_plugins;
+		global $ti_customizer_notify_required_actions;
+		$ti_customizer_notify_required_actions = $this->recommended_actions;
+
+
+
+		// Load the system checks ( used for notifications )
+		require get_template_directory() . '/ti-customizer-notify/notify-system-checks.php';
+
+		add_action( 'customize_register', array( $this,'ti_customizer_notify_customize_register') );
+
+		add_action( 'customize_controls_enqueue_scripts', array( $this,'ti_customizer_notify_scripts_for_customizer'), 0 );
+
+
+	}
+
+	/**
+	 * Constructor for the welcome screen
+	 */
+	public function setup_actions() {
 
 		/* ajax callback for dismissable required actions */
 		add_action( 'wp_ajax_ti_customizer_notify_dismiss_required_action', array(
@@ -120,6 +227,8 @@ class Ti_Customizer_Notify_Welcome {
 		endif;
 		die(); // this is required to return a proper result
 	}
+
+
 }
 
-new Ti_Customizer_Notify_Welcome();
+new Ti_Customizer_Notify();

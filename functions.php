@@ -430,9 +430,17 @@ function zerif_setup() {
 	TI_About_Page::init( $config );
 
 	/*
-	 * Recommended plugins/actions in customize
+	 * Notifications in customize
 	 */
-	require get_template_directory() . '/inc/admin/ti-customizer-notify/welcome-page-setup.php';
+	require get_template_directory() . '/ti-customizer-notify/class-ti-customizer-notify.php';
+
+	$config_customizer = array(
+		'recommended_plugins' => array(
+			'themeisle-companion' 		=> array( 'recommended' => true )
+		),
+		'recommended_actions' => array()
+	);
+	Ti_Customizer_Notify::init( $config_customizer );
 
 }
 
