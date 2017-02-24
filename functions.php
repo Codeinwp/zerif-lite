@@ -178,7 +178,7 @@ function zerif_setup() {
 				'icon' => 'dashicons dashicons-book-alt',
 				'text' => sprintf( esc_html__( 'This is the place to go to reference different aspects of the theme. Our online documentation is an incredible resource for learning the ins and outs of using %s.','zerif-lite' ), 'Zerif Lite' ),
 				'button_label' => esc_html__( 'See our full documentation','zerif-lite' ),
-				'button_link' => 'http://docs.themeisle.com/article/5-zerif-lite-documentation',
+				'button_link' => 'https://docs.themeisle.com/article/5-zerif-lite-documentation',
 				'is_button' => false,
 				'is_new_tab' => true
 			),
@@ -196,7 +196,7 @@ function zerif_setup() {
 				'icon' => 'dashicons dashicons-admin-customizer',
 				'text' => esc_html__( "If you want to make changes to the theme's files, those changes are likely to be overwritten when you next update the theme. In order to prevent that from happening, you need to create a child theme. For this, please follow the documentation below.",'zerif-lite' ),
 				'button_label' => esc_html__( 'View how to do this','zerif-lite' ),
-				'button_link' => 'http://docs.themeisle.com/article/14-how-to-create-a-child-theme',
+				'button_link' => 'https://docs.themeisle.com/article/14-how-to-create-a-child-theme',
 				'is_button' => false,
 				'is_new_tab' => true
 			),
@@ -205,7 +205,7 @@ function zerif_setup() {
 				'icon' => 'dashicons dashicons-controls-skipforward',
 				'text' => esc_html__( 'If you find yourself in the situation where everything on your site is running very slow, you might consider having a look at the below documentation where you will find the most common issues causing this and possible solutions for each of the issues.','zerif-lite' ),
 				'button_label' => esc_html__( 'View how to do this','zerif-lite' ),
-				'button_link' => 'http://docs.themeisle.com/article/63-speed-up-your-wordpress-site',
+				'button_link' => 'https://docs.themeisle.com/article/63-speed-up-your-wordpress-site',
 				'is_button' => false,
 				'is_new_tab' => true
 			),
@@ -214,7 +214,7 @@ function zerif_setup() {
 				'icon' => 'dashicons dashicons-images-alt2',
 				'text' => esc_html__( 'In the below documentation you will find an easy way to build a great looking landing page using a drag-and-drop content builder plugin.','zerif-lite' ),
 				'button_label' => esc_html__( 'View how to do this','zerif-lite' ),
-				'button_link' => 'http://docs.themeisle.com/article/219-how-to-build-a-landing-page-with-a-drag-and-drop-content-builder',
+				'button_link' => 'https://docs.themeisle.com/article/219-how-to-build-a-landing-page-with-a-drag-and-drop-content-builder',
 				'is_button' => false,
 				'is_new_tab' => true
 			)
