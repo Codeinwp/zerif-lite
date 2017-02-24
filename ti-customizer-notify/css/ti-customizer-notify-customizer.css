@@ -1,4 +1,4 @@
-.affluent-actions-count {
+.ti-customizer-notify-actions-count {
     padding: 0 6px;
     display: inline-block;
     background-color: #d54e21;
@@ -57,7 +57,7 @@ div.recomended-actions_container {
 .recomended-actions_container .hide {
     display: none;
 }
-.affluent-actions-count.complete {
+.ti-customizer-notify-actions-count.complete {
     background-color: #79ba49;
 }
 .recomended-actions_container #demo_content .button {
@@ -77,17 +77,17 @@ div.recomended-actions_container {
     padding-top: 4px;
 }
 .recomended-actions_container .succes a.social span,
-.recomended-actions_container .succes a.affluent-wordpress span {
+.recomended-actions_container .succes a.ti-customizer-notify-wordpress span {
     margin-right: 5px;
 }
-.recomended-actions_container .succes a.affluent-wordpress {
+.recomended-actions_container .succes a.ti-customizer-notify-wordpress {
     line-height: 20px;
     padding-top: 4px;
 }
 
-.affluent-required-action-button,
-.affluent-recommended-plugin-button,
-.affluent-dismiss-required-action {
+.ti-customizer-notify-recommended-action-button,
+.ti-customizer-notify-dismiss-button-recommended-plugin,
+.ti-customizer-notify-dismiss-recommended-action {
     position: absolute;
     top: 10px;
     right: 10px;
@@ -101,8 +101,8 @@ div.recomended-actions_container {
     position: relative;
 }
 
-.epsilon-recommeded-actions .affluent-dismiss-required-action,
-.epsilon-recommeded-actions .affluent-recommended-plugin-button {
+.epsilon-recommeded-actions .ti-customizer-notify-dismiss-recommended-action,
+.epsilon-recommeded-actions .ti-customizer-notify-dismiss-button-recommended-plugin {
     top: 0;
     right: 0;
 }

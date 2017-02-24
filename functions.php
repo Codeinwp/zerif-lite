@@ -438,7 +438,13 @@ function zerif_setup() {
 		'recommended_plugins' => array(
 			'themeisle-companion' 		=> array( 'recommended' => true )
 		),
-		'recommended_actions' => array()
+		'recommended_actions' => array(),
+		'recommended_actions_title' => esc_html__( 'Recommended Actions', 'zerif-lite' ),
+		'recommended_plugins_title' => esc_html__( 'Recommended Plugins', 'zerif-lite' ),
+		'dismiss_button' => esc_html__( 'Dismiss', 'zerif-lite' ),
+		'install_button_label' => esc_html__( 'Install', 'zerif-lite' ),
+		'activate_button_label' => esc_html__( 'Activate', 'zerif-lite' ),
+		'deactivate_button_label' => esc_html__( 'Deactivate', 'zerif-lite' )
 	);
 	Ti_Customizer_Notify::init( $config_customizer );
 

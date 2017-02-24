@@ -1,11 +1,8 @@
 <?php
 /**
- * Pro customizer section.
- *
- * @since  1.0.0
- * @access public
+ * Ti_Customizer_Notify_Section class
  */
-class Ti_Customizer_Notify_Customize_Section_Recommend extends WP_Customize_Section {
+class Ti_Customizer_Notify_Section extends WP_Customize_Section {
 	/**
 	 * The type of customize section being rendered.
 	 *
@@ -13,7 +10,7 @@ class Ti_Customizer_Notify_Customize_Section_Recommend extends WP_Customize_Sect
 	 * @access public
 	 * @var    string
 	 */
-	public $type = 'ti-customizer-notify-recommended-section';
+	public $type = 'ti-customizer-notify-section';
 	/**
 	 * Custom button text to output.
 	 *
@@ -21,13 +18,19 @@ class Ti_Customizer_Notify_Customize_Section_Recommend extends WP_Customize_Sect
 	 * @access public
 	 * @var    string
 	 */
-	public $required_actions = '';
+	public $recommended_actions = '';
 	public $recommended_plugins = '';
 	public $total_actions = '';
 	public $plugin_text = '';
 	public $dismiss_button = '';
 
-
+	/**
+	 * Check if plugin is installed/actuvated
+	 *
+	 * @param $slug
+	 *
+	 * @return array
+	 */
 	public function check_active( $slug ) {
 		if ( file_exists( ABSPATH . 'wp-content/plugins/' . $slug . '/' . $slug . '.php' ) ) {
 			include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
@@ -40,6 +43,14 @@ class Ti_Customizer_Notify_Customize_Section_Recommend extends WP_Customize_Sect
 		return array( 'status' => false, 'needs' => 'install' );
 	}
 
+	/**
+	 * Create the install/activate button link for plugins
+	 *
+	 * @param $state
+	 * @param $slug
+	 *
+	 * @return mixed
+	 */
 	public function create_action_link( $state, $slug ) {
 		switch ( $state ) {
 			case 'install':
@@ -75,10 +86,17 @@ class Ti_Customizer_Notify_Customize_Section_Recommend extends WP_Customize_Sect
 		}
 	}
 
+	/**
+	 * Call plugin API to get plugins info
+	 *
+	 * @param $slug
+	 *
+	 * @return mixed
+	 */
 	public function call_plugin_api( $slug ) {
 		include_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
 
-		if ( false === ( $call_api = get_transient( 'affluent_plugin_information_transient_' . $slug ) ) ) {
+		if ( false === ( $call_api = get_transient( 'ti_customizer_notify_plugin_information_transient_' . $slug ) ) ) {
 			$call_api = plugins_api( 'plugin_information', array(
 				'slug'   => $slug,
 				'fields' => array(
@@ -99,7 +117,7 @@ class Ti_Customizer_Notify_Customize_Section_Recommend extends WP_Customize_Sect
 					'icons'             => false
 				)
 			) );
-			set_transient( 'affluent_plugin_information_transient_' . $slug, $call_api, 30 * MINUTE_IN_SECONDS );
+			set_transient( 'ti_customizer_notify_plugin_information_transient_' . $slug, $call_api, 30 * MINUTE_IN_SECONDS );
 		}
 
 		return $call_api;
@@ -114,53 +132,56 @@ class Ti_Customizer_Notify_Customize_Section_Recommend extends WP_Customize_Sect
 	 */
 	public function json() {
 		$json = parent::json();
-		global $ti_customizer_notify_required_actions;
+		global $ti_customizer_notify_recommended_actions;
 		global $ti_customizer_notify_recommended_plugins;
+
+		global $install_button_label;
+		global $activate_button_label;
+		global $deactivate_button_label;
+
 		$formatted_array = array();
-		$affluent_show_required_actions = get_option( "affluent_show_required_actions" );
-		foreach ( $ti_customizer_notify_required_actions as $key => $affluent_required_action ) {
-			if ( @$affluent_show_required_actions[ $affluent_required_action['id'] ] === false ) {
+		$ti_customizer_notify_show_recommended_actions = get_option( "ti_customizer_notify_show_recommended_actions" );
+		foreach ( $ti_customizer_notify_recommended_actions as $key => $ti_customizer_notify_recommended_action ) {
+			if ( @$ti_customizer_notify_show_recommended_actions[ $ti_customizer_notify_recommended_action['id'] ] === false ) {
 				continue;
 			}
-			if ( $affluent_required_action['check'] ) {
+			if ( $ti_customizer_notify_recommended_action['check'] ) {
 				continue;
 			}
 
-			$affluent_required_action['index'] = $key + 1;
+			$ti_customizer_notify_recommended_action['index'] = $key + 1;
 
-			if ( isset($affluent_required_action['plugin_slug']) ) {
-				$active = $this->check_active( $affluent_required_action['plugin_slug'] );
-				$affluent_required_action['url']    = $this->create_action_link( $active['needs'], $affluent_required_action['plugin_slug'] );
+			if ( isset($ti_customizer_notify_recommended_action['plugin_slug']) ) {
+				$active = $this->check_active( $ti_customizer_notify_recommended_action['plugin_slug'] );
+				$ti_customizer_notify_recommended_action['url']    = $this->create_action_link( $active['needs'], $ti_customizer_notify_recommended_action['plugin_slug'] );
 				if ( $active['needs'] !== 'install' && $active['status'] ) {
-					$affluent_required_action['class'] = 'active';
+					$ti_customizer_notify_recommended_action['class'] = 'active';
 				}else{
-					$affluent_required_action['class'] = '';
+					$ti_customizer_notify_recommended_action['class'] = '';
 				}
 
 				switch ( $active['needs'] ) {
 					case 'install':
-						$affluent_required_action['button_class'] = 'install-now button';
-						$affluent_required_action['button_label'] = __( 'Install', 'zerif-lite' );
+						$ti_customizer_notify_recommended_action['button_class'] = 'install-now button';
+						$ti_customizer_notify_recommended_action['button_label'] = $install_button_label;
 						break;
 					case 'activate':
-						$affluent_required_action['button_class'] = 'activate-now button button-primary';
-						$affluent_required_action['button_label'] = __( 'Activate', 'zerif-lite' );
+						$ti_customizer_notify_recommended_action['button_class'] = 'activate-now button button-primary';
+						$ti_customizer_notify_recommended_action['button_label'] = $activate_button_label;
 						break;
 					case 'deactivate':
-						$affluent_required_action['button_class'] = 'deactivate-now button';
-						$affluent_required_action['button_label'] = __( 'Deactivate', 'zerif-lite' );
+						$ti_customizer_notify_recommended_action['button_class'] = 'deactivate-now button';
+						$ti_customizer_notify_recommended_action['button_label'] = $deactivate_button_label;
 						break;
 				}
 
 			}
-			$formatted_array[] = $affluent_required_action;
+			$formatted_array[] = $ti_customizer_notify_recommended_action;
 		}
 
 		$customize_plugins = array();
 
-		$affluent_show_recommended_plugins = get_option( "affluent_show_recommended_plugins" );
-
-		print_r($ti_customizer_notify_recommended_plugins);
+		$ti_customizer_notify_show_recommended_plugins = get_option( "ti_customizer_notify_show_recommended_plugins" );
 
 		foreach ( $ti_customizer_notify_recommended_plugins as $slug => $plugin_opt ) {
 
@@ -169,69 +190,65 @@ class Ti_Customizer_Notify_Customize_Section_Recommend extends WP_Customize_Sect
 				continue;
 			}
 
-			if ( Ti_Customizer_Notify_Notify_System::has_import_plugin( $slug ) ) {
-				continue;
-			}
-
-			if ( isset($affluent_show_recommended_plugins[$slug]) && $affluent_show_recommended_plugins[$slug] ) {
+			if ( isset($ti_customizer_notify_show_recommended_plugins[$slug]) && $ti_customizer_notify_show_recommended_plugins[$slug] ) {
 				continue;
 			}
 
 			$active = $this->check_active( $slug );
-			$affluent_recommended_plugin['url']    = $this->create_action_link( $active['needs'], $slug );
+			$ti_customizer_notify_recommended_plugin['url']    = $this->create_action_link( $active['needs'], $slug );
 			if ( $active['needs'] !== 'install' && $active['status'] ) {
-				$affluent_recommended_plugin['class'] = 'active';
+				$ti_customizer_notify_recommended_plugin['class'] = 'active';
 			}else{
-				$affluent_recommended_plugin['class'] = '';
+				$ti_customizer_notify_recommended_plugin['class'] = '';
 			}
 
 			switch ( $active['needs'] ) {
 				case 'install':
-					$affluent_recommended_plugin['button_class'] = 'install-now button';
-					$affluent_recommended_plugin['button_label'] = __( 'Install', 'zerif-lite' );
+					$ti_customizer_notify_recommended_plugin['button_class'] = 'install-now button';
+					$ti_customizer_notify_recommended_plugin['button_label'] = $install_button_label;
 					break;
 				case 'activate':
-					$affluent_recommended_plugin['button_class'] = 'activate-now button button-primary';
-					$affluent_recommended_plugin['button_label'] = __( 'Activate', 'zerif-lite' );
+					$ti_customizer_notify_recommended_plugin['button_class'] = 'activate-now button button-primary';
+					$ti_customizer_notify_recommended_plugin['button_label'] = $activate_button_label;
 					break;
 				case 'deactivate':
-					$affluent_recommended_plugin['button_class'] = 'deactivate-now button';
-					$affluent_recommended_plugin['button_label'] = __( 'Deactivate', 'zerif-lite' );
+					$ti_customizer_notify_recommended_plugin['button_class'] = 'deactivate-now button';
+					$ti_customizer_notify_recommended_plugin['button_label'] = $deactivate_button_label;
 					break;
 			}
 			$info   = $this->call_plugin_api( $slug );
-			$affluent_recommended_plugin['id'] = $slug;
-			$affluent_recommended_plugin['plugin_slug'] = $slug;
-			$affluent_recommended_plugin['description'] = $info->short_description;
-			$affluent_recommended_plugin['title'] = $affluent_recommended_plugin['button_label'].': '.$info->name;
+			$ti_customizer_notify_recommended_plugin['id'] = $slug;
+			$ti_customizer_notify_recommended_plugin['plugin_slug'] = $slug;
+			$ti_customizer_notify_recommended_plugin['description'] = $info->short_description;
+			$ti_customizer_notify_recommended_plugin['title'] = $ti_customizer_notify_recommended_plugin['button_label'].': '.$info->name;
 
-			$customize_plugins[] = $affluent_recommended_plugin;
+			$customize_plugins[] = $ti_customizer_notify_recommended_plugin;
 
 		}
 
 
-		$json['required_actions'] = $formatted_array;
+		$json['recommended_actions'] = $formatted_array;
 		$json['recommended_plugins'] = $customize_plugins;
-		$json['total_actions'] = count($ti_customizer_notify_required_actions);
+		$json['total_actions'] = count($ti_customizer_notify_recommended_actions);
 		$json['plugin_text'] = $this->plugin_text;
 		$json['dismiss_button'] = $this->dismiss_button;
 		return $json;
 
 	}
 	/**
-	 * Outputs the Underscore.js template.
+	 * Outputs the structure for the customizer control
 	 *
 	 * @since  1.0.0
 	 * @access public
 	 * @return void
 	 */
 	protected function render_template() { ?>
-        <# if( data.required_actions.length > 0 || data.recommended_plugins.length > 0 ){ #>
+        <# if( data.recommended_actions.length > 0 || data.recommended_plugins.length > 0 ){ #>
             <li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} cannot-expand">
 
                 <h3 class="accordion-section-title">
                     <span class="section-title" data-plugin_text="{{ data.plugin_text }}">
-                        <# if( data.required_actions.length > 0 ){ #>
+                        <# if( data.recommended_actions.length > 0 ){ #>
                             {{ data.title }}
                         <# }else{ #>
                             <# if( data.recommended_plugins.length > 0 ){ #>
@@ -239,34 +256,34 @@ class Ti_Customizer_Notify_Customize_Section_Recommend extends WP_Customize_Sect
                             <# }#>
                         <# } #>
                     </span>
-                    <# if( data.required_actions.length > 0 ){ #>
-                        <span class="affluent-actions-count">
-                            <span class="current-index">{{ data.required_actions[0].index }}</span>
+                    <# if( data.recommended_actions.length > 0 ){ #>
+                        <span class="ti-customizer-notify-actions-count">
+                            <span class="current-index">{{ data.recommended_actions[0].index }}</span>
                             /
                             {{ data.total_actions }}
                         </span>
                     <# } #>
                 </h3>
                 <div class="recomended-actions_container" id="plugin-filter">
-                    <# if( data.required_actions.length > 0 ){ #>
-                        <# for (action in data.required_actions) { #>
-                            <div class="epsilon-recommeded-actions-container epsilon-required-actions" data-index="{{ data.required_actions[action].index }}">
-                                <# if( !data.required_actions[action].check ){ #>
+                    <# if( data.recommended_actions.length > 0 ){ #>
+                        <# for (action in data.recommended_actions) { #>
+                            <div class="epsilon-recommeded-actions-container epsilon-required-actions" data-index="{{ data.recommended_actions[action].index }}">
+                                <# if( !data.recommended_actions[action].check ){ #>
                                     <div class="epsilon-recommeded-actions">
-                                        <p class="title">{{ data.required_actions[action].title }}</p>
-                                        <span data-action="dismiss" class="dashicons dashicons-no affluent-dismiss-required-action" id="{{ data.required_actions[action].id }}"></span>
-                                        <div class="description">{{{ data.required_actions[action].description }}}</div>
-                                        <# if( data.required_actions[action].plugin_slug ){ #>
+                                        <p class="title">{{ data.recommended_actions[action].title }}</p>
+                                        <span data-action="dismiss" class="dashicons dashicons-no ti-customizer-notify-dismiss-recommended-action" id="{{ data.recommended_actions[action].id }}"></span>
+                                        <div class="description">{{{ data.recommended_actions[action].description }}}</div>
+                                        <# if( data.recommended_actions[action].plugin_slug ){ #>
                                             <div class="custom-action">
-                                                <p class="plugin-card-{{ data.required_actions[action].plugin_slug }} action_button {{ data.required_actions[action].class }}">
-                                                    <a data-slug="{{ data.required_actions[action].plugin_slug }}"
-                                                       class="{{ data.required_actions[action].button_class }}"
-                                                       href="{{ data.required_actions[action].url }}">{{ data.required_actions[action].button_label }}</a>
+                                                <p class="plugin-card-{{ data.recommended_actions[action].plugin_slug }} action_button {{ data.recommended_actions[action].class }}">
+                                                    <a data-slug="{{ data.recommended_actions[action].plugin_slug }}"
+                                                       class="{{ data.recommended_actions[action].button_class }}"
+                                                       href="{{ data.recommended_actions[action].url }}">{{ data.recommended_actions[action].button_label }}</a>
                                                 </p>
                                             </div>
                                         <# } #>
-                                        <# if( data.required_actions[action].help ){ #>
-                                            <div class="custom-action">{{{ data.required_actions[action].help }}}</div>
+                                        <# if( data.recommended_actions[action].help ){ #>
+                                            <div class="custom-action">{{{ data.recommended_actions[action].help }}}</div>
                                         <# } #>
                                     </div>
                                 <# } #>
@@ -280,7 +297,7 @@ class Ti_Customizer_Notify_Customize_Section_Recommend extends WP_Customize_Sect
                                 <# if( !data.recommended_plugins[action].check ){ #>
                                     <div class="epsilon-recommeded-actions">
                                         <p class="title">{{ data.recommended_plugins[action].title }}</p>
-                                        <span data-action="dismiss" class="dashicons dashicons-no affluent-recommended-plugin-button" id="{{ data.recommended_plugins[action].id }}"></span>
+                                        <span data-action="dismiss" class="dashicons dashicons-no ti-customizer-notify-dismiss-button-recommended-plugin" id="{{ data.recommended_plugins[action].id }}"></span>
                                         <div class="description">{{{ data.recommended_plugins[action].description }}}</div>
                                         <# if( data.recommended_plugins[action].plugin_slug ){ #>
                                             <div class="custom-action">
