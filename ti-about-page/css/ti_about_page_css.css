@@ -92,6 +92,9 @@
 	margin-top: 0;
 	margin-bottom: 5%;
 }
+.about-wrap .feature-section .col:nth-child(3n + 1) {
+	clear:both;
+}
 
 #free_pro .free-pro-table {
 	border-spacing: 0;

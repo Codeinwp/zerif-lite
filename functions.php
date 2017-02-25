@@ -156,7 +156,7 @@ function zerif_setup() {
 		'tabs'                    => array(
 			'getting_started'  => __( 'Getting Started', 'zerif-lite' ),
 			'recommended_actions' => __( 'Recommended Actions', 'zerif-lite' ),
-			'recommended_plugins' => __( 'Recommended Plugins','zerif-lite' ),
+			'recommended_plugins' => __( 'Useful Plugins','zerif-lite' ),
 			'child_themes' => __( 'Child themes','zerif-lite' ),
 			'support'       => __( 'Support', 'zerif-lite' ),
 			'changelog'        => __( 'Changelog', 'zerif-lite' ),
@@ -227,7 +227,8 @@ function zerif_setup() {
 				'button_label' => esc_html__( 'Check recommended actions','zerif-lite' ),
 				'button_link' => esc_url( admin_url( 'themes.php?page=zerif-lite-welcome&tab=recommended_actions' ) ),
 				'is_button' => false,
-				'recommended_actions' => true
+				'recommended_actions' => true,
+                'is_new_tab' => false
 			),
 			'second' => array(
 				'title' => esc_html__( 'Step 2 - Check our documentation','zerif-lite' ),
@@ -235,7 +236,8 @@ function zerif_setup() {
 				'button_label' => esc_html__( 'Full documentation','zerif-lite' ),
 				'button_link' => 'http://docs.themeisle.com/article/5-zerif-lite-documentation',
 				'is_button' => false,
-				'recommended_actions' => false
+				'recommended_actions' => false,
+                'is_new_tab' => true
 			),
 			'third' => array(
 				'title' => esc_html__( 'Step 3 - Customize everything','zerif-lite' ),
@@ -243,7 +245,8 @@ function zerif_setup() {
 				'button_label' => esc_html__( 'Go to Customizer','zerif-lite' ),
 				'button_link' => esc_url( admin_url( 'customize.php' ) ),
 				'is_button' => true,
-				'recommended_actions' => false
+				'recommended_actions' => false,
+                'is_new_tab' => true
 			)
 		),
 		// Child themes array.
@@ -391,14 +394,23 @@ function zerif_setup() {
 			'deactivate_label' => esc_html__( 'Deactivate', 'zerif-lite' ),
 			'content'                   => array(
 				array(
-					'slug'        => 'themeisle-companion',
+					'slug' => 'siteorigin-panels'
 				),
-				array(
-					'slug'        => 'pirate-forms',
-				),
-				array(
-					'slug'        => 'siteorigin-panels',
-				)
+                array(
+                    'slug' => 'wp-product-review'
+                ),
+                array(
+                    'slug' => 'intergeo-maps'
+                ),
+                array(
+                    'slug' => 'visualizer'
+                ),
+                array(
+                    'slug' => 'adblock-notify-by-bweb'
+                ),
+                array(
+                    'slug' => 'nivo-slider-lite'
+                )
 			),
 		),
 		// Required actions array.

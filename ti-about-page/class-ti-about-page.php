@@ -611,7 +611,14 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 								}
 							}
 
-							echo '<a target="_blank" href="' . $getting_started_item['button_link'] . '"class="' . $button_class . '">' . $getting_started_item['button_label'] . '</a>';
+                            $button_new_tab = '_self';
+                            if ( isset( $getting_started_item['is_new_tab'] ) ) {
+                                if ( $getting_started_item['is_new_tab'] ) {
+                                    $button_new_tab = '_blank';
+                                }
+                            }
+
+							echo '<a target="' . $button_new_tab . '" href="' . $getting_started_item['button_link'] . '"class="' . $button_class . '">' . $getting_started_item['button_label'] . '</a>';
 							echo '</p>';
 						}
 
