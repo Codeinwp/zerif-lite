@@ -283,32 +283,9 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 		}
 
 		/**
-		 * Validate the tabs.
-		 *
-		 * Some tabs dont need to show up if some actions have been done so we use this to
-		 * keep only the valid ones.
-		 *
-		 * @param array $tabs Defined tabs.
-		 *
-		 * @return array The valid tabs.
-		 */
-		public function validate_tabs( $tabs = array() ) {
-			$new_tabs = array();
-			foreach ( $tabs as $tab_key => $tab_title ) {
-				$show = apply_filters( 'ti_about_tab_show', true, $tab_key );
-				if ( $show ) {
-					$new_tabs[ $tab_key ] = $tab_title;
-				}
-			}
-
-			return $new_tabs;
-		}
-
-		/**
 		 * Setup the actions used for this page.
 		 */
 		public function setup_actions() {
-			add_filter( 'ti_about_tab_show', array( $this, 'hide_required' ), 11, 2 );
 
 			add_action( 'admin_menu', array( $this, 'register' ) );
 			/* activation notice */
@@ -419,9 +396,20 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 
 					echo '<h2 class="nav-tab-wrapper wp-clearfix">';
 
+					$actions_count = $this->get_required_actions();
+		
+					if ( ! empty( $actions_count ) ) {
+						$count = count( $actions_count );
+					}
+
+
 					foreach ( $this->tabs as $tab_key => $tab_name ) {
 
 						if ( ( $tab_key != 'changelog' ) || ( ( $tab_key == 'changelog' ) && isset( $_GET['show'] ) && ( $_GET['show'] == 'yes' ) ) ) {
+
+							if ( ( $count == 0 ) && ( $tab_key == 'recommended_actions' ) ) {
+								continue;
+							}
 
 							echo '<a href="' . esc_url( admin_url( 'themes.php?page=' . $this->theme_slug . '-welcome' ) ) . '&tab=' . $tab_key . '" class="nav-tab ' . ( $active_tab == $tab_key ? 'nav-tab-active' : '' ) . '" role="tab" data-toggle="tab">';
 							echo esc_html( $tab_name );
