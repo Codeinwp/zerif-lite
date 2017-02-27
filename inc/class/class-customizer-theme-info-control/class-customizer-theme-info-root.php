@@ -69,6 +69,7 @@ final class Zerif_Customizer_Upsell {
 
         // Load custom sections.
         require_once( trailingslashit( get_template_directory() ) . 'inc/class/class-customizer-theme-info-control/class-zerif-customize-theme-info-main.php' );
+	    require_once( trailingslashit( get_template_directory() ) . 'inc/class/class-customizer-theme-info-control/class-zerif-customize-upsell-section.php' );
 
         // Register custom section types.
         $manager->register_section_type( 'Zerif_Customizer_Theme_Info_Main' );
@@ -79,6 +80,21 @@ final class Zerif_Customizer_Upsell {
             'label_url'        => esc_url( 'http://docs.themeisle.com/article/5-zerif-lite-documentation' ),
             'label_text'       => __( 'Documentation', 'zerif-lite' ),
         ) ) );
+
+	    // Frontpage Sections Upsell.
+	    $manager->add_section( new Zerif_Customizer_Upsell_Section( $manager, 'zerif-upsell-frontpage-sections', array(
+		    'panel'              => 'zerif_frontpage_sections_panel',
+		    'priority'           => 500,
+		    'options'            => array(
+			    esc_html__( 'Portfolio', 'zerif-lite' ),
+			    esc_html__( 'Packages section', 'zerif-lite' ),
+			    esc_html__( 'Subscribe section', 'zerif-lite' ),
+			    esc_html__( 'Ribbon Section', 'zerif-lite' ),
+			    esc_html__( 'Google map section', 'zerif-lite' )
+		    ),
+		    'button_url'         => esc_url( 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ),
+		    'button_text'        => esc_html__( 'View PRO version', 'zerif-lite' ),
+	    ) ) );
     }
 
     /**
