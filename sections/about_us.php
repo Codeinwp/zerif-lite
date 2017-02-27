@@ -302,19 +302,19 @@
 	<?php
 		if(is_active_sidebar( 'sidebar-aboutus' )):
 			
-				$zerif_aboutus_clients_title_text = get_theme_mod('zerif_aboutus_clients_title_text',__('OUR HAPPY CLIENTS','zerif-lite'));
+				$zerif_aboutus_clients_title_text = get_theme_mod( 'zerif_aboutus_clients_title_text' );
 			
 				echo '<div class="our-clients">';
 				
-					if( !empty($zerif_aboutus_clients_title_text) ):
+					if( !empty($zerif_aboutus_clients_title_text) ) {
 				
 						echo '<h5><span class="section-footer-title">'.wp_kses_post($zerif_aboutus_clients_title_text).'</span></h5>';
-						
-					else:
-					
-						echo '<h5><span class="section-footer-title">'.__('OUR HAPPY CLIENTS','zerif-lite').'</span></h5>';
 
-					endif;
+					} elseif ( is_customize_preview() ) {
+
+						echo '<h5><span class="section-footer-title"></span></h5>';
+
+					}
 					
 				echo '</div>';
 				

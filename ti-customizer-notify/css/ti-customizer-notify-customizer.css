@@ -13,10 +13,6 @@
     z-index: 26;
 }
 
-.button.change-theme {
-    display: none;
-}
-
 div.recomended-actions_container {
     padding: 0 10px;
     margin-bottom: 2em;
