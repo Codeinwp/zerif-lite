@@ -370,8 +370,8 @@ function zerif_customize_register( $wp_customize ) {
 	/***********************************************/
 
 	$wp_customize->add_section( 'zerif_general_section', array(
-		'title'    => __( 'General', 'zerif-lite' ),
-		'priority' => 30
+		'title'    => __( 'Advanced options', 'zerif-lite' ),
+		'priority' => 150
 	) );
 
 	$wp_customize->add_setting( 'zerif_use_safe_font', array(
