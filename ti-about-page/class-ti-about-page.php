@@ -397,7 +397,9 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 					echo '<h2 class="nav-tab-wrapper wp-clearfix">';
 
 					$actions_count = $this->get_required_actions();
-		
+
+					$count = 0;
+
 					if ( ! empty( $actions_count ) ) {
 						$count = count( $actions_count );
 					}
