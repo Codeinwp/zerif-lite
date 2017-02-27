@@ -1238,10 +1238,18 @@ function zerif_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control( 'zerif_aboutus_clients_title_text', array(
 		'label'       => 'Title',
-		'description' => 'This title appears only if you have widgets in the About us sidebar.',
 		'section'     => 'zerif_aboutus_clients_title_section',
-		'priority'    => 1,
+		'priority'    => -1,
 	) );
+
+	$aboutus_section = $wp_customize->get_section('sidebar-widgets-sidebar-aboutus');
+	if( !empty( $aboutus_section ) ) {
+		$aboutus_section->panel                                        = 'zerif_frontpage_sections_panel';
+		$aboutus_section->title                                        = __( 'Clients area', 'zerif-lite' );
+		$aboutus_section->priority                                     = 10;
+		$wp_customize->get_control( 'zerif_aboutus_clients_title_text' )->section     = 'sidebar-widgets-sidebar-aboutus';
+
+	}
 
 	/******************************************/
 	/**********	OUR TEAM SECTION **************/
