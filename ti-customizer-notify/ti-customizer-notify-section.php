@@ -219,7 +219,14 @@ class Ti_Customizer_Notify_Section extends WP_Customize_Section {
 			$info   = $this->call_plugin_api( $slug );
 			$ti_customizer_notify_recommended_plugin['id'] = $slug;
 			$ti_customizer_notify_recommended_plugin['plugin_slug'] = $slug;
-			$ti_customizer_notify_recommended_plugin['description'] = $info->short_description;
+
+			if ( ! empty( $plugin_opt['description'] ) ) {
+				$ti_customizer_notify_recommended_plugin['description'] = $plugin_opt['description'];
+			} else {
+				$ti_customizer_notify_recommended_plugin['description'] = $info->short_description;
+			}
+
+
 			$ti_customizer_notify_recommended_plugin['title'] = $ti_customizer_notify_recommended_plugin['button_label'].': '.$info->name;
 
 			$customize_plugins[] = $ti_customizer_notify_recommended_plugin;

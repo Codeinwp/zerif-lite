@@ -448,7 +448,7 @@ function zerif_setup() {
 
 	$config_customizer = array(
 		'recommended_plugins' => array(
-			'themeisle-companion' 		=> array( 'recommended' => true )
+			'themeisle-companion' 		=> array( 'recommended' => true, 'description' => sprintf( esc_html__( 'If you want to take full advantage of the options this theme has to offer, please install and activate %s','zerif-lite' ), sprintf( '<strong>%s</strong>', 'ThemeIsle Companion' ) ) )
 		),
 		'recommended_actions' => array(),
 		'recommended_actions_title' => esc_html__( 'Recommended Actions', 'zerif-lite' ),
