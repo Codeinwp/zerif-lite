@@ -146,7 +146,7 @@ function zerif_setup() {
 		// Main welcome title
 		'welcome_title'         => sprintf( __( 'Welcome to %s! - Version ', 'zerif-lite' ), 'Zerif Lite' ),
 		// Main welcome content
-		'welcome_content'       => sprintf( __( '%1$s is now installed and ready to use! We want to make sure you have the best experience using %2$s and that is why we gathered here all the necessary information for you. We hope you will enjoy using %3$s, as much as we enjoy creating great products.','zerif-lite' ), 'Zerif Lite', 'Zerif Lite', 'Zerif Lite' ),
+		'welcome_content'       => esc_html__( 'Zerif LITE is a free one page WordPress theme. It\'s perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.', 'zerif-lite' ),
 		/**
 		 * Tabs array.
 		 *
