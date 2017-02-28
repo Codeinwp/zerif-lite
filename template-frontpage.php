@@ -120,12 +120,22 @@ endif;
 						echo '<h2 class="white-text zerif_hidden_if_not_customizer"></h2>';
 					endif;
 
-					$zerif_contactus_subtitle = get_theme_mod('zerif_contactus_subtitle');
-					if(isset($zerif_contactus_subtitle) && $zerif_contactus_subtitle != ""):
-						echo '<div class="white-text section-legend">'.wp_kses_post( $zerif_contactus_subtitle ).'</div>';
-					elseif ( is_customize_preview() ):
-						echo '<h6 class="white-text section-legend zerif_hidden_if_not_customizer">'.$zerif_contactus_subtitle.'</h6>';
-					endif;
+					$contactus_subtitle_default = '';
+					if( ! defined("PIRATE_FORMS_VERSION") ) {
+						$contactus_subtitle_default = sprintf( __( 'You need to install %s to create a contact form.','zerif-lite' ), sprintf( '<a href="%1$s">%2$s</a>', esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=pirate-forms' ), 'install-plugin_pirate-forms' ) ), 'Pirate Forms' ) );
+					}
+
+					if ( current_user_can( 'edit_theme_options' ) ) {
+						$zerif_contactus_subtitle = get_theme_mod( 'zerif_contactus_subtitle', $contactus_subtitle_default );
+					} else {
+						$zerif_contactus_subtitle = get_theme_mod( 'zerif_contactus_subtitle' );
+					}
+
+					if( ! empty( $zerif_contactus_subtitle) ) {
+						echo '<div class="white-text section-legend">' . wp_kses_post( $zerif_contactus_subtitle ) . '</div>';
+					} elseif ( is_customize_preview() ) {
+						echo '<h6 class="white-text section-legend zerif_hidden_if_not_customizer"></h6>';
+					}
 					?>
 				</div>
 				<!-- / END SECTION HEADER -->
