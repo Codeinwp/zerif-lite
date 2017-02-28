@@ -1395,7 +1395,7 @@ function zerif_customize_register( $wp_customize ) {
 
 	$contactus_subtitle_default = '';
 	if( ! defined("PIRATE_FORMS_VERSION") ) {
-		$contactus_subtitle_default = sprintf( __( 'You need to install %s to create a contact form.','zerif-lite' ), sprintf( '<a href="%1$s">%2$s</a>', esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=pirate-forms' ), 'install-plugin_pirate-forms' ) ), 'Pirate Forms' ) );
+		$contactus_subtitle_default = sprintf( __( 'You need to install %s to create a contact form.','zerif-lite' ), 'Pirate Forms' );
 	}
 
 	$wp_customize->add_setting( 'zerif_contactus_subtitle', array(
