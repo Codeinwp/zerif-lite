@@ -83,7 +83,7 @@ function zerif_customize_register( $wp_customize ) {
 	/**
 	 * Upsells
 	 */
-	require_once( trailingslashit( get_template_directory() ) . 'inc/class/class-customizer-theme-info-control/class-customizer-theme-info-control.php' );
+	/*require_once( trailingslashit( get_template_directory() ) . 'inc/class/class-customizer-theme-info-control/class-customizer-theme-info-control.php' );
 
 	$wp_customize->add_section( 'zerif_theme_info_main_section', array(
 		'title'    => __( 'View PRO version', 'zerif-lite' ),
@@ -91,12 +91,12 @@ function zerif_customize_register( $wp_customize ) {
 	) );
 	$wp_customize->add_setting( 'zerif_theme_info_main_control', array(
 		'sanitize_callback' => 'esc_html',
-	) );
+	) );*/
 
 	/*
 	 * View Pro Version Section Control
 	 */
-	$wp_customize->add_control( new Zerif_Control_Upsell_Theme_Info( $wp_customize, 'zerif_theme_info_main_control', array(
+	/*$wp_customize->add_control( new Zerif_Control_Upsell_Theme_Info( $wp_customize, 'zerif_theme_info_main_control', array(
 		'section'     => 'zerif_theme_info_main_section',
 		'priority'    => 100,
 		'options'     => array(
@@ -111,12 +111,12 @@ function zerif_customize_register( $wp_customize ) {
 		),
 		'button_url'  => esc_url( 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ),
 		'button_text' => esc_html__( 'View PRO version', 'zerif-lite' ),
-	) ) );
+	) ) );*/
 
 	/**
 	 * Extra Colors Notice
 	 */
-	$wp_customize->add_setting( 'zerif_theme_info_colors_section_control', array(
+	/*$wp_customize->add_setting( 'zerif_theme_info_colors_section_control', array(
 		'sanitize_callback' => 'esc_html',
 	) );
 	$wp_customize->add_control( new Zerif_Control_Upsell_Theme_Info( $wp_customize, 'zerif_theme_info_colors_section_control', array(
@@ -130,12 +130,12 @@ function zerif_customize_register( $wp_customize ) {
 		),
 		'button_url'         => esc_url( 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ),
 		'button_text'        => esc_html__( 'View PRO version', 'zerif-lite' ),
-	) ) );
+	) ) );*/
 
 	/**
 	 * Background video notice
 	 */
-	$wp_customize->add_setting( 'zerif_theme_info_header_section_control', array(
+	/*$wp_customize->add_setting( 'zerif_theme_info_header_section_control', array(
 		'sanitize_callback' => 'esc_html',
 	) );
 	$wp_customize->add_control( new Zerif_Control_Upsell_Theme_Info( $wp_customize, 'zerif_theme_info_header_section_control', array(
@@ -146,7 +146,7 @@ function zerif_customize_register( $wp_customize ) {
 		),
 		'button_url'  => esc_url( 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ),
 		'button_text' => esc_html__( 'View PRO version', 'zerif-lite' ),
-	) ) );
+	) ) );*/
 
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
@@ -1664,7 +1664,96 @@ function zerif_customize_register( $wp_customize ) {
 		'section'  => 'zerif_general_footer_section',
 		'priority' => 14
 	) );
+	// Below this there is only demo code, safe to delete and add your own
+	// panels/sections/controls
 
+	// Add three levels on panels
+	$lvl1ParentPanel = new Zerif_WP_Customize_Panel( $wp_customize, 'lvl_1_parent_panel', array(
+		'title' => 'Level 1',
+		'priority' => 150,
+	));
+
+	$wp_customize->add_panel( $lvl1ParentPanel );
+
+	$lvl2ParentPanel = new Zerif_WP_Customize_Panel( $wp_customize, 'lvl_2_parent_panel', array(
+		'title' => 'Level 2',
+		'panel' => 'lvl_1_parent_panel',
+	));
+
+	$wp_customize->add_panel( $lvl2ParentPanel );
+
+	$lvl3ParentPanel = new Zerif_WP_Customize_Panel( $wp_customize, 'lvl_3_parent_panel', array(
+		'title' => 'Level 3',
+		'panel' => 'lvl_2_parent_panel',
+		'priority' => 1,
+	));
+
+	$wp_customize->add_panel( $lvl3ParentPanel );
+
+	// Add example section and controls to the final (third) panel
+	$wp_customize->add_section( 'zerif_sectionn', array(
+		'title' => 'Section Test',
+		'panel' => 'lvl_3_parent_panel',
+	));
+
+	$wp_customize->add_setting( 'zerif_test', array(
+		'default' => 'default value here',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport' => 'postMessage',
+	));
+
+	$wp_customize->add_control( 'zerif_test', array(
+		'type' => 'text',
+		'label' => 'Some text control',
+		'section' => 'zerif_sectionn',
+	));
+
+	// Add example section and controls to the middle (second) panel
+	$wp_customize->add_section( 'zerif_section_2', array(
+		'title' => 'Section 2 Test',
+		'panel' => 'lvl_2_parent_panel',
+		'priority' => 2,
+	));
+
+	$wp_customize->add_setting( 'zerif_test_2', array(
+		'default' => 'default value here',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport' => 'postMessage',
+	));
+
+	$wp_customize->add_control( 'zerif_test_2', array(
+		'type' => 'text',
+		'label' => 'Some text control 2',
+		'section' => 'zerif_section_2',
+	));
+
+	// Add example section and controls to another section
+	$lvl1ParentSection = new Zerif_WP_Customize_Section( $wp_customize, 'lvl_1_parent_section', array(
+		'title' => 'Level 1 Section',
+		'panel' => 'lvl_3_parent_panel',
+	));
+
+	$wp_customize->add_section( $lvl1ParentSection );
+
+	$lv21ParentSection = new Zerif_WP_Customize_Section( $wp_customize, 'lvl_2_parent_section', array(
+		'title' => 'Level 2 Section',
+		'section' => 'lvl_1_parent_section',
+		'panel' => 'lvl_3_parent_panel',
+	));
+
+	$wp_customize->add_section( $lv21ParentSection );
+
+	$wp_customize->add_setting( 'zerif_test_3', array(
+		'default' => 'default value here',
+		'sanitize_callback' => 'wp_kses_post',
+		'transport' => 'postMessage',
+	));
+
+	$wp_customize->add_control( 'zerif_test_3', array(
+		'type' => 'text',
+		'label' => 'Some text control 3',
+		'section' => 'lvl_2_parent_section',
+	));
 
 }
 add_action( 'customize_register', 'zerif_customize_register' );
@@ -1691,7 +1780,8 @@ function zerif_sanitize_checkbox( $input ){
 }
 
 function zerif_late_registers(){
-	wp_enqueue_script( 'zerif_customizer_script', get_template_directory_uri() . '/js/zerif_customizer.js', array("jquery"), '1.0.7', true  );
+
+	wp_enqueue_script( 'zerif_customizer_script', get_template_directory_uri() . '/js/zerif_customizer.js', array("jquery"), '1.0.8', true  );
 
 	wp_localize_script( 'zerif_customizer_script', 'zerifLiteCustomizerObject', array(
 
@@ -1700,6 +1790,8 @@ function zerif_late_registers(){
 		'tooltip_smoothscroll' => sprintf( '%1$s <br><br> %2$s', __( 'Smooth scrolling can be very useful if you read a lot of long pages. Normally, when you press Page Down, the view jumps directly down one page.','zerif-lite' ), __( 'With smooth scrolling, it slides down smoothly, so you can see how much it scrolls. This makes it easier to resume reading from where you were before.','zerif-lite' ) ),
 		'tooltip_preloader' => sprintf( '%1$s <br><br> %2$s', __( 'The preloader is the circular progress element that first appears on the site. When the loader finishes its progress animation, the whole page elements are revealed.','zerif-lite' ), __( 'The preloader is used as a creative way to make waiting a bit less boring for the visitor.','zerif-lite' ) )
 		) );
+
+	wp_enqueue_script( 'zerif_multiple_panels_script', get_template_directory_uri() . '/js/zerif_multiple_panels.js', array( 'zerif_customizer_script' ), '1.0.8', true  );
 }
 add_action( 'customize_controls_enqueue_scripts', 'zerif_late_registers', 99 );
 
