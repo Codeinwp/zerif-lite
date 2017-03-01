@@ -31,7 +31,7 @@
 
 					dynamic_sidebar( 'sidebar-ourfocus' );
 
-				} elseif ( current_user_can( 'edit_theme_options' ) ) {
+				} elseif ( current_user_can( 'edit_theme_options' ) && ! defined( 'THEMEISLE_COMPANION_VERSION' ) ) {
 
 					if ( is_customize_preview() ) {
 						printf( __( 'You need to install the %s plugin to be able to add Team members, Testimonials, Our Focus and Clients widgets.','zerif-lite' ), 'ThemeIsle Companion' );
