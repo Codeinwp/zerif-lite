@@ -798,10 +798,15 @@ function zerif_customize_register( $wp_customize ) {
 	) );
 
 	/* text */
+	$zerif_aboutus_text_default = sprintf( __( 'Change this text in %s', 'zerif-lite' ), __( 'About us section', 'zerif-lite' ) );
+	if ( defined( 'THEMEISLE_COMPANION_VERSION' ) ) {
+		$zerif_aboutus_text_default = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros.<br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros. <br><br>Mauris vel nunc at ipsum fermentum pellentesque quis ut massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non adipiscing massa. Sed ut fringilla sapien. Cras sollicitudin, lectus sed tincidunt cursus, magna lectus vehicula augue, a lobortis dui orci et est.';
+	}
+
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting( 'zerif_aboutus_text', array(
 			'sanitize_callback' => 'zerif_sanitize_input',
-			'default'           => sprintf( __( 'Change this text in %s', 'zerif-lite' ), __( 'About us section', 'zerif-lite' ) ),
+			'default'           => $zerif_aboutus_text_default,
 			'transport'         => 'postMessage'
 		) );
 	} else {
