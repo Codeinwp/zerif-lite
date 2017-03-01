@@ -1995,6 +1995,9 @@ ul.nav > li.current_page_item.current > a:before {
 	margin-bottom: 20px;
 	margin-top: 15px;
 }
+.separator-one .text a {
+	font-size: 24px;
+}
 /*---------------------------------------
  **   Section: Portfolio          -----
 -----------------------------------------*/

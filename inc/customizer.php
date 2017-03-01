@@ -1218,8 +1218,14 @@ function zerif_customize_register( $wp_customize ) {
 	/* RIBBON SECTION WITH BOTTOM BUTTON */
 
 	/* text */
+	$zerif_bottomribbon_text_default = __( 'Change this text in BottomButton Ribbon','zerif-lite' );
+	if ( zerif_check_if_old_version_of_theme() ) {
+		$zerif_bottomribbon_text_default = '';
+	}
+
 	$wp_customize->add_setting( 'zerif_bottomribbon_text', array(
 		'sanitize_callback' => 'zerif_sanitize_input',
+		'default' => $zerif_bottomribbon_text_default,
 		'transport'         => 'postMessage'
 	) );
 
