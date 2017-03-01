@@ -1217,12 +1217,18 @@ function zerif_customize_register( $wp_customize ) {
 
 	/* RIBBON SECTION WITH BOTTOM BUTTON */
 
-	/* text */
-	$zerif_bottomribbon_text_default = __( 'Change this text in BottomButton Ribbon','zerif-lite' );
-	if ( zerif_check_if_old_version_of_theme() ) {
-		$zerif_bottomribbon_text_default = '';
+	$zerif_bottomribbon_text_default = '';
+	$zerif_bottomribbon_buttonlabel_default = '';
+	$zerif_bottomribbon_buttonlink_default = '';
+
+	/* For new users, add default values for the Ribbon section controls */
+	if ( ! zerif_check_if_old_version_of_theme() && current_user_can( 'edit_theme_options' ) ) {
+		$zerif_bottomribbon_text_default = __( 'Change this text in BottomButton Ribbon','zerif-lite' );
+		$zerif_bottomribbon_buttonlabel_default = __( 'Get in touch','zerif-lite' );
+		$zerif_bottomribbon_buttonlink_default = esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_bottomribbon_buttonlink' ) );
 	}
 
+	/* text */
 	$wp_customize->add_setting( 'zerif_bottomribbon_text', array(
 		'sanitize_callback' => 'zerif_sanitize_input',
 		'default' => $zerif_bottomribbon_text_default,
@@ -1239,6 +1245,7 @@ function zerif_customize_register( $wp_customize ) {
 	/* button label */
 	$wp_customize->add_setting( 'zerif_bottomribbon_buttonlabel', array(
 		'sanitize_callback' => 'zerif_sanitize_input',
+		'default' => $zerif_bottomribbon_buttonlabel_default,
 		'transport'         => 'postMessage'
 	) );
 
@@ -1251,6 +1258,7 @@ function zerif_customize_register( $wp_customize ) {
 	/* button link */
 	$wp_customize->add_setting( 'zerif_bottomribbon_buttonlink', array(
 		'sanitize_callback' => 'esc_url_raw',
+		'default' => $zerif_bottomribbon_buttonlink_default,
 		'transport'         => 'postMessage'
 	) );
 
@@ -1260,17 +1268,29 @@ function zerif_customize_register( $wp_customize ) {
 		'priority' => 3,
 	) );
 
+	/* RIBBON SECTION WITH BUTTON IN THE RIGHT SIDE */
+
+	$zerif_ribbonright_text_default = '';
+	$zerif_ribbonright_buttonlabel_default = '';
+	$zerif_ribbonright_buttonlink_default = '';
+
+	/* For new users, add default values for the Ribbon section controls */
+	if ( ! zerif_check_if_old_version_of_theme() && current_user_can( 'edit_theme_options' ) ) {
+		$zerif_ribbonright_text_default = __( 'Change this text in RightButton Ribbon','zerif-lite' );
+		$zerif_ribbonright_buttonlabel_default = __( 'Get in touch','zerif-lite' );
+		$zerif_ribbonright_buttonlink_default = esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_ribbonright_buttonlink' ) );
+	}
+
 	$wp_customize->add_section( 'zerif_rightribbon_section', array(
 		'title'    => __( 'RightButton Ribbon', 'zerif-lite' ),
 		'priority' => 2,
 		'panel'    => 'panel_ribbons'
 	) );
 
-	/* RIBBON SECTION WITH BUTTON IN THE RIGHT SIDE */
-
 	/* text */
 	$wp_customize->add_setting( 'zerif_ribbonright_text', array(
 		'sanitize_callback' => 'zerif_sanitize_input',
+		'default' => $zerif_ribbonright_text_default,
 		'transport'         => 'postMessage'
 	) );
 
@@ -1284,6 +1304,7 @@ function zerif_customize_register( $wp_customize ) {
 	/* button label */
 	$wp_customize->add_setting( 'zerif_ribbonright_buttonlabel', array(
 		'sanitize_callback' => 'zerif_sanitize_input',
+		'default' => $zerif_ribbonright_buttonlabel_default,
 		'transport'         => 'postMessage'
 	) );
 
@@ -1296,6 +1317,7 @@ function zerif_customize_register( $wp_customize ) {
 	/* button link */
 	$wp_customize->add_setting( 'zerif_ribbonright_buttonlink', array(
 		'sanitize_callback' => 'esc_url_raw',
+		'default' => $zerif_ribbonright_buttonlink_default,
 		'transport'         => 'postMessage'
 	) );
 
