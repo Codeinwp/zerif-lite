@@ -1948,6 +1948,33 @@ ul.nav > li.current_page_item.current > a:before {
 	font-size: 14px;
 	color: #808080;
 }
+/* Links used in sane defaults */
+
+.focus a.zerif-default-links,
+.our-team a.zerif-default-links {
+	color: #404040;
+}
+.about-us a.zerif-default-links,
+.separator-one a.zerif-default-links,
+.testimonial a.zerif-default-links,
+.contact-us a.zerif-default-links {
+	color: #fff;
+}
+.testimonial #client-feedbacks a.zerif-default-links {
+	color: #404040;
+}
+.focus a.zerif-default-links:hover,
+.about-us a.zerif-default-links:hover,
+.our-team a.zerif-default-links:hover,
+.testimonial a.zerif-default-links:hover,
+.contact-us a.zerif-default-links:hover {
+	color: #e96656;
+}
+.separator-one a.zerif-default-links:hover,
+.testimonial #client-feedbacks a.zerif-default-links:hover {
+	color: #000;
+}
+/* END - Links used in sane defaults */
 /*----OTHER FOCUSES ----*/
 .other-focuses {
 	background: url(images/lines.png) repeat-x center;
@@ -2981,8 +3008,6 @@ width: -webkit-calc(100% / 4);
 .ribbon-without-button .col-md-9 {
 	width: 100%;
 }
-.purchase-now .
-
 /*----------------------------------------
  **   Contact us             -----
 -----------------------------------------*/

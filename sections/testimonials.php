@@ -39,7 +39,7 @@ echo '<section class="testimonial" id="testimonials">';
 							if ( is_customize_preview() ) {
 								printf( __( 'Add widgets in this area by going to the %s','zerif-lite' ), __( 'Testimonials section','zerif-lite' ) );
 							} else {
-								printf( __( 'Add widgets in this area by going to the %s','zerif-lite' ), sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;section&#93;=sidebar-widgets-sidebar-testimonials' ) ), __( 'Testimonials section','zerif-lite' ) ) );
+								printf( __( 'Add widgets in this area by going to the %s','zerif-lite' ), sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;section&#93;=sidebar-widgets-sidebar-testimonials' ) ), __( 'Testimonials section','zerif-lite' ) ) );
 							}
 						}
 
