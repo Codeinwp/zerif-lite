@@ -80,6 +80,9 @@ function zerif_customize_register( $wp_customize ) {
 
 	}
 
+    $wp_customize->register_panel_type( 'Zerif_WP_Customize_Panel' );
+    $wp_customize->register_section_type( 'Zerif_WP_Customize_Section' );
+
 	/**
 	 * Upsells
 	 */
@@ -366,12 +369,20 @@ function zerif_customize_register( $wp_customize ) {
 	}
 
 	/***********************************************/
-	/************** GENERAL OPTIONS  ***************/
+	/************** ADVANCED OPTIONS  **************/
 	/***********************************************/
 
+    $zerif_advanced_options_panel = new Zerif_WP_Customize_Panel( $wp_customize, 'zerif_advanced_options_panel', array(
+        'title' => esc_html__( 'Advanced options','zerif-lite' ),
+        'priority' => 150,
+    ));
+
+    $wp_customize->add_panel( $zerif_advanced_options_panel );
+
 	$wp_customize->add_section( 'zerif_general_section', array(
-		'title'    => __( 'Advanced options', 'zerif-lite' ),
-		'priority' => 150
+		'title'    => __( 'General options', 'zerif-lite' ),
+		'priority' => 1,
+        'panel' => 'zerif_advanced_options_panel'
 	) );
 
 	$wp_customize->add_setting( 'zerif_use_safe_font', array(
@@ -433,13 +444,12 @@ function zerif_customize_register( $wp_customize ) {
 		'priority' => 6
 	) );
 
+    $wp_customize->get_section( 'colors' )->panel = 'zerif_advanced_options_panel';
+    $wp_customize->get_section( 'background_image' )->panel = 'zerif_advanced_options_panel';
+
 	/********************************************************************/
 	/*************  FRONTPAGE SECTIONS PANEL ****************************/
 	/********************************************************************/
-
-	$wp_customize->register_panel_type( 'Zerif_WP_Customize_Panel' );
-	$wp_customize->register_section_type( 'Zerif_WP_Customize_Section' );
-
 
 	$zerif_frontpage_sections_panel = new Zerif_WP_Customize_Panel( $wp_customize, 'zerif_frontpage_sections_panel', array(
 		'title' => esc_html__( 'Frontpage sections','zerif-lite' ),
