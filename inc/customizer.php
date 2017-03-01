@@ -1375,7 +1375,7 @@ function zerif_customize_register( $wp_customize ) {
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting( 'zerif_contactus_title', array(
 			'sanitize_callback' => 'zerif_sanitize_input',
-			'default'           => sprintf( __( 'Change this title in %s','zerif-lite' ), __( 'Contact us section','zerif-lite' ) ),
+			'default'           => __( 'Get in touch','zerif-lite' ),
 			'transport'         => 'postMessage'
 		) );
 	} else {
