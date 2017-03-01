@@ -1607,10 +1607,18 @@ function zerif_customize_register( $wp_customize ) {
 	) );
 
 	/* address - ICON */
-	$wp_customize->add_setting( 'zerif_address_icon', array(
-		'sanitize_callback' => 'esc_url_raw',
-		'transport'         => 'postMessage'
-	) );
+	if ( current_user_can( 'edit_theme_options' ) ) {
+		$wp_customize->add_setting( 'zerif_address_icon', array(
+			'sanitize_callback' => 'esc_url_raw',
+			'default' => get_template_directory_uri().'/images/map25-redish.png',
+			'transport'         => 'postMessage'
+		) );
+	} else {
+		$wp_customize->add_setting( 'zerif_address_icon', array(
+			'sanitize_callback' => 'esc_url_raw',
+			'transport'         => 'postMessage'
+		) );
+	}
 
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'zerif_address_icon', array(
 		'label'    => __( 'Address section - icon', 'zerif-lite' ),
@@ -1622,7 +1630,7 @@ function zerif_customize_register( $wp_customize ) {
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting( 'zerif_address', array(
 			'sanitize_callback' => 'zerif_sanitize_input',
-			'default'           => sprintf( __( 'Change this text in %s', 'zerif-lite' ), __( 'General options', 'zerif-lite' ) ),
+			'default'           => __( 'Company address', 'zerif-lite' ),
 			'transport'         => 'postMessage'
 		) );
 	} else {
@@ -1640,10 +1648,18 @@ function zerif_customize_register( $wp_customize ) {
 	) );
 
 	/* email - ICON */
-	$wp_customize->add_setting( 'zerif_email_icon', array(
-		'sanitize_callback' => 'esc_url_raw',
-		'transport'         => 'postMessage'
-	) );
+	if ( current_user_can( 'edit_theme_options' ) ) {
+		$wp_customize->add_setting( 'zerif_email_icon', array(
+			'sanitize_callback' => 'esc_url_raw',
+			'default' => get_template_directory_uri().'/images/envelope4-green.png',
+			'transport'         => 'postMessage'
+		) );
+	} else {
+		$wp_customize->add_setting( 'zerif_email_icon', array(
+			'sanitize_callback' => 'esc_url_raw',
+			'transport'         => 'postMessage'
+		) );
+	}
 
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'zerif_email_icon', array(
 		'label'    => __( 'Email section - icon', 'zerif-lite' ),
@@ -1655,7 +1671,7 @@ function zerif_customize_register( $wp_customize ) {
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting( 'zerif_email', array(
 			'sanitize_callback' => 'zerif_sanitize_input',
-			'default'           => sprintf( __( 'Change this text in %s', 'zerif-lite' ), __( 'General options', 'zerif-lite' ) ),
+			'default'           => __( 'youremail@site.com', 'zerif-lite' ),
 			'transport'         => 'postMessage'
 		) );
 	} else {
@@ -1673,10 +1689,18 @@ function zerif_customize_register( $wp_customize ) {
 	) );
 
 	/* phone number - ICON */
-	$wp_customize->add_setting( 'zerif_phone_icon', array(
-		'sanitize_callback' => 'esc_url_raw',
-		'transport'         => 'postMessage'
-	) );
+	if ( current_user_can( 'edit_theme_options' ) ) {
+		$wp_customize->add_setting( 'zerif_phone_icon', array(
+			'sanitize_callback' => 'esc_url_raw',
+			'default' => get_template_directory_uri().'/images/telephone65-blue.png',
+			'transport'         => 'postMessage'
+		) );
+	} else {
+		$wp_customize->add_setting( 'zerif_phone_icon', array(
+			'sanitize_callback' => 'esc_url_raw',
+			'transport'         => 'postMessage'
+		) );
+	}
 
 	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'zerif_phone_icon', array(
 		'label'    => __( 'Phone number section - icon', 'zerif-lite' ),
@@ -1688,7 +1712,7 @@ function zerif_customize_register( $wp_customize ) {
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting( 'zerif_phone', array(
 			'sanitize_callback' => 'zerif_sanitize_input',
-			'default'           => sprintf( __( 'Change this text in %s', 'zerif-lite' ), __( 'General options', 'zerif-lite' ) ),
+			'default'           => __( '0 332 548 954', 'zerif-lite' ),
 			'transport'         => 'postMessage'
 		) );
 	} else {
