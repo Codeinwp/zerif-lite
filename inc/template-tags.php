@@ -399,7 +399,7 @@ function zerif_big_title_text_function() {
 function zerif_about_us_header_title_function() {
 
 	if ( current_user_can( 'edit_theme_options' ) ) {
-		$zerif_aboutus_title = get_theme_mod( 'zerif_aboutus_title', sprintf( __( 'Change this title in %s','zerif-lite' ), sprintf( '<a href="%1$s">%2$s</a>',esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_aboutus_title' ) ), __( 'About us section','zerif-lite' ) ) ) );
+		$zerif_aboutus_title = get_theme_mod( 'zerif_aboutus_title', sprintf( '<a href="%1$s">%2$s</a>',esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_aboutus_title' ) ), __( 'About','zerif-lite' ) ) );
 	} else {
 		$zerif_aboutus_title = get_theme_mod( 'zerif_aboutus_title' );
 	}
