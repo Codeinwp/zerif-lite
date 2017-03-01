@@ -1153,7 +1153,7 @@ function zerif_customize_register( $wp_customize ) {
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting( 'zerif_testimonials_title', array(
 			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => sprintf( __( 'Change this title in %s','zerif-lite' ), __( 'Testimonials section','zerif-lite' ) ),
+			'default' => __( 'Testimonials','zerif-lite' ),
 			'transport' => 'postMessage'
 		));
 	} else {

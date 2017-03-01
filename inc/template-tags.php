@@ -308,7 +308,7 @@ function zerif_our_team_header_subtitle_function() {
 function zerif_testimonials_header_title_function() {
 
 	if ( current_user_can( 'edit_theme_options' ) ) {
-		$zerif_testimonials_title = get_theme_mod( 'zerif_testimonials_title', sprintf( __( 'Change this title in %s','zerif-lite' ), sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_testimonials_title' ) ), __( 'Testimonials section','zerif-lite' ) ) ) );
+		$zerif_testimonials_title = get_theme_mod( 'zerif_testimonials_title', sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_testimonials_title' ) ), __( 'Testimonials','zerif-lite' ) ) );
 	} else {
 		$zerif_testimonials_title = get_theme_mod( 'zerif_testimonials_title' );
 	}
