@@ -274,7 +274,7 @@ function zerif_our_focus_header_subtitle_function() {
 function zerif_our_team_header_title_function() {
 
 	if ( current_user_can( 'edit_theme_options' ) ) {
-		$zerif_ourteam_title = get_theme_mod( 'zerif_ourteam_title', sprintf( __( 'Change this title in %s','zerif-lite' ), sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_ourteam_title' ) ), __( 'Our team section','zerif-lite' ) ) ) );
+		$zerif_ourteam_title = get_theme_mod( 'zerif_ourteam_title', sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_ourteam_title' ) ), __( 'YOUR TEAM','zerif-lite' ) ) );
 	} else {
 		$zerif_ourteam_title = get_theme_mod( 'zerif_ourteam_title' );
 	}
