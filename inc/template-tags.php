@@ -243,7 +243,7 @@ function zerif_our_focus_header_title_function() {
 
     } elseif ( current_user_can( 'edit_theme_options' ) ) {
 
-        $zerif_ourfocus_title = get_theme_mod ( 'zerif_ourfocus_title_2', sprintf( __( 'Change this title in %s','zerif-lite' ), sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_ourfocus_title' ) ), __( 'Our focus section','zerif-lite' ) ) ) );
+        $zerif_ourfocus_title = get_theme_mod ( 'zerif_ourfocus_title_2', sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_ourfocus_title' ) ), __( 'FEATURES','zerif-lite' ) ) );
 
     } else {
         $zerif_ourfocus_title = get_theme_mod ( 'zerif_ourfocus_title_2' );

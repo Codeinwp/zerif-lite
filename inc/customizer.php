@@ -668,7 +668,7 @@ function zerif_customize_register( $wp_customize ) {
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting( 'zerif_ourfocus_title_2', array(
 			'sanitize_callback' => 'zerif_sanitize_input',
-			'default' => ! empty( $zerif_ourfocus_title_default ) ? $zerif_ourfocus_title_default : sprintf( __( 'Change this title in %s','zerif-lite' ), __( 'Our focus section','zerif-lite' ) ),
+			'default' => ! empty( $zerif_ourfocus_title_default ) ? $zerif_ourfocus_title_default : __( 'FEATURES','zerif-lite' ),
 			'transport' => 'postMessage'
 		));
 	} else {
