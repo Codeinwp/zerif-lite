@@ -74,11 +74,9 @@
 
 												echo '<h3 class="latestnews-title"><a href="'.esc_url( get_permalink() ).'" title="'.esc_attr( get_the_title() ).'">'.wp_kses_post( get_the_title() ).'</a></h3>';
 
-												if ( ! empty( $post->post_content ) ) {
-													$ismore = strpos( $post->post_content, '<!--more-->');
-												}
-												
-												if ( $ismore ) {
+												$ismore = ! empty( $post->post_content ) ? strpos( $post->post_content, '<!--more-->') : '';
+
+												if ( !empty($ismore) ) {
 													the_content( esc_html__('Read more', 'zerif-lite') .' <span class="sr-only">' . esc_html__('about ', 'zerif-lite').get_the_title() );
 												} else {
 													the_excerpt();
