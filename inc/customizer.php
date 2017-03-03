@@ -469,16 +469,18 @@ function zerif_customize_register( $wp_customize ) {
 	    $wp_customize->selective_refresh->add_partial( 'zerif_blog_header_title', array(
 		    'selector'        => '.blog-header-wrap',
 		    'settings'        => 'zerif_blog_header_title',
-		    'render_callback' => function () {
-                $text = get_theme_mod( 'zerif_blog_header_title' );
-                if( ! empty( $text ) ) {
-			        $output = '<div class="blog-header-content-wrap"><h1 class="intro-text">' . esc_html( $text ) . '</h1></div>';
-                } else {
-                    $output = '';
-                }
-                return $output;
-		    },
+		    'render_callback' => 'zerif_blog_header_title_callback',
 	    ) );
+
+	    function zerif_blog_header_title_callback() {
+		    $text = get_theme_mod( 'zerif_blog_header_title' );
+		    if( ! empty( $text ) ) {
+			    $output = '<div class="blog-header-content-wrap"><h1 class="intro-text">' . esc_html( $text ) . '</h1></div>';
+		    } else {
+			    $output = '';
+		    }
+		    return $output;
+	    }
     }
 
 	/********************************************************************/
