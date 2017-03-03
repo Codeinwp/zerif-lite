@@ -164,7 +164,7 @@ function zerif_customize_register( $wp_customize ) {
 			'render_callback' => 'zerif_custom_logo_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_bigtitle_title_2', array(
-			'selector'        => '.intro-text',
+			'selector'        => '.home-header-wrap .intro-text',
 			'settings'        => 'zerif_bigtitle_title_2',
 			'render_callback' => function () {
 				return wp_kses_post( get_theme_mod( 'zerif_bigtitle_title_2' ) );
@@ -446,6 +446,40 @@ function zerif_customize_register( $wp_customize ) {
 
     $wp_customize->get_section( 'colors' )->panel = 'zerif_advanced_options_panel';
     $wp_customize->get_section( 'background_image' )->panel = 'zerif_advanced_options_panel';
+
+    if( ! zerif_check_if_old_version_of_theme() ) {
+	    $wp_customize->add_section( 'zerif_blog_header_section', array(
+		    'title' => __( 'Blog Header Options', 'zerif-lite' ),
+		    'panel' => 'zerif_advanced_options_panel',
+	    ) );
+
+	    /* Blog Header Title */
+	    $wp_customize->add_setting( 'zerif_blog_header_title', array(
+		    'default'           => esc_html__( 'Zerif supports a custom frontpage', 'zerif-lite' ),
+		    'transport'         => 'postMessage',
+		    'sanitize_callback' => 'esc_html',
+	    ) );
+
+	    $wp_customize->add_control( 'zerif_blog_header_title', array(
+		    'label'    => __( 'Title', 'zerif-lite' ),
+		    'section'  => 'zerif_blog_header_section',
+		    'priority' => 1,
+	    ) );
+
+	    $wp_customize->selective_refresh->add_partial( 'zerif_blog_header_title', array(
+		    'selector'        => '.blog-header-wrap',
+		    'settings'        => 'zerif_blog_header_title',
+		    'render_callback' => function () {
+                $text = get_theme_mod( 'zerif_blog_header_title' );
+                if( ! empty( $text ) ) {
+			        $output = '<div class="blog-header-content-wrap"><h1 class="intro-text">' . esc_html( $text ) . '</h1></div>';
+                } else {
+                    $output = '';
+                }
+                return $output;
+		    },
+	    ) );
+    }
 
 	/********************************************************************/
 	/*************  FRONTPAGE SECTIONS PANEL ****************************/
