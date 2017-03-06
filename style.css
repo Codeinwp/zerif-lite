@@ -6074,6 +6074,12 @@ body.custom-background {
 		left: 0;
 		top: 0;
 	}
+	.navbar-inverse .navbar-brand {
+		float:left;
+	}
+    .rtl .navbar-inverse .navbar-brand {
+		float:right;
+	}
 	#main-nav {
 		overflow: hidden;
 	}
