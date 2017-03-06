@@ -77,4 +77,4 @@ function zerif_the_post_thumbnail( $input ) {
     return $input;
 }
 
-add_filter('zerif_get_prev_img', 'zerif_the_post_thumbnail');
+add_filter('post_thumbnail_html', 'zerif_the_post_thumbnail');
