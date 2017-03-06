@@ -167,18 +167,20 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
             $blog_header_title = get_theme_mod( 'zerif_blog_header_title', esc_html__( 'Blog', 'zerif-lite' ) );
             $blog_header_subtitle = get_theme_mod( 'zerif_blog_header_subtitle', esc_html__( 'Zerif supports a custom frontpage', 'zerif-lite' ) );
 
-	        if ( ! empty( $blog_header_title ) ) { ?>
+	        if ( ! empty( $blog_header_title ) || ! empty( $blog_header_subtitle ) ) { ?>
                 <div class="blog-header-wrap">
                     <div class="blog-header-content-wrap">
-                        <h1 class="intro-text"><?php echo esc_html( $blog_header_title ); ?></h1>
-                        <p class="blog-header-subtitle"><?php echo esc_html( $blog_header_subtitle ); ?></p>
+				        <?php if ( ! empty( $blog_header_title ) ) { ?>
+                            <h1 class="intro-text"><?php echo esc_html( $blog_header_title ); ?></h1>
+				        <?php }
+				        if ( ! empty( $blog_header_subtitle ) ) { ?>
+                            <p class="blog-header-subtitle"><?php echo esc_html( $blog_header_subtitle ); ?></p>
+				        <?php } ?>
                     </div>
                 </div>
 		        <?php
 	        }
-
         }
-
         ?>
 			<div class="clear"></div>
 			</header> <!-- / END HOME SECTION  -->
