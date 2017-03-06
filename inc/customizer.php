@@ -455,7 +455,7 @@ function zerif_customize_register( $wp_customize ) {
 
 	    /* Blog Header Title */
 	    $wp_customize->add_setting( 'zerif_blog_header_title', array(
-		    'default'           => esc_html__( 'Zerif supports a custom frontpage', 'zerif-lite' ),
+		    'default'           => esc_html__( 'Blog', 'zerif-lite' ),
 		    'transport'         => 'postMessage',
 		    'sanitize_callback' => 'esc_html',
 	    ) );
@@ -466,18 +466,41 @@ function zerif_customize_register( $wp_customize ) {
 		    'priority' => 1,
 	    ) );
 
-	    $wp_customize->selective_refresh->add_partial( 'zerif_blog_header_title', array(
-		    'selector'        => '.blog-header-wrap',
-		    'settings'        => 'zerif_blog_header_title',
-		    'render_callback' => 'zerif_blog_header_title_callback',
+	    /* Blog Header Subtitle */
+	    $wp_customize->add_setting( 'zerif_blog_header_subtitle', array(
+		    'default'           => esc_html__( 'Zerif supports a custom frontpage', 'zerif-lite' ),
+		    'transport'         => 'postMessage',
+		    'sanitize_callback' => 'esc_html',
 	    ) );
 
-	    function zerif_blog_header_title_callback() {
-		    $text = get_theme_mod( 'zerif_blog_header_title' );
-		    if( ! empty( $text ) ) {
-			    $output = '<div class="blog-header-content-wrap"><h1 class="intro-text">' . esc_html( $text ) . '</h1></div>';
-		    } else {
-			    $output = '';
+	    $wp_customize->add_control( 'zerif_blog_header_subtitle', array(
+		    'label'    => __( 'Subtitle', 'zerif-lite' ),
+		    'section'  => 'zerif_blog_header_section',
+		    'priority' => 2,
+	    ) );
+
+	    $wp_customize->selective_refresh->add_partial( 'zerif_blog_header_title_subtitle', array(
+		    'selector'        => '.blog-header-wrap',
+		    'settings'        => array( 'zerif_blog_header_title', 'zerif_blog_header_subtitle' ),
+		    'render_callback' => 'zerif_blog_header_title_subtitle_callback',
+	    ) );
+
+	    function zerif_blog_header_title_subtitle_callback() {
+		    $title = get_theme_mod( 'zerif_blog_header_title' );
+		    $subtitle = get_theme_mod( 'zerif_blog_header_subtitle' );
+		    $output = '';
+		    if( ! empty( $title ) || ! empty( $subtitle ) ) {
+			    $output .= '<div class="blog-header-content-wrap">';
+
+			    if( ! empty( $title ) ) {
+			        $output .= '<h1 class="intro-text">' . esc_html( $title ) . '</h1>' ;
+                }
+
+			    if ( ! empty( $subtitle ) ) {
+				    $output .= '<p class="blog-header-subtitle">' . esc_html( $subtitle ) . '</p>';
+                }
+
+			    $output .= '</div>';
 		    }
 		    return $output;
 	    }
