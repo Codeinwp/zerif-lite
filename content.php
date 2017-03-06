@@ -5,18 +5,15 @@
 
 
 		<?php
-        $pid = get_the_ID();
-        $post_thumbnail_url = get_the_post_thumbnail( $pid, 'zerif-post-thumbnail' );
-        $post_thumbnail = apply_filters('zerif_get_prev_img',$post_thumbnail_url);
+        $post_thumbnail_url = get_the_post_thumbnail( get_the_ID(), 'zerif-post-thumbnail' );
 
-        if (  !empty($post_thumbnail) ) : ?>
+		if ( ! empty( $post_thumbnail_url ) ): ?>
 
             <div class="post-img-wrap">
 
                 <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
 
-                    <?php
-                    echo $post_thumbnail; ?>
+                    <?php echo $post_thumbnail_url; ?>
 
                 </a>
 
