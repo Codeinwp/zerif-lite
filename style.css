@@ -4,7 +4,7 @@ Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: https://themeisle.com
 Description: Zerif LITE is a free one page WordPress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.8.5.11
+Version: 1.8.5.12
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -1434,7 +1434,8 @@ object {
 	-webkit-box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.08);
 	box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.08);
 }
-.header-content-wrap {
+.header-content-wrap,
+.blog-header-content-wrap {
 	background: rgba(0, 0, 0, 0.5);
 	position: relative;
 	-webkit-box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.08);
@@ -4612,7 +4613,8 @@ article .posted-on a:hover{
 
 @media (max-width: 1200px) {
 
-	.header-content-wrap{
+	.header-content-wrap,
+	.blog-header-content-wrap {
 		padding: 235px 0 150px;
 	}
 
@@ -5876,13 +5878,17 @@ body.custom-background {
     display: none !important;
 }
 
+.blog-header-wrap .customize-partial-edit-shortcut-zerif_blog_header_title {
+	top: 250px;
+}
 /*---------------------------------------
  **   Responsive            -----
 -----------------------------------------*/
 
 @media (max-width: 1200px) {
 
-	.header-content-wrap{
+	.header-content-wrap,
+	.blog-header-content-wrap {
 		padding: 235px 0 150px;
 	}
 
@@ -5952,7 +5958,8 @@ body.custom-background {
 	    margin-left: 0;
         margin-right: 0;
 	}
-	.header-content-wrap {
+	.header-content-wrap,
+	.blog-header-content-wrap  {
 		padding-top: 26%;
 	}
 	.intro-text{
@@ -5969,7 +5976,8 @@ body.custom-background {
         padding-top: 60px;
         padding-bottom: 60px;
     }
-    .header-content-wrap{
+    .header-content-wrap,
+	.blog-header-content-wrap {
 		padding: 225px 0 150px;
 	}
 	.about-us .big-intro {
@@ -6115,7 +6123,8 @@ body.custom-background {
 		line-height: 8vh;
 		font-size: 6.5vw;
 	}
-    .header-content-wrap {
+    .header-content-wrap,
+	.blog-header-content-wrap {
     	padding-top: 30%;
     }
 	.intro-text{
@@ -6199,7 +6208,8 @@ body.custom-background {
 		font-size: 6.5vw;
 	}
 
-	.header-content-wrap {
+	.header-content-wrap,
+	.blog-header-content-wrap {
 	    padding-top: 40%;
 	}
 	.intro-text{
@@ -6273,7 +6283,8 @@ body.custom-background {
 		line-height: 25px;
 		font-size: 7vw;
 	}
-	.header-content-wrap {
+	.header-content-wrap,
+	.blog-header-content-wrap {
         padding-top: 50%;
     }
     .intro-text {
@@ -6318,7 +6329,8 @@ body.custom-background {
 	#main-nav {
     	position: relative;
 	}
-	.header-content-wrap {
+	.header-content-wrap,
+	.blog-header-content-wrap {
 		padding: 30px 0 15px;
 	}
 
