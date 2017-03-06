@@ -171,7 +171,7 @@ if ( get_option( 'show_on_front' ) == 'page' ) {
                 <div class="blog-header-wrap">
                     <div class="blog-header-content-wrap">
                         <h1 class="intro-text"><?php echo esc_html( $blog_header_title ); ?></h1>
-                        <p class="blog-header-subtitle"><?php echo esc_html( $blog_header_subtitle ) ?></p>
+                        <p class="blog-header-subtitle"><?php echo esc_html( $blog_header_subtitle ); ?></p>
                     </div>
                 </div>
 		        <?php
