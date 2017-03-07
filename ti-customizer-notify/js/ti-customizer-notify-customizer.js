@@ -84,4 +84,26 @@ jQuery(document).ready(function(){
         });
     });
 
+    /* Open the link in a new tab, for Activate buttons */
+    jQuery( '#customize-theme-controls' ).on( 'click', '#accordion-section-ti-customizer-notify-section a.activate-now', function ( e ) {
+
+        e.preventDefault();
+
+        if ( typeof jQuery(this).attr('href') !== 'undefined' ) {
+            var url = jQuery(this).attr('href');
+
+            if ( typeof url !== 'undefined' ) {
+
+                /* open the activate page in a new tab */
+                window.popup = window.open(url, '_blank');
+
+                /* refresh the customizer page to actualize the activate button */
+                window.popup.onload = function() {
+                    location.reload();
+                }
+            }
+        }
+
+    } );
+
 });

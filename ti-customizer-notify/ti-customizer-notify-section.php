@@ -195,6 +195,11 @@ class Ti_Customizer_Notify_Section extends WP_Customize_Section {
 			}
 
 			$active = $this->check_active( $slug );
+
+			if ( ! empty( $active['needs'] ) && ( $active['needs'] == 'deactivate' ) ) {
+				continue;
+			}
+
 			$ti_customizer_notify_recommended_plugin['url']    = $this->create_action_link( $active['needs'], $slug );
 			if ( $active['needs'] !== 'install' && $active['status'] ) {
 				$ti_customizer_notify_recommended_plugin['class'] = 'active';

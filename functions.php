@@ -80,7 +80,10 @@ function zerif_setup() {
 	require get_template_directory() . '/inc/customizer.php';
 
 	/* tgm-plugin-activation */
-    require_once get_template_directory() . '/class-tgm-plugin-activation.php';
+	require_once get_template_directory() . '/class-tgm-plugin-activation.php';
+
+	/* preview demo */
+	require_once get_template_directory() . '/ti-prevdem/init-prevdem.php';
 
     /* woocommerce support */
 	add_theme_support( 'woocommerce' );

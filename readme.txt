@@ -92,6 +92,36 @@ The exceptions to this license are as follows:
 		 * images/testimonial3.jpg
 			Source: https://unsplash.com/photos/MA7VYLQ_9ao
 
+		 * ti-prevdem/img/1.jpg
+			Source: https://unsplash.com/?photo=WHWYBmtn3_0
+
+         * ti-prevdem/img/2.jpg
+			Source: https://unsplash.com/?photo=XRRiHEckyU0
+
+		 * ti-prevdem/img/3.jpg
+			Source: https://unsplash.com/?photo=5KvPQc1Uklk
+
+		 * ti-prevdem/img/4.jpg
+			Source: https://unsplash.com/?photo=fW98cCvZwEQ
+
+		 * ti-prevdem/img/5.jpg
+			Source: https://unsplash.com/?photo=smWTOhdPvJc
+
+		 * ti-prevdem/img/6.jpg
+			Source: https://unsplash.com/?photo=lcZ9NxhOSlo
+
+		 * ti-prevdem/img/7.jpg
+			Source: https://unsplash.com/?photo=BonjBu19IiY
+
+		 * ti-prevdem/img/8.jpg
+			Source: https://unsplash.com/?photo=Sgthj0HW6ec
+
+		 * ti-prevdem/img/9.jpg
+			Source: https://unsplash.com/?photo=z0nVqfrOqWA
+
+		 * ti-prevdem/img/10.jpg
+			Source: https://unsplash.com/?photo=3JZeW3rtg6E
+
 * Available hooks:
 
   zerif_404_title
