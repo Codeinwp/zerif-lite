@@ -1,7 +1,26 @@
 <?php
 
-get_header(); ?>
+get_header();
 
+    if( ! zerif_check_if_old_version_of_theme() ) {
+
+    $blog_header_title = get_theme_mod( 'zerif_blog_header_title', esc_html__( 'Blog', 'zerif-lite' ) );
+    $blog_header_subtitle = get_theme_mod( 'zerif_blog_header_subtitle', esc_html__( 'Zerif supports a custom frontpage', 'zerif-lite' ) );
+
+    if ( ! empty( $blog_header_title ) || ! empty( $blog_header_subtitle ) ) { ?>
+    <div class="blog-header-wrap">
+        <div class="blog-header-content-wrap">
+			<?php if ( ! empty( $blog_header_title ) ) { ?>
+                <h1 class="intro-text"><?php echo esc_html( $blog_header_title ); ?></h1>
+			<?php }
+			if ( ! empty( $blog_header_subtitle ) ) { ?>
+                <p class="blog-header-subtitle"><?php echo esc_html( $blog_header_subtitle ); ?></p>
+			<?php } ?>
+        </div>
+    </div>
+<?php }
+}
+?>
 <div class="clear"></div>
 
 </header> <!-- / END HOME SECTION  -->
@@ -16,7 +35,7 @@ get_header(); ?>
 
 				<main id="main" class="site-main">
 
-				<?php 
+				<?php
 					if ( have_posts() ) :
 				
 						while ( have_posts() ) : the_post();
