@@ -1779,3 +1779,41 @@ function zerif_check_if_old_version_of_theme() {
 	}
 	return false;
 }
+
+/**
+ * Add starter content for fresh sites
+ *
+ * @since 1.8.5.12
+ */
+function zerif_starter_content() {
+	/*
+	 * Starter Content Support
+	 */
+	add_theme_support( 'starter-content', array(
+		// Twenty Seventeen
+		'posts' => array(
+			'home' => array(
+				'template' => 'template-frontpage.php',
+			),
+			'blog',
+        ),
+
+		'nav_menus' => array(
+			'primary'      => array(
+				'name'  => __( 'Primary Menu', 'zerif-lite' ),
+				'items' => array(
+					'page_home',
+					'page_blog',
+				),
+			),
+		),
+
+		'options' => array(
+			'show_on_front'  => 'page',
+			'page_on_front'  => '{{home}}',
+			'page_for_posts' => '{{blog}}',
+		),
+	) );
+
+}
+add_action( 'after_setup_theme', 'zerif_starter_content' );
