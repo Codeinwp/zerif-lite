@@ -3,13 +3,20 @@
 //If static page is front-page, get it's template.
 if ( get_option( 'show_on_front' ) == 'page' ) {
 
-	//For users who had previously installed 1.8.5 or less. Keep the old settings.
-	if( zerif_check_if_old_version_of_theme() ) {
-		include( get_page_template() );
+	$zerif_keep_old_fp_template = get_theme_mod( 'zerif_keep_old_fp_template' );
+	if ( ! $zerif_keep_old_fp_template ) {
+
+		//For users who had previously installed 1.8.5 or less. Keep the old settings.
+		if( zerif_check_if_old_version_of_theme() ) {
+			include( get_page_template() );
+		} else {
+			// For new users add the frontpage template for every static page
+			get_template_part( 'content','frontpage' );
+		}
 	} else {
-		// For new users add the frontpage template for every static page
-		get_template_part( 'content','frontpage' );
+		include( get_page_template() );
 	}
+
 } else {
 
 	//For users who had previously installed 1.8.5 or less. Keep the old settings.

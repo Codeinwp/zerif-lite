@@ -444,6 +444,22 @@ function zerif_customize_register( $wp_customize ) {
 		'priority' => 6
 	) );
 
+	/**
+	 * Option to get the frontpage settings to the old default template if a static frontpage is selected
+	 * Only for new users
+	 */
+	if ( ! zerif_check_if_old_version_of_theme() ) {
+		$wp_customize->add_setting( 'zerif_keep_old_fp_template', array(
+			'sanitize_callback' => 'zerif_sanitize_checkbox',
+		) );
+		$wp_customize->add_control( 'zerif_keep_old_fp_template', array(
+			'type'     => 'checkbox',
+			'label'    => esc_html__( 'Keep the old static frontpage template?', 'zerif-lite' ),
+			'section'  => 'zerif_general_section',
+			'priority' => 7,
+		) );
+	}
+
     $wp_customize->get_section( 'colors' )->panel = 'zerif_advanced_options_panel';
     $wp_customize->get_section( 'background_image' )->panel = 'zerif_advanced_options_panel';
 
