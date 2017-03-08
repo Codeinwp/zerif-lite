@@ -126,7 +126,7 @@ function zerif_customize_register( $wp_customize ) {
 		'section'            => 'colors',
 		'priority'           => 500,
 		'options'            => array(
-			esc_html__( 'Extra Colors', 'zerif-lite' ),
+			esc_html__( 'Extra colors', 'zerif-lite' ),
 		),
 		'explained_features' => array(
 			esc_html__( 'Get full color schemes support for your site.', 'zerif-lite' ),
