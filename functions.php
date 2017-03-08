@@ -189,7 +189,7 @@ function zerif_setup() {
 				'title' => esc_html__( 'Changelog','zerif-lite' ),
 				'icon' => 'dashicons dashicons-portfolio',
 				'text' => esc_html__( 'Want to get the gist on the latest theme changes? Just consult our changelog below to get a taste of the recent fixes and features implemented.','zerif-lite' ),
-				'button_label' => esc_html__( 'See changelog','zerif-lite' ),
+				'button_label' => esc_html__( 'Changelog','zerif-lite' ),
 				'button_link' => esc_url( admin_url( 'themes.php?page=zerif-lite-welcome&tab=changelog&show=yes' ) ),
 				'is_button' => false,
 				'is_new_tab' => false
@@ -423,9 +423,8 @@ function zerif_setup() {
 			'deactivate_label' => esc_html__( 'Deactivate', 'zerif-lite' ),
 			'content'            => array(
 				'themeisle-companion' => array(
-					'title'       => __( 'ThemeIsle Companion', 'zerif-lite' ),
+					'title'       => 'ThemeIsle Companion',
 					'description' => __( 'It is highly recommended that you install the companion plugin to have access to the frontpage sections widgets.', 'zerif-lite' ),
-					'link_label'  => __( 'Install ThemeIsle Companion', 'zerif-lite' ),
 					'check'       => defined( 'THEMEISLE_COMPANION_VERSION' ),
 					'plugin_slug' => 'themeisle-companion',
 					'id' => 'themeisle-companion'
@@ -433,7 +432,6 @@ function zerif_setup() {
 				'pirate-forms' => array(
 					'title'       => 'Pirate Forms',
 					'description' => __( 'Makes your contact page more engaging by creating a good-looking contact form on your website. The interaction with your visitors was never easier.', 'zerif-lite' ),
-					'link_label'  => __( 'Install Pirate Forms', 'zerif-lite' ),
 					'check'       => defined( 'PIRATE_FORMS_VERSION' ),
 					'plugin_slug' => 'pirate-forms',
 					'id' => 'pirate-forms'
