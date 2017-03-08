@@ -1426,8 +1426,7 @@ if ( !class_exists( 'zerif_team_widget' ) && zerif_check_if_old_version_of_theme
 										<?php
 										if ( ! empty( $instance['name'] ) ) { ?>
 											<span class="sr-only">
-				                            <?php _e( 'Facebook account of', 'zerif-lite' ); ?>
-				                            <?php echo apply_filters( 'widget_title', $instance['name'] ); ?>
+				                            <?php _e( 'Facebook link', 'zerif-lite' ); ?>
 			                            </span>
 											<?php
 										} ?>
@@ -1444,8 +1443,7 @@ if ( !class_exists( 'zerif_team_widget' ) && zerif_check_if_old_version_of_theme
 										<?php
 										if ( ! empty( $instance['name'] ) ) { ?>
 											<span class="sr-only">
-				                            <?php _e( 'Twitter account of', 'zerif-lite' ); ?>
-				                            <?php echo apply_filters( 'widget_title', $instance['name'] ); ?>
+				                            <?php _e( 'Twitter link', 'zerif-lite' ); ?>
 			                            </span>
 											<?php
 										} ?>
@@ -1462,8 +1460,7 @@ if ( !class_exists( 'zerif_team_widget' ) && zerif_check_if_old_version_of_theme
 										<?php
 										if ( ! empty( $instance['name'] ) ) { ?>
 											<span class="sr-only">
-				                            <?php _e( 'Behance account of', 'zerif-lite' ); ?>
-				                            <?php echo apply_filters( 'widget_title', $instance['name'] ); ?>
+				                            <?php _e( 'Behance link', 'zerif-lite' ); ?>
 			                            </span>
 											<?php
 										} ?>
@@ -1480,8 +1477,7 @@ if ( !class_exists( 'zerif_team_widget' ) && zerif_check_if_old_version_of_theme
 										<?php
 										if ( ! empty( $instance['name'] ) ) { ?>
 											<span class="sr-only">
-				                            <?php _e( 'Dribble account of', 'zerif-lite' ); ?>
-				                            <?php echo apply_filters( 'widget_title', $instance['name'] ); ?>
+				                            <?php _e( 'Dribble link', 'zerif-lite' ); ?>
 			                            </span>
 											<?php
 										} ?>
@@ -1498,8 +1494,7 @@ if ( !class_exists( 'zerif_team_widget' ) && zerif_check_if_old_version_of_theme
 										<?php
 										if ( ! empty( $instance['name'] ) ) { ?>
 											<span class="sr-only">
-				                            <?php _e( 'Linkedin account of', 'zerif-lite' ); ?>
-				                            <?php echo apply_filters( 'widget_title', $instance['name'] ); ?>
+				                            <?php _e( 'Linkedin link', 'zerif-lite' ); ?>
 			                            </span>
 											<?php
 										} ?>

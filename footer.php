@@ -160,27 +160,27 @@
 
 					/* facebook */
 					if ( ! empty( $zerif_socials_facebook ) ) {
-						echo '<li id="facebook"><a' . $attribut_new_tab . ' href="' . esc_url( $zerif_socials_facebook ) . '"><span class="sr-only">' . __( 'Go to Facebook', 'zerif-lite' ) . '</span> <i class="fa fa-facebook"></i></a></li>';
+						echo '<li id="facebook"><a' . $attribut_new_tab . ' href="' . esc_url( $zerif_socials_facebook ) . '"><span class="sr-only">' . __( 'Facebook link', 'zerif-lite' ) . '</span> <i class="fa fa-facebook"></i></a></li>';
 					}
 					/* twitter */
 					if ( ! empty( $zerif_socials_twitter ) ) {
-						echo '<li id="twitter"><a' . $attribut_new_tab . ' href="' . esc_url( $zerif_socials_twitter ) . '"><span class="sr-only">' . __( 'Go to Twitter', 'zerif-lite' ) . '</span> <i class="fa fa-twitter"></i></a></li>';
+						echo '<li id="twitter"><a' . $attribut_new_tab . ' href="' . esc_url( $zerif_socials_twitter ) . '"><span class="sr-only">' . __( 'Twitter link', 'zerif-lite' ) . '</span> <i class="fa fa-twitter"></i></a></li>';
 					}
 					/* linkedin */
 					if ( ! empty( $zerif_socials_linkedin ) ) {
-						echo '<li id="linkedin"><a' . $attribut_new_tab . ' href="' . esc_url( $zerif_socials_linkedin ) . '"><span class="sr-only">' . __( 'Go to Linkedin', 'zerif-lite' ) . '</span> <i class="fa fa-linkedin"></i></a></li>';
+						echo '<li id="linkedin"><a' . $attribut_new_tab . ' href="' . esc_url( $zerif_socials_linkedin ) . '"><span class="sr-only">' . __( 'Linkedin link', 'zerif-lite' ) . '</span> <i class="fa fa-linkedin"></i></a></li>';
 					}
 					/* behance */
 					if ( ! empty( $zerif_socials_behance ) ) {
-						echo '<li id="behance"><a' . $attribut_new_tab . ' href="' . esc_url( $zerif_socials_behance ) . '"><span class="sr-only">' . __( 'Go to Behance', 'zerif-lite' ) . '</span> <i class="fa fa-behance"></i></a></li>';
+						echo '<li id="behance"><a' . $attribut_new_tab . ' href="' . esc_url( $zerif_socials_behance ) . '"><span class="sr-only">' . __( 'Behance link', 'zerif-lite' ) . '</span> <i class="fa fa-behance"></i></a></li>';
 					}
 					/* dribbble */
 					if ( ! empty( $zerif_socials_dribbble ) ) {
-						echo '<li id="dribbble"><a' . $attribut_new_tab . ' href="' . esc_url( $zerif_socials_dribbble ) . '"><span class="sr-only">' . __( 'Go to Dribble', 'zerif-lite' ) . '</span> <i class="fa fa-dribbble"></i></a></li>';
+						echo '<li id="dribbble"><a' . $attribut_new_tab . ' href="' . esc_url( $zerif_socials_dribbble ) . '"><span class="sr-only">' . __( 'Dribble link', 'zerif-lite' ) . '</span> <i class="fa fa-dribbble"></i></a></li>';
 					}
 					/* instagram */
 					if ( ! empty( $zerif_socials_instagram ) ) {
-						echo '<li id="instagram"><a' . $attribut_new_tab . ' href="' . esc_url( $zerif_socials_instagram ) . '"><span class="sr-only">' . __( 'Go to Instagram', 'zerif-lite' ) . '</span> <i class="fa fa-instagram"></i></a></li>';
+						echo '<li id="instagram"><a' . $attribut_new_tab . ' href="' . esc_url( $zerif_socials_instagram ) . '"><span class="sr-only">' . __( 'Instagram link', 'zerif-lite' ) . '</span> <i class="fa fa-instagram"></i></a></li>';
 					}
 
 					echo '</ul><!-- .social -->';
