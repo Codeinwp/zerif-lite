@@ -170,7 +170,7 @@ function zerif_setup() {
 			'first' => array (
 				'title' => esc_html__( 'Contact Support','zerif-lite' ),
 				'icon' => 'dashicons dashicons-sos',
-				'text' => esc_html__( 'We offer excellent support through our advanced ticketing system. Make sure to register your purchase before contacting support!','zerif-lite' ),
+				'text' => esc_html__( 'We want to make sure you have the best experience using Zerif Lite and that is why we gathered here all the necessary informations for you. We hope you will enjoy using Zerif Lite, as much as we enjoy creating great products.','zerif-lite' ),
 				'button_label' => esc_html__( 'Contact Support','zerif-lite' ),
 				'button_link' => esc_url( 'https://themeisle.com/contact/' ),
 				'is_button' => true,
@@ -179,8 +179,8 @@ function zerif_setup() {
 			'second' => array(
 				'title' => esc_html__( 'Documentation','zerif-lite' ),
 				'icon' => 'dashicons dashicons-book-alt',
-				'text' => sprintf( esc_html__( 'This is the place to go to reference different aspects of the theme. Our online documentation is an incredible resource for learning the ins and outs of using %s.','zerif-lite' ), 'Zerif Lite' ),
-				'button_label' => esc_html__( 'See our full documentation','zerif-lite' ),
+				'text' => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Zerif Lite.','zerif-lite' ),
+				'button_label' => esc_html__( 'Read full documentation','zerif-lite' ),
 				'button_link' => 'https://docs.themeisle.com/article/5-zerif-lite-documentation',
 				'is_button' => false,
 				'is_new_tab' => true
@@ -236,7 +236,7 @@ function zerif_setup() {
 			'second' => array(
 				'title' => esc_html__( 'Step 2 - Check our documentation','zerif-lite' ),
 				'text' => esc_html__( 'Even if you are a long-time WordPress user, we still believe you should give our documentation a very quick Read.','zerif-lite' ),
-				'button_label' => esc_html__( 'Full documentation','zerif-lite' ),
+				'button_label' => esc_html__( 'Documentation','zerif-lite' ),
 				'button_link' => 'http://docs.themeisle.com/article/5-zerif-lite-documentation',
 				'is_button' => false,
 				'recommended_actions' => false,
@@ -431,7 +431,7 @@ function zerif_setup() {
 					'id' => 'themeisle-companion'
 				),
 				'pirate-forms' => array(
-					'title'       => __( 'Pirate Forms', 'zerif-lite' ),
+					'title'       => 'Pirate Forms',
 					'description' => __( 'Makes your contact page more engaging by creating a good-looking contact form on your website. The interaction with your visitors was never easier.', 'zerif-lite' ),
 					'link_label'  => __( 'Install Pirate Forms', 'zerif-lite' ),
 					'check'       => defined( 'PIRATE_FORMS_VERSION' ),
@@ -456,7 +456,6 @@ function zerif_setup() {
 		'recommended_actions' => array(),
 		'recommended_actions_title' => esc_html__( 'Recommended Actions', 'zerif-lite' ),
 		'recommended_plugins_title' => esc_html__( 'Recommended Plugins', 'zerif-lite' ),
-		'dismiss_button' => esc_html__( 'Dismiss', 'zerif-lite' ),
 		'install_button_label' => esc_html__( 'Install', 'zerif-lite' ),
 		'activate_button_label' => esc_html__( 'Activate', 'zerif-lite' ),
 		'deactivate_button_label' => esc_html__( 'Deactivate', 'zerif-lite' )
