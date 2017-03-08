@@ -604,6 +604,14 @@ function zerif_scripts() {
 
     wp_enqueue_style( 'zerif_style', get_stylesheet_uri(), array( 'zerif_fontawesome' ), 'v1' );
 
+	/* Add this style only for the other cases than New users that have a static page */
+	if ( zerif_check_if_old_version_of_theme() || ( get_option( 'show_on_front' ) == 'posts' ) ) {
+		$custom_css = 'body.home.page:not(.page-template-template-frontpage) {
+			background-image: none !important;
+		}';
+		wp_add_inline_style( 'zerif_style', $custom_css );
+	}
+
     wp_enqueue_style( 'zerif_responsive_style', get_template_directory_uri() . '/css/responsive.css', array('zerif_style'), 'v1' );
 
     wp_enqueue_style( 'zerif_ie_style', get_template_directory_uri() . '/css/ie.css', array('zerif_style'), 'v1' );
@@ -1693,14 +1701,25 @@ function recaptcha_scripts() {
 
 /* remove custom-background from body_class() */
 add_filter( 'body_class', 'remove_class_function' );
+
 function remove_class_function( $classes ) {
 
-    if ( !is_home() && !is_page_template('template-frontpage.php') ) {
-        // index of custom-background
-        $key = array_search('custom-background', $classes);
-        // remove class
-        unset($classes[$key]);
-    }
+	/* For new users with static page */
+	if ( ! zerif_check_if_old_version_of_theme() && ( get_option( 'show_on_front' ) == 'page' ) ) {
+		if ( !is_front_page() ) {
+			// index of custom-background
+			$key = array_search( 'custom-background', $classes );
+			// remove class
+			unset( $classes[ $key ] );
+		}
+	} else {
+		if ( ! is_home() && ! is_page_template( 'template-frontpage.php' ) ) {
+			// index of custom-background
+			$key = array_search( 'custom-background', $classes );
+			// remove class
+			unset( $classes[ $key ] );
+		}
+	}
     return $classes;
 
 }
