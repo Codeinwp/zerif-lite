@@ -225,17 +225,17 @@ function zerif_setup() {
 		// Getting started tab
 		'getting_started' => array(
 			'first' => array (
-				'title' => esc_html__( 'Step 1 - Implement recommended actions','zerif-lite' ),
+				'title' => esc_html__( 'Recommended actions','zerif-lite' ),
 				'text' => esc_html__( 'We have compiled a list of steps for you, to take make sure the experience you will have using one of our products is very easy to follow.','zerif-lite' ),
-				'button_label' => esc_html__( 'Check recommended actions','zerif-lite' ),
+				'button_label' => esc_html__( 'Recommended actions','zerif-lite' ),
 				'button_link' => esc_url( admin_url( 'themes.php?page=zerif-lite-welcome&tab=recommended_actions' ) ),
 				'is_button' => false,
 				'recommended_actions' => true,
                 'is_new_tab' => false
 			),
 			'second' => array(
-				'title' => esc_html__( 'Step 2 - Check our documentation','zerif-lite' ),
-				'text' => esc_html__( 'Even if you are a long-time WordPress user, we still believe you should give our documentation a very quick Read.','zerif-lite' ),
+				'title' => esc_html__( 'Read full documentation','zerif-lite' ),
+				'text' => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Zerif Lite.','zerif-lite' ),
 				'button_label' => esc_html__( 'Documentation','zerif-lite' ),
 				'button_link' => 'http://docs.themeisle.com/article/5-zerif-lite-documentation',
 				'is_button' => false,
@@ -243,7 +243,7 @@ function zerif_setup() {
                 'is_new_tab' => true
 			),
 			'third' => array(
-				'title' => esc_html__( 'Step 3 - Customize everything','zerif-lite' ),
+				'title' => esc_html__( 'Go to Customizer','zerif-lite' ),
 				'text' => esc_html__( 'Using the WordPress Customizer you can easily customize every aspect of the theme.','zerif-lite' ),
 				'button_label' => esc_html__( 'Go to Customizer','zerif-lite' ),
 				'button_link' => esc_url( admin_url( 'customize.php' ) ),
