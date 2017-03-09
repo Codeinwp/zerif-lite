@@ -166,207 +166,381 @@ function zerif_customize_register( $wp_customize ) {
 		$wp_customize->selective_refresh->add_partial( 'zerif_bigtitle_title_2', array(
 			'selector'        => '.home-header-wrap .intro-text',
 			'settings'        => 'zerif_bigtitle_title_2',
-			'render_callback' => function () {
-				return wp_kses_post( get_theme_mod( 'zerif_bigtitle_title_2' ) );
-			},
+			'render_callback' => 'zerif_bigtitle_title_2_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_bigtitle_redbutton_label_2', array(
 			'selector'        => '.buttons a.red-btn',
 			'settings'        => 'zerif_bigtitle_redbutton_label_2',
-			'render_callback' => function () {
-				return wp_kses_post( get_theme_mod( 'zerif_bigtitle_redbutton_label_2' ) );
-			},
+			'render_callback' => 'zerif_bigtitle_redbutton_label_2_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_bigtitle_greenbutton_label', array(
 			'selector'        => '.buttons a.green-btn',
 			'settings'        => 'zerif_bigtitle_greenbutton_label',
-			'render_callback' => function () {
-				return wp_kses_post( get_theme_mod( 'zerif_bigtitle_greenbutton_label' ) );
-			},
+			'render_callback' => 'zerif_bigtitle_greenbutton_label_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_ourfocus_title_2', array(
 			'selector'        => '#focus .section-header h2',
 			'settings'        => 'zerif_ourfocus_title_2',
-			'render_callback' => function () {
-				return wp_kses_post( get_theme_mod( 'zerif_ourfocus_title_2' ) );
-			},
+			'render_callback' => 'zerif_ourfocus_title_2_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_ourfocus_subtitle', array(
 			'selector'        => '#focus .section-header div.section-legend',
 			'settings'        => 'zerif_ourfocus_subtitle',
-			'render_callback' => function () {
-				return wp_kses_post( get_theme_mod( 'zerif_ourfocus_subtitle' ) );
-			},
+			'render_callback' => 'zerif_ourfocus_subtitle_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_ourteam_title', array(
 			'selector'        => '#team .section-header h2',
 			'settings'        => 'zerif_ourteam_title',
-			'render_callback' => function () {
-				return wp_kses_post( get_theme_mod( 'zerif_ourteam_title' ) );
-			},
+			'render_callback' => 'zerif_ourteam_title_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_ourteam_subtitle', array(
 			'selector'        => '#team .section-header div.section-legend',
 			'settings'        => 'zerif_ourteam_subtitle',
-			'render_callback' => function () {
-				return wp_kses_post( get_theme_mod( 'zerif_ourteam_subtitle' ) );
-			},
+			'render_callback' => 'zerif_ourteam_subtitle_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_aboutus_title', array(
 			'selector'        => '#aboutus .section-header h2',
 			'settings'        => 'zerif_aboutus_title',
-			'render_callback' => function () {
-				return wp_kses_post( get_theme_mod( 'zerif_aboutus_title' ) );
-			},
+			'render_callback' => 'zerif_aboutus_title_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_aboutus_subtitle', array(
 			'selector'        => '#aboutus .section-header div.section-legend',
 			'settings'        => 'zerif_aboutus_subtitle',
-			'render_callback' => function () {
-				return wp_kses_post( get_theme_mod( 'zerif_aboutus_subtitle' ) );
-			},
+			'render_callback' => 'zerif_aboutus_subtitle_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_aboutus_biglefttitle', array(
 			'selector'        => '#aboutus .big-intro',
 			'settings'        => 'zerif_aboutus_biglefttitle',
-			'render_callback' => function () {
-				return wp_kses_post( get_theme_mod( 'zerif_aboutus_biglefttitle' ) );
-			},
+			'render_callback' => 'zerif_aboutus_biglefttitle_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_aboutus_text', array(
 			'selector'        => '#aboutus .text_and_skills p',
 			'settings'        => 'zerif_aboutus_text',
-			'render_callback' => function () {
-				return wp_kses_post( get_theme_mod( 'zerif_aboutus_text' ) );
-			},
+			'render_callback' => 'zerif_aboutus_text_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_aboutus_feature1_title', array(
 			'selector'        => '#aboutus .skill_1 label',
 			'settings'        => 'zerif_aboutus_feature1_title',
-			'render_callback' => function () {
-				return wp_kses_post( get_theme_mod( 'zerif_aboutus_feature1_title' ) );
-			},
+			'render_callback' => 'zerif_aboutus_feature1_title_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_aboutus_feature2_title', array(
 			'selector'        => '#aboutus .skill_2 label',
 			'settings'        => 'zerif_aboutus_feature2_title',
-			'render_callback' => function () {
-				return wp_kses_post( get_theme_mod( 'zerif_aboutus_feature2_title' ) );
-			},
+			'render_callback' => 'zerif_aboutus_feature2_title_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_aboutus_feature3_title', array(
 			'selector'        => '#aboutus .skill_3 label',
 			'settings'        => 'zerif_aboutus_feature3_title',
-			'render_callback' => function () {
-				return wp_kses_post( get_theme_mod( 'zerif_aboutus_feature3_title' ) );
-			},
+			'render_callback' => 'zerif_aboutus_feature3_title_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_aboutus_feature4_title', array(
 			'selector'        => '#aboutus .skill_4 label',
 			'settings'        => 'zerif_aboutus_feature4_title',
-			'render_callback' => function () {
-				return wp_kses_post( get_theme_mod( 'zerif_aboutus_feature4_title' ) );
-			},
+			'render_callback' => 'zerif_aboutus_feature4_title_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_testimonials_title', array(
 			'selector'        => '#testimonials .section-header h2',
 			'settings'        => 'zerif_testimonials_title',
-			'render_callback' => function () {
-				return wp_kses_post( get_theme_mod( 'zerif_testimonials_title' ) );
-			},
+			'render_callback' => 'zerif_testimonials_title_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_contactus_title', array(
 			'selector'        => '#contact .section-header h2',
 			'settings'        => 'zerif_contactus_title',
-			'render_callback' => function () {
-				return wp_kses_post( get_theme_mod( 'zerif_contactus_title' ) );
-			},
+			'render_callback' => 'zerif_contactus_title_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_socials_facebook', array(
 			'selector'        => '#footer .social #facebook',
 			'settings'        => 'zerif_socials_facebook',
-			'render_callback' => function () {
-				return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_facebook' ) ) . '"><span class="sr-only">' . __( 'Facebook link', 'zerif-lite' ) . '</span> <i class="fa fa-facebook"></i></a>';
-			},
+			'render_callback' => 'zerif_socials_facebook_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_socials_twitter', array(
 			'selector'        => '#footer .social #twitter',
 			'settings'        => 'zerif_socials_twitter',
-			'render_callback' => function () {
-				return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_twitter' ) ) . '"><span class="sr-only">' . __( 'Twitter link', 'zerif-lite' ) . '</span> <i class="fa fa-twitter"></i></a>';
-			},
+			'render_callback' => 'zerif_socials_twitter_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_socials_linkedin', array(
 			'selector'        => '#footer .social #linkedin',
 			'settings'        => 'zerif_socials_linkedin',
-			'render_callback' => function () {
-				return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_linkedin' ) ) . '"><span class="sr-only">' . __( 'Linkedin link', 'zerif-lite' ) . '</span> <i class="fa fa-linkedin"></i></a>';
-			},
+			'render_callback' => 'zerif_socials_linkedin_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_socials_behance', array(
 			'selector'        => '#footer .social #behance',
 			'settings'        => 'zerif_socials_behance',
-			'render_callback' => function () {
-				return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_behance' ) ) . '"><span class="sr-only">' . __( 'Behance link', 'zerif-lite' ) . '</span> <i class="fa fa-behance"></i></a>';
-			},
+			'render_callback' => 'zerif_socials_behance_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_socials_dribbble', array(
 			'selector'        => '#footer .social #dribbble',
 			'settings'        => 'zerif_socials_dribbble',
-			'render_callback' => function () {
-				return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_dribbble' ) ) . '"><span class="sr-only">' . __( 'Dribble link', 'zerif-lite' ) . '</span> <i class="fa fa-dribbble"></i></a>';
-			},
+			'render_callback' => 'zerif_socials_dribbble_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_socials_instagram', array(
 			'selector'        => '#footer .social #instagram',
 			'settings'        => 'zerif_socials_instagram',
-			'render_callback' => function () {
-				return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_instagram' ) ) . '"><span class="sr-only">' . __( 'Instagram link', 'zerif-lite' ) . '</span> <i class="fa fa-instagram"></i></a>';
-			},
+			'render_callback' => 'zerif_socials_instagram_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_address', array(
 			'selector'        => '.zerif-footer-address',
 			'settings'        => 'zerif_address',
-			'render_callback' => function () {
-				return wp_kses_post( get_theme_mod( 'zerif_address' ) );
-			},
+			'render_callback' => 'zerif_address_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_email', array(
 			'selector'        => '.zerif-footer-email',
 			'settings'        => 'zerif_email',
-			'render_callback' => function () {
-				return wp_kses_post( get_theme_mod( 'zerif_email' ) );
-			},
+			'render_callback' => 'zerif_email_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_phone', array(
 			'selector'        => '.zerif-footer-phone',
 			'settings'        => 'zerif_phone',
-			'render_callback' => function () {
-				return wp_kses_post( get_theme_mod( 'zerif_phone' ) );
-			},
+			'render_callback' => 'zerif_phone_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_address_icon', array(
 			'selector'        => '.company-details .icon-top.red-text',
 			'settings'        => 'zerif_address_icon',
-			'render_callback' => function () {
-				return '<img src="' . esc_url( get_theme_mod( 'zerif_address_icon' ) ) . '">';
-			},
+			'render_callback' => 'zerif_address_icon_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_email_icon', array(
 			'selector'        => '.company-details .icon-top.green-text',
 			'settings'        => 'zerif_email_icon',
-			'render_callback' => function () {
-				return '<img src="' . esc_url( get_theme_mod( 'zerif_email_icon' ) ) . '">';
-			},
+			'render_callback' => 'zerif_email_icon_render_callback',
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_phone_icon', array(
 			'selector'        => '.company-details .icon-top.blue-text',
 			'settings'        => 'zerif_phone_icon',
-			'render_callback' => function () {
-				return '<img src="' . esc_url( get_theme_mod( 'zerif_phone_icon' ) ) . '">';
-			},
+			'render_callback' => 'zerif_phone_icon_render_callback',
 		) );
 	}
+
+    /**
+     * Render callback for zerif_bigtitle_title_2
+     * @return mixed
+     */
+    function zerif_bigtitle_title_2_render_callback() {
+        return wp_kses_post( get_theme_mod( 'zerif_bigtitle_title_2' ) );
+    }
+
+    /**
+     * Render callback for zerif_bigtitle_redbutton_label_2
+     * @return mixed
+     */
+    function zerif_bigtitle_redbutton_label_2_render_callback() {
+        return wp_kses_post( get_theme_mod( 'zerif_bigtitle_redbutton_label_2' ) );
+    }
+
+    /**
+     * Render callback for zerif_bigtitle_greenbutton_label
+     * @return mixed
+     */
+    function zerif_bigtitle_greenbutton_label_render_callback() {
+        return wp_kses_post( get_theme_mod( 'zerif_bigtitle_greenbutton_label' ) );
+    }
+
+    /**
+     * Render callback for zerif_ourfocus_title_2
+     * @return mixed
+     */
+    function zerif_ourfocus_title_2_render_callback() {
+        return wp_kses_post( get_theme_mod( 'zerif_ourfocus_title_2' ) );
+    }
+
+    /**
+     * Render callback for zerif_ourfocus_subtitle
+     * @return mixed
+     */
+    function zerif_ourfocus_subtitle_render_callback() {
+        return wp_kses_post( get_theme_mod( 'zerif_ourfocus_subtitle' ) );
+    }
+
+    /**
+     * Render callback for zerif_ourteam_title
+     * @return mixed
+     */
+    function zerif_ourteam_title_render_callback() {
+        return wp_kses_post( get_theme_mod( 'zerif_ourteam_title' ) );
+    }
+
+    /**
+     * Render callback for zerif_ourteam_subtitle
+     * @return mixed
+     */
+    function zerif_ourteam_subtitle_render_callback() {
+        return wp_kses_post( get_theme_mod( 'zerif_ourteam_subtitle' ) );
+    }
+
+    /**
+     * Render callback for zerif_aboutus_title
+     * @return mixed
+     */
+    function zerif_aboutus_title_render_callback() {
+        return wp_kses_post( get_theme_mod( 'zerif_aboutus_title' ) );
+    }
+
+    /**
+     * Render callback for zerif_aboutus_subtitle
+     * @return mixed
+     */
+    function zerif_aboutus_subtitle_render_callback() {
+        return wp_kses_post( get_theme_mod( 'zerif_aboutus_subtitle' ) );
+    }
+
+    /**
+     * Render callback for zerif_aboutus_biglefttitle
+     * @return mixed
+     */
+    function zerif_aboutus_biglefttitle_render_callback() {
+        return wp_kses_post( get_theme_mod( 'zerif_aboutus_biglefttitle' ) );
+    }
+
+    /**
+     * Render callback for zerif_aboutus_text
+     * @return mixed
+     */
+    function zerif_aboutus_text_render_callback() {
+        return wp_kses_post( get_theme_mod( 'zerif_aboutus_text' ) );
+    }
+
+    /**
+     * Render callback for zerif_aboutus_feature1_title
+     * @return mixed
+     */
+    function zerif_aboutus_feature1_title_render_callback() {
+        return wp_kses_post( get_theme_mod( 'zerif_aboutus_feature1_title' ) );
+    }
+
+    /**
+     * Render callback for zerif_aboutus_feature2_title
+     * @return mixed
+     */
+    function zerif_aboutus_feature2_title_render_callback() {
+        return wp_kses_post( get_theme_mod( 'zerif_aboutus_feature2_title' ) );
+    }
+
+    /**
+     * Render callback for zerif_aboutus_feature3_title
+     * @return mixed
+     */
+    function zerif_aboutus_feature3_title_render_callback() {
+        return wp_kses_post( get_theme_mod( 'zerif_aboutus_feature3_title' ) );
+    }
+
+    /**
+     * Render callback for zerif_aboutus_feature4_title
+     * @return mixed
+     */
+    function zerif_aboutus_feature4_title_render_callback() {
+        return wp_kses_post( get_theme_mod( 'zerif_aboutus_feature4_title' ) );
+    }
+
+    /**
+     * Render callback for zerif_testimonials_title
+     * @return mixed
+     */
+    function zerif_testimonials_title_render_callback() {
+        return wp_kses_post( get_theme_mod( 'zerif_testimonials_title' ) );
+    }
+
+    /**
+     * Render callback for zerif_contactus_title
+     * @return mixed
+     */
+    function zerif_contactus_title_render_callback() {
+        return wp_kses_post( get_theme_mod( 'zerif_contactus_title' ) );
+    }
+
+    /**
+     * Render callback for zerif_socials_facebook
+     * @return mixed
+     */
+    function zerif_socials_facebook_render_callback() {
+        return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_facebook' ) ) . '"><span class="sr-only">' . __( 'Facebook link', 'zerif-lite' ) . '</span> <i class="fa fa-facebook"></i></a>';
+    }
+
+    /**
+     * Render callback for zerif_socials_twitter
+     * @return mixed
+     */
+    function zerif_socials_twitter_render_callback() {
+        return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_twitter' ) ) . '"><span class="sr-only">' . __( 'Twitter link', 'zerif-lite' ) . '</span> <i class="fa fa-twitter"></i></a>';
+    }
+
+    /**
+     * Render callback for zerif_socials_linkedin
+     * @return mixed
+     */
+    function zerif_socials_linkedin_render_callback() {
+        return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_linkedin' ) ) . '"><span class="sr-only">' . __( 'Linkedin link', 'zerif-lite' ) . '</span> <i class="fa fa-linkedin"></i></a>';
+    }
+
+    /**
+     * Render callback for zerif_socials_behance
+     * @return mixed
+     */
+    function zerif_socials_behance_render_callback() {
+        return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_behance' ) ) . '"><span class="sr-only">' . __( 'Behance link', 'zerif-lite' ) . '</span> <i class="fa fa-behance"></i></a>';
+    }
+
+    /**
+     * Render callback for zerif_socials_dribbble
+     * @return mixed
+     */
+    function zerif_socials_dribbble_render_callback() {
+        return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_dribbble' ) ) . '"><span class="sr-only">' . __( 'Dribble link', 'zerif-lite' ) . '</span> <i class="fa fa-dribbble"></i></a>';
+    }
+
+    /**
+     * Render callback for zerif_socials_instagram
+     * @return mixed
+     */
+    function zerif_socials_instagram_render_callback() {
+        return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_instagram' ) ) . '"><span class="sr-only">' . __( 'Instagram link', 'zerif-lite' ) . '</span> <i class="fa fa-instagram"></i></a>';
+    }
+
+    /**
+     * Render callback for zerif_address
+     * @return mixed
+     */
+    function zerif_address_render_callback() {
+        return wp_kses_post( get_theme_mod( 'zerif_address' ) );
+    }
+
+    /**
+     * Render callback for zerif_email
+     * @return mixed
+     */
+    function zerif_email_render_callback() {
+        return wp_kses_post( get_theme_mod( 'zerif_email' ) );
+    }
+
+    /**
+     * Render callback for zerif_phone
+     * @return mixed
+     */
+    function zerif_phone_render_callback() {
+        return wp_kses_post( get_theme_mod( 'zerif_phone' ) );
+    }
+
+    /**
+     * Render callback for zerif_address_icon
+     * @return mixed
+     */
+    function zerif_address_icon_render_callback() {
+        return '<img src="' . esc_url( get_theme_mod( 'zerif_address_icon' ) ) . '">';
+    }
+
+    /**
+     * Render callback for zerif_email_icon
+     * @return mixed
+     */
+    function zerif_email_icon_render_callback() {
+        return '<img src="' . esc_url( get_theme_mod( 'zerif_email_icon' ) ) . '">';
+    }
+
+    /**
+     * Render callback for zerif_phone_icon
+     * @return mixed
+     */
+    function zerif_phone_icon_render_callback() {
+        return '<img src="' . esc_url( get_theme_mod( 'zerif_phone_icon' ) ) . '">';
+    }
 
 	/***********************************************/
 	/************** ADVANCED OPTIONS  **************/
