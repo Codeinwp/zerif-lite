@@ -1806,9 +1806,7 @@ function zerif_starter_content() {
 	add_theme_support( 'starter-content', array(
 		// Twenty Seventeen
 		'posts' => array(
-			'home' => array(
-				'template' => 'template-frontpage.php',
-			),
+			'home',
 			'blog',
         ),
 
