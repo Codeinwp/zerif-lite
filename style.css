@@ -5824,13 +5824,7 @@ p.edd-alert-error,
 	}
 }
 
-
 /* [end] Easy Digital Downloads */
-
-
-body.home.page:not(.page-template-template-frontpage) {
-	background-image: none !important;
-}
 
 body.custom-background {
 	background-position: top center !important;

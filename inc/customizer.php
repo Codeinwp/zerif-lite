@@ -126,7 +126,7 @@ function zerif_customize_register( $wp_customize ) {
 		'section'            => 'colors',
 		'priority'           => 500,
 		'options'            => array(
-			esc_html__( 'Extra Colors', 'zerif-lite' ),
+			esc_html__( 'Extra colors', 'zerif-lite' ),
 		),
 		'explained_features' => array(
 			esc_html__( 'Get full color schemes support for your site.', 'zerif-lite' ),
@@ -286,42 +286,42 @@ function zerif_customize_register( $wp_customize ) {
 			'selector'        => '#footer .social #facebook',
 			'settings'        => 'zerif_socials_facebook',
 			'render_callback' => function () {
-				return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_facebook' ) ) . '"><span class="sr-only">' . __( 'Go to Facebook', 'zerif-lite' ) . '</span> <i class="fa fa-facebook"></i></a>';
+				return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_facebook' ) ) . '"><span class="sr-only">' . __( 'Facebook link', 'zerif-lite' ) . '</span> <i class="fa fa-facebook"></i></a>';
 			},
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_socials_twitter', array(
 			'selector'        => '#footer .social #twitter',
 			'settings'        => 'zerif_socials_twitter',
 			'render_callback' => function () {
-				return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_twitter' ) ) . '"><span class="sr-only">' . __( 'Go to Twitter', 'zerif-lite' ) . '</span> <i class="fa fa-twitter"></i></a>';
+				return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_twitter' ) ) . '"><span class="sr-only">' . __( 'Twitter link', 'zerif-lite' ) . '</span> <i class="fa fa-twitter"></i></a>';
 			},
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_socials_linkedin', array(
 			'selector'        => '#footer .social #linkedin',
 			'settings'        => 'zerif_socials_linkedin',
 			'render_callback' => function () {
-				return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_linkedin' ) ) . '"><span class="sr-only">' . __( 'Go to Linkedin', 'zerif-lite' ) . '</span> <i class="fa fa-linkedin"></i></a>';
+				return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_linkedin' ) ) . '"><span class="sr-only">' . __( 'Linkedin link', 'zerif-lite' ) . '</span> <i class="fa fa-linkedin"></i></a>';
 			},
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_socials_behance', array(
 			'selector'        => '#footer .social #behance',
 			'settings'        => 'zerif_socials_behance',
 			'render_callback' => function () {
-				return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_behance' ) ) . '"><span class="sr-only">' . __( 'Go to Behance', 'zerif-lite' ) . '</span> <i class="fa fa-behance"></i></a>';
+				return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_behance' ) ) . '"><span class="sr-only">' . __( 'Behance link', 'zerif-lite' ) . '</span> <i class="fa fa-behance"></i></a>';
 			},
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_socials_dribbble', array(
 			'selector'        => '#footer .social #dribbble',
 			'settings'        => 'zerif_socials_dribbble',
 			'render_callback' => function () {
-				return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_dribbble' ) ) . '"><span class="sr-only">' . __( 'Go to Dribble', 'zerif-lite' ) . '</span> <i class="fa fa-dribbble"></i></a>';
+				return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_dribbble' ) ) . '"><span class="sr-only">' . __( 'Dribble link', 'zerif-lite' ) . '</span> <i class="fa fa-dribbble"></i></a>';
 			},
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_socials_instagram', array(
 			'selector'        => '#footer .social #instagram',
 			'settings'        => 'zerif_socials_instagram',
 			'render_callback' => function () {
-				return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_instagram' ) ) . '"><span class="sr-only">' . __( 'Go to Instagram', 'zerif-lite' ) . '</span> <i class="fa fa-instagram"></i></a>';
+				return '<a href="' . esc_url( get_theme_mod( 'zerif_socials_instagram' ) ) . '"><span class="sr-only">' . __( 'Instagram link', 'zerif-lite' ) . '</span> <i class="fa fa-instagram"></i></a>';
 			},
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_address', array(
@@ -443,6 +443,22 @@ function zerif_customize_register( $wp_customize ) {
 		'section'  => 'zerif_general_section',
 		'priority' => 6
 	) );
+
+	/**
+	 * Option to get the frontpage settings to the old default template if a static frontpage is selected
+	 * Only for new users
+	 */
+	if ( ! zerif_check_if_old_version_of_theme() ) {
+		$wp_customize->add_setting( 'zerif_keep_old_fp_template', array(
+			'sanitize_callback' => 'zerif_sanitize_checkbox',
+		) );
+		$wp_customize->add_control( 'zerif_keep_old_fp_template', array(
+			'type'     => 'checkbox',
+			'label'    => esc_html__( 'Keep the old static frontpage template?', 'zerif-lite' ),
+			'section'  => 'zerif_general_section',
+			'priority' => 7,
+		) );
+	}
 
     $wp_customize->get_section( 'colors' )->panel = 'zerif_advanced_options_panel';
     $wp_customize->get_section( 'background_image' )->panel = 'zerif_advanced_options_panel';
