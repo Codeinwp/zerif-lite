@@ -1709,7 +1709,7 @@ function remove_class_function( $classes ) {
 	$zerif_keep_old_fp_template = get_theme_mod( 'zerif_keep_old_fp_template' );
 	/* For new users with static page */
 	if ( ! zerif_check_if_old_version_of_theme() && ( get_option( 'show_on_front' ) == 'page' ) && ! $zerif_keep_old_fp_template ) {
-		if ( !is_front_page() ) {
+		if ( !is_front_page() && !is_home() ) {
 			// index of custom-background
 			$key = array_search( 'custom-background', $classes );
 			// remove class
