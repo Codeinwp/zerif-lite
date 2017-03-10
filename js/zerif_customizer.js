@@ -5,11 +5,6 @@ jQuery(document).ready( function() {
 
 	});
 
-
-	wp.customize.section('sidebar-widgets-sidebar-aboutus').panel('panel_about');
-	wp.customize.section('sidebar-widgets-sidebar-aboutus').priority('7');
-
-
 	jQuery('#customize-control-zerif_use_safe_font label').append('<span class="dashicons dashicons-info zerif-moreinfo-icon"></span><div class="zerif-moreinfo-content">' + zerifLiteCustomizerObject.tooltip_safefont + '</div>');
 
 	jQuery('#customize-control-zerif_accessibility label').append('<div class="dashicons dashicons-info zerif-moreinfo-icon"></div><div class="zerif-moreinfo-content">' + zerifLiteCustomizerObject.tooltip_accessibility + '</div>');
