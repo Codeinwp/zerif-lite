@@ -6,7 +6,7 @@ matrix:
     before_install: chmod +x bin/wraith.sh
     install: true
     before_script:
-    env: TEST_SUITE=Wraith_Visual_Regression_Testing WRAITH_FAIL=6
+    env: TEST_SUITE=Wraith_Visual_Regression_Testing WRAITH_FAIL=5
     script: ./bin/wraith.sh
 sudo: false
 env:
