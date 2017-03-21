@@ -5884,6 +5884,10 @@ body.custom-background {
     display: none !important;
 }
 
+.menu-align-center #mega-menu-wrap-primary #mega-menu-primary {
+	text-align: center;
+}
+
 .blog-header-wrap .customize-partial-edit-shortcut-zerif_blog_header_title_subtitle {
 	top: 150px;
 	float: left;
