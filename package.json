@@ -30,5 +30,5 @@
     "load-grunt-config": "^0.19.2",
     "time-grunt": "^1.4.0" 
   },
-  "wraithSlug":[ "zerif-lite" ]
+  "wraithSlug":["zerif-lite"]
 }
