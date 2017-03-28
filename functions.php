@@ -382,7 +382,7 @@ function zerif_setup() {
 				),
 				array(
 					'title'       => __( 'No credit footer link', 'zerif-lite' ),
-					'description' => __( 'Remove "Zerif Lite powered by WordPress" copyright from the footer.', 'zerif-lite' ),
+					'description' => __( 'Remove "Zerif Lite developed by ThemeIsle" copyright from the footer.', 'zerif-lite' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				)
