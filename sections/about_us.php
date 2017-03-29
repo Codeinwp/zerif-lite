@@ -29,8 +29,15 @@
 			<!-- COLUMN 1 - BIG MESSAGE ABOUT THE COMPANY-->
 
 		<?php
-
-			$zerif_aboutus_biglefttitle 	= get_theme_mod( 'zerif_aboutus_biglefttitle' );
+			$zerif_aboutus_biglefttitle_default = '';
+			if ( defined( 'THEMEISLE_COMPANION_VERSION' ) ) {
+				$zerif_aboutus_biglefttitle_default = 'Everything you see here is responsive and mobile-friendly.';
+			}
+			if ( current_user_can( 'edit_theme_options' ) ) {
+				$zerif_aboutus_biglefttitle = get_theme_mod( 'zerif_aboutus_biglefttitle', $zerif_aboutus_biglefttitle_default );
+			} else {
+				$zerif_aboutus_biglefttitle = get_theme_mod( 'zerif_aboutus_biglefttitle' );
+			}
 
 			$zerif_aboutus_text_default = sprintf( __( 'Change this text in %s', 'zerif-lite' ), __( 'About us section', 'zerif-lite' ) );
 			if ( defined( 'THEMEISLE_COMPANION_VERSION' ) ) {

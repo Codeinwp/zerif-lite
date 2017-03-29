@@ -1049,10 +1049,23 @@ function zerif_customize_register( $wp_customize ) {
 	) );
 
 	/* big left title */
-	$wp_customize->add_setting( 'zerif_aboutus_biglefttitle', array(
-		'sanitize_callback' => 'zerif_sanitize_input',
-		'transport'         => 'postMessage'
-	) );
+	$zerif_aboutus_biglefttitle_default = '';
+	if ( defined( 'THEMEISLE_COMPANION_VERSION' ) ) {
+		$zerif_aboutus_biglefttitle_default = 'Everything you see here is responsive and mobile-friendly.';
+	}
+
+	if ( current_user_can( 'edit_theme_options' ) ) {
+		$wp_customize->add_setting( 'zerif_aboutus_biglefttitle', array(
+			'sanitize_callback' => 'zerif_sanitize_input',
+			'default'           => $zerif_aboutus_biglefttitle_default,
+			'transport'         => 'postMessage'
+		) );
+	} else {
+		$wp_customize->add_setting( 'zerif_aboutus_biglefttitle', array(
+			'sanitize_callback' => 'zerif_sanitize_input',
+			'transport'         => 'postMessage'
+		) );
+	}
 
 	$wp_customize->add_control( 'zerif_aboutus_biglefttitle', array(
 		'label'    => __( 'Big left side title', 'zerif-lite' ),
