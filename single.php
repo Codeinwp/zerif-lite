@@ -18,11 +18,11 @@ get_header(); ?>
 			<div id="primary" class="content-area">
 				<main itemscope itemtype="http://schema.org/WebPageElement" itemprop="mainContentOfPage" id="main" class="site-main">
 				<?php while ( have_posts() ) : the_post(); 
-						
-						 get_template_part( 'content', 'single' );
-						 
-						 zerif_post_nav(); 
-					 
+
+						get_template_part( 'content', 'single' );
+
+						the_post_navigation( array( 'next_text' => _x( '%title <span class="meta-nav">&rarr;</span>', 'Next post link', 'zerif-lite' ), 'prev_text' => _x( '<span class="meta-nav">&larr;</span> %title', 'Previous post link', 'zerif-lite' ) ) );
+
 						// If comments are open or we have at least one comment, load up the comment template
 						if ( comments_open() || '0' != get_comments_number() ) :
 							comments_template('');

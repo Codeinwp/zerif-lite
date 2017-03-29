@@ -1,0 +1,74 @@
+.themeisle-upsell {
+    padding: 21px;
+    border-radius: 3px;
+    background: #fff;
+}
+
+.themeisle-upsell .upsell-pro-label {
+    margin-right: 10px;
+    padding: 2px 6px 2px 7px;
+    border-radius: 3px;
+    color: #fff;
+    background: #a7a7a7;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 0.1px;
+    text-transform: uppercase;
+}
+
+.themeisle-upsell-features li {
+    margin-bottom: 23px;
+    font-size: 14px;
+}
+
+.themeisle-upsell-features li:last-child {
+    margin-bottom: 28px;
+}
+
+.themeisle-upsell .button {
+    width: 100%;
+    margin-right: 21px;
+    text-align: center;
+    letter-spacing: 0.2px;
+}
+
+.themeisle-upsell hr {
+    margin-top: 22px;
+    margin-bottom: 16px;
+}
+
+.themeisle-upsell-feature-list li:before {
+    line-height: 37px;
+}
+
+.themeisle-upsell-feature-list li {
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-style: italic;
+    line-height: 22px;
+}
+
+.themeisle-upsell-feature-list li:last-child {
+    margin-bottom: 0;
+}
+
+.frontpage-sections-upsell {
+    padding: 10px 10px 11px 14px;
+}
+
+.themeisle-boxed-section {
+    margin: 12px;
+}
+
+#customize-controls #accordion-section-zerif_theme_info_main_section.control-section .accordion-section-title:hover {
+    color: #fff;
+    background-color: #0073aa;
+}
+
+#customize-controls #accordion-section-zerif_theme_info_main_section.control-section .accordion-section-title:hover:after {
+    color: #fff;
+}
+
+.upsell-pro-label:before {
+    content: "pro";
+}

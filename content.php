@@ -2,17 +2,22 @@
 
 	<?php if ( ! is_search() ) : ?>
 
-		<?php if ( has_post_thumbnail()) : ?>
 
-		<div class="post-img-wrap">
 
-			 	<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
+		<?php
+        $post_thumbnail_url = get_the_post_thumbnail( get_the_ID(), 'zerif-post-thumbnail' );
 
-				<?php the_post_thumbnail("post-thumbnail"); ?>
+		if ( ! empty( $post_thumbnail_url ) ): ?>
 
-				</a>
+            <div class="post-img-wrap">
 
-		</div>
+                <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
+
+                    <?php echo $post_thumbnail_url; ?>
+
+                </a>
+
+            </div>
 
 		<div class="listpost-content-wrap">
 
@@ -56,11 +61,12 @@
 
 	<div class="entry-content">
 
-		<?php 
-			$ismore = @strpos( $post->post_content, '<!--more-->');
+		<?php
 
-			if($ismore) {
-				the_content( sprintf( esc_html__('[...]','zerif-lite'), '<span class="screen-reader-text">'.esc_html__('about ', 'zerif-lite').get_the_title().'</span>' ) );
+		    $ismore = ! empty( $post->post_content ) ? strpos( $post->post_content, '<!--more-->') : '';
+
+		    if ( !empty($ismore) ) {
+				the_content( sprintf( esc_html__('[&hellip;]','zerif-lite'), '<span class="screen-reader-text">'.esc_html__('about ', 'zerif-lite').get_the_title().'</span>' ) );
 			} else {
 				the_excerpt();
 			}

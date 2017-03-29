@@ -1,20 +1,20 @@
 /*
 Theme Name: Zerif Lite
-Theme URI: http://themeisle.com/themes/zerif-lite/
+Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
-Author URI: http://themeisle.com
-Description: Zerif LITE is a free one page Wordpress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 2.0.6
+Author URI: https://themeisle.com
+Description: Zerif LITE is a free one page WordPress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
+Version: 1.8.5.15
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
 Domain Path: /languages/
-Tags: one-column, two-columns, right-sidebar,front-page-post-form,full-width-template,rtl-language-support,sticky-post,theme-options, custom-background, custom-menu, editor-style, featured-images, threaded-comments, translation-ready, footer-widgets, portfolio, e-commerce, blog
+Tags: one-column, two-columns, right-sidebar,full-width-template,rtl-language-support,sticky-post,theme-options, custom-background, custom-menu, editor-style, featured-images, threaded-comments, translation-ready, footer-widgets, portfolio, e-commerce, blog
 */
 
 
 /*--------------------------------------------------------------
-1.0 - Reset2
+1.0 - Reset
 --------------------------------------------------------------*/
 html {
 	font-size: 62.5%; /* Corrects text resizing oddly in IE6/7 when body font-size is set using em units http://clagnut.com/blog/348/#c790 */
@@ -774,12 +774,14 @@ a:active {
 }
 .comment-navigation .nav-previous,
 .paging-navigation .nav-previous,
-.post-navigation .nav-previous {
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous{
 	float: left;
 }
 .comment-navigation .nav-next,
 .paging-navigation .nav-next,
-.post-navigation .nav-next {
+.posts-navigation .nav-next,
+.post-navigation .nav-next{
 	float: right;
 	text-align: right;
 	width: 50%;
@@ -996,7 +998,8 @@ a:active {
 .site-content {
 	background: #FFF;
 }
-.home .site-content {
+.home .site-content,
+.page-template-template-frontpage .site-content {
 	background: none;
 }
 
@@ -1369,7 +1372,7 @@ object {
 	text-align: center;
 	padding-bottom: 75px;
 }
-.section-header h2 {
+.section-header h2, #focus .section-header h2 a, #team .section-header h2 a, #aboutus .section-header h2 a, #testimonials .section-header h2 a, #contact .section-header h2 a {
 	padding-bottom: 10px;
 	line-height: 40px;
 	position: relative;
@@ -1437,6 +1440,19 @@ object {
 	-webkit-box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.08);
 	box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.08);
 	padding: 285px 0 210px;
+}
+.blog-header-content-wrap {
+	background-color: rgba(0, 0, 0, 0.5);
+	position: relative;
+	-webkit-box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.08);
+	box-shadow: 0px 5px 11px 0px rgba(50, 50, 50, 0.08);
+	padding: 170px 0 90px;
+}
+.blog-header-subtitle {
+	font-size: 21px;
+	margin-bottom: 10px;
+	font-weight: 100;
+	color: #fff;
 }
 .header_title {
     float: left;
@@ -1556,13 +1572,53 @@ object {
 .navbar-inverse ul ul li.link-focus > ul.sub-menu {
 	left: 100%;
 }
-
 .navbar-brand {
 	height: 76px;
 	position: relative;
 	line-height: 60px;
 	padding: 7px 15px;
 	display: inline-block;
+	text-align: center;
+}
+.navbar-brand > a > img {
+	max-height: 100%;
+	width: auto;
+}
+.navbar-brand .site-title-tagline-wrapper {
+	display: inline-block;
+	vertical-align: middle;
+}
+.navbar-inverse .navbar-brand .site-title-tagline-wrapper .site-title > a:hover,
+.navbar-inverse .navbar-brand .site-title-tagline-wrapper .site-title > a:focus {
+	color: #e96656;
+}
+.navbar-inverse .navbar-brand:hover,
+.navbar-inverse .navbar-brand:focus,
+.navbar-inverse .navbar-brand .site-title > a {
+	color: #999;
+	text-decoration: none;
+}
+.navbar-inverse .navbar-brand p.site-description,
+.navbar-inverse .navbar-brand .site-title {
+    font-family: 'Montserrat', Helvetica, sans-serif;
+    font-weight: bold;
+	font-size: 16px;
+	line-height: normal;
+    margin-bottom: 0;
+    color: #000;
+}
+.navbar-inverse .navbar-brand .site-title {
+    margin-bottom: 5px;
+}
+.navbar-inverse .navbar-brand .site-title a {
+    color: #000;
+}
+
+
+
+.navbar-inverse .navbar-brand p.site-description {
+	font-size: 16px;
+	line-height: normal;
 }
 .navbar-brand > img {
 	max-height: 100%;
@@ -1623,6 +1679,9 @@ object {
 .menu-align-center .responsive-logo > a{
 	float: none;
 	display: inline-block;
+}
+.menu-align-center .navbar-brand {
+	float: none;
 }
 .navbar-inverse .navbar-nav>li>a:hover,
 .navbar-inverse .navbar-nav>li>a:focus {
@@ -1692,7 +1751,7 @@ ul.nav > li.current_page_item.current > a:before {
 	font-size: 55px;
 	float:none;
 }
-.intro-text{
+.intro-text, .intro-text a{
 	text-align: center;
 	color: #FFF;
 	line-height: 65px;
@@ -1902,6 +1961,33 @@ ul.nav > li.current_page_item.current > a:before {
 	font-size: 14px;
 	color: #808080;
 }
+/* Links used in sane defaults */
+
+.focus a.zerif-default-links,
+.our-team a.zerif-default-links {
+	color: #404040;
+}
+.about-us a.zerif-default-links,
+.separator-one a.zerif-default-links,
+.testimonial a.zerif-default-links,
+.contact-us a.zerif-default-links {
+	color: #fff;
+}
+.testimonial #client-feedbacks a.zerif-default-links {
+	color: #404040;
+}
+.focus a.zerif-default-links:hover,
+.about-us a.zerif-default-links:hover,
+.our-team a.zerif-default-links:hover,
+.testimonial a.zerif-default-links:hover,
+.contact-us a.zerif-default-links:hover {
+	color: #e96656;
+}
+.separator-one a.zerif-default-links:hover,
+.testimonial #client-feedbacks a.zerif-default-links:hover {
+	color: #000;
+}
+/* END - Links used in sane defaults */
 /*----OTHER FOCUSES ----*/
 .other-focuses {
 	background: url(images/lines.png) repeat-x center;
@@ -1948,6 +2034,9 @@ ul.nav > li.current_page_item.current > a:before {
 	max-width: 800px;
 	margin-bottom: 20px;
 	margin-top: 15px;
+}
+.separator-one .text a {
+	font-size: 24px;
 }
 /*---------------------------------------
  **   Section: Portfolio          -----
@@ -2932,7 +3021,6 @@ width: -webkit-calc(100% / 4);
 .ribbon-without-button .col-md-9 {
 	width: 100%;
 }
-
 /*----------------------------------------
  **   Contact us             -----
 -----------------------------------------*/
@@ -3397,8 +3485,8 @@ article .posted-on a:hover{
 	text-align:justify;
 }
 .entry-content blockquote {
-	margin-top: 30px;
-	margin-bottom: 30px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 	margin-left: 10px;
 	padding-left: 15px;
 	border-left: 3px solid #e96656;
@@ -4537,7 +4625,8 @@ article .posted-on a:hover{
 
 @media (max-width: 1200px) {
 
-	.header-content-wrap{
+	.header-content-wrap,
+	.blog-header-content-wrap {
 		padding: 235px 0 150px;
 	}
 
@@ -5735,17 +5824,15 @@ p.edd-alert-error,
 	}
 }
 
-
 /* [end] Easy Digital Downloads */
-
-
-body.home.page {
-	background-image: none !important;
-}
 
 body.custom-background {
 	background-position: top center !important;
 	background-attachment: fixed !important;
+}
+
+.blog .blog-site-content.site-content {
+	background: #fff;
 }
 
 .zerif_team:nth-child(4n+1), .our-team .col-lg-3:nth-child(4n+1) {
@@ -5801,13 +5888,18 @@ body.custom-background {
 	text-align: center;
 }
 
+.blog-header-wrap .customize-partial-edit-shortcut-zerif_blog_header_title_subtitle {
+	top: 150px;
+	float: left;
+}
 /*---------------------------------------
  **   Responsive            -----
 -----------------------------------------*/
 
 @media (max-width: 1200px) {
 
-	.header-content-wrap{
+	.header-content-wrap,
+	.blog-header-content-wrap {
 		padding: 235px 0 150px;
 	}
 
@@ -5877,7 +5969,8 @@ body.custom-background {
 	    margin-left: 0;
         margin-right: 0;
 	}
-	.header-content-wrap {
+	.header-content-wrap,
+	.blog-header-content-wrap  {
 		padding-top: 26%;
 	}
 	.intro-text{
@@ -5894,7 +5987,8 @@ body.custom-background {
         padding-top: 60px;
         padding-bottom: 60px;
     }
-    .header-content-wrap{
+    .header-content-wrap,
+	.blog-header-content-wrap {
 		padding: 225px 0 150px;
 	}
 	.about-us .big-intro {
@@ -5978,6 +6072,12 @@ body.custom-background {
 		left: 0;
 		top: 0;
 	}
+	.navbar-inverse .navbar-brand {
+		float:left;
+	}
+    .rtl .navbar-inverse .navbar-brand {
+		float:right;
+	}
 	#main-nav {
 		overflow: hidden;
 	}
@@ -6040,7 +6140,8 @@ body.custom-background {
 		line-height: 8vh;
 		font-size: 6.5vw;
 	}
-    .header-content-wrap {
+    .header-content-wrap,
+	.blog-header-content-wrap {
     	padding-top: 30%;
     }
 	.intro-text{
@@ -6124,7 +6225,8 @@ body.custom-background {
 		font-size: 6.5vw;
 	}
 
-	.header-content-wrap {
+	.header-content-wrap,
+	.blog-header-content-wrap {
 	    padding-top: 40%;
 	}
 	.intro-text{
@@ -6198,7 +6300,8 @@ body.custom-background {
 		line-height: 25px;
 		font-size: 7vw;
 	}
-	.header-content-wrap {
+	.header-content-wrap,
+	.blog-header-content-wrap {
         padding-top: 50%;
     }
     .intro-text {
@@ -6243,7 +6346,8 @@ body.custom-background {
 	#main-nav {
     	position: relative;
 	}
-	.header-content-wrap {
+	.header-content-wrap,
+	.blog-header-content-wrap {
 		padding: 30px 0 15px;
 	}
 
