@@ -3602,12 +3602,13 @@ article .posted-on a:hover{
 .woocommerce-page .products a.button:hover {
 	background: #cb4332;
 }
-.woocommerce-page .products h3 {
+.woocommerce-page .products h3,
+.woocommerce-page .products h2{
 	color: #404040;
 	position: relative;
 	display: inline-block;
 	text-transform: uppercase;
-	margin-bottom: 30px;
+	font: inherit;
 	font-weight: bold;
 	font-size: 12px;
 	line-height: 14px;
@@ -4142,7 +4143,6 @@ article .posted-on a:hover{
 	color: #FFF;
 	border-radius: 3px;
 	border: none;
-	padding-top: 15px;
 	margin-bottom: 40px;
 }
 .woocommerce-page .woocommerce .woocommerce-info a {
@@ -4384,7 +4384,7 @@ article .posted-on a:hover{
 }
 .woocommerce-page .woocommerce #payment ul.payment_methods {
     text-align: left;
-    padding: 1em;
+    padding: 1em!important;
     border-bottom: 1px solid #D3CED2;
     margin: 0px;
     list-style: outside none none;
@@ -4622,6 +4622,48 @@ article .posted-on a:hover{
 	content: "";
 	display: none;
 }
+
+/* Changes for woocommerce 3.0.0 */
+.woocommerce div.product .related {
+	clear: both;
+}
+.woocommerce div.product {
+	float:left;
+}
+.woocommerce-product-details__short-description{
+	clear: both;
+	text-align: left;
+}
+
+.woocommerce-product-details__short-description ul {
+	margin: 0 0 24px;
+	list-style-position: inside;
+}
+
+.woocommerce div.product div.images .woocommerce-product-gallery__image:nth-child(n+2){
+	width: 30.75%;
+}
+
+.woocommerce-product-gallery__wrapper > .woocommerce-product-gallery__image:not(:first-child){
+	padding-top: 1em;
+	float: left;
+	width: 30.75%;
+
+}
+
+.woocommerce-product-gallery__wrapper > .woocommerce-product-gallery__image:nth-child(3n){
+	margin: 0 3.8%;
+}
+
+.woocommerce-error, .woocommerce-info, .woocommerce-message {
+	padding: 1em 2em 1em 3.5em!important;
+	margin: 0 0 2em!important;
+	position: relative;
+	list-style: none!important;
+	width: auto;
+	word-wrap: break-word;
+}
+/* End changes for woocommerce 3.0.0*/
 
 @media (max-width: 1200px) {
 
