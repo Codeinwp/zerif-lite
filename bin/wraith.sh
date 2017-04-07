@@ -8,7 +8,7 @@ body="{
       'travis_pull_request_branch': '$TRAVIS_PULL_REQUEST_BRANCH',
       'travis_pull_request_slug': '$TRAVIS_PULL_REQUEST_SLUG',
       'travis_repo_slug': '$TRAVIS_PULL_REQUEST_SLUG',
-      'travis_branch': '$TRAVIS_BRANCH',
+      'travis_branch': '$TRAVIS_PULL_REQUEST_BRANCH',
       'wraithSlug': $WRAITH_SLUG,
       'wraithFail': $WRAITH_FAIL
   }
