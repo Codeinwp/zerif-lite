@@ -4663,6 +4663,15 @@ article .posted-on a:hover{
 	width: auto;
 	word-wrap: break-word;
 }
+
+.woocommerce-checkout-payment ul.wc_payment_methods li.woocommerce-info{
+	background: transparent;
+	color: inherit;
+	margin: 0 !important;
+	margin-left: 2em !important;
+	padding: 0 !important;
+}
+
 /* End changes for woocommerce 3.0.0*/
 
 @media (max-width: 1200px) {
