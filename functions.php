@@ -87,6 +87,9 @@ function zerif_setup() {
 
     /* woocommerce support */
 	add_theme_support( 'woocommerce' );
+	add_theme_support( 'wc-product-gallery-zoom' );
+	add_theme_support( 'wc-product-gallery-lightbox' );
+	add_theme_support( 'wc-product-gallery-slider' );
 
 	/* selective widget refresh */
 	add_theme_support( 'customize-selective-refresh-widgets' );
