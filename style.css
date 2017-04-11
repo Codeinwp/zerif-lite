@@ -4629,6 +4629,7 @@ article .posted-on a:hover{
 }
 .woocommerce div.product {
 	float:left;
+	width: 100%;
 }
 .woocommerce-product-details__short-description{
 	clear: both;
