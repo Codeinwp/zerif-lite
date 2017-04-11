@@ -29,20 +29,52 @@
 			<!-- COLUMN 1 - BIG MESSAGE ABOUT THE COMPANY-->
 
 		<?php
+			$zerif_aboutus_biglefttitle_default = '';
+			if ( defined( 'THEMEISLE_COMPANION_VERSION' ) ) {
+				$zerif_aboutus_biglefttitle_default = 'Everything you see here is responsive and mobile-friendly.';
+			}
+			if ( current_user_can( 'edit_theme_options' ) ) {
+				$zerif_aboutus_biglefttitle = get_theme_mod( 'zerif_aboutus_biglefttitle', $zerif_aboutus_biglefttitle_default );
+			} else {
+				$zerif_aboutus_biglefttitle = get_theme_mod( 'zerif_aboutus_biglefttitle' );
+			}
 
-			$zerif_aboutus_biglefttitle 	= get_theme_mod('zerif_aboutus_biglefttitle',__('Everything you see here is responsive and mobile-friendly.','zerif-lite'));
-			$zerif_aboutus_text 			= get_theme_mod('zerif_aboutus_text','Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros.<br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros. <br><br>Mauris vel nunc at ipsum fermentum pellentesque quis ut massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non adipiscing massa. Sed ut fringilla sapien. Cras sollicitudin, lectus sed tincidunt cursus, magna lectus vehicula augue, a lobortis dui orci et est.');
+			$zerif_aboutus_text_default = sprintf( __( 'Change this text in %s', 'zerif-lite' ), __( 'About us section', 'zerif-lite' ) );
+			if ( defined( 'THEMEISLE_COMPANION_VERSION' ) ) {
+				$zerif_aboutus_text_default = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros.<br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros. <br><br>Mauris vel nunc at ipsum fermentum pellentesque quis ut massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non adipiscing massa. Sed ut fringilla sapien. Cras sollicitudin, lectus sed tincidunt cursus, magna lectus vehicula augue, a lobortis dui orci et est.';
+			}
+			if ( current_user_can( 'edit_theme_options' ) ) {
+				$zerif_aboutus_text = get_theme_mod( 'zerif_aboutus_text', $zerif_aboutus_text_default );
+			} else {
+				$zerif_aboutus_text = get_theme_mod( 'zerif_aboutus_text' );
+			}
 
-			$zerif_aboutus_feature1_title 	= get_theme_mod('zerif_aboutus_feature1_title',__('YOUR SKILL #1','zerif-lite'));
+			if ( current_user_can( 'edit_theme_options' ) ) {
+				$zerif_aboutus_feature1_title = get_theme_mod( 'zerif_aboutus_feature1_title', sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_aboutus_feature1_title' ) ), __( 'Edit skill','zerif-lite' ) ) );
+			} else {
+				$zerif_aboutus_feature1_title = get_theme_mod( 'zerif_aboutus_feature1_title' );
+			}
 			$zerif_aboutus_feature1_text 	= get_theme_mod('zerif_aboutus_feature1_text');
 
-			$zerif_aboutus_feature2_title 	= get_theme_mod('zerif_aboutus_feature2_title',__('YOUR SKILL #2','zerif-lite'));
+			if ( current_user_can( 'edit_theme_options' ) ) {
+				$zerif_aboutus_feature2_title = get_theme_mod( 'zerif_aboutus_feature2_title', sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_aboutus_feature2_title' ) ), __( 'Edit skill','zerif-lite' ) ) );
+			} else {
+				$zerif_aboutus_feature2_title = get_theme_mod( 'zerif_aboutus_feature2_title' );
+			}
 			$zerif_aboutus_feature2_text 	= get_theme_mod('zerif_aboutus_feature2_text');
 
-			$zerif_aboutus_feature3_title 	= get_theme_mod('zerif_aboutus_feature3_title',__('YOUR SKILL #3','zerif-lite'));
+			if ( current_user_can( 'edit_theme_options' ) ) {
+				$zerif_aboutus_feature3_title = get_theme_mod( 'zerif_aboutus_feature3_title', sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_aboutus_feature3_title' ) ), __( 'Edit skill','zerif-lite' ) ) );
+			} else {
+				$zerif_aboutus_feature3_title = get_theme_mod( 'zerif_aboutus_feature3_title' );
+			}
 			$zerif_aboutus_feature3_text 	= get_theme_mod('zerif_aboutus_feature3_text');
 
-			$zerif_aboutus_feature4_title 	= get_theme_mod('zerif_aboutus_feature4_title',__('YOUR SKILL #4','zerif-lite'));
+			if ( current_user_can( 'edit_theme_options' ) ) {
+				$zerif_aboutus_feature4_title = get_theme_mod( 'zerif_aboutus_feature4_title', sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_aboutus_feature4_title' ) ), __( 'Edit skill','zerif-lite' ) ) );
+			} else {
+				$zerif_aboutus_feature4_title = get_theme_mod( 'zerif_aboutus_feature4_title' );
+			}
 			$zerif_aboutus_feature4_text 	= get_theme_mod('zerif_aboutus_feature4_text');
 
 			$text_and_skills = '';
@@ -281,19 +313,19 @@
 	<?php
 		if(is_active_sidebar( 'sidebar-aboutus' )):
 			
-				$zerif_aboutus_clients_title_text = get_theme_mod('zerif_aboutus_clients_title_text',__('OUR HAPPY CLIENTS','zerif-lite'));
+				$zerif_aboutus_clients_title_text = get_theme_mod( 'zerif_aboutus_clients_title_text' );
 			
 				echo '<div class="our-clients">';
 				
-					if( !empty($zerif_aboutus_clients_title_text) ):
+					if( !empty($zerif_aboutus_clients_title_text) ) {
 				
 						echo '<h5><span class="section-footer-title">'.wp_kses_post($zerif_aboutus_clients_title_text).'</span></h5>';
-						
-					else:
-					
-						echo '<h5><span class="section-footer-title">'.__('OUR HAPPY CLIENTS','zerif-lite').'</span></h5>';
 
-					endif;
+					} elseif ( is_customize_preview() ) {
+
+						echo '<h5><span class="section-footer-title"></span></h5>';
+
+					}
 					
 				echo '</div>';
 				

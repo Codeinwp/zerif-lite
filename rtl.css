@@ -126,6 +126,9 @@ textarea {
 	float: right;
 	position: relative;
 }
+.navbar-nav>li {
+	float: right;
+}
 .main-navigation a {
 	display: block;
 	text-decoration: none;
@@ -1307,15 +1310,12 @@ article{
 	float: left;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 768px) {
 
 	#main-nav nav > ul > li {
-		float:none;
+		float: none;
 	}
 
-}
-@media (max-width: 768px) {
-	
 	.woocommerce-page .upsells.products ul li.product,
 	.woocommerce-page .upsells.products ul.products li.product{
 		float: right;

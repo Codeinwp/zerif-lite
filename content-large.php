@@ -10,15 +10,15 @@
 
 					<?php 
 						$image_id = get_post_thumbnail_id();
-						$image_url_big = wp_get_attachment_image_src($image_id,'post-thumbnail-large', true);
-						$image_url_tablet = wp_get_attachment_image_src($image_id,'post-thumbnail-large-table', true);
-						$image_url_mobile = wp_get_attachment_image_src($image_id,'post-thumbnail-large-mobile', true);
+						$image_url_big = wp_get_attachment_image_url($image_id,'zerif-post-thumbnail-large', true);
+						$image_url_tablet = wp_get_attachment_image_url($image_id,'zerif-post-thumbnail-large-table', true);
+						$image_url_mobile = wp_get_attachment_image_url($image_id,'zerif-post-thumbnail-large-mobile', true);
 					?>
 
 			 		<picture>
-						<source media="(max-width: 600px)" srcset="<?php echo esc_url( $image_url_mobile[0] ); ?>">
-						<source media="(max-width: 768px)" srcset="<?php echo esc_url( $image_url_tablet[0] ); ?>">
-						<img src="<?php echo esc_url( $image_url_big[0] ); ?>" alt="<?php the_title_attribute(); ?>">
+						<source media="(max-width: 600px)" srcset="<?php echo esc_url( $image_url_mobile ); ?>">
+						<source media="(max-width: 768px)" srcset="<?php echo esc_url( $image_url_tablet ); ?>">
+						<img src="<?php echo esc_url( $image_url_big ); ?>" alt="<?php the_title_attribute(); ?>">
 					</picture>
 
 				</a>
@@ -59,11 +59,13 @@
 
 	<div class="entry-content">
 
-		<?php 
-			$ismore = @strpos( $post->post_content, '<!--more-->');
+		<?php
+            if ( ! empty( $post->post_content ) ) {
+                $ismore = strpos($post->post_content, '<!--more-->');
+            }
 			
-			if($ismore) {
-				the_content( sprintf( esc_html__('[...]','zerif-lite'), '<span class="screen-reader-text">'.esc_html__('about ', 'zerif-lite').get_the_title().'</span>' ) );
+			if ( $ismore ) {
+				the_content( sprintf( esc_html__('[&hellip;]','zerif-lite'), '<span class="screen-reader-text">'.esc_html__('about ', 'zerif-lite').get_the_title().'</span>' ) );
 			} else {
 				the_excerpt();
 			}

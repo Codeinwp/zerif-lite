@@ -4,6 +4,8 @@
 	
 	if( !empty($zerif_total_posts) && ($zerif_total_posts > 0) ):
 
+		zerif_before_latest_news_trigger();
+	
 		echo '<section class="latest-news" id="latestnews">';
 
 			zerif_top_latest_news_trigger();
@@ -72,9 +74,9 @@
 
 												echo '<h3 class="latestnews-title"><a href="'.esc_url( get_permalink() ).'" title="'.esc_attr( get_the_title() ).'">'.wp_kses_post( get_the_title() ).'</a></h3>';
 
-												$ismore = @strpos( $post->post_content, '<!--more-->');
-												
-												if($ismore) {
+												$ismore = ! empty( $post->post_content ) ? strpos( $post->post_content, '<!--more-->') : '';
+
+												if ( !empty($ismore) ) {
 													the_content( esc_html__('Read more', 'zerif-lite') .' <span class="sr-only">' . esc_html__('about ', 'zerif-lite').get_the_title() );
 												} else {
 													the_excerpt();
@@ -106,10 +108,12 @@
 											echo '</div>';
 											echo '<div class="latesnews-content">';
 												echo '<h3 class="latestnews-title"><a href="'.esc_url( get_permalink() ).'" title="'.esc_attr( get_the_title() ).'">'.wp_kses_post( get_the_title() ).'</a></h3>';
+
+												if ( ! empty( $post->post_content ) ) {
+                                                    $ismore = strpos($post->post_content, '<!--more-->');
+                                                }
 												
-												$ismore = @strpos( $post->post_content, '<!--more-->');
-												
-												if($ismore) {
+												if ( $ismore ) {
 													the_content( esc_html__('Read more', 'zerif-lite') .' <span class="sr-only">' . esc_html__('about ', 'zerif-lite').get_the_title() );
 												} else {
 													the_excerpt();
@@ -152,5 +156,7 @@
 			zerif_bottom_latest_news_trigger();
 
 		echo '</section>';
+
+	zerif_after_latest_news_trigger();
 
 endif; ?>

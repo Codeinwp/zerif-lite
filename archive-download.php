@@ -50,7 +50,7 @@ get_header(); ?>
 
 					endwhile;
 
-					zerif_paging_nav();
+					echo get_the_posts_navigation( array( 'next_text' => sprintf( __( 'Newer posts %s','zerif-lite' ), '<span class="meta-nav">&rarr;</span>' ), 'prev_text' => sprintf( __( '%s Older posts', 'zerif-lite' ) , '<span class="meta-nav">&larr;</span>' ) ) );
 
 				else:
 

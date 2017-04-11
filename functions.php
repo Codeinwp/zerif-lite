@@ -27,10 +27,10 @@ function zerif_setup() {
     add_theme_support('post-thumbnails');
 
     /* Set the image size by cropping the image */
-    add_image_size('post-thumbnail', 250, 250, true);
-    add_image_size('post-thumbnail-large', 750, 500, true ); /* blog thumbnail */
-    add_image_size('post-thumbnail-large-table', 600, 300, true ); /* blog thumbnail for table */
-    add_image_size('post-thumbnail-large-mobile', 400, 200, true ); /* blog thumbnail for mobile */
+    add_image_size('zerif-post-thumbnail', 250, 250, true);
+    add_image_size('zerif-post-thumbnail-large', 750, 500, true ); /* blog thumbnail */
+    add_image_size('zerif-post-thumbnail-large-table', 600, 300, true ); /* blog thumbnail for table */
+    add_image_size('zerif-post-thumbnail-large-mobile', 400, 200, true ); /* blog thumbnail for mobile */
     add_image_size('zerif_project_photo', 285, 214, true);
     add_image_size('zerif_our_team_photo', 174, 174, true);
 
@@ -65,6 +65,11 @@ function zerif_setup() {
 	/* Enable support for title-tag */
 	add_theme_support( 'title-tag' );
 
+    /* Enable support for custom logo */
+	add_theme_support( 'custom-logo', array(
+		'flex-width'    => true,
+	) );
+
 	/* Custom template tags for this theme. */
 	require get_template_directory() . '/inc/template-tags.php';
 
@@ -75,56 +80,19 @@ function zerif_setup() {
 	require get_template_directory() . '/inc/customizer.php';
 
 	/* tgm-plugin-activation */
-    require_once get_template_directory() . '/class-tgm-plugin-activation.php';
+	require_once get_template_directory() . '/class-tgm-plugin-activation.php';
 
-	/* Customizer info */
-	require_once get_template_directory() . '/inc/customizer-info/class/class-zerif-customize-upsell.php';
+	/* preview demo */
+	require_once get_template_directory() . '/ti-prevdem/init-prevdem.php';
 
     /* woocommerce support */
 	add_theme_support( 'woocommerce' );
+	add_theme_support( 'wc-product-gallery-zoom' );
+	add_theme_support( 'wc-product-gallery-lightbox' );
+	add_theme_support( 'wc-product-gallery-slider' );
 
 	/* selective widget refresh */
 	add_theme_support( 'customize-selective-refresh-widgets' );
-
-	/*******************************************/
-    /*************  Welcome screen *************/
-    /*******************************************/
-
-	if ( is_admin() ) {
-
-        global $zerif_required_actions;
-
-        /*
-         * id - unique id; required
-         * title
-         * description
-         * check - check for plugins (if installed)
-         * plugin_slug - the plugin's slug (used for installing the plugin)
-         *
-         */
-        $zerif_required_actions = array(
-			array(
-                "id" => 'zerif-lite-req-ac-frontpage-latest-news',
-                "title" => esc_html__( 'Get the one page template' ,'zerif-lite' ),
-                "description"=> esc_html__( 'If you just installed Zerif Lite, and are not able to see the one page template, you need to go to Settings -> Reading , Front page displays and select "Your latest posts".','zerif-lite' ),
-				"check" => zerif_lite_is_not_latest_posts()
-            ),
-            array(
-                "id" => 'zerif-lite-req-ac-install-pirate-forms',
-                "title" => esc_html__( 'Install Pirate Forms' ,'zerif-lite' ),
-                "description"=> esc_html__( 'In the next updates, Zerif Lite\'s default contact form will be removed. Please make sure you install the Pirate Forms plugin to keep your site updated, and experience a smooth transition to the latest version.','zerif-lite' ),
-                "check" => defined("PIRATE_FORMS_VERSION"),
-                "plugin_slug" => 'pirate-forms'
-            ),
-            array(
-                "id" => 'zerif-lite-req-ac-check-pirate-forms',
-                "title" => esc_html__( 'Check the contact form after installing Pirate Forms' ,'zerif-lite' ),
-                "description"=> esc_html__( "After installing the Pirate Forms plugin, please make sure you check your frontpage contact form is working fine. Also, if you use Zerif Lite in other language(s) please make sure the translation is ok. If not, please translate the contact form again.",'zerif-lite' ),
-            )
-        );
-
-		require get_template_directory() . '/inc/admin/welcome-screen/welcome-screen.php';
-	}
 
 	/***********************************/
 	/**************  HOOKS *************/
@@ -166,16 +134,382 @@ function zerif_setup() {
 
     add_filter( 'excerpt_more', 'zerif_excerpt_more' );
 
+    require_once( trailingslashit( get_template_directory() ) . 'inc/class/class-customizer-theme-info-control/class-customizer-theme-info-root.php' );
+
+	/**
+	 * About page class
+	 */
+	require_once get_template_directory() . '/ti-about-page/class-ti-about-page.php';
+
+	/*
+	* About page instance
+	*/
+	$config = array(
+		// Menu name under Appearance.
+		'menu_name'               => __( 'About Zerif Lite', 'zerif-lite' ),
+		// Page title.
+		'page_name'               => __( 'About Zerif Lite', 'zerif-lite' ),
+		// Main welcome title
+		'welcome_title'         => sprintf( __( 'Welcome to %s! - Version ', 'zerif-lite' ), 'Zerif Lite' ),
+		// Main welcome content
+		'welcome_content'       => esc_html__( 'Zerif LITE is a free one page WordPress theme. It\'s perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.', 'zerif-lite' ),
+		/**
+		 * Tabs array.
+		 *
+		 * The key needs to be ONLY consisted from letters and underscores. If we want to define outside the class a function to render the tab,
+		 * the will be the name of the function which will be used to render the tab content.
+		 */
+		'tabs'                    => array(
+			'getting_started'  => __( 'Getting Started', 'zerif-lite' ),
+			'recommended_actions' => __( 'Recommended Actions', 'zerif-lite' ),
+			'recommended_plugins' => __( 'Useful Plugins','zerif-lite' ),
+			'child_themes' => __( 'Child themes','zerif-lite' ),
+			'support'       => __( 'Support', 'zerif-lite' ),
+			'changelog'        => __( 'Changelog', 'zerif-lite' ),
+			'free_pro'         => __( 'Free VS PRO', 'zerif-lite' ),
+		),
+		// Support content tab.
+		'support_content'      => array(
+			'first' => array (
+				'title' => esc_html__( 'Contact Support','zerif-lite' ),
+				'icon' => 'dashicons dashicons-sos',
+				'text' => esc_html__( 'We want to make sure you have the best experience using Zerif Lite and that is why we gathered here all the necessary informations for you. We hope you will enjoy using Zerif Lite, as much as we enjoy creating great products.','zerif-lite' ),
+				'button_label' => esc_html__( 'Contact Support','zerif-lite' ),
+				'button_link' => esc_url( 'https://themeisle.com/contact/' ),
+				'is_button' => true,
+				'is_new_tab' => true
+			),
+			'second' => array(
+				'title' => esc_html__( 'Documentation','zerif-lite' ),
+				'icon' => 'dashicons dashicons-book-alt',
+				'text' => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Zerif Lite.','zerif-lite' ),
+				'button_label' => esc_html__( 'Read full documentation','zerif-lite' ),
+				'button_link' => 'https://docs.themeisle.com/article/5-zerif-lite-documentation',
+				'is_button' => false,
+				'is_new_tab' => true
+			),
+			'third' => array(
+				'title' => esc_html__( 'Changelog','zerif-lite' ),
+				'icon' => 'dashicons dashicons-portfolio',
+				'text' => esc_html__( 'Want to get the gist on the latest theme changes? Just consult our changelog below to get a taste of the recent fixes and features implemented.','zerif-lite' ),
+				'button_label' => esc_html__( 'Changelog','zerif-lite' ),
+				'button_link' => esc_url( admin_url( 'themes.php?page=zerif-lite-welcome&tab=changelog&show=yes' ) ),
+				'is_button' => false,
+				'is_new_tab' => false
+			),
+			'fourth' => array(
+				'title' => esc_html__( 'Create a child theme','zerif-lite' ),
+				'icon' => 'dashicons dashicons-admin-customizer',
+				'text' => esc_html__( "If you want to make changes to the theme's files, those changes are likely to be overwritten when you next update the theme. In order to prevent that from happening, you need to create a child theme. For this, please follow the documentation below.",'zerif-lite' ),
+				'button_label' => esc_html__( 'View how to do this','zerif-lite' ),
+				'button_link' => 'https://docs.themeisle.com/article/14-how-to-create-a-child-theme',
+				'is_button' => false,
+				'is_new_tab' => true
+			),
+			'fifth' => array(
+				'title' => esc_html__( 'Speed up your site','zerif-lite' ),
+				'icon' => 'dashicons dashicons-controls-skipforward',
+				'text' => esc_html__( 'If you find yourself in the situation where everything on your site is running very slow, you might consider having a look at the below documentation where you will find the most common issues causing this and possible solutions for each of the issues.','zerif-lite' ),
+				'button_label' => esc_html__( 'View how to do this','zerif-lite' ),
+				'button_link' => 'https://docs.themeisle.com/article/63-speed-up-your-wordpress-site',
+				'is_button' => false,
+				'is_new_tab' => true
+			),
+			'sixth' => array(
+				'title' => esc_html__( 'Build a landing page with a drag-and-drop content builder','zerif-lite' ),
+				'icon' => 'dashicons dashicons-images-alt2',
+				'text' => esc_html__( 'In the below documentation you will find an easy way to build a great looking landing page using a drag-and-drop content builder plugin.','zerif-lite' ),
+				'button_label' => esc_html__( 'View how to do this','zerif-lite' ),
+				'button_link' => 'https://docs.themeisle.com/article/219-how-to-build-a-landing-page-with-a-drag-and-drop-content-builder',
+				'is_button' => false,
+				'is_new_tab' => true
+			)
+		),
+		// Getting started tab
+		'getting_started' => array(
+			'first' => array (
+				'title' => esc_html__( 'Recommended actions','zerif-lite' ),
+				'text' => esc_html__( 'We have compiled a list of steps for you, to take make sure the experience you will have using one of our products is very easy to follow.','zerif-lite' ),
+				'button_label' => esc_html__( 'Recommended actions','zerif-lite' ),
+				'button_link' => esc_url( admin_url( 'themes.php?page=zerif-lite-welcome&tab=recommended_actions' ) ),
+				'is_button' => false,
+				'recommended_actions' => true,
+                'is_new_tab' => false
+			),
+			'second' => array(
+				'title' => esc_html__( 'Read full documentation','zerif-lite' ),
+				'text' => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Zerif Lite.','zerif-lite' ),
+				'button_label' => esc_html__( 'Documentation','zerif-lite' ),
+				'button_link' => 'http://docs.themeisle.com/article/5-zerif-lite-documentation',
+				'is_button' => false,
+				'recommended_actions' => false,
+                'is_new_tab' => true
+			),
+			'third' => array(
+				'title' => esc_html__( 'Go to Customizer','zerif-lite' ),
+				'text' => esc_html__( 'Using the WordPress Customizer you can easily customize every aspect of the theme.','zerif-lite' ),
+				'button_label' => esc_html__( 'Go to Customizer','zerif-lite' ),
+				'button_link' => esc_url( admin_url( 'customize.php' ) ),
+				'is_button' => true,
+				'recommended_actions' => false,
+                'is_new_tab' => true
+			)
+		),
+		// Child themes array.
+		'child_themes'            => array(
+			'download_button_label' => 'Download',
+			'preview_button_label'  => 'Live preview',
+			'content'               => array(
+				 array(
+					'title'         => 'ResponsiveBoat',
+					'image'         =>  get_template_directory_uri() . '/images/responsiveboat.png',
+					'image_alt'     => 'ResponsiveBoat',
+					'download_link' => 'https://wordpress.org/themes/responsiveboat/',
+					'preview_link'  => 'https://wp-themes.com/responsiveboat/',
+				),
+				array(
+					'title'         => 'Zblackbeard',
+					'image'         => get_template_directory_uri() . '/images/zblackbeard.png',
+					'image_alt'     => 'Zblackbeard',
+					'download_link' => 'https://wordpress.org/themes/zblackbeard/',
+					'preview_link'  => 'https://wp-themes.com/zblackbeard/',
+				),
+				array(
+					'title'         => 'OnePirate',
+					'image'         => get_template_directory_uri() . '/images/onepirate.png',
+					'image_alt'     => 'OnePirate',
+					'download_link' => 'https://wordpress.org/themes/onepirate/',
+					'preview_link'  => 'https://wp-themes.com/onepirate/',
+				),
+				array(
+					'title'         => 'Zerius',
+					'image'         => get_template_directory_uri() . '/images/zerius.png',
+					'image_alt'     => 'Zerius',
+					'download_link' => 'https://wordpress.org/themes/zerius/',
+					'preview_link'  => 'https://wp-themes.com/zerius/',
+				),
+				array(
+					'title'         => 'Zifer Child',
+					'image'         => get_template_directory_uri() . '/images/zifer-child.png',
+					'image_alt'     => 'Zifer Child',
+					'download_link' => 'https://wordpress.org/themes/zifer-child/',
+					'preview_link'  => 'https://wp-themes.com/zifer-child/',
+				)
+
+			),
+		),
+		// Free vs pro array.
+		'free_pro'                => array(
+			'free_theme_name'     => 'Zerif Lite',
+			'pro_theme_name'      => 'Zerif PRO',
+			'pro_theme_link'      => 'https://themeisle.com/themes/zerif-pro/',
+			'get_pro_theme_label' => sprintf( __( 'Get %s now!', 'zerif-lite' ), 'Zerif Pro' ),
+			'features'            => array(
+				array(
+					'title'       => __( 'Parallax effect', 'zerif-lite' ),
+					'description' => __( 'Smooth, catchy and easy scrolling experience.', 'zerif-lite' ),
+					'is_in_lite'  => 'true',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Mobile friendly', 'zerif-lite' ),
+					'description' => __( 'Responsive layout. Works on every device.', 'zerif-lite' ),
+					'is_in_lite'  => 'true',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'WooCommerce Compatible', 'zerif-lite' ),
+					'description' => __( 'Ready for e-commerce. You can build an online store here.', 'zerif-lite' ),
+					'is_in_lite'  => 'true',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Frontpage sections', 'zerif-lite' ),
+					'description' => __( 'Big title, Our focus, About us, Our team, Testimonials, Ribbons, Latest news, Contat us', 'zerif-lite' ),
+					'is_in_lite'  => 'true',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Background image', 'zerif-lite' ),
+					'description' => __( 'You can use any background image you want.', 'zerif-lite' ),
+					'is_in_lite'  => 'true',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Unlimited color option', 'zerif-lite' ),
+					'description' => __( 'You can change the colors of each section. You have unlimited options.', 'zerif-lite' ),
+					'is_in_lite'  => 'false',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Google map section', 'zerif-lite' ),
+					'description' => __( 'Embed your current location to your website by using a Google map.','zerif-lite' ),
+					'is_in_lite'  => 'false',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Portfolio', 'zerif-lite' ),
+					'description' => __( 'Showcase your best projects in the portfolio section.', 'zerif-lite' ),
+					'is_in_lite'  => 'false',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Sections order', 'zerif-lite' ),
+					'description' => __( 'Arrange the sections by your priorities.', 'zerif-lite' ),
+					'is_in_lite'  => 'false',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Background slider/video', 'zerif-lite' ),
+					'description' => __( 'Apart from static images, you can use videos or sliders on the background.', 'zerif-lite' ),
+					'is_in_lite'  => 'false',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Support', 'zerif-lite' ),
+					'description' => __( 'You will benefit of our full support for any issues you have with the theme.', 'zerif-lite' ),
+					'is_in_lite'  => 'false',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Packages/Subscribe sections', 'zerif-lite' ),
+					'description' => __( 'Add pricing tables for your products and use newsletter forms to attract the clients.', 'zerif-lite' ),
+					'is_in_lite'  => 'false',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'Change labels for the Contact Us section', 'zerif-lite' ),
+					'description' => __( 'Write an original text in each Contact us section field.', 'zerif-lite' ),
+					'is_in_lite'  => 'false',
+					'is_in_pro'   => 'true',
+				),
+				array(
+					'title'       => __( 'No credit footer link', 'zerif-lite' ),
+					'description' => __( 'Remove "Zerif Lite developed by ThemeIsle" copyright from the footer.', 'zerif-lite' ),
+					'is_in_lite'  => 'false',
+					'is_in_pro'   => 'true',
+				)
+			),
+		),
+		// Plugins array.
+		'recommended_plugins'        => array(
+			'already_activated_message' => esc_html__( 'Already activated', 'zerif-lite' ),
+			'version_label' => esc_html__( 'Version: ', 'zerif-lite' ),
+			'install_label' => esc_html__( 'Install', 'zerif-lite' ),
+			'activate_label' => esc_html__( 'Activate', 'zerif-lite' ),
+			'deactivate_label' => esc_html__( 'Deactivate', 'zerif-lite' ),
+			'content'                   => array(
+				array(
+					'slug' => 'siteorigin-panels'
+				),
+                array(
+                    'slug' => 'wp-product-review'
+                ),
+                array(
+                    'slug' => 'intergeo-maps'
+                ),
+                array(
+                    'slug' => 'visualizer'
+                ),
+                array(
+                    'slug' => 'adblock-notify-by-bweb'
+                ),
+                array(
+                    'slug' => 'nivo-slider-lite'
+                )
+			),
+		),
+		// Required actions array.
+		'recommended_actions'        => array(
+			'install_label' => esc_html__( 'Install', 'zerif-lite' ),
+			'activate_label' => esc_html__( 'Activate', 'zerif-lite' ),
+			'deactivate_label' => esc_html__( 'Deactivate', 'zerif-lite' ),
+			'content'            => array(
+				'themeisle-companion' => array(
+					'title'       => 'ThemeIsle Companion',
+					'description' => __( 'It is highly recommended that you install the companion plugin to have access to the frontpage sections widgets.', 'zerif-lite' ),
+					'check'       => defined( 'THEMEISLE_COMPANION_VERSION' ),
+					'plugin_slug' => 'themeisle-companion',
+					'id' => 'themeisle-companion'
+				),
+				'pirate-forms' => array(
+					'title'       => 'Pirate Forms',
+					'description' => __( 'Makes your contact page more engaging by creating a good-looking contact form on your website. The interaction with your visitors was never easier.', 'zerif-lite' ),
+					'check'       => defined( 'PIRATE_FORMS_VERSION' ),
+					'plugin_slug' => 'pirate-forms',
+					'id' => 'pirate-forms'
+				),
+
+			),
+		),
+	);
+	TI_About_Page::init( $config );
+
+	/*
+	 * Notifications in customize
+	 */
+	require get_template_directory() . '/ti-customizer-notify/class-ti-customizer-notify.php';
+
+	$config_customizer = array(
+		'recommended_plugins' => array(
+			'themeisle-companion' 		=> array( 'recommended' => true, 'description' => sprintf( esc_html__( 'If you want to take full advantage of the options this theme has to offer, please install and activate %s','zerif-lite' ), sprintf( '<strong>%s</strong>', 'ThemeIsle Companion' ) ) )
+		),
+		'recommended_actions' => array(),
+		'recommended_actions_title' => esc_html__( 'Recommended Actions', 'zerif-lite' ),
+		'recommended_plugins_title' => esc_html__( 'Recommended Plugins', 'zerif-lite' ),
+		'install_button_label' => esc_html__( 'Install', 'zerif-lite' ),
+		'activate_button_label' => esc_html__( 'Activate', 'zerif-lite' ),
+		'deactivate_button_label' => esc_html__( 'Deactivate', 'zerif-lite' )
+	);
+	Ti_Customizer_Notify::init( $config_customizer );
+
 }
 
 add_action('after_setup_theme', 'zerif_setup');
 
+/* Migrate logo from theme to core */
+function zerif_migrate_logo(){
+
+	$zerif_old_logo = get_theme_mod( 'zerif_logo' );
+
+	if ( ! empty( $zerif_old_logo ) ) {
+
+		$zerif_old_logo_id = attachment_url_to_postid( $zerif_old_logo );
+		if ( is_int( $zerif_old_logo_id ) ) {
+			set_theme_mod( 'custom_logo', $zerif_old_logo_id );
+
+			$zerif_migrated_logo = get_theme_mod( 'custom_logo' );
+			if ( ! empty( $zerif_migrated_logo ) ) {
+				if ( $zerif_migrated_logo == $zerif_old_logo_id ) {
+					remove_theme_mod( 'zerif_logo' );
+				}
+			}
+		}
+
+	}
+}
+
+add_action( 'after_setup_theme', 'zerif_migrate_logo' );
+
 function zerif_excerpt_more( $more ) {
-    return ' <a href="'.get_the_permalink().'" rel="nofollow"><span class="sr-only">' . esc_html__('Read more about ', 'zerif-lite').get_the_title() . '</span>[...]</a>';
+    return ' <a href="'.esc_url( get_the_permalink() ).'" rel="nofollow"><span class="sr-only">' . esc_html__('Read more about ', 'zerif-lite').esc_attr( get_the_title() ) . '</span>[&hellip;]</a>';
 }
 
 function zerif_lite_is_not_latest_posts() {
 	return ('posts' == get_option( 'show_on_front' ) ? true : false);
+}
+
+function zerif_lite_is_static_frontpage() {
+	if ( 'posts' == get_option( 'show_on_front' ) ) {
+		return false;
+	} else {
+		$frontpage_id = get_option( 'page_on_front' );
+		if ( 'template-frontpage.php' == get_post_meta( $frontpage_id, '_wp_page_template', true ) ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
 }
 
 /**
@@ -261,21 +595,31 @@ function zerif_slug_fonts_url() {
 
 function zerif_scripts() {    
 
-	wp_enqueue_style('zerif_font', zerif_slug_fonts_url(), array(), null );
+	wp_enqueue_style( 'zerif_font', zerif_slug_fonts_url(), array(), null );
 
-    wp_enqueue_style( 'zerif_font_all', '//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600italic,600,700,700italic,800,800italic');
+	wp_enqueue_style( 'zerif_font_all', add_query_arg( array( 'family' => urlencode( 'Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic' ), 'subset' => urlencode( 'latin' ) ), "//fonts.googleapis.com/css" ) );
     
-    wp_enqueue_style('zerif_bootstrap_style', get_template_directory_uri() . '/css/bootstrap.css');
+    wp_enqueue_style( 'zerif_bootstrap_style', get_template_directory_uri() . '/css/bootstrap.css' );
 	
     wp_style_add_data( 'zerif_bootstrap_style', 'rtl', 'replace' );
 
-    wp_enqueue_style('zerif_fontawesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), 'v1');
+    wp_enqueue_style( 'zerif_fontawesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), 'v1' );
 
-    wp_enqueue_style('zerif_style', get_stylesheet_uri(), array('zerif_fontawesome'), 'v1');
+    wp_enqueue_style( 'zerif_style', get_stylesheet_uri(), array( 'zerif_fontawesome' ), 'v1' );
 
-    wp_enqueue_style('zerif_responsive_style', get_template_directory_uri() . '/css/responsive.css', array('zerif_style'), 'v1');
+	/* Add this style only for the other cases than New users that have a static page */
+	$zerif_keep_old_fp_template = get_theme_mod( 'zerif_keep_old_fp_template' );
 
-    wp_enqueue_style('zerif_ie_style', get_template_directory_uri() . '/css/ie.css', array('zerif_style'), 'v1');
+	if ( ! ( ! zerif_check_if_old_version_of_theme() && ( get_option( 'show_on_front' ) == 'page' ) && ! $zerif_keep_old_fp_template ) ) {
+		$custom_css = 'body.home.page:not(.page-template-template-frontpage) {
+			background-image: none !important;
+		}';
+		wp_add_inline_style( 'zerif_style', $custom_css );
+	}
+
+    wp_enqueue_style( 'zerif_responsive_style', get_template_directory_uri() . '/css/responsive.css', array('zerif_style'), 'v1' );
+
+    wp_enqueue_style( 'zerif_ie_style', get_template_directory_uri() . '/css/ie.css', array('zerif_style'), 'v1' );
     wp_style_add_data( 'zerif_ie_style', 'conditional', 'lt IE 9' );
 
     if ( wp_is_mobile() ){
@@ -285,15 +629,15 @@ function zerif_scripts() {
     }
 
     /* Bootstrap script */
-    wp_enqueue_script('zerif_bootstrap_script', get_template_directory_uri() . '/js/bootstrap.min.js', array("jquery"), '20120206', true);
+    wp_enqueue_script( 'zerif_bootstrap_script', get_template_directory_uri() . '/js/bootstrap.min.js', array("jquery"), '20120206', true );
 
     /* Knob script */
-    wp_enqueue_script('zerif_knob_nav', get_template_directory_uri() . '/js/jquery.knob.js', array("jquery"), '20120206', true);
+    wp_enqueue_script( 'zerif_knob_nav', get_template_directory_uri() . '/js/jquery.knob.js', array("jquery"), '20120206', true );
 
     /* Smootscroll script */
-    $zerif_disable_smooth_scroll = get_theme_mod('zerif_disable_smooth_scroll');
-    if( isset($zerif_disable_smooth_scroll) && ($zerif_disable_smooth_scroll != 1)):
-        wp_enqueue_script('zerif_smoothscroll', get_template_directory_uri() . '/js/smoothscroll.js', array("jquery"), '20120206', true);
+    $zerif_disable_smooth_scroll = get_theme_mod( 'zerif_disable_smooth_scroll' );
+    if( isset( $zerif_disable_smooth_scroll ) && ( $zerif_disable_smooth_scroll != 1 ) ):
+        wp_enqueue_script( 'zerif_smoothscroll', get_template_directory_uri() . '/js/smoothscroll.js', array("jquery"), '20120206', true );
     endif;  
 	
 	/* scrollReveal script */
@@ -302,7 +646,7 @@ function zerif_scripts() {
 	}
 
     /* zerif script */
-    wp_enqueue_script('zerif_script', get_template_directory_uri() . '/js/zerif.js', array("jquery", "zerif_knob_nav"), '20120206', true);
+    wp_enqueue_script( 'zerif_script', get_template_directory_uri() . '/js/zerif.js', array("jquery", "zerif_knob_nav"), '20120206', true );
 
     if (is_singular() && comments_open() && get_option('thread_comments')) {
 
@@ -374,6 +718,11 @@ function zerif_register_required_plugins() {
 				'name'      => 'Pirate Forms',
 				'slug'      => 'pirate-forms',
 				'required'  => false,
+			),
+			array(
+				'name'      => 'ThemeIsle Companion',
+				'slug'      => 'themeisle-companion',
+				'required'  => false,
 			)
 		);
 		
@@ -383,6 +732,11 @@ function zerif_register_required_plugins() {
 			array(
 				'name'      => 'Pirate Forms',
 				'slug'      => 'pirate-forms',
+				'required'  => false,
+			),
+			array(
+				'name'      => 'ThemeIsle Companion',
+				'slug'      => 'themeisle-companion',
 				'required'  => false,
 			)
 		);
@@ -455,12 +809,18 @@ function zerif_default_title($title) {
 
 add_action('widgets_init', 'zerif_register_widgets');
 
-function zerif_register_widgets() {    
+function zerif_register_widgets() {
 
-	register_widget('zerif_ourfocus');
-    register_widget('zerif_testimonial_widget');
-    register_widget('zerif_clients_widget');
-    register_widget('zerif_team_widget');
+	if ( !defined("THEMEISLE_COMPANION_VERSION") ) {
+
+		if ( zerif_check_if_old_version_of_theme() ) {
+			register_widget( 'zerif_ourfocus' );
+			register_widget( 'zerif_testimonial_widget' );
+			register_widget( 'zerif_clients_widget' );
+			register_widget( 'zerif_team_widget' );
+		}
+		
+	}
 	
 	
 	$zerif_lite_sidebars = array ( 'sidebar-ourfocus' => 'sidebar-ourfocus', 'sidebar-testimonials' => 'sidebar-testimonials', 'sidebar-ourteam' => 'sidebar-ourteam' );
@@ -499,151 +859,11 @@ function zerif_register_widgets() {
 	
 }
 
-/**
- * Add default widgets
- */
-add_action('after_switch_theme', 'zerif_register_default_widgets');
-	
-function zerif_register_default_widgets() {
-
-	$zerif_lite_sidebars = array ( 'sidebar-ourfocus' => 'sidebar-ourfocus', 'sidebar-testimonials' => 'sidebar-testimonials', 'sidebar-ourteam' => 'sidebar-ourteam' );
-
-	$active_widgets = get_option( 'sidebars_widgets' );	
-
-	/**
-     * Default Our Focus widgets
-     */
-	if ( empty ( $active_widgets[ $zerif_lite_sidebars['sidebar-ourfocus'] ] ) ):
-
-		$zerif_lite_counter = 1;
-
-        /* our focus widget #1 */
-		$active_widgets[ 'sidebar-ourfocus' ][0] = 'ctup-ads-widget-' . $zerif_lite_counter;
-        if ( file_exists( get_stylesheet_directory().'/images/parallax.png' ) ):
-            $ourfocus_content[ $zerif_lite_counter ] = array ( 'title' => 'PARALLAX EFFECT', 'text' => 'Create memorable pages with smooth parallax effects that everyone loves. Also, use our lightweight content slider offering you smooth and great-looking animations.', 'link' => '#', 'image_uri' => get_stylesheet_directory_uri()."/images/parallax.png" );
-        else:
-            $ourfocus_content[ $zerif_lite_counter ] = array ( 'title' => 'PARALLAX EFFECT', 'text' => 'Create memorable pages with smooth parallax effects that everyone loves. Also, use our lightweight content slider offering you smooth and great-looking animations.', 'link' => '#', 'image_uri' => get_template_directory_uri()."/images/parallax.png" );
-        endif;
-        update_option( 'widget_ctup-ads-widget', $ourfocus_content );
-        $zerif_lite_counter++;
-
-        /* our focus widget #2 */
-        $active_widgets[ 'sidebar-ourfocus' ][] = 'ctup-ads-widget-' . $zerif_lite_counter;
-        if ( file_exists( get_stylesheet_directory().'/images/woo.png' ) ):
-            $ourfocus_content[ $zerif_lite_counter ] = array ( 'title' => 'WOOCOMMERCE', 'text' => 'Build a front page for your WooCommerce store in a matter of minutes. The neat and clean presentation will help your sales and make your store accessible to everyone.', 'link' => '#', 'image_uri' => get_stylesheet_directory_uri()."/images/woo.png" );
-        else:
-            $ourfocus_content[ $zerif_lite_counter ] = array ( 'title' => 'WOOCOMMERCE', 'text' => 'Build a front page for your WooCommerce store in a matter of minutes. The neat and clean presentation will help your sales and make your store accessible to everyone.', 'link' => '#', 'image_uri' => get_template_directory_uri()."/images/woo.png" );
-        endif;
-        update_option( 'widget_ctup-ads-widget', $ourfocus_content );
-        $zerif_lite_counter++;
-
-        /* our focus widget #3 */
-        $active_widgets[ 'sidebar-ourfocus' ][] = 'ctup-ads-widget-' . $zerif_lite_counter;
-        if ( file_exists( get_stylesheet_directory().'/images/ccc.png' ) ):
-            $ourfocus_content[ $zerif_lite_counter ] = array ( 'title' => 'CUSTOM CONTENT BLOCKS', 'text' => 'Showcase your team, products, clients, about info, testimonials, latest posts from the blog, contact form, additional calls to action. Everything translation ready.', 'link' => '#', 'image_uri' => get_stylesheet_directory_uri()."/images/ccc.png" );
-        else:
-            $ourfocus_content[ $zerif_lite_counter ] = array ( 'title' => 'CUSTOM CONTENT BLOCKS', 'text' => 'Showcase your team, products, clients, about info, testimonials, latest posts from the blog, contact form, additional calls to action. Everything translation ready.', 'link' => '#', 'image_uri' => get_template_directory_uri()."/images/ccc.png" );
-        endif;
-        update_option( 'widget_ctup-ads-widget', $ourfocus_content );
-        $zerif_lite_counter++;
-
-        /* our focus widget #4 */
-        $active_widgets[ 'sidebar-ourfocus' ][] = 'ctup-ads-widget-' . $zerif_lite_counter;
-        if ( file_exists( get_stylesheet_directory().'/images/ti-logo.png' ) ):
-            $ourfocus_content[ $zerif_lite_counter ] = array ( 'title' => 'GO PRO FOR MORE FEATURES', 'text' => 'Get new content blocks: pricing table, Google Maps, and more. Change the sections order, display each block exactly where you need it, customize the blocks with whatever colors you wish.', 'link' => '#', 'image_uri' => get_stylesheet_directory_uri()."/images/ti-logo.png" );
-        else:
-            $ourfocus_content[ $zerif_lite_counter ] = array ( 'title' => 'GO PRO FOR MORE FEATURES', 'text' => 'Get new content blocks: pricing table, Google Maps, and more. Change the sections order, display each block exactly where you need it, customize the blocks with whatever colors you wish.', 'link' => '#', 'image_uri' => get_template_directory_uri()."/images/ti-logo.png" );
-        endif;
-        update_option( 'widget_ctup-ads-widget', $ourfocus_content );
-        $zerif_lite_counter++;
-
-		update_option( 'sidebars_widgets', $active_widgets );
-		
-    endif;
-
-    /**
-     * Default Testimonials widgets
-     */
-    if ( empty ( $active_widgets[ $zerif_lite_sidebars['sidebar-testimonials'] ] ) ):
-
-        $zerif_lite_counter = 1;
-
-        /* testimonial widget #1 */
-        $active_widgets[ 'sidebar-testimonials' ][0] = 'zerif_testim-widget-' . $zerif_lite_counter;
-        if ( file_exists( get_stylesheet_directory().'/images/testimonial1.jpg' ) ):
-            $testimonial_content[ $zerif_lite_counter ] = array ( 'title' => 'Dana Lorem', 'text' => 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur nec sem vel sapien venenatis mattis non vitae augue. Nullam congue commodo lorem vitae facilisis. Suspendisse malesuada id turpis interdum dictum.', 'image_uri' => get_stylesheet_directory_uri()."/images/testimonial1.jpg" );
-        else:
-            $testimonial_content[ $zerif_lite_counter ] = array ( 'title' => 'Dana Lorem', 'text' => 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur nec sem vel sapien venenatis mattis non vitae augue. Nullam congue commodo lorem vitae facilisis. Suspendisse malesuada id turpis interdum dictum.', 'image_uri' => get_template_directory_uri()."/images/testimonial1.jpg" );
-        endif;
-        update_option( 'widget_zerif_testim-widget', $testimonial_content );
-        $zerif_lite_counter++;
-
-        /* testimonial widget #2 */
-        $active_widgets[ 'sidebar-testimonials' ][] = 'zerif_testim-widget-' . $zerif_lite_counter;
-        if ( file_exists( get_stylesheet_directory().'/images/testimonial2.jpg' ) ):
-            $testimonial_content[ $zerif_lite_counter ] = array ( 'title' => 'Linda Guthrie', 'text' => 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur nec sem vel sapien venenatis mattis non vitae augue. Nullam congue commodo lorem vitae facilisis. Suspendisse malesuada id turpis interdum dictum.', 'image_uri' => get_stylesheet_directory_uri()."/images/testimonial2.jpg" );
-        else:
-            $testimonial_content[ $zerif_lite_counter ] = array ( 'title' => 'Linda Guthrie', 'text' => 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur nec sem vel sapien venenatis mattis non vitae augue. Nullam congue commodo lorem vitae facilisis. Suspendisse malesuada id turpis interdum dictum.', 'image_uri' => get_template_directory_uri()."/images/testimonial2.jpg" );
-        endif;
-        update_option( 'widget_zerif_testim-widget', $testimonial_content );
-        $zerif_lite_counter++;
-
-        /* testimonial widget #3 */
-        $active_widgets[ 'sidebar-testimonials' ][] = 'zerif_testim-widget-' . $zerif_lite_counter;
-        if ( file_exists( get_stylesheet_directory().'/images/testimonial3.jpg' ) ):
-            $testimonial_content[ $zerif_lite_counter ] = array ( 'title' => 'Cynthia Henry', 'text' => 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur nec sem vel sapien venenatis mattis non vitae augue. Nullam congue commodo lorem vitae facilisis. Suspendisse malesuada id turpis interdum dictum.', 'image_uri' => get_stylesheet_directory_uri()."/images/testimonial3.jpg" );
-        else:
-            $testimonial_content[ $zerif_lite_counter ] = array ( 'title' => 'Cynthia Henry', 'text' => 'Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur nec sem vel sapien venenatis mattis non vitae augue. Nullam congue commodo lorem vitae facilisis. Suspendisse malesuada id turpis interdum dictum.', 'image_uri' => get_template_directory_uri()."/images/testimonial3.jpg" );
-        endif;
-        update_option( 'widget_zerif_testim-widget', $testimonial_content );
-        $zerif_lite_counter++;
-
-        update_option( 'sidebars_widgets', $active_widgets );
-
-    endif;
-
-    /**
-     * Default Our Team widgets
-     */
-    if ( empty ( $active_widgets[ $zerif_lite_sidebars['sidebar-ourteam'] ] ) ):
-
-        $zerif_lite_counter = 1;
-
-        /* our team widget #1 */
-        $active_widgets[ 'sidebar-ourteam' ][0] = 'zerif_team-widget-' . $zerif_lite_counter;
-        $ourteam_content[ $zerif_lite_counter ] = array ( 'name' => 'ASHLEY SIMMONS', 'position' => 'Project Manager', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dapibus, eros at accumsan auctor, felis eros condimentum quam, non porttitor est urna vel neque', 'fb_link' => '#', 'tw_link' => '#', 'bh_link' => '#', 'db_link' => '#', 'ln_link' => '#', 'image_uri' => get_template_directory_uri()."/images/team1.png" );
-        update_option( 'widget_zerif_team-widget', $ourteam_content );
-        $zerif_lite_counter++;
-
-        /* our team widget #2 */
-        $active_widgets[ 'sidebar-ourteam' ][] = 'zerif_team-widget-' . $zerif_lite_counter;
-        $ourteam_content[ $zerif_lite_counter ] = array ( 'name' => 'TIMOTHY SPRAY', 'position' => 'Art Director', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dapibus, eros at accumsan auctor, felis eros condimentum quam, non porttitor est urna vel neque', 'fb_link' => '#', 'tw_link' => '#', 'bh_link' => '#', 'db_link' => '#', 'ln_link' => '#', 'image_uri' => get_template_directory_uri()."/images/team2.png" );
-        update_option( 'widget_zerif_team-widget', $ourteam_content );
-        $zerif_lite_counter++;
-
-        /* our team widget #3 */
-        $active_widgets[ 'sidebar-ourteam' ][] = 'zerif_team-widget-' . $zerif_lite_counter;
-        $ourteam_content[ $zerif_lite_counter ] = array ( 'name' => 'TONYA GARCIA', 'position' => 'Account Manager', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dapibus, eros at accumsan auctor, felis eros condimentum quam, non porttitor est urna vel neque', 'fb_link' => '#', 'tw_link' => '#', 'bh_link' => '#', 'db_link' => '#', 'ln_link' => '#', 'image_uri' => get_template_directory_uri()."/images/team3.png" );
-        update_option( 'widget_zerif_team-widget', $ourteam_content );
-        $zerif_lite_counter++;
-
-        /* our team widget #4 */
-        $active_widgets[ 'sidebar-ourteam' ][] = 'zerif_team-widget-' . $zerif_lite_counter;
-        $ourteam_content[ $zerif_lite_counter ] = array ( 'name' => 'JASON LANE', 'position' => 'Business Development', 'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc dapibus, eros at accumsan auctor, felis eros condimentum quam, non porttitor est urna vel neque', 'fb_link' => '#', 'tw_link' => '#', 'bh_link' => '#', 'db_link' => '#', 'ln_link' => '#', 'image_uri' => get_template_directory_uri()."/images/team4.png" );
-        update_option( 'widget_zerif_team-widget', $ourteam_content );
-        $zerif_lite_counter++;
-
-        update_option( 'sidebars_widgets', $active_widgets );
-
-    endif;
-
-}
-
 /**************************/
 /****** our focus widget */
 /************************/
 
-if ( !class_exists( 'zerif_ourfocus' ) ) {
+if ( !class_exists( 'zerif_ourfocus' ) && zerif_check_if_old_version_of_theme() ) {
 
 	class zerif_ourfocus extends WP_Widget {
 
@@ -705,8 +925,8 @@ if ( !class_exists( 'zerif_ourfocus' ) ) {
 
 				<?php } elseif ( ! empty( $instance['custom_media_id'] ) ) {
 
-					$zerif_ourfocus_custom_media_id = wp_get_attachment_image_src( $instance["custom_media_id"] );
-					if ( ! empty( $zerif_ourfocus_custom_media_id ) && ! empty( $zerif_ourfocus_custom_media_id[0] ) ) {
+					$zerif_ourfocus_custom_media_id = wp_get_attachment_image_url( $instance["custom_media_id"] );
+					if ( ! empty( $zerif_ourfocus_custom_media_id ) ) {
 
 						if ( ! empty( $instance['link'] ) ) { ?>
 							<a href="<?php echo esc_url( $instance['link'] ); ?>" class="service-icon">
@@ -719,13 +939,13 @@ if ( !class_exists( 'zerif_ourfocus' ) ) {
 									<?php
 								} ?>
 								<i class="pixeden"
-								   style="background:url(<?php echo esc_url( $zerif_ourfocus_custom_media_id[0] ); ?>) no-repeat center;width:100%; height:100%;"></i>
+								   style="background:url(<?php echo esc_url( $zerif_ourfocus_custom_media_id ); ?>) no-repeat center;width:100%; height:100%;"></i>
 							</a>
 							<?php
 						} else { ?>
 							<div class="service-icon" tabindex="0">
 								<i class="pixeden"
-								   style="background:url(<?php echo esc_url( $zerif_ourfocus_custom_media_id[0] ); ?>) no-repeat center;width:100%; height:100%;"></i>
+								   style="background:url(<?php echo esc_url( $zerif_ourfocus_custom_media_id ); ?>) no-repeat center;width:100%; height:100%;"></i>
 								<!-- FOCUS ICON-->
 							</div>
 							<?php
@@ -758,83 +978,13 @@ if ( !class_exists( 'zerif_ourfocus' ) ) {
 
 			$instance                        = $old_instance;
 			$instance['text']                = stripslashes( wp_filter_post_kses( $new_instance['text'] ) );
-			$instance['title']               = strip_tags( $new_instance['title'] );
-			$instance['link']                = strip_tags( $new_instance['link'] );
-			$instance['image_uri']           = strip_tags( $new_instance['image_uri'] );
-			$instance['custom_media_id']     = strip_tags( $new_instance['custom_media_id'] );
-			$instance['image_in_customizer'] = strip_tags( $new_instance['image_in_customizer'] );
+			$instance['title']               = sanitize_text_field( $new_instance['title'] );
+			$instance['link']                = esc_url( $new_instance['link'] );
+			$instance['image_uri']           = esc_url( $new_instance['image_uri'] );
+			$instance['custom_media_id']     = sanitize_text_field( $new_instance['custom_media_id'] );
+			$instance['image_in_customizer'] = esc_url( $new_instance['image_in_customizer'] );
 
 			return $instance;
-
-		}
-
-		function form( $instance ) {
-			?>
-
-			<p>
-				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title', 'zerif-lite' ); ?></label><br/>
-				<input type="text" name="<?php echo $this->get_field_name( 'title' ); ?>"
-				       id="<?php echo $this->get_field_id( 'title' ); ?>"
-				       value="<?php if ( ! empty( $instance['title'] ) ): echo $instance['title']; endif; ?>"
-				       class="widefat">
-			</p>
-			<p>
-				<label
-					for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e( 'Text', 'zerif-lite' ); ?></label><br/>
-				<textarea class="widefat" rows="8" cols="20" name="<?php echo $this->get_field_name( 'text' ); ?>"
-				          id="<?php echo $this->get_field_id( 'text' ); ?>"><?php if ( ! empty( $instance['text'] ) ): echo htmlspecialchars_decode( $instance['text'] ); endif; ?></textarea>
-			</p>
-			<p>
-				<label
-					for="<?php echo $this->get_field_id( 'link' ); ?>"><?php _e( 'Link', 'zerif-lite' ); ?></label><br/>
-				<input type="text" name="<?php echo $this->get_field_name( 'link' ); ?>"
-				       id="<?php echo $this->get_field_id( 'link' ); ?>"
-				       value="<?php if ( ! empty( $instance['link'] ) ): echo esc_url( $instance['link'] ); endif; ?>"
-				       class="widefat">
-			</p>
-			<p>
-				<label
-					for="<?php echo $this->get_field_id( 'image_uri' ); ?>"><?php _e( 'Image', 'zerif-lite' ); ?></label><br/>
-
-				<?php
-				$image_in_customizer = '';
-				$display             = 'none';
-				if ( ! empty( $instance['image_in_customizer'] ) && ! empty( $instance['image_uri'] ) ) {
-					$image_in_customizer = esc_url( $instance['image_in_customizer'] );
-					$display             = 'inline-block';
-				} else {
-					if ( ! empty( $instance['image_uri'] ) ) {
-						$image_in_customizer = esc_url( $instance['image_uri'] );
-						$display             = 'inline-block';
-					}
-				}
-				$zerif_image_in_customizer = $this->get_field_name( 'image_in_customizer' );
-				?>
-				<input type="hidden" class="custom_media_display_in_customizer"
-				       name="<?php if ( ! empty( $zerif_image_in_customizer ) ) {
-					       echo $zerif_image_in_customizer;
-				       } ?>"
-				       value="<?php if ( ! empty( $instance['image_in_customizer'] ) ): echo $instance['image_in_customizer']; endif; ?>">
-				<img class="custom_media_image" src="<?php echo $image_in_customizer; ?>"
-				     style="margin:0;padding:0;max-width:100px;float:left;display:<?php echo $display; ?>"
-				     alt="<?php echo __( 'Uploaded image', 'zerif-lite' ); ?>"/><br/>
-
-				<input type="text" class="widefat custom_media_url"
-				       name="<?php echo $this->get_field_name( 'image_uri' ); ?>"
-				       id="<?php echo $this->get_field_id( 'image_uri' ); ?>"
-				       value="<?php if ( ! empty( $instance['image_uri'] ) ): echo $instance['image_uri']; endif; ?>"
-				       style="margin-top:5px;">
-
-				<input type="button" class="button button-primary custom_media_button" id="custom_media_button"
-				       name="<?php echo $this->get_field_name( 'image_uri' ); ?>"
-				       value="<?php _e( 'Upload Image', 'zerif-lite' ); ?>" style="margin-top:5px;">
-			</p>
-
-			<input class="custom_media_id" id="<?php echo $this->get_field_id( 'custom_media_id' ); ?>"
-			       name="<?php echo $this->get_field_name( 'custom_media_id' ); ?>" type="hidden"
-			       value="<?php if ( ! empty( $instance["custom_media_id"] ) ): echo $instance["custom_media_id"]; endif; ?>"/>
-
-			<?php
 
 		}
 
@@ -844,7 +994,8 @@ if ( !class_exists( 'zerif_ourfocus' ) ) {
 /****************************/
 /****** testimonial widget **/
 /***************************/
-if ( !class_exists( 'zerif_testimonial_widget' ) ) {
+
+if ( !class_exists( 'zerif_testimonial_widget' ) && zerif_check_if_old_version_of_theme() ) {
 
 	class zerif_testimonial_widget extends WP_Widget {
 
@@ -926,14 +1077,14 @@ if ( !class_exists( 'zerif_testimonial_widget' ) ) {
 
 				} elseif ( ! empty( $instance['custom_media_id'] ) ) {
 
-					$zerif_testimonials_custom_media_id = wp_get_attachment_image_src( $instance["custom_media_id"] );
+					$zerif_testimonials_custom_media_id = wp_get_attachment_image_url( $instance["custom_media_id"] );
 					$alt                                = get_post_meta( $instance['custom_media_id'], '_wp_attachment_image_alt', true );
 
-					if ( ! empty( $zerif_testimonials_custom_media_id ) && ! empty( $zerif_testimonials_custom_media_id[0] ) ) {
+					if ( ! empty( $zerif_testimonials_custom_media_id ) ) {
 
 						echo '<div class="client-image hidden-xs">';
 
-						echo '<img src="' . esc_url( $zerif_testimonials_custom_media_id[0] ) . '" alt="' . $alt . '" />';
+						echo '<img src="' . esc_url( $zerif_testimonials_custom_media_id ) . '" alt="' . esc_attr( $alt ) . '" />';
 
 						echo '</div>';
 
@@ -956,12 +1107,12 @@ if ( !class_exists( 'zerif_testimonial_widget' ) ) {
 
 			$instance                        = $old_instance;
 			$instance['text']                = stripslashes( wp_filter_post_kses( $new_instance['text'] ) );
-			$instance['title']               = strip_tags( $new_instance['title'] );
-			$instance['details']             = strip_tags( $new_instance['details'] );
-			$instance['image_uri']           = strip_tags( $new_instance['image_uri'] );
-			$instance['link']                = strip_tags( $new_instance['link'] );
-			$instance['custom_media_id']     = strip_tags( $new_instance['custom_media_id'] );
-			$instance['image_in_customizer'] = strip_tags( $new_instance['image_in_customizer'] );
+			$instance['title']               = sanitize_text_field( $new_instance['title'] );
+			$instance['details']             = sanitize_text_field( $new_instance['details'] );
+			$instance['image_uri']           = esc_url( $new_instance['image_uri'] );
+			$instance['link']                = esc_url( $new_instance['link'] );
+			$instance['custom_media_id']     = sanitize_text_field( $new_instance['custom_media_id'] );
+			$instance['image_in_customizer'] = esc_url( $new_instance['image_in_customizer'] );
 
 			return $instance;
 
@@ -1053,7 +1204,7 @@ if ( !class_exists( 'zerif_testimonial_widget' ) ) {
 /****** clients widget ******/
 /***************************/
 
-if ( !class_exists( 'zerif_clients_widget' ) ) {
+if ( !class_exists( 'zerif_clients_widget' ) && zerif_check_if_old_version_of_theme() ) {
 
 	class zerif_clients_widget extends WP_Widget {
 
@@ -1092,10 +1243,10 @@ if ( !class_exists( 'zerif_clients_widget' ) ) {
 
 				} elseif ( ! empty( $instance['custom_media_id'] ) ) {
 
-					$zerif_clients_custom_media_id = wp_get_attachment_image_src( $instance["custom_media_id"] );
-					if ( ! empty( $zerif_clients_custom_media_id ) && ! empty( $zerif_clients_custom_media_id[0] ) ) {
+					$zerif_clients_custom_media_id = wp_get_attachment_image_url( $instance["custom_media_id"] );
+					if ( ! empty( $zerif_clients_custom_media_id ) ) {
 
-						echo '<img src="' . esc_url( $zerif_clients_custom_media_id[0] ) . '" alt="' . __( 'Client', 'zerif-lite' ) . '">';
+						echo '<img src="' . esc_url( $zerif_clients_custom_media_id ) . '" alt="' . __( 'Client', 'zerif-lite' ) . '">';
 
 					}
 				}
@@ -1112,13 +1263,13 @@ if ( !class_exists( 'zerif_clients_widget' ) ) {
 
 			$instance = $old_instance;
 
-			$instance['link'] = strip_tags( $new_instance['link'] );
+			$instance['link'] = esc_url( $new_instance['link'] );
 
-			$instance['image_uri'] = strip_tags( $new_instance['image_uri'] );
+			$instance['image_uri'] = esc_url( $new_instance['image_uri'] );
 
-			$instance['image_in_customizer'] = strip_tags( $new_instance['image_in_customizer'] );
+			$instance['image_in_customizer'] = esc_url( $new_instance['image_in_customizer'] );
 
-			$instance['custom_media_id'] = strip_tags( $new_instance['custom_media_id'] );
+			$instance['custom_media_id'] = sanitize_text_field( $new_instance['custom_media_id'] );
 
 			return $instance;
 
@@ -1186,7 +1337,8 @@ if ( !class_exists( 'zerif_clients_widget' ) ) {
 /****************************/
 /****** team member widget **/
 /***************************/
-if ( !class_exists( 'zerif_team_widget' ) ) {
+
+if ( !class_exists( 'zerif_team_widget' ) && zerif_check_if_old_version_of_theme() ) {
 
 	class zerif_team_widget extends WP_Widget {
 
@@ -1232,16 +1384,15 @@ if ( !class_exists( 'zerif_team_widget' ) ) {
 						<?php
 					} elseif ( ! empty( $instance['custom_media_id'] ) ) {
 
-						$zerif_team_custom_media_id = wp_get_attachment_image_src( $instance["custom_media_id"] );
+						$zerif_team_custom_media_id = wp_get_attachment_image_url( $instance["custom_media_id"] );
 						$alt                        = get_post_meta( $instance['custom_media_id'], '_wp_attachment_image_alt', true );
 
-						if ( ! empty( $zerif_team_custom_media_id ) && ! empty( $zerif_team_custom_media_id[0] ) ) {
+						if ( ! empty( $zerif_team_custom_media_id ) ) {
 							?>
 
 							<figure class="profile-pic">
 
-								<img src="<?php echo esc_url( $zerif_team_custom_media_id[0] ); ?>"
-								     alt="<?php echo $alt; ?>"/>
+								<img src="<?php echo esc_url( $zerif_team_custom_media_id ); ?>" alt="<?php echo esc_attr( $alt ); ?>"/>
 
 							</figure>
 
@@ -1285,8 +1436,7 @@ if ( !class_exists( 'zerif_team_widget' ) ) {
 										<?php
 										if ( ! empty( $instance['name'] ) ) { ?>
 											<span class="sr-only">
-				                            <?php _e( 'Facebook account of', 'zerif-lite' ); ?>
-				                            <?php echo apply_filters( 'widget_title', $instance['name'] ); ?>
+				                            <?php _e( 'Facebook link', 'zerif-lite' ); ?>
 			                            </span>
 											<?php
 										} ?>
@@ -1303,8 +1453,7 @@ if ( !class_exists( 'zerif_team_widget' ) ) {
 										<?php
 										if ( ! empty( $instance['name'] ) ) { ?>
 											<span class="sr-only">
-				                            <?php _e( 'Twitter account of', 'zerif-lite' ); ?>
-				                            <?php echo apply_filters( 'widget_title', $instance['name'] ); ?>
+				                            <?php _e( 'Twitter link', 'zerif-lite' ); ?>
 			                            </span>
 											<?php
 										} ?>
@@ -1321,8 +1470,7 @@ if ( !class_exists( 'zerif_team_widget' ) ) {
 										<?php
 										if ( ! empty( $instance['name'] ) ) { ?>
 											<span class="sr-only">
-				                            <?php _e( 'Behance account of', 'zerif-lite' ); ?>
-				                            <?php echo apply_filters( 'widget_title', $instance['name'] ); ?>
+				                            <?php _e( 'Behance link', 'zerif-lite' ); ?>
 			                            </span>
 											<?php
 										} ?>
@@ -1339,8 +1487,7 @@ if ( !class_exists( 'zerif_team_widget' ) ) {
 										<?php
 										if ( ! empty( $instance['name'] ) ) { ?>
 											<span class="sr-only">
-				                            <?php _e( 'Dribble account of', 'zerif-lite' ); ?>
-				                            <?php echo apply_filters( 'widget_title', $instance['name'] ); ?>
+				                            <?php _e( 'Dribble link', 'zerif-lite' ); ?>
 			                            </span>
 											<?php
 										} ?>
@@ -1357,8 +1504,7 @@ if ( !class_exists( 'zerif_team_widget' ) ) {
 										<?php
 										if ( ! empty( $instance['name'] ) ) { ?>
 											<span class="sr-only">
-				                            <?php _e( 'Linkedin account of', 'zerif-lite' ); ?>
-				                            <?php echo apply_filters( 'widget_title', $instance['name'] ); ?>
+				                            <?php _e( 'Linkedin link', 'zerif-lite' ); ?>
 			                            </span>
 											<?php
 										} ?>
@@ -1394,18 +1540,18 @@ if ( !class_exists( 'zerif_team_widget' ) ) {
 
 			$instance = $old_instance;
 
-			$instance['name']                = strip_tags( $new_instance['name'] );
+			$instance['name']                = sanitize_text_field( $new_instance['name'] );
 			$instance['position']            = stripslashes( wp_filter_post_kses( $new_instance['position'] ) );
 			$instance['description']         = stripslashes( wp_filter_post_kses( $new_instance['description'] ) );
-			$instance['fb_link']             = strip_tags( $new_instance['fb_link'] );
-			$instance['tw_link']             = strip_tags( $new_instance['tw_link'] );
-			$instance['bh_link']             = strip_tags( $new_instance['bh_link'] );
-			$instance['db_link']             = strip_tags( $new_instance['db_link'] );
-			$instance['ln_link']             = strip_tags( $new_instance['ln_link'] );
-			$instance['image_uri']           = strip_tags( $new_instance['image_uri'] );
+			$instance['fb_link']             = esc_url( $new_instance['fb_link'] );
+			$instance['tw_link']             = esc_url( $new_instance['tw_link'] );
+			$instance['bh_link']             = esc_url( $new_instance['bh_link'] );
+			$instance['db_link']             = esc_url( $new_instance['db_link'] );
+			$instance['ln_link']             = esc_url( $new_instance['ln_link'] );
+			$instance['image_uri']           = esc_url( $new_instance['image_uri'] );
 			$instance['open_new_window']     = strip_tags( $new_instance['open_new_window'] );
-			$instance['custom_media_id']     = strip_tags( $new_instance['custom_media_id'] );
-			$instance['image_in_customizer'] = strip_tags( $new_instance['image_in_customizer'] );
+			$instance['custom_media_id']     = sanitize_text_field( $new_instance['custom_media_id'] );
+			$instance['image_in_customizer'] = esc_url( $new_instance['image_in_customizer'] );
 
 			return $instance;
 
@@ -1541,33 +1687,28 @@ function zerif_customizer_custom_css() {
 }
 add_action('customize_controls_print_styles', 'zerif_customizer_custom_css');
 
-
-/* Enqueue Google reCAPTCHA scripts */
-add_action( 'wp_enqueue_scripts', 'recaptcha_scripts' );
-
-function recaptcha_scripts() {
-
-    if ( is_home() ):
-        $zerif_contactus_sitekey = get_theme_mod('zerif_contactus_sitekey');
-        $zerif_contactus_secretkey = get_theme_mod('zerif_contactus_secretkey');
-        $zerif_contactus_recaptcha_show = get_theme_mod('zerif_contactus_recaptcha_show');
-        if( isset($zerif_contactus_recaptcha_show) && $zerif_contactus_recaptcha_show != 1 && !empty($zerif_contactus_sitekey) && !empty($zerif_contactus_secretkey) ) :
-            wp_enqueue_script( 'recaptcha', 'https://www.google.com/recaptcha/api.js' );
-        endif;
-    endif;
-
-}
-
 /* remove custom-background from body_class() */
 add_filter( 'body_class', 'remove_class_function' );
+
 function remove_class_function( $classes ) {
 
-    if ( !is_home() ) {   
-        // index of custom-background
-        $key = array_search('custom-background', $classes);
-        // remove class
-        unset($classes[$key]);
-    }
+	$zerif_keep_old_fp_template = get_theme_mod( 'zerif_keep_old_fp_template' );
+	/* For new users with static page */
+	if ( ! zerif_check_if_old_version_of_theme() && ( get_option( 'show_on_front' ) == 'page' ) && ! $zerif_keep_old_fp_template ) {
+		if ( !is_front_page() && !is_home() ) {
+			// index of custom-background
+			$key = array_search( 'custom-background', $classes );
+			// remove class
+			unset( $classes[ $key ] );
+		}
+	} else {
+		if ( ! is_home() && ! is_page_template( 'template-frontpage.php' ) ) {
+			// index of custom-background
+			$key = array_search( 'custom-background', $classes );
+			// remove class
+			unset( $classes[ $key ] );
+		}
+	}
     return $classes;
 
 }
@@ -1623,3 +1764,54 @@ function zerif_lite_update_options_in_pirate_forms() {
 
     endif;
 }
+
+/*
+ * Function to check if version 1.8.5 or less has been previously installed.
+ */
+function zerif_check_if_old_version_of_theme() {
+
+	$old_zerif_option = get_theme_mod( 'zerif_bigtitle_title' );
+	$old_zerif_option_2 = get_theme_mod( 'zerif_bigtitle_redbutton_label' );
+	$old_zerif_option_3 = get_theme_mod( 'zerif_ourfocus_title' );
+
+	if( ! empty( $old_zerif_option ) || ! empty( $old_zerif_option_2 ) || ! empty( $old_zerif_option_3 ) ) {
+		return true;
+	}
+	return false;
+}
+
+/**
+ * Add starter content for fresh sites
+ *
+ * @since 1.8.5.12
+ */
+function zerif_starter_content() {
+	/*
+	 * Starter Content Support
+	 */
+	add_theme_support( 'starter-content', array(
+		// Twenty Seventeen
+		'posts' => array(
+			'home',
+			'blog',
+        ),
+
+		'nav_menus' => array(
+			'primary'      => array(
+				'name'  => __( 'Primary Menu', 'zerif-lite' ),
+				'items' => array(
+					'page_home',
+					'page_blog',
+				),
+			),
+		),
+
+		'options' => array(
+			'show_on_front'  => 'page',
+			'page_on_front'  => '{{home}}',
+			'page_for_posts' => '{{blog}}',
+		),
+	) );
+
+}
+add_action( 'after_setup_theme', 'zerif_starter_content' );

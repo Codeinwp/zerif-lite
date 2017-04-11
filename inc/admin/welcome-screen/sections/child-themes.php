@@ -33,7 +33,7 @@
 					<div class="theme-details">
 						<span class="theme-name">Zblackbeard</span>
 						<a href="http://themeisle.com/themes/zblackbeard/#pricing-single" class="button button-primary install right"><?php esc_html_e( 'Get now', 'zerif-lite' ); ?></a>
-						<a class="button button-secondary preview right" target="_blank" href="https://wp-themes.com/zblackbeard"><?php esc_html_e( 'Live Preview','zerif-lite'); ?></a>
+						<a class="button button-secondary preview right" target="_blank" href="https://themeisle.com/demo/?theme=ZBlackbeard"><?php esc_html_e( 'Live Preview','zerif-lite'); ?></a>
 						<div class="zerif-lite-clear"></div>
 					</div>
 				<?php } else { ?>
@@ -87,7 +87,7 @@
 					<div class="theme-details">
 						<span class="theme-name">Zifer Child</span>
 						<a href="<?php echo esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-theme&theme=zifer-child' ), 'install-theme_zifer-child' ) ); ?>" class="button button-primary install right"><?php printf( __( 'Install %s now', 'zerif-lite' ), '<span class="screen-reader-text">Zerius</span>' ); ?></a>
-						<a class="button button-secondary preview right" target="_blank" href="https://wp-themes.com/zifer-child"><?php esc_html_e( 'Live Preview','zerif-lite'); ?></a>
+						<a class="button button-secondary preview right" target="_blank" href="https://themeisle.com/demo/?theme=Zifer%20Child"><?php esc_html_e( 'Live Preview','zerif-lite'); ?></a>
 						<div class="zerif-lite-clear"></div>
 					</div>
 				<?php } else { ?>
@@ -116,7 +116,7 @@
 					<div class="theme-details">
 						<span class="theme-name">ResponsiveBoat</span>
 						<a href="http://themeisle.com/themes/responsiveboat-theme/#pricing-single" class="button button-primary install right"><?php printf( __( 'Get %s now', 'zerif-lite' ), '<span class="screen-reader-text">ResponsiveBoat</span>' ); ?></a>
-						<a class="button button-secondary preview right" target="_blank" href="https://wp-themes.com/responsiveboat"><?php esc_html_e( 'Live Preview','zerif-lite'); ?></a>
+						<a class="button button-secondary preview right" target="_blank" href="https://themeisle.com/demo/?theme=ResponsiveBoat"><?php esc_html_e( 'Live Preview','zerif-lite'); ?></a>
 						<div class="zerif-lite-clear"></div>
 					</div>
 				<?php } else { ?>
