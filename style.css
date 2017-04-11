@@ -4640,20 +4640,22 @@ article .posted-on a:hover{
 	margin: 0 0 24px;
 	list-style-position: inside;
 }
-
 .woocommerce div.product div.images .woocommerce-product-gallery__image:nth-child(n+2){
 	width: 30.75%;
 }
-
+.woocommerce div.product div.images .flex-control-thumbs li,
 .woocommerce-product-gallery__wrapper > .woocommerce-product-gallery__image:not(:first-child){
 	padding-top: 1em;
 	float: left;
 	width: 30.75%;
-
 }
 
-.woocommerce-product-gallery__wrapper > .woocommerce-product-gallery__image:nth-child(3n){
-	margin: 0 3.8%;
+.woocommerce div.product div.images .flex-control-thumbs li {
+	margin-right: 3.8%;
+}
+
+.woocommerce div.product div.images .flex-control-thumbs li:nth-child(3n) {
+	margin: 0;
 }
 
 .woocommerce-error, .woocommerce-info, .woocommerce-message {
