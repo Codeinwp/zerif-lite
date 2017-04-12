@@ -4648,8 +4648,7 @@ article .posted-on a:hover{
 .woocommerce div.product div.images .woocommerce-product-gallery__image:nth-child(n+2){
 	width: 30.75%;
 }
-.woocommerce div.product div.images .flex-control-thumbs li,
-.woocommerce-product-gallery__wrapper > .woocommerce-product-gallery__image:not(:first-child){
+.woocommerce div.product div.images .flex-control-thumbs li {
 	padding-top: 1em;
 	float: left;
 	width: 30.75%;
