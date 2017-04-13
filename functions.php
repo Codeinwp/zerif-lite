@@ -457,7 +457,7 @@ function zerif_setup() {
 		'recommended_actions' => array(),
 		'recommended_actions_title' => esc_html__( 'Recommended Actions', 'zerif-lite' ),
 		'recommended_plugins_title' => esc_html__( 'Recommended Plugins', 'zerif-lite' ),
-		'install_button_label' => esc_html__( 'Install', 'zerif-lite' ),
+		'install_button_label' => esc_html__( 'Install and Activate', 'zerif-lite' ),
 		'activate_button_label' => esc_html__( 'Activate', 'zerif-lite' ),
 		'deactivate_button_label' => esc_html__( 'Deactivate', 'zerif-lite' )
 	);
