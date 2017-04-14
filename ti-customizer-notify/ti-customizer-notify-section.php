@@ -232,7 +232,7 @@ class Ti_Customizer_Notify_Section extends WP_Customize_Section {
 			}
 
 
-			$ti_customizer_notify_recommended_plugin['title'] = $ti_customizer_notify_recommended_plugin['button_label'].': '.$info->name;
+			$ti_customizer_notify_recommended_plugin['title'] = $info->name;
 
 			$customize_plugins[] = $ti_customizer_notify_recommended_plugin;
 
@@ -271,7 +271,6 @@ class Ti_Customizer_Notify_Section extends WP_Customize_Section {
                     <# if( data.recommended_actions.length > 0 ){ #>
                         <span class="ti-customizer-notify-actions-count">
                             <span class="current-index">{{ data.recommended_actions[0].index }}</span>
-                            /
                             {{ data.total_actions }}
                         </span>
                     <# } #>
