@@ -32,8 +32,8 @@ jQuery(document).ready(function () {
         });
     });
     // Remove activate button and replace with activation in progress button.
-    jQuery('.ti-about-page-action-required-box .activate-now').live('DOMNodeInserted', function () {
-        var activateButton = jQuery('.ti-about-page-action-required-box .activate-now');
+    jQuery('.activate-now').live('DOMNodeInserted', function () {
+        var activateButton = jQuery('.activate-now');
         if (activateButton.length) {
             var url = jQuery(activateButton).attr('href');
             if (typeof url !== 'undefined') {
