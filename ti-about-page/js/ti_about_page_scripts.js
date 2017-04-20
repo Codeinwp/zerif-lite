@@ -31,4 +31,26 @@ jQuery(document).ready(function () {
             }
         });
     });
+    // Remove activate button and replace with activation in progress button.
+    jQuery('.ti-about-page-action-required-box .activate-now').live('DOMNodeInserted', function () {
+        var activateButton = jQuery('.ti-about-page-action-required-box .activate-now');
+        if (activateButton.length) {
+            var url = jQuery(activateButton).attr('href');
+            if (typeof url !== 'undefined') {
+                //Request plugin activation.
+                jQuery.ajax({
+                    beforeSend: function () {
+                        jQuery(activateButton).replaceWith('<a class="button updating-message">' + tiAboutPageObject.activating_string + '...</a>');
+                    },
+                    async: true,
+                    type: 'GET',
+                    url: url,
+                    success: function (data) {
+                        //Reload the page.
+                        location.reload();
+                    }
+                });
+            }
+        }
+    });
 });

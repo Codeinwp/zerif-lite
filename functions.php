@@ -421,7 +421,7 @@ function zerif_setup() {
 		),
 		// Required actions array.
 		'recommended_actions'        => array(
-			'install_label' => esc_html__( 'Install', 'zerif-lite' ),
+			'install_label' => esc_html__( 'Install and Activate', 'zerif-lite' ),
 			'activate_label' => esc_html__( 'Activate', 'zerif-lite' ),
 			'deactivate_label' => esc_html__( 'Deactivate', 'zerif-lite' ),
 			'content'            => array(
