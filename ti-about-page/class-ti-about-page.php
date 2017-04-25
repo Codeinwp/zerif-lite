@@ -478,21 +478,29 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 		}
 
 		public function check_if_plugin_active( $slug ) {
-
-			$path = WPMU_PLUGIN_DIR . '/' . $slug . '/' . $slug . '.php';
-			if ( ! file_exists( $path ) ) {
-				$path = WP_PLUGIN_DIR . '/' . $slug . '/' . $slug . '.php';
-				if ( ! file_exists( $path ) ) {
-					$path = false;
-				}
+			if( ( $slug == 'intergeo-maps' ) || ( $slug == 'visualizer' ) ) {
+				$plugin_root_file = 'index';
+			} elseif ( $slug == 'adblock-notify-by-bweb' ) {
+				$plugin_root_file = 'adblock-notify';
+			} else {
+				$plugin_root_file = $slug;
 			}
 
+            $path = WPMU_PLUGIN_DIR . '/' . $slug . '/' . $plugin_root_file . '.php';
+            if ( ! file_exists( $path ) ) {
+                $path = WP_PLUGIN_DIR . '/' . $slug . '/' . $plugin_root_file . '.php';
+                if ( ! file_exists( $path ) ) {
+                    $path = false;
+                }
+            }
+
 			if ( file_exists( $path ) ) {
+
 				include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
-				$needs = is_plugin_active( $slug . '/' . $slug . '.php' ) ? 'deactivate' : 'activate';
+				$needs = is_plugin_active( $slug . '/' . $plugin_root_file . '.php' ) ? 'deactivate' : 'activate';
 
-				return array( 'status' => is_plugin_active( $slug . '/' . $slug . '.php' ), 'needs' => $needs );
+				return array( 'status' => is_plugin_active( $slug . '/' . $plugin_root_file . '.php' ), 'needs' => $needs );
 			}
 
 			return array( 'status' => false, 'needs' => 'install' );
@@ -521,6 +529,14 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 
 		public function create_action_link( $state, $slug ) {
 
+		    if( ( $slug == 'intergeo-maps' ) || ( $slug == 'visualizer' ) ) {
+				$plugin_root_file = 'index';
+			} elseif ( $slug == 'adblock-notify-by-bweb' ) {
+				$plugin_root_file = 'adblock-notify';
+			} else {
+				$plugin_root_file = $slug;
+			}
+
 			switch ( $state ) {
 				case 'install':
 					return wp_nonce_url(
@@ -537,19 +553,19 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 				case 'deactivate':
 					return add_query_arg( array(
 						'action'        => 'deactivate',
-						'plugin'        => rawurlencode( $slug . '/' . $slug . '.php' ),
+						'plugin'        => rawurlencode( $slug . '/' . $plugin_root_file . '.php' ),
 						'plugin_status' => 'all',
 						'paged'         => '1',
-						'_wpnonce'      => wp_create_nonce( 'deactivate-plugin_' . $slug . '/' . $slug . '.php' ),
+						'_wpnonce'      => wp_create_nonce( 'deactivate-plugin_' . $slug . '/' . $plugin_root_file . '.php' ),
 					), network_admin_url( 'plugins.php' ) );
 					break;
 				case 'activate':
 					return add_query_arg( array(
 						'action'        => 'activate',
-						'plugin'        => rawurlencode( $slug . '/' . $slug . '.php' ),
+						'plugin'        =>  rawurlencode( $slug . '/' . $plugin_root_file . '.php' ),
 						'plugin_status' => 'all',
 						'paged'         => '1',
-						'_wpnonce'      => wp_create_nonce( 'activate-plugin_' . $slug . '/' . $slug . '.php' ),
+						'_wpnonce'      => wp_create_nonce( 'activate-plugin_' . $slug . '/' . $plugin_root_file . '.php' ),
 					), network_admin_url( 'plugins.php' ) );
 					break;
 			}
@@ -1027,7 +1043,8 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 				wp_localize_script( 'ti-about-page-js', 'tiAboutPageObject', array(
 					'nr_actions_required'      => count( $required_actions ),
 					'ajaxurl'                  => admin_url( 'admin-ajax.php' ),
-					'template_directory'       => get_template_directory_uri()
+					'template_directory'       => get_template_directory_uri(),
+					'activating_string'        => __( 'Activating', 'zerif-lite' )
 				) );
 
 			}

@@ -204,7 +204,7 @@
 	bottom: 0;
 	left: 0;
 	right: 0;
-	font-size: 15px;
+	font-size: 13px;
 	font-weight: 600;
 	height: 18px;
 	margin: 0;
@@ -218,6 +218,7 @@
 	background: rgba(255, 255, 255, .65);
 	text-align: left;
 	padding-right: 105px;
+	max-width: 140px;
 }
 
 .plugin_box .action_bar.active {
