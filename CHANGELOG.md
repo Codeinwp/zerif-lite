@@ -1,4 +1,9 @@
 
+### 1.8.5.17 - 25/04/2017
+**Changes:** 
+- Fixed small CSS alignment issues with WooCommerce 3.0.0
+- Added Install and Activate buttons in Recommended actions and plugins for better use
+
 ### 2.0.5 - 05/01/2017
 **Changes:** 
 - Fixed fatal error issues with Themeisle Companion plugin installed
