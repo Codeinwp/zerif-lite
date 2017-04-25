@@ -33,7 +33,7 @@ jQuery(document).ready(function () {
     });
     // Remove activate button and replace with activation in progress button.
     jQuery('.activate-now').live('DOMNodeInserted', function () {
-        var activateButton = jQuery('.activate-now');
+        var activateButton = jQuery(this);
         if (activateButton.length) {
             var url = jQuery(activateButton).attr('href');
             if (typeof url !== 'undefined') {
