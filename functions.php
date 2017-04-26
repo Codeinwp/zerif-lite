@@ -134,7 +134,9 @@ function zerif_setup() {
 
     add_filter( 'excerpt_more', 'zerif_excerpt_more' );
 
-    require_once( trailingslashit( get_template_directory() ) . 'inc/class/class-customizer-theme-info-control/class-customizer-theme-info-root.php' );
+    if( zerif_ready_for_upsells() ) {
+	    require_once( trailingslashit( get_template_directory() ) . 'inc/class/class-customizer-theme-info-control/class-customizer-theme-info-root.php' );
+    }
 
 	/**
 	 * About page class
@@ -1815,3 +1817,32 @@ function zerif_starter_content() {
 
 }
 add_action( 'after_setup_theme', 'zerif_starter_content' );
+
+
+/**
+ * Save activation time.
+ */
+function zerif_time_activated() {
+	update_option( 'zerif_time_activated', time() );
+}
+add_action( 'after_switch_theme', 'zerif_time_activated');
+
+/**
+ * Check if 12 hours have passed since theme was activated and show upsells in customizer if yes.
+ *
+ * @return bool
+ */
+function zerif_ready_for_upsells() {
+    $activation_time = get_option( 'zerif_time_activated' );
+    if( ! empty( $activation_time ) ) {
+	    $current_time    = time();
+	    $time_difference = 43200;
+
+	    if ( $current_time >= $activation_time + $time_difference ) {
+		    return true;
+	    } else {
+		    return false;
+	    }
+    }
+    return true;
+}
