@@ -1,4 +1,8 @@
 
+### 1.8.5.18 - 27/04/2017
+**Changes:** 
+- Development
+
 ### 1.8.5.17 - 25/04/2017
 **Changes:** 
 - Fixed small CSS alignment issues with WooCommerce 3.0.0
