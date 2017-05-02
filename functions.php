@@ -716,7 +716,12 @@ function zerif_register_required_plugins() {
 				'name'      => 'Pirate Forms',
 				'slug'      => 'pirate-forms',
 				'required'  => false,
-			)
+			),		
+ 			array(		
+ 				'name'      => 'ThemeIsle Companion',		
+ 				'slug'      => 'themeisle-companion',		
+ 				'required'  => false,		
+ 			)
 		);
 		
 	else:
@@ -726,7 +731,12 @@ function zerif_register_required_plugins() {
 				'name'      => 'Pirate Forms',
 				'slug'      => 'pirate-forms',
 				'required'  => false,
-			)
+			),		
+ 			array(		
+ 				'name'      => 'ThemeIsle Companion',		
+ 				'slug'      => 'themeisle-companion',		
+ 				'required'  => false,		
+ 			)
 		);
 	
 	endif;
