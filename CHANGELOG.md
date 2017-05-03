@@ -1,4 +1,8 @@
 
+### 1.8.5.19 - 03/05/2017
+**Changes:** 
+- Recommend ThemeIsle Companion plugin with TGM
+
 ### 1.8.5.18 - 27/04/2017
 **Changes:** 
 - Development
