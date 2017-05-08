@@ -1,4 +1,8 @@
 
+### 1.8.5.20 - 08/05/2017
+**Changes:** 
+- Make upsells visible after 12 hours after theme activation
+
 ### 1.8.5.19 - 03/05/2017
 **Changes:** 
 - Recommend ThemeIsle Companion plugin with TGM
