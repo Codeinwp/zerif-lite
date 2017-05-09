@@ -6607,7 +6607,7 @@ body.custom-background {
 }
 
 .nivo-directionNav {
-	z-index: 1000;
+	z-index: 100;
 	bottom: 40px;
 	position: relative;
 	width: 100%;
