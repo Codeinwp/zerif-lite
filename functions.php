@@ -134,9 +134,7 @@ function zerif_setup() {
 
     add_filter( 'excerpt_more', 'zerif_excerpt_more' );
 
-    if( zerif_ready_for_upsells() ) {
-	    require_once( trailingslashit( get_template_directory() ) . 'inc/class/class-customizer-theme-info-control/class-customizer-theme-info-root.php' );
-    }
+    require_once( trailingslashit( get_template_directory() ) . 'inc/class/class-customizer-theme-info-control/class-customizer-theme-info-root.php' );
 
 	/**
 	 * About page class
