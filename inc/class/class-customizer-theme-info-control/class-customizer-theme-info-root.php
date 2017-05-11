@@ -81,20 +81,23 @@ final class Zerif_Customizer_Upsell {
             'label_text'       => __( 'Documentation', 'zerif-lite' ),
         ) ) );
 
-	    // Frontpage Sections Upsell.
-	    $manager->add_section( new Zerif_Customizer_Upsell_Section( $manager, 'zerif-upsell-frontpage-sections', array(
-		    'panel'              => 'zerif_frontpage_sections_panel',
-		    'priority'           => 500,
-		    'options'            => array(
-			    esc_html__( 'Portfolio', 'zerif-lite' ),
-			    esc_html__( 'Packages section', 'zerif-lite' ),
-			    esc_html__( 'Subscribe section', 'zerif-lite' ),
-			    esc_html__( 'Ribbon Section', 'zerif-lite' ),
-			    esc_html__( 'Google map section', 'zerif-lite' )
-		    ),
-		    'button_url'         => esc_url( 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ),
-		    'button_text'        => esc_html__( 'View PRO version', 'zerif-lite' ),
-	    ) ) );
+	    if( zerif_ready_for_upsells() ) {
+
+		    // Frontpage Sections Upsell.
+		    $manager->add_section( new Zerif_Customizer_Upsell_Section( $manager, 'zerif-upsell-frontpage-sections', array(
+			    'panel'       => 'zerif_frontpage_sections_panel',
+			    'priority'    => 500,
+			    'options'     => array(
+				    esc_html__( 'Portfolio', 'zerif-lite' ),
+				    esc_html__( 'Packages section', 'zerif-lite' ),
+				    esc_html__( 'Subscribe section', 'zerif-lite' ),
+				    esc_html__( 'Ribbon Section', 'zerif-lite' ),
+				    esc_html__( 'Google map section', 'zerif-lite' )
+			    ),
+			    'button_url'  => esc_url( 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ),
+			    'button_text' => esc_html__( 'View PRO version', 'zerif-lite' ),
+		    ) ) );
+	    }
     }
 
     /**
