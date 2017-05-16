@@ -828,6 +828,18 @@ function zerif_customize_register( $wp_customize ) {
 		'priority' => 6,
 	) );
 
+	/* Slider shortcode  */
+	$wp_customize->add_setting( 'zerif_bigtitle_slider_shortcode', array(
+		'sanitize_callback' => 'zerif_sanitize_input',
+	) );
+
+	$wp_customize->add_control( 'zerif_bigtitle_slider_shortcode', array(
+		'label'           => __( 'Slider shortcode', 'zerif-lite' ),
+		'description'     => __( 'You can replace the homepage slider with any plugin you like, just copy the shortcode generated and paste it here.', 'zerif-lite' ),
+		'section'         => 'zerif_bigtitle_section',
+		'priority'        => 7,
+	) );
+
 	/****************************************************/
 	/************    PARALLAX IMAGES *********************/
 	/****************************************************/
