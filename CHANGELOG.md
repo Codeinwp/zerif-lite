@@ -1,4 +1,8 @@
 
+### 1.8.5.22 - 16/05/2017
+**Changes:** 
+- Added compatibility with Nivo Slider Lite plugin
+
 ### 1.8.5.21 - 11/05/2017
 **Changes:** 
 - Development
