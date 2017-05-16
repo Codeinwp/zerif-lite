@@ -6580,3 +6580,57 @@ body.custom-background {
 	}
 
 }
+
+/* Nivo slider basic styling */
+.nivo-controlNav {
+	text-align: center;
+	position: relative;
+	bottom: 30px;
+}
+.nivo-controlNav a, .nivo-directionNav a {
+	margin: 0 10px;
+	color: #fff;
+	background-color: rgba(10, 10, 10, 0.9);
+	cursor: pointer;
+	padding: 5px 10px;
+	transition: .3s ease;
+	opacity: .85;
+}
+
+.nivo-controlNav a.active {
+	color: #333;
+	background: #fff;
+}
+
+.nivo-controlNav a:hover, .nivo-directionNav a:hover {
+	opacity: 1;
+}
+
+.nivo-directionNav {
+	z-index: 100;
+	bottom: 40px;
+	position: relative;
+	width: 100%;
+}
+
+.nivo-directionNav .nivo-prevNav{
+	float: left;
+}
+
+
+.nivo-directionNav .nivo-prevNav:before {
+	content: "\00AB ";
+}
+
+.nivo-directionNav .nivo-nextNav{
+	float: right;
+}
+
+.nivo-directionNav .nivo-nextNav:after {
+	content: " \00BB";
+}
+
+.home-slider-plugin {
+	margin-bottom: -34px;
+}
+/* END Nivo slider basic styling */
