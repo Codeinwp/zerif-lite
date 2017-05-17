@@ -1,4 +1,8 @@
 
+### 1.8.5.23 - 17/05/2017
+**Changes:** 
+- Fixed Our focus widgets for older version of the theme
+
 ### 1.8.5.22 - 16/05/2017
 **Changes:** 
 - Added compatibility with Nivo Slider Lite plugin
