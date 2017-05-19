@@ -745,9 +745,6 @@ function type_view() {
 
 
 /* Menu levels */
-jQuery( document ).ready( function() {
-  jQuery( '#site-navigation' ).zerifsubmenuorientation();
-} );
 ;(function ($, window) {
     var defaults = {
         // 'true'   -> if there is a big submenu all submenu will be aligned to the right
@@ -831,3 +828,6 @@ jQuery( document ).ready( function() {
       });
     }
 })(jQuery,window);
+jQuery( document ).ready( function() {
+  jQuery( '#site-navigation' ).zerifsubmenuorientation();
+} );
