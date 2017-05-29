@@ -116,9 +116,9 @@
 
 						if( ! empty( $zerif_email_icon) ) {
 							echo '<div class="icon-top green-text">';
-                                                                echo "<a href='mailto:$zerif_email'>";
-                                                                        echo '<img src="'.esc_url($zerif_email_icon).'" alt="" />';
-                                                                echo "</a>";
+                echo "<a href='mailto:$zerif_email'>";
+                        echo '<img src="'.esc_url($zerif_email_icon).'" alt="" />';
+                echo "</a>";
 							echo '</div>';
 						}
 						if( ! empty( $zerif_email) ) {
@@ -137,9 +137,9 @@
 					echo '<div class="'.$footer_class.' company-details">';
 						if( ! empty( $zerif_phone_icon ) ) {
 							echo '<div class="icon-top blue-text">';
-                                                                echo "<a href='tel:$zerif_phone'>";
-                                                                        echo '<img src="'.esc_url( $zerif_phone_icon ).'" alt="" />';
-                                                                echo "</a>";
+	              echo "<a href='tel:$zerif_phone'>";
+                  echo '<img src="'.esc_url( $zerif_phone_icon ).'" alt="" />';
+	              echo "</a>";
 							echo '</div>';
 						}
 						if( ! empty( $zerif_phone ) ) {
