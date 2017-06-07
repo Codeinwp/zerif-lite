@@ -1913,3 +1913,9 @@ function zerif_ready_for_upsells() {
     }
     return true;
 }
+
+function zerif_bb_upgrade_link() { 
+    return 'https://www.wpbeaverbuilder.com/?fla=101&campaign=zf'; 
+}
+
+add_filter( 'fl_builder_upgrade_url', 'zerif_bb_upgrade_link' );
