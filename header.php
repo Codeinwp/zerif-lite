@@ -60,6 +60,8 @@
 
 		<div class="container">
 
+			<?php zerif_before_navbar_trigger(); ?>
+
 			<div class="navbar-header responsive-logo">
 
 				<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
@@ -121,6 +123,8 @@
 			<?php zerif_primary_navigation_trigger(); ?>
 
 		</div> <!-- /.container -->
+
+		<?php zerif_after_header_container_trigger(); ?>
 
 	</div> <!-- /#main-nav -->
 	<!-- / END TOP BAR -->

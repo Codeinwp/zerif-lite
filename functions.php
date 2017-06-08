@@ -461,7 +461,7 @@ function zerif_setup() {
 		'activate_button_label' => esc_html__( 'Activate', 'zerif-lite' ),
 		'deactivate_button_label' => esc_html__( 'Deactivate', 'zerif-lite' )
 	);
-	Ti_Customizer_Notify::init( $config_customizer );
+	Ti_Customizer_Notify::init( apply_filters( 'zerif_customizer_notify_array', $config_customizer ) );
 
 }
 
