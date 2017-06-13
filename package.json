@@ -3,6 +3,7 @@
   "nicename": "Zerif Lite",
   "version": "2.0.2",
   "description": "Zerif Lite theme",
+  "category": "themes",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Codeinwp/zerif-lite.git"
