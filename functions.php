@@ -461,7 +461,7 @@ function zerif_setup() {
 		'activate_button_label' => esc_html__( 'Activate', 'zerif-lite' ),
 		'deactivate_button_label' => esc_html__( 'Deactivate', 'zerif-lite' )
 	);
-	Ti_Customizer_Notify::init( $config_customizer );
+	Ti_Customizer_Notify::init( apply_filters( 'zerif_customizer_notify_array', $config_customizer ) );
 
 }
 
@@ -1894,22 +1894,8 @@ function zerif_time_activated() {
 }
 add_action( 'after_switch_theme', 'zerif_time_activated');
 
-/**
- * Check if 12 hours have passed since theme was activated and show upsells in customizer if yes.
- *
- * @return bool
- */
-function zerif_ready_for_upsells() {
-    $activation_time = get_option( 'zerif_time_activated' );
-    if( ! empty( $activation_time ) ) {
-	    $current_time    = time();
-	    $time_difference = 43200;
-
-	    if ( $current_time >= $activation_time + $time_difference ) {
-		    return true;
-	    } else {
-		    return false;
-	    }
-    }
-    return true;
+function zerif_bb_upgrade_link() { 
+    return 'https://www.wpbeaverbuilder.com/?fla=101&campaign=zf'; 
 }
+
+add_filter( 'fl_builder_upgrade_url', 'zerif_bb_upgrade_link' );

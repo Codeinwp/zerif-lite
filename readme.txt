@@ -207,6 +207,9 @@ The exceptions to this license are as follows:
 
   zerif_primary_navigation
 
+  zerif_before_navbar
+  zerif_after_header_container
+
 * Available filters:
 
   zerif_latest_news_parameters - (array) Parameters passed to WP_Query for displaying Latest news section
@@ -215,3 +218,5 @@ The exceptions to this license are as follows:
 
   zerif_template_blog_parameters - (array) Parameters passed to WP_Query in template-blog.php
   zerif_template_blog_large_parameters - (array) Parameters passed to WP_Query in template-blog-large.php
+
+  zerif_customizer_notify_array
