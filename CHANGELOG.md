@@ -1,4 +1,11 @@
 
+### 1.8.5.24 - 15/06/2017
+**Changes:** 
+- Removed timed upsells
+- Removed recommended actions link when no actions are required
+- Fixed Minify Auto bug with W3 Total Cache
+- Added some hooks and filters for child themes
+
 ### 1.8.5.23 - 17/05/2017
 **Changes:** 
 - Fixed Our focus widgets for older version of the theme
