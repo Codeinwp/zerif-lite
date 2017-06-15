@@ -1894,26 +1894,6 @@ function zerif_time_activated() {
 }
 add_action( 'after_switch_theme', 'zerif_time_activated');
 
-/**
- * Check if 12 hours have passed since theme was activated and show upsells in customizer if yes.
- *
- * @return bool
- */
-function zerif_ready_for_upsells() {
-    $activation_time = get_option( 'zerif_time_activated' );
-    if( ! empty( $activation_time ) ) {
-	    $current_time    = time();
-	    $time_difference = 43200;
-
-	    if ( $current_time >= $activation_time + $time_difference ) {
-		    return true;
-	    } else {
-		    return false;
-	    }
-    }
-    return true;
-}
-
 function zerif_bb_upgrade_link() { 
     return 'https://www.wpbeaverbuilder.com/?fla=101&campaign=zf'; 
 }

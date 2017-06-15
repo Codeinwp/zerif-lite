@@ -58,75 +58,74 @@ function zerif_customize_register( $wp_customize ) {
 
 	$wp_customize->register_panel_type( 'Zerif_WP_Customize_Panel' );
 
-	if( zerif_ready_for_upsells() ) {
-		/**
-		 * Upsells
-		 */
-		require_once( trailingslashit( get_template_directory() ) . 'inc/class/class-customizer-theme-info-control/class-customizer-theme-info-control.php' );
+    /**
+     * Upsells
+     */
+    require_once( trailingslashit( get_template_directory() ) . 'inc/class/class-customizer-theme-info-control/class-customizer-theme-info-control.php' );
 
-		$wp_customize->add_section( 'zerif_theme_info_main_section', array(
-			'title'    => __( 'View PRO version', 'zerif-lite' ),
-			'priority' => 1,
-		) );
-		$wp_customize->add_setting( 'zerif_theme_info_main_control', array(
-			'sanitize_callback' => 'esc_html',
-		) );
+    $wp_customize->add_section( 'zerif_theme_info_main_section', array(
+        'title'    => __( 'View PRO version', 'zerif-lite' ),
+        'priority' => 1,
+    ) );
+    $wp_customize->add_setting( 'zerif_theme_info_main_control', array(
+        'sanitize_callback' => 'esc_html',
+    ) );
 
-		/*
-		 * View Pro Version Section Control
-		 */
-		$wp_customize->add_control( new Zerif_Control_Upsell_Theme_Info( $wp_customize, 'zerif_theme_info_main_control', array(
-			'section'     => 'zerif_theme_info_main_section',
-			'priority'    => 100,
-			'options'     => array(
-				esc_html__( 'Section Reordering', 'zerif-lite' ),
-				esc_html__( 'Background video', 'zerif-lite' ),
-				esc_html__( 'Portfolio', 'zerif-lite' ),
-				esc_html__( 'Extra colors', 'zerif-lite' ),
-				esc_html__( 'Packages section', 'zerif-lite' ),
-				esc_html__( 'Subscribe section', 'zerif-lite' ),
-				esc_html__( 'Google map section', 'zerif-lite' ),
-				esc_html__( 'Support', 'zerif-lite' ),
-			),
-			'button_url'  => esc_url( 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ),
-			'button_text' => esc_html__( 'View PRO version', 'zerif-lite' ),
-		) ) );
+    /*
+     * View Pro Version Section Control
+     */
+    $wp_customize->add_control( new Zerif_Control_Upsell_Theme_Info( $wp_customize, 'zerif_theme_info_main_control', array(
+        'section'     => 'zerif_theme_info_main_section',
+        'priority'    => 100,
+        'options'     => array(
+            esc_html__( 'Section Reordering', 'zerif-lite' ),
+            esc_html__( 'Background video', 'zerif-lite' ),
+            esc_html__( 'Portfolio', 'zerif-lite' ),
+            esc_html__( 'Extra colors', 'zerif-lite' ),
+            esc_html__( 'Packages section', 'zerif-lite' ),
+            esc_html__( 'Subscribe section', 'zerif-lite' ),
+            esc_html__( 'Google map section', 'zerif-lite' ),
+            esc_html__( 'Support', 'zerif-lite' ),
+        ),
+        'button_url'  => esc_url( 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ),
+        'button_text' => esc_html__( 'View PRO version', 'zerif-lite' ),
+    ) ) );
 
-		/**
-		 * Extra Colors Notice
-		 */
-		$wp_customize->add_setting( 'zerif_theme_info_colors_section_control', array(
-			'sanitize_callback' => 'esc_html',
-		) );
-		$wp_customize->add_control( new Zerif_Control_Upsell_Theme_Info( $wp_customize, 'zerif_theme_info_colors_section_control', array(
-			'section'            => 'colors',
-			'priority'           => 500,
-			'options'            => array(
-				esc_html__( 'Extra colors', 'zerif-lite' ),
-			),
-			'explained_features' => array(
-				esc_html__( 'Get full color schemes support for your site.', 'zerif-lite' ),
-			),
-			'button_url'         => esc_url( 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ),
-			'button_text'        => esc_html__( 'View PRO version', 'zerif-lite' ),
-		) ) );
+    /**
+     * Extra Colors Notice
+     */
+    $wp_customize->add_setting( 'zerif_theme_info_colors_section_control', array(
+        'sanitize_callback' => 'esc_html',
+    ) );
+    $wp_customize->add_control( new Zerif_Control_Upsell_Theme_Info( $wp_customize, 'zerif_theme_info_colors_section_control', array(
+        'section'            => 'colors',
+        'priority'           => 500,
+        'options'            => array(
+            esc_html__( 'Extra colors', 'zerif-lite' ),
+        ),
+        'explained_features' => array(
+            esc_html__( 'Get full color schemes support for your site.', 'zerif-lite' ),
+        ),
+        'button_url'         => esc_url( 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ),
+        'button_text'        => esc_html__( 'View PRO version', 'zerif-lite' ),
+    ) ) );
 
-		/**
-		 * Background video notice
-		 */
-		$wp_customize->add_setting( 'zerif_theme_info_header_section_control', array(
-			'sanitize_callback' => 'esc_html',
-		) );
-		$wp_customize->add_control( new Zerif_Control_Upsell_Theme_Info( $wp_customize, 'zerif_theme_info_header_section_control', array(
-			'section'     => 'background_image',
-			'priority'    => 500,
-			'options'     => array(
-				esc_html__( 'Background video', 'zerif-lite' ),
-			),
-			'button_url'  => esc_url( 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ),
-			'button_text' => esc_html__( 'View PRO version', 'zerif-lite' ),
-		) ) );
-	}
+    /**
+     * Background video notice
+     */
+    $wp_customize->add_setting( 'zerif_theme_info_header_section_control', array(
+        'sanitize_callback' => 'esc_html',
+    ) );
+    $wp_customize->add_control( new Zerif_Control_Upsell_Theme_Info( $wp_customize, 'zerif_theme_info_header_section_control', array(
+        'section'     => 'background_image',
+        'priority'    => 500,
+        'options'     => array(
+            esc_html__( 'Background video', 'zerif-lite' ),
+        ),
+        'button_url'  => esc_url( 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ),
+        'button_text' => esc_html__( 'View PRO version', 'zerif-lite' ),
+    ) ) );
+
 
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
