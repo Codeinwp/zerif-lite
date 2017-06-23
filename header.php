@@ -76,7 +76,7 @@
 
 				</button>
 
-					<div class="navbar-brand">
+					<div class="navbar-brand" itemscope itemtype="http://schema.org/Organization">
 
 						<?php
 
