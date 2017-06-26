@@ -1807,6 +1807,7 @@ ul.nav > li.current_page_item.current > a:before {
 	color: #404040;
 	font-weight: 700;
 	display: block;
+	font-size: 16px;
 }
 #carousel-homepage-latestnews .item .latestnews-box .latestnews-title a:before {
 	position: absolute;
@@ -2389,6 +2390,7 @@ width: -webkit-calc(100% / 4);
 	background: #272727;
 	padding: 0 15px;
 	color: #FFF;
+	font-size: 16px;
 }
 .our-clients h2 {
 	font-weight: 700;
@@ -3632,6 +3634,7 @@ article .posted-on a:hover{
 	line-height: 20px;
 }
 .woocommerce ul.products li.product .price {
+	font-size: 16px;
 	color: #000;
 }
 .woocommerce-page .products a .price ins {
@@ -3841,6 +3844,7 @@ article .posted-on a:hover{
 }
 .woocommerce div.product p.price {
 	color: #000;
+	font-size: 16px;
 }
 .woocommerce-page .product .price del {
 	display: block;
@@ -4533,6 +4537,7 @@ article .posted-on a:hover{
 	clear: left;
 }
 .woocommerce table.shop_table {
+	font-size: 16px;
 	clear: left;
 }
 .woocommerce #content div.product div.thumbnails a,
