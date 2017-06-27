@@ -47,6 +47,9 @@
 			<key name='zerif_contactus_button_label' />
 			<key name='zerif_contactus_sitekey' />
 			<key name='zerif_contactus_secretkey' />
+			<key name='zerif_bigtitle_title_2' />
+			<key name='zerif_bigtitle_redbutton_label_2' />
+			<key name='zerif_ourfocus_title_2' />
 		</key>
     </admin-texts>
 </wpml-config>
