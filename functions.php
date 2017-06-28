@@ -240,7 +240,7 @@ function zerif_setup() {
 				'title' => esc_html__( 'Read full documentation','zerif-lite' ),
 				'text' => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Zerif Lite.','zerif-lite' ),
 				'button_label' => esc_html__( 'Documentation','zerif-lite' ),
-				'button_link' => 'http://docs.themeisle.com/article/5-zerif-lite-documentation',
+				'button_link' => 'https://docs.themeisle.com/article/5-zerif-lite-documentation',
 				'is_button' => false,
 				'recommended_actions' => false,
                 'is_new_tab' => true
