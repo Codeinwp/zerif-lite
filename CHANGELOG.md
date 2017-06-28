@@ -1,4 +1,11 @@
 
+### 1.8.5.25 - 28/06/2017
+**Changes:** 
+- Fixed conflict with Elementor plugin font size option
+- Added missing strings in wpml-config.xml file
+- Fixed Google Structured Data Test Tool issue The property logo is not recognized by Google for an object of type WPHeader
+- Fixed documentation URL from http to https
+
 ### 1.8.5.24 - 15/06/2017
 **Changes:** 
 - Removed timed upsells
