@@ -184,6 +184,15 @@ jQuery(document).ready(function(){
                 jQuery('html,body').animate({
                     scrollTop: target.offset().top - headerHeight + 10
                 }, 1200);
+                
+                // Close dropdown menu on mobile, after an anchor is clicked
+                if(  jQuery( '.navbar .navbar-collapse' ).hasClass( 'in' ) ) {
+                    jQuery( '.navbar .navbar-collapse.in' ).removeClass( 'in' );
+                }
+                if ( jQuery( '.navbar li.dropdown' ).hasClass( 'open' ) ) {
+                    jQuery( '.navbar li.dropdown.open' ).removeClass( 'open' );
+                }
+
                 return false; 
             }
         }
