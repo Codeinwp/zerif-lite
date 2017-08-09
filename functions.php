@@ -302,7 +302,7 @@ function zerif_setup() {
 		'free_pro'                => array(
 			'free_theme_name'     => 'Zerif Lite',
 			'pro_theme_name'      => 'Zerif PRO',
-			'pro_theme_link'      => 'https://themeisle.com/themes/zerif-pro/',
+			'pro_theme_link'      => 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/upgrade/',
 			'get_pro_theme_label' => sprintf( __( 'Get %s now!', 'zerif-lite' ), 'Zerif Pro' ),
 			'features'            => array(
 				array(
