@@ -163,7 +163,6 @@ function zerif_setup() {
 			'getting_started'  => __( 'Getting Started', 'zerif-lite' ),
 			'recommended_actions' => __( 'Recommended Actions', 'zerif-lite' ),
 			'recommended_plugins' => __( 'Useful Plugins','zerif-lite' ),
-			'child_themes' => __( 'Child themes','zerif-lite' ),
 			'support'       => __( 'Support', 'zerif-lite' ),
 			'changelog'        => __( 'Changelog', 'zerif-lite' ),
 			'free_pro'         => __( 'Free VS PRO', 'zerif-lite' ),
@@ -254,49 +253,6 @@ function zerif_setup() {
 				'recommended_actions' => false,
                 'is_new_tab' => true
 			)
-		),
-		// Child themes array.
-		'child_themes'            => array(
-			'download_button_label' => 'Download',
-			'preview_button_label'  => 'Live preview',
-			'content'               => array(
-				 array(
-					'title'         => 'ResponsiveBoat',
-					'image'         =>  get_template_directory_uri() . '/images/responsiveboat.png',
-					'image_alt'     => 'ResponsiveBoat',
-					'download_link' => 'https://wordpress.org/themes/responsiveboat/',
-					'preview_link'  => 'https://wp-themes.com/responsiveboat/',
-				),
-				array(
-					'title'         => 'Zblackbeard',
-					'image'         => get_template_directory_uri() . '/images/zblackbeard.png',
-					'image_alt'     => 'Zblackbeard',
-					'download_link' => 'https://wordpress.org/themes/zblackbeard/',
-					'preview_link'  => 'https://wp-themes.com/zblackbeard/',
-				),
-				array(
-					'title'         => 'OnePirate',
-					'image'         => get_template_directory_uri() . '/images/onepirate.png',
-					'image_alt'     => 'OnePirate',
-					'download_link' => 'https://wordpress.org/themes/onepirate/',
-					'preview_link'  => 'https://wp-themes.com/onepirate/',
-				),
-				array(
-					'title'         => 'Zerius',
-					'image'         => get_template_directory_uri() . '/images/zerius.png',
-					'image_alt'     => 'Zerius',
-					'download_link' => 'https://wordpress.org/themes/zerius/',
-					'preview_link'  => 'https://wp-themes.com/zerius/',
-				),
-				array(
-					'title'         => 'Zifer Child',
-					'image'         => get_template_directory_uri() . '/images/zifer-child.png',
-					'image_alt'     => 'Zifer Child',
-					'download_link' => 'https://wordpress.org/themes/zifer-child/',
-					'preview_link'  => 'https://wp-themes.com/zifer-child/',
-				)
-
-			),
 		),
 		// Free vs pro array.
 		'free_pro'                => array(
