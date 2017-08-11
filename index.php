@@ -23,27 +23,35 @@ get_header(); ?>
 
 				<main id="main" class="site-main">
 
-				<?php 
-					if ( have_posts() ) : 
-				
-						while ( have_posts() ) : the_post(); 
+				<?php
+				if ( have_posts() ) :
 
-							/* Include the Post-Format-specific template for the content.
-							 * If you want to override this in a child theme, then include a file
-							 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-							 */
+					while ( have_posts() ) :
+						the_post();
 
-							get_template_part( 'content', get_post_format() );
-						
+						/*
+						 Include the Post-Format-specific template for the content.
+						 * If you want to override this in a child theme, then include a file
+						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+						 */
+
+						get_template_part( 'content', get_post_format() );
+
 						endwhile;
 
-						echo get_the_posts_navigation( array( 'next_text' => sprintf( __( 'Newer posts %s','zerif-lite' ), '<span class="meta-nav">&rarr;</span>' ), 'prev_text' => sprintf( __( '%s Older posts', 'zerif-lite' ) , '<span class="meta-nav">&larr;</span>' ) ) );
-						
+					echo get_the_posts_navigation(
+						array(
+							'next_text' => sprintf( __( 'Newer posts %s','zerif-lite' ), '<span class="meta-nav">&rarr;</span>' ),
+							'prev_text' => sprintf( __( '%s Older posts', 'zerif-lite' ) , '<span class="meta-nav">&larr;</span>' ),
+						)
+					);
+
 					else :
-					
-						get_template_part( 'content', 'none' ); 
-						
-					endif; ?>
+
+						get_template_part( 'content', 'none' );
+
+					endif;
+					?>
 
 				</main><!-- #main -->
 

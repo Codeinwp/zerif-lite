@@ -31,25 +31,25 @@
  *            // Support content tab.
  *            'support_content'      => array(
  *                  'first' => array (
- *						'title' => esc_html__( 'Contact Support','flymag' ),
- *				        'icon' => 'dashicons dashicons-sos',
- *				        'text' => esc_html__( 'We offer excellent support through our advanced ticketing system. Make sure to register your purchase before contacting support!','flymag' ),
- *				        'button_label' => esc_html__( 'Contact Support','flymag' ),
- *				        'button_link' => esc_url( 'https://themeisle.com/contact/' ),
- *				        'is_button' => true,
+ *                      'title' => esc_html__( 'Contact Support','flymag' ),
+ *                      'icon' => 'dashicons dashicons-sos',
+ *                      'text' => esc_html__( 'We offer excellent support through our advanced ticketing system. Make sure to register your purchase before contacting support!','flymag' ),
+ *                      'button_label' => esc_html__( 'Contact Support','flymag' ),
+ *                      'button_link' => esc_url( 'https://themeisle.com/contact/' ),
+ *                      'is_button' => true,
  *                      'is_new_tab' => false
- *				    ),
+ *                  ),
  *            ),
  *            // Getting started tab content.
  *            'getting_started' => array(
  *               'first_step' => array (
- *				    'title' => esc_html__( 'Step 1 - Implement recommended actions','flymag' ),
- *				    'text' => esc_html__( 'We have compiled a list of steps for you, to take make sure the experience you will have using one of our products is very easy to follow.','flymag' ),
- *				    'button_label' => esc_html__( 'Check recommended actions','flymag' ),
- *				    'button_link' => esc_url( admin_url( 'themes.php?page=flymag-welcome&tab=recommended_actions' ) ),
- *				    'is_button' => false,
- *				    'recommended_actions' => true
- *				  ),
+ *                  'title' => esc_html__( 'Step 1 - Implement recommended actions','flymag' ),
+ *                  'text' => esc_html__( 'We have compiled a list of steps for you, to take make sure the experience you will have using one of our products is very easy to follow.','flymag' ),
+ *                  'button_label' => esc_html__( 'Check recommended actions','flymag' ),
+ *                  'button_link' => esc_url( admin_url( 'themes.php?page=flymag-welcome&tab=recommended_actions' ) ),
+ *                  'is_button' => false,
+ *                  'recommended_actions' => true
+ *                ),
  *             ),
  *            // Child themes array.
  *            'child_themes'            => array(
@@ -130,8 +130,8 @@
  *                'already_activated_message' => esc_html__( 'Already activated', 'flymag' ),
  *                'version_label' => esc_html__( 'Version: ', 'flymag' ),
  *                'install_label' => esc_html__( 'Install', 'flymag' ),
- *        	      'activate_label' => esc_html__( 'Activate', 'flymag' ),
- *				  'deactivate_label' => esc_html__( 'Deactivate', 'flymag' ),
+ *                'activate_label' => esc_html__( 'Activate', 'flymag' ),
+ *                'deactivate_label' => esc_html__( 'Deactivate', 'flymag' ),
  *                'content'             => array(
  *                    array(
  *                        'slug'        => 'pirate-forms',
@@ -295,7 +295,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 
 			/* ajax callback for dismissable required actions */
 			add_action( 'wp_ajax_ti_about_page_dismiss_required_action', array( $this, 'dismiss_required_action_callback' ) );
-			add_action( 'wp_ajax_nopriv_ti_about_page_dismiss_required_action', array( $this, 'dismiss_required_action_callback') );
+			add_action( 'wp_ajax_nopriv_ti_about_page_dismiss_required_action', array( $this, 'dismiss_required_action_callback' ) );
 		}
 
 		/**
@@ -332,10 +332,12 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 
 				$title = $count > 0 ? $this->page_name . '<span class="badge-action-count">' . esc_html( $count ) . '</span>' : $this->page_name;
 
-				add_theme_page( $this->menu_name, $title, 'activate_plugins', $this->theme_slug . '-welcome', array(
-					$this,
-					'ti_about_page_render',
-				) );
+				add_theme_page(
+					$this->menu_name, $title, 'activate_plugins', $this->theme_slug . '-welcome', array(
+						$this,
+						'ti_about_page_render',
+					)
+				);
 			}
 		}
 
@@ -404,7 +406,6 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 						$count = count( $actions_count );
 					}
 
-
 					foreach ( $this->tabs as $tab_key => $tab_name ) {
 
 						if ( ( $tab_key != 'changelog' ) || ( ( $tab_key == 'changelog' ) && isset( $_GET['show'] ) && ( $_GET['show'] == 'yes' ) ) ) {
@@ -429,7 +430,6 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 							}
 							echo '</a>';
 						}
-
 					}
 
 					echo '</h2>';
@@ -451,26 +451,28 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 			include_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
 
 			if ( false === ( $call_api = get_transient( 'ti_about_page_plugin_information_transient_' . $slug ) ) ) {
-				$call_api = plugins_api( 'plugin_information', array(
-					'slug'   => $slug,
-					'fields' => array(
-						'downloaded'        => false,
-						'rating'            => false,
-						'description'       => false,
-						'short_description' => true,
-						'donate_link'       => false,
-						'tags'              => false,
-						'sections'          => true,
-						'homepage'          => true,
-						'added'             => false,
-						'last_updated'      => false,
-						'compatibility'     => false,
-						'tested'            => false,
-						'requires'          => false,
-						'downloadlink'      => false,
-						'icons'             => true
+				$call_api = plugins_api(
+					'plugin_information', array(
+						'slug'   => $slug,
+						'fields' => array(
+							'downloaded'        => false,
+							'rating'            => false,
+							'description'       => false,
+							'short_description' => true,
+							'donate_link'       => false,
+							'tags'              => false,
+							'sections'          => true,
+							'homepage'          => true,
+							'added'             => false,
+							'last_updated'      => false,
+							'compatibility'     => false,
+							'tested'            => false,
+							'requires'          => false,
+							'downloadlink'      => false,
+							'icons'             => true,
+						),
 					)
-				) );
+				);
 				set_transient( 'ti_about_page_plugin_information_transient_' . $slug, $call_api, 30 * MINUTE_IN_SECONDS );
 			}
 
@@ -478,7 +480,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 		}
 
 		public function check_if_plugin_active( $slug ) {
-			if( ( $slug == 'intergeo-maps' ) || ( $slug == 'visualizer' ) ) {
+			if ( ( $slug == 'intergeo-maps' ) || ( $slug == 'visualizer' ) ) {
 				$plugin_root_file = 'index';
 			} elseif ( $slug == 'adblock-notify-by-bweb' ) {
 				$plugin_root_file = 'adblock-notify';
@@ -486,13 +488,13 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 				$plugin_root_file = $slug;
 			}
 
-            $path = WPMU_PLUGIN_DIR . '/' . $slug . '/' . $plugin_root_file . '.php';
-            if ( ! file_exists( $path ) ) {
-                $path = WP_PLUGIN_DIR . '/' . $slug . '/' . $plugin_root_file . '.php';
-                if ( ! file_exists( $path ) ) {
-                    $path = false;
-                }
-            }
+			$path = WPMU_PLUGIN_DIR . '/' . $slug . '/' . $plugin_root_file . '.php';
+			if ( ! file_exists( $path ) ) {
+				$path = WP_PLUGIN_DIR . '/' . $slug . '/' . $plugin_root_file . '.php';
+				if ( ! file_exists( $path ) ) {
+					$path = false;
+				}
+			}
 
 			if ( file_exists( $path ) ) {
 
@@ -500,14 +502,21 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 
 				$needs = is_plugin_active( $slug . '/' . $plugin_root_file . '.php' ) ? 'deactivate' : 'activate';
 
-				return array( 'status' => is_plugin_active( $slug . '/' . $plugin_root_file . '.php' ), 'needs' => $needs );
+				return array(
+					'status' => is_plugin_active( $slug . '/' . $plugin_root_file . '.php' ),
+					'needs' => $needs,
+				);
 			}
 
-			return array( 'status' => false, 'needs' => 'install' );
+			return array(
+				'status' => false,
+				'needs' => 'install',
+			);
 		}
 
 		/**
 		 * Get icon of wordpress.org plugin
+		 *
 		 * @param $arr
 		 *
 		 * @return mixed
@@ -529,7 +538,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 
 		public function create_action_link( $state, $slug ) {
 
-		    if( ( $slug == 'intergeo-maps' ) || ( $slug == 'visualizer' ) ) {
+			if ( ( $slug == 'intergeo-maps' ) || ( $slug == 'visualizer' ) ) {
 				$plugin_root_file = 'index';
 			} elseif ( $slug == 'adblock-notify-by-bweb' ) {
 				$plugin_root_file = 'adblock-notify';
@@ -543,7 +552,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 						add_query_arg(
 							array(
 								'action' => 'install-plugin',
-								'plugin' => $slug
+								'plugin' => $slug,
 							),
 							network_admin_url( 'update.php' )
 						),
@@ -551,22 +560,26 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 					);
 					break;
 				case 'deactivate':
-					return add_query_arg( array(
-						'action'        => 'deactivate',
-						'plugin'        => rawurlencode( $slug . '/' . $plugin_root_file . '.php' ),
-						'plugin_status' => 'all',
-						'paged'         => '1',
-						'_wpnonce'      => wp_create_nonce( 'deactivate-plugin_' . $slug . '/' . $plugin_root_file . '.php' ),
-					), network_admin_url( 'plugins.php' ) );
+					return add_query_arg(
+						array(
+							'action'        => 'deactivate',
+							'plugin'        => rawurlencode( $slug . '/' . $plugin_root_file . '.php' ),
+							'plugin_status' => 'all',
+							'paged'         => '1',
+							'_wpnonce'      => wp_create_nonce( 'deactivate-plugin_' . $slug . '/' . $plugin_root_file . '.php' ),
+						), network_admin_url( 'plugins.php' )
+					);
 					break;
 				case 'activate':
-					return add_query_arg( array(
-						'action'        => 'activate',
-						'plugin'        =>  rawurlencode( $slug . '/' . $plugin_root_file . '.php' ),
-						'plugin_status' => 'all',
-						'paged'         => '1',
-						'_wpnonce'      => wp_create_nonce( 'activate-plugin_' . $slug . '/' . $plugin_root_file . '.php' ),
-					), network_admin_url( 'plugins.php' ) );
+					return add_query_arg(
+						array(
+							'action'        => 'activate',
+							'plugin'        => rawurlencode( $slug . '/' . $plugin_root_file . '.php' ),
+							'plugin_status' => 'all',
+							'paged'         => '1',
+							'_wpnonce'      => wp_create_nonce( 'activate-plugin_' . $slug . '/' . $plugin_root_file . '.php' ),
+						), network_admin_url( 'plugins.php' )
+					);
 					break;
 			}
 		}
@@ -623,8 +636,6 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 								}
 							}
 
-
-
 							echo '</p>';
 						}
 
@@ -632,7 +643,6 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 					}
 					echo '</div><!-- .feature-section three-col -->';
 				}
-
 			}
 		}
 
@@ -675,7 +685,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 						if ( ! $hidden ) {
 							echo '<span data-action="dismiss" class="dashicons dashicons-visibility ti-about-page-required-action-button" id="' . esc_attr( $action_value['id'] ) . '"></span>';
 						} else {
-							echo '<span data-action="add" class="dashicons dashicons-hidden ti-about-page-required-action-button" id="' . esc_attr( $action_value['id'] ) .'"></span>';
+							echo '<span data-action="add" class="dashicons dashicons-hidden ti-about-page-required-action-button" id="' . esc_attr( $action_value['id'] ) . '"></span>';
 						}
 
 						if ( ! empty( $action_value['title'] ) ) {
@@ -715,10 +725,10 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 							}
 
 							?>
-							<p class="plugin-card-<?php echo esc_attr( $action_value['plugin_slug'] ) ?> action_button <?php echo ( $active['needs'] !== 'install' && $active['status'] ) ? 'active' : '' ?>">
-								<a data-slug="<?php echo esc_attr( $action_value['plugin_slug'] ) ?>"
+							<p class="plugin-card-<?php echo esc_attr( $action_value['plugin_slug'] ); ?> action_button <?php echo ( $active['needs'] !== 'install' && $active['status'] ) ? 'active' : ''; ?>">
+								<a data-slug="<?php echo esc_attr( $action_value['plugin_slug'] ); ?>"
 								   class="<?php echo esc_attr( $class ); ?>"
-								   href="<?php echo esc_url( $url ) ?>"> <?php echo esc_html( $label ) ?> </a>
+								   href="<?php echo esc_url( $url ); ?>"> <?php echo esc_html( $label ); ?> </a>
 							</p>
 
 							<?php
@@ -757,10 +767,10 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 
 							echo '<div class="col plugin_box">';
 							if ( ! empty( $icon ) ) {
-								echo '<img src="'.esc_url( $icon ).'" alt="plugin box image">';
+								echo '<img src="' . esc_url( $icon ) . '" alt="plugin box image">';
 							}
-							if ( ! empty(  $info->version ) ) {
-								echo '<span class="version">'. ( ! empty( $this->config['recommended_plugins']['version_label'] ) ? esc_html( $this->config['recommended_plugins']['version_label'] ) : '' ) . esc_html( $info->version ).'</span>';
+							if ( ! empty( $info->version ) ) {
+								echo '<span class="version">' . ( ! empty( $this->config['recommended_plugins']['version_label'] ) ? esc_html( $this->config['recommended_plugins']['version_label'] ) : '' ) . esc_html( $info->version ) . '</span>';
 							}
 							if ( ! empty( $info->author ) ) {
 								echo '<span class="separator"> | </span>' . wp_kses_post( $info->author );
@@ -800,7 +810,6 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 							}
 							echo '</div><!-- .col.plugin_box -->';
 						}
-
 					}
 
 					echo '</div><!-- .recommended-plugins -->';
@@ -819,7 +828,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 				if ( ! empty( $child_themes['content'] ) && is_array( $child_themes['content'] ) ) {
 					echo '<div class="ti-about-row">';
 					for ( $i = 0; $i < count( $child_themes['content'] ); $i ++ ) {
-						if( ( $i !== 0 ) && ( $i / 3 === 0 ) ) {
+						if ( ( $i !== 0 ) && ( $i / 3 === 0 ) ) {
 							echo '</div>';
 							echo '<div class="ti-about-row">';
 						}
@@ -903,9 +912,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 						echo '</div>';
 
 					}
-
 				}
-
 			}
 
 			echo '</div>';
@@ -1040,12 +1047,14 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 
 				$recommended_actions         = isset( $this->config['recommended_actions'] ) ? $this->config['recommended_actions'] : array();
 				$required_actions = $this->get_required_actions();
-				wp_localize_script( 'ti-about-page-js', 'tiAboutPageObject', array(
-					'nr_actions_required'      => count( $required_actions ),
-					'ajaxurl'                  => admin_url( 'admin-ajax.php' ),
-					'template_directory'       => get_template_directory_uri(),
-					'activating_string'        => __( 'Activating', 'zerif-lite' )
-				) );
+				wp_localize_script(
+					'ti-about-page-js', 'tiAboutPageObject', array(
+						'nr_actions_required'      => count( $required_actions ),
+						'ajaxurl'                  => admin_url( 'admin-ajax.php' ),
+						'template_directory'       => get_template_directory_uri(),
+						'activating_string'        => __( 'Activating', 'zerif-lite' ),
+					)
+				);
 
 			}
 
@@ -1119,15 +1128,12 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 							} else {
 								$ti_about_page_show_required_actions_new[ $ti_about_page_required_action['id'] ] = true;
 							}
-
 						}
 
 						update_option( $this->theme_slug . '_required_actions', $ti_about_page_show_required_actions_new );
 
 					}
-
 				}
-
 			}
 		}
 

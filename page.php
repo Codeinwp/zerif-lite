@@ -19,29 +19,30 @@ get_header(); ?>
 
 		<?php zerif_before_page_content_trigger(); ?>
 		<?php
-			if( (function_exists('is_cart') && is_cart()) || (function_exists('is_account_page') && is_account_page()) || (function_exists('is_checkout') && is_checkout() ) || !empty($zerif_change_to_full_width) ) {
-				echo '<div class="content-left-wrap col-md-12">';
-			}
-			else {
-				echo '<div class="content-left-wrap col-md-9">';
-			}
+		if ( (function_exists( 'is_cart' ) && is_cart()) || (function_exists( 'is_account_page' ) && is_account_page()) || (function_exists( 'is_checkout' ) && is_checkout() ) || ! empty( $zerif_change_to_full_width ) ) {
+			echo '<div class="content-left-wrap col-md-12">';
+		} else {
+			echo '<div class="content-left-wrap col-md-9">';
+		}
 		?>
 		<?php zerif_top_page_content_trigger(); ?>
 		<div id="primary" class="content-area">
 
 			<main itemscope itemtype="http://schema.org/WebPageElement" itemprop="mainContentOfPage" id="main" class="site-main">
 
-				<?php while ( have_posts() ) : the_post(); 
-				
+				<?php
+				while ( have_posts() ) :
+					the_post();
+
 						get_template_part( 'content', 'page' );
 
-						if ( comments_open() || '0' != get_comments_number() ) :
+					if ( comments_open() || '0' != get_comments_number() ) :
 
-							comments_template();
+						comments_template();
 
 						endif;
 
-					endwhile; 
+					endwhile;
 				?>
 
 			</main><!-- #main -->
@@ -49,19 +50,19 @@ get_header(); ?>
 		</div><!-- #primary -->
 
 	<?php
-		if( (function_exists('is_cart') && is_cart()) || (function_exists('is_account_page') && is_account_page()) || (function_exists('is_checkout') && is_checkout() ) || !empty($zerif_change_to_full_width) ) {
-			zerif_bottom_page_content_trigger();
-			echo '</div>';
-			zerif_after_page_content_trigger();
-		}
-		else {
-			zerif_bottom_page_content_trigger();
-			echo '</div>';
-			zerif_after_page_content_trigger();
-			zerif_sidebar_trigger();
-		}
-		?>	
-
+	if ( (function_exists( 'is_cart' ) && is_cart()) || (function_exists( 'is_account_page' ) && is_account_page()) || (function_exists( 'is_checkout' ) && is_checkout() ) || ! empty( $zerif_change_to_full_width ) ) {
+		zerif_bottom_page_content_trigger();
+		echo '</div>';
+		zerif_after_page_content_trigger();
+	} else {
+		zerif_bottom_page_content_trigger();
+		echo '</div>';
+		zerif_after_page_content_trigger();
+		zerif_sidebar_trigger();
+	}
+		?>
+	
+		
 	</div><!-- .container -->
 
 <?php get_footer(); ?>

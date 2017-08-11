@@ -1,4 +1,9 @@
 <?php
+/**
+ * Notify in customizer system
+ *
+ * @package zerif-lite
+ */
 
 if ( ! class_exists( 'Ti_Customizer_Notify_System' ) ) {
 	/**

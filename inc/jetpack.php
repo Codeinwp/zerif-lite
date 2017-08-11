@@ -8,13 +8,15 @@
 
 function zerif_jetpack_setup() {
 
-	add_theme_support( 'infinite-scroll', array(
+	add_theme_support(
+		'infinite-scroll', array(
 
-		'container' => 'main',
+			'container' => 'main',
 
-		'footer'    => 'page',
+			'footer'    => 'page',
 
-	) );
+		)
+	);
 
 }
 

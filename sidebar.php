@@ -22,7 +22,13 @@
 
 				<h2 class="widget-title"><?php _e( 'Archives', 'zerif-lite' ); ?></h2>
 				<ul>
-					<?php wp_get_archives( array( 'type' => 'monthly' ) ); ?>
+					<?php
+					wp_get_archives(
+						array(
+							'type' => 'monthly',
+						)
+					);
+?>
 				</ul>
 
 			</aside>

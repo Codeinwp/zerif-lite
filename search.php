@@ -26,13 +26,23 @@ get_header(); ?>
 
 						</header><!-- .page-header -->
 
-						<?php while ( have_posts() ) : the_post(); ?>
+						<?php
+						while ( have_posts() ) :
+							the_post();
+?>
 
 							<?php get_template_part( 'content', get_post_format() ); ?>
 
 						<?php endwhile; ?>
 
-						<?php echo get_the_posts_navigation( array( 'next_text' => sprintf( __( 'Newer posts %s','zerif-lite' ), '<span class="meta-nav">&rarr;</span>' ), 'prev_text' => sprintf( __( '%s Older posts', 'zerif-lite' ) , '<span class="meta-nav">&larr;</span>' ) ) ); ?>
+						<?php
+						echo get_the_posts_navigation(
+							array(
+								'next_text' => sprintf( __( 'Newer posts %s','zerif-lite' ), '<span class="meta-nav">&rarr;</span>' ),
+								'prev_text' => sprintf( __( '%s Older posts', 'zerif-lite' ) , '<span class="meta-nav">&larr;</span>' ),
+							)
+						);
+?>
 
 					<?php else : ?>
 
