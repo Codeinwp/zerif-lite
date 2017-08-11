@@ -92,7 +92,7 @@ final class Zerif_Customizer_Upsell {
                 esc_html__( 'Ribbon Section', 'zerif-lite' ),
                 esc_html__( 'Google map section', 'zerif-lite' )
             ),
-            'button_url'  => esc_url( 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ),
+            'button_url'  => esc_url( 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/upgrade/' ),
             'button_text' => esc_html__( 'View PRO version', 'zerif-lite' ),
         ) ) );
     }

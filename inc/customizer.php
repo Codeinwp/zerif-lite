@@ -87,7 +87,7 @@ function zerif_customize_register( $wp_customize ) {
             esc_html__( 'Google map section', 'zerif-lite' ),
             esc_html__( 'Support', 'zerif-lite' ),
         ),
-        'button_url'  => esc_url( 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ),
+        'button_url'  => esc_url( 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/upgrade/' ),
         'button_text' => esc_html__( 'View PRO version', 'zerif-lite' ),
     ) ) );
 
@@ -106,7 +106,7 @@ function zerif_customize_register( $wp_customize ) {
         'explained_features' => array(
             esc_html__( 'Get full color schemes support for your site.', 'zerif-lite' ),
         ),
-        'button_url'         => esc_url( 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ),
+        'button_url'         => esc_url( 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/upgrade/' ),
         'button_text'        => esc_html__( 'View PRO version', 'zerif-lite' ),
     ) ) );
 
@@ -122,7 +122,7 @@ function zerif_customize_register( $wp_customize ) {
         'options'     => array(
             esc_html__( 'Background video', 'zerif-lite' ),
         ),
-        'button_url'  => esc_url( 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ),
+        'button_url'  => esc_url( 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/upgrade/' ),
         'button_text' => esc_html__( 'View PRO version', 'zerif-lite' ),
     ) ) );
 
