@@ -10,3 +10,4 @@ node_modules
 logs
 package.json
 npm-debug.log
+bin
