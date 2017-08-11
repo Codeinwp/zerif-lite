@@ -221,9 +221,17 @@ function zerif_customize_register( $wp_customize ) {
 		) );
 		$wp_customize->selective_refresh->add_partial( 'zerif_contactus_title', array(
 			'selector'        => '#contact .section-header h2',
-			'settings'        => 'zerif_contactus_title',
 			'render_callback' => 'zerif_contactus_title_render_callback',
 		) );
+		$wp_customize->selective_refresh->add_partial( 'zerif_contactus_subtitle', array(
+			'selector'        => '#contact .section-legend',
+			'render_callback' => 'zerif_contactus_subtitle_render_callback',
+		) );
+		$wp_customize->selective_refresh->add_partial( 'zerif_contactus_button_label', array(
+			'selector'        => '#contact .pirate_forms .contact_submit_wrap',
+			'render_callback' => 'zerif_contactus_button_label_render_callback',
+		) );
+
 		$wp_customize->selective_refresh->add_partial( 'zerif_socials_facebook', array(
 			'selector'        => '#footer .social #facebook',
 			'settings'        => 'zerif_socials_facebook',
@@ -421,6 +429,24 @@ function zerif_customize_register( $wp_customize ) {
 	function zerif_contactus_title_render_callback() {
 		return wp_kses_post( get_theme_mod( 'zerif_contactus_title' ) );
 	}
+
+	/**
+     * Render callback for zerif_contactus_button_label
+	 */
+	function zerif_contactus_button_label_render_callback(){ ?>
+        <button id="pirate-forms-contact-submit" name="pirate-forms-contact-submit" class="pirate-forms-submit-button" type="submit">
+            <?php echo wp_kses_post( get_theme_mod( 'zerif_contactus_button_label') ); ?>
+        </button>
+        <?php
+    }
+
+	/**
+     * Render callback for erif_contactus_subtitle
+	 * @return string
+	 */
+	function zerif_contactus_subtitle_render_callback(){
+	    return wp_kses_post( get_theme_mod( 'zerif_contactus_subtitle' ) );
+    }
 
 	/**
 	 * Render callback for zerif_socials_facebook
@@ -1733,19 +1759,12 @@ function zerif_customize_register( $wp_customize ) {
 	) );
 
 	/* contactus title */
-	if ( current_user_can( 'edit_theme_options' ) ) {
-		$wp_customize->add_setting( 'zerif_contactus_title', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default'           => __( 'Get in touch','zerif-lite' ),
-			'transport'         => 'postMessage'
-		) );
-	} else {
-		$wp_customize->add_setting( 'zerif_contactus_title', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'transport'         => 'postMessage'
-		) );
-	}
-
+	$default = current_user_can( 'edit_theme_options' ) ? __( 'Get in touch','zerif-lite' ) : '';
+    $wp_customize->add_setting( 'zerif_contactus_title', array(
+        'sanitize_callback' => 'zerif_sanitize_input',
+        'transport'         => 'postMessage',
+        'default'           => $default,
+    ) );
 	$wp_customize->add_control( 'zerif_contactus_title', array(
 		'label'    => __( 'Contact us section title', 'zerif-lite' ),
 		'section'  => 'zerif_contactus_section',
@@ -1753,18 +1772,12 @@ function zerif_customize_register( $wp_customize ) {
 	) );
 
 	/* contactus subtitle */
-
-	$contactus_subtitle_default = '';
-	if( ! defined("PIRATE_FORMS_VERSION") ) {
-		$contactus_subtitle_default = sprintf( __( 'You need to install %s to create a contact form.','zerif-lite' ), 'Pirate Forms' );
-	}
-
+    $default = ! defined("PIRATE_FORMS_VERSION") ? sprintf( __( 'You need to install %s to create a contact form.','zerif-lite' ), 'Pirate Forms' ) : '';
 	$wp_customize->add_setting( 'zerif_contactus_subtitle', array(
 		'sanitize_callback' => 'zerif_sanitize_input',
-		'default'           => $contactus_subtitle_default,
+		'default'           => $default,
 		'transport' => 'postMessage'
 	) );
-
 	$wp_customize->add_control( 'zerif_contactus_subtitle', array(
 		'label'    => __( 'Contact us section subtitle', 'zerif-lite' ),
 		'section'  => 'zerif_contactus_section',
