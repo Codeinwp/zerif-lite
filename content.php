@@ -70,13 +70,15 @@
 			the_excerpt();
 		}
 
-		wp_link_pages( array(
+		wp_link_pages(
+			array(
 
-			'before' => '<div class="page-links">' . __( 'Pages:', 'zerif-lite' ),
+				'before' => '<div class="page-links">' . __( 'Pages:', 'zerif-lite' ),
 
-			'after' => '</div>',
+				'after' => '</div>',
 
-		) );
+			)
+		);
 	}
 	?>
 

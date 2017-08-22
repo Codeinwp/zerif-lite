@@ -753,26 +753,6 @@ function zerif_register_required_plugins() {
 		'dismiss_msg' => '',
 		'is_automatic' => false,
 		'message' => '',
-		'strings' => array(
-			'page_title' => __( 'Install Required Plugins', 'zerif-lite' ),
-			'menu_title' => __( 'Install Plugins', 'zerif-lite' ),
-			'installing' => __( 'Installing Plugin: %s', 'zerif-lite' ),
-			'oops' => __( 'Something went wrong with the plugin API.', 'zerif-lite' ),
-			'notice_can_install_required' => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.','zerif-lite' ),
-			'notice_can_install_recommended' => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.','zerif-lite' ),
-			'notice_cannot_install' => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.','zerif-lite' ),
-			'notice_can_activate_required' => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.','zerif-lite' ),
-			'notice_can_activate_recommended' => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.','zerif-lite' ),
-			'notice_cannot_activate' => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.','zerif-lite' ),
-			'notice_ask_to_update' => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.','zerif-lite' ),
-			'notice_cannot_update' => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.','zerif-lite' ),
-			'install_link' => _n_noop( 'Begin installing plugin', 'Begin installing plugins','zerif-lite' ),
-			'activate_link' => _n_noop( 'Begin activating plugin', 'Begin activating plugins','zerif-lite' ),
-			'return' => __( 'Return to Required Plugins Installer', 'zerif-lite' ),
-			'plugin_activated' => __( 'Plugin activated successfully.', 'zerif-lite' ),
-			'complete' => __( 'All plugins installed and activated successfully. %s', 'zerif-lite' ),
-			'nag_type' => 'updated',
-		),
 	);
 	tgmpa( $plugins, $config );
 }
@@ -893,6 +873,9 @@ if ( ! class_exists( 'zerif_ourfocus' ) && zerif_check_if_old_version_of_theme()
 			add_action( 'admin_enqueue_scripts', array( $this, 'widget_scripts' ) );
 		}
 
+		/**
+		 * Enqueue scripts
+		 */
 		function widget_scripts( $hook ) {
 			if ( $hook != 'widgets.php' ) {
 				return;
@@ -901,6 +884,9 @@ if ( ! class_exists( 'zerif_ourfocus' ) && zerif_check_if_old_version_of_theme()
 			wp_enqueue_script( 'zerif_widget_media_script', get_template_directory_uri() . '/js/widget-media.js', false, '1.1', true );
 		}
 
+		/**
+		 * Create the widget
+		 */
 		function widget( $args, $instance ) {
 
 			extract( $args );
@@ -1004,6 +990,9 @@ endif;
 
 		}
 
+		/**
+		 * Update widgets instance
+		 */
 		function update( $new_instance, $old_instance ) {
 
 			$instance                        = $old_instance;
@@ -1156,6 +1145,9 @@ if ( ! class_exists( 'zerif_testimonial_widget' ) && zerif_check_if_old_version_
 			add_action( 'admin_enqueue_scripts', array( $this, 'widget_scripts' ) );
 		}
 
+		/**
+		 * Enqueue scripts
+		 */
 		function widget_scripts( $hook ) {
 			if ( $hook != 'widgets.php' ) {
 				return;
@@ -1164,6 +1156,9 @@ if ( ! class_exists( 'zerif_testimonial_widget' ) && zerif_check_if_old_version_
 			wp_enqueue_script( 'zerif_widget_media_script', get_template_directory_uri() . '/js/widget-media.js', false, '1.1', true );
 		}
 
+		/**
+		 * Create the widget
+		 */
 		function widget( $args, $instance ) {
 
 			extract( $args );
@@ -1197,29 +1192,24 @@ if ( ! class_exists( 'zerif_testimonial_widget' ) && zerif_check_if_old_version_
 
 				<div class="client-info">
 
-					<a <?php echo $attribut_new_tab; ?>
-						class="client-name" 
-						<?php
-						if ( ! empty( $instance['link'] ) ) :
-							echo 'href="' . esc_url( $instance['link'] ) . '"';
-endif;
-?>
->
-<?php
-if ( ! empty( $instance['title'] ) ) :
-	echo apply_filters( 'widget_title', $instance['title'] );
-endif;
-?>
-</a>
+					<?php
+					echo '<a ' . $attribut_new_tab . ' class="client-name"';
+					if ( ! empty( $instance['link'] ) ) {
+						echo 'href="' . esc_url( $instance['link'] ) . '"';
+					}
+					echo '>';
 
+					if ( ! empty( $instance['title'] ) ) {
+						echo apply_filters( 'widget_title', $instance['title'] );
+					}
+					echo '</a>';
 
-					<?php if ( ! empty( $instance['details'] ) ) : ?>
-						<div class="client-company">
-
-							<?php echo apply_filters( 'widget_title', $instance['details'] ); ?>
-
-						</div>
-					<?php endif; ?>
+					if ( ! empty( $instance['details'] ) ) {
+						echo '<div class="client-company">';
+						echo apply_filters( 'widget_title', $instance['details'] );
+						echo '</div>';
+					}
+					?>
 
 				</div>
 
@@ -1261,6 +1251,9 @@ endif;
 
 		}
 
+		/**
+		 * Update widget's values
+		 */
 		function update( $new_instance, $old_instance ) {
 
 			$instance                        = $old_instance;
@@ -1276,68 +1269,46 @@ endif;
 
 		}
 
+		/**
+		 * Form the widget
+		 */
 		function form( $instance ) {
-			?>
 
-			<p>
-				<label
-					for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Author', 'zerif-lite' ); ?></label><br/>
-				<input type="text" name="<?php echo $this->get_field_name( 'title' ); ?>"
-					   id="<?php echo $this->get_field_id( 'title' ); ?>"
-					   value="
-						<?php
-						if ( ! empty( $instance['title'] ) ) :
+			echo '<p>';
+				echo '<label for="' . $this->get_field_id( 'title' ) . '">' . __( 'Author', 'zerif-lite' ) . '</label><br/>';
+					echo '<input type="text" name="' . $this->get_field_name( 'title' ) . '" id="' . $this->get_field_id( 'title' ) . '" value="';
+						if ( ! empty( $instance['title'] ) ) {
 							echo $instance['title'];
-endif;
-?>
-"
-					   class="widefat">
-			</p>
-			<p>
-				<label
-					for="<?php echo $this->get_field_id( 'link' ); ?>"><?php _e( 'Author link', 'zerif-lite' ); ?></label><br/>
-				<input type="text" name="<?php echo $this->get_field_name( 'link' ); ?>"
-					   id="<?php echo $this->get_field_id( 'link' ); ?>"
-					   value="
-						<?php
-						if ( ! empty( $instance['link'] ) ) :
+						}
+						echo '" class="widefat">';
+			echo '</p>';
+			echo '<p>';
+				echo '<label for="' . $this->get_field_id( 'link' ) . '">' . __( 'Author link', 'zerif-lite' ) . '</label><br/>';
+					echo '<input type="text" name="' . $this->get_field_name( 'link' ) . '" id="' . $this->get_field_id( 'link' ) . '" value="';
+						if ( ! empty( $instance['link'] ) ) {
 							echo esc_url( $instance['link'] );
-endif;
-?>
-"
-					   class="widefat">
-			</p>
-			<p>
-				<label
-					for="<?php echo $this->get_field_id( 'details' ); ?>"><?php _e( 'Author details', 'zerif-lite' ); ?></label><br/>
-				<input type="text" name="<?php echo $this->get_field_name( 'details' ); ?>"
-					   id="<?php echo $this->get_field_id( 'details' ); ?>"
-					   value="
-						<?php
-						if ( ! empty( $instance['details'] ) ) :
+						}
+						echo '" class="widefat">';
+			echo '</p>';
+			echo '<p>';
+				echo '<label for="' . $this->get_field_id( 'details' ) . '">' . __( 'Author details', 'zerif-lite' ) . '</label><br/>';
+					echo '<input type="text" name="' . $this->get_field_name( 'details' ) . '" id="' . $this->get_field_id( 'details' ) . '" value="';
+						if ( ! empty( $instance['details'] ) ) {
 							echo $instance['details'];
-endif;
-?>
-"
-					   class="widefat">
-			</p>
-			<p>
-				<label
-					for="<?php echo $this->get_field_id( 'text' ); ?>"><?php _e( 'Text', 'zerif-lite' ); ?></label><br/>
-				<textarea class="widefat" rows="8" cols="20" name="<?php echo $this->get_field_name( 'text' ); ?>"
-						  id="<?php echo $this->get_field_id( 'text' ); ?>">
-											<?php
-											if ( ! empty( $instance['text'] ) ) :
-												echo htmlspecialchars_decode( $instance['text'] );
-endif;
-?>
-</textarea>
-			</p>
-			<p>
-				<label
-					for="<?php echo $this->get_field_id( 'image_uri' ); ?>"><?php _e( 'Image', 'zerif-lite' ); ?></label><br/>
+						}
+						echo '" class="widefat">';
+			echo '</p>';
+			echo '<p>';
+				echo '<label for="' . $this->get_field_id( 'text' ) . '">' . __( 'Text', 'zerif-lite' ) . '</label><br/>';
+					echo '<textarea class="widefat" rows="8" cols="20" name="' . $this->get_field_name( 'text' ) . '" id="' . $this->get_field_id( 'text' ) . '">';
+					if ( ! empty( $instance['text'] ) ) {
+						echo htmlspecialchars_decode( $instance['text'] );
+					}
+					echo '</textarea>';
+			echo '</p>';
+			echo '<p>';
+				echo '<label for="' . $this->get_field_id( 'image_uri' ) . '">' . __( 'Image', 'zerif-lite' ) . '</label><br/>';
 
-				<?php
 				$image_in_customizer = '';
 				$display             = 'none';
 				if ( ! empty( $instance['image_in_customizer'] ) && ! empty( $instance['image_uri'] ) ) {
@@ -1350,54 +1321,32 @@ endif;
 					}
 				}
 				$zerif_image_in_customizer = $this->get_field_name( 'image_in_customizer' );
-				?>
-				<input type="hidden" class="custom_media_display_in_customizer"
-					   name="
-						<?php
-						if ( ! empty( $zerif_image_in_customizer ) ) {
-							echo $zerif_image_in_customizer;
-						}
-						?>
-					   "
-					   value="
-						<?php
-						if ( ! empty( $instance['image_in_customizer'] ) ) :
-							echo $instance['image_in_customizer'];
-endif;
-?>
-">
-				<img class="custom_media_image" src="<?php echo $image_in_customizer; ?>"
-					 style="margin:0;padding:0;max-width:100px;float:left;display:<?php echo $display; ?>"
-					 alt="<?php echo __( 'Uploaded image', 'zerif-lite' ); ?>"/><br/>
 
-				<input type="text" class="widefat custom_media_url"
-					   name="<?php echo $this->get_field_name( 'image_uri' ); ?>"
-					   id="<?php echo $this->get_field_id( 'image_uri' ); ?>"
-					   value="
-						<?php
-						if ( ! empty( $instance['image_uri'] ) ) :
-							echo $instance['image_uri'];
-endif;
-?>
-"
-					   style="margin-top:5px;">
+				echo '<input type="hidden" class="custom_media_display_in_customizer" name="';
+				if ( ! empty( $zerif_image_in_customizer ) ) {
+					echo $zerif_image_in_customizer;
+				}
+				echo '" value="';
+				if ( ! empty( $instance['image_in_customizer'] ) ) {
+					echo $instance['image_in_customizer'];
+				}
+				echo  '">';
+				echo '<img class="custom_media_image" src="' . $image_in_customizer . '" style="margin:0;padding:0;max-width:100px;float:left;display:' . $display . '" alt="' . __( 'Uploaded image', 'zerif-lite' ) . '"/><br/>';
 
-				<input type="button" class="button button-primary custom_media_button" id="custom_media_button"
-					   name="<?php echo $this->get_field_name( 'image_uri' ); ?>"
-					   value="<?php _e( 'Upload Image', 'zerif-lite' ); ?>" style="margin-top:5px;">
-			</p>
+				echo '<input type="text" class="widefat custom_media_url" name="' . $this->get_field_name( 'image_uri' ) . '" id="' . $this->get_field_id( 'image_uri' ) . '" value="';
+				if ( ! empty( $instance['image_uri'] ) ) {
+					echo $instance['image_uri'];
+				}
+				echo '" style="margin-top:5px;">';
 
-			<input class="custom_media_id" id="<?php echo $this->get_field_id( 'custom_media_id' ); ?>"
-				   name="<?php echo $this->get_field_name( 'custom_media_id' ); ?>" type="hidden"
-				   value="
-					<?php
-					if ( ! empty( $instance['custom_media_id'] ) ) :
-						echo $instance['custom_media_id'];
-endif;
-?>
-"/>
+				echo '<input type="button" class="button button-primary custom_media_button" id="custom_media_button" name="' . $this->get_field_name( 'image_uri' ) . '" value="' . __( 'Upload Image', 'zerif-lite' ) . '" style="margin-top:5px;">';
+			echo '</p>';
 
-			<?php
+			echo '<input class="custom_media_id" id="' . $this->get_field_id( 'custom_media_id' ) . '" name="' . $this->get_field_name( 'custom_media_id' ) . '" type="hidden" value="';
+			if ( ! empty( $instance['custom_media_id'] ) ) {
+				echo $instance['custom_media_id'];
+			}
+			echo '"/>';
 
 		}
 
@@ -1488,27 +1437,18 @@ endif;
 		}
 
 		function form( $instance ) {
-			?>
 
-			<p>
-				<label
-					for="<?php echo $this->get_field_id( 'link' ); ?>"><?php _e( 'Link', 'zerif-lite' ); ?></label><br/>
-				<input type="text" name="<?php echo $this->get_field_name( 'link' ); ?>"
-					   id="<?php echo $this->get_field_id( 'link' ); ?>"
-					   value="
-						<?php
-						if ( ! empty( $instance['link'] ) ) :
-							echo $instance['link'];
-endif;
-?>
-"
-					   class="widefat">
-			</p>
-			<p>
-				<label
-					for="<?php echo $this->get_field_id( 'image_uri' ); ?>"><?php _e( 'Image', 'zerif-lite' ); ?></label><br/>
+			echo '<p>';
+				echo '<label for="' . $this->get_field_id( 'link' ) . '">' . __( 'Link', 'zerif-lite' ) . '</label><br/>';
+				echo '<input type="text" name="' . $this->get_field_name( 'link' ) . '" id="' . $this->get_field_id( 'link' ) . '" value="';
+				if ( ! empty( $instance['link'] ) ) {
+					echo $instance['link'];
+				}
+				echo '" class="widefat">';
+			echo '</p>';
+			echo '<p>';
+				echo '<label for="' . $this->get_field_id( 'image_uri' ) . '">' . __( 'Image', 'zerif-lite' ) . '</label><br/>';
 
-				<?php
 				$image_in_customizer = '';
 				$display             = 'none';
 				if ( ! empty( $instance['image_in_customizer'] ) && ! empty( $instance['image_uri'] ) ) {
@@ -1521,54 +1461,34 @@ endif;
 					}
 				}
 				$zerif_image_in_customizer = $this->get_field_name( 'image_in_customizer' );
-				?>
-				<input type="hidden" class="custom_media_display_in_customizer"
-					   name="
-						<?php
-						if ( ! empty( $zerif_image_in_customizer ) ) {
-							echo $zerif_image_in_customizer;
-						}
-						?>
-					   "
-					   value="
-						<?php
-						if ( ! empty( $instance['image_in_customizer'] ) ) :
-							echo $instance['image_in_customizer'];
-endif;
-?>
-">
-				<img class="custom_media_image" src="<?php echo $image_in_customizer; ?>"
-					 style="margin:0;padding:0;max-width:100px;float:left;display:<?php echo $display; ?>"
-					 alt="<?php echo __( 'Uploaded image', 'zerif-lite' ); ?>"/><br/>
 
-				<input type="text" class="widefat custom_media_url"
-					   name="<?php echo $this->get_field_name( 'image_uri' ); ?>"
-					   id="<?php echo $this->get_field_id( 'image_uri' ); ?>"
-					   value="
-						<?php
-						if ( ! empty( $instance['image_uri'] ) ) :
-							echo $instance['image_uri'];
-endif;
-?>
-"
-					   style="margin-top:5px;">
+			echo '<input type="hidden" class="custom_media_display_in_customizer" name="';
+			if ( ! empty( $zerif_image_in_customizer ) ) {
+				echo $zerif_image_in_customizer;
+			}
+			echo '" value="';
 
-				<input type="button" class="button button-primary custom_media_button" id="custom_media_button"
-					   name="<?php echo $this->get_field_name( 'image_uri' ); ?>"
-					   value="<?php _e( 'Upload Image', 'zerif-lite' ); ?>" style="margin-top:5px;">
-			</p>
+			if ( ! empty( $instance['image_in_customizer'] ) ) {
+				echo $instance['image_in_customizer'];
+			}
+			echo '">';
 
-			<input class="custom_media_id" id="<?php echo $this->get_field_id( 'custom_media_id' ); ?>"
-				   name="<?php echo $this->get_field_name( 'custom_media_id' ); ?>" type="hidden"
-				   value="
-					<?php
-					if ( ! empty( $instance['custom_media_id'] ) ) :
-						echo $instance['custom_media_id'];
-endif;
-?>
-"/>
-			<?php
+			echo '<img class="custom_media_image" src="' . $image_in_customizer . '" style="margin:0;padding:0;max-width:100px;float:left;display:' . $display . '" alt="' . __( 'Uploaded image', 'zerif-lite' ) . '"/><br/>';
 
+				echo '<input type="text" class="widefat custom_media_url" name="' . $this->get_field_name( 'image_uri' ) . '" id="' . $this->get_field_id( 'image_uri' ) . '" value="';
+					if ( ! empty( $instance['image_uri'] ) ) {
+						echo $instance['image_uri'];
+					}
+				echo '" style="margin-top:5px;">';
+
+				echo '<input type="button" class="button button-primary custom_media_button" id="custom_media_button" name="' . $this->get_field_name( 'image_uri' ) . '" value="' . __( 'Upload Image', 'zerif-lite' ) . '" style="margin-top:5px;">';
+			echo '</p>';
+
+			echo '<input class="custom_media_id" id="' . $this->get_field_id( 'custom_media_id' ) . '" name="' . $this->get_field_name( 'custom_media_id' ) . '" type="hidden" value="';
+			if ( ! empty( $instance['custom_media_id'] ) ) {
+				echo $instance['custom_media_id'];
+			}
+			echo '"/>';
 		}
 
 	}
@@ -1817,47 +1737,31 @@ if ( ! class_exists( 'zerif_team_widget' ) && zerif_check_if_old_version_of_them
 
 		function form( $instance ) {
 
+			echo '<p>';
+				echo '<label for="' . $this->get_field_id( 'name' ) . '">' . __( 'Name', 'zerif-lite' ) . '</label><br/>';
+				echo '<input type="text" name="' . $this->get_field_name( 'name' ) . '" id="' . $this->get_field_id( 'name' ) . '" value="';
+				if ( ! empty( $instance['name'] ) ) {
+					echo $instance['name'];
+				}
+				echo '" class="widefat"/>';
+			echo '</p>';
+			echo '<p>';
+				echo '<label for="' . $this->get_field_id( 'position' ) . '">' . __( 'Position', 'zerif-lite' ) . '</label><br/>';
+				echo '<textarea class="widefat" rows="8" cols="20" name="' . $this->get_field_name( 'position' ) . '" id="' . $this->get_field_id( 'position' ) . '">';
+					if ( ! empty( $instance['position'] ) ) {
+						echo htmlspecialchars_decode( $instance['position'] );
+					}
+				echo '</textarea>';
+			echo '</p>';
+			echo '<p>';
+				echo '<label for="' . $this->get_field_id( 'description' ) . '">' . __( 'Description', 'zerif-lite' ) . '</label><br/>';
+				echo '<textarea class="widefat" rows="8" cols="20" name="' . $this->get_field_name( 'description' ). '" id="' . $this->get_field_id( 'description' ) . '">';
+					if ( ! empty( $instance['description'] ) ) {
+						echo htmlspecialchars_decode( $instance['description'] );
+					}
+				echo '</textarea>';
+			echo '</p>';
 			?>
-
-			<p>
-				<label
-					for="<?php echo $this->get_field_id( 'name' ); ?>"><?php _e( 'Name', 'zerif-lite' ); ?></label><br/>
-				<input type="text" name="<?php echo $this->get_field_name( 'name' ); ?>"
-					   id="<?php echo $this->get_field_id( 'name' ); ?>"
-					   value="
-						<?php
-						if ( ! empty( $instance['name'] ) ) :
-							echo $instance['name'];
-endif;
-?>
-"
-					   class="widefat"/>
-			</p>
-			<p>
-				<label
-					for="<?php echo $this->get_field_id( 'position' ); ?>"><?php _e( 'Position', 'zerif-lite' ); ?></label><br/>
-				<textarea class="widefat" rows="8" cols="20" name="<?php echo $this->get_field_name( 'position' ); ?>"
-						  id="<?php echo $this->get_field_id( 'position' ); ?>">
-											<?php
-											if ( ! empty( $instance['position'] ) ) :
-												echo htmlspecialchars_decode( $instance['position'] );
-endif;
-?>
-</textarea>
-			</p>
-			<p>
-				<label
-					for="<?php echo $this->get_field_id( 'description' ); ?>"><?php _e( 'Description', 'zerif-lite' ); ?></label><br/>
-				<textarea class="widefat" rows="8" cols="20"
-						  name="<?php echo $this->get_field_name( 'description' ); ?>"
-						  id="<?php echo $this->get_field_id( 'description' ); ?>">
-											<?php
-											if ( ! empty( $instance['description'] ) ) :
-												echo htmlspecialchars_decode( $instance['description'] );
-endif;
-					?>
-					</textarea>
-			</p>
 			<p>
 				<label
 					for="<?php echo $this->get_field_id( 'fb_link' ); ?>"><?php _e( 'Facebook link', 'zerif-lite' ); ?></label><br/>
