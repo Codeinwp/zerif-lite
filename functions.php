@@ -5,6 +5,11 @@
  * @package zerif-lite
  */
 
+if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
+	define( 'ELEMENTOR_PARTNER_ID', 2112 );
+}
+
+
 /**
  * Main setup function
  */
