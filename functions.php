@@ -604,7 +604,7 @@ function zerif_scripts() {
 		)
 	);
 
-		wp_enqueue_style( 'zerif_bootstrap_style', get_template_directory_uri() . '/css/bootstrap.css' );
+	wp_enqueue_style( 'zerif_bootstrap_style', get_template_directory_uri() . '/css/bootstrap.css' );
 
 	wp_style_add_data( 'zerif_bootstrap_style', 'rtl', 'replace' );
 
@@ -909,8 +909,7 @@ if ( ! class_exists( 'zerif_ourfocus' ) && zerif_check_if_old_version_of_theme()
 						echo '</span>';
 
 					}
-
-						echo '<i class="pixeden" style="background:url(' . esc_url( $instance['image_uri'] ) . ') no-repeat center;width:100%; height:100%;"></i>';
+					echo '<i class="pixeden" style="background:url(' . esc_url( $instance['image_uri'] ) . ') no-repeat center;width:100%; height:100%;"></i>';
 					echo '</a>';
 
 				} else {
@@ -936,8 +935,7 @@ if ( ! class_exists( 'zerif_ourfocus' ) && zerif_check_if_old_version_of_theme()
 							echo '</span>';
 
 						}
-
-							echo '<i class="pixeden" style="background:url(' . esc_url( $zerif_ourfocus_custom_media_id ) . ') no-repeat center;width:100%; height:100%;"></i>';
+						echo '<i class="pixeden" style="background:url(' . esc_url( $zerif_ourfocus_custom_media_id ) . ') no-repeat center;width:100%; height:100%;"></i>';
 						echo '</a>';
 
 					} else {
@@ -954,12 +952,10 @@ if ( ! class_exists( 'zerif_ourfocus' ) && zerif_check_if_old_version_of_theme()
 			if ( ! empty( $instance['title'] ) ) {
 				echo apply_filters( 'widget_title', $instance['title'] );
 			}
-				echo '</h3>';
+			echo '</h3>';
 
 			if ( ! empty( $instance['text'] ) ) {
-				echo '<p>';
-				echo htmlspecialchars_decode( apply_filters( 'widget_title', $instance['text'] ) );
-				echo '</p>';
+				echo '<p>' . htmlspecialchars_decode( apply_filters( 'widget_title', $instance['text'] ) ) . '</p>';
 			}
 
 			echo '</div>';
@@ -991,7 +987,6 @@ if ( ! class_exists( 'zerif_ourfocus' ) && zerif_check_if_old_version_of_theme()
 		function form( $instance ) {
 
 			echo '<p>';
-
 				echo '<label for="' . $this->get_field_id( 'title' ) . '">' . __( 'Title', 'zerif-lite' ) . '</label><br/>';
 				echo '<input type="text" name="' . $this->get_field_name( 'title' ) . '" id="' . $this->get_field_id( 'title' ) . '" value="';
 			if ( ! empty( $instance['title'] ) ) {

@@ -199,8 +199,9 @@
 			echo '</div>';
 
 		}
+
+		zerif_bottom_footer_trigger();
 		?>
-		<?php zerif_bottom_footer_trigger(); ?>
 	</div> <!-- / END CONTAINER -->
 
 </footer> <!-- / END FOOOTER  -->

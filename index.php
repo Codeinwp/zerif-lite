@@ -27,9 +27,9 @@ get_header(); ?>
 				<main id="main" class="site-main">
 
 				<?php
-				if ( have_posts() ) :
+				if ( have_posts() ) {
 
-					while ( have_posts() ) :
+					while ( have_posts() ) {
 						the_post();
 
 						/*
@@ -40,23 +40,23 @@ get_header(); ?>
 
 						get_template_part( 'content', get_post_format() );
 
-						endwhile;
+					}
 
 					echo get_the_posts_navigation(
 						array(
 							/* translators: Newer posts navigation arrow */
-							'next_text' => sprintf( __( 'Newer posts %s','zerif-lite' ), '<span class="meta-nav">&rarr;</span>' ),
+							'next_text' => sprintf( __( 'Newer posts %s', 'zerif-lite' ), '<span class="meta-nav">&rarr;</span>' ),
 							/* translators: Older posts navigation arrow */
-							'prev_text' => sprintf( __( '%s Older posts', 'zerif-lite' ) , '<span class="meta-nav">&larr;</span>' ),
+							'prev_text' => sprintf( __( '%s Older posts', 'zerif-lite' ), '<span class="meta-nav">&larr;</span>' ),
 						)
 					);
 
-					else :
+				} else {
 
-						get_template_part( 'content', 'none' );
+					get_template_part( 'content', 'none' );
 
-					endif;
-					?>
+				}
+				?>
 
 				</main><!-- #main -->
 

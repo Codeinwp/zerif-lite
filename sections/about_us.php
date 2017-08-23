@@ -4,9 +4,8 @@
  *
  * @package zerif-lite
  */
-?>
 
-<?php zerif_before_about_us_trigger(); ?>
+zerif_before_about_us_trigger(); ?>
 
 <section class="about-us" id="aboutus">
 
@@ -161,153 +160,139 @@ if ( $there_is_skills != '' ) :
 <ul class="skills" data-scrollreveal="enter right after 0s over 1s">
 
 <!-- SKILL ONE -->
+<?php
+if ( ! empty( $zerif_aboutus_feature1_nr ) || ! empty( $zerif_aboutus_feature1_title ) || ! empty( $zerif_aboutus_feature1_text ) ) {
 
-<?php if ( ! empty( $zerif_aboutus_feature1_nr ) || ! empty( $zerif_aboutus_feature1_title ) || ! empty( $zerif_aboutus_feature1_text ) ) : ?>
+	echo '<li class="skill skill_1">';
 
-				<li class="skill skill_1">
+	if ( ! empty( $zerif_aboutus_feature1_nr ) ) {
 
-					<?php
+		echo '<div class="skill-count">';
 
-					if ( ! empty( $zerif_aboutus_feature1_nr ) ) :
+		echo '<input role="presentation" type="text" id="' . ( ! empty( $zerif_aboutus_feature1_title ) ? sanitize_title( $zerif_aboutus_feature1_title ) : '' ) . '" value="' . esc_attr( $zerif_aboutus_feature1_nr ) . '" data-thickness=".2" class="skill1" tabindex="-1">';
 
-						echo '<div class="skill-count">';
+		echo '</div>';
 
-						echo '<input role="presentation" type="text" id="' . ( ! empty( $zerif_aboutus_feature1_title ) ? sanitize_title( $zerif_aboutus_feature1_title ) : '' ) . '" value="' . esc_attr( $zerif_aboutus_feature1_nr ) . '" data-thickness=".2" class="skill1" tabindex="-1">';
+	}
 
-						echo '</div>';
+	if ( ! empty( $zerif_aboutus_feature1_title ) ) {
+		echo '<div class="section-legend"><label for="' . sanitize_title( $zerif_aboutus_feature1_title ) . '">' . wp_kses_post( $zerif_aboutus_feature1_title ) . '</label></div>';
+	} elseif ( is_customize_preview() ) {
+		echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
+	}
 
-						endif;
+	if ( ! empty( $zerif_aboutus_feature1_text ) ) {
+		echo '<p>' . wp_kses_post( $zerif_aboutus_feature1_text ) . '</p>';
+	} elseif ( is_customize_preview() ) {
+		echo '<p class="zerif_hidden_if_not_customizer"></p>';
+	}
 
-					if ( ! empty( $zerif_aboutus_feature1_title ) ) :
-						echo '<div class="section-legend"><label for="' . sanitize_title( $zerif_aboutus_feature1_title ) . '">' . wp_kses_post( $zerif_aboutus_feature1_title ) . '</label></div>';
-						elseif ( is_customize_preview() ) :
-							echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
-						endif;
+	echo '</li>';
 
-						if ( ! empty( $zerif_aboutus_feature1_text ) ) :
-							echo '<p>' . wp_kses_post( $zerif_aboutus_feature1_text ) . '</p>';
-						elseif ( is_customize_preview() ) :
-							echo '<p class="zerif_hidden_if_not_customizer"></p>';
-						endif;
+}
+?>
 
-					?>
+<!-- SKILL TWO -->
 
-				</li>
+<?php
+if ( ! empty( $zerif_aboutus_feature2_nr ) || ! empty( $zerif_aboutus_feature2_title ) || ! empty( $zerif_aboutus_feature2_text ) ) {
 
-				<?php endif; ?>
+	echo '<li class="skill skill_2">';
 
-				<!-- SKILL TWO -->
+	if ( ! empty( $zerif_aboutus_feature2_nr ) ) {
 
-				<?php
-				if ( ! empty( $zerif_aboutus_feature2_nr ) || ! empty( $zerif_aboutus_feature2_title ) || ! empty( $zerif_aboutus_feature2_text ) ) :
-						?>
+		echo '<div class="skill-count">';
 
-						<li class="skill skill_2">
+		echo '<input role="presentation" type="text" id="' . ( ! empty( $zerif_aboutus_feature2_title ) ? sanitize_title( $zerif_aboutus_feature2_title ) : '' ) . '" value="' . esc_attr( $zerif_aboutus_feature2_nr ) . '" data-thickness=".2" class="skill2" tabindex="-1">';
 
-						<?php
+		echo '</div>';
 
-						if ( ! empty( $zerif_aboutus_feature2_nr ) ) :
+	}
 
-							echo '<div class="skill-count">';
+	if ( ! empty( $zerif_aboutus_feature2_title ) ) {
+		echo '<div class="section-legend"><label for="' . sanitize_title( $zerif_aboutus_feature2_title ) . '">' . wp_kses_post( $zerif_aboutus_feature2_title ) . '</label></div>';
+	} elseif ( is_customize_preview() ) {
+		echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
+	}
 
-							echo '<input role="presentation" type="text" id="' . ( ! empty( $zerif_aboutus_feature2_title ) ? sanitize_title( $zerif_aboutus_feature2_title ) : '' ) . '" value="' . esc_attr( $zerif_aboutus_feature2_nr ) . '" data-thickness=".2" class="skill2" tabindex="-1">';
+	if ( ! empty( $zerif_aboutus_feature2_text ) ) {
+		echo '<p>' . wp_kses_post( $zerif_aboutus_feature2_text ) . '</p>';
+	} elseif ( is_customize_preview() ) {
+		echo '<p class="zerif_hidden_if_not_customizer"></p>';
+	}
 
-							echo '</div>';
+	echo '</li>';
 
-							endif;
+}
+?>
 
+<!-- SKILL THREE -->
 
+<?php
+if ( ! empty( $zerif_aboutus_feature3_nr ) || ! empty( $zerif_aboutus_feature3_title ) || ! empty( $zerif_aboutus_feature3_text ) ) {
+	echo '<li class="skill skill_3">';
 
-						if ( ! empty( $zerif_aboutus_feature2_title ) ) :
-							echo '<div class="section-legend"><label for="' . sanitize_title( $zerif_aboutus_feature2_title ) . '">' . wp_kses_post( $zerif_aboutus_feature2_title ) . '</label></div>';
-							elseif ( is_customize_preview() ) :
-								echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
-								endif;
+	if ( ! empty( $zerif_aboutus_feature3_nr ) ) {
 
-							if ( ! empty( $zerif_aboutus_feature2_text ) ) :
-								echo '<p>' . wp_kses_post( $zerif_aboutus_feature2_text ) . '</p>';
-								elseif ( is_customize_preview() ) :
-									echo '<p class="zerif_hidden_if_not_customizer"></p>';
-								endif;
+		echo '<div class="skill-count">';
 
-							?>
+		echo '<input role="presentation" type="text" id="' . ( ! empty( $zerif_aboutus_feature3_title ) ? sanitize_title( $zerif_aboutus_feature3_title ) : '' ) . '" value="' . esc_attr( $zerif_aboutus_feature3_nr ) . '" data-thickness=".2" class="skill3" tabindex="-1">';
 
-						</li>
+		echo '</div>';
 
-						<?php endif; ?>
+	}
 
-				<!-- SKILL THREE -->
-				<?php
-				if ( ! empty( $zerif_aboutus_feature3_nr ) || ! empty( $zerif_aboutus_feature3_title ) || ! empty( $zerif_aboutus_feature3_text ) ) :
-						?>
-						<li class="skill skill_3">
+	if ( ! empty( $zerif_aboutus_feature3_title ) ) {
+		echo '<div class="section-legend"><label for="' . sanitize_title( $zerif_aboutus_feature3_title ) . '">' . wp_kses_post( $zerif_aboutus_feature3_title ) . '</label></div>';
+	} elseif ( is_customize_preview() ) {
+		echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
+	}
 
-						<?php
+	if ( ! empty( $zerif_aboutus_feature3_text ) ) {
+		echo '<p>' . wp_kses_post( $zerif_aboutus_feature3_text ) . '</p>';
+	} elseif ( is_customize_preview() ) {
+		echo '<p class="zerif_hidden_if_not_customizer"></p>';
+	}
 
-						if ( ! empty( $zerif_aboutus_feature3_nr ) ) :
+	echo '</li>';
 
-							echo '<div class="skill-count">';
+}
 
-							echo '<input role="presentation" type="text" id="' . ( ! empty( $zerif_aboutus_feature3_title ) ? sanitize_title( $zerif_aboutus_feature3_title ) : '' ) . '" value="' . esc_attr( $zerif_aboutus_feature3_nr ) . '" data-thickness=".2" class="skill3" tabindex="-1">';
+?>
 
-							echo '</div>';
+<!-- SKILL FOUR -->
 
-							endif;
+<?php
+if ( ! empty( $zerif_aboutus_feature4_nr ) || ! empty( $zerif_aboutus_feature4_title ) || ! empty( $zerif_aboutus_feature4_text ) ) {
+	echo '<li class="skill skill_4">';
 
-						if ( ! empty( $zerif_aboutus_feature3_title ) ) :
-							echo '<div class="section-legend"><label for="' . sanitize_title( $zerif_aboutus_feature3_title ) . '">' . wp_kses_post( $zerif_aboutus_feature3_title ) . '</label></div>';
-							elseif ( is_customize_preview() ) :
-								echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
-								endif;
+	if ( ! empty( $zerif_aboutus_feature4_nr ) ) {
 
-							if ( ! empty( $zerif_aboutus_feature3_text ) ) :
-								echo '<p>' . wp_kses_post( $zerif_aboutus_feature3_text ) . '</p>';
-								elseif ( is_customize_preview() ) :
-									echo '<p class="zerif_hidden_if_not_customizer"></p>';
-								endif;
+		echo '<div class="skill-count">';
 
-							?>
+		echo '<input role="presentation" type="text" id="' . ( ! empty( $zerif_aboutus_feature4_title ) ? sanitize_title( $zerif_aboutus_feature4_title ) : '' ) . '" value="' . esc_attr( $zerif_aboutus_feature4_nr ) . '" data-thickness=".2" class="skill4" tabindex="-1">';
 
-						</li>
+		echo '</div>';
 
-						<?php endif; ?>
+	}
 
-				<!-- SKILL FOUR -->
-				<?php
-				if ( ! empty( $zerif_aboutus_feature4_nr ) || ! empty( $zerif_aboutus_feature4_title ) || ! empty( $zerif_aboutus_feature4_text ) ) :
-						?>
+	if ( ! empty( $zerif_aboutus_feature4_title ) ) {
+		echo '<div class="section-legend"><label for="' . sanitize_title( $zerif_aboutus_feature4_title ) . '">' . wp_kses_post( $zerif_aboutus_feature4_title ) . '</label></div>';
+	} elseif ( is_customize_preview() ) {
+		echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
+	}
 
-						<li class="skill skill_4">
+	if ( ! empty( $zerif_aboutus_feature4_text ) ) {
+		echo '<p>' . wp_kses_post( $zerif_aboutus_feature4_text ) . '</p>';
+	} elseif ( is_customize_preview() ) {
+		echo '<p class="zerif_hidden_if_not_customizer"></p>';
+	}
 
-						<?php
+		echo '</li>';
 
-						if ( ! empty( $zerif_aboutus_feature4_nr ) ) :
+}
 
-							echo '<div class="skill-count">';
-
-							echo '<input role="presentation" type="text" id="' . ( ! empty( $zerif_aboutus_feature4_title ) ? sanitize_title( $zerif_aboutus_feature4_title ) : '' ) . '" value="' . esc_attr( $zerif_aboutus_feature4_nr ) . '" data-thickness=".2" class="skill4" tabindex="-1">';
-
-							echo '</div>';
-
-							endif;
-
-						if ( ! empty( $zerif_aboutus_feature4_title ) ) :
-							echo '<div class="section-legend"><label for="' . sanitize_title( $zerif_aboutus_feature4_title ) . '">' . wp_kses_post( $zerif_aboutus_feature4_title ) . '</label></div>';
-							elseif ( is_customize_preview() ) :
-								echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
-								endif;
-
-							if ( ! empty( $zerif_aboutus_feature4_text ) ) :
-								echo '<p>' . wp_kses_post( $zerif_aboutus_feature4_text ) . '</p>';
-								elseif ( is_customize_preview() ) :
-									echo '<p class="zerif_hidden_if_not_customizer"></p>';
-								endif;
-
-							?>
-
-						</li>
-
-						<?php endif; ?>
+?>
 
 			</ul>
 
