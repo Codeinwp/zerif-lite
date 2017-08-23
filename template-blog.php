@@ -1,4 +1,10 @@
 <?php
+/**
+ * The template used for Blog ( The template header was removed, but the file is still here for compatibility with older versions )
+ *
+ * @package zerif-lite
+ */
+
 get_header();
 global $wp_query;
 global $paged; ?>
@@ -51,7 +57,9 @@ global $paged; ?>
 
 					echo get_the_posts_navigation(
 						array(
+							/* translators: Newer posts navigation arrow */
 							'next_text' => sprintf( __( 'Newer posts %s','zerif-lite' ), '<span class="meta-nav">&rarr;</span>' ),
+							/* translators: Older posts navigation arrow */
 							'prev_text' => sprintf( __( '%s Older posts', 'zerif-lite' ) , '<span class="meta-nav">&larr;</span>' ),
 						)
 					);

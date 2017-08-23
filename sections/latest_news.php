@@ -1,6 +1,11 @@
 <?php
+/**
+ * Latest news section
+ *
+ * @package zerif-lite
+ */
 
-	$zerif_total_posts = get_option( 'posts_per_page' ); /* number of latest posts to show */
+$zerif_total_posts = get_option( 'posts_per_page' ); /* number of latest posts to show */
 
 if ( ! empty( $zerif_total_posts ) && ($zerif_total_posts > 0) ) :
 
@@ -59,7 +64,7 @@ if ( ! empty( $zerif_total_posts ) && ($zerif_total_posts > 0) ) :
 
 				if ( $i_latest_posts == 1 ) {
 					echo $newSlideActive;
-				} else if ( $i_latest_posts % 4 == 1 ) {
+				} elseif ( $i_latest_posts % 4 == 1 ) {
 					echo $newSlide;
 				}
 

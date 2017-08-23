@@ -1,3 +1,4 @@
+/* global zerifLiteCustomizerObject */
 jQuery(document).ready( function() {
 
 	jQuery('.ui-state-default').on('mousedown', function () {

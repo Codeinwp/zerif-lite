@@ -4,6 +4,12 @@
  *
  * @since  2.0.5
  * @access public
+ *
+ * @package zerif-lite
+ */
+
+/**
+ * Class Zerif_Customizer_Upsell
  */
 final class Zerif_Customizer_Upsell {
 	/**
@@ -47,7 +53,6 @@ final class Zerif_Customizer_Upsell {
 	 *
 	 * @since  2.0.5
 	 * @access public
-	 * @param  object $manager
 	 * @return void
 	 */
 	public function sections( $manager ) {

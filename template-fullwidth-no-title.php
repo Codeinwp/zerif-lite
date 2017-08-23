@@ -1,6 +1,8 @@
 <?php
 /**
  * Template Name: Full width with no title template
+ *
+ * @package zerif-lite
  */
 get_header(); ?>
 

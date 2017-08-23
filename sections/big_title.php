@@ -1,4 +1,9 @@
 <?php
+/**
+ * Big title section
+ *
+ * @package zerif-lite
+ */
 
 $zerif_slider_shortcode = get_theme_mod( 'zerif_bigtitle_slider_shortcode' );
 

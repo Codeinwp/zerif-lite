@@ -9,10 +9,6 @@
 
 /**
  * Arguments for the menu
- *
- * @param $args
- *
- * @return mixed
  */
 function zerif_page_menu_args( $args ) {
 

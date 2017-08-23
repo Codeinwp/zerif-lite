@@ -4,6 +4,12 @@
  *
  * @since  2.0.5
  * @access public
+ *
+ * @package zerif-lite
+ */
+
+/**
+ * Class Zerif_Customizer_Upsell_Features
  */
 class Zerif_Customizer_Upsell_Features extends WP_Customize_Section {
 	/**
@@ -59,7 +65,6 @@ class Zerif_Customizer_Upsell_Features extends WP_Customize_Section {
 	 *
 	 * @since  2.0.5
 	 * @access public
-	 * @return void
 	 */
 	public function json() {
 		$json = parent::json();

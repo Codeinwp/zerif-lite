@@ -1,5 +1,11 @@
 <?php
 /**
+ * Class used to add notifications in customizer
+ *
+ * @package zerif-lite
+ */
+
+/**
  * TI Customizer Notify Class
  */
 class Ti_Customizer_Notify {
@@ -216,10 +222,10 @@ class Ti_Customizer_Notify {
 
 				$ti_customizer_notify_show_recommended_actions = get_option( 'ti_customizer_notify_show_recommended_actions' );
 				switch ( $_GET['todo'] ) {
-					case 'add';
+					case 'add':
 						$ti_customizer_notify_show_recommended_actions[ $action_id ] = true;
 						break;
-					case 'dismiss';
+					case 'dismiss':
 						$ti_customizer_notify_show_recommended_actions[ $action_id ] = false;
 						break;
 				}
@@ -257,10 +263,10 @@ class Ti_Customizer_Notify {
 			$ti_customizer_notify_show_recommended_plugins = get_option( 'ti_customizer_notify_show_recommended_plugins' );
 
 			switch ( $_GET['todo'] ) {
-				case 'add';
+				case 'add':
 					$ti_customizer_notify_show_recommended_plugins[ $action_id ] = false;
 					break;
-				case 'dismiss';
+				case 'dismiss':
 					$ti_customizer_notify_show_recommended_plugins[ $action_id ] = true;
 					break;
 			}

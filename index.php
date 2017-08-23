@@ -6,7 +6,10 @@
  * It is used to display a page when nothing more specific matches a query.
  * E.g., it puts together the home page when no home.php file exists.
  * Learn more: http://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package zerif-lite
  */
+
 get_header(); ?>
 
 <div class="clear"></div>
@@ -41,7 +44,9 @@ get_header(); ?>
 
 					echo get_the_posts_navigation(
 						array(
+							/* translators: Newer posts navigation arrow */
 							'next_text' => sprintf( __( 'Newer posts %s','zerif-lite' ), '<span class="meta-nav">&rarr;</span>' ),
+							/* translators: Older posts navigation arrow */
 							'prev_text' => sprintf( __( '%s Older posts', 'zerif-lite' ) , '<span class="meta-nav">&larr;</span>' ),
 						)
 					);

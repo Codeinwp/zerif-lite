@@ -14,7 +14,7 @@ jQuery(document).ready( function($) {
         }
         var saveBtn = $(this).closest('.form').find('.widget-control-save');
         if (typeof saveBtn !== 'undefined') {
-            saveBtn.trigger( "click" );
+            saveBtn.trigger( 'click' );
         }
     });
 
@@ -84,7 +84,7 @@ jQuery(document).ready( function($) {
             };
 
             wp.media.editor.open(button_class);
-            window.send_to_editor = function (html) {
+            window.send_to_editor = function () {
 
             };
             return false;

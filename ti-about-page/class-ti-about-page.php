@@ -444,7 +444,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 			}
 		}
 
-		/*
+		/**
 		 * Call plugin api
 		 */
 		public function call_plugin_api( $slug ) {
@@ -479,6 +479,9 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 			return $call_api;
 		}
 
+		/**
+		 * Check if plugin is active
+		 */
 		public function check_if_plugin_active( $slug ) {
 			if ( ( $slug == 'intergeo-maps' ) || ( $slug == 'visualizer' ) ) {
 				$plugin_root_file = 'index';
@@ -516,10 +519,6 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 
 		/**
 		 * Get icon of wordpress.org plugin
-		 *
-		 * @param $arr
-		 *
-		 * @return mixed
 		 */
 		public function get_plugin_icon( $arr ) {
 
@@ -536,6 +535,9 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 			return $plugin_icon_url;
 		}
 
+		/**
+		 * Function used to create an action link for plugins
+		 */
 		public function create_action_link( $state, $slug ) {
 
 			if ( ( $slug == 'intergeo-maps' ) || ( $slug == 'visualizer' ) ) {
@@ -673,10 +675,10 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 
 						$hidden = false;
 
-						if ( @$ti_about_page_show_required_actions[ $action_value['id'] ] === false ) {
+						if ( $ti_about_page_show_required_actions[ $action_value['id'] ] === false ) {
 							$hidden = true;
 						}
-						if ( @$action_value['check'] ) {
+						if ( $action_value['check'] ) {
 							continue;
 						}
 
@@ -1034,7 +1036,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 		 */
 		public function style_and_scripts( $hook_suffix ) {
 
-			// this is needed on all admin pages, not just the about page, for the badge action count in the wordpress main sidebar
+			// this is needed on all admin pages, not just the about page, for the badge action count in the WordPress main sidebar
 			wp_enqueue_style( 'ti-about-page-css', get_template_directory_uri() . '/ti-about-page/css/ti_about_page_css.css' );
 
 			if ( 'appearance_page_' . $this->theme_slug . '-welcome' == $hook_suffix ) {
@@ -1104,10 +1106,10 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 					$ti_about_page_show_required_actions = get_option( $this->theme_slug . '_required_actions' );
 
 					switch ( esc_html( $_GET['todo'] ) ) {
-						case 'add';
+						case 'add':
 							$ti_about_page_show_required_actions[ absint( $action_id ) ] = true;
 							break;
-						case 'dismiss';
+						case 'dismiss':
 							$ti_about_page_show_required_actions[ absint( $action_id ) ] = false;
 							break;
 					}

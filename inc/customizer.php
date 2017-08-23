@@ -16,8 +16,17 @@ function zerif_customize_register( $wp_customize ) {
 	 * Class Zerif_Customizer_Number_Control
 	 */
 	class Zerif_Customizer_Number_Control extends WP_Customize_Control {
+
+		/**
+		 * Type of control
+		 *
+		 * @var $type string Type of control
+		 */
 		public $type = 'number';
 
+		/**
+		 * Render the control
+		 */
 		public function render_content() {
 			?>
 			<label>
@@ -36,10 +45,23 @@ function zerif_customize_register( $wp_customize ) {
 		 */
 		class Zerif_WP_Customize_Panel extends WP_Customize_Panel {
 
+			/**
+			 * Panel
+			 *
+			 * @var $panel string Panel
+			 */
 			public $panel;
 
+			/**
+			 * Panel type
+			 *
+			 * @var $type string Panel type.
+			 */
 			public $type = 'zerif_panel';
 
+			/**
+			 * Form the json
+			 */
 			public function json() {
 
 				$array                   = wp_array_slice_assoc(
@@ -666,9 +688,8 @@ function zerif_customize_register( $wp_customize ) {
 	}
 
 	/**
-	*/
-	/**
-	************ ADVANCED OPTIONS  */
+	 * ADVANCED OPTIONS
+	 */
 
 	$wp_customize->add_panel(
 		'zerif_advanced_options_panel', array(
@@ -837,6 +858,9 @@ function zerif_customize_register( $wp_customize ) {
 			)
 		);
 
+		/**
+		 * Callback for changing the title and subtitle on the blog
+		 */
 		function zerif_blog_header_title_subtitle_callback() {
 			$title    = get_theme_mod( 'zerif_blog_header_title' );
 			$subtitle = get_theme_mod( 'zerif_blog_header_subtitle' );
@@ -860,9 +884,8 @@ function zerif_customize_register( $wp_customize ) {
 	}
 
 	/**
-	*/
-	/**
-	***********  FRONTPAGE SECTIONS PANEL */
+	 * FRONTPAGE SECTIONS PANEL
+	 */
 
 	if ( zerif_check_if_wp_greater_than_4_7() ) {
 
@@ -877,9 +900,8 @@ function zerif_customize_register( $wp_customize ) {
 	}
 
 	/**
-	*/
-	/**
-	************    BIG TITLE SECTION */
+	 * BIG TITLE SECTION
+	 */
 
 	if ( zerif_check_if_wp_greater_than_4_7() ) {
 
@@ -929,9 +951,9 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* title */
-
 	/*
+	 * Title
+	 *
 	 * define a new option with _2 to be used to differentiate between the old users and new ones
 	 *
 	 * get the old option's value and put it as default for the new _2 option
@@ -943,6 +965,7 @@ function zerif_customize_register( $wp_customize ) {
 		$wp_customize->add_setting(
 			'zerif_bigtitle_title_2', array(
 				'sanitize_callback' => 'zerif_sanitize_input',
+				/* translators: Big title section */
 				'default'           => ! empty( $zerif_bigtitle_title_default ) ? $zerif_bigtitle_title_default : sprintf( __( 'This piece of text can be changed in %s', 'zerif-lite' ), __( 'Big title section', 'zerif-lite' ) ),
 				'transport'         => 'postMessage',
 			)
@@ -964,9 +987,9 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* red button */
-
 	/*
+	 * red button
+	 *
 	 * define a new option with _2 to be used to differentiate between the old users and new ones
 	 *
 	 * get the old option's value and put it as default for the new _2 option
@@ -1014,7 +1037,10 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* green button */
+	/**
+	 * Green button
+	 */
+
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting(
 			'zerif_bigtitle_greenbutton_label', array(
@@ -1056,7 +1082,10 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* Slider shortcode  */
+	/**
+	 * Slider shortcode
+	 */
+
 	$wp_customize->add_setting(
 		'zerif_bigtitle_slider_shortcode', array(
 			'sanitize_callback' => 'zerif_sanitize_input',
@@ -1170,9 +1199,9 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* our focus title */
-
 	/*
+	 * our focus title
+	 *
 	 * define a new option with _2 to be used to differentiate between the old users and new ones
 	 *
 	 * get the old option's value and put it as default for the new _2 option
@@ -1205,11 +1234,12 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* our focus subtitle */
+	/* Our focus subtitle */
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting(
 			'zerif_ourfocus_subtitle', array(
 				'sanitize_callback' => 'zerif_sanitize_input',
+				/* translators: Our focus section */
 				'default'           => sprintf( __( 'Change this subtitle in %s', 'zerif-lite' ), __( 'Our focus section', 'zerif-lite' ) ),
 				'transport'         => 'postMessage',
 			)
@@ -1246,7 +1276,7 @@ function zerif_customize_register( $wp_customize ) {
 	}
 
 	/**
-	 *    ABOUT US SECTION
+	 * ABOUT US SECTION
 	 */
 
 	if ( zerif_check_if_wp_greater_than_4_7() ) {
@@ -1280,7 +1310,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* about us show/hide */
+	/* About us show/hide */
 	$wp_customize->add_setting(
 		'zerif_aboutus_show', array(
 			'sanitize_callback' => 'zerif_sanitize_checkbox',
@@ -1297,7 +1327,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* title */
+	/* Title */
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting(
 			'zerif_aboutus_title', array(
@@ -1323,11 +1353,12 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* subtitle */
+	/* Subtitle */
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting(
 			'zerif_aboutus_subtitle', array(
 				'sanitize_callback' => 'zerif_sanitize_input',
+				/* translators: About us section */
 				'default'           => sprintf( __( 'Change this subtitle in %s', 'zerif-lite' ), __( 'About us section', 'zerif-lite' ) ),
 				'transport'         => 'postMessage',
 			)
@@ -1349,7 +1380,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* big left title */
+	/* Big left title */
 	$zerif_aboutus_biglefttitle_default = '';
 	if ( defined( 'THEMEISLE_COMPANION_VERSION' ) ) {
 		$zerif_aboutus_biglefttitle_default = 'Everything you see here is responsive and mobile-friendly.';
@@ -1380,7 +1411,9 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* text */
+	/* Text */
+
+	/* translators: About us section */
 	$zerif_aboutus_text_default = sprintf( __( 'Change this text in %s', 'zerif-lite' ), __( 'About us section', 'zerif-lite' ) );
 	if ( defined( 'THEMEISLE_COMPANION_VERSION' ) ) {
 		$zerif_aboutus_text_default = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros.<br><br> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla nec massa enim. Aliquam viverra at est ullamcorper sollicitudin. Proin a leo sit amet nunc malesuada imperdiet pharetra ut eros. <br><br>Mauris vel nunc at ipsum fermentum pellentesque quis ut massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas non adipiscing massa. Sed ut fringilla sapien. Cras sollicitudin, lectus sed tincidunt cursus, magna lectus vehicula augue, a lobortis dui orci et est.';
@@ -1420,7 +1453,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* feature no#1 */
+	/* Feature no#1 */
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting(
 			'zerif_aboutus_feature1_title', array(
@@ -1487,7 +1520,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* feature no#2 */
+	/* Feature no#2 */
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting(
 			'zerif_aboutus_feature2_title', array(
@@ -1554,7 +1587,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* feature no#3 */
+	/* Feature no#3 */
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting(
 			'zerif_aboutus_feature3_title', array(
@@ -1621,7 +1654,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* feature no#4 */
+	/* Feature no#4 */
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting(
 			'zerif_aboutus_feature4_title', array(
@@ -1734,7 +1767,7 @@ function zerif_customize_register( $wp_customize ) {
 
 	}
 
-	/* our team show/hide */
+	/* Our team show/hide */
 	$wp_customize->add_setting(
 		'zerif_ourteam_show', array(
 			'sanitize_callback' => 'zerif_sanitize_checkbox',
@@ -1751,7 +1784,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* our team title */
+	/* Our team title */
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting(
 			'zerif_ourteam_title', array(
@@ -1777,11 +1810,12 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* our team subtitle */
+	/* Our team subtitle */
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting(
 			'zerif_ourteam_subtitle', array(
 				'sanitize_callback' => 'zerif_sanitize_input',
+				/* translators: Our team section */
 				'default'           => sprintf( __( 'Change this subtitle in %s','zerif-lite' ), __( 'Our team section','zerif-lite' ) ),
 				'transport'         => 'postMessage',
 			)
@@ -1850,7 +1884,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* testimonial pinterest layout */
+	/* Testimonial pinterest layout */
 	$wp_customize->add_setting(
 		'zerif_testimonials_pinterest_style', array(
 			'sanitize_callback' => 'zerif_sanitize_checkbox',
@@ -1866,7 +1900,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* testimonials title */
+	/* Testimonials title */
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting(
 			'zerif_testimonials_title', array(
@@ -1892,7 +1926,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* testimonials subtitle */
+	/* Testimonials subtitle */
 	$wp_customize->add_setting(
 		'zerif_testimonials_subtitle', array(
 			'sanitize_callback' => 'zerif_sanitize_input',
@@ -1972,7 +2006,7 @@ function zerif_customize_register( $wp_customize ) {
 		$zerif_bottomribbon_buttonlink_default = esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_bottomribbon_buttonlink' ) );
 	}
 
-	/* text */
+	/* Text */
 	$wp_customize->add_setting(
 		'zerif_bottomribbon_text', array(
 			'sanitize_callback' => 'zerif_sanitize_input',
@@ -1990,7 +2024,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* button label */
+	/* Button label */
 	$wp_customize->add_setting(
 		'zerif_bottomribbon_buttonlabel', array(
 			'sanitize_callback' => 'zerif_sanitize_input',
@@ -2007,7 +2041,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* button link */
+	/* Button link */
 	$wp_customize->add_setting(
 		'zerif_bottomribbon_buttonlink', array(
 			'sanitize_callback' => 'esc_url_raw',
@@ -2045,7 +2079,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* text */
+	/* Text */
 	$wp_customize->add_setting(
 		'zerif_ribbonright_text', array(
 			'sanitize_callback' => 'zerif_sanitize_input',
@@ -2063,7 +2097,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* button label */
+	/* Button label */
 	$wp_customize->add_setting(
 		'zerif_ribbonright_buttonlabel', array(
 			'sanitize_callback' => 'zerif_sanitize_input',
@@ -2080,7 +2114,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* button link */
+	/* Button link */
 	$wp_customize->add_setting(
 		'zerif_ribbonright_buttonlink', array(
 			'sanitize_callback' => 'esc_url_raw',
@@ -2112,7 +2146,7 @@ function zerif_customize_register( $wp_customize ) {
 		$wp_customize->get_section( 'zerif_latestnews_section' )->panel = 'zerif_frontpage_sections_panel';
 	}
 
-	/* latest news show/hide */
+	/* Latest news show/hide */
 	$wp_customize->add_setting(
 		'zerif_latestnews_show', array(
 			'sanitize_callback' => 'zerif_sanitize_checkbox',
@@ -2129,7 +2163,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* latest news title */
+	/* Latest news title */
 	$wp_customize->add_setting(
 		'zerif_latestnews_title', array(
 			'sanitize_callback' => 'zerif_sanitize_input',
@@ -2145,7 +2179,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* latest news subtitle */
+	/* Latest news subtitle */
 	$wp_customize->add_setting(
 		'zerif_latestnews_subtitle', array(
 			'sanitize_callback' => 'zerif_sanitize_input',
@@ -2167,7 +2201,7 @@ function zerif_customize_register( $wp_customize ) {
 
 	$zerif_contact_us_section_description = '';
 
-	/* if Pirate Forms is installed */
+	/* If Pirate Forms is installed */
 	if ( defined( 'PIRATE_FORMS_VERSION' ) ) :
 		$zerif_contact_us_section_description = __( 'For more advanced settings please go to Settings -> Pirate Forms','zerif-lite' );
 	endif;
@@ -2184,7 +2218,7 @@ function zerif_customize_register( $wp_customize ) {
 		$wp_customize->get_section( 'zerif_contactus_section' )->panel = 'zerif_frontpage_sections_panel';
 	}
 
-	/* contact us show/hide */
+	/* Contact us show/hide */
 	$wp_customize->add_setting(
 		'zerif_contactus_show', array(
 			'sanitize_callback' => 'zerif_sanitize_checkbox',
@@ -2201,7 +2235,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* contactus title */
+	/* Contactus title */
 	$default = current_user_can( 'edit_theme_options' ) ? __( 'Get in touch','zerif-lite' ) : '';
 	$wp_customize->add_setting(
 		'zerif_contactus_title', array(
@@ -2218,7 +2252,9 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* contactus subtitle */
+	/* Contactus subtitle */
+
+	/* translators: Pirate Forms plugin */
 	$default = ! defined( 'PIRATE_FORMS_VERSION' ) ? sprintf( __( 'You need to install %s to create a contact form.','zerif-lite' ), 'Pirate Forms' ) : '';
 	$wp_customize->add_setting(
 		'zerif_contactus_subtitle', array(
@@ -2235,7 +2271,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* contactus email */
+	/* Contactus email */
 	$wp_customize->add_setting(
 		'zerif_contactus_email', array(
 			'sanitize_callback' => 'sanitize_email',
@@ -2248,7 +2284,7 @@ function zerif_customize_register( $wp_customize ) {
 			'priority'    => 4,
 		)
 	);
-	/* contactus button label */
+	/* Contactus button label */
 	$wp_customize->add_setting(
 		'zerif_contactus_button_label', array(
 			'sanitize_callback' => 'zerif_sanitize_input',
@@ -2265,7 +2301,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* recaptcha */
+	/* Recaptcha */
 	$wp_customize->add_setting(
 		'zerif_contactus_recaptcha_show', array(
 			'sanitize_callback' => 'zerif_sanitize_checkbox',
@@ -2281,7 +2317,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* site key */
+	/* Site key */
 	$attribut_new_tab = (isset( $zerif_accessibility ) && ($zerif_accessibility != 1) ? ' target="_blank"' : '' );
 	$wp_customize->add_setting(
 		'zerif_contactus_sitekey', array(
@@ -2298,7 +2334,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* secret key */
+	/* Secret key */
 	$wp_customize->add_setting(
 		'zerif_contactus_secretkey', array(
 			'sanitize_callback' => 'sanitize_text_field',
@@ -2333,7 +2369,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* facebook */
+	/* Facebook */
 	$wp_customize->add_setting(
 		'zerif_socials_facebook', array(
 			'sanitize_callback' => 'esc_url_raw',
@@ -2349,7 +2385,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* twitter */
+	/* Twitter */
 	$wp_customize->add_setting(
 		'zerif_socials_twitter', array(
 			'sanitize_callback' => 'esc_url_raw',
@@ -2365,7 +2401,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* linkedin */
+	/* Linkedin */
 	$wp_customize->add_setting(
 		'zerif_socials_linkedin', array(
 			'sanitize_callback' => 'esc_url_raw',
@@ -2380,7 +2416,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* behance */
+	/* Behance */
 	$wp_customize->add_setting(
 		'zerif_socials_behance', array(
 			'sanitize_callback' => 'esc_url_raw',
@@ -2396,7 +2432,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* dribbble */
+	/* Dribbble */
 	$wp_customize->add_setting(
 		'zerif_socials_dribbble', array(
 			'sanitize_callback' => 'esc_url_raw',
@@ -2412,7 +2448,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* instagram */
+	/* Instagram */
 	$wp_customize->add_setting(
 		'zerif_socials_instagram', array(
 			'sanitize_callback' => 'esc_url_raw',
@@ -2452,7 +2488,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* address - ICON */
+	/* Address - ICON */
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting(
 			'zerif_address_icon', array(
@@ -2480,7 +2516,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* address */
+	/* Address */
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting(
 			'zerif_address', array(
@@ -2507,7 +2543,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* email - ICON */
+	/* Email - ICON */
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting(
 			'zerif_email_icon', array(
@@ -2535,7 +2571,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* email */
+	/* Email */
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting(
 			'zerif_email', array(
@@ -2562,7 +2598,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* phone number - ICON */
+	/* Phone number - ICON */
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting(
 			'zerif_phone_icon', array(
@@ -2590,7 +2626,7 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* phone number */
+	/* Phone number */
 	if ( current_user_can( 'edit_theme_options' ) ) {
 		$wp_customize->add_setting(
 			'zerif_phone', array(
@@ -2620,11 +2656,6 @@ function zerif_customize_register( $wp_customize ) {
 }
 add_action( 'customize_register', 'zerif_customize_register' );
 
-
-function zerif_customize_late_register( $wp_customize ) {
-
-}
-add_action( 'customize_register', 'zerif_customize_late_register',999 );
 /**
  * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
  */
@@ -2633,14 +2664,23 @@ function zerif_customize_preview_js() {
 }
 add_action( 'customize_preview_init', 'zerif_customize_preview_js' );
 
+/**
+ * Function to sanitize inputs
+ */
 function zerif_sanitize_input( $input ) {
 	return wp_kses_post( force_balance_tags( $input ) );
 }
 
+/**
+ * Function to sanitize checkboxes
+ */
 function zerif_sanitize_checkbox( $input ) {
 	return ( isset( $input ) && true == $input ? true : false );
 }
 
+/**
+ * Enqueue scripts for customizer
+ */
 function zerif_late_registers() {
 
 	wp_enqueue_script( 'zerif_customizer_script', get_template_directory_uri() . '/js/zerif_customizer.js', array( 'jquery' ), '1.0.8', true );

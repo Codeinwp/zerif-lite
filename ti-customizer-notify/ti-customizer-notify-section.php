@@ -1,6 +1,12 @@
 <?php
 /**
  * Ti_Customizer_Notify_Section class
+ *
+ * @package zerif-lite
+ */
+
+/**
+ * Ti_Customizer_Notify_Section class
  */
 class Ti_Customizer_Notify_Section extends WP_Customize_Section {
 	/**
@@ -11,25 +17,44 @@ class Ti_Customizer_Notify_Section extends WP_Customize_Section {
 	 * @var    string
 	 */
 	public $type = 'ti-customizer-notify-section';
+
 	/**
-	 * Custom button text to output.
+	 * Recommended actions array
 	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @var    string
+	 * @var string
 	 */
 	public $recommended_actions = '';
+
+	/**
+	 * Recommended plugins array
+	 *
+	 * @var string
+	 */
 	public $recommended_plugins = '';
+
+	/**
+	 * Number of total actions
+	 *
+	 * @var string
+	 */
 	public $total_actions = '';
+
+	/**
+	 * Plugin text
+	 *
+	 * @var string
+	 */
 	public $plugin_text = '';
+
+	/**
+	 * Dismiss button text
+	 *
+	 * @var string
+	 */
 	public $dismiss_button = '';
 
 	/**
 	 * Check if plugin is installed/actuvated
-	 *
-	 * @param $slug
-	 *
-	 * @return array
 	 */
 	public function check_active( $slug ) {
 		if ( file_exists( ABSPATH . 'wp-content/plugins/' . $slug . '/' . $slug . '.php' ) ) {
@@ -51,11 +76,6 @@ class Ti_Customizer_Notify_Section extends WP_Customize_Section {
 
 	/**
 	 * Create the install/activate button link for plugins
-	 *
-	 * @param $state
-	 * @param $slug
-	 *
-	 * @return mixed
 	 */
 	public function create_action_link( $state, $slug ) {
 		switch ( $state ) {
@@ -98,10 +118,6 @@ class Ti_Customizer_Notify_Section extends WP_Customize_Section {
 
 	/**
 	 * Call plugin API to get plugins info
-	 *
-	 * @param $slug
-	 *
-	 * @return mixed
 	 */
 	public function call_plugin_api( $slug ) {
 		include_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
@@ -137,10 +153,6 @@ class Ti_Customizer_Notify_Section extends WP_Customize_Section {
 
 	/**
 	 * Add custom parameters to pass to the JS via JSON.
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
 	 */
 	public function json() {
 		$json = parent::json();
@@ -154,7 +166,7 @@ class Ti_Customizer_Notify_Section extends WP_Customize_Section {
 		$formatted_array = array();
 		$ti_customizer_notify_show_recommended_actions = get_option( 'ti_customizer_notify_show_recommended_actions' );
 		foreach ( $ti_customizer_notify_recommended_actions as $key => $ti_customizer_notify_recommended_action ) {
-			if ( @$ti_customizer_notify_show_recommended_actions[ $ti_customizer_notify_recommended_action['id'] ] === false ) {
+			if ( $ti_customizer_notify_show_recommended_actions[ $ti_customizer_notify_recommended_action['id'] ] === false ) {
 				continue;
 			}
 			if ( $ti_customizer_notify_recommended_action['check'] ) {
@@ -257,10 +269,6 @@ class Ti_Customizer_Notify_Section extends WP_Customize_Section {
 	}
 	/**
 	 * Outputs the structure for the customizer control
-	 *
-	 * @since  1.0.0
-	 * @access public
-	 * @return void
 	 */
 	protected function render_template() {
 	?>

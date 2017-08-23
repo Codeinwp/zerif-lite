@@ -2,6 +2,8 @@
 /**
  * Custom template tags for this theme.
  * Eventually, some of the functionality here could be replaced by core features.
+ *
+ * @package zerif-lite
  */
 
 if ( ! function_exists( 'zerif_post_nav' ) ) :
@@ -9,7 +11,6 @@ if ( ! function_exists( 'zerif_post_nav' ) ) :
 	/**
 	 * Display navigation to next/previous post when applicable.
 	 */
-
 	function zerif_post_nav() {
 
 		// Don't print empty markup if there's nowhere to navigate.
@@ -52,10 +53,8 @@ endif;
 if ( ! function_exists( 'zerif_posted_on' ) ) :
 
 	/**
-
 	 * Prints HTML with meta information for the current post-date/time and author.
 	 */
-
 	function zerif_posted_on() {
 
 		$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
@@ -75,6 +74,7 @@ if ( ! function_exists( 'zerif_posted_on' ) ) :
 		);
 
 			printf(
+				/* translators: 1 - Publish date, 2 - Author */
 				__( '<span class="posted-on">Posted on %1$s</span><span class="byline"> by %2$s</span>', 'zerif-lite' ),
 				sprintf(
 					'<a href="%1$s" rel="bookmark">%2$s</a>',
@@ -98,7 +98,6 @@ endif;
  *
  * @return bool
  */
-
 function zerif_categorized_blog() {
 
 	if ( false === ( $all_the_cool_cats = get_transient( 'zerif_categories' ) ) ) {
@@ -141,7 +140,6 @@ function zerif_categorized_blog() {
 /**
  * Flush out the transients used in zerif_categorized_blog.
  */
-
 function zerif_category_transient_flusher() {
 
 	delete_transient( 'zerif_categories' );
@@ -153,48 +151,54 @@ add_action( 'edit_category', 'zerif_category_transient_flusher' );
 add_action( 'save_post',     'zerif_category_transient_flusher' );
 
 /**
-
- ******************************/
-/**
-
- * ******** HOOKS **************/
-
-
+ * Add title on 404 pages
+ */
 function zerif_404_title_function() {
 
-	?>
-	<h1 class="entry-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'zerif-lite' ); ?></h1>
-										<?php
+	echo '<h1 class="entry-title">' . __( 'Oops! That page can&rsquo;t be found.', 'zerif-lite' ) . '</h1>';
 
 }
 
+/**
+ * Add content on 4040 pages
+ */
 function zerif_404_content_function() {
 
-	?>
-	<p><?php _e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'zerif-lite' ); ?></p>
-					<?php
+	echo '<p>' . __( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'zerif-lite' ) . '</p>';
 
 }
 
+/**
+ * Add header title on pages
+ */
 function zerif_page_header_function() {
 
 	?>
 	<h1 class="entry-title" itemprop="headline"><?php the_title(); ?></h1>
-																	<?php
+	<?php
 
 }
 
+/**
+ * Add archive title
+ */
 function zerif_page_header_title_archive_function() {
 
 	the_archive_title( '<h1 class="page-title">', '</h1>' );
 
 }
 
+/**
+ * Add archive description
+ */
 function zerif_page_term_description_archive_function() {
 
 	the_archive_description( '<div class="taxonomy-description">', '</div>' );
 }
 
+/**
+ * Footer widgets areas
+ */
 function zerif_footer_widgets_function() {
 	if ( is_active_sidebar( 'zerif-sidebar-footer' ) || is_active_sidebar( 'zerif-sidebar-footer-2' ) || is_active_sidebar( 'zerif-sidebar-footer-3' ) ) :
 		echo '<div class="footer-widget-wrap"><div class="container">';
@@ -217,6 +221,9 @@ function zerif_footer_widgets_function() {
 	endif;
 }
 
+/**
+ * Title in the header area of the Our Focus section
+ */
 function zerif_our_focus_header_title_function() {
 
 	$zerif_ourfocus_title_default = get_theme_mod( 'zerif_ourfocus_title' );
@@ -240,9 +247,13 @@ function zerif_our_focus_header_title_function() {
 	endif;
 }
 
+/**
+ * Subtitle in the header area of the Our Focus section
+ */
 function zerif_our_focus_header_subtitle_function() {
 
 	if ( current_user_can( 'edit_theme_options' ) ) {
+		/* translators: Our focus section in customizer */
 		$zerif_ourfocus_subtitle = get_theme_mod( 'zerif_ourfocus_subtitle', sprintf( __( 'Change this subtitle in %s','zerif-lite' ), sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_ourfocus_subtitle' ) ), __( 'Our focus section','zerif-lite' ) ) ) );
 	} else {
 		$zerif_ourfocus_subtitle = get_theme_mod( 'zerif_ourfocus_subtitle' );
@@ -255,6 +266,9 @@ function zerif_our_focus_header_subtitle_function() {
 	endif;
 }
 
+/**
+ * Title in the header area of the Our Team section
+ */
 function zerif_our_team_header_title_function() {
 
 	if ( current_user_can( 'edit_theme_options' ) ) {
@@ -270,9 +284,13 @@ function zerif_our_team_header_title_function() {
 	endif;
 }
 
+/**
+ * Subtitle in the header area of the Our Team section
+ */
 function zerif_our_team_header_subtitle_function() {
 
 	if ( current_user_can( 'edit_theme_options' ) ) {
+		/* translators: Our team section in customizer */
 		$zerif_ourteam_subtitle = get_theme_mod( 'zerif_ourteam_subtitle', sprintf( __( 'Change this subtitle in %s','zerif-lite' ), sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_ourteam_subtitle' ) ), __( 'Our team section','zerif-lite' ) ) ) );
 	} else {
 		$zerif_ourteam_subtitle = get_theme_mod( 'zerif_ourteam_subtitle' );
@@ -289,6 +307,9 @@ function zerif_our_team_header_subtitle_function() {
 	endif;
 }
 
+/**
+ * Title in the header area of the Testimonials section
+ */
 function zerif_testimonials_header_title_function() {
 
 	if ( current_user_can( 'edit_theme_options' ) ) {
@@ -308,6 +329,9 @@ function zerif_testimonials_header_title_function() {
 	endif;
 }
 
+/**
+ * Subtitle in the header area of the Testimonials section
+ */
 function zerif_testimonials_header_subtitle_function() {
 
 	$zerif_testimonials_subtitle = get_theme_mod( 'zerif_testimonials_subtitle' );
@@ -323,6 +347,9 @@ function zerif_testimonials_header_subtitle_function() {
 	endif;
 }
 
+/**
+ * Title in the header area of the Latest News section
+ */
 function zerif_latest_news_header_title_function() {
 
 	$zerif_latestnews_title = get_theme_mod( 'zerif_latestnews_title' );
@@ -338,6 +365,9 @@ function zerif_latest_news_header_title_function() {
 	endif;
 }
 
+/**
+ * Subtitle in the header area of the Latest News section
+ */
 function zerif_latest_news_header_subtitle_function() {
 
 	$zerif_latestnews_subtitle = get_theme_mod( 'zerif_latestnews_subtitle' );
@@ -353,6 +383,9 @@ function zerif_latest_news_header_subtitle_function() {
 	endif;
 }
 
+/**
+ * Title in the header area of the Big title section
+ */
 function zerif_big_title_text_function() {
 
 	$zerif_bigtitle_title_default = get_theme_mod( 'zerif_bigtitle_title' );
@@ -363,6 +396,7 @@ function zerif_big_title_text_function() {
 
 	} elseif ( current_user_can( 'edit_theme_options' ) ) {
 
+		/* translators: Customizer link for Big title section */
 		$zerif_bigtitle_title = get_theme_mod( 'zerif_bigtitle_title_2', sprintf( __( 'This piece of text can be changed in %s','zerif-lite' ), sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>',esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_bigtitle_title_2' ) ), __( 'Big title section','zerif-lite' ) ) ) );
 
 	} else {
@@ -380,6 +414,9 @@ function zerif_big_title_text_function() {
 	endif;
 }
 
+/**
+ * Title in the header area of the About us section
+ */
 function zerif_about_us_header_title_function() {
 
 	if ( current_user_can( 'edit_theme_options' ) ) {
@@ -395,9 +432,13 @@ function zerif_about_us_header_title_function() {
 	endif;
 }
 
+/**
+ * Subtitle in the header area of the About us section
+ */
 function zerif_about_us_header_subtitle_function() {
 
 	if ( current_user_can( 'edit_theme_options' ) ) {
+		/* translators: About us section in customizer */
 		$zerif_aboutus_subtitle = get_theme_mod( 'zerif_aboutus_subtitle', sprintf( __( 'Change this subtitle in %s','zerif-lite' ), sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_aboutus_subtitle' ) ), __( 'About us section','zerif-lite' ) ) ) );
 	} else {
 		$zerif_aboutus_subtitle = get_theme_mod( 'zerif_aboutus_subtitle' );
@@ -418,6 +459,9 @@ function zerif_about_us_header_subtitle_function() {
 	endif;
 }
 
+/**
+ * Get the sidebar
+ */
 function zerif_sidebar_function() {
 	?>
 	<div class="sidebar-wrap col-md-3 content-left-wrap">
@@ -426,6 +470,9 @@ function zerif_sidebar_function() {
 	<?php
 }
 
+/**
+ * Display the primary navigation
+ */
 function zerif_primary_navigation_function() {
 	?>
 	<nav class="navbar-collapse bs-navbar-collapse collapse" id="site-navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">

@@ -1,6 +1,8 @@
 <?php
 /**
  * The template for displaying Search Results pages.
+ *
+ * @package zerif-lite
  */
 get_header(); ?>
 
@@ -22,7 +24,7 @@ get_header(); ?>
 
 						<header class="page-header">
 
-							<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'zerif-lite' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+							<h1 class="page-title"><?php /* translators: Search query */ printf( __( 'Search Results for: %s', 'zerif-lite' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
 
 						</header><!-- .page-header -->
 
@@ -38,7 +40,9 @@ get_header(); ?>
 						<?php
 						echo get_the_posts_navigation(
 							array(
+								/* translators: Newer posts navigation arrow */
 								'next_text' => sprintf( __( 'Newer posts %s','zerif-lite' ), '<span class="meta-nav">&rarr;</span>' ),
+								/* translators: Older posts navigation arrow */
 								'prev_text' => sprintf( __( '%s Older posts', 'zerif-lite' ) , '<span class="meta-nav">&larr;</span>' ),
 							)
 						);
