@@ -19,6 +19,8 @@ module.exports = function( grunt ) {
     config.files.js.push( '!js/scrollReveal.js' );
     config.files.js.push( '!js/smoothscroll.js' );
     config.files.js.push( '!js/zerif.js' );
+    config.files.js.push( '!inc/admin/welcome-screen/js/welcome.js' );
+    config.files.js.push( '!inc/admin/welcome-screen/js/welcome_customizer.js' );
 
     loader( grunt, config ).init();
 };
