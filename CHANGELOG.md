@@ -1,4 +1,9 @@
 
+### 1.8.5.28 - 25/08/2017
+**Changes:** 
+- Recommend Elementor plugin
+- Fixed issue with the preloader not working on the Frontpage
+
 ### 1.8.5.27 - 25/08/2017
 **Changes:** 
 - Fixed some strings
