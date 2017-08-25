@@ -1,4 +1,10 @@
 
+### 1.8.5.26 - 25/08/2017
+**Changes:** 
+- Integrated with Grunt and fixed all the errors
+- Fixed issues with main navigation menu not closing on mobile devices when an anchor is clicked
+- Fixed issue with options in Contact section not updating instantly
+
 ### 1.8.5.25 - 28/06/2017
 **Changes:** 
 - Fixed conflict with Elementor plugin font size option
