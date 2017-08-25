@@ -378,6 +378,9 @@ function zerif_setup() {
 			'deactivate_label' => esc_html__( 'Deactivate', 'zerif-lite' ),
 			'content'                   => array(
 				array(
+					'slug' => 'elementor',
+				),
+				array(
 					'slug' => 'siteorigin-panels',
 				),
 				array(

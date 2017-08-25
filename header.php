@@ -37,7 +37,7 @@ endif;
 
 	/* Preloader */
 
-if ( is_front_page() && ! is_customize_preview() && get_option( 'show_on_front' ) != 'page' ) :
+if ( is_front_page() && ! is_customize_preview() ) :
 
 	$zerif_disable_preloader = get_theme_mod( 'zerif_disable_preloader' );
 
