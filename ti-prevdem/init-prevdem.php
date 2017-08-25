@@ -7,13 +7,14 @@
 
 /**
  * Check if it is demo preview
+ *
  * @return bool
  */
 function zerif_isprevdem() {
 	$ti_theme = wp_get_theme();
-	$theme_name = $ti_theme ->get('TextDomain');
+	$theme_name = $ti_theme ->get( 'TextDomain' );
 	$active_theme = zerif_get_raw_option( 'template' );
-	return apply_filters( 'zerif_isprevdem', ( $active_theme != strtolower($theme_name) && ! is_child_theme() ) );
+	return apply_filters( 'zerif_isprevdem', ( $active_theme != strtolower( $theme_name ) && ! is_child_theme() ) );
 }
 
 /**
@@ -25,8 +26,8 @@ function zerif_isprevdem() {
  */
 function zerif_get_raw_option( $opt_name ) {
 	$alloptions = wp_cache_get( 'alloptions', 'options' );
-	$alloptions = maybe_unserialize($alloptions);
-	return isset( $alloptions[$opt_name] ) ? maybe_unserialize($alloptions[$opt_name]) : false;
+	$alloptions = maybe_unserialize( $alloptions );
+	return isset( $alloptions[ $opt_name ] ) ? maybe_unserialize( $alloptions[ $opt_name ] ) : false;
 }
 
 /**

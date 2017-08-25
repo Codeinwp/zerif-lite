@@ -10,11 +10,11 @@ jQuery(window).load(function() {
 
     // will first fade out the loading animation
 
-    jQuery(".status").fadeOut();
+    jQuery('.status').fadeOut();
 
     // will fade out the whole DIV that covers the website.
 
-    jQuery(".preloader").delay(1000).fadeOut("slow");
+    jQuery('.preloader').delay(1000).fadeOut('slow');
 
 
     jQuery('.carousel').carousel('pause');
@@ -75,7 +75,7 @@ jQuery(document).ready(function() {
             return false;
         }
     });
-    if ( thisOpen == false && (typeof jQuery('.contact-form textarea') !== 'undefined') && (jQuery('.contact-form textarea').length > 0) && (typeof jQuery('.contact-form textarea').val() !== 'undefined') && (jQuery('.contact-form textarea').val().length > 0) ) {
+    if ( thisOpen === false && (typeof jQuery('.contact-form textarea') !== 'undefined') && (jQuery('.contact-form textarea').length > 0) && (typeof jQuery('.contact-form textarea').val() !== 'undefined') && (jQuery('.contact-form textarea').val().length > 0) ) {
         thisOpen = true;
         jQuery('.zerif-g-recaptcha').css('display','block').delay(1000).css('opacity','1');
     }
@@ -95,7 +95,7 @@ jQuery(document).ready(function() {
 
 if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
 
-    var msViewportStyle = document.createElement('style')
+    var msViewportStyle = document.createElement('style');
 
     msViewportStyle.appendChild(
 
@@ -105,9 +105,9 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
 
         )
 
-    )
+    );
 
-    document.querySelector('head').appendChild(msViewportStyle)
+    document.querySelector('head').appendChild(msViewportStyle);
 
 }
 
@@ -120,11 +120,11 @@ if (navigator.userAgent.match(/IEMobile\/10\.0/)) {
 jQuery(document).ready(function() {
 
     // Sticky Header - http://jqueryfordesigners.com/fixed-floating-elements/
-	if( typeof jQuery('#main-nav') != 'undefined' && typeof jQuery('#main-nav').offset() != 'undefined' ) {
+	if( typeof jQuery('#main-nav') !== 'undefined' && typeof jQuery('#main-nav').offset() !== 'undefined' ) {
 		var top = jQuery('#main-nav').offset().top - parseFloat(jQuery('#main-nav').css('margin-top').replace(/auto/, 0));
 	}
 
-    jQuery(window).scroll(function (event) {
+    jQuery(window).scroll(function () {
 
         // what the y position of the scroll is
 
@@ -177,13 +177,22 @@ jQuery(document).ready(function(){
         } else {
             headerHeight = 0;
         }
-        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+        if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
             var target = jQuery(this.hash);
             target = target.length ? target : jQuery('[name=' + this.hash.slice(1) +']');
             if (target.length) {
                 jQuery('html,body').animate({
                     scrollTop: target.offset().top - headerHeight + 10
                 }, 1200);
+                
+                // Close dropdown menu on mobile, after an anchor is clicked
+                if(  jQuery( '.navbar .navbar-collapse' ).hasClass( 'in' ) ) {
+                    jQuery( '.navbar .navbar-collapse.in' ).removeClass( 'in' );
+                }
+                if ( jQuery( '.navbar li.dropdown' ).hasClass( 'open' ) ) {
+                    jQuery( '.navbar li.dropdown.open' ).removeClass( 'open' );
+                }
+
                 return false; 
             }
         }
@@ -199,7 +208,7 @@ jQuery(document).ready(function(){
     } else {
         headerHeight = 0;
     }
-    if (location.pathname.replace(/^\//,'') == window.location.pathname.replace(/^\//,'') && location.hostname == window.location.hostname) {
+    if (location.pathname.replace(/^\//,'') === window.location.pathname.replace(/^\//,'') && location.hostname === window.location.hostname) {
         var target = jQuery(window.location.hash);
         if (target.length) {
             jQuery('html,body').animate({
@@ -221,7 +230,7 @@ function zerif_lite_scrolled() {
         var isInOneSection = 'no';                              // used for checking if the cursor is in one section or not
 
         // for all sections check if the cursor is inside a section
-        jQuery("section, header").each( function() {
+        jQuery('section, header').each( function() {
             var thisID = '#' + jQuery(this).attr('id');           // section id
             var zerif_offset = jQuery(this).offset().top;         // distance between top and our section
             var thisHeight  = jQuery(this).outerHeight();         // section height
@@ -235,19 +244,13 @@ function zerif_lite_scrolled() {
                 jQuery('#site-navigation a[href$="' + thisID + '"]').parent('li').addClass('current');    // find the menu button with the same ID section
                 return false;
             }
-            if (isInOneSection == 'no') {
+            if (isInOneSection === 'no') {
                 jQuery('#site-navigation .current').removeClass('current');
             }
         });
     }
 }
 jQuery(window).on('scroll',zerif_lite_scrolled);
-
-/* ================================
-
- ===  PARALLAX                  ====
-
- ================================= */
 
 jQuery(document).ready(function(){
 
@@ -285,7 +288,7 @@ jQuery(document).ready(function(){
 
 jQuery(function() {
 
-    jQuery(".skill1").knob({
+    jQuery('.skill1').knob({
 
         'max':100,
 
@@ -301,7 +304,7 @@ jQuery(function() {
 
     });
 
-    jQuery(".skill2").knob({
+    jQuery('.skill2').knob({
 
         'max':100,
 
@@ -317,7 +320,7 @@ jQuery(function() {
 
     });
 
-    jQuery(".skill3").knob({
+    jQuery('.skill3').knob({
 
         'max': 100,
 
@@ -333,7 +336,7 @@ jQuery(function() {
 
     });
 
-    jQuery(".skill4").knob({
+    jQuery('.skill4').knob({
 
         'max': 100,
 
@@ -436,7 +439,8 @@ var callback_menu_align = function () {
             headerWrap.removeClass(classToAdd);
         }
     }
-}
+};
+
 jQuery(window).load(callback_menu_align);
 jQuery(window).resize(callback_menu_align);
 
@@ -470,7 +474,7 @@ if( isMobile.any() ) {
         jQuery(this).addClass('team-member-open');
         event.stopPropagation();
     });
-    jQuery("html").click(function() {
+    jQuery('html').click(function() {
         jQuery('.team-member-open').removeClass('team-member-open');
     });
 
@@ -488,7 +492,7 @@ if( isMobile.any() ) {
             event.stopPropagation();
         }
     });
-    jQuery("html").click(function() {
+    jQuery('html').click(function() {
         jQuery('.cbp-rfgrid-tr').css('display','block');
         jQuery('.cbp-rfgrid-open').removeClass('cbp-rfgrid-open');
     });
@@ -521,14 +525,14 @@ function zerif_home_latest_news(){
 
 jQuery(document).ready(function(){
 
-    if (document.createElement("input").placeholder == undefined) {
+    if (document.createElement('input').placeholder === undefined) {
 
         jQuery('.contact-form input, .contact-form textarea').focus(function () {
-            if ( (jQuery(this).attr('placeholder') != '') && (jQuery(this).val() == jQuery(this).attr('placeholder')) ) {
+            if ( (jQuery(this).attr('placeholder') !== '') && (jQuery(this).val() === jQuery(this).attr('placeholder')) ) {
                 jQuery(this).val('').removeClass('zerif-hasPlaceholder');
             }
         }).blur(function () {
-            if ( (jQuery(this).attr('placeholder') != '') && (jQuery(this).val() == '' || (jQuery(this).val() == jQuery(this).attr('placeholder')))) {
+            if ( (jQuery(this).attr('placeholder') !== '') && (jQuery(this).val() === '' || (jQuery(this).val() === jQuery(this).attr('placeholder')))) {
                 jQuery(this).val(jQuery(this).attr('placeholder')).addClass('zerif-hasPlaceholder');
             }
         });
@@ -597,7 +601,7 @@ jQuery(document).ready(function(){
 });
 
 jQuery(window).resize(function() {
-    if( window_width_old != jQuery('.container').outerWidth() && exist_class === true ){
+    if( window_width_old !== jQuery('.container').outerWidth() && exist_class === true ){
         window_width_old = jQuery('.container').outerWidth();
         if( window_width_old < 970 ) {
             jQuery('.testimonial-masonry').zerifgridpinterest({columns: 1,selector: '.feedback-box'});
@@ -640,7 +644,7 @@ jQuery(window).resize(function() {
             classname = this.element.className;
         }
         var my_id;
-        if( this.element.id == '' ) {
+        if( this.element.id === '' ) {
             my_id = prefix+'_id_' + self.make_unique();
         } else {
             my_id = this.element.id;
@@ -675,8 +679,8 @@ jQuery(window).resize(function() {
         $container.remove();
     }
     ZerifGridPinterest.prototype.make_unique = function () {
-        var text = "";
-        var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        var text = '';
+        var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
         for( var i=0; i<10; i++ )
             text += possible.charAt(Math.floor(Math.random() * possible.length));
         return text;
@@ -706,7 +710,7 @@ jQuery( window ).resize( mobile_bg_fix );
 function mobile_bg_fix() {
     if( isMobile.any() && jQuery( 'body.custom-background' ) ){
         var viewMode = type_view();
-        if ( initViewMode != viewMode || onlyInit == true ) {
+        if ( initViewMode !== viewMode || onlyInit == true ) {
             jQuery( '.mobile-bg-fix-img' ).css( {
                 'width' : window.innerWidth,
                 'height': window.innerHeight + 100
@@ -788,13 +792,13 @@ function type_view() {
         itemWrap = $container.find( 'ul' )[0];
       }
       var windowsWidth = window.innerWidth;
-	  if( typeof itemWrap != 'undefined' ) {
+	  if( typeof itemWrap !== 'undefined' ) {
 		  var itemId = '#' + itemWrap.id;
 		  $( itemId ).children( 'li' ).each( function() {
 			if ( this.id == '' ) { return; }
 			var max_deep = self.max_deep( '#'+this.id );
-			var offsetLeft        = $( "#"+this.id ).offset().left;
-			var submenuWidthItem  = $( "#"+this.id ).find( 'ul' ).width();
+			var offsetLeft        = $( '#'+this.id ).offset().left;
+			var submenuWidthItem  = $( '#'+this.id ).find( 'ul' ).width();
 			var submenuTotalWidth = max_deep * submenuWidthItem;
 			if( submenuTotalWidth > 0 && windowsWidth < offsetLeft + submenuTotalWidth ) {
 			  if( self.options.allItems === true ) {
@@ -811,8 +815,8 @@ function type_view() {
     ZerifSubmenuOrientation.prototype.max_deep = function ( item ) {
       var maxDepth      = -1, 
           currentDepth  = -1;
-      $( item + " li:not(:has(ul))").each(function() {
-        currentDepth = $(this).parents("ul").length;
+      $( item + ' li:not(:has(ul))').each(function() {
+        currentDepth = $(this).parents('ul').length;
         if (currentDepth > maxDepth) {
            maxDepth = currentDepth;
         }

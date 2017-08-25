@@ -4,6 +4,12 @@
  *
  * @since  2.0.5
  * @access public
+ *
+ * @package zerif-lite
+ */
+
+/**
+ * Class Zerif_Customizer_Upsell
  */
 final class Zerif_Customizer_Upsell {
 	/**
@@ -47,7 +53,6 @@ final class Zerif_Customizer_Upsell {
 	 *
 	 * @since  2.0.5
 	 * @access public
-	 * @param  object  $manager
 	 * @return void
 	 */
 	public function sections( $manager ) {
@@ -58,27 +63,33 @@ final class Zerif_Customizer_Upsell {
 		$manager->register_section_type( 'Zerif_Customizer_Upsell_Pro' );
 		$manager->register_section_type( 'Zerif_Customizer_Upsell_Features' );
 
-		$manager->add_section( new Zerif_Customizer_Upsell_Pro( $manager, 'zerif-upsell-pro',
+		$manager->add_section(
+			new Zerif_Customizer_Upsell_Pro(
+				$manager, 'zerif-upsell-pro',
 				array(
-					'upsell_title' => __('View PRO version', 'zerif-lite'),
-					'label_url' => 'http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/',
-					'label_text' => __('Get it', 'zerif-lite'),
+					'upsell_title' => __( 'View PRO version', 'zerif-lite' ),
+					'label_url' => 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/upgrade/',
+					'label_text' => __( 'Get it', 'zerif-lite' ),
 				)
 			)
 		);
 
-		$manager->add_section( new Zerif_Customizer_Upsell_Features( $manager, 'zerif-upsell-features-1',
+		$manager->add_section(
+			new Zerif_Customizer_Upsell_Features(
+				$manager, 'zerif-upsell-features-1',
 				array(
-					'upsell_text'               => sprintf( '<a href="'.esc_url( 'http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ).'" target="_blank">%s</a>' , __( 'View PRO version','zerif-lite' ) ).'. '.__( 'It adds a background video and a background slider.', 'zerif-lite' ),
+					'upsell_text'               => sprintf( '<a href="' . esc_url( 'http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ) . '" target="_blank">%s</a>' , __( 'View PRO version','zerif-lite' ) ) . '. ' . __( 'It adds a background video and a background slider.', 'zerif-lite' ),
 					'panel'                     => 'panel_big_title',
 					'priority'                  => 500,
 				)
 			)
 		);
 
-		$manager->add_section( new Zerif_Customizer_Upsell_Features( $manager, 'zerif-upsell-features-2',
+		$manager->add_section(
+			new Zerif_Customizer_Upsell_Features(
+				$manager, 'zerif-upsell-features-2',
 				array(
-					'upsell_text'               => sprintf( '<a href="'.esc_url( 'http://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/' ).'" target="_blank">%s</a>' , __( 'View PRO version','zerif-lite' ) ).'. '.__( 'It adds 5 new sections, the ability to re-order existing ones and easily add custom content to frontpage.', 'zerif-lite' ),
+					'upsell_text'               => sprintf( '<a href="' . esc_url( 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/upgrade/' ) . '" target="_blank">%s</a>' , __( 'View PRO version','zerif-lite' ) ) . '. ' . __( 'It adds 5 new sections, the ability to re-order existing ones and easily add custom content to frontpage.', 'zerif-lite' ),
 					'panel'                     => 'panel_general',
 					'priority'                  => 500,
 				)

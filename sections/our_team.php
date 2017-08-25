@@ -1,4 +1,9 @@
 <?php
+/**
+ * Our Team section
+ *
+ * @package zerif-lite
+ */
 
 zerif_before_our_team_trigger();
 
@@ -18,19 +23,20 @@ echo '<section class="our-team" id="team">';
 
 		echo '</div>';
 
-		if( is_active_sidebar( 'sidebar-ourteam' ) ) {
-			echo '<div class="row" data-scrollreveal="enter left after 0s over 0.1s">';
-				dynamic_sidebar( 'sidebar-ourteam' );
-			echo '</div> ';
-		} elseif ( current_user_can( 'edit_theme_options' ) ) {
+if ( is_active_sidebar( 'sidebar-ourteam' ) ) {
+	echo '<div class="row" data-scrollreveal="enter left after 0s over 0.1s">';
+	dynamic_sidebar( 'sidebar-ourteam' );
+	echo '</div> ';
+} elseif ( current_user_can( 'edit_theme_options' ) ) {
 
-			if ( is_customize_preview() ) {
-				printf( __( 'Add widgets in this area by going to the %s','zerif-lite' ), __( 'Our team section','zerif-lite' ) );
-			} else {
-				printf( __( 'Add widgets in this area by going to the %s','zerif-lite' ), sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;section&#93;=sidebar-widgets-sidebar-ourteam' ) ), __( 'Our team section','zerif-lite' ) ) );
-			}
-
-		}
+	if ( is_customize_preview() ) {
+		/* translators: Our team section */
+		printf( __( 'Add widgets in this area by going to the %s','zerif-lite' ), __( 'Our team section','zerif-lite' ) );
+	} else {
+		/* translators: Our team section in customizer */
+		printf( __( 'Add widgets in this area by going to the %s','zerif-lite' ), sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;section&#93;=sidebar-widgets-sidebar-ourteam' ) ), __( 'Our team section','zerif-lite' ) ) );
+	}
+}
 
 	echo '</div>';
 
@@ -39,4 +45,4 @@ echo '<section class="our-team" id="team">';
 echo '</section>';
 
 zerif_after_our_team_trigger();
-?>
+

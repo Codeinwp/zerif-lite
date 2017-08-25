@@ -1,6 +1,8 @@
 <?php
 /**
  * The template used for displaying page content in page.php
+ *
+ * @package zerif-lite
  */
 
 ?>
@@ -9,19 +11,20 @@
 	<div class="entry-content">
 
 		<?php
-			/* translators: %s: Name of current post */
-			the_content( sprintf(
-				__( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'zerif-lite' ),
-				the_title( '<span class="screen-reader-text">', '</span>', false )
-			) );
-		
-			wp_link_pages( array(
+			the_content(
+				sprintf(
+					/* translators: %s: Name of current post */
+					__( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'zerif-lite' ),
+					the_title( '<span class="screen-reader-text">', '</span>', false )
+				)
+			);
 
-				'before' => '<div class="page-links">' . __( 'Pages:', 'zerif-lite' ),
-
-				'after'  => '</div>',
-
-			) );
+			wp_link_pages(
+				array(
+					'before' => '<div class="page-links">' . __( 'Pages:', 'zerif-lite' ),
+					'after'  => '</div>',
+				)
+			);
 
 		?>
 

@@ -1,7 +1,10 @@
 <?php
 /**
  * The Template for displaying all single posts.
+ *
+ * @package zerif-lite
  */
+
 get_header(); ?>
 
 <div class="clear"></div>
@@ -19,7 +22,8 @@ get_header(); ?>
 					while ( have_posts() ) :
 						the_post();
 						get_template_part( 'content', 'single-download' );
-					endwhile; // end of the loop. ?>
+					endwhile; // end of the loop.
+					?>
 				</main><!-- #main -->
 			</div><!-- #primary -->
 			<?php zerif_bottom_single_post_trigger(); ?>

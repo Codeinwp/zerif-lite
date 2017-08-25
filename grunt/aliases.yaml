@@ -1,3 +1,5 @@
-
-travis:
-  - 'phplint'
+#Check code of the theme
+check:
+  - 'phpcbf'
+  - 'makepot'
+  - 'travis'

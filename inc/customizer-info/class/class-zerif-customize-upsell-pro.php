@@ -4,6 +4,12 @@
  *
  * @since  2.0.5
  * @access public
+ *
+ * @package zerif-lite
+ */
+
+/**
+ * Class Zerif_Customizer_Upsell_Pro
  */
 class Zerif_Customizer_Upsell_Pro extends WP_Customize_Section {
 	/**
@@ -43,13 +49,12 @@ class Zerif_Customizer_Upsell_Pro extends WP_Customize_Section {
 	 *
 	 * @since  2.0.5
 	 * @access public
-	 * @return void
 	 */
 	public function json() {
 		$json = parent::json();
 		$json['upsell_title'] = $this->upsell_title;
 		$json['label_text'] = $this->label_text;
-		$json['label_url'] = esc_url($this->label_url);
+		$json['label_url'] = esc_url( $this->label_url );
 		return $json;
 	}
 	/**
@@ -59,7 +64,8 @@ class Zerif_Customizer_Upsell_Pro extends WP_Customize_Section {
 	 * @access public
 	 * @return void
 	 */
-	protected function render_template() { ?>
+	protected function render_template() {
+	?>
 
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} cannot-expand">
 			<h3 class="accordion-section-title">

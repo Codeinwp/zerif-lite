@@ -28,7 +28,7 @@ jQuery(document).ready(function () {
             data: {action: 'ti_customizer_notify_dismiss_recommended_action', id: id, todo: action},
             dataType: 'html',
             url: tiCustomizerNotifyObject.ajaxurl,
-            beforeSend: function (data, settings) {
+            beforeSend: function () {
                 jQuery('#' + id).parent().append('<div id="temp_load" style="text-align:center"><img src="' + tiCustomizerNotifyObject.base_path + '/images/spinner-2x.gif" /></div>');
             },
             success: function (data) {
@@ -65,7 +65,7 @@ jQuery(document).ready(function () {
             data: {action: 'ti_customizer_notify_dismiss_recommended_plugins', id: id, todo: action},
             dataType: 'html',
             url: tiCustomizerNotifyObject.ajaxurl,
-            beforeSend: function (data, settings) {
+            beforeSend: function () {
                 jQuery('#' + id).parent().append('<div id="temp_load" style="text-align:center"><img src="' + tiCustomizerNotifyObject.base_path + '/images/spinner-2x.gif" /></div>');
             },
             success: function (data) {
@@ -98,7 +98,7 @@ jQuery(document).ready(function () {
                     async: true,
                     type: 'GET',
                     url: url,
-                    success: function (data) {
+                    success: function () {
                         //Reload the page.
                         location.reload();
                     }

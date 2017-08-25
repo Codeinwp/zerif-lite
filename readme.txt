@@ -1,5 +1,5 @@
 === Zerif Lite ===
-Contributors:		codeinwp
+Contributors:		codeinwp,uriahs-victor,hardeepasrani, rodicaelena
 Tags:				one-column, two-columns, right-sidebar,full-width-template,rtl-language-support,sticky-post,theme-options, custom-background, custom-menu, editor-style, featured-images, threaded-comments, translation-ready, footer-widgets, portfolio, e-commerce, blog
 Requires at least:	3.3.0
 Tested up to:		4.4

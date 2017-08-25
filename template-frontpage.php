@@ -1,12 +1,14 @@
 <?php
 /**
  * Template Name: Frontpage
+ *
+ * @package zerif-lite
  */
 get_header();
 
-$zerif_bigtitle_show = get_theme_mod('zerif_bigtitle_show');
+$zerif_bigtitle_show = get_theme_mod( 'zerif_bigtitle_show' );
 
-if( isset($zerif_bigtitle_show) && $zerif_bigtitle_show != 1 ):
+if ( isset( $zerif_bigtitle_show ) && $zerif_bigtitle_show != 1 ) :
 
 	get_template_part( 'sections/big_title' );
 
@@ -22,9 +24,9 @@ endif;
 
 	/* OUR FOCUS SECTION */
 
-	$zerif_ourfocus_show = get_theme_mod('zerif_ourfocus_show');
+	$zerif_ourfocus_show = get_theme_mod( 'zerif_ourfocus_show' );
 
-	if( isset($zerif_ourfocus_show) && $zerif_ourfocus_show != 1 ):
+	if ( isset( $zerif_ourfocus_show ) && $zerif_ourfocus_show != 1 ) :
 
 		zerif_before_our_focus_trigger();
 
@@ -40,9 +42,9 @@ endif;
 
 	/* ABOUT US */
 
-	$zerif_aboutus_show = get_theme_mod('zerif_aboutus_show');
+	$zerif_aboutus_show = get_theme_mod( 'zerif_aboutus_show' );
 
-	if( isset($zerif_aboutus_show) && $zerif_aboutus_show != 1 ):
+	if ( isset( $zerif_aboutus_show ) && $zerif_aboutus_show != 1 ) :
 
 		zerif_before_about_us_trigger();
 
@@ -54,9 +56,9 @@ endif;
 
 	/* OUR TEAM */
 
-	$zerif_ourteam_show = get_theme_mod('zerif_ourteam_show');
+	$zerif_ourteam_show = get_theme_mod( 'zerif_ourteam_show' );
 
-	if( isset($zerif_ourteam_show) && $zerif_ourteam_show != 1 ):
+	if ( isset( $zerif_ourteam_show ) && $zerif_ourteam_show != 1 ) :
 
 		zerif_before_our_team_trigger();
 
@@ -68,9 +70,9 @@ endif;
 
 	/* TESTIMONIALS */
 
-	$zerif_testimonials_show = get_theme_mod('zerif_testimonials_show');
+	$zerif_testimonials_show = get_theme_mod( 'zerif_testimonials_show' );
 
-	if( isset($zerif_testimonials_show) && $zerif_testimonials_show != 1 ):
+	if ( isset( $zerif_testimonials_show ) && $zerif_testimonials_show != 1 ) :
 
 		zerif_before_testimonials_trigger();
 
@@ -85,9 +87,9 @@ endif;
 	get_template_part( 'sections/ribbon_with_right_button' );
 
 	/* LATEST NEWS */
-	$zerif_latestnews_show = get_theme_mod('zerif_latestnews_show');
+	$zerif_latestnews_show = get_theme_mod( 'zerif_latestnews_show' );
 
-	if( isset($zerif_latestnews_show) && $zerif_latestnews_show != 1 ):
+	if ( isset( $zerif_latestnews_show ) && $zerif_latestnews_show != 1 ) :
 
 		zerif_before_latest_news_trigger();
 
@@ -98,9 +100,9 @@ endif;
 	endif;
 
 	/* CONTACT US */
-	$zerif_contactus_show = get_theme_mod('zerif_contactus_show');
+	$zerif_contactus_show = get_theme_mod( 'zerif_contactus_show' );
 
-	if( isset($zerif_contactus_show) && $zerif_contactus_show != 1 ):
+	if ( isset( $zerif_contactus_show ) && $zerif_contactus_show != 1 ) :
 		?>
 		<section class="contact-us" id="contact">
 			<div class="container">
@@ -114,14 +116,15 @@ endif;
 					} else {
 						$zerif_contactus_title = get_theme_mod( 'zerif_contactus_title' );
 					}
-					if ( !empty($zerif_contactus_title) ):
-						echo '<h2 class="white-text">'.wp_kses_post( $zerif_contactus_title ).'</h2>';
-					elseif ( is_customize_preview() ):
+					if ( ! empty( $zerif_contactus_title ) ) :
+						echo '<h2 class="white-text">' . wp_kses_post( $zerif_contactus_title ) . '</h2>';
+					elseif ( is_customize_preview() ) :
 						echo '<h2 class="white-text zerif_hidden_if_not_customizer"></h2>';
 					endif;
 
 					$contactus_subtitle_default = '';
-					if( ! defined("PIRATE_FORMS_VERSION") ) {
+					if ( ! defined( 'PIRATE_FORMS_VERSION' ) ) {
+						/* translators: Pirate Forms plugin install link */
 						$contactus_subtitle_default = sprintf( __( 'You need to install %s to create a contact form.','zerif-lite' ), sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=pirate-forms' ), 'install-plugin_pirate-forms' ) ), 'Pirate Forms' ) );
 					}
 
@@ -131,7 +134,7 @@ endif;
 						$zerif_contactus_subtitle = get_theme_mod( 'zerif_contactus_subtitle' );
 					}
 
-					if( ! empty( $zerif_contactus_subtitle) ) {
+					if ( ! empty( $zerif_contactus_subtitle ) ) {
 						echo '<div class="white-text section-legend">' . wp_kses_post( $zerif_contactus_subtitle ) . '</div>';
 					} elseif ( is_customize_preview() ) {
 						echo '<h6 class="white-text section-legend zerif_hidden_if_not_customizer"></h6>';
@@ -141,13 +144,14 @@ endif;
 				<!-- / END SECTION HEADER -->
 
 				<?php
-				if ( defined('PIRATE_FORMS_VERSION') && shortcode_exists( 'pirate_forms' ) ):
+				if ( defined( 'PIRATE_FORMS_VERSION' ) && shortcode_exists( 'pirate_forms' ) ) :
 
 					echo '<div class="row">';
-					echo do_shortcode('[pirate_forms]');
+					echo do_shortcode( '[pirate_forms]' );
 					echo '</div>';
 
-				endif; ?>
+				endif;
+				?>
 
 			</div> <!-- / END CONTAINER -->
 

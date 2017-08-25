@@ -1,6 +1,13 @@
 <?php
+/**
+ * Zerif Lite Hooks
+ *
+ * @package zerif-lite
+ */
 
-/**************** 404 page *********************/
+/**
+ * 404 page
+ */
 
 /**
  * Title of 404 pages
@@ -60,7 +67,6 @@ function zerif_bottom_sidebar_trigger() {
 
 /**
  * Sidebar
- *
  */
 function zerif_sidebar_trigger() {
 	do_action( 'zerif_sidebar' );
@@ -523,7 +529,6 @@ function zerif_big_title_buttons_bottom_trigger() {
 
 /**
  * Big title section text
- *
  */
 function zerif_big_title_text_trigger() {
 	do_action( 'zerif_big_title_text' );

@@ -1,125 +1,132 @@
 <?php
+/**
+ * Ribbon with right button section
+ *
+ * @package zerif-lite
+ */
 
-	$zerif_ribbonright_text = get_theme_mod( 'zerif_ribbonright_text' );
-	$zerif_ribbonright_buttonlabel = get_theme_mod( 'zerif_ribbonright_buttonlabel' );
-	$zerif_ribbonright_buttonlink = get_theme_mod( 'zerif_ribbonright_buttonlink' );
+$zerif_ribbonright_text = get_theme_mod( 'zerif_ribbonright_text' );
 
-	/* For new users, add default values for the Ribbon section controls */
-	if ( ! zerif_check_if_old_version_of_theme() && current_user_can( 'edit_theme_options' ) ) {
-		$zerif_ribbonright_text = get_theme_mod( 'zerif_ribbonright_text', __( 'Change this text in RightButton Ribbon','zerif-lite' ) );
-		$zerif_ribbonright_buttonlabel = get_theme_mod( 'zerif_ribbonright_buttonlabel', __( 'Get in touch','zerif-lite' ) );
-		$zerif_ribbonright_buttonlink = get_theme_mod( 'zerif_ribbonright_buttonlink', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_ribbonright_buttonlink' ) ) );
+$zerif_ribbonright_buttonlabel = get_theme_mod( 'zerif_ribbonright_buttonlabel' );
+
+$zerif_ribbonright_buttonlink = get_theme_mod( 'zerif_ribbonright_buttonlink' );
+
+/* For new users, add default values for the Ribbon section controls */
+if ( ! zerif_check_if_old_version_of_theme() && current_user_can( 'edit_theme_options' ) ) {
+	$zerif_ribbonright_text = get_theme_mod( 'zerif_ribbonright_text', __( 'Change this text in RightButton Ribbon','zerif-lite' ) );
+	$zerif_ribbonright_buttonlabel = get_theme_mod( 'zerif_ribbonright_buttonlabel', __( 'Get in touch','zerif-lite' ) );
+	$zerif_ribbonright_buttonlink = get_theme_mod( 'zerif_ribbonright_buttonlink', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_ribbonright_buttonlink' ) ) );
+}
+
+if ( ! empty( $zerif_ribbonright_text ) ) {
+
+	if ( ! empty( $zerif_ribbonright_buttonlabel ) && ! empty( $zerif_ribbonright_buttonlink ) ) {
+
+		echo '<section class="purchase-now" id="ribbon_right">';
+
+	} else {
+
+		echo '<section class="purchase-now ribbon-without-button" id="ribbon_right">';
+
 	}
 
-	if( !empty($zerif_ribbonright_text) ):
+	echo '<div class="container">';
 
-		if( !empty($zerif_ribbonright_buttonlabel) && !empty($zerif_ribbonright_buttonlink) ):
+	echo '<div class="row">';
 
-			echo '<section class="purchase-now" id="ribbon_right">';
+	echo '<div class="col-md-9" data-scrollreveal="enter left after 0s over 1s">';
 
-		else:
+	echo '<h3 class="white-text">';
 
-			echo '<section class="purchase-now ribbon-without-button" id="ribbon_right">';
+	echo wp_kses_post( $zerif_ribbonright_text );
 
-		endif;
+	echo '</h3>';
 
-			echo '<div class="container">';
+	echo '</div>';
 
-				echo '<div class="row">';
+	if ( ! empty( $zerif_ribbonright_buttonlabel ) && ! empty( $zerif_ribbonright_buttonlink ) ) {
 
-					echo '<div class="col-md-9" data-scrollreveal="enter left after 0s over 1s">';
+		echo '<div class="col-md-3" data-scrollreveal="enter right after 0s over 1s">';
 
-						echo '<h3 class="white-text">';
+		echo '<a href="' . esc_url( $zerif_ribbonright_buttonlink ) . '" class="btn btn-primary custom-button red-btn">' . wp_kses_post( $zerif_ribbonright_buttonlabel ) . '</a>';
 
-							echo wp_kses_post( $zerif_ribbonright_text );
+		echo '</div>';
 
-						echo '</h3>';	
+	} elseif ( is_customize_preview() ) {
 
-					echo '</div>';
+		echo '<div class="col-md-3" data-scrollreveal="enter right after 0s over 1s">';
 
-					if( !empty($zerif_ribbonright_buttonlabel) && !empty($zerif_ribbonright_buttonlink) ):
+		echo '<a href="" class="btn btn-primary custom-button red-btn zerif_hidden_if_not_customizer"></a>';
 
-						echo '<div class="col-md-3" data-scrollreveal="enter right after 0s over 1s">';
+		echo '</div>';
 
-							echo '<a href="'.esc_url( $zerif_ribbonright_buttonlink ).'" class="btn btn-primary custom-button red-btn">'.wp_kses_post( $zerif_ribbonright_buttonlabel ).'</a>';
+	}
 
-						echo '</div>';
+	echo '</div>';
 
-					elseif ( is_customize_preview() ):
-						
-						echo '<div class="col-md-3" data-scrollreveal="enter right after 0s over 1s">';
+	echo '</div>';
 
-							echo '<a href="" class="btn btn-primary custom-button red-btn zerif_hidden_if_not_customizer"></a>';
+	echo '</section>';
 
-						echo '</div>';
-						
-					endif;
+} elseif ( is_customize_preview() ) {
 
-				echo '</div>';
+	$zerif_ribbonright_buttonlabel = get_theme_mod( 'zerif_ribbonright_buttonlabel' );
 
-			echo '</div>';
+	$zerif_ribbonright_buttonlink = get_theme_mod( 'zerif_ribbonright_buttonlink' );
 
-		echo '</section>';	
+	if ( ! empty( $zerif_ribbonright_buttonlabel ) && ! empty( $zerif_ribbonright_buttonlink ) ) {
 
-	elseif ( is_customize_preview() ):
+		echo '<section class="purchase-now zerif_hidden_if_not_customizer" id="ribbon_right">';
 
-		$zerif_ribbonright_buttonlabel = get_theme_mod('zerif_ribbonright_buttonlabel');
+	} else {
 
-		$zerif_ribbonright_buttonlink = get_theme_mod('zerif_ribbonright_buttonlink');
+		echo '<section class="purchase-now ribbon-without-button zerif_hidden_if_not_customizer" id="ribbon_right">';
 
-		if( !empty($zerif_ribbonright_buttonlabel) && !empty($zerif_ribbonright_buttonlink) ):
+	}
 
-			echo '<section class="purchase-now zerif_hidden_if_not_customizer" id="ribbon_right">';
+	echo '<div class="container">';
 
-		else:
+		echo '<div class="row">';
 
-			echo '<section class="purchase-now ribbon-without-button zerif_hidden_if_not_customizer" id="ribbon_right">';
+			echo '<div class="col-md-9" data-scrollreveal="enter left after 0s over 1s">';
 
-		endif;
-
-			echo '<div class="container">';
-
-				echo '<div class="row">';
-
-					echo '<div class="col-md-9" data-scrollreveal="enter left after 0s over 1s">';
-
-						echo '<h3 class="white-text"></h3>';	
-
-					echo '</div>';
-
-					if( !empty($zerif_ribbonright_buttonlabel) && !empty($zerif_ribbonright_buttonlink) ):
-
-
-						echo '<div class="col-md-3" data-scrollreveal="enter right after 0s over 1s">';
-
-
-							echo '<a href="'.esc_url($zerif_ribbonright_buttonlink).'" class="btn btn-primary custom-button red-btn">'.wp_kses_post($zerif_ribbonright_buttonlabel).'</a>';
-
-
-						echo '</div>';
-
-
-					elseif ( is_customize_preview() ):
-						
-						echo '<div class="col-md-3" data-scrollreveal="enter right after 0s over 1s">';
-
-
-							echo '<a href="" class="btn btn-primary custom-button red-btn zerif_hidden_if_not_customizer"></a>';
-
-
-						echo '</div>';
-						
-					endif;
-
-
-				echo '</div>';
-
+				echo '<h3 class="white-text"></h3>';
 
 			echo '</div>';
 
+	if ( ! empty( $zerif_ribbonright_buttonlabel ) && ! empty( $zerif_ribbonright_buttonlink ) ) {
 
-		echo '</section>';	
-	
-	endif;
 
-?>
+		echo '<div class="col-md-3" data-scrollreveal="enter right after 0s over 1s">';
+
+
+		echo '<a href="' . esc_url( $zerif_ribbonright_buttonlink ) . '" class="btn btn-primary custom-button red-btn">' . wp_kses_post( $zerif_ribbonright_buttonlabel ) . '</a>';
+
+
+		echo '</div>';
+
+
+	} elseif ( is_customize_preview() ) {
+
+		echo '<div class="col-md-3" data-scrollreveal="enter right after 0s over 1s">';
+
+
+		echo '<a href="" class="btn btn-primary custom-button red-btn zerif_hidden_if_not_customizer"></a>';
+
+
+		echo '</div>';
+
+	}
+
+
+	echo '</div>';
+
+
+	echo '</div>';
+
+
+	echo '</section>';
+
+}
+
+

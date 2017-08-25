@@ -1,4 +1,11 @@
-<?php zerif_before_our_focus_trigger(); ?>
+<?php
+/**
+ * Our Focus section
+ *
+ * @package zerif-lite
+ */
+
+zerif_before_our_focus_trigger(); ?>
 
 <section class="focus" id="focus">
 
@@ -34,11 +41,12 @@
 				} elseif ( current_user_can( 'edit_theme_options' ) && ! defined( 'THEMEISLE_COMPANION_VERSION' ) ) {
 
 					if ( is_customize_preview() ) {
+						/* translators: ThemeIsle Companion */
 						printf( __( 'You need to install the %s plugin to be able to add Team members, Testimonials, Our Focus and Clients widgets.','zerif-lite' ), 'ThemeIsle Companion' );
 					} else {
+						/* translators: ThemeIsle Companion install link */
 						printf( __( 'You need to install the %s plugin to be able to add Team members, Testimonials, Our Focus and Clients widgets.','zerif-lite' ), sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=themeisle-companion' ), 'install-plugin_themeisle-companion' ) ), 'ThemeIsle Companion' ) );
 					}
-
 				}
 				?>
 
