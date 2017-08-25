@@ -1,4 +1,8 @@
 
+### 1.8.5.27 - 25/08/2017
+**Changes:** 
+- Fixed some strings
+
 ### 1.8.5.26 - 25/08/2017
 **Changes:** 
 - Integrated with Grunt and fixed all the errors
