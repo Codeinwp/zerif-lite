@@ -1,4 +1,8 @@
 
+### 1.8.5.29 - 02/09/2017
+**Changes:** 
+- Fixed issue with images not appearing on the blog page
+
 ### 1.8.5.28 - 25/08/2017
 **Changes:** 
 - Recommend Elementor plugin
