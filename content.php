@@ -18,7 +18,7 @@
 
 				echo '<a href="' . esc_url( get_permalink() ) . '" title="' . the_title_attribute( 'echo=0' ) . '" >';
 
-					echo esc_url( $post_thumbnail_url );
+					echo $post_thumbnail_url;
 
 				echo '</a>';
 
