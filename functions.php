@@ -381,6 +381,9 @@ function zerif_setup() {
 					'slug' => 'elementor',
 				),
 				array(
+					'slug' => 'translatepress-multilingual',
+				),
+				array(
 					'slug' => 'siteorigin-panels',
 				),
 				array(
