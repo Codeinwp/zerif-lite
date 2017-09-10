@@ -946,8 +946,11 @@ if ( ! class_exists( 'zerif_ourfocus' ) && zerif_check_if_old_version_of_theme()
 					if ( ! empty( $instance['title'] ) ) {
 
 						echo '<span class="sr-only">';
-						_e( 'Go to', 'zerif-lite' );
-						echo apply_filters( 'widget_title', $instance['title'] );
+						printf(
+							/* Translators: %s: widget title */
+							__( 'Go to %s', 'zerif-lite' ),
+							apply_filters( 'widget_title', $instance['title'] )
+						);
 						echo '</span>';
 
 					}
