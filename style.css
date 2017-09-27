@@ -2569,6 +2569,7 @@ ul.nav > li.current_page_item.current > a:before {
 	margin-bottom: 0;
 	font-weight: 700;
 	text-transform: uppercase;
+	overflow: hidden;
 }
 .skills .skill p {
 	color: #8f8f8f;
