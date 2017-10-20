@@ -396,9 +396,6 @@ function zerif_setup() {
 					'slug' => 'visualizer',
 				),
 				array(
-					'slug' => 'adblock-notify-by-bweb',
-				),
-				array(
 					'slug' => 'nivo-slider-lite',
 				),
 			),
