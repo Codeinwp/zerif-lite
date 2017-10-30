@@ -1,4 +1,11 @@
 
+### 1.8.5.30 - 30/10/2017
+**Changes:** 
+- Updated Travis and grunt scripts to latest versions
+- Fixed small issue with the Skill circles texts not floating properly in the About section
+- Added recommendations for TranslatePress and Elementor plugins
+- Fixed problem with logo migration for old sites
+
 ### 1.8.5.29 - 02/09/2017
 **Changes:** 
 - Fixed issue with images not appearing on the blog page
