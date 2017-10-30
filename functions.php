@@ -378,7 +378,7 @@ function zerif_setup() {
 			'deactivate_label' => esc_html__( 'Deactivate', 'zerif-lite' ),
 			'content'                   => array(
 				array(
-					'slug' => 'elementor',
+					'slug' => 'translatepress-multilingual',
 				),
 				array(
 					'slug' => 'siteorigin-panels',
@@ -424,6 +424,19 @@ function zerif_setup() {
 			),
 		),
 	);
+
+	/*
+	* Add recommendation for Elementor plugin, after 5 days of installing the theme
+	**/
+	if ( ! defined( 'ELEMENTOR_VERSION' ) && zerif_check_passed_time( '259200' ) ) {
+		$elementor_array = array(
+			'slug' => 'elementor',
+		);
+		if ( ! empty( $config['recommended_plugins']['content'] ) ) {
+			array_push( $config['recommended_plugins']['content'], $elementor_array );
+		}
+	}
+
 	TI_About_Page::init( $config );
 
 	/*
@@ -464,14 +477,8 @@ function zerif_migrate_logo() {
 		$zerif_old_logo_id = attachment_url_to_postid( $zerif_old_logo );
 		if ( is_int( $zerif_old_logo_id ) ) {
 			set_theme_mod( 'custom_logo', $zerif_old_logo_id );
-
-			$zerif_migrated_logo = get_theme_mod( 'custom_logo' );
-			if ( ! empty( $zerif_migrated_logo ) ) {
-				if ( $zerif_migrated_logo == $zerif_old_logo_id ) {
-					remove_theme_mod( 'zerif_logo' );
-				}
-			}
 		}
+		remove_theme_mod( 'zerif_logo' );
 	}
 }
 
@@ -1924,3 +1931,26 @@ function zerif_bb_upgrade_link() {
 }
 
 add_filter( 'fl_builder_upgrade_url', 'zerif_bb_upgrade_link' );
+
+
+/**
+ * Check if $no_seconds have passed since theme was activated.
+ * Used to perform certain actions, like adding a new recommended action in About Zerif page.
+ *
+ * @since 1.8.5.31
+ * @access public
+ * @return bool
+ */
+function zerif_check_passed_time( $no_seconds ) {
+	$activation_time = get_option( 'zerif_time_activated' );
+	if ( ! empty( $activation_time ) ) {
+		$current_time    = time();
+		$time_difference = (int) $no_seconds;
+		if ( $current_time >= $activation_time + $time_difference ) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	return true;
+}
