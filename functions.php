@@ -394,7 +394,7 @@ function zerif_setup() {
 				),
 				array(
 					'slug' => 'adblock-notify-by-bweb',
-				),	
+				),
 				array(
 					'slug' => 'nivo-slider-lite',
 				),
@@ -429,7 +429,9 @@ function zerif_setup() {
 	* Add recommendation for Elementor plugin, after 5 days of installing the theme
 	**/
 	if ( ! defined( 'ELEMENTOR_VERSION' ) && zerif_check_passed_time( '259200' ) ) {
-		$elementor_array = array( 'slug' => 'elementor' );
+		$elementor_array = array(
+			'slug' => 'elementor',
+		);
 		if ( ! empty( $config['recommended_plugins']['content'] ) ) {
 			array_push( $config['recommended_plugins']['content'], $elementor_array );
 		}
@@ -476,7 +478,7 @@ function zerif_migrate_logo() {
 		if ( is_int( $zerif_old_logo_id ) ) {
 			set_theme_mod( 'custom_logo', $zerif_old_logo_id );
 		}
-        remove_theme_mod( 'zerif_logo' );
+		remove_theme_mod( 'zerif_logo' );
 	}
 }
 
