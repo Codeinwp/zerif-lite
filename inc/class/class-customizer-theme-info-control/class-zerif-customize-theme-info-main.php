@@ -62,8 +62,8 @@ class Zerif_Customizer_Theme_Info_Main extends WP_Customize_Section {
 		$json = parent::json();
 
 		$json['theme_info_title'] = $this->theme_info_title;
-		$json['label_text']   = $this->label_text;
-		$json['label_url']    = esc_url( $this->label_url );
+		$json['label_text']       = $this->label_text;
+		$json['label_url']        = esc_url( $this->label_url );
 
 		return $json;
 	}

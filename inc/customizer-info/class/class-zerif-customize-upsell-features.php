@@ -67,7 +67,7 @@ class Zerif_Customizer_Upsell_Features extends WP_Customize_Section {
 	 * @access public
 	 */
 	public function json() {
-		$json = parent::json();
+		$json                = parent::json();
 		$json['upsell_text'] = wp_kses_post( $this->upsell_text );
 		return $json;
 	}

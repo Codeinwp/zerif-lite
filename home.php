@@ -9,7 +9,7 @@ get_header();
 
 if ( ! zerif_check_if_old_version_of_theme() ) {
 
-	$blog_header_title = get_theme_mod( 'zerif_blog_header_title', esc_html__( 'Blog', 'zerif-lite' ) );
+	$blog_header_title    = get_theme_mod( 'zerif_blog_header_title', esc_html__( 'Blog', 'zerif-lite' ) );
 	$blog_header_subtitle = get_theme_mod( 'zerif_blog_header_subtitle', esc_html__( 'Zerif supports a custom frontpage', 'zerif-lite' ) );
 
 	if ( ! empty( $blog_header_title ) || ! empty( $blog_header_subtitle ) ) { ?>

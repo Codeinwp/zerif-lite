@@ -22,11 +22,11 @@
 					$image_url_mobile = wp_get_attachment_image_url( $image_id, 'zerif-post-thumbnail-large-mobile', true );
 				?>
 
-                <picture>
-                    <source media="(max-width: 600px)" srcset="<?php echo esc_url( $image_url_mobile ); ?>">
-                    <source media="(max-width: 768px)" srcset="<?php echo esc_url( $image_url_tablet ); ?>">
-                    <img src="<?php echo esc_url( $image_url_big ); ?>" alt="<?php the_title_attribute(); ?>">
-                </picture>
+				<picture>
+					<source media="(max-width: 600px)" srcset="<?php echo esc_url( $image_url_mobile ); ?>">
+					<source media="(max-width: 768px)" srcset="<?php echo esc_url( $image_url_tablet ); ?>">
+					<img src="<?php echo esc_url( $image_url_big ); ?>" alt="<?php the_title_attribute(); ?>">
+				</picture>
 
 			</a>
 

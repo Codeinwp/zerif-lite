@@ -112,7 +112,7 @@ endif;
 					<?php
 
 					if ( current_user_can( 'edit_theme_options' ) ) {
-						$zerif_contactus_title = get_theme_mod( 'zerif_contactus_title', sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_contactus_title' ) ), __( 'Get in touch','zerif-lite' ) ) );
+						$zerif_contactus_title = get_theme_mod( 'zerif_contactus_title', sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_contactus_title' ) ), __( 'Get in touch', 'zerif-lite' ) ) );
 					} else {
 						$zerif_contactus_title = get_theme_mod( 'zerif_contactus_title' );
 					}
@@ -125,7 +125,7 @@ endif;
 					$contactus_subtitle_default = '';
 					if ( ! defined( 'PIRATE_FORMS_VERSION' ) ) {
 						/* translators: Pirate Forms plugin install link */
-						$contactus_subtitle_default = sprintf( __( 'You need to install %s to create a contact form.','zerif-lite' ), sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=pirate-forms' ), 'install-plugin_pirate-forms' ) ), 'Pirate Forms' ) );
+						$contactus_subtitle_default = sprintf( __( 'You need to install %s to create a contact form.', 'zerif-lite' ), sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=pirate-forms' ), 'install-plugin_pirate-forms' ) ), 'Pirate Forms' ) );
 					}
 
 					if ( current_user_can( 'edit_theme_options' ) ) {

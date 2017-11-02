@@ -5,7 +5,7 @@
  * @package zerif-lite
  */
 
-$customizer_url = admin_url() . 'customize.php' ;
+$customizer_url = admin_url() . 'customize.php';
 ?>
 
 <div id="getting_started" class="zerif-lite-tab-pane active">
@@ -18,7 +18,7 @@ $customizer_url = admin_url() . 'customize.php' ;
 ?>
 <sup id="zerif-lite-theme-version"><?php echo esc_attr( $zerif_lite['Version'] ); ?> </sup><?php endif; ?></h1>
 
-		<p><?php esc_html_e( 'Our most popular free one page WordPress theme, Zerif Lite!','zerif-lite' ); ?></p>
+		<p><?php esc_html_e( 'Our most popular free one page WordPress theme, Zerif Lite!', 'zerif-lite' ); ?></p>
 		<p><?php esc_html_e( 'We want to make sure you have the best experience using Zerif Lite and that is why we gathered here all the necessary informations for you. We hope you will enjoy using Zerif Lite, as much as we enjoy creating great products.', 'zerif-lite' ); ?>
 
 	</div>
@@ -29,7 +29,7 @@ $customizer_url = admin_url() . 'customize.php' ;
 
 		<h1><?php esc_html_e( 'Getting started', 'zerif-lite' ); ?></h1>
 
-		<h4><?php esc_html_e( 'Customize everything in a single place.' ,'zerif-lite' ); ?></h4>
+		<h4><?php esc_html_e( 'Customize everything in a single place.', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'Using the WordPress Customizer you can easily customize every aspect of the theme.', 'zerif-lite' ); ?></p>
 		<p><a href="<?php echo esc_url( $customizer_url ); ?>" class="button button-primary"><?php esc_html_e( 'Go to Customizer', 'zerif-lite' ); ?></a></p>
 

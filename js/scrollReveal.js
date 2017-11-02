@@ -1,4 +1,4 @@
-/*
+;/*
 
                        _ _ _____                      _   _
 
@@ -32,574 +32,434 @@
 
     scrollReveal.js, © 2014 https://twitter.com/julianlloyd
 
-*/
+*/(function (window) {
 
+	'use strict';
 
+	var docElem = window.document.documentElement;
 
-;(function (window) {
+	function getViewportH () {
 
+		var client = docElem['clientHeight'],
 
+		inner = window['innerHeight'];
 
-  'use strict';
+		return (client < inner) ? inner : client;
 
+	}
 
+	function getOffset (el) {
 
-  var docElem = window.document.documentElement;
+		var offsetTop = 0,
 
+		offsetLeft = 0;
 
+		do {
 
-  function getViewportH () {
+			if ( ! isNaN( el.offsetTop )) {
 
-    var client = docElem['clientHeight'],
+				offsetTop += el.offsetTop;
 
-      inner = window['innerHeight'];
+			}
 
+			if ( ! isNaN( el.offsetLeft )) {
 
+				offsetLeft += el.offsetLeft;
 
-    return (client < inner) ? inner : client;
+			}
 
-  }
+		} while (el = el.offsetParent) {
+			return top: offsetTop,
 
+			left: offsetLeft
 
+		}
 
-  function getOffset (el) {
+	}
 
-    var offsetTop = 0,
+	function isElementInViewport (el, h) {
 
-        offsetLeft = 0;
+		var scrolled = window.pageYOffset,
 
+		viewed = scrolled + getViewportH(),
 
+		elH = el.offsetHeight,
 
-    do {
+		elTop = getOffset( el ).top,
 
-      if (!isNaN(el.offsetTop)) {
+		elBottom = elTop + elH,
 
-        offsetTop += el.offsetTop;
+		h = h || 0;
 
-      }
+		return (elTop + elH * h) <= viewed && (elBottom) >= scrolled;
 
-      if (!isNaN(el.offsetLeft)) {
+	}
 
-        offsetLeft += el.offsetLeft;
+	function extend (a, b) {
 
-      }
+		for (var key in b) {
 
-    } while (el = el.offsetParent)
+			if (b.hasOwnProperty( key )) {
 
+				a[key] = b[key];
 
+			}
 
-    return {
+		}
 
-      top: offsetTop,
+		return a;
 
-      left: offsetLeft
+	}
 
-    }
+	function scrollReveal(options) {
 
-  }
+		this.options = extend( this.defaults, options );
 
+		this._init();
 
+	}
 
-  function isElementInViewport (el, h) {
+	scrollReveal.prototype = {
 
-    var scrolled = window.pageYOffset,
+		defaults: {
 
-        viewed = scrolled + getViewportH(),
+			axis: 'y',
 
-        elH = el.offsetHeight,
+			distance: '60px',
 
-        elTop = getOffset(el).top,
+			duration: '0.55s',
 
-        elBottom = elTop + elH,
+			delay: '0.15s',
 
-        h = h || 0;
+			// if 0, the element is considered in the viewport as soon as it enters
+			// if 1, the element is considered in the viewport when it's fully visible
+			viewportFactor: 0.33
 
+		},
 
+		/*=============================================================================*/
 
-    return (elTop + elH * h) <= viewed && (elBottom) >= scrolled;
+		_init: function () {
 
-  }
+			var self = this;
 
+			this.elems = Array.prototype.slice.call( docElem.querySelectorAll( '[data-scrollReveal]' ) );
 
+			this.scrolled = false;
 
-  function extend (a, b) {
+			// Initialize all scrollreveals, triggering all
+			// reveals on visible elements.
+			this.elems.forEach(
+				function (el, i) {
 
-    for (var key in b) {
+					self.animate( el );
 
-      if (b.hasOwnProperty(key)) {
+				}
+			);
 
-        a[key] = b[key];
+			var scrollHandler = function () {
 
-      }
+				if ( ! self.scrolled) {
 
-    }
+					self.scrolled = true;
 
-    return a;
+					setTimeout(
+						function () {
 
-  }
+							self._scrollPage();
 
+						}, 60
+					);
 
+				}
 
+			};
 
+			var resizeHandler = function () {
 
-  function scrollReveal(options) {
+				function delayed() {
 
-      this.options = extend(this.defaults, options);
+					self._scrollPage();
 
-      this._init();
+					self.resizeTimeout = null;
 
-  }
+				}
 
+				if (self.resizeTimeout) {
 
+					clearTimeout( self.resizeTimeout );
 
+				}
 
+				self.resizeTimeout = setTimeout( delayed, 200 );
 
+			};
 
+			window.addEventListener( 'scroll', scrollHandler, false );
 
-  scrollReveal.prototype = {
+			window.addEventListener( 'resize', resizeHandler, false );
 
-    defaults: {
+		},
 
-      axis: 'y',
+		/*=============================================================================*/
 
-      distance: '60px',
+		_scrollPage: function () {
 
-      duration: '0.55s',
+			var self = this;
 
-      delay: '0.15s',
+			this.elems.forEach(
+				function (el, i) {
 
+					if (isElementInViewport( el, self.options.viewportFactor )) {
 
+						self.animate( el );
 
-  //  if 0, the element is considered in the viewport as soon as it enters
+					}
 
-  //  if 1, the element is considered in the viewport when it's fully visible
+				}
+			);
 
-      viewportFactor: 0.33
+			this.scrolled = false;
 
-    },
+		},
 
+		/*=============================================================================*/
 
+		parseLanguage: function (el) {
 
-    /*=============================================================================*/
+			// Splits on a sequence of one or more commas or spaces.
+			var words = el.getAttribute( 'data-scrollreveal' ).split( /[, ]+/ ),
 
+			enterFrom,
 
+			parsed = {};
 
-    _init: function () {
+			function filter (words) {
 
+				var ret = [],
 
+				blacklist = [
 
-      var self = this;
+				"from",
 
+				"the",
 
+				"and",
 
-      this.elems = Array.prototype.slice.call(docElem.querySelectorAll('[data-scrollReveal]'));
+				"then",
 
-      this.scrolled = false;
+				"but"
 
+				];
 
+				words.forEach(
+					function (word, i) {
 
-  //  Initialize all scrollreveals, triggering all
+						if (blacklist.indexOf( word ) > -1) {
 
-  //  reveals on visible elements.
+							return;
 
-      this.elems.forEach(function (el, i) {
+						}
 
-        self.animate(el);
+						ret.push( word );
 
-      });
+					}
+				);
 
+				return ret;
 
+			}
 
-      var scrollHandler = function () {
+			words = filter( words );
 
-        if (!self.scrolled) {
+			words.forEach(
+				function (word, i) {
 
-          self.scrolled = true;
+					switch (word) {
 
-          setTimeout(function () {
+						case "enter":
 
-            self._scrollPage();
+							enterFrom = words[i + 1];
 
-          }, 60);
+							if (enterFrom == "top" || enterFrom == "bottom") {
 
-        }
+								parsed.axis = "y";
 
-      };
+							}
 
+							if (enterFrom == "left" || enterFrom == "right") {
 
+								parsed.axis = "x";
 
-      var resizeHandler = function () {
+							}
 
-        function delayed() {
+						return;
 
-          self._scrollPage();
+						case "after":
 
-          self.resizeTimeout = null;
+							parsed.delay = words[i + 1];
 
-        }
+						return;
 
-        if (self.resizeTimeout) {
+						case "wait":
 
-          clearTimeout(self.resizeTimeout);
+							parsed.delay = words[i + 1];
 
-        }
+						return;
 
-        self.resizeTimeout = setTimeout(delayed, 200);
+						case "move":
 
-      };
+							parsed.distance = words[i + 1];
 
+						return;
 
+						case "over":
 
-      window.addEventListener('scroll', scrollHandler, false);
+							parsed.duration = words[i + 1];
 
-      window.addEventListener('resize', resizeHandler, false);
+						return;
 
-    },
+						case "trigger":
 
+							parsed.eventName = words[i + 1];
 
+						return;
 
-    /*=============================================================================*/
+						default:
 
+							// Unrecognizable words; do nothing.
+						return;
 
+					}
 
-    _scrollPage: function () {
+				}
+			);
 
-        var self = this;
+			// After all values are parsed, let’s make sure our our
+			// pixel distance is negative for top and left entrances.
+			// ie. "move 25px from top" starts at 'top: -25px' in CSS.
+			if (enterFrom == "top" || enterFrom == "left") {
 
+				if ( ! typeof parsed.distance == "undefined") {
 
+					parsed.distance = "-" + parsed.distance;
 
-        this.elems.forEach(function (el, i) {
+				} else {
 
-            if (isElementInViewport(el, self.options.viewportFactor)) {
+					parsed.distance = "-" + this.options.distance;
 
-                self.animate(el);
+				}
 
-            }
+			}
 
-        });
+			return parsed;
 
-        this.scrolled = false;
+		},
 
-    },
+		/*=============================================================================*/
 
+		genCSS: function (el) {
 
+			var parsed = this.parseLanguage( el );
 
-    /*=============================================================================*/
+			var dist = parsed.distance || this.options.distance,
 
+			dur = parsed.duration || this.options.duration,
 
+			delay = parsed.delay || this.options.delay,
 
-    parseLanguage: function (el) {
+			axis = parsed.axis || this.options.axis;
 
+			var transition = "-webkit-transition: all " + dur + " ease " + delay + ";" +
 
+						  "-moz-transition: all " + dur + " ease " + delay + ";" +
 
-  //  Splits on a sequence of one or more commas or spaces.
+							"-o-transition: all " + dur + " ease " + delay + ";" +
 
-      var words = el.getAttribute('data-scrollreveal').split(/[, ]+/),
+						   "-ms-transition: all " + dur + " ease " + delay + ";" +
 
-          enterFrom,
+							   "transition: all " + dur + " ease " + delay + ";";
 
-          parsed = {};
+			var initial = "-webkit-transform: translate" + axis + "(" + dist + ");" +
 
+					   "-moz-transform: translate" + axis + "(" + dist + ");" +
 
+						"-ms-transform: translate" + axis + "(" + dist + ");" +
 
-      function filter (words) {
+							"transform: translate" + axis + "(" + dist + ");" +
 
-        var ret = [],
+							  "opacity: 0;";
 
+			var target = "-webkit-transform: translate" + axis + "(0);" +
 
+					  "-moz-transform: translate" + axis + "(0);" +
 
-            blacklist = [
+					   "-ms-transform: translate" + axis + "(0);" +
 
-              "from",
+						   "transform: translate" + axis + "(0);" +
 
-              "the",
+							 "opacity: 1;";
 
-              "and",
+			return {
 
-              "then",
+				transition: transition,
 
-              "but"
+				initial: initial,
 
-            ];
+				target: target,
 
+				totalDuration: ((parseFloat( dur ) + parseFloat( delay )) * 1000)
 
+			};
 
-        words.forEach(function (word, i) {
+		},
 
-          if (blacklist.indexOf(word) > -1) {
+		/*=============================================================================*/
 
-            return;
+		animate: function (el) {
 
-          }
+			var css = this.genCSS( el );
 
-          ret.push(word);
+			if ( ! el.getAttribute( 'data-sr-init' )) {
 
-        });
+				el.setAttribute( 'style', css.initial );
 
+				el.setAttribute( 'data-sr-init', true );
 
+			}
 
-        return ret;
+			if (el.getAttribute( 'data-sr-complete' )) {
 
-      }
+				return;
 
+			}
 
+			if (isElementInViewport( el, this.options.viewportFactor )) {
 
-      words = filter(words);
+				el.setAttribute( 'style', css.target + css.transition );
 
+				setTimeout(
+					function () {
 
+						el.removeAttribute( 'style' );
 
-      words.forEach(function (word, i) {
+						el.setAttribute( 'data-sr-complete', true );
 
+					}, css.totalDuration
+				);
 
+			}
 
-        switch (word) {
+		}
 
-          case "enter":
+	}; // end scrollReveal.prototype
 
-            enterFrom = words[i + 1];
+	document.addEventListener(
+		"DOMContentLoaded", function (evt) {
 
+			window.scrollReveal = new scrollReveal();
 
+		}
+	);
 
-            if (enterFrom == "top" || enterFrom == "bottom") {
-
-              parsed.axis = "y";
-
-            }
-
-
-
-            if (enterFrom == "left" || enterFrom == "right") {
-
-              parsed.axis = "x";
-
-            }
-
-
-
-            return;
-
-
-
-          case "after":
-
-            parsed.delay = words[i + 1];
-
-            return;
-
-
-
-          case "wait":
-
-            parsed.delay = words[i + 1];
-
-            return;
-
-
-
-          case "move":
-
-            parsed.distance = words[i + 1];
-
-            return;
-
-
-
-          case "over":
-
-            parsed.duration = words[i + 1];
-
-            return;
-
-
-
-          case "trigger":
-
-            parsed.eventName = words[i + 1];
-
-            return;
-
-
-
-          default:
-
-        //  Unrecognizable words; do nothing.
-
-            return;
-
-        }
-
-      });
-
-
-
-  //  After all values are parsed, let’s make sure our our
-
-  //  pixel distance is negative for top and left entrances.
-
-  //
-
-  //  ie. "move 25px from top" starts at 'top: -25px' in CSS.
-
-
-
-      if (enterFrom == "top" || enterFrom == "left") {
-
-
-
-        if (!typeof parsed.distance == "undefined") {
-
-          parsed.distance = "-" + parsed.distance;
-
-        }
-
-
-
-        else {
-
-          parsed.distance = "-" + this.options.distance;
-
-        }
-
-
-
-      }
-
-
-
-      return parsed;
-
-    },
-
-
-
-    /*=============================================================================*/
-
-
-
-    genCSS: function (el) {
-
-      var parsed = this.parseLanguage(el);
-
-
-
-      var dist   = parsed.distance || this.options.distance,
-
-          dur    = parsed.duration || this.options.duration,
-
-          delay  = parsed.delay    || this.options.delay,
-
-          axis   = parsed.axis     || this.options.axis;
-
-
-
-      var transition = "-webkit-transition: all " + dur + " ease " + delay + ";" +
-
-                          "-moz-transition: all " + dur + " ease " + delay + ";" +
-
-                            "-o-transition: all " + dur + " ease " + delay + ";" +
-
-                           "-ms-transition: all " + dur + " ease " + delay + ";" +
-
-                               "transition: all " + dur + " ease " + delay + ";";
-
-
-
-      var initial = "-webkit-transform: translate" + axis + "(" + dist + ");" +
-
-                       "-moz-transform: translate" + axis + "(" + dist + ");" +
-
-                        "-ms-transform: translate" + axis + "(" + dist + ");" +
-
-                            "transform: translate" + axis + "(" + dist + ");" +
-
-                              "opacity: 0;";
-
-
-
-      var target = "-webkit-transform: translate" + axis + "(0);" +
-
-                      "-moz-transform: translate" + axis + "(0);" +
-
-                       "-ms-transform: translate" + axis + "(0);" +
-
-                           "transform: translate" + axis + "(0);" +
-
-                             "opacity: 1;";
-
-      return {
-
-        transition: transition,
-
-        initial: initial,
-
-        target: target,
-
-        totalDuration: ((parseFloat(dur) + parseFloat(delay)) * 1000)
-
-      };
-
-    },
-
-
-
-    /*=============================================================================*/
-
-
-
-    animate: function (el) {
-
-      var css = this.genCSS(el);
-
-
-
-      if (!el.getAttribute('data-sr-init')) {
-
-        el.setAttribute('style', css.initial);
-
-        el.setAttribute('data-sr-init', true);
-
-      }
-
-
-
-      if (el.getAttribute('data-sr-complete')) {
-
-        return;
-
-      }
-
-
-
-      if (isElementInViewport(el, this.options.viewportFactor)) {
-
-        el.setAttribute('style', css.target + css.transition);
-
-
-
-        setTimeout(function () {
-
-          el.removeAttribute('style');
-
-          el.setAttribute('data-sr-complete', true);
-
-        }, css.totalDuration);
-
-      }
-
-
-
-    }
-
-  }; // end scrollReveal.prototype
-
-
-
-  document.addEventListener("DOMContentLoaded", function (evt) {
-
-    window.scrollReveal = new scrollReveal();
-
-  });
-
-
-
-})(window);
+})( window );
