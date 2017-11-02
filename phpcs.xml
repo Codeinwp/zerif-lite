@@ -5,6 +5,8 @@
     <file>.</file>
 
     <exclude-pattern>node_modules/*</exclude-pattern>
+    <exclude-pattern>vendor/*</exclude-pattern>
+    <exclude-pattern>logs/*</exclude-pattern>
     <rule ref="WordPress-Core">
 
         <exclude name="Squiz.Commenting.FileComment.SpacingAfterComment" />

@@ -74,7 +74,7 @@
 				<?php } ?>
 			</div>
 		</div>
-		
+
 		<hr/>
 		<!-- Zifer Child -->
 		<div class="zerif-lite-child-theme-container">

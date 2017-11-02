@@ -564,11 +564,11 @@ add_action( 'widgets_init', 'zerif_widgets_init' );
 function zerif_slug_fonts_url() {
 	$fonts_url = '';
 
-	 /**
-	  * Translators: If there are characters in your language that are not
-	  * supported by Lora, translate this to 'off'. Do not translate
-	  * into your own language.
-	  */
+	/**
+	 * Translators: If there are characters in your language that are not
+	 * supported by Lora, translate this to 'off'. Do not translate
+	 * into your own language.
+	 */
 	$lato = _x( 'on', 'Lato font: on or off', 'zerif-lite' );
 	$homemade = _x( 'on', 'Homemade font: on or off', 'zerif-lite' );
 
@@ -600,7 +600,7 @@ function zerif_slug_fonts_url() {
 			);
 		$fonts_url = add_query_arg( $query_args, '//fonts.googleapis.com/css' );
 	}
-	 return $fonts_url;
+	return $fonts_url;
 }
 
 /**

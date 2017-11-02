@@ -63,8 +63,6 @@ get_header(); ?>
 		zerif_sidebar_trigger();
 	}
 		?>
-	
-		
 	</div><!-- .container -->
 
 <?php get_footer(); ?>

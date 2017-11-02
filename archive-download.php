@@ -42,13 +42,10 @@ get_header(); ?>
 				while ( have_posts() ) :
 					the_post();
 
-						/*
-						 Include the Post-Format-specific template for the content.
-
+						/**
+						 * Include the Post-Format-specific template for the content.
 						 * If you want to override this in a child theme, then include a file
-
 						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-
 						 */
 
 						get_template_part( 'content', 'archive-download' );
@@ -58,9 +55,9 @@ get_header(); ?>
 					echo get_the_posts_navigation(
 						array(
 							/* translators: Newer post arrow */
-							'next_text' => sprintf( __( 'Newer posts %s','zerif-lite' ), '<span class="meta-nav">&rarr;</span>' ),
+							'next_text' => sprintf( __( 'Newer posts %s', 'zerif-lite' ), '<span class="meta-nav">&rarr;</span>' ),
 							/* translators: Older post arrow */
-							'prev_text' => sprintf( __( '%s Older posts', 'zerif-lite' ) , '<span class="meta-nav">&larr;</span>' ),
+							'prev_text' => sprintf( __( '%s Older posts', 'zerif-lite' ), '<span class="meta-nav">&larr;</span>' ),
 						)
 					);
 

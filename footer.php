@@ -95,7 +95,7 @@
 
 				if ( ! empty( $zerif_address_icon ) ) {
 					echo '<div class="icon-top red-text">';
-					 echo '<img src="' . esc_url( $zerif_address_icon ) . '" alt="" />';
+                    echo '<img src="' . esc_url( $zerif_address_icon ) . '" alt="" />';
 					echo '</div>';
 				}
 

@@ -305,8 +305,9 @@ class Ti_Customizer_Notify_Section extends WP_Customize_Section {
 											<div class="custom-action">
 												<p class="plugin-card-{{ data.recommended_actions[action].plugin_slug }} action_button {{ data.recommended_actions[action].class }}">
 													<a data-slug="{{ data.recommended_actions[action].plugin_slug }}"
-													   class="{{ data.recommended_actions[action].button_class }}"
-													   href="{{ data.recommended_actions[action].url }}">{{ data.recommended_actions[action].button_label }}</a>
+                                                        class="{{ data.recommended_actions[action].button_class }}"
+                                                        href="{{ data.recommended_actions[action].url }}">{{ data.recommended_actions[action].button_label }}
+                                                    </a>
 												</p>
 											</div>
 										<# } #>
@@ -331,8 +332,9 @@ class Ti_Customizer_Notify_Section extends WP_Customize_Section {
 											<div class="custom-action">
 												<p class="plugin-card-{{ data.recommended_plugins[action].plugin_slug }} action_button {{ data.recommended_plugins[action].class }}">
 													<a data-slug="{{ data.recommended_plugins[action].plugin_slug }}"
-													   class="{{ data.recommended_plugins[action].button_class }}"
-													   href="{{ data.recommended_plugins[action].url }}">{{ data.recommended_plugins[action].button_label }}</a>
+                                                        class="{{ data.recommended_plugins[action].button_class }}"
+                                                        href="{{ data.recommended_plugins[action].url }}">{{ data.recommended_plugins[action].button_label }}
+                                                    </a>
 												</p>
 											</div>
 										<# } #>
