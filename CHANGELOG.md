@@ -1,4 +1,11 @@
 
+### 1.8.5.31 - 07/11/2017
+**Changes:** 
+- Transformed footer icons into links to Google maps, email and telephone
+- Update PHPCS to latest version and fixed all the issues
+- Make all functions from inc/template-tags.php pluggable
+- Fix small translatable issues with some of the strings
+
 ### 1.8.5.30 - 30/10/2017
 **Changes:** 
 - Updated Travis and grunt scripts to latest versions
