@@ -8,7 +8,7 @@
 
 <div id="actions_required" class="zerif-lite-tab-pane">
 
-	<h1><?php esc_html_e( 'Keep up with Zerif Lite\'s latest news' ,'zerif-lite' ); ?></h1>
+	<h1><?php esc_html_e( 'Keep up with Zerif Lite\'s latest news', 'zerif-lite' ); ?></h1>
 
 	<!-- NEWS -->
 	<hr />
@@ -76,14 +76,14 @@ endif;
 
 	if ( ! empty( $zerif_required_actions ) ) :
 		foreach ( $zerif_required_actions as $zerif_required_action_value ) :
-			if ( ( ! isset( $zerif_required_action_value['check'] ) || ( isset( $zerif_required_action_value['check'] ) && ( $zerif_required_action_value['check'] == false ) ) ) && ((isset( $zerif_show_required_actions[ $zerif_required_action_value['id'] ] ) && ($zerif_show_required_actions[ $zerif_required_action_value['id'] ] == true)) || ! isset( $zerif_show_required_actions[ $zerif_required_action_value['id'] ] ) ) ) :
+			if ( ( ! isset( $zerif_required_action_value['check'] ) || ( isset( $zerif_required_action_value['check'] ) && ( $zerif_required_action_value['check'] == false ) ) ) && ( ( isset( $zerif_show_required_actions[ $zerif_required_action_value['id'] ] ) && ( $zerif_show_required_actions[ $zerif_required_action_value['id'] ] == true ) ) || ! isset( $zerif_show_required_actions[ $zerif_required_action_value['id'] ] ) ) ) :
 				$nr_actions_required++;
 			endif;
 		endforeach;
 	endif;
 
 	if ( $nr_actions_required == 0 ) :
-		echo '<p>' . __( 'Hooray! There are no required actions for you right now.','zerif-lite' ) . '</p>';
+		echo '<p>' . __( 'Hooray! There are no required actions for you right now.', 'zerif-lite' ) . '</p>';
 	endif;
 	?>
 

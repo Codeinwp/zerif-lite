@@ -86,7 +86,7 @@ function zerif_setup() {
 	/* Enable support for custom logo */
 	add_theme_support(
 		'custom-logo', array(
-			'flex-width'    => true,
+			'flex-width' => true,
 		)
 	);
 
@@ -166,117 +166,117 @@ function zerif_setup() {
 	*/
 	$config = array(
 		// Menu name under Appearance.
-		'menu_name'               => __( 'About Zerif Lite', 'zerif-lite' ),
+		'menu_name'           => __( 'About Zerif Lite', 'zerif-lite' ),
 		// Page title.
-		'page_name'               => __( 'About Zerif Lite', 'zerif-lite' ),
+		'page_name'           => __( 'About Zerif Lite', 'zerif-lite' ),
 		// Main welcome title
 		/* translators: Theme Name */
-		'welcome_title'         => sprintf( __( 'Welcome to %s! - Version ', 'zerif-lite' ), 'Zerif Lite' ),
+		'welcome_title'       => sprintf( __( 'Welcome to %s! - Version ', 'zerif-lite' ), 'Zerif Lite' ),
 		// Main welcome content
-		'welcome_content'       => esc_html__( 'Zerif LITE is a free one page WordPress theme. It\'s perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.', 'zerif-lite' ),
+		'welcome_content'     => esc_html__( 'Zerif LITE is a free one page WordPress theme. It\'s perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.', 'zerif-lite' ),
 		/**
 		 * Tabs array.
 		 *
 		 * The key needs to be ONLY consisted from letters and underscores. If we want to define outside the class a function to render the tab,
 		 * the will be the name of the function which will be used to render the tab content.
 		 */
-		'tabs'                    => array(
-			'getting_started'  => __( 'Getting Started', 'zerif-lite' ),
+		'tabs'                => array(
+			'getting_started'     => __( 'Getting Started', 'zerif-lite' ),
 			'recommended_actions' => __( 'Recommended Actions', 'zerif-lite' ),
-			'recommended_plugins' => __( 'Useful Plugins','zerif-lite' ),
-			'support'       => __( 'Support', 'zerif-lite' ),
-			'changelog'        => __( 'Changelog', 'zerif-lite' ),
-			'free_pro'         => __( 'Free VS PRO', 'zerif-lite' ),
+			'recommended_plugins' => __( 'Useful Plugins', 'zerif-lite' ),
+			'support'             => __( 'Support', 'zerif-lite' ),
+			'changelog'           => __( 'Changelog', 'zerif-lite' ),
+			'free_pro'            => __( 'Free VS PRO', 'zerif-lite' ),
 		),
 		// Support content tab.
-		'support_content'      => array(
-			'first' => array(
-				'title' => esc_html__( 'Contact Support','zerif-lite' ),
-				'icon' => 'dashicons dashicons-sos',
-				'text' => esc_html__( 'We want to make sure you have the best experience using Zerif Lite and that is why we gathered here all the necessary informations for you. We hope you will enjoy using Zerif Lite, as much as we enjoy creating great products.','zerif-lite' ),
-				'button_label' => esc_html__( 'Contact Support','zerif-lite' ),
-				'button_link' => esc_url( 'https://themeisle.com/contact/' ),
-				'is_button' => true,
-				'is_new_tab' => true,
+		'support_content'     => array(
+			'first'  => array(
+				'title'        => esc_html__( 'Contact Support', 'zerif-lite' ),
+				'icon'         => 'dashicons dashicons-sos',
+				'text'         => esc_html__( 'We want to make sure you have the best experience using Zerif Lite and that is why we gathered here all the necessary informations for you. We hope you will enjoy using Zerif Lite, as much as we enjoy creating great products.', 'zerif-lite' ),
+				'button_label' => esc_html__( 'Contact Support', 'zerif-lite' ),
+				'button_link'  => esc_url( 'https://themeisle.com/contact/' ),
+				'is_button'    => true,
+				'is_new_tab'   => true,
 			),
 			'second' => array(
-				'title' => esc_html__( 'Documentation','zerif-lite' ),
-				'icon' => 'dashicons dashicons-book-alt',
-				'text' => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Zerif Lite.','zerif-lite' ),
-				'button_label' => esc_html__( 'Read full documentation','zerif-lite' ),
-				'button_link' => 'https://docs.themeisle.com/article/5-zerif-lite-documentation',
-				'is_button' => false,
-				'is_new_tab' => true,
+				'title'        => esc_html__( 'Documentation', 'zerif-lite' ),
+				'icon'         => 'dashicons dashicons-book-alt',
+				'text'         => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Zerif Lite.', 'zerif-lite' ),
+				'button_label' => esc_html__( 'Read full documentation', 'zerif-lite' ),
+				'button_link'  => 'https://docs.themeisle.com/article/5-zerif-lite-documentation',
+				'is_button'    => false,
+				'is_new_tab'   => true,
 			),
-			'third' => array(
-				'title' => esc_html__( 'Changelog','zerif-lite' ),
-				'icon' => 'dashicons dashicons-portfolio',
-				'text' => esc_html__( 'Want to get the gist on the latest theme changes? Just consult our changelog below to get a taste of the recent fixes and features implemented.','zerif-lite' ),
-				'button_label' => esc_html__( 'Changelog','zerif-lite' ),
-				'button_link' => esc_url( admin_url( 'themes.php?page=zerif-lite-welcome&tab=changelog&show=yes' ) ),
-				'is_button' => false,
-				'is_new_tab' => false,
+			'third'  => array(
+				'title'        => esc_html__( 'Changelog', 'zerif-lite' ),
+				'icon'         => 'dashicons dashicons-portfolio',
+				'text'         => esc_html__( 'Want to get the gist on the latest theme changes? Just consult our changelog below to get a taste of the recent fixes and features implemented.', 'zerif-lite' ),
+				'button_label' => esc_html__( 'Changelog', 'zerif-lite' ),
+				'button_link'  => esc_url( admin_url( 'themes.php?page=zerif-lite-welcome&tab=changelog&show=yes' ) ),
+				'is_button'    => false,
+				'is_new_tab'   => false,
 			),
 			'fourth' => array(
-				'title' => esc_html__( 'Create a child theme','zerif-lite' ),
-				'icon' => 'dashicons dashicons-admin-customizer',
-				'text' => esc_html__( "If you want to make changes to the theme's files, those changes are likely to be overwritten when you next update the theme. In order to prevent that from happening, you need to create a child theme. For this, please follow the documentation below.",'zerif-lite' ),
-				'button_label' => esc_html__( 'View how to do this','zerif-lite' ),
-				'button_link' => 'https://docs.themeisle.com/article/14-how-to-create-a-child-theme',
-				'is_button' => false,
-				'is_new_tab' => true,
+				'title'        => esc_html__( 'Create a child theme', 'zerif-lite' ),
+				'icon'         => 'dashicons dashicons-admin-customizer',
+				'text'         => esc_html__( "If you want to make changes to the theme's files, those changes are likely to be overwritten when you next update the theme. In order to prevent that from happening, you need to create a child theme. For this, please follow the documentation below.", 'zerif-lite' ),
+				'button_label' => esc_html__( 'View how to do this', 'zerif-lite' ),
+				'button_link'  => 'https://docs.themeisle.com/article/14-how-to-create-a-child-theme',
+				'is_button'    => false,
+				'is_new_tab'   => true,
 			),
-			'fifth' => array(
-				'title' => esc_html__( 'Speed up your site','zerif-lite' ),
-				'icon' => 'dashicons dashicons-controls-skipforward',
-				'text' => esc_html__( 'If you find yourself in the situation where everything on your site is running very slow, you might consider having a look at the below documentation where you will find the most common issues causing this and possible solutions for each of the issues.','zerif-lite' ),
-				'button_label' => esc_html__( 'View how to do this','zerif-lite' ),
-				'button_link' => 'https://docs.themeisle.com/article/63-speed-up-your-wordpress-site',
-				'is_button' => false,
-				'is_new_tab' => true,
+			'fifth'  => array(
+				'title'        => esc_html__( 'Speed up your site', 'zerif-lite' ),
+				'icon'         => 'dashicons dashicons-controls-skipforward',
+				'text'         => esc_html__( 'If you find yourself in the situation where everything on your site is running very slow, you might consider having a look at the below documentation where you will find the most common issues causing this and possible solutions for each of the issues.', 'zerif-lite' ),
+				'button_label' => esc_html__( 'View how to do this', 'zerif-lite' ),
+				'button_link'  => 'https://docs.themeisle.com/article/63-speed-up-your-wordpress-site',
+				'is_button'    => false,
+				'is_new_tab'   => true,
 			),
-			'sixth' => array(
-				'title' => esc_html__( 'Build a landing page with a drag-and-drop content builder','zerif-lite' ),
-				'icon' => 'dashicons dashicons-images-alt2',
-				'text' => esc_html__( 'In the below documentation you will find an easy way to build a great looking landing page using a drag-and-drop content builder plugin.','zerif-lite' ),
-				'button_label' => esc_html__( 'View how to do this','zerif-lite' ),
-				'button_link' => 'https://docs.themeisle.com/article/219-how-to-build-a-landing-page-with-a-drag-and-drop-content-builder',
-				'is_button' => false,
-				'is_new_tab' => true,
+			'sixth'  => array(
+				'title'        => esc_html__( 'Build a landing page with a drag-and-drop content builder', 'zerif-lite' ),
+				'icon'         => 'dashicons dashicons-images-alt2',
+				'text'         => esc_html__( 'In the below documentation you will find an easy way to build a great looking landing page using a drag-and-drop content builder plugin.', 'zerif-lite' ),
+				'button_label' => esc_html__( 'View how to do this', 'zerif-lite' ),
+				'button_link'  => 'https://docs.themeisle.com/article/219-how-to-build-a-landing-page-with-a-drag-and-drop-content-builder',
+				'is_button'    => false,
+				'is_new_tab'   => true,
 			),
 		),
 		// Getting started tab
-		'getting_started' => array(
-			'first' => array(
-				'title' => esc_html__( 'Recommended actions','zerif-lite' ),
-				'text' => esc_html__( 'We have compiled a list of steps for you, to take make sure the experience you will have using one of our products is very easy to follow.','zerif-lite' ),
-				'button_label' => esc_html__( 'Recommended actions','zerif-lite' ),
-				'button_link' => esc_url( admin_url( 'themes.php?page=zerif-lite-welcome&tab=recommended_actions' ) ),
-				'is_button' => false,
+		'getting_started'     => array(
+			'first'  => array(
+				'title'               => esc_html__( 'Recommended actions', 'zerif-lite' ),
+				'text'                => esc_html__( 'We have compiled a list of steps for you, to take make sure the experience you will have using one of our products is very easy to follow.', 'zerif-lite' ),
+				'button_label'        => esc_html__( 'Recommended actions', 'zerif-lite' ),
+				'button_link'         => esc_url( admin_url( 'themes.php?page=zerif-lite-welcome&tab=recommended_actions' ) ),
+				'is_button'           => false,
 				'recommended_actions' => true,
-				'is_new_tab' => false,
+				'is_new_tab'          => false,
 			),
 			'second' => array(
-				'title' => esc_html__( 'Read full documentation','zerif-lite' ),
-				'text' => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Zerif Lite.','zerif-lite' ),
-				'button_label' => esc_html__( 'Documentation','zerif-lite' ),
-				'button_link' => 'https://docs.themeisle.com/article/5-zerif-lite-documentation',
-				'is_button' => false,
+				'title'               => esc_html__( 'Read full documentation', 'zerif-lite' ),
+				'text'                => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Zerif Lite.', 'zerif-lite' ),
+				'button_label'        => esc_html__( 'Documentation', 'zerif-lite' ),
+				'button_link'         => 'https://docs.themeisle.com/article/5-zerif-lite-documentation',
+				'is_button'           => false,
 				'recommended_actions' => false,
-				'is_new_tab' => true,
+				'is_new_tab'          => true,
 			),
-			'third' => array(
-				'title' => esc_html__( 'Go to Customizer','zerif-lite' ),
-				'text' => esc_html__( 'Using the WordPress Customizer you can easily customize every aspect of the theme.','zerif-lite' ),
-				'button_label' => esc_html__( 'Go to Customizer','zerif-lite' ),
-				'button_link' => esc_url( admin_url( 'customize.php' ) ),
-				'is_button' => true,
+			'third'  => array(
+				'title'               => esc_html__( 'Go to Customizer', 'zerif-lite' ),
+				'text'                => esc_html__( 'Using the WordPress Customizer you can easily customize every aspect of the theme.', 'zerif-lite' ),
+				'button_label'        => esc_html__( 'Go to Customizer', 'zerif-lite' ),
+				'button_link'         => esc_url( admin_url( 'customize.php' ) ),
+				'is_button'           => true,
 				'recommended_actions' => false,
-				'is_new_tab' => true,
+				'is_new_tab'          => true,
 			),
 		),
 		// Free vs pro array.
-		'free_pro'                => array(
+		'free_pro'            => array(
 			'free_theme_name'     => 'Zerif Lite',
 			'pro_theme_name'      => 'Zerif PRO',
 			'pro_theme_link'      => 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/upgrade/',
@@ -321,7 +321,7 @@ function zerif_setup() {
 				),
 				array(
 					'title'       => __( 'Google map section', 'zerif-lite' ),
-					'description' => __( 'Embed your current location to your website by using a Google map.','zerif-lite' ),
+					'description' => __( 'Embed your current location to your website by using a Google map.', 'zerif-lite' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
@@ -370,12 +370,12 @@ function zerif_setup() {
 			),
 		),
 		// Plugins array.
-		'recommended_plugins'        => array(
+		'recommended_plugins' => array(
 			'already_activated_message' => esc_html__( 'Already activated', 'zerif-lite' ),
-			'version_label' => esc_html__( 'Version: ', 'zerif-lite' ),
-			'install_label' => esc_html__( 'Install and Activate', 'zerif-lite' ),
-			'activate_label' => esc_html__( 'Activate', 'zerif-lite' ),
-			'deactivate_label' => esc_html__( 'Deactivate', 'zerif-lite' ),
+			'version_label'             => esc_html__( 'Version: ', 'zerif-lite' ),
+			'install_label'             => esc_html__( 'Install and Activate', 'zerif-lite' ),
+			'activate_label'            => esc_html__( 'Activate', 'zerif-lite' ),
+			'deactivate_label'          => esc_html__( 'Deactivate', 'zerif-lite' ),
 			'content'                   => array(
 				array(
 					'slug' => 'translatepress-multilingual',
@@ -401,24 +401,24 @@ function zerif_setup() {
 			),
 		),
 		// Required actions array.
-		'recommended_actions'        => array(
-			'install_label' => esc_html__( 'Install and Activate', 'zerif-lite' ),
-			'activate_label' => esc_html__( 'Activate', 'zerif-lite' ),
+		'recommended_actions' => array(
+			'install_label'    => esc_html__( 'Install and Activate', 'zerif-lite' ),
+			'activate_label'   => esc_html__( 'Activate', 'zerif-lite' ),
 			'deactivate_label' => esc_html__( 'Deactivate', 'zerif-lite' ),
-			'content'            => array(
+			'content'          => array(
 				'themeisle-companion' => array(
 					'title'       => 'ThemeIsle Companion',
 					'description' => __( 'It is highly recommended that you install the companion plugin to have access to the frontpage sections widgets.', 'zerif-lite' ),
 					'check'       => defined( 'THEMEISLE_COMPANION_VERSION' ),
 					'plugin_slug' => 'themeisle-companion',
-					'id' => 'themeisle-companion',
+					'id'          => 'themeisle-companion',
 				),
-				'pirate-forms' => array(
+				'pirate-forms'        => array(
 					'title'       => 'Pirate Forms',
 					'description' => __( 'Makes your contact page more engaging by creating a good-looking contact form on your website. The interaction with your visitors was never easier.', 'zerif-lite' ),
 					'check'       => defined( 'PIRATE_FORMS_VERSION' ),
 					'plugin_slug' => 'pirate-forms',
-					'id' => 'pirate-forms',
+					'id'          => 'pirate-forms',
 				),
 
 			),
@@ -445,19 +445,19 @@ function zerif_setup() {
 	require get_template_directory() . '/ti-customizer-notify/class-ti-customizer-notify.php';
 
 	$config_customizer = array(
-		'recommended_plugins' => array(
-			'themeisle-companion'       => array(
+		'recommended_plugins'       => array(
+			'themeisle-companion' => array(
 				'recommended' => true,
 				/* translators: ThemeIsle Companion install link */
-				'description' => sprintf( esc_html__( 'If you want to take full advantage of the options this theme has to offer, please install and activate %s','zerif-lite' ), sprintf( '<strong>%s</strong>', 'ThemeIsle Companion' ) ),
+				'description' => sprintf( esc_html__( 'If you want to take full advantage of the options this theme has to offer, please install and activate %s', 'zerif-lite' ), sprintf( '<strong>%s</strong>', 'ThemeIsle Companion' ) ),
 			),
 		),
-		'recommended_actions' => array(),
+		'recommended_actions'       => array(),
 		'recommended_actions_title' => esc_html__( 'Recommended Actions', 'zerif-lite' ),
 		'recommended_plugins_title' => esc_html__( 'Recommended Plugins', 'zerif-lite' ),
-		'install_button_label' => esc_html__( 'Install and Activate', 'zerif-lite' ),
-		'activate_button_label' => esc_html__( 'Activate', 'zerif-lite' ),
-		'deactivate_button_label' => esc_html__( 'Deactivate', 'zerif-lite' ),
+		'install_button_label'      => esc_html__( 'Install and Activate', 'zerif-lite' ),
+		'activate_button_label'     => esc_html__( 'Activate', 'zerif-lite' ),
+		'deactivate_button_label'   => esc_html__( 'Deactivate', 'zerif-lite' ),
 	);
 	Ti_Customizer_Notify::init( apply_filters( 'zerif_customizer_notify_array', $config_customizer ) );
 
@@ -495,7 +495,7 @@ function zerif_excerpt_more( $more ) {
  * Check if latest posts
  */
 function zerif_lite_is_not_latest_posts() {
-	return ('posts' == get_option( 'show_on_front' ) ? true : false);
+	return ( 'posts' == get_option( 'show_on_front' ) ? true : false );
 }
 
 /**
@@ -521,23 +521,23 @@ function zerif_widgets_init() {
 
 	register_sidebar(
 		array(
-			'name' => __( 'Sidebar', 'zerif-lite' ),
-			'id' => 'sidebar-1',
+			'name'          => __( 'Sidebar', 'zerif-lite' ),
+			'id'            => 'sidebar-1',
 			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
-			'after_widget' => '</aside>',
-			'before_title' => '<h2 class="widget-title">',
-			'after_title' => '</h2>',
+			'after_widget'  => '</aside>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
 		)
 	);
 
 	register_sidebar(
 		array(
-			'name' => __( 'About us section', 'zerif-lite' ),
-			'id' => 'sidebar-aboutus',
+			'name'          => __( 'About us section', 'zerif-lite' ),
+			'id'            => 'sidebar-aboutus',
 			'before_widget' => '<span id="%1$s">',
 			'after_widget'  => '</span>',
-			'before_title' => '<h1 class="widget-title">',
-			'after_title' => '</h1>',
+			'before_title'  => '<h1 class="widget-title">',
+			'after_title'   => '</h1>',
 		)
 	);
 
@@ -545,7 +545,7 @@ function zerif_widgets_init() {
 		3,
 		array(
 			/* translators: Footer area number */
-			'name'          => __( 'Footer area %d','zerif-lite' ),
+			'name'          => __( 'Footer area %d', 'zerif-lite' ),
 			'id'            => 'zerif-sidebar-footer',
 			'before_widget' => '<aside id="%1$s" class="widget footer-widget-footer %2$s">',
 			'after_widget'  => '</aside>',
@@ -564,12 +564,12 @@ add_action( 'widgets_init', 'zerif_widgets_init' );
 function zerif_slug_fonts_url() {
 	$fonts_url = '';
 
-	 /**
-	  * Translators: If there are characters in your language that are not
-	  * supported by Lora, translate this to 'off'. Do not translate
-	  * into your own language.
-	  */
-	$lato = _x( 'on', 'Lato font: on or off', 'zerif-lite' );
+	/**
+	 * Translators: If there are characters in your language that are not
+	 * supported by Lora, translate this to 'off'. Do not translate
+	 * into your own language.
+	 */
+	$lato     = _x( 'on', 'Lato font: on or off', 'zerif-lite' );
 	$homemade = _x( 'on', 'Homemade font: on or off', 'zerif-lite' );
 
 	/**
@@ -581,7 +581,7 @@ function zerif_slug_fonts_url() {
 
 	$zerif_use_safe_font = get_theme_mod( 'zerif_use_safe_font' );
 
-	if ( ( 'off' !== $lato || 'off' !== $monserrat || 'off' !== $homemade ) && isset( $zerif_use_safe_font ) && ($zerif_use_safe_font != 1) ) {
+	if ( ( 'off' !== $lato || 'off' !== $monserrat || 'off' !== $homemade ) && isset( $zerif_use_safe_font ) && ( $zerif_use_safe_font != 1 ) ) {
 		$font_families = array();
 
 		if ( 'off' !== $lato ) {
@@ -598,9 +598,9 @@ function zerif_slug_fonts_url() {
 				'family' => urlencode( implode( '|', $font_families ) ),
 				'subset' => urlencode( 'latin,latin-ext' ),
 			);
-		$fonts_url = add_query_arg( $query_args, '//fonts.googleapis.com/css' );
+		$fonts_url      = add_query_arg( $query_args, '//fonts.googleapis.com/css' );
 	}
-	 return $fonts_url;
+	return $fonts_url;
 }
 
 /**
@@ -643,7 +643,7 @@ function zerif_scripts() {
 	wp_style_add_data( 'zerif_ie_style', 'conditional', 'lt IE 9' );
 
 	if ( wp_is_mobile() ) {
-		wp_enqueue_style( 'zerif_style_mobile', get_template_directory_uri() . '/css/style-mobile.css', array( 'zerif_bootstrap_style', 'zerif_style' ),'v1' );
+		wp_enqueue_style( 'zerif_style_mobile', get_template_directory_uri() . '/css/style-mobile.css', array( 'zerif_bootstrap_style', 'zerif_style' ), 'v1' );
 	}
 
 	/* Bootstrap script */
@@ -682,7 +682,7 @@ function zerif_scripts() {
 		/* include parallax only if on frontpage and the parallax effect is activated */
 		$zerif_parallax_use = get_theme_mod( 'zerif_parallax_show' );
 
-		if ( ! empty( $zerif_parallax_use ) && ($zerif_parallax_use == 1) && is_front_page() ) :
+		if ( ! empty( $zerif_parallax_use ) && ( $zerif_parallax_use == 1 ) && is_front_page() ) :
 
 			wp_enqueue_script( 'zerif_parallax', get_template_directory_uri() . '/js/parallax.js', array( 'jquery' ), 'v1', true );
 
@@ -729,19 +729,19 @@ function zerif_register_required_plugins() {
 	if ( $wp_version_nr < 3.9 ) :
 		$plugins = array(
 			array(
-				'name' => 'Widget customizer',
-				'slug' => 'widget-customizer',
+				'name'     => 'Widget customizer',
+				'slug'     => 'widget-customizer',
 				'required' => false,
 			),
 			array(
-				'name'      => 'Pirate Forms',
-				'slug'      => 'pirate-forms',
-				'required'  => false,
+				'name'     => 'Pirate Forms',
+				'slug'     => 'pirate-forms',
+				'required' => false,
 			),
 			array(
-				'name'      => 'ThemeIsle Companion',
-				'slug'      => 'themeisle-companion',
-				'required'  => false,
+				'name'     => 'ThemeIsle Companion',
+				'slug'     => 'themeisle-companion',
+				'required' => false,
 			),
 		);
 
@@ -749,55 +749,55 @@ function zerif_register_required_plugins() {
 
 		$plugins = array(
 			array(
-				'name'      => 'Pirate Forms',
-				'slug'      => 'pirate-forms',
-				'required'  => false,
+				'name'     => 'Pirate Forms',
+				'slug'     => 'pirate-forms',
+				'required' => false,
 			),
 			array(
-				'name'      => 'ThemeIsle Companion',
-				'slug'      => 'themeisle-companion',
-				'required'  => false,
+				'name'     => 'ThemeIsle Companion',
+				'slug'     => 'themeisle-companion',
+				'required' => false,
 			),
 		);
 
 	endif;
 	$config = array(
 		'default_path' => '',
-		'menu' => 'tgmpa-install-plugins',
-		'has_notices' => true,
-		'dismissable' => true,
-		'dismiss_msg' => '',
+		'menu'         => 'tgmpa-install-plugins',
+		'has_notices'  => true,
+		'dismissable'  => true,
+		'dismiss_msg'  => '',
 		'is_automatic' => false,
-		'message' => '',
-		'strings' => array(
-			'page_title' => __( 'Install Required Plugins', 'zerif-lite' ),
-			'menu_title' => __( 'Install Plugins', 'zerif-lite' ),
+		'message'      => '',
+		'strings'      => array(
+			'page_title'                      => __( 'Install Required Plugins', 'zerif-lite' ),
+			'menu_title'                      => __( 'Install Plugins', 'zerif-lite' ),
 			/* translators: name of installing plugin */
-			'installing' => __( 'Installing Plugin: %s', 'zerif-lite' ),
-			'oops' => __( 'Something went wrong with the plugin API.', 'zerif-lite' ),
+			'installing'                      => __( 'Installing Plugin: %s', 'zerif-lite' ),
+			'oops'                            => __( 'Something went wrong with the plugin API.', 'zerif-lite' ),
 			/* translators: Name of required plugin */
-			'notice_can_install_required' => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.','zerif-lite' ),
+			'notice_can_install_required'     => _n_noop( 'This theme requires the following plugin: %1$s.', 'This theme requires the following plugins: %1$s.', 'zerif-lite' ),
 			/* translators: Name of recommended plugin */
-			'notice_can_install_recommended' => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.','zerif-lite' ),
+			'notice_can_install_recommended'  => _n_noop( 'This theme recommends the following plugin: %1$s.', 'This theme recommends the following plugins: %1$s.', 'zerif-lite' ),
 			/* translators: Name of required plugin */
-			'notice_cannot_install' => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.','zerif-lite' ),
+			'notice_cannot_install'           => _n_noop( 'Sorry, but you do not have the correct permissions to install the %s plugin. Contact the administrator of this site for help on getting the plugin installed.', 'Sorry, but you do not have the correct permissions to install the %s plugins. Contact the administrator of this site for help on getting the plugins installed.', 'zerif-lite' ),
 			/* translators: Name of required plugin that is not active */
-			'notice_can_activate_required' => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.','zerif-lite' ),
+			'notice_can_activate_required'    => _n_noop( 'The following required plugin is currently inactive: %1$s.', 'The following required plugins are currently inactive: %1$s.', 'zerif-lite' ),
 			/* translators: Name of recommended plugin that is not active */
-			'notice_can_activate_recommended' => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.','zerif-lite' ),
+			'notice_can_activate_recommended' => _n_noop( 'The following recommended plugin is currently inactive: %1$s.', 'The following recommended plugins are currently inactive: %1$s.', 'zerif-lite' ),
 			/* translators: Name of plguin that can't be activated */
-			'notice_cannot_activate' => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.','zerif-lite' ),
+			'notice_cannot_activate'          => _n_noop( 'Sorry, but you do not have the correct permissions to activate the %s plugin. Contact the administrator of this site for help on getting the plugin activated.', 'Sorry, but you do not have the correct permissions to activate the %s plugins. Contact the administrator of this site for help on getting the plugins activated.', 'zerif-lite' ),
 			/* translators: Name of plugin that needs to be updated */
-			'notice_ask_to_update' => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.','zerif-lite' ),
+			'notice_ask_to_update'            => _n_noop( 'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.', 'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.', 'zerif-lite' ),
 			/* translators: Nme of plugin that can't be updated */
-			'notice_cannot_update' => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.','zerif-lite' ),
-			'install_link' => _n_noop( 'Begin installing plugin', 'Begin installing plugins','zerif-lite' ),
-			'activate_link' => _n_noop( 'Begin activating plugin', 'Begin activating plugins','zerif-lite' ),
-			'return' => __( 'Return to Required Plugins Installer', 'zerif-lite' ),
-			'plugin_activated' => __( 'Plugin activated successfully.', 'zerif-lite' ),
+			'notice_cannot_update'            => _n_noop( 'Sorry, but you do not have the correct permissions to update the %s plugin. Contact the administrator of this site for help on getting the plugin updated.', 'Sorry, but you do not have the correct permissions to update the %s plugins. Contact the administrator of this site for help on getting the plugins updated.', 'zerif-lite' ),
+			'install_link'                    => _n_noop( 'Begin installing plugin', 'Begin installing plugins', 'zerif-lite' ),
+			'activate_link'                   => _n_noop( 'Begin activating plugin', 'Begin activating plugins', 'zerif-lite' ),
+			'return'                          => __( 'Return to Required Plugins Installer', 'zerif-lite' ),
+			'plugin_activated'                => __( 'Plugin activated successfully.', 'zerif-lite' ),
 			/* translators: Name of plugins installed and activated successfully */
-			'complete' => __( 'All plugins installed and activated successfully. %s', 'zerif-lite' ),
-			'nag_type' => 'updated',
+			'complete'                        => __( 'All plugins installed and activated successfully. %s', 'zerif-lite' ),
+			'nag_type'                        => 'updated',
 		),
 	);
 	tgmpa( $plugins, $config );
@@ -817,7 +817,7 @@ function zerif_wp_page_menu() {
 		wp_list_pages(
 			array(
 				'title_li' => '',
-				'depth' => 1,
+				'depth'    => 1,
 			)
 		);
 
@@ -834,7 +834,7 @@ function zerif_default_title( $title ) {
 
 	if ( $title == '' ) {
 
-		$title = __( 'Default title','zerif-lite' );
+		$title = __( 'Default title', 'zerif-lite' );
 	}
 
 	return $title;
@@ -859,9 +859,9 @@ function zerif_register_widgets() {
 	}
 
 	$zerif_lite_sidebars = array(
-		'sidebar-ourfocus' => 'sidebar-ourfocus',
+		'sidebar-ourfocus'     => 'sidebar-ourfocus',
 		'sidebar-testimonials' => 'sidebar-testimonials',
-		'sidebar-ourteam' => 'sidebar-ourteam',
+		'sidebar-ourteam'      => 'sidebar-ourteam',
 	);
 
 	/* Register sidebars */
@@ -872,7 +872,7 @@ function zerif_register_widgets() {
 			$zerif_lite_name = __( 'Our focus section widgets', 'zerif-lite' );
 
 		elseif ( $zerif_lite_sidebar == 'sidebar-testimonials' ) :
-			$extra_class = 'feedback-box';
+			$extra_class     = 'feedback-box';
 			$zerif_lite_name = __( 'Testimonials section widgets', 'zerif-lite' );
 
 		elseif ( $zerif_lite_sidebar == 'sidebar-ourteam' ) :
@@ -890,7 +890,7 @@ function zerif_register_widgets() {
 				'name'          => $zerif_lite_name,
 				'id'            => $zerif_lite_sidebar,
 				'before_widget' => '<span id="%1$s" class="' . $extra_class . '">',
-				'after_widget' => '</span>',
+				'after_widget'  => '</span>',
 			)
 		);
 
@@ -950,8 +950,11 @@ if ( ! class_exists( 'zerif_ourfocus' ) && zerif_check_if_old_version_of_theme()
 					if ( ! empty( $instance['title'] ) ) {
 
 						echo '<span class="sr-only">';
-						_e( 'Go to', 'zerif-lite' );
-						echo apply_filters( 'widget_title', $instance['title'] );
+						printf(
+							/* Translators: %s: widget title */
+							__( 'Go to %s', 'zerif-lite' ),
+							apply_filters( 'widget_title', $instance['title'] )
+						);
 						echo '</span>';
 
 					}
@@ -1832,12 +1835,12 @@ function zerif_lite_update_options_in_pirate_forms() {
 
 			if ( isset( $zerif_lite_current_mods['zerif_contactus_email'] ) ) :
 
-				$pirate_forms_settings_array['pirateformsopt_email'] = $zerif_lite_current_mods['zerif_contactus_email'];
+				$pirate_forms_settings_array['pirateformsopt_email']            = $zerif_lite_current_mods['zerif_contactus_email'];
 				$pirate_forms_settings_array['pirateformsopt_email_recipients'] = $zerif_lite_current_mods['zerif_contactus_email'];
 
 			endif;
 
-			if ( isset( $zerif_lite_current_mods['zerif_contactus_recaptcha_show'] ) && ($zerif_lite_current_mods['zerif_contactus_recaptcha_show'] == 1) ) :
+			if ( isset( $zerif_lite_current_mods['zerif_contactus_recaptcha_show'] ) && ( $zerif_lite_current_mods['zerif_contactus_recaptcha_show'] == 1 ) ) :
 				if ( isset( $pirate_forms_settings_array['pirateformsopt_recaptcha_field'] ) ) :
 					unset( $pirate_forms_settings_array['pirateformsopt_recaptcha_field'] );
 				endif;
@@ -1867,7 +1870,7 @@ function zerif_lite_update_options_in_pirate_forms() {
  */
 function zerif_check_if_old_version_of_theme() {
 
-	$old_zerif_option = get_theme_mod( 'zerif_bigtitle_title' );
+	$old_zerif_option   = get_theme_mod( 'zerif_bigtitle_title' );
 	$old_zerif_option_2 = get_theme_mod( 'zerif_bigtitle_redbutton_label' );
 	$old_zerif_option_3 = get_theme_mod( 'zerif_ourfocus_title' );
 
@@ -1889,13 +1892,13 @@ function zerif_starter_content() {
 	add_theme_support(
 		'starter-content', array(
 			// Twenty Seventeen
-			'posts' => array(
+			'posts'     => array(
 				'home',
 				'blog',
 			),
 
 			'nav_menus' => array(
-				'primary'      => array(
+				'primary' => array(
 					'name'  => __( 'Primary Menu', 'zerif-lite' ),
 					'items' => array(
 						'page_home',
@@ -1904,7 +1907,7 @@ function zerif_starter_content() {
 				),
 			),
 
-			'options' => array(
+			'options'   => array(
 				'show_on_front'  => 'page',
 				'page_on_front'  => '{{home}}',
 				'page_for_posts' => '{{blog}}',

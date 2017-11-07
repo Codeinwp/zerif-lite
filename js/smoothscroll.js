@@ -6,60 +6,61 @@
  * - Balazs Galambosi: maintainer (CHANGELOG.txt)
  * - Patrick Brunner (patrickb1991@gmail.com)
  * - Michael Herf: ssc_pulse Algorithm
- *
  */
 
 function ssc_init() {
 
-    if (!document.body) return;
+	if ( ! document.body) {
+		return;
+	}
 
-    var e = document.body;
+	var e = document.body;
 
-    var t = document.documentElement;
+	var t = document.documentElement;
 
-    var n = window.innerHeight;
+	var n = window.innerHeight;
 
-    var r = e.scrollHeight;
+	var r = e.scrollHeight;
 
-    ssc_root = document.compatMode.indexOf("CSS") >= 0 ? t : e;
+	ssc_root = document.compatMode.indexOf( "CSS" ) >= 0 ? t : e;
 
-    ssc_activeElement = e;
+	ssc_activeElement = e;
 
-    ssc_initdone = true;
+	ssc_initdone = true;
 
-    if (top != self) {
+	if (top != self) {
 
-        ssc_frame = true
+		ssc_frame = true
 
-    } else if (r > n && (e.offsetHeight <= n || t.offsetHeight <= n)) {
+	} else if (r > n && (e.offsetHeight <= n || t.offsetHeight <= n)) {
 
-        ssc_root.style.height = "auto";
+		ssc_root.style.height = "auto";
 
-        if (ssc_root.offsetHeight <= n) {
+		if (ssc_root.offsetHeight <= n) {
 
-            var i = document.createElement("div");
+			var i = document.createElement( "div" );
 
-            i.style.clear = "both";
+			i.style.clear = "both";
 
-            e.appendChild(i)
+			e.appendChild( i )
 
-        }
+		}
 
-    }
+	}
 
-    if (!ssc_fixedback) {
+	if ( ! ssc_fixedback) {
 
-        e.style.backgroundAttachment = "scroll";
+		e.style.backgroundAttachment = "scroll";
 
-        t.style.backgroundAttachment = "scroll"
+		t.style.backgroundAttachment = "scroll"
 
-    }
+	}
 
-    if (ssc_keyboardsupport) {
+	if (ssc_keyboardsupport) {
 
-        ssc_addEvent("keydown", ssc_keydown)
+		ssc_addEvent( "keydown", ssc_keydown )
 
-    }
+	}
 
 }
 
@@ -67,125 +68,127 @@ function ssc_init() {
 
 function ssc_scrollArray(e, t, n, r) {
 
-    r || (r = 1e3);
+	r || (r = 1e3);
 
-    ssc_directionCheck(t, n);
+	ssc_directionCheck( t, n );
 
-    ssc_que.push({
+	ssc_que.push(
+		{
 
-        x: t,
+			x: t,
 
-        y: n,
+			y: n,
 
-        lastX: t < 0 ? .99 : -.99,
+			lastX: t < 0 ? .99 : -.99,
 
-        lastY: n < 0 ? .99 : -.99,
+			lastY: n < 0 ? .99 : -.99,
 
-        start: +(new Date)
+			start: +(new Date)
 
-    });
+		}
+	);
 
-    if (ssc_pending) {
+	if (ssc_pending) {
 
-        return
+		return
 
-    }
+	}
 
-    var i = function () {
+	var i = function () {
 
-        var s = +(new Date);
+		var s = +(new Date);
 
-        var o = 0;
+		var o = 0;
 
-        var u = 0;
+		var u = 0;
 
-        for (var a = 0; a < ssc_que.length; a++) {
+		for (var a = 0; a < ssc_que.length; a++) {
 
-            var f = ssc_que[a];
+			var f = ssc_que[a];
 
-            var l = s - f.start;
+			var l = s - f.start;
 
-            var c = l >= ssc_animtime;
+			var c = l >= ssc_animtime;
 
-            var h = c ? 1 : l / ssc_animtime;
+			var h = c ? 1 : l / ssc_animtime;
 
-            if (ssc_pulseAlgorithm) {
+			if (ssc_pulseAlgorithm) {
 
-                h = ssc_pulse(h)
+				h = ssc_pulse( h )
 
-            }
+			}
 
-            var p = f.x * h - f.lastX >> 0;
+			var p = f.x * h - f.lastX >> 0;
 
-            var d = f.y * h - f.lastY >> 0;
+			var d = f.y * h - f.lastY >> 0;
 
-            o += p;
+			o += p;
 
-            u += d;
+			u += d;
 
-            f.lastX += p;
+			f.lastX += p;
 
-            f.lastY += d;
+			f.lastY += d;
 
-            if (c) {
+			if (c) {
 
-                ssc_que.splice(a, 1);
+				ssc_que.splice( a, 1 );
 
-                a--
+				a--
 
-            }
+			}
 
-        }
+		}
 
-        if (t) {
+		if (t) {
 
-            var v = e.scrollLeft;
+			var v = e.scrollLeft;
 
-            e.scrollLeft += o;
+			e.scrollLeft += o;
 
-            if (o && e.scrollLeft === v) {
+			if (o && e.scrollLeft === v) {
 
-                t = 0
+				t = 0
 
-            }
+			}
 
-        }
+		}
 
-        if (n) {
+		if (n) {
 
-            var m = e.scrollTop;
+			var m = e.scrollTop;
 
-            e.scrollTop += u;
+			e.scrollTop += u;
 
-            if (u && e.scrollTop === m) {
+			if (u && e.scrollTop === m) {
 
-                n = 0
+				n = 0
 
-            }
+			}
 
-        }
+		}
 
-        if (!t && !n) {
+		if ( ! t && ! n) {
 
-            ssc_que = []
+			ssc_que = []
 
-        }
+		}
 
-        if (ssc_que.length) {
+		if (ssc_que.length) {
 
-            setTimeout(i, r / ssc_framerate + 1)
+			setTimeout( i, r / ssc_framerate + 1 )
 
-        } else {
+		} else {
 
-            ssc_pending = false
+			ssc_pending = false
 
-        }
+		}
 
-    };
+	};
 
-    setTimeout(i, 0);
+	setTimeout( i, 0 );
 
-    ssc_pending = true
+	ssc_pending = true
 
 }
 
@@ -193,47 +196,47 @@ function ssc_scrollArray(e, t, n, r) {
 
 function ssc_wheel(e) {
 
-    if (!ssc_initdone) {
+	if ( ! ssc_initdone) {
 
-        ssc_init()
+		ssc_init()
 
-    }
+	}
 
-    var t = e.target;
+	var t = e.target;
 
-    var n = ssc_overflowingAncestor(t);
+	var n = ssc_overflowingAncestor( t );
 
-    if (!n || e.defaultPrevented || ssc_isNodeName(ssc_activeElement, "embed") || ssc_isNodeName(t, "embed") && /\.pdf/i.test(t.src)) {
+	if ( ! n || e.defaultPrevented || ssc_isNodeName( ssc_activeElement, "embed" ) || ssc_isNodeName( t, "embed" ) && /\.pdf/i.test( t.src )) {
 
-        return true
+		return true
 
-    }
+	}
 
-    var r = e.wheelDeltaX || 0;
+	var r = e.wheelDeltaX || 0;
 
-    var i = e.wheelDeltaY || 0;
+	var i = e.wheelDeltaY || 0;
 
-    if (!r && !i) {
+	if ( ! r && ! i) {
 
-        i = e.wheelDelta || 0
+		i = e.wheelDelta || 0
 
-    }
+	}
 
-    if (Math.abs(r) > 1.2) {
+	if (Math.abs( r ) > 1.2) {
 
-        r *= ssc_stepsize / 120
+		r *= ssc_stepsize / 120
 
-    }
+	}
 
-    if (Math.abs(i) > 1.2) {
+	if (Math.abs( i ) > 1.2) {
 
-        i *= ssc_stepsize / 120
+		i *= ssc_stepsize / 120
 
-    }
+	}
 
-    ssc_scrollArray(n, -r, -i);
+	ssc_scrollArray( n, -r, -i );
 
-    e.preventDefault()
+	e.preventDefault()
 
 }
 
@@ -241,105 +244,105 @@ function ssc_wheel(e) {
 
 function ssc_keydown(e) {
 
-    var t = e.target;
+	var t = e.target;
 
-    var n = e.ctrlKey || e.altKey || e.metaKey;
+	var n = e.ctrlKey || e.altKey || e.metaKey;
 
-    if (/input|textarea|embed/i.test(t.nodeName) || t.isContentEditable || e.defaultPrevented || n) {
+	if (/input|textarea|embed/i.test( t.nodeName ) || t.isContentEditable || e.defaultPrevented || n) {
 
-        return true
+		return true
 
-    }
+	}
 
-    if (ssc_isNodeName(t, "button") && e.keyCode === ssc_key.spacebar) {
+	if (ssc_isNodeName( t, "button" ) && e.keyCode === ssc_key.spacebar) {
 
-        return true
+		return true
 
-    }
+	}
 
-    var r, i = 0,
+	var r, i = 0,
 
-        s = 0;
+		s = 0;
 
-    var o = ssc_overflowingAncestor(ssc_activeElement);
+	var o = ssc_overflowingAncestor( ssc_activeElement );
 
-    var u = o.clientHeight;
+	var u = o.clientHeight;
 
-    if (o == document.body) {
+	if (o == document.body) {
 
-        u = window.innerHeight
+		u = window.innerHeight
 
-    }
+	}
 
-    switch (e.keyCode) {
+	switch (e.keyCode) {
 
-    case ssc_key.up:
+		case ssc_key.up:
 
-        s = -ssc_arrowscroll;
+			s = -ssc_arrowscroll;
 
-        break;
+		break;
 
-    case ssc_key.down:
+		case ssc_key.down:
 
-        s = ssc_arrowscroll;
+			s = ssc_arrowscroll;
 
-        break;
+		break;
 
-    case ssc_key.spacebar:
+		case ssc_key.spacebar:
 
-        r = e.shiftKey ? 1 : -1;
+			r = e.shiftKey ? 1 : -1;
 
-        s = -r * u * .9;
+			s = -r * u * .9;
 
-        break;
+		break;
 
-    case ssc_key.pageup:
+		case ssc_key.pageup:
 
-        s = -u * .9;
+			s = -u * .9;
 
-        break;
+		break;
 
-    case ssc_key.pagedown:
+		case ssc_key.pagedown:
 
-        s = u * .9;
+			s = u * .9;
 
-        break;
+		break;
 
-    case ssc_key.home:
+		case ssc_key.home:
 
-        s = -o.scrollTop;
+			s = -o.scrollTop;
 
-        break;
+		break;
 
-    case ssc_key.end:
+		case ssc_key.end:
 
-        var a = o.scrollHeight - o.scrollTop - u;
+			var a = o.scrollHeight - o.scrollTop - u;
 
-        s = a > 0 ? a + 10 : 0;
+			s = a > 0 ? a + 10 : 0;
 
-        break;
+		break;
 
-    case ssc_key.left:
+		case ssc_key.left:
 
-        i = -ssc_arrowscroll;
+			i = -ssc_arrowscroll;
 
-        break;
+		break;
 
-    case ssc_key.right:
+		case ssc_key.right:
 
-        i = ssc_arrowscroll;
+			i = ssc_arrowscroll;
 
-        break;
+		break;
 
-    default:
+		default:
 
-        return true
+		return true
 
-    }
+	}
 
-    ssc_scrollArray(o, i, s);
+	ssc_scrollArray( o, i, s );
 
-    e.preventDefault()
+	e.preventDefault()
 
 }
 
@@ -347,7 +350,7 @@ function ssc_keydown(e) {
 
 function ssc_mousedown(e) {
 
-    ssc_activeElement = e.target
+	ssc_activeElement = e.target
 
 }
 
@@ -355,9 +358,11 @@ function ssc_mousedown(e) {
 
 function ssc_setCache(e, t) {
 
-    for (var n = e.length; n--;) ssc_cache[ssc_uniqueID(e[n])] = t;
+	for (var n = e.length; n--;) {
+		ssc_cache[ssc_uniqueID( e[n] )] = t;
+	}
 
-    return t
+	return t
 
 }
 
@@ -365,51 +370,49 @@ function ssc_setCache(e, t) {
 
 function ssc_overflowingAncestor(e) {
 
-    var t = [];
+	var t = [];
 
-    var n = ssc_root.scrollHeight;
+	var n = ssc_root.scrollHeight;
 
-    do {
+	do {
 
-        var r = ssc_cache[ssc_uniqueID(e)];
+		var r = ssc_cache[ssc_uniqueID( e )];
 
-        if (r) {
+		if (r) {
 
-            return ssc_setCache(t, r)
+			return ssc_setCache( t, r )
 
-        }
+		}
 
-        t.push(e);
+		t.push( e );
 
-        if (n === e.scrollHeight) {
+		if (n === e.scrollHeight) {
 
-            if (!ssc_frame || ssc_root.clientHeight + 10 < n) {
+			if ( ! ssc_frame || ssc_root.clientHeight + 10 < n) {
 
-                return ssc_setCache(t, document.body)
+				return ssc_setCache( t, document.body )
 
-            }
+			}
 
-        } else if (e.clientHeight + 10 < e.scrollHeight) {
+		} else if (e.clientHeight + 10 < e.scrollHeight) {
 
-            overflow = getComputedStyle(e, "").getPropertyValue("overflow");
+			overflow = getComputedStyle( e, "" ).getPropertyValue( "overflow" );
 
-            if (overflow === "scroll" || overflow === "auto") {
+			if (overflow === "scroll" || overflow === "auto") {
 
-                return ssc_setCache(t, e)
+				return ssc_setCache( t, e )
 
-            }
+			}
 
-        }
+		}
 
-    } while (e = e.parentNode)
-
-}
+	} while (e = e.parentNode)}
 
 
 
 function ssc_addEvent(e, t, n) {
 
-    window.addEventListener(e, t, n || false)
+	window.addEventListener( e, t, n || false )
 
 }
 
@@ -417,7 +420,7 @@ function ssc_addEvent(e, t, n) {
 
 function ssc_removeEvent(e, t, n) {
 
-    window.removeEventListener(e, t, n || false)
+	window.removeEventListener( e, t, n || false )
 
 }
 
@@ -425,7 +428,7 @@ function ssc_removeEvent(e, t, n) {
 
 function ssc_isNodeName(e, t) {
 
-    return e.nodeName.toLowerCase() === t.toLowerCase()
+	return e.nodeName.toLowerCase() === t.toLowerCase()
 
 }
 
@@ -433,19 +436,19 @@ function ssc_isNodeName(e, t) {
 
 function ssc_directionCheck(e, t) {
 
-    e = e > 0 ? 1 : -1;
+	e = e > 0 ? 1 : -1;
 
-    t = t > 0 ? 1 : -1;
+	t = t > 0 ? 1 : -1;
 
-    if (ssc_direction.x !== e || ssc_direction.y !== t) {
+	if (ssc_direction.x !== e || ssc_direction.y !== t) {
 
-        ssc_direction.x = e;
+		ssc_direction.x = e;
 
-        ssc_direction.y = t;
+		ssc_direction.y = t;
 
-        ssc_que = []
+		ssc_que = []
 
-    }
+	}
 
 }
 
@@ -453,27 +456,27 @@ function ssc_directionCheck(e, t) {
 
 function ssc_pulse_(e) {
 
-    var t, n, r;
+	var t, n, r;
 
-    e = e * ssc_pulseScale;
+	e = e * ssc_pulseScale;
 
-    if (e < 1) {
+	if (e < 1) {
 
-        t = e - (1 - Math.exp(-e))
+		t = e - (1 - Math.exp( -e ))
 
-    } else {
+	} else {
 
-        n = Math.exp(-1);
+		n = Math.exp( -1 );
 
-        e -= 1;
+		e -= 1;
 
-        r = 1 - Math.exp(-e);
+		r = 1 - Math.exp( -e );
 
-        t = n + r * (1 - n)
+		t = n + r * (1 - n)
 
-    }
+	}
 
-    return t * ssc_pulseNormalize
+	return t * ssc_pulseNormalize
 
 }
 
@@ -481,17 +484,21 @@ function ssc_pulse_(e) {
 
 function ssc_pulse(e) {
 
-    if (e >= 1) return 1;
+	if (e >= 1) {
+		return 1;
+	}
 
-    if (e <= 0) return 0;
+	if (e <= 0) {
+		return 0;
+	}
 
-    if (ssc_pulseNormalize == 1) {
+	if (ssc_pulseNormalize == 1) {
 
-        ssc_pulseNormalize /= ssc_pulse_(1)
+		ssc_pulseNormalize /= ssc_pulse_( 1 )
 
-    }
+	}
 
-    return ssc_pulse_(e)
+	return ssc_pulse_( e )
 
 }
 
@@ -517,9 +524,9 @@ var ssc_frame = false;
 
 var ssc_direction = {
 
-    x: 0,
+	x: 0,
 
-    y: 0
+	y: 0
 
 };
 
@@ -535,23 +542,23 @@ var ssc_activeElement;
 
 var ssc_key = {
 
-    left: 37,
+	left: 37,
 
-    up: 38,
+	up: 38,
 
-    right: 39,
+	right: 39,
 
-    down: 40,
+	down: 40,
 
-    spacebar: 32,
+	spacebar: 32,
 
-    pageup: 33,
+	pageup: 33,
 
-    pagedown: 34,
+	pagedown: 34,
 
-    end: 35,
+	end: 35,
 
-    home: 36
+	home: 36
 
 };
 
@@ -565,38 +572,40 @@ var ssc_cache = {};
 
 
 
-setInterval(function () {
+setInterval(
+	function () {
 
-    ssc_cache = {}
+		ssc_cache = {}
 
-}, 10 * 1e3);
+	}, 10 * 1e3
+);
 
 
 
 var ssc_uniqueID = function () {
 
-    var e = 0;
+	var e = 0;
 
-    return function (t) {
+	return function (t) {
 
-        return t.ssc_uniqueID || (t.ssc_uniqueID = e++)
+		return t.ssc_uniqueID || (t.ssc_uniqueID = e++)
 
-    }
+	}
 
 }();
 
 
 
-var ischrome = /chrome/.test(navigator.userAgent.toLowerCase());
+var ischrome = /chrome/.test( navigator.userAgent.toLowerCase() );
 
 
 
 if (ischrome) {
 
-    ssc_addEvent("mousedown", ssc_mousedown);
+	ssc_addEvent( "mousedown", ssc_mousedown );
 
-    ssc_addEvent("mousewheel", ssc_wheel);
+	ssc_addEvent( "mousewheel", ssc_wheel );
 
-    ssc_addEvent("load", ssc_init)
+	ssc_addEvent( "load", ssc_init )
 
 }

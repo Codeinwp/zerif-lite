@@ -507,13 +507,13 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 
 				return array(
 					'status' => is_plugin_active( $slug . '/' . $plugin_root_file . '.php' ),
-					'needs' => $needs,
+					'needs'  => $needs,
 				);
 			}
 
 			return array(
 				'status' => false,
-				'needs' => 'install',
+				'needs'  => 'install',
 			);
 		}
 
@@ -659,7 +659,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 
 				echo '<div class="feature-section action-required demo-import-boxed" id="plugin-filter">';
 
-				$actions = array();
+				$actions     = array();
 				$req_actions = isset( $this->config['recommended_actions'] ) ? $this->config['recommended_actions'] : array();
 				foreach ( $req_actions['content'] as $req_action ) {
 					$actions[] = $req_action;
@@ -729,8 +729,9 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 							?>
 							<p class="plugin-card-<?php echo esc_attr( $action_value['plugin_slug'] ); ?> action_button <?php echo ( $active['needs'] !== 'install' && $active['status'] ) ? 'active' : ''; ?>">
 								<a data-slug="<?php echo esc_attr( $action_value['plugin_slug'] ); ?>"
-								   class="<?php echo esc_attr( $class ); ?>"
-								   href="<?php echo esc_url( $url ); ?>"> <?php echo esc_html( $label ); ?> </a>
+									class="<?php echo esc_attr( $class ); ?>"
+									href="<?php echo esc_url( $url ); ?>"> <?php echo esc_html( $label ); ?>
+								</a>
 							</p>
 
 							<?php
@@ -756,7 +757,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 					foreach ( $recommended_plugins['content'] as $recommended_plugins_item ) {
 
 						if ( ! empty( $recommended_plugins_item['slug'] ) ) {
-							$info   = $this->call_plugin_api( $recommended_plugins_item['slug'] );
+							$info = $this->call_plugin_api( $recommended_plugins_item['slug'] );
 							if ( ! empty( $info->icons ) ) {
 								$icon = $this->get_plugin_icon( $info->icons );
 							}
@@ -1047,14 +1048,14 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 				wp_enqueue_script( 'plugin-install' );
 				wp_enqueue_script( 'updates' );
 
-				$recommended_actions         = isset( $this->config['recommended_actions'] ) ? $this->config['recommended_actions'] : array();
-				$required_actions = $this->get_required_actions();
+				$recommended_actions = isset( $this->config['recommended_actions'] ) ? $this->config['recommended_actions'] : array();
+				$required_actions    = $this->get_required_actions();
 				wp_localize_script(
 					'ti-about-page-js', 'tiAboutPageObject', array(
-						'nr_actions_required'      => count( $required_actions ),
-						'ajaxurl'                  => admin_url( 'admin-ajax.php' ),
-						'template_directory'       => get_template_directory_uri(),
-						'activating_string'        => __( 'Activating', 'zerif-lite' ),
+						'nr_actions_required' => count( $required_actions ),
+						'ajaxurl'             => admin_url( 'admin-ajax.php' ),
+						'template_directory'  => get_template_directory_uri(),
+						'activating_string'   => __( 'Activating', 'zerif-lite' ),
 					)
 				);
 
@@ -1089,7 +1090,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 		public function dismiss_required_action_callback() {
 
 			$recommended_actions = array();
-			$req_actions = isset( $this->config['recommended_actions'] ) ? $this->config['recommended_actions'] : array();
+			$req_actions         = isset( $this->config['recommended_actions'] ) ? $this->config['recommended_actions'] : array();
 			foreach ( $req_actions['content'] as $req_action ) {
 				$recommended_actions[] = $req_action;
 			}

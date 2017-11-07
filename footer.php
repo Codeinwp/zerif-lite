@@ -24,38 +24,38 @@
 			$footer_sections = 0;
 
 		if ( current_user_can( 'edit_theme_options' ) ) {
-			$zerif_address = get_theme_mod( 'zerif_address',sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_address' ) ), __( 'Company address','zerif-lite' ) ) );
+			$zerif_address      = get_theme_mod( 'zerif_address', sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_address' ) ), __( 'Company address', 'zerif-lite' ) ) );
 			$zerif_address_icon = get_theme_mod( 'zerif_address_icon', get_template_directory_uri() . '/images/map25-redish.png' );
 		} else {
-			$zerif_address = get_theme_mod( 'zerif_address' );
+			$zerif_address      = get_theme_mod( 'zerif_address' );
 			$zerif_address_icon = get_theme_mod( 'zerif_address_icon' );
 		}
 
 		if ( current_user_can( 'edit_theme_options' ) ) {
-			$zerif_email = get_theme_mod( 'zerif_email',sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_email' ) ), __( 'youremail@site.com','zerif-lite' ) ) );
+			$zerif_email      = get_theme_mod( 'zerif_email', sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_email' ) ), __( 'youremail@site.com', 'zerif-lite' ) ) );
 			$zerif_email_icon = get_theme_mod( 'zerif_email_icon', get_template_directory_uri() . '/images/envelope4-green.png' );
 		} else {
-			$zerif_email = get_theme_mod( 'zerif_email' );
+			$zerif_email      = get_theme_mod( 'zerif_email' );
 			$zerif_email_icon = get_theme_mod( 'zerif_email_icon' );
 		}
 
 		if ( current_user_can( 'edit_theme_options' ) ) {
-			$zerif_phone = get_theme_mod( 'zerif_phone',sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_phone' ) ), __( '0 332 548 954','zerif-lite' ) ) );
+			$zerif_phone      = get_theme_mod( 'zerif_phone', sprintf( '<a href="%1$s">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_phone' ) ), __( '0 332 548 954', 'zerif-lite' ) ) );
 			$zerif_phone_icon = get_theme_mod( 'zerif_phone_icon', get_template_directory_uri() . '/images/telephone65-blue.png' );
 		} else {
-			$zerif_phone = get_theme_mod( 'zerif_phone' );
+			$zerif_phone      = get_theme_mod( 'zerif_phone' );
 			$zerif_phone_icon = get_theme_mod( 'zerif_phone_icon' );
 		}
 
-			$zerif_socials_facebook = get_theme_mod( 'zerif_socials_facebook' );
-			$zerif_socials_twitter = get_theme_mod( 'zerif_socials_twitter' );
-			$zerif_socials_linkedin = get_theme_mod( 'zerif_socials_linkedin' );
-			$zerif_socials_behance = get_theme_mod( 'zerif_socials_behance' );
-			$zerif_socials_dribbble = get_theme_mod( 'zerif_socials_dribbble' );
+			$zerif_socials_facebook  = get_theme_mod( 'zerif_socials_facebook' );
+			$zerif_socials_twitter   = get_theme_mod( 'zerif_socials_twitter' );
+			$zerif_socials_linkedin  = get_theme_mod( 'zerif_socials_linkedin' );
+			$zerif_socials_behance   = get_theme_mod( 'zerif_socials_behance' );
+			$zerif_socials_dribbble  = get_theme_mod( 'zerif_socials_dribbble' );
 			$zerif_socials_instagram = get_theme_mod( 'zerif_socials_instagram' );
 
 			$zerif_accessibility = get_theme_mod( 'zerif_accessibility' );
-			$zerif_copyright = get_theme_mod( 'zerif_copyright' );
+			$zerif_copyright     = get_theme_mod( 'zerif_copyright' );
 
 			$zerif_powered_by = true;
 
@@ -95,7 +95,13 @@
 
 				if ( ! empty( $zerif_address_icon ) ) {
 					echo '<div class="icon-top red-text">';
-					 echo '<img src="' . esc_url( $zerif_address_icon ) . '" alt="" />';
+					if ( ! empty( $zerif_address ) ) {
+						echo '<a target="_blank" href="https://www.google.com.sg/maps/place/' . wp_strip_all_tags( $zerif_address ) . '">';
+					}
+					echo '<img src="' . esc_url( $zerif_address_icon ) . '" alt="" />';
+					if ( ! empty( $zerif_address ) ) {
+						echo '</a>';
+					}
 					echo '</div>';
 				}
 
@@ -116,7 +122,13 @@
 
 				if ( ! empty( $zerif_email_icon ) ) {
 					echo '<div class="icon-top green-text">';
+					if ( ! empty( $zerif_email ) ) {
+						echo '<a href="mailto:' . wp_strip_all_tags( $zerif_email ) . '">';
+					}
 					echo '<img src="' . esc_url( $zerif_email_icon ) . '" alt="" />';
+					if ( ! empty( $zerif_email ) ) {
+						echo '</a>';
+					}
 					echo '</div>';
 				}
 				if ( ! empty( $zerif_email ) ) {
@@ -126,7 +138,6 @@
 				} elseif ( is_customize_preview() ) {
 					echo '<div class="zerif-footer-email zerif_hidden_if_not_customizer"></div>';
 				}
-
 				echo '</div>';
 			}
 
@@ -135,7 +146,13 @@
 				echo '<div class="' . $footer_class . ' company-details">';
 				if ( ! empty( $zerif_phone_icon ) ) {
 					echo '<div class="icon-top blue-text">';
+					if ( ! empty( $zerif_phone ) ) {
+						echo '<a href="tel: ' . wp_strip_all_tags( $zerif_phone ) . '">';
+					}
 					echo '<img src="' . esc_url( $zerif_phone_icon ) . '" alt="" />';
+					if ( ! empty( $zerif_phone ) ) {
+						echo '</a>';
+					}
 					echo '</div>';
 				}
 				if ( ! empty( $zerif_phone ) ) {
@@ -150,7 +167,7 @@
 		}
 
 			// open link in a new tab when checkbox "accessibility" is not ticked
-			$attribut_new_tab = (isset( $zerif_accessibility ) && ($zerif_accessibility != 1) ? ' target="_blank"' : '' );
+			$attribut_new_tab = ( isset( $zerif_accessibility ) && ( $zerif_accessibility != 1 ) ? ' target="_blank"' : '' );
 
 		if ( ! empty( $zerif_socials_facebook ) || ! empty( $zerif_socials_twitter ) || ! empty( $zerif_socials_linkedin ) || ! empty( $zerif_socials_behance ) || ! empty( $zerif_socials_dribbble ) ||
 			! empty( $zerif_copyright ) || ! empty( $zerif_powered_by ) || ! empty( $zerif_socials_instagram ) ) {
@@ -194,7 +211,8 @@
 				echo '<p id="zerif-copyright" class="zerif_hidden_if_not_customizer"></p>';
 			}
 
-			echo '<div class="zerif-copyright-box"><a class="zerif-copyright" rel="nofollow">Zerif Lite </a>' . __( 'developed by', 'zerif-lite' ) . ' ' . '<a class="zerif-copyright" href="' . esc_url( 'https://themeisle.com' ) . '" ' . $attribut_new_tab . ' rel="nofollow"> ' . __( 'ThemeIsle', 'zerif-lite' ) . '</a></div>';
+			/* Translators: %s: ThemeIsle link */
+			echo '<div class="zerif-copyright-box"><a class="zerif-copyright" rel="nofollow">Zerif Lite </a>' . sprintf( __( 'developed by %s', 'zerif-lite' ), '<a class="zerif-copyright" href="' . esc_url( 'https://themeisle.com' ) . '" ' . $attribut_new_tab . ' rel="nofollow">' . __( 'ThemeIsle', 'zerif-lite' ) . '</a>' ) . '</div>';
 
 			echo '</div>';
 

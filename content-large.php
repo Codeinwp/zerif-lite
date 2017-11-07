@@ -13,22 +13,22 @@
 
 		<div class="post-img-wrap-large">
 
-				 <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
+			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
 
-					<?php
-						$image_id = get_post_thumbnail_id();
-						$image_url_big = wp_get_attachment_image_url( $image_id,'zerif-post-thumbnail-large', true );
-						$image_url_tablet = wp_get_attachment_image_url( $image_id,'zerif-post-thumbnail-large-table', true );
-						$image_url_mobile = wp_get_attachment_image_url( $image_id,'zerif-post-thumbnail-large-mobile', true );
-					?>
+				<?php
+					$image_id         = get_post_thumbnail_id();
+					$image_url_big    = wp_get_attachment_image_url( $image_id, 'zerif-post-thumbnail-large', true );
+					$image_url_tablet = wp_get_attachment_image_url( $image_id, 'zerif-post-thumbnail-large-table', true );
+					$image_url_mobile = wp_get_attachment_image_url( $image_id, 'zerif-post-thumbnail-large-mobile', true );
+				?>
 
-					 <picture>
-						<source media="(max-width: 600px)" srcset="<?php echo esc_url( $image_url_mobile ); ?>">
-						<source media="(max-width: 768px)" srcset="<?php echo esc_url( $image_url_tablet ); ?>">
-						<img src="<?php echo esc_url( $image_url_big ); ?>" alt="<?php the_title_attribute(); ?>">
-					</picture>
+				<picture>
+					<source media="(max-width: 600px)" srcset="<?php echo esc_url( $image_url_mobile ); ?>">
+					<source media="(max-width: 768px)" srcset="<?php echo esc_url( $image_url_tablet ); ?>">
+					<img src="<?php echo esc_url( $image_url_big ); ?>" alt="<?php the_title_attribute(); ?>">
+				</picture>
 
-				</a>
+			</a>
 
 		</div>
 
@@ -72,7 +72,7 @@
 		}
 
 		if ( $ismore ) {
-			the_content( sprintf( esc_html__( '[&hellip;]','zerif-lite' ), '<span class="screen-reader-text">' . esc_html__( 'about ', 'zerif-lite' ) . get_the_title() . '</span>' ) );
+			the_content( sprintf( esc_html__( '[&hellip;]', 'zerif-lite' ), '<span class="screen-reader-text">' . esc_html__( 'about ', 'zerif-lite' ) . get_the_title() . '</span>' ) );
 		} else {
 			the_excerpt();
 		}
@@ -144,14 +144,13 @@
 				<?php endif; /* End if $tags_list */ ?>
 
 			<?php endif; /* End if 'post' == get_post_type() */ ?>
-			
-			
+
 			<?php if ( ! post_password_required() && ( comments_open() || '0' != get_comments_number() ) ) : ?>
 
 			<span class="comments-link"><?php comments_popup_link( __( 'Leave a comment', 'zerif-lite' ), __( '1 Comment', 'zerif-lite' ), __( '% Comments', 'zerif-lite' ) ); ?></span>
 
 			<?php endif; ?>
-		
+
 			<?php edit_post_link( __( 'Edit', 'zerif-lite' ), '<span class="edit-link">', '</span>' ); ?>
 
 		</div>

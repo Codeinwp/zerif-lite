@@ -9,7 +9,7 @@ get_header();
 
 if ( ! zerif_check_if_old_version_of_theme() ) {
 
-	$blog_header_title = get_theme_mod( 'zerif_blog_header_title', esc_html__( 'Blog', 'zerif-lite' ) );
+	$blog_header_title    = get_theme_mod( 'zerif_blog_header_title', esc_html__( 'Blog', 'zerif-lite' ) );
 	$blog_header_subtitle = get_theme_mod( 'zerif_blog_header_subtitle', esc_html__( 'Zerif supports a custom frontpage', 'zerif-lite' ) );
 
 	if ( ! empty( $blog_header_title ) || ! empty( $blog_header_subtitle ) ) { ?>
@@ -49,8 +49,8 @@ if ( ! empty( $blog_header_subtitle ) ) {
 					while ( have_posts() ) {
 						the_post();
 
-						/*
-						 Include the Post-Format-specific template for the content.
+						/**
+						 * Include the Post-Format-specific template for the content.
 						 * If you want to override this in a child theme, then include a file
 						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 						 */

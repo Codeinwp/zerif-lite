@@ -31,10 +31,10 @@ if ( is_active_sidebar( 'sidebar-ourteam' ) ) {
 
 	if ( is_customize_preview() ) {
 		/* translators: Our team section */
-		printf( __( 'Add widgets in this area by going to the %s','zerif-lite' ), __( 'Our team section','zerif-lite' ) );
+		printf( __( 'Add widgets in this area by going to the %s', 'zerif-lite' ), __( 'Our team section', 'zerif-lite' ) );
 	} else {
 		/* translators: Our team section in customizer */
-		printf( __( 'Add widgets in this area by going to the %s','zerif-lite' ), sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;section&#93;=sidebar-widgets-sidebar-ourteam' ) ), __( 'Our team section','zerif-lite' ) ) );
+		printf( __( 'Add widgets in this area by going to the %s', 'zerif-lite' ), sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;section&#93;=sidebar-widgets-sidebar-ourteam' ) ), __( 'Our team section', 'zerif-lite' ) ) );
 	}
 }
 

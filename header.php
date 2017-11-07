@@ -41,7 +41,7 @@ if ( is_front_page() && ! is_customize_preview() ) :
 
 	$zerif_disable_preloader = get_theme_mod( 'zerif_disable_preloader' );
 
-	if ( isset( $zerif_disable_preloader ) && ($zerif_disable_preloader != 1) ) :
+	if ( isset( $zerif_disable_preloader ) && ( $zerif_disable_preloader != 1 ) ) :
 		echo '<div class="preloader">';
 			echo '<div class="status">&nbsp;</div>';
 		echo '</div>';
@@ -70,7 +70,7 @@ if ( is_front_page() && ! is_customize_preview() ) :
 
 				<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
 
-				<span class="sr-only"><?php _e( 'Toggle navigation','zerif-lite' ); ?></span>
+				<span class="sr-only"><?php _e( 'Toggle navigation', 'zerif-lite' ); ?></span>
 
 				<span class="icon-bar"></span>
 

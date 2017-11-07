@@ -14,9 +14,9 @@ $zerif_bottomribbon_buttonlink = get_theme_mod( 'zerif_bottomribbon_buttonlink' 
 /* For new users, add default values for the Ribbon section controls */
 if ( ! zerif_check_if_old_version_of_theme() && current_user_can( 'edit_theme_options' ) ) {
 	/* translators: BottomButton Ribbon in customizer */
-	$zerif_bottomribbon_text = get_theme_mod( 'zerif_bottomribbon_text', sprintf( __( 'Change this text in %s','zerif-lite' ), sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_bottomribbon_text' ) ), __( 'BottomButton Ribbon','zerif-lite' ) ) ) );
-	$zerif_bottomribbon_buttonlabel = get_theme_mod( 'zerif_bottomribbon_buttonlabel', __( 'Get in touch','zerif-lite' ) );
-	$zerif_bottomribbon_buttonlink = get_theme_mod( 'zerif_bottomribbon_buttonlink', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_bottomribbon_buttonlink' ) ) );
+	$zerif_bottomribbon_text        = get_theme_mod( 'zerif_bottomribbon_text', sprintf( __( 'Change this text in %s', 'zerif-lite' ), sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_bottomribbon_text' ) ), __( 'BottomButton Ribbon', 'zerif-lite' ) ) ) );
+	$zerif_bottomribbon_buttonlabel = get_theme_mod( 'zerif_bottomribbon_buttonlabel', __( 'Get in touch', 'zerif-lite' ) );
+	$zerif_bottomribbon_buttonlink  = get_theme_mod( 'zerif_bottomribbon_buttonlink', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_bottomribbon_buttonlink' ) ) );
 }
 
 if ( ! empty( $zerif_bottomribbon_text ) ) :

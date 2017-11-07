@@ -51,10 +51,10 @@ class Zerif_Customizer_Upsell_Pro extends WP_Customize_Section {
 	 * @access public
 	 */
 	public function json() {
-		$json = parent::json();
+		$json                 = parent::json();
 		$json['upsell_title'] = $this->upsell_title;
-		$json['label_text'] = $this->label_text;
-		$json['label_url'] = esc_url( $this->label_url );
+		$json['label_text']   = $this->label_text;
+		$json['label_url']    = esc_url( $this->label_url );
 		return $json;
 	}
 	/**

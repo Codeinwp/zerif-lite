@@ -13,9 +13,9 @@ $zerif_ribbonright_buttonlink = get_theme_mod( 'zerif_ribbonright_buttonlink' );
 
 /* For new users, add default values for the Ribbon section controls */
 if ( ! zerif_check_if_old_version_of_theme() && current_user_can( 'edit_theme_options' ) ) {
-	$zerif_ribbonright_text = get_theme_mod( 'zerif_ribbonright_text', __( 'Change this text in RightButton Ribbon','zerif-lite' ) );
-	$zerif_ribbonright_buttonlabel = get_theme_mod( 'zerif_ribbonright_buttonlabel', __( 'Get in touch','zerif-lite' ) );
-	$zerif_ribbonright_buttonlink = get_theme_mod( 'zerif_ribbonright_buttonlink', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_ribbonright_buttonlink' ) ) );
+	$zerif_ribbonright_text        = get_theme_mod( 'zerif_ribbonright_text', __( 'Change this text in RightButton Ribbon', 'zerif-lite' ) );
+	$zerif_ribbonright_buttonlabel = get_theme_mod( 'zerif_ribbonright_buttonlabel', __( 'Get in touch', 'zerif-lite' ) );
+	$zerif_ribbonright_buttonlink  = get_theme_mod( 'zerif_ribbonright_buttonlink', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_ribbonright_buttonlink' ) ) );
 }
 
 if ( ! empty( $zerif_ribbonright_text ) ) {

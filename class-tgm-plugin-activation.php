@@ -259,8 +259,6 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 			// Announce that the class is ready, and pass the object (for advanced use).
 			do_action_ref_array( 'tgmpa_init', array( $this ) );
 
-
-
 			// When the rest of WP has loaded, kick-start the rest of the class.
 			add_action( 'init', array( $this, 'init' ) );
 		}
@@ -332,37 +330,37 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 				'updating'                        => __( 'Updating Plugin: %s', 'zerif-lite' ),
 				'oops'                            => __( 'Something went wrong with the plugin API.', 'zerif-lite' ),
 				'notice_can_install_required'     => _n_noop(
-				/* translators: 1: plugin name(s). */
+					/* translators: 1: plugin name(s). */
 					'This theme requires the following plugin: %1$s.',
 					'This theme requires the following plugins: %1$s.',
 					'zerif-lite'
 				),
 				'notice_can_install_recommended'  => _n_noop(
-				/* translators: 1: plugin name(s). */
+					/* translators: 1: plugin name(s). */
 					'This theme recommends the following plugin: %1$s.',
 					'This theme recommends the following plugins: %1$s.',
 					'zerif-lite'
 				),
 				'notice_ask_to_update'            => _n_noop(
-				/* translators: 1: plugin name(s). */
+					/* translators: 1: plugin name(s). */
 					'The following plugin needs to be updated to its latest version to ensure maximum compatibility with this theme: %1$s.',
 					'The following plugins need to be updated to their latest version to ensure maximum compatibility with this theme: %1$s.',
 					'zerif-lite'
 				),
 				'notice_ask_to_update_maybe'      => _n_noop(
-				/* translators: 1: plugin name(s). */
+					/* translators: 1: plugin name(s). */
 					'There is an update available for: %1$s.',
 					'There are updates available for the following plugins: %1$s.',
 					'zerif-lite'
 				),
 				'notice_can_activate_required'    => _n_noop(
-				/* translators: 1: plugin name(s). */
+					/* translators: 1: plugin name(s). */
 					'The following required plugin is currently inactive: %1$s.',
 					'The following required plugins are currently inactive: %1$s.',
 					'zerif-lite'
 				),
 				'notice_can_activate_recommended' => _n_noop(
-				/* translators: 1: plugin name(s). */
+					/* translators: 1: plugin name(s). */
 					'The following recommended plugin is currently inactive: %1$s.',
 					'The following recommended plugins are currently inactive: %1$s.',
 					'zerif-lite'
@@ -931,10 +929,20 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 					if ( true === $GLOBALS['wp_filesystem']->move( $from_path, $to_path ) ) {
 						return trailingslashit( $to_path );
 					} else {
-						return new WP_Error( 'rename_failed', esc_html__( 'The remote plugin package does not contain a folder with the desired slug and renaming did not work.', 'zerif-lite' ) . ' ' . esc_html__( 'Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'zerif-lite' ), array( 'found' => $subdir_name, 'expected' => $desired_slug ) );
+						return new WP_Error(
+							'rename_failed', esc_html__( 'The remote plugin package does not contain a folder with the desired slug and renaming did not work.', 'zerif-lite' ) . ' ' . esc_html__( 'Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'zerif-lite' ), array(
+								'found'    => $subdir_name,
+								'expected' => $desired_slug,
+							)
+						);
 					}
 				} elseif ( empty( $subdir_name ) ) {
-					return new WP_Error( 'packaged_wrong', esc_html__( 'The remote plugin package consists of more than one file, but the files are not packaged in a folder.', 'zerif-lite' ) . ' ' . esc_html__( 'Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'zerif-lite' ), array( 'found' => $subdir_name, 'expected' => $desired_slug ) );
+					return new WP_Error(
+						'packaged_wrong', esc_html__( 'The remote plugin package consists of more than one file, but the files are not packaged in a folder.', 'zerif-lite' ) . ' ' . esc_html__( 'Please contact the plugin provider and ask them to package their plugin according to the WordPress guidelines.', 'zerif-lite' ), array(
+							'found'    => $subdir_name,
+							'expected' => $desired_slug,
+						)
+					);
 				}
 			}
 
@@ -1555,7 +1563,12 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 					require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
 				}
 
-				$response = plugins_api( 'plugin_information', array( 'slug' => $slug, 'fields' => array( 'sections' => false ) ) );
+				$response = plugins_api(
+					'plugin_information', array(
+						'slug'   => $slug,
+						'fields' => array( 'sections' => false ),
+					)
+				);
 
 				$api[ $slug ] = false;
 
@@ -1978,7 +1991,7 @@ if ( ! class_exists( 'TGM_Plugin_Activation' ) ) {
 			echo '<p style="float: right; padding: 0em 1.5em 0.5em 0;"><strong><small>',
 			esc_html(
 				sprintf(
-				/* translators: %s: version number */
+					/* translators: %s: version number */
 					__( 'TGMPA v%s', 'zerif-lite' ),
 					self::TGMPA_VERSION
 				)
@@ -2338,7 +2351,7 @@ if ( ! class_exists( 'TGMPA_List_Table' ) ) {
 			}
 
 			return sprintf(
-			/* translators: 1: install status, 2: update status */
+				/* translators: 1: install status, 2: update status */
 				_x( '%1$s, %2$s', 'Install/Update Status', 'zerif-lite' ),
 				$install_status,
 				$update_status
@@ -3314,12 +3327,14 @@ if ( ! function_exists( 'tgmpa_load_bulk_installer' ) ) {
 						 *     @type array  $packages Array of plugin, theme, or core packages to update.
 						 * }
 						 */
-						do_action( 'upgrader_process_complete', $this, array(
-							'action'  => 'install', // [TGMPA + ] adjusted.
-							'type'    => 'plugin',
-							'bulk'    => true,
-							'plugins' => $plugins,
-						) );
+						do_action(
+							'upgrader_process_complete', $this, array(
+								'action'  => 'install', // [TGMPA + ] adjusted.
+								'type'    => 'plugin',
+								'bulk'    => true,
+								'plugins' => $plugins,
+							)
+						);
 
 						$this->skin->bulk_footer();
 

@@ -28,12 +28,12 @@ class Zerif_Welcome {
 		add_action( 'customize_controls_enqueue_scripts', array( $this, 'zerif_lite_welcome_scripts_for_customizer' ) );
 
 		/* load welcome screen */
-		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_getting_started' ),         10 );
-		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_actions_required' ),        20 );
-		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_child_themes' ),            30 );
-		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_github' ),                  40 );
-		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_changelog' ),               50 );
-		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_free_pro' ),                60 );
+		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_getting_started' ), 10 );
+		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_actions_required' ), 20 );
+		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_child_themes' ), 30 );
+		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_github' ), 40 );
+		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_changelog' ), 50 );
+		add_action( 'zerif_lite_welcome', array( $this, 'zerif_lite_welcome_free_pro' ), 60 );
 
 		/* ajax callback for dismissable required actions */
 		add_action( 'wp_ajax_zerif_lite_dismiss_required_action', array( $this, 'zerif_lite_dismiss_required_action_callback' ) );
@@ -59,7 +59,7 @@ class Zerif_Welcome {
 	public function zerif_lite_activation_admin_notice() {
 		global $pagenow;
 
-		if ( is_admin() && ('themes.php' == $pagenow) && isset( $_GET['activated'] ) ) {
+		if ( is_admin() && ( 'themes.php' == $pagenow ) && isset( $_GET['activated'] ) ) {
 			add_action( 'admin_notices', array( $this, 'zerif_lite_welcome_admin_notice' ), 99 );
 		}
 	}
@@ -102,7 +102,7 @@ class Zerif_Welcome {
 
 			if ( ! empty( $zerif_required_actions ) ) :
 				foreach ( $zerif_required_actions as $zerif_required_action_value ) :
-					if ( ( ! isset( $zerif_required_action_value['check'] ) || ( isset( $zerif_required_action_value['check'] ) && ( $zerif_required_action_value['check'] == false ) ) ) && ((isset( $zerif_show_required_actions[ $zerif_required_action_value['id'] ] ) && ($zerif_show_required_actions[ $zerif_required_action_value['id'] ] == true)) || ! isset( $zerif_show_required_actions[ $zerif_required_action_value['id'] ] ) ) ) :
+					if ( ( ! isset( $zerif_required_action_value['check'] ) || ( isset( $zerif_required_action_value['check'] ) && ( $zerif_required_action_value['check'] == false ) ) ) && ( ( isset( $zerif_show_required_actions[ $zerif_required_action_value['id'] ] ) && ( $zerif_show_required_actions[ $zerif_required_action_value['id'] ] == true ) ) || ! isset( $zerif_show_required_actions[ $zerif_required_action_value['id'] ] ) ) ) :
 						$nr_actions_required++;
 					endif;
 				endforeach;
@@ -110,10 +110,10 @@ class Zerif_Welcome {
 
 			wp_localize_script(
 				'zerif-lite-welcome-screen-js', 'zerifLiteWelcomeScreenObject', array(
-					'nr_actions_required' => $nr_actions_required,
-					'ajaxurl' => admin_url( 'admin-ajax.php' ),
-					'template_directory' => get_template_directory_uri(),
-					'no_required_actions_text' => __( 'Hooray! There are no required actions for you right now.','zerif-lite' ),
+					'nr_actions_required'      => $nr_actions_required,
+					'ajaxurl'                  => admin_url( 'admin-ajax.php' ),
+					'template_directory'       => get_template_directory_uri(),
+					'no_required_actions_text' => __( 'Hooray! There are no required actions for you right now.', 'zerif-lite' ),
 				)
 			);
 		}
@@ -142,7 +142,7 @@ class Zerif_Welcome {
 
 		if ( ! empty( $zerif_required_actions ) ) :
 			foreach ( $zerif_required_actions as $zerif_required_action_value ) :
-				if ( ( ! isset( $zerif_required_action_value['check'] ) || ( isset( $zerif_required_action_value['check'] ) && ( $zerif_required_action_value['check'] == false ) ) ) && ((isset( $zerif_show_required_actions[ $zerif_required_action_value['id'] ] ) && ($zerif_show_required_actions[ $zerif_required_action_value['id'] ] == true)) || ! isset( $zerif_show_required_actions[ $zerif_required_action_value['id'] ] ) ) ) :
+				if ( ( ! isset( $zerif_required_action_value['check'] ) || ( isset( $zerif_required_action_value['check'] ) && ( $zerif_required_action_value['check'] == false ) ) ) && ( ( isset( $zerif_show_required_actions[ $zerif_required_action_value['id'] ] ) && ( $zerif_show_required_actions[ $zerif_required_action_value['id'] ] == true ) ) || ! isset( $zerif_show_required_actions[ $zerif_required_action_value['id'] ] ) ) ) :
 					$nr_actions_required++;
 				endif;
 			endforeach;
@@ -151,8 +151,8 @@ class Zerif_Welcome {
 		wp_localize_script(
 			'zerif-lite-welcome-screen-customizer-js', 'zerifLiteWelcomeScreenCustomizerObject', array(
 				'nr_actions_required' => $nr_actions_required,
-				'aboutpage' => esc_url( admin_url( 'themes.php?page=zerif-lite-welcome#actions_required' ) ),
-				'customizerpage' => esc_url( admin_url( 'customize.php#actions_required' ) ),
+				'aboutpage'           => esc_url( admin_url( 'themes.php?page=zerif-lite-welcome#actions_required' ) ),
+				'customizerpage'      => esc_url( admin_url( 'customize.php#actions_required' ) ),
 			)
 		);
 	}
@@ -166,7 +166,7 @@ class Zerif_Welcome {
 
 		global $zerif_required_actions;
 
-		$zerif_dismiss_id = (isset( $_GET['dismiss_id'] )) ? $_GET['dismiss_id'] : 0;
+		$zerif_dismiss_id = ( isset( $_GET['dismiss_id'] ) ) ? $_GET['dismiss_id'] : 0;
 
 		echo $zerif_dismiss_id; /* this is needed and it's the id of the dismissable required action */
 
@@ -179,7 +179,7 @@ class Zerif_Welcome {
 
 				$zerif_show_required_actions[ $zerif_dismiss_id ] = false;
 
-				update_option( 'zerif_show_required_actions',$zerif_show_required_actions );
+				update_option( 'zerif_show_required_actions', $zerif_show_required_actions );
 
 				/* create the new option,with false for the specified id */
 			else :
@@ -223,12 +223,12 @@ class Zerif_Welcome {
 		?>
 
 		<ul class="zerif-lite-nav-tabs" role="tablist">
-			<li role="presentation" class="active"><a href="#getting_started" aria-controls="getting_started" role="tab" data-toggle="tab"><?php esc_html_e( 'Getting started','zerif-lite' ); ?></a></li>
-			<li role="presentation" class="zerif-lite-w-red-tab"><a href="#actions_required" aria-controls="actions_required" role="tab" data-toggle="tab"><?php esc_html_e( 'Actions required','zerif-lite' ); ?></a></li>
-			<li role="presentation"><a href="#child_themes" aria-controls="child_themes" role="tab" data-toggle="tab"><?php esc_html_e( 'Child themes','zerif-lite' ); ?></a></li>
-			<li role="presentation"><a href="#github" aria-controls="github" role="tab" data-toggle="tab"><?php esc_html_e( 'Contribute','zerif-lite' ); ?></a></li>
-			<li role="presentation"><a href="#changelog" aria-controls="changelog" role="tab" data-toggle="tab"><?php esc_html_e( 'Changelog','zerif-lite' ); ?></a></li>
-			<li role="presentation"><a href="#free_pro" aria-controls="free_pro" role="tab" data-toggle="tab"><?php esc_html_e( 'Free VS PRO','zerif-lite' ); ?></a></li>
+			<li role="presentation" class="active"><a href="#getting_started" aria-controls="getting_started" role="tab" data-toggle="tab"><?php esc_html_e( 'Getting started', 'zerif-lite' ); ?></a></li>
+			<li role="presentation" class="zerif-lite-w-red-tab"><a href="#actions_required" aria-controls="actions_required" role="tab" data-toggle="tab"><?php esc_html_e( 'Actions required', 'zerif-lite' ); ?></a></li>
+			<li role="presentation"><a href="#child_themes" aria-controls="child_themes" role="tab" data-toggle="tab"><?php esc_html_e( 'Child themes', 'zerif-lite' ); ?></a></li>
+			<li role="presentation"><a href="#github" aria-controls="github" role="tab" data-toggle="tab"><?php esc_html_e( 'Contribute', 'zerif-lite' ); ?></a></li>
+			<li role="presentation"><a href="#changelog" aria-controls="changelog" role="tab" data-toggle="tab"><?php esc_html_e( 'Changelog', 'zerif-lite' ); ?></a></li>
+			<li role="presentation"><a href="#free_pro" aria-controls="free_pro" role="tab" data-toggle="tab"><?php esc_html_e( 'Free VS PRO', 'zerif-lite' ); ?></a></li>
 		</ul>
 
 		<div class="zerif-lite-tab-content">

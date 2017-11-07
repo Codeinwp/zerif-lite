@@ -21,7 +21,7 @@ get_header(); ?>
 
 		<?php zerif_before_page_content_trigger(); ?>
 		<?php
-		if ( (function_exists( 'is_cart' ) && is_cart()) || (function_exists( 'is_account_page' ) && is_account_page()) || (function_exists( 'is_checkout' ) && is_checkout() ) || ! empty( $zerif_change_to_full_width ) ) {
+		if ( ( function_exists( 'is_cart' ) && is_cart() ) || ( function_exists( 'is_account_page' ) && is_account_page() ) || ( function_exists( 'is_checkout' ) && is_checkout() ) || ! empty( $zerif_change_to_full_width ) ) {
 			echo '<div class="content-left-wrap col-md-12">';
 		} else {
 			echo '<div class="content-left-wrap col-md-9">';
@@ -52,7 +52,7 @@ get_header(); ?>
 		</div><!-- #primary -->
 
 	<?php
-	if ( (function_exists( 'is_cart' ) && is_cart()) || (function_exists( 'is_account_page' ) && is_account_page()) || (function_exists( 'is_checkout' ) && is_checkout() ) || ! empty( $zerif_change_to_full_width ) ) {
+	if ( ( function_exists( 'is_cart' ) && is_cart() ) || ( function_exists( 'is_account_page' ) && is_account_page() ) || ( function_exists( 'is_checkout' ) && is_checkout() ) || ! empty( $zerif_change_to_full_width ) ) {
 		zerif_bottom_page_content_trigger();
 		echo '</div>';
 		zerif_after_page_content_trigger();
@@ -63,8 +63,6 @@ get_header(); ?>
 		zerif_sidebar_trigger();
 	}
 		?>
-	
-		
 	</div><!-- .container -->
 
 <?php get_footer(); ?>
