@@ -92,7 +92,7 @@ if ( ! function_exists( 'zerif_posted_on' ) ) :
 
 endif;
 
-if ( ! function_exists( '' ) ) :
+if ( ! function_exists( 'zerif_categorized_blog' ) ) :
 	/**
 
 	 * Returns true if a blog has more than 1 category.
