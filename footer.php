@@ -95,13 +95,13 @@
 
 				if ( ! empty( $zerif_address_icon ) ) {
 					echo '<div class="icon-top red-text">';
-                    if ( ! empty( $zerif_address ) ) {
-                        echo '<a target="_blank" href="https://www.google.com.sg/maps/place/' . wp_strip_all_tags( $zerif_address ) . '">';
-                    }
+					if ( ! empty( $zerif_address ) ) {
+						echo '<a target="_blank" href="https://www.google.com.sg/maps/place/' . wp_strip_all_tags( $zerif_address ) . '">';
+					}
 					echo '<img src="' . esc_url( $zerif_address_icon ) . '" alt="" />';
-                    if ( ! empty( $zerif_address ) ) {
-                        echo '</a>';
-                    }
+					if ( ! empty( $zerif_address ) ) {
+						echo '</a>';
+					}
 					echo '</div>';
 				}
 
@@ -122,13 +122,13 @@
 
 				if ( ! empty( $zerif_email_icon ) ) {
 					echo '<div class="icon-top green-text">';
-                    if ( ! empty( $zerif_email ) ) {
-                        echo '<a href="mailto:' . wp_strip_all_tags( $zerif_email ) . '">';
-                    }
+					if ( ! empty( $zerif_email ) ) {
+						echo '<a href="mailto:' . wp_strip_all_tags( $zerif_email ) . '">';
+					}
 					echo '<img src="' . esc_url( $zerif_email_icon ) . '" alt="" />';
-                    if ( ! empty( $zerif_email ) ) {
-                        echo '</a>';
-                    }
+					if ( ! empty( $zerif_email ) ) {
+						echo '</a>';
+					}
 					echo '</div>';
 				}
 				if ( ! empty( $zerif_email ) ) {
@@ -146,13 +146,13 @@
 				echo '<div class="' . $footer_class . ' company-details">';
 				if ( ! empty( $zerif_phone_icon ) ) {
 					echo '<div class="icon-top blue-text">';
-                    if ( ! empty( $zerif_phone ) ) {
-                        echo '<a href="tel: ' . wp_strip_all_tags( $zerif_phone ) . '">';
-                    }
+					if ( ! empty( $zerif_phone ) ) {
+						echo '<a href="tel: ' . wp_strip_all_tags( $zerif_phone ) . '">';
+					}
 					echo '<img src="' . esc_url( $zerif_phone_icon ) . '" alt="" />';
-                    if ( ! empty( $zerif_phone ) ) {
-                        echo '</a>';
-                    }
+					if ( ! empty( $zerif_phone ) ) {
+						echo '</a>';
+					}
 					echo '</div>';
 				}
 				if ( ! empty( $zerif_phone ) ) {
