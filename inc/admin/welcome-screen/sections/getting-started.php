@@ -5,7 +5,7 @@
  * @package zerif-lite
  */
 
-$customizer_url = admin_url() . 'customize.php' ;
+$customizer_url = admin_url() . 'customize.php';
 ?>
 
 <div id="getting_started" class="zerif-lite-tab-pane active">
@@ -16,9 +16,9 @@ $customizer_url = admin_url() . 'customize.php' ;
 		<?php
 		if ( ! empty( $zerif_lite['Version'] ) ) :
 ?>
- <sup id="zerif-lite-theme-version"><?php echo esc_attr( $zerif_lite['Version'] ); ?> </sup><?php endif; ?></h1>
+<sup id="zerif-lite-theme-version"><?php echo esc_attr( $zerif_lite['Version'] ); ?> </sup><?php endif; ?></h1>
 
-		<p><?php esc_html_e( 'Our most popular free one page WordPress theme, Zerif Lite!','zerif-lite' ); ?></p>
+		<p><?php esc_html_e( 'Our most popular free one page WordPress theme, Zerif Lite!', 'zerif-lite' ); ?></p>
 		<p><?php esc_html_e( 'We want to make sure you have the best experience using Zerif Lite and that is why we gathered here all the necessary informations for you. We hope you will enjoy using Zerif Lite, as much as we enjoy creating great products.', 'zerif-lite' ); ?>
 
 	</div>
@@ -29,7 +29,7 @@ $customizer_url = admin_url() . 'customize.php' ;
 
 		<h1><?php esc_html_e( 'Getting started', 'zerif-lite' ); ?></h1>
 
-		<h4><?php esc_html_e( 'Customize everything in a single place.' ,'zerif-lite' ); ?></h4>
+		<h4><?php esc_html_e( 'Customize everything in a single place.', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'Using the WordPress Customizer you can easily customize every aspect of the theme.', 'zerif-lite' ); ?></p>
 		<p><a href="<?php echo esc_url( $customizer_url ); ?>" class="button button-primary"><?php esc_html_e( 'Go to Customizer', 'zerif-lite' ); ?></a></p>
 
@@ -50,13 +50,13 @@ $customizer_url = admin_url() . 'customize.php' ;
 		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/14-how-to-create-a-child-theme/' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr />
-		
+
 		<h4><?php esc_html_e( 'Build a landing page with a drag-and-drop content builder', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'In the below documentation you will find an easy way to build a great looking landing page using a drag-and-drop content builder plugin.', 'zerif-lite' ); ?></p>
 		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/219-how-to-build-a-landing-page-with-a-drag-and-drop-content-builder' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr />
-		
+
 		<h4><?php esc_html_e( 'Translate Zerif Lite', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'In the below documentation you will find an easy way to translate Zerif Lite into your native language or any other language you need for you site.', 'zerif-lite' ); ?></p>
 		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/80-how-to-translate-zerif' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
@@ -74,13 +74,13 @@ $customizer_url = admin_url() . 'customize.php' ;
 		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/15-turn-off-loading-animations-in-zerif/' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr />
-		
+
 		<h4><?php esc_html_e( 'Add a search bar in the top menu', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'Find out how to add a search bar in the top menu bar, in an easy way be following the link below.', 'zerif-lite' ); ?></p>
 		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/78-zerif-adding-a-search-bar-in-the-top-menu' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
-		
+
 		<hr />
-		
+
 		<h4><?php esc_html_e( 'Slider in big title section', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'If you are in the position where you want to change the default appearance of the big title section, you may want to replace it with a nice looking slider. This can be accomplished by following the documention below.', 'zerif-lite' ); ?></p>
 		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/13-replacing-big-title-section-with-an-image-slider/' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
@@ -116,15 +116,15 @@ $customizer_url = admin_url() . 'customize.php' ;
 		<h4><?php esc_html_e( 'Remove the opacity', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'You don\'t like the way Zerif Lite looks with its background opacity? No problem. Just remove it using the steps below.', 'zerif-lite' ); ?></p>
 		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/30-removing-background-opacity-in-zerif/' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
-		
+
 		<hr />
-		
+
 		<h4><?php esc_html_e( 'Configure the portfolio', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'Set up your portfolio section in an easy way be following the link below.', 'zerif-lite' ); ?></p>
 		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/85-configuring-portfolio/' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
-		
+
 		<hr />
-		
+
 		<h4><?php esc_html_e( '30 Experts Share: The Top *Non-Obvious* WordPress Plugins That\'ll Make You a Better Blogger', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( ' At the address below you will find a cool set of original WordPress plugins that can give you great benefits despite being a little lesser known out there.', 'zerif-lite' ); ?></p>
 		<p><a href="<?php echo esc_url( 'http://www.codeinwp.com/blog/top-non-obvious-wordpress-plugins/' ); ?>" class="button"><?php esc_html_e( 'Read more', 'zerif-lite' ); ?></a></p>
@@ -150,7 +150,7 @@ $customizer_url = admin_url() . 'customize.php' ;
 	</div>
 
 	<div class="zerif-tab-pane-half zerif-tab-pane-first-half">
-	
+
 		<!-- Page Builder by SiteOrigin -->
 		<h4><?php esc_html_e( 'Page Builder by SiteOrigin', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'Build responsive page layouts using the widgets you know and love using this simple drag and drop page builder.', 'zerif-lite' ); ?></p>
@@ -210,9 +210,9 @@ $customizer_url = admin_url() . 'customize.php' ;
 			<?php
 }
 		?>
-		
+
 		<hr />
-		
+
 		<!-- Adblock Notify -->
 		<h4>Adblock Notify</h4>
 
@@ -251,9 +251,9 @@ $customizer_url = admin_url() . 'customize.php' ;
 			<?php
 }
 		?>
-		
+
 		<hr />
-		
+
 		<!-- ECPT -->
 		<h4><?php esc_html_e( 'Easy Content Types', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'Custom Post Types, Taxonomies and Metaboxes in Minutes', 'zerif-lite' ); ?></p>
@@ -271,9 +271,9 @@ $customizer_url = admin_url() . 'customize.php' ;
 			<?php
 }
 		?>
-		
+
 		<hr />
-		
+
 		<!-- Revive Old Post -->
 		<h4><?php esc_html_e( 'Revive Old Post', 'zerif-lite' ); ?></h4>
 		<p><?php esc_html_e( 'A plugin to share about your old posts on twitter, facebook, linkedin to get more hits for them and keep them alive.', 'zerif-lite' ); ?></p>
@@ -293,7 +293,7 @@ $customizer_url = admin_url() . 'customize.php' ;
 		?>
 
 		<hr />
-		
+
 		<!-- FEEDZY RSS Feeds -->
 		<h4>FEEDZY RSS Feeds</h4>
 

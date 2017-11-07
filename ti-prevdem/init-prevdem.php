@@ -11,8 +11,8 @@
  * @return bool
  */
 function zerif_isprevdem() {
-	$ti_theme = wp_get_theme();
-	$theme_name = $ti_theme ->get( 'TextDomain' );
+	$ti_theme     = wp_get_theme();
+	$theme_name   = $ti_theme->get( 'TextDomain' );
 	$active_theme = zerif_get_raw_option( 'template' );
 	return apply_filters( 'zerif_isprevdem', ( $active_theme != strtolower( $theme_name ) && ! is_child_theme() ) );
 }

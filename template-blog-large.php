@@ -29,21 +29,21 @@ global $paged;?>
 
 					$zerif_custom_query_args = array(
 						/* Parameters go here */
-						'post_type' => 'post',
+						'post_type'      => 'post',
 						'posts_per_page' => $zerif_posts_per_page,
 					);
 
 					// Get current page and append to custom query parameters array
-					$zerif_custom_query_args['paged'] = ( get_query_var( 'paged' ) ? get_query_var( 'paged' ) : ( get_query_var( 'page' ) ? get_query_var( 'page' ) : 1) );
-					$paged = $zerif_custom_query_args['paged'];
+					$zerif_custom_query_args['paged'] = ( get_query_var( 'paged' ) ? get_query_var( 'paged' ) : ( get_query_var( 'page' ) ? get_query_var( 'page' ) : 1 ) );
+					$paged                            = $zerif_custom_query_args['paged'];
 
 					// Instantiate custom query
 					$zerif_custom_query = new WP_Query( apply_filters( 'zerif_template_blog_large_parameters', $zerif_custom_query_args ) );
 
 					// Pagination fix
 					$zerif_temp_query = $wp_query;
-					$wp_query   = null;
-					$wp_query   = $zerif_custom_query;
+					$wp_query         = null;
+					$wp_query         = $zerif_custom_query;
 
 					// Output custom query loop
 					if ( $zerif_custom_query->have_posts() ) :
@@ -61,9 +61,9 @@ global $paged;?>
 					echo get_the_posts_navigation(
 						array(
 							/* translators: Newer posts navigation arrow */
-							'next_text' => sprintf( __( 'Newer posts %s','zerif-lite' ), '<span class="meta-nav">&rarr;</span>' ),
+							'next_text' => sprintf( __( 'Newer posts %s', 'zerif-lite' ), '<span class="meta-nav">&rarr;</span>' ),
 							/* translators: Older posts navigation arrow */
-							'prev_text' => sprintf( __( '%s Older posts', 'zerif-lite' ) , '<span class="meta-nav">&larr;</span>' ),
+							'prev_text' => sprintf( __( '%s Older posts', 'zerif-lite' ), '<span class="meta-nav">&larr;</span>' ),
 						)
 					);
 

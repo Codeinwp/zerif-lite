@@ -13,9 +13,9 @@
 	<hr/>
 
 	<div class="zerif-tab-pane-half zerif-tab-pane-first-half">
-		<p><strong><?php esc_html_e( 'Found a bug? Want to contribute with a fix or create a new feature?','zerif-lite' ); ?></strong></p>
+		<p><strong><?php esc_html_e( 'Found a bug? Want to contribute with a fix or create a new feature?', 'zerif-lite' ); ?></strong></p>
 
-		<p><?php esc_html_e( 'GitHub is the place to go!','zerif-lite' ); ?></p>
+		<p><?php esc_html_e( 'GitHub is the place to go!', 'zerif-lite' ); ?></p>
 
 		<p>
 			<a href="<?php echo esc_url( 'https://github.com/Codeinwp/zerif-lite' ); ?>" class="github-button button button-primary"><?php esc_html_e( 'Zerif Lite on GitHub', 'zerif-lite' ); ?></a>

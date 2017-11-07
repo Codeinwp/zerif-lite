@@ -57,37 +57,37 @@ zerif_before_about_us_trigger(); ?>
 		}
 
 		if ( current_user_can( 'edit_theme_options' ) ) {
-			$zerif_aboutus_feature1_title = get_theme_mod( 'zerif_aboutus_feature1_title', sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_aboutus_feature1_title' ) ), __( 'Edit skill','zerif-lite' ) ) );
+			$zerif_aboutus_feature1_title = get_theme_mod( 'zerif_aboutus_feature1_title', sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_aboutus_feature1_title' ) ), __( 'Edit skill', 'zerif-lite' ) ) );
 		} else {
 			$zerif_aboutus_feature1_title = get_theme_mod( 'zerif_aboutus_feature1_title' );
 		}
-			$zerif_aboutus_feature1_text    = get_theme_mod( 'zerif_aboutus_feature1_text' );
+			$zerif_aboutus_feature1_text = get_theme_mod( 'zerif_aboutus_feature1_text' );
 
 		if ( current_user_can( 'edit_theme_options' ) ) {
-			$zerif_aboutus_feature2_title = get_theme_mod( 'zerif_aboutus_feature2_title', sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_aboutus_feature2_title' ) ), __( 'Edit skill','zerif-lite' ) ) );
+			$zerif_aboutus_feature2_title = get_theme_mod( 'zerif_aboutus_feature2_title', sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_aboutus_feature2_title' ) ), __( 'Edit skill', 'zerif-lite' ) ) );
 		} else {
 			$zerif_aboutus_feature2_title = get_theme_mod( 'zerif_aboutus_feature2_title' );
 		}
-			$zerif_aboutus_feature2_text    = get_theme_mod( 'zerif_aboutus_feature2_text' );
+			$zerif_aboutus_feature2_text = get_theme_mod( 'zerif_aboutus_feature2_text' );
 
 		if ( current_user_can( 'edit_theme_options' ) ) {
-			$zerif_aboutus_feature3_title = get_theme_mod( 'zerif_aboutus_feature3_title', sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_aboutus_feature3_title' ) ), __( 'Edit skill','zerif-lite' ) ) );
+			$zerif_aboutus_feature3_title = get_theme_mod( 'zerif_aboutus_feature3_title', sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_aboutus_feature3_title' ) ), __( 'Edit skill', 'zerif-lite' ) ) );
 		} else {
 			$zerif_aboutus_feature3_title = get_theme_mod( 'zerif_aboutus_feature3_title' );
 		}
-			$zerif_aboutus_feature3_text    = get_theme_mod( 'zerif_aboutus_feature3_text' );
+			$zerif_aboutus_feature3_text = get_theme_mod( 'zerif_aboutus_feature3_text' );
 
 		if ( current_user_can( 'edit_theme_options' ) ) {
-			$zerif_aboutus_feature4_title = get_theme_mod( 'zerif_aboutus_feature4_title', sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_aboutus_feature4_title' ) ), __( 'Edit skill','zerif-lite' ) ) );
+			$zerif_aboutus_feature4_title = get_theme_mod( 'zerif_aboutus_feature4_title', sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( admin_url( 'customize.php?autofocus&#91;control&#93;=zerif_aboutus_feature4_title' ) ), __( 'Edit skill', 'zerif-lite' ) ) );
 		} else {
 			$zerif_aboutus_feature4_title = get_theme_mod( 'zerif_aboutus_feature4_title' );
 		}
-			$zerif_aboutus_feature4_text    = get_theme_mod( 'zerif_aboutus_feature4_text' );
+			$zerif_aboutus_feature4_text = get_theme_mod( 'zerif_aboutus_feature4_text' );
 
 			$text_and_skills = '';
 		switch (
-				(empty( $zerif_aboutus_biglefttitle ) ? 0 : 1)
-				+ (empty( $zerif_aboutus_text ) ? 0 : 1)
+				( empty( $zerif_aboutus_biglefttitle ) ? 0 : 1 )
+				+ ( empty( $zerif_aboutus_text ) ? 0 : 1 )
 				+
 					( empty( $zerif_aboutus_feature1_title ) && empty( $zerif_aboutus_feature1_text ) ?
 					( empty( $zerif_aboutus_feature2_title ) && empty( $zerif_aboutus_feature2_text ) ?
@@ -143,12 +143,12 @@ zerif_before_about_us_trigger(); ?>
 				! empty( $zerif_aboutus_feature2_title ) || ! empty( $zerif_aboutus_feature2_text ) ? $there_is_skills = 'yes' :
 				! empty( $zerif_aboutus_feature3_title ) || ! empty( $zerif_aboutus_feature3_text ) ? $there_is_skills = 'yes' :
 				! empty( $zerif_aboutus_feature4_title ) || ! empty( $zerif_aboutus_feature4_text ) ? $there_is_skills = 'yes' :
-				$there_is_skills = '');
+				$there_is_skills = '' );
 
-			$zerif_aboutus_feature1_nr  = get_theme_mod( 'zerif_aboutus_feature1_nr', '80' );
-			$zerif_aboutus_feature2_nr  = get_theme_mod( 'zerif_aboutus_feature2_nr', '91' );
-			$zerif_aboutus_feature3_nr  = get_theme_mod( 'zerif_aboutus_feature3_nr', '88' );
-			$zerif_aboutus_feature4_nr  = get_theme_mod( 'zerif_aboutus_feature4_nr', '95' );
+			$zerif_aboutus_feature1_nr = get_theme_mod( 'zerif_aboutus_feature1_nr', '80' );
+			$zerif_aboutus_feature2_nr = get_theme_mod( 'zerif_aboutus_feature2_nr', '91' );
+			$zerif_aboutus_feature3_nr = get_theme_mod( 'zerif_aboutus_feature3_nr', '88' );
+			$zerif_aboutus_feature4_nr = get_theme_mod( 'zerif_aboutus_feature4_nr', '95' );
 
 			/* COLUMN 1 - SKILS */
 

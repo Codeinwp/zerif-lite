@@ -9,9 +9,9 @@ $zerif_slider_shortcode = get_theme_mod( 'zerif_bigtitle_slider_shortcode' );
 
 echo '<div class="' . ( ! empty( $zerif_slider_shortcode ) ? 'home-slider-plugin' : '' ) . ' home-header-wrap">';
 
-	$zerif_parallax_img1 = get_theme_mod( 'zerif_parallax_img1',get_template_directory_uri() . '/images/background1.jpg' );
-	$zerif_parallax_img2 = get_theme_mod( 'zerif_parallax_img2',get_template_directory_uri() . '/images/background2.png' );
-	$zerif_parallax_use = get_theme_mod( 'zerif_parallax_show' );
+	$zerif_parallax_img1 = get_theme_mod( 'zerif_parallax_img1', get_template_directory_uri() . '/images/background1.jpg' );
+	$zerif_parallax_img2 = get_theme_mod( 'zerif_parallax_img2', get_template_directory_uri() . '/images/background2.png' );
+	$zerif_parallax_use  = get_theme_mod( 'zerif_parallax_show' );
 
 if ( ! empty( $zerif_slider_shortcode ) ) {
 	echo do_shortcode( $zerif_slider_shortcode );
