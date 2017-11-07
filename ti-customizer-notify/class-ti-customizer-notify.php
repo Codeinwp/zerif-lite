@@ -1,5 +1,11 @@
 <?php
 /**
+ * Class used to add notifications in customizer
+ *
+ * @package zerif-lite
+ */
+
+/**
  * TI Customizer Notify Class
  */
 class Ti_Customizer_Notify {
@@ -104,7 +110,7 @@ class Ti_Customizer_Notify {
 
 		$this->recommended_actions_title = isset( $this->config['recommended_actions_title'] ) ? $this->config['recommended_actions_title'] : '';
 		$this->recommended_plugins_title = isset( $this->config['recommended_plugins_title'] ) ? $this->config['recommended_plugins_title'] : '';
-		$this->dismiss_button = isset( $this->config['dismiss_button'] ) ? $this->config['dismiss_button'] : '';
+		$this->dismiss_button            = isset( $this->config['dismiss_button'] ) ? $this->config['dismiss_button'] : '';
 
 		$ti_customizer_notify_recommended_plugins = array();
 		$ti_customizer_notify_recommended_actions = array();
@@ -117,8 +123,8 @@ class Ti_Customizer_Notify {
 			$ti_customizer_notify_recommended_actions = $this->recommended_actions;
 		}
 
-		$install_button_label = isset( $this->config['install_button_label'] ) ? $this->config['install_button_label'] : '';
-		$activate_button_label = isset( $this->config['activate_button_label'] ) ? $this->config['activate_button_label'] : '';
+		$install_button_label    = isset( $this->config['install_button_label'] ) ? $this->config['install_button_label'] : '';
+		$activate_button_label   = isset( $this->config['activate_button_label'] ) ? $this->config['activate_button_label'] : '';
 		$deactivate_button_label = isset( $this->config['deactivate_button_label'] ) ? $this->config['deactivate_button_label'] : '';
 
 	}
@@ -132,10 +138,10 @@ class Ti_Customizer_Notify {
 		require get_template_directory() . '/ti-customizer-notify/ti-notify-system-checks.php';
 
 		// Register the section
-		add_action( 'customize_register', array( $this,'ti_customizer_notify_customize_register') );
+		add_action( 'customize_register', array( $this, 'ti_customizer_notify_customize_register' ) );
 
 		// Enqueue scripts and styles
-		add_action( 'customize_controls_enqueue_scripts', array( $this,'ti_customizer_notify_scripts_for_customizer'), 0 );
+		add_action( 'customize_controls_enqueue_scripts', array( $this, 'ti_customizer_notify_scripts_for_customizer' ), 0 );
 
 		/* ajax callback for dismissable recommended actions */
 		add_action( 'wp_ajax_ti_customizer_notify_dismiss_recommended_action', array( $this, 'ti_customizer_notify_dismiss_recommended_action_callback' ) );
@@ -158,12 +164,14 @@ class Ti_Customizer_Notify {
 		wp_enqueue_script( 'updates' );
 
 		wp_enqueue_script( 'ti-customizer-notify-customizer-js', get_template_directory_uri() . '/ti-customizer-notify/js/ti-customizer-notify-customizer.js', array( 'customize-controls' ) );
-		wp_localize_script( 'ti-customizer-notify-customizer-js', 'tiCustomizerNotifyObject', array(
-			'ajaxurl'                  => admin_url( 'admin-ajax.php' ),
-			'template_directory'       => get_template_directory_uri(),
-			'base_path'                => admin_url(),
-			'activating_string'        => __( 'Activating', 'zerif-lite' )
-		) );
+		wp_localize_script(
+			'ti-customizer-notify-customizer-js', 'tiCustomizerNotifyObject', array(
+				'ajaxurl'            => admin_url( 'admin-ajax.php' ),
+				'template_directory' => get_template_directory_uri(),
+				'base_path'          => admin_url(),
+				'activating_string'  => __( 'Activating', 'zerif-lite' ),
+			)
+		);
 
 	}
 
@@ -186,10 +194,10 @@ class Ti_Customizer_Notify {
 				$wp_customize,
 				'ti-customizer-notify-section',
 				array(
-					'title'    => $this->recommended_actions_title,
-					'plugin_text'	=> $this->recommended_plugins_title,
+					'title'          => $this->recommended_actions_title,
+					'plugin_text'    => $this->recommended_plugins_title,
 					'dismiss_button' => $this->dismiss_button,
-					'priority' => 0
+					'priority'       => 0,
 				)
 			)
 		);
@@ -214,10 +222,10 @@ class Ti_Customizer_Notify {
 
 				$ti_customizer_notify_show_recommended_actions = get_option( 'ti_customizer_notify_show_recommended_actions' );
 				switch ( $_GET['todo'] ) {
-					case 'add';
+					case 'add':
 						$ti_customizer_notify_show_recommended_actions[ $action_id ] = true;
 						break;
-					case 'dismiss';
+					case 'dismiss':
 						$ti_customizer_notify_show_recommended_actions[ $action_id ] = false;
 						break;
 				}
@@ -255,10 +263,10 @@ class Ti_Customizer_Notify {
 			$ti_customizer_notify_show_recommended_plugins = get_option( 'ti_customizer_notify_show_recommended_plugins' );
 
 			switch ( $_GET['todo'] ) {
-				case 'add';
+				case 'add':
 					$ti_customizer_notify_show_recommended_plugins[ $action_id ] = false;
 					break;
-				case 'dismiss';
+				case 'dismiss':
 					$ti_customizer_notify_show_recommended_plugins[ $action_id ] = true;
 					break;
 			}

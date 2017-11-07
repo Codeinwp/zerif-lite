@@ -1,6 +1,8 @@
 <?php
 /**
  * Github
+ *
+ * @package zerif-lite
  */
 ?>
 
@@ -11,9 +13,9 @@
 	<hr/>
 
 	<div class="zerif-tab-pane-half zerif-tab-pane-first-half">
-		<p><strong><?php esc_html_e( 'Found a bug? Want to contribute with a fix or create a new feature?','zerif-lite'); ?></strong></p>
+		<p><strong><?php esc_html_e( 'Found a bug? Want to contribute with a fix or create a new feature?', 'zerif-lite' ); ?></strong></p>
 
-		<p><?php esc_html_e( 'GitHub is the place to go!','zerif-lite' ); ?></p>
+		<p><?php esc_html_e( 'GitHub is the place to go!', 'zerif-lite' ); ?></p>
 
 		<p>
 			<a href="<?php echo esc_url( 'https://github.com/Codeinwp/zerif-lite' ); ?>" class="github-button button button-primary"><?php esc_html_e( 'Zerif Lite on GitHub', 'zerif-lite' ); ?></a>
@@ -35,7 +37,7 @@
 	<div>
 		<h4><?php esc_html_e( 'Are you enjoying Zerif Lite?', 'zerif-lite' ); ?></h4>
 
-		<p class="review-link"><?php echo sprintf( esc_html__( 'Rate our theme on %sWordPress.org%s. We\'d really appreciate it!', 'zerif-lite' ), '<a href="https://wordpress.org/themes/zerif-lite/">', '</a>' ); ?></p>
+		<p class="review-link"><?php echo /* translators: wordpress.org review page */ sprintf( esc_html__( 'Rate our theme on %1$sWordPress.org%2$s. We\'d really appreciate it!', 'zerif-lite' ), '<a href="https://wordpress.org/themes/zerif-lite/">', '</a>' ); ?></p>
 
 		<p><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span><span class="dashicons dashicons-star-filled"></span></p>
 	</div>

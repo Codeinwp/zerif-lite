@@ -1,6 +1,8 @@
 <?php
 /**
  * The template for displaying Archive pages.
+ *
+ * @package zerif-lite
  */
 get_header(); ?>
 
@@ -36,27 +38,35 @@ get_header(); ?>
 
 				</header><!-- .page-header -->
 
-				<?php while ( have_posts() ) : the_post();
+				<?php
+				while ( have_posts() ) :
+					the_post();
 
-						/* Include the Post-Format-specific template for the content.
-
+						/**
+						 * Include the Post-Format-specific template for the content.
 						 * If you want to override this in a child theme, then include a file
-
 						 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-
 						 */
 
 						get_template_part( 'content', 'archive-download' );
 
 					endwhile;
 
-					echo get_the_posts_navigation( array( 'next_text' => sprintf( __( 'Newer posts %s','zerif-lite' ), '<span class="meta-nav">&rarr;</span>' ), 'prev_text' => sprintf( __( '%s Older posts', 'zerif-lite' ) , '<span class="meta-nav">&larr;</span>' ) ) );
+					echo get_the_posts_navigation(
+						array(
+							/* translators: Newer post arrow */
+							'next_text' => sprintf( __( 'Newer posts %s', 'zerif-lite' ), '<span class="meta-nav">&rarr;</span>' ),
+							/* translators: Older post arrow */
+							'prev_text' => sprintf( __( '%s Older posts', 'zerif-lite' ), '<span class="meta-nav">&larr;</span>' ),
+						)
+					);
 
-				else:
+				else :
 
 					get_template_part( 'content', 'none' );
 
-				endif; ?>
+				endif;
+				?>
 
 			</main><!-- #main -->
 

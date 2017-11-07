@@ -1,6 +1,8 @@
 <?php
 /**
  * The template for displaying Search Results pages.
+ *
+ * @package zerif-lite
  */
 get_header(); ?>
 
@@ -18,28 +20,42 @@ get_header(); ?>
 
 				<main id="main" class="site-main">
 					<?php zerif_before_search_trigger(); ?>
-					<?php if ( have_posts() ) : ?>
+					<?php if ( have_posts() ) { ?>
 
 						<header class="page-header">
 
-							<h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'zerif-lite' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
+							<h1 class="page-title">
+							<?php
+							/* translators: Search query */
+								printf( __( 'Search Results for: %s', 'zerif-lite' ), '<span>' . get_search_query() . '</span>' );
+								?>
+								</h1>
 
 						</header><!-- .page-header -->
 
-						<?php while ( have_posts() ) : the_post(); ?>
+						<?php
+						while ( have_posts() ) {
+							the_post();
 
-							<?php get_template_part( 'content', get_post_format() ); ?>
+							get_template_part( 'content', get_post_format() );
 
-						<?php endwhile; ?>
+						}
 
-						<?php echo get_the_posts_navigation( array( 'next_text' => sprintf( __( 'Newer posts %s','zerif-lite' ), '<span class="meta-nav">&rarr;</span>' ), 'prev_text' => sprintf( __( '%s Older posts', 'zerif-lite' ) , '<span class="meta-nav">&larr;</span>' ) ) ); ?>
+						echo get_the_posts_navigation(
+							array(
+								/* translators: Newer posts navigation arrow */
+								'next_text' => sprintf( __( 'Newer posts %s', 'zerif-lite' ), '<span class="meta-nav">&rarr;</span>' ),
+								/* translators: Older posts navigation arrow */
+								'prev_text' => sprintf( __( '%s Older posts', 'zerif-lite' ), '<span class="meta-nav">&larr;</span>' ),
+							)
+						);
 
-					<?php else : ?>
+} else {
+	get_template_part( 'content', 'none' );
+}
 
-						<?php get_template_part( 'content', 'none' ); ?>
-
-					<?php endif; ?>
-					<?php zerif_after_search_trigger(); ?>
+					zerif_after_search_trigger();
+					?>
 				</main><!-- #main -->
 
 			</div><!-- #primary -->

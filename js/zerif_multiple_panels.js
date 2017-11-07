@@ -1,343 +1,373 @@
 ( function( $ ) {
 
-    /* Multi-level panels in customizer */
+	/* Multi-level panels in customizer */
 
-    var api = wp.customize;
+	var api = wp.customize;
 
-    api.bind( 'pane-contents-reflowed', function() {
+	api.bind(
+		'pane-contents-reflowed', function() {
 
-        // Reflow sections
-        var sections = [];
+			// Reflow sections
+			var sections = [];
 
-        api.section.each( function( section ) {
+			api.section.each(
+				function( section ) {
 
-            if (
-                'zerif_section' !== section.params.type ||
-                'undefined' === typeof section.params.section
-            ) {
+					if (
+					'zerif_section' !== section.params.type ||
+					'undefined' === typeof section.params.section
+					) {
 
-                return;
+						return;
 
-            }
+					}
 
-            sections.push( section );
+					sections.push( section );
 
-        });
+				}
+			);
 
-        sections.sort( api.utils.prioritySort ).reverse();
+			sections.sort( api.utils.prioritySort ).reverse();
 
-        $.each( sections, function( i, section ) {
+			$.each(
+				sections, function( i, section ) {
 
-            var parentContainer = $( '#sub-accordion-section-' + section.params.section );
+					var parentContainer = $( '#sub-accordion-section-' + section.params.section );
 
-            parentContainer.children( '.section-meta' ).after( section.headContainer );
+					parentContainer.children( '.section-meta' ).after( section.headContainer );
 
-        });
+				}
+			);
 
-        // Reflow panels
-        var panels = [];
+			// Reflow panels
+			var panels = [];
 
-        api.panel.each( function( panel ) {
+			api.panel.each(
+				function( panel ) {
 
-            if (
-                'zerif_panel' !== panel.params.type ||
-                'undefined' === typeof panel.params.panel
-            ) {
+					if (
+					'zerif_panel' !== panel.params.type ||
+					'undefined' === typeof panel.params.panel
+					) {
 
-                return;
+						return;
 
-            }
+					}
 
-            panels.push( panel );
+					panels.push( panel );
 
-        });
+				}
+			);
 
-        panels.sort( api.utils.prioritySort ).reverse();
+			panels.sort( api.utils.prioritySort ).reverse();
 
-        $.each( panels, function( i, panel ) {
+			$.each(
+				panels, function( i, panel ) {
 
-            var parentContainer = $( '#sub-accordion-panel-' + panel.params.panel );
+					var parentContainer = $( '#sub-accordion-panel-' + panel.params.panel );
 
-            parentContainer.children( '.panel-meta' ).after( panel.headContainer );
+					parentContainer.children( '.panel-meta' ).after( panel.headContainer );
 
-        });
+				}
+			);
 
-    });
+		}
+	);
 
-    // Extend Panel
-    var _panelEmbed = wp.customize.Panel.prototype.embed;
-    var _panelIsContextuallyActive = wp.customize.Panel.prototype.isContextuallyActive;
-    var _panelAttachEvents = wp.customize.Panel.prototype.attachEvents;
+	// Extend Panel
+	var _panelEmbed                = wp.customize.Panel.prototype.embed;
+	var _panelIsContextuallyActive = wp.customize.Panel.prototype.isContextuallyActive;
+	var _panelAttachEvents         = wp.customize.Panel.prototype.attachEvents;
 
-    wp.customize.Panel = wp.customize.Panel.extend({
-        attachEvents: function() {
+	wp.customize.Panel = wp.customize.Panel.extend(
+		{
+			attachEvents: function() {
 
-            if (
-                'zerif_panel' !== this.params.type ||
-                'undefined' === typeof this.params.panel
-            ) {
+				if (
+				'zerif_panel' !== this.params.type ||
+				'undefined' === typeof this.params.panel
+				) {
 
-                _panelAttachEvents.call( this );
+					_panelAttachEvents.call( this );
 
-                return;
+					return;
 
-            }
+				}
 
-            _panelAttachEvents.call( this );
+				_panelAttachEvents.call( this );
 
-            var panel = this;
+				var panel = this;
 
-            panel.expanded.bind( function( expanded ) {
+				panel.expanded.bind(
+					function( expanded ) {
 
-                var parent = api.panel( panel.params.panel );
+						var parent = api.panel( panel.params.panel );
 
-                if ( expanded ) {
+						if ( expanded ) {
 
-                    parent.contentContainer.addClass( 'current-panel-parent' );
+							parent.contentContainer.addClass( 'current-panel-parent' );
 
-                } else {
+						} else {
 
-                    parent.contentContainer.removeClass( 'current-panel-parent' );
+							parent.contentContainer.removeClass( 'current-panel-parent' );
 
-                }
+						}
 
-            });
+					}
+				);
 
-            panel.container.find( '.customize-panel-back' )
-                .off( 'click keydown' )
-                .on( 'click keydown', function( event ) {
+				panel.container.find( '.customize-panel-back' )
+				.off( 'click keydown' )
+				.on(
+					'click keydown', function( event ) {
 
-                    if ( api.utils.isKeydownButNotEnterEvent( event ) ) {
+						if ( api.utils.isKeydownButNotEnterEvent( event ) ) {
 
-                        return;
+							return;
 
-                    }
+						}
 
-                    event.preventDefault(); // Keep this AFTER the key filter above
+						event.preventDefault(); // Keep this AFTER the key filter above
 
-                    if ( panel.expanded() ) {
+						if ( panel.expanded() ) {
 
-                        api.panel( panel.params.panel ).expand();
+							api.panel( panel.params.panel ).expand();
 
-                    }
+						}
 
-                });
+					}
+				);
 
-        },
-        embed: function() {
+			},
+			embed: function() {
 
-            if (
-                'zerif_panel' !== this.params.type ||
-                'undefined' === typeof this.params.panel
-            ) {
+				if (
+				'zerif_panel' !== this.params.type ||
+				'undefined' === typeof this.params.panel
+				) {
 
-                _panelEmbed.call( this );
+					_panelEmbed.call( this );
 
-                return;
+					return;
 
-            }
+				}
 
-            _panelEmbed.call( this );
+				_panelEmbed.call( this );
 
-            var panel = this;
-            var parentContainer = $( '#sub-accordion-panel-' + this.params.panel );
+				var panel           = this;
+				var parentContainer = $( '#sub-accordion-panel-' + this.params.panel );
 
-            parentContainer.append( panel.headContainer );
+				parentContainer.append( panel.headContainer );
 
-        },
-        isContextuallyActive: function() {
+			},
+			isContextuallyActive: function() {
 
-            if (
-                'zerif_panel' !== this.params.type
-            ) {
+				if (
+				'zerif_panel' !== this.params.type
+				) {
 
-                return _panelIsContextuallyActive.call( this );
+					return _panelIsContextuallyActive.call( this );
 
-            }
+				}
 
-            var panel = this;
-            var children = this._children( 'panel', 'section' );
+				var panel    = this;
+				var children = this._children( 'panel', 'section' );
 
-            api.panel.each( function( child ) {
+				api.panel.each(
+					function( child ) {
 
-                if ( ! child.params.panel ) {
+						if ( ! child.params.panel ) {
 
-                    return;
+							return;
 
-                }
+						}
 
-                if ( child.params.panel !== panel.id ) {
+						if ( child.params.panel !== panel.id ) {
 
-                    return;
+							return;
 
-                }
+						}
 
-                children.push( child );
+						children.push( child );
 
-            });
+					}
+				);
 
-            children.sort( api.utils.prioritySort );
+				children.sort( api.utils.prioritySort );
 
-            var activeCount = 0;
+				var activeCount = 0;
 
-            _( children ).each( function ( child ) {
+				_( children ).each(
+					function ( child ) {
 
-                if ( child.active() && child.isContextuallyActive() ) {
+						if ( child.active() && child.isContextuallyActive() ) {
 
-                    activeCount += 1;
+							activeCount += 1;
 
-                }
+						}
 
-            });
+					}
+				);
 
-            return ( activeCount !== 0 );
+				return ( activeCount !== 0 );
 
-        }
+			}
 
-    });
+		}
+	);
 
-    // Extend Section
-    var _sectionEmbed = wp.customize.Section.prototype.embed;
-    var _sectionIsContextuallyActive = wp.customize.Section.prototype.isContextuallyActive;
-    var _sectionAttachEvents = wp.customize.Section.prototype.attachEvents;
+	// Extend Section
+	var _sectionEmbed                = wp.customize.Section.prototype.embed;
+	var _sectionIsContextuallyActive = wp.customize.Section.prototype.isContextuallyActive;
+	var _sectionAttachEvents         = wp.customize.Section.prototype.attachEvents;
 
-    wp.customize.Section = wp.customize.Section.extend({
-        attachEvents: function() {
+	wp.customize.Section = wp.customize.Section.extend(
+		{
+			attachEvents: function() {
 
-            if (
-                'zerif_section' !== this.params.type ||
-                'undefined' === typeof this.params.section
-            ) {
+				if (
+				'zerif_section' !== this.params.type ||
+				'undefined' === typeof this.params.section
+				) {
 
-                _sectionAttachEvents.call( this );
+					_sectionAttachEvents.call( this );
 
-                return;
+					return;
 
-            }
+				}
 
-            _sectionAttachEvents.call( this );
+				_sectionAttachEvents.call( this );
 
-            var section = this;
+				var section = this;
 
-            section.expanded.bind( function( expanded ) {
+				section.expanded.bind(
+					function( expanded ) {
 
-                var parent = api.section( section.params.section );
+						var parent = api.section( section.params.section );
 
-                if ( expanded ) {
+						if ( expanded ) {
 
-                    parent.contentContainer.addClass( 'current-section-parent' );
+							parent.contentContainer.addClass( 'current-section-parent' );
 
-                } else {
+						} else {
 
-                    parent.contentContainer.removeClass( 'current-section-parent' );
+							parent.contentContainer.removeClass( 'current-section-parent' );
 
-                }
+						}
 
-            });
+					}
+				);
 
-            section.container.find( '.customize-section-back' )
-                .off( 'click keydown' )
-                .on( 'click keydown', function( event ) {
+				section.container.find( '.customize-section-back' )
+				.off( 'click keydown' )
+				.on(
+					'click keydown', function( event ) {
 
-                    if ( api.utils.isKeydownButNotEnterEvent( event ) ) {
+						if ( api.utils.isKeydownButNotEnterEvent( event ) ) {
 
-                        return;
+							return;
 
-                    }
+						}
 
-                    event.preventDefault(); // Keep this AFTER the key filter above
+						event.preventDefault(); // Keep this AFTER the key filter above
 
-                    if ( section.expanded() ) {
+						if ( section.expanded() ) {
 
-                        api.section( section.params.section ).expand();
+							api.section( section.params.section ).expand();
 
-                    }
+						}
 
-                });
+					}
+				);
 
-        },
-        embed: function() {
+			},
+			embed: function() {
 
-            if (
-                'zerif_section' !== this.params.type ||
-                'undefined' === typeof this.params.section
-            ) {
+				if (
+				'zerif_section' !== this.params.type ||
+				'undefined' === typeof this.params.section
+				) {
 
-                _sectionEmbed.call( this );
+					_sectionEmbed.call( this );
 
-                return;
+					return;
 
-            }
+				}
 
-            _sectionEmbed.call( this );
+				_sectionEmbed.call( this );
 
-            var section = this;
-            var parentContainer = $( '#sub-accordion-section-' + this.params.section );
+				var section         = this;
+				var parentContainer = $( '#sub-accordion-section-' + this.params.section );
 
-            parentContainer.append( section.headContainer );
+				parentContainer.append( section.headContainer );
 
-        },
-        isContextuallyActive: function() {
+			},
+			isContextuallyActive: function() {
 
-            if (
-                'zerif_section' !== this.params.type
-            ) {
+				if (
+				'zerif_section' !== this.params.type
+				) {
 
-                return _sectionIsContextuallyActive.call( this );
+					return _sectionIsContextuallyActive.call( this );
 
-            }
+				}
 
-            var section = this;
-            var children = this._children( 'section', 'control' );
+				var section  = this;
+				var children = this._children( 'section', 'control' );
 
-            api.section.each( function( child ) {
+				api.section.each(
+					function( child ) {
 
-                if ( ! child.params.section ) {
+						if ( ! child.params.section ) {
 
-                    return;
+							return;
 
-                }
+						}
 
-                if ( child.params.section !== section.id ) {
+						if ( child.params.section !== section.id ) {
 
-                    return;
+							return;
 
-                }
+						}
 
-                children.push( child );
+						children.push( child );
 
-            });
+					}
+				);
 
-            children.sort( api.utils.prioritySort );
+				children.sort( api.utils.prioritySort );
 
-            var activeCount = 0;
+				var activeCount = 0;
 
-            _( children ).each( function ( child ) {
+				_( children ).each(
+					function ( child ) {
 
-                if ( 'undefined' !== typeof child.isContextuallyActive ) {
+						if ( 'undefined' !== typeof child.isContextuallyActive ) {
 
-                    if ( child.active() && child.isContextuallyActive() ) {
+							if ( child.active() && child.isContextuallyActive() ) {
 
-                        activeCount += 1;
+								activeCount += 1;
 
-                    }
+							}
 
-                } else {
+						} else {
 
-                    if ( child.active() ) {
+							if ( child.active() ) {
 
-                        activeCount += 1;
+								activeCount += 1;
 
-                    }
+							}
 
-                }
+						}
 
-            });
+					}
+				);
 
-            return ( activeCount !== 0 );
+				return ( activeCount !== 0 );
 
-        }
+			}
 
-    });
+		}
+	);
 
 })( jQuery );

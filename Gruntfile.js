@@ -1,59 +1,26 @@
-/* jshint node:true */
-/* global require, process */
-var timeGrunt = require('time-grunt');
-var path = require('path');
-var loadGruntConfig = require('load-grunt-config');
+// jshint node:true
 
-module.exports = function (grunt) {
-    'use strict';
+module.exports = function( grunt ) {
+	'use strict';
 
-    timeGrunt(grunt);
+	var loader = require( 'load-project-config' ),
+		config = require( 'grunt-theme-fleet' );
+	config     = config();
 
-    var project = {
-        paths: {
-            get config() {
-                return this.grunt;
-            },
-            css: 'css/',
-            grunt: 'grunt/',
-            images: 'images/',
-            js: 'js/',
-            languages: 'languages/',
-            logs: 'logs/'
-        },
-        files: {
-            css: [
-                '*.css',
-                'css/*.css',
-                '!css/*.min.css',
-                '!css/vendor/*.css'
-            ],
-            js: [
-                '*.js',
-                'grunt/**/*.js',
-                'js/**/*.js',
-                'js/**/*.js',
-                '!js/**/*.min.js',
-                '!js/vendor/*.js'
-            ],
-            php: [
-                '**/*.php',
-                '!node_modules/**/*.php'
-            ],
-            get config() {
-                return project.paths.config + '*.js';
-            },
-            grunt: 'Gruntfile.js'
-        },
-        pkg: grunt.file.readJSON('package.json')
-    };
+	config.files.php.push( '!class-tgm-plugin-activation.php' );
+	config.files.js.push( '!js/**/*.min.js' );
+	config.files.css.push( '!css/**/*.min.css' );
+	config.files.css.push( '!css/bootstrap.css' );
+	config.files.js.push( '!js/bootstrap.js' );
+	config.files.js.push( '!js/html5.js' );
+	config.files.js.push( '!js/jquery.knob.js' );
+	config.files.js.push( '!js/parallax.js' );
+	config.files.js.push( '!js/respond.js' );
+	config.files.js.push( '!js/scrollReveal.js' );
+	config.files.js.push( '!js/smoothscroll.js' );
+	config.files.js.push( '!js/zerif.js' );
+	config.files.js.push( '!inc/admin/welcome-screen/js/welcome.js' );
+	config.files.js.push( '!inc/admin/welcome-screen/js/welcome_customizer.js' );
 
-    loadGruntConfig(grunt, {
-        configPath: path.join(process.cwd(), project.paths.config),
-        data: project,
-        jitGrunt: {
-            staticMappings: {
-            }
-        }
-    });
+	loader( grunt, config ).init();
 };

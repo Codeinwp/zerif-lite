@@ -1,1 +1,8 @@
-.idea/
+.idea
+*.iml
+out
+gen
+node_modules
+logs
+npm-debug.log
+vendor

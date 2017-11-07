@@ -2,12 +2,12 @@ language: php
 
 ##  PHP versions to test  against
 php:
+    - "7.1"
     - "7.0"
     - "5.6"
     - "5.5"
     - "5.4"
-    - "5.3"
-    - "5.2"
+
 matrix:
   include:
   - php: "7.0"
@@ -15,10 +15,18 @@ matrix:
     install: true
     before_script:
     env: TEST_SUITE=Wraith_Visual_Regression_Testing WRAITH_FAIL=5
-    script: ./bin/wraith.sh    
+    script: ./bin/wraith.sh
+  - php: '5.3'
+    dist: precise
 sudo: false
 env:
     - WP_VERSION=master WP_MULTISITE=0
+install:
+  - . $HOME/.nvm/nvm.sh
+  - nvm install stable
+  - nvm use stable
+  - npm install
+  - npm install grunt-cli -g
 before_script:
     ## Install the wordpress latest version
     - export WP_DEVELOP_DIR=/tmp/wordpress/
@@ -36,13 +44,13 @@ before_script:
     - mysql -e 'CREATE DATABASE wordpress_test;' -uroot
 
      ## install PHPCS and Wordpress standards
-    - pear install pear/PHP_CodeSniffer
+    - export PATH="$HOME/.composer/vendor/bin:$PATH"
+    - composer global require "squizlabs/php_codesniffer=2.9.0"
     - mkdir wordpress-coding-standards && curl -L https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/archive/master.tar.gz | tar xz --strip-components=1 -C wordpress-coding-standards
     - phpenv rehash
     - phpcs --config-set installed_paths $WP_DEVELOP_DIR/wordpress-coding-standards
     - phpenv rehash
     - cd $theme_dir
-    - npm install
 
 script:
      grunt travis
