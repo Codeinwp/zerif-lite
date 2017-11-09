@@ -1,4 +1,8 @@
 
+### 1.8.5.32 - 09/11/2017
+**Changes:** 
+- Fix console error causing scrollreveal to not work properly
+
 ### 1.8.5.31 - 07/11/2017
 **Changes:** 
 - Transformed footer icons into links to Google maps, email and telephone
