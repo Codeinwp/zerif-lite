@@ -7,7 +7,9 @@
 
 zerif_before_testimonials_trigger();
 
-echo '<section class="testimonial" id="testimonials">';
+$zerif_testimonials_show = get_theme_mod( 'zerif_testimonials_show' );
+
+echo '<section class="testimonial ' . ( ( is_customize_preview() && ( ! isset( $zerif_testimonials_show ) || $zerif_testimonials_show == 1 ) ) ? ' zerif_hidden_if_not_customizer ' : '' ) . '" id="testimonials">';
 
 	zerif_top_testimonials_trigger();
 

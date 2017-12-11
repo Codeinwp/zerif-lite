@@ -81,18 +81,10 @@
 		'zerif_bigtitle_show', function( value ) {
 			value.bind(
 				function( to ) {
-					if ( '1' !== to ) {
-						$( '.header-content-wrap' ).css(
-							{
-								'display': 'block'
-							}
-						);
+					if ( true !== to ) {
+						$( '.header-content-wrap' ).removeClass( 'zerif_hidden_if_not_customizer' );
 					} else {
-						$( '.header-content-wrap' ).css(
-							{
-								'display': 'none'
-							}
-						);
+                        $( '.header-content-wrap' ).addClass( 'zerif_hidden_if_not_customizer' );
 					}
 				}
 			);
@@ -178,18 +170,10 @@
 		'zerif_ourfocus_show', function( value ) {
 			value.bind(
 				function( to ) {
-					if ( '1' !== to ) {
-						$( 'section.focus' ).css(
-							{
-								'display': 'block'
-							}
-						);
+					if ( true !== to ) {
+						$( 'section.focus' ).removeClass( 'zerif_hidden_if_not_customizer' );
 					} else {
-						$( 'section.focus' ).css(
-							{
-								'display': 'none'
-							}
-						);
+						$( 'section.focus' ).addClass( 'zerif_hidden_if_not_customizer' );
 					}
 				}
 			);
@@ -237,19 +221,10 @@
 		'zerif_aboutus_show', function( value ) {
 			value.bind(
 				function( to ) {
-
-					if ( '1' !== to ) {
-						$( 'section.about-us' ).css(
-							{
-								'display': 'block'
-							}
-						);
+					if ( true !== to ) {
+						$( 'section.about-us' ).removeClass( 'zerif_hidden_if_not_customizer' );
 					} else {
-						$( 'section.about-us' ).css(
-							{
-								'display': 'none'
-							}
-						);
+						$( 'section.about-us' ).addClass( 'zerif_hidden_if_not_customizer' );
 					}
 
 				}
@@ -432,18 +407,10 @@
 		'zerif_ourteam_show', function( value ) {
 			value.bind(
 				function( to ) {
-					if ( '1' !== to ) {
-						$( 'section.our-team' ).css(
-							{
-								'display': 'block'
-							}
-						);
+					if ( true !== to ) {
+						$( 'section.our-team' ).removeClass( 'zerif_hidden_if_not_customizer' );
 					} else {
-						$( 'section.our-team' ).css(
-							{
-								'display': 'none'
-							}
-						);
+						$( 'section.our-team' ).addClass( 'zerif_hidden_if_not_customizer' );
 					}
 				}
 			);
@@ -491,18 +458,10 @@
 		'zerif_testimonials_show', function( value ) {
 			value.bind(
 				function( to ) {
-					if ( '1' !== to ) {
-						$( 'section.testimonial' ).css(
-							{
-								'display': 'block'
-							}
-						);
+					if ( true !== to ) {
+						$( 'section.testimonial' ).removeClass( 'zerif_hidden_if_not_customizer' );
 					} else {
-						$( 'section.testimonial' ).css(
-							{
-								'display': 'none'
-							}
-						);
+						$( 'section.testimonial' ).addClass( 'zerif_hidden_if_not_customizer' );
 					}
 				}
 			);
@@ -662,18 +621,10 @@
 		'zerif_latestnews_show', function( value ) {
 			value.bind(
 				function( to ) {
-					if ( '1' !== to ) {
-						$( 'section.latest-news' ).css(
-							{
-								'display': 'block'
-							}
-						);
+					if ( true !== to ) {
+						$( 'section.latest-news' ).removeClass( 'zerif_hidden_if_not_customizer' );
 					} else {
-						$( 'section.latest-news' ).css(
-							{
-								'display': 'none'
-							}
-						);
+						$( 'section.latest-news' ).addClass( 'zerif_hidden_if_not_customizer' );
 					}
 				}
 			);
@@ -722,7 +673,7 @@
 			value.bind(
 				function( to ) {
 
-					if ( '1' !== to ) {
+					if ( true !== to ) {
 						$( 'section#contact' ).css(
 							{
 								'display': 'block'

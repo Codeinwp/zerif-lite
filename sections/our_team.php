@@ -7,7 +7,9 @@
 
 zerif_before_our_team_trigger();
 
-echo '<section class="our-team" id="team">';
+$zerif_ourteam_show = get_theme_mod( 'zerif_ourteam_show' );
+
+echo '<section class="our-team ' . ( ( is_customize_preview() && ( ! isset( $zerif_ourteam_show ) || $zerif_ourteam_show == 1 ) ) ? ' zerif_hidden_if_not_customizer ' : '' ) . '" id="team">';
 
 	zerif_top_our_team_trigger();
 

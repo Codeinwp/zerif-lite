@@ -7,11 +7,11 @@
 
 $zerif_bigtitle_show = get_theme_mod( 'zerif_bigtitle_show' );
 
-if ( isset( $zerif_bigtitle_show ) && $zerif_bigtitle_show != 1 ) :
+if ( ( isset( $zerif_bigtitle_show ) && $zerif_bigtitle_show != 1 ) || is_customize_preview() ) {
 
 	get_template_part( 'sections/big_title' );
 
-	endif;
+}
 
 ?>
 
@@ -25,7 +25,7 @@ if ( isset( $zerif_bigtitle_show ) && $zerif_bigtitle_show != 1 ) :
 
 	$zerif_ourfocus_show = get_theme_mod( 'zerif_ourfocus_show' );
 
-if ( isset( $zerif_ourfocus_show ) && $zerif_ourfocus_show != 1 ) {
+if ( ( isset( $zerif_ourfocus_show ) && $zerif_ourfocus_show != 1 ) || is_customize_preview() ) {
 
 	get_template_part( 'sections/our_focus' );
 
@@ -39,7 +39,7 @@ if ( isset( $zerif_ourfocus_show ) && $zerif_ourfocus_show != 1 ) {
 
 	$zerif_aboutus_show = get_theme_mod( 'zerif_aboutus_show' );
 
-if ( isset( $zerif_aboutus_show ) && $zerif_aboutus_show != 1 ) {
+if ( ( isset( $zerif_aboutus_show ) && $zerif_aboutus_show != 1 ) || is_customize_preview() ) {
 
 	get_template_part( 'sections/about_us' );
 
@@ -49,7 +49,7 @@ if ( isset( $zerif_aboutus_show ) && $zerif_aboutus_show != 1 ) {
 
 	$zerif_ourteam_show = get_theme_mod( 'zerif_ourteam_show' );
 
-if ( isset( $zerif_ourteam_show ) && $zerif_ourteam_show != 1 ) {
+if ( ( isset( $zerif_ourteam_show ) && $zerif_ourteam_show != 1 ) || is_customize_preview() ) {
 
 	get_template_part( 'sections/our_team' );
 
@@ -59,7 +59,7 @@ if ( isset( $zerif_ourteam_show ) && $zerif_ourteam_show != 1 ) {
 
 	$zerif_testimonials_show = get_theme_mod( 'zerif_testimonials_show' );
 
-if ( isset( $zerif_testimonials_show ) && $zerif_testimonials_show != 1 ) {
+if ( ( isset( $zerif_testimonials_show ) && $zerif_testimonials_show != 1 ) || is_customize_preview() ) {
 
 	get_template_part( 'sections/testimonials' );
 
@@ -72,7 +72,7 @@ if ( isset( $zerif_testimonials_show ) && $zerif_testimonials_show != 1 ) {
 	/* LATEST NEWS */
 	$zerif_latestnews_show = get_theme_mod( 'zerif_latestnews_show' );
 
-if ( isset( $zerif_latestnews_show ) && $zerif_latestnews_show != 1 ) {
+if ( ( isset( $zerif_latestnews_show ) && $zerif_latestnews_show != 1 ) || is_customize_preview() ) {
 
 	get_template_part( 'sections/latest_news' );
 
@@ -81,9 +81,9 @@ if ( isset( $zerif_latestnews_show ) && $zerif_latestnews_show != 1 ) {
 		/* CONTACT US */
 		$zerif_contactus_show = get_theme_mod( 'zerif_contactus_show' );
 
-if ( isset( $zerif_contactus_show ) && $zerif_contactus_show != 1 ) :
-	?>
-	<section class="contact-us" id="contact">
+if ( ( isset( $zerif_contactus_show ) && $zerif_contactus_show != 1 ) || is_customize_preview() ) :
+	echo '<section class="contact-us ' . ( ( is_customize_preview() && ( ! isset( $zerif_contactus_show ) || $zerif_contactus_show == 1 ) ) ? ' zerif_hidden_if_not_customizer ' : '' ) . '" id="contact">';
+?>
 <div class="container">
 	<!-- SECTION HEADER -->
 	<div class="section-header">
