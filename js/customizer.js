@@ -674,17 +674,9 @@
 				function( to ) {
 
 					if ( true !== to ) {
-						$( 'section#contact' ).css(
-							{
-								'display': 'block'
-							}
-						);
+						$( 'section#contact' ).removeClass( 'zerif_hidden_if_not_customizer' );
 					} else {
-						$( 'section#contact' ).css(
-							{
-								'display': 'none'
-							}
-						);
+						$( 'section#contact' ).addClass( 'zerif_hidden_if_not_customizer' );
 					}
 
 				}
