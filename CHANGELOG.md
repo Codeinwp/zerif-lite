@@ -1,4 +1,10 @@
 
+### 1.8.5.33 - 14/12/2017
+**Changes:** 
+- Fixed Hide/Show mechanism for the frontpage sections
+- Removed duplicated hooks
+- Updated readme file
+
 ### 1.8.5.32 - 09/11/2017
 **Changes:** 
 - Fix console error causing scrollreveal to not work properly
