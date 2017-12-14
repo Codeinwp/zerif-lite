@@ -5,13 +5,15 @@
  * @package zerif-lite
  */
 
+$zerif_latestnews_show = get_theme_mod( 'zerif_latestnews_show' );
+
 $zerif_total_posts = get_option( 'posts_per_page' ); /* number of latest posts to show */
 
 if ( ! empty( $zerif_total_posts ) && ( $zerif_total_posts > 0 ) ) :
 
 	zerif_before_latest_news_trigger();
 
-	echo '<section class="latest-news" id="latestnews">';
+	echo '<section class="latest-news ' . ( ( is_customize_preview() && ( ! isset( $zerif_latestnews_show ) || $zerif_latestnews_show == 1 ) ) ? ' zerif_hidden_if_not_customizer ' : '' ) . '" id="latestnews">';
 
 	zerif_top_latest_news_trigger();
 

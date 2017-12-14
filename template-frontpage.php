@@ -8,11 +8,11 @@ get_header();
 
 $zerif_bigtitle_show = get_theme_mod( 'zerif_bigtitle_show' );
 
-if ( isset( $zerif_bigtitle_show ) && $zerif_bigtitle_show != 1 ) :
+if ( ( isset( $zerif_bigtitle_show ) && $zerif_bigtitle_show != 1 ) || is_customize_preview() ) {
 
 	get_template_part( 'sections/big_title' );
 
-endif;
+}
 
 ?>
 
@@ -26,15 +26,11 @@ endif;
 
 	$zerif_ourfocus_show = get_theme_mod( 'zerif_ourfocus_show' );
 
-	if ( isset( $zerif_ourfocus_show ) && $zerif_ourfocus_show != 1 ) :
-
-		zerif_before_our_focus_trigger();
+	if ( ( isset( $zerif_ourfocus_show ) && $zerif_ourfocus_show != 1 ) || is_customize_preview() ) {
 
 		get_template_part( 'sections/our_focus' );
 
-		zerif_after_our_focus_trigger();
-
-	endif;
+	}
 
 	/* RIBBON WITH BOTTOM BUTTON */
 
@@ -44,43 +40,31 @@ endif;
 
 	$zerif_aboutus_show = get_theme_mod( 'zerif_aboutus_show' );
 
-	if ( isset( $zerif_aboutus_show ) && $zerif_aboutus_show != 1 ) :
-
-		zerif_before_about_us_trigger();
+	if ( ( isset( $zerif_aboutus_show ) && $zerif_aboutus_show != 1 ) || is_customize_preview() ) {
 
 		get_template_part( 'sections/about_us' );
 
-		zerif_after_about_us_trigger();
-
-	endif;
+	}
 
 	/* OUR TEAM */
 
 	$zerif_ourteam_show = get_theme_mod( 'zerif_ourteam_show' );
 
-	if ( isset( $zerif_ourteam_show ) && $zerif_ourteam_show != 1 ) :
-
-		zerif_before_our_team_trigger();
+	if ( ( isset( $zerif_ourteam_show ) && $zerif_ourteam_show != 1 ) || is_customize_preview() ) {
 
 		get_template_part( 'sections/our_team' );
 
-		zerif_after_our_team_trigger();
-
-	endif;
+	}
 
 	/* TESTIMONIALS */
 
 	$zerif_testimonials_show = get_theme_mod( 'zerif_testimonials_show' );
 
-	if ( isset( $zerif_testimonials_show ) && $zerif_testimonials_show != 1 ) :
-
-		zerif_before_testimonials_trigger();
+	if ( ( isset( $zerif_testimonials_show ) && $zerif_testimonials_show != 1 ) || is_customize_preview() ) {
 
 		get_template_part( 'sections/testimonials' );
 
-		zerif_after_testimonials_trigger();
-
-	endif;
+	}
 
 	/* RIBBON WITH RIGHT SIDE BUTTON */
 
@@ -89,22 +73,18 @@ endif;
 	/* LATEST NEWS */
 	$zerif_latestnews_show = get_theme_mod( 'zerif_latestnews_show' );
 
-	if ( isset( $zerif_latestnews_show ) && $zerif_latestnews_show != 1 ) :
-
-		zerif_before_latest_news_trigger();
+	if ( ( isset( $zerif_latestnews_show ) && $zerif_latestnews_show != 1 ) || is_customize_preview() ) {
 
 		get_template_part( 'sections/latest_news' );
 
-		zerif_after_latest_news_trigger();
-
-	endif;
+	}
 
 	/* CONTACT US */
 	$zerif_contactus_show = get_theme_mod( 'zerif_contactus_show' );
 
-	if ( isset( $zerif_contactus_show ) && $zerif_contactus_show != 1 ) :
+	if ( ( isset( $zerif_contactus_show ) && $zerif_contactus_show != 1 ) || is_customize_preview() ) :
+		echo '<section class="contact-us ' . ( ( is_customize_preview() && ( ! isset( $zerif_contactus_show ) || $zerif_contactus_show == 1 ) ) ? ' zerif_hidden_if_not_customizer ' : '' ) . '" id="contact">';
 		?>
-		<section class="contact-us" id="contact">
 			<div class="container">
 				<!-- SECTION HEADER -->
 				<div class="section-header">

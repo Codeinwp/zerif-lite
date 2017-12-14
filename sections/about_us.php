@@ -5,9 +5,13 @@
  * @package zerif-lite
  */
 
-zerif_before_about_us_trigger(); ?>
+zerif_before_about_us_trigger();
 
-<section class="about-us" id="aboutus">
+$zerif_aboutus_show = get_theme_mod( 'zerif_aboutus_show' );
+
+echo '<section class="about-us ' . ( ( is_customize_preview() && ( ! isset( $zerif_aboutus_show ) || $zerif_aboutus_show == 1 ) ) ? ' zerif_hidden_if_not_customizer ' : '' ) . '" id="aboutus">';
+
+?>
 
 	<?php zerif_top_about_us_trigger(); ?>
 

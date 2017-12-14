@@ -5,9 +5,13 @@
  * @package zerif-lite
  */
 
-zerif_before_our_focus_trigger(); ?>
+zerif_before_our_focus_trigger();
 
-<section class="focus" id="focus">
+$zerif_ourfocus_show = get_theme_mod( 'zerif_ourfocus_show' );
+
+echo '<section class="focus ' . ( ( is_customize_preview() && ( ! isset( $zerif_ourfocus_show ) || $zerif_ourfocus_show == 1 ) ) ? ' zerif_hidden_if_not_customizer ' : '' ) . '" id="focus">';
+
+?>
 
 	<?php zerif_top_our_focus_trigger(); ?>
 

@@ -7,6 +7,8 @@
 
 $zerif_slider_shortcode = get_theme_mod( 'zerif_bigtitle_slider_shortcode' );
 
+$zerif_bigtitle_show = get_theme_mod( 'zerif_bigtitle_show' );
+
 echo '<div class="' . ( ! empty( $zerif_slider_shortcode ) ? 'home-slider-plugin' : '' ) . ' home-header-wrap">';
 
 	$zerif_parallax_img1 = get_theme_mod( 'zerif_parallax_img1', get_template_directory_uri() . '/images/background1.jpg' );
@@ -29,7 +31,7 @@ if ( ! empty( $zerif_slider_shortcode ) ) {
 		echo '</ul>';
 	}
 
-	echo '<div class="header-content-wrap">';
+	echo '<div class="header-content-wrap ' . ( ( is_customize_preview() && ( ! isset( $zerif_bigtitle_show ) || $zerif_bigtitle_show == 1 ) ) ? ' zerif_hidden_if_not_customizer ' : '' ) . '">';
 
 	echo '<div class="container">';
 
