@@ -1,16 +1,19 @@
 # Zerif Lite
 
-Contributors:		codeinwp,uriahs-victor,hardeepasrani, rodicaelena
+Contributors:		[Codeinwp](https://github.com/Codeinwp), [Uriahs Victor](https://github.com/UVLabs), [HardeepAsrani](https://github.com/HardeepAsrani), [Rodica-Elena Andronache](https://github.com/rodica-andronache)
+
 Tags:				one-column, two-columns, right-sidebar,full-width-template,rtl-language-support,sticky-post,theme-options, custom-background, custom-menu, editor-style, featured-images, threaded-comments, translation-ready, footer-widgets, portfolio, e-commerce, blog
+
 Requires at least:	3.3.0
+
 Tested up to:		4.4
 
-Zerif Lite
 ## Description
 Zerif Lite is a modern responsive WordPress Theme. It's perfect for web agencies, digital studios, corporate, product showcase, personal and business portfolio.
 
 ## License
 Zerif Lite WordPress theme, Copyright (C) 2014 ThemeIsle.com
+
 Zerif Lite WordPress theme is licensed under the GPL3.
 
 Note: The custom background only applies to the blog posts index.
