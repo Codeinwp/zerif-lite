@@ -1,4 +1,10 @@
 
+### 1.8.5.34 - 08/01/2018
+**Changes:** 
+- Fixed smooth scroll functionality with Max Mega Menu
+- Improved compatibility with the new trap in Pirate Forms
+- Fixed compatibility issue with SiteOrigin, image import not working in widgets when using a foreign language - needs latest version of Orbit Fox Companion
+
 ### 1.8.5.33 - 14/12/2017
 **Changes:** 
 - Fixed Hide/Show mechanism for the frontpage sections
