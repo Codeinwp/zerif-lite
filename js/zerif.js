@@ -171,7 +171,7 @@ jQuery( document ).ready(
 
  =================================== */
 
-jQuery( document ).ready(
+jQuery( window ).load(
 	function(){
 		jQuery( '#site-navigation a[href*="#"]:not([href="#"]), header.header a[href*="#"]:not([href="#"])' ).bind(
 			'click',function () {
