@@ -942,7 +942,7 @@ if ( ! class_exists( 'zerif_ourfocus' ) && zerif_check_if_old_version_of_theme()
 
 			echo '<div class="col-lg-3 col-sm-3 focus-box" data-scrollreveal="enter left after 0.15s over 1s">';
 
-			if ( ! empty( $instance['image_uri'] ) && ( $instance['image_uri'] != 'Upload Image' ) ) {
+			if ( ! empty( $instance['image_uri'] ) && ( preg_match('/(\.jpg|\.png|\.jpeg|\.gif|\.bmp)$/', $instance['image_uri'] ) ) ) {
 				if ( ! empty( $instance['link'] ) ) {
 
 					echo '<a href="' . esc_url( $instance['link'] ) . '" class="service-icon">';
@@ -1181,7 +1181,7 @@ if ( ! class_exists( 'zerif_testimonial_widget' ) && zerif_check_if_old_version_
 
 				echo '</div>';
 
-			if ( ! empty( $instance['image_uri'] ) && ( $instance['image_uri'] != 'Upload Image' ) ) {
+			if ( ! empty( $instance['image_uri'] ) && ( preg_match('/(\.jpg|\.png|\.jpeg|\.gif|\.bmp)$/', $instance['image_uri'] ) ) ) {
 
 				echo '<div class="client-image hidden-xs">';
 
@@ -1361,7 +1361,7 @@ if ( ! class_exists( 'zerif_clients_widget' ) && zerif_check_if_old_version_of_t
 			}
 			echo '">';
 
-			if ( ! empty( $instance['image_uri'] ) && ( $instance['image_uri'] != 'Upload Image' ) ) {
+			if ( ! empty( $instance['image_uri'] ) && ( preg_match('/(\.jpg|\.png|\.jpeg|\.gif|\.bmp)$/', $instance['image_uri'] ) ) ) {
 				echo '<img src="' . esc_url( $instance['image_uri'] ) . '" alt="' . __( 'Client', 'zerif-lite' ) . '">';
 
 			} elseif ( ! empty( $instance['custom_media_id'] ) ) {
@@ -1505,7 +1505,7 @@ if ( ! class_exists( 'zerif_team_widget' ) && zerif_check_if_old_version_of_them
 
 				echo '<div class="team-member" tabindex="0">';
 
-			if ( ! empty( $instance['image_uri'] ) && ( $instance['image_uri'] != 'Upload Image' ) ) {
+			if ( ! empty( $instance['image_uri'] ) && ( preg_match('/(\.jpg|\.png|\.jpeg|\.gif|\.bmp)$/', $instance['image_uri'] ) ) ) {
 
 				echo '<figure class="profile-pic">';
 
