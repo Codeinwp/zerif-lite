@@ -1,4 +1,8 @@
 
+### 1.8.5.35 - 08/01/2018
+**Changes:** 
+- Development
+
 ### 1.8.5.34 - 08/01/2018
 **Changes:** 
 - Fixed smooth scroll functionality with Max Mega Menu
