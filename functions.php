@@ -664,7 +664,7 @@ function zerif_scripts() {
 	}
 
 	/* zerif script */
-	wp_enqueue_script( 'zerif_script', get_template_directory_uri() . '/js/zerif.js', array( 'jquery', 'zerif_knob_nav' ), '20120206', true );
+	wp_enqueue_script( 'zerif_script', get_template_directory_uri() . '/js/zerif.js', array( 'jquery', 'zerif_knob_nav' ), '20120207', true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 
