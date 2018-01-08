@@ -2343,13 +2343,13 @@ ul.nav > li.current_page_item.current > a:before {
 .pirate_forms {
 	padding-bottom: 95px;
 }
-.pirate_forms input,
+.pirate_forms input:not([type='checkbox']),
 .pirate_forms textarea {
 	width: 100%;
 	margin: auto;
 	border-radius: 4px !important;
 }
-.pirate_forms input {
+.pirate_forms input:not([type='checkbox']) {
 	display: inline-block;
 	min-height: 46px;
 	padding: 9px;
@@ -2414,10 +2414,11 @@ ul.nav > li.current_page_item.current > a:before {
 	color: #fff;
 	background: #cb4332;
 }
-.pirate_forms_wrap label {
+.pirate-forms-maps-custom {
 	float: left;
-	width: 100%;
-	height: 1px;
+}
+.contact-us .pirate-forms-maps-custom {
+	color: #ffffff;
 }
 
 .zerif_hidden_if_not_customizer {
@@ -3289,10 +3290,6 @@ textarea {
 }
 .contact-us textarea {
 	border: 1px solid transparent;
-}
-.contact-us .custom-button {
-	float: right;
-	margin-right: 15px;
 }
 .zerif-g-recaptcha {
 	display: none;
