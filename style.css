@@ -3865,7 +3865,6 @@ article .posted-on a:hover {
 	margin: 0;
 	color: #404040;
 	font: inherit;
-	font-size: 12px;
 	font-weight: bold;
 	line-height: 14px;
 	text-transform: uppercase;
@@ -4838,8 +4837,7 @@ article .posted-on a:hover {
 	margin: 0 3.8% 2.992em 0;
 	padding: 0;
 }
-.woocommerce .upsells.products ul li.product:nth-child(4),
-.woocommerce-page ul.products li.product:nth-child(4) {
+.woocommerce .upsells.products ul li.product:nth-child(4) {
 	margin-right: 0;
 }
 .woocommerce .upsells.products ul li.product:nth-child(4+1),
@@ -4982,6 +4980,13 @@ article .posted-on a:hover {
 	}
 }
 @media (max-width: 767px) {
+	.woocommerce ul.products.columns-2 li.product, .woocommerce-page ul.products.columns-2 li.product,
+	.woocommerce ul.products.columns-3 li.product, .woocommerce-page ul.products.columns-3 li.product,
+	.woocommerce ul.products.columns-4 li.product, .woocommerce-page ul.products.columns-4 li.product,
+	.woocommerce ul.products.columns-5 li.product, .woocommerce-page ul.products.columns-5 li.product,
+	.woocommerce ul.products.columns-6 li.product, .woocommerce-page ul.products.columns-6 li.product {
+		width: 100%;
+	}
 	.woocommerce-page .upsells.products ul li.product,
 	.woocommerce-page .upsells.products ul.products li.product {
 		float: left;
@@ -4989,12 +4994,10 @@ article .posted-on a:hover {
 		width: 48%;
 		margin: 0 0 2.992em;
 	}
-	.woocommerce .upsells.products ul li.product:nth-child(4),
-	.woocommerce-page ul.products li.product:nth-child(4) {
+	.woocommerce .upsells.products ul li.product:nth-child(4) {
 		margin: 0 0 2.992em;
 	}
-	.woocommerce .upsells.products ul li.product:nth-child(4+1),
-	.woocommerce-page ul.products li.product:nth-child(4+1) {
+	.woocommerce .upsells.products ul li.product:nth-child(4+1) {
 		clear: none;
 	}
 	.woocommerce .upsells.products ul li.product:nth-child(even),
