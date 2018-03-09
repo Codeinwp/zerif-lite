@@ -1957,3 +1957,27 @@ function zerif_check_passed_time( $no_seconds ) {
 	}
 	return true;
 }
+
+add_action( 'woocommerce_before_checkout_form', 'zerif_coupon_after_order_table_js' );
+
+/**
+ * Checkout page
+ * Move the coupon fild and message info after the order table
+ **/
+function zerif_coupon_after_order_table_js() {
+	wc_enqueue_js(
+		'
+		$( $( "div.woocommerce-info, .checkout_coupon" ).detach() ).appendTo( "#zerif-checkout-coupon" );
+	'
+	);
+}
+
+add_action( 'woocommerce_checkout_order_review', 'zerif_coupon_after_order_table' );
+
+/**
+ * Checkout page
+ * Add the id zerif-checkout-coupon to be able to Move the coupon fild and message info after the order table
+ **/
+function zerif_coupon_after_order_table() {
+	echo '<div id="zerif-checkout-coupon"></div><div style="clear:both"></div>';
+}

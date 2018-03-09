@@ -4,7 +4,7 @@ Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: https://themeisle.com
 Description: Zerif LITE is a free one page WordPress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.8.5.35
+Version: 1.8.5.36
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -3864,8 +3864,7 @@ article .posted-on a:hover {
 	min-height: 42px;
 	margin: 0;
 	color: #404040;
-	font: inherit;
-	font-size: 12px;
+	font-size: 16px !important;
 	font-weight: bold;
 	line-height: 14px;
 	text-transform: uppercase;
@@ -4491,6 +4490,9 @@ article .posted-on a:hover {
 .woocommerce-page .woocommerce .product-name a {
 	color: #404040;
 }
+.woocommerce-page .woocommerce-cart-form__contents .actions button {
+	width: auto;
+}
 .woocommerce div.product form.cart {
 	margin-bottom: 0;
 }
@@ -4609,20 +4611,30 @@ article .posted-on a:hover {
 .woocommerce-page .woocommerce-info {
 	width: 100%;
 }
+.woocommerce-page .woocommerce-checkout .woocommerce-billing-fields h3 {
+	margin-bottom: 20px;
+}
+.woocommerce-page .woocommerce-checkout #order_review_heading {
+	clear: none;
+	float: left;
+	margin-bottom: 20px;
+}
 .woocommerce-page .woocommerce-checkout .col-1,
 .woocommerce-page .woocommerce-checkout .col-2 {
 	float: left;
 	width: 100%;
+}
+.woocommerce .col2-set, .woocommerce-page .col2-set, .woocommerce-checkout .col2-set {
+	float: left;
+	width: 55%;
+	margin-right: 5%;
 }
 .woocommerce-page .woocommerce-checkout-review-order {
 	clear: left;
 }
 .woocommerce-page .woocommerce .checkbox {
 	float: left;
-	padding-left: 0;
-}
-.woocommerce-page .woocommerce .input-checkbox {
-	margin: 15px 0 0 10px;
+	padding: 0;
 }
 .woocommerce-page .woocommerce-checkout #payment {
 	background: #fafafa;
@@ -4637,6 +4649,10 @@ article .posted-on a:hover {
 	border-right-color: transparent;
 	border-left-color: transparent;
 	content: "";
+}
+.woocommerce-page .woocommerce-checkout #ship-to-different-address {
+	font-size: 16px;
+	margin-left: 24px;
 }
 .woocommerce-page .woocommerce .order_details li.order {
 	background: #fff;
@@ -4658,16 +4674,9 @@ article .posted-on a:hover {
 }
 .woocommerce-page .woocommerce #payment ul.payment_methods {
 	margin: 0;
-	padding: 1em!important;
 	border-bottom: 1px solid #d3ced2;
 	text-align: left;
 	list-style: outside none none;
-}
-.woocommerce-page .woocommerce #payment ul.payment_methods li {
-	margin-left: 2em;
-	font-weight: 400;
-	line-height: 2;
-	text-align: left;
 }
 .woocommerce-page .woocommerce #payment {
 	background: none repeat scroll 0 0 #fafafa;
@@ -4708,6 +4717,9 @@ article .posted-on a:hover {
 .woocommerce-page .woocommerce #payment h3 {
 	padding-left: 20px;
 }
+.woocommerce-page .woocommerce #payment #place_order {
+	float: none;
+}
 .woocommerce-page .woocommerce a.button {
 	margin-left: 0;
 	font-size: 14px;
@@ -4732,7 +4744,10 @@ article .posted-on a:hover {
 	line-height: 1;
 }
 .woocommerce-page .woocommerce #order_review {
-	clear: left;
+	float: right;
+	clear: right;
+	width: 40%;
+	margin-right: 0;
 }
 .woocommerce-page .woocommerce .login {
 	float: left;
@@ -4812,6 +4827,10 @@ article .posted-on a:hover {
 .woocommerce-page div.product div.thumbnails a {
 	margin-bottom: 1em;
 }
+.woocommerce .upsells {
+	width: 100%;
+	float: left;
+}
 .woocommerce .upsells.products ul,
 .woocommerce .upsells.products ul.products {
 	float: left;
@@ -4838,8 +4857,7 @@ article .posted-on a:hover {
 	margin: 0 3.8% 2.992em 0;
 	padding: 0;
 }
-.woocommerce .upsells.products ul li.product:nth-child(4),
-.woocommerce-page ul.products li.product:nth-child(4) {
+.woocommerce .upsells.products ul li.product:nth-child(4) {
 	margin-right: 0;
 }
 .woocommerce .upsells.products ul li.product:nth-child(4+1),
@@ -4923,6 +4941,9 @@ article .posted-on a:hover {
 .woocommerce div.product div.images .woocommerce-product-gallery__image:nth-child(n+2) {
 	width: 30.75%;
 }
+.woocommerce div.product div.images .flex-control-thumbs li:nth-child(4n+1) {
+	clear: none;
+}
 .woocommerce div.product div.images .flex-control-thumbs li {
 	float: left;
 	width: 30.75%;
@@ -4951,9 +4972,11 @@ article .posted-on a:hover {
 .woocommerce-checkout-payment ul.wc_payment_methods li.woocommerce-info {
 	margin: 0 !important;
 	margin-left: 2em !important;
-	padding: 0 !important;
 	color: inherit;
 	background: transparent;
+}
+.woocommerce-checkout-payment ul.wc_payment_methods li.woocommerce-info:before {
+	color: #404040;
 }
 
 .woocommerce div.product form.cart .variations td,
@@ -4982,6 +5005,19 @@ article .posted-on a:hover {
 	}
 }
 @media (max-width: 767px) {
+
+	.woocommerce .col2-set, .woocommerce-page .col2-set, .woocommerce-checkout .col2-set,
+	.woocommerce-page .woocommerce #order_review {
+		width: 100%;
+	}
+
+	.woocommerce ul.products.columns-2 li.product, .woocommerce-page ul.products.columns-2 li.product,
+	.woocommerce ul.products.columns-3 li.product, .woocommerce-page ul.products.columns-3 li.product,
+	.woocommerce ul.products.columns-4 li.product, .woocommerce-page ul.products.columns-4 li.product,
+	.woocommerce ul.products.columns-5 li.product, .woocommerce-page ul.products.columns-5 li.product,
+	.woocommerce ul.products.columns-6 li.product, .woocommerce-page ul.products.columns-6 li.product {
+		width: 100%;
+	}
 	.woocommerce-page .upsells.products ul li.product,
 	.woocommerce-page .upsells.products ul.products li.product {
 		float: left;
@@ -4989,12 +5025,10 @@ article .posted-on a:hover {
 		width: 48%;
 		margin: 0 0 2.992em;
 	}
-	.woocommerce .upsells.products ul li.product:nth-child(4),
-	.woocommerce-page ul.products li.product:nth-child(4) {
+	.woocommerce .upsells.products ul li.product:nth-child(4) {
 		margin: 0 0 2.992em;
 	}
-	.woocommerce .upsells.products ul li.product:nth-child(4+1),
-	.woocommerce-page ul.products li.product:nth-child(4+1) {
+	.woocommerce .upsells.products ul li.product:nth-child(4+1) {
 		clear: none;
 	}
 	.woocommerce .upsells.products ul li.product:nth-child(even),
