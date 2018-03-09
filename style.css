@@ -3864,7 +3864,7 @@ article .posted-on a:hover {
 	min-height: 42px;
 	margin: 0;
 	color: #404040;
-	font: inherit;
+	font-size: 16px !important;
 	font-weight: bold;
 	line-height: 14px;
 	text-transform: uppercase;
