@@ -1,4 +1,8 @@
 
+### 1.8.5.36 - 09/03/2018
+**Changes:** 
+- Improved compatibility with WooCommerce 3.3
+
 
 ### 1.8.5.35 - 08/01/2018
 
