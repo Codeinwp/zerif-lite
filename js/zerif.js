@@ -417,15 +417,27 @@ jQuery( window ).load(
 		setminHeightHeader();
 	}
 );
+
+
+/* check if resize is actually due to window resize and not iOS */
+var windowWidth = jQuery(window).width();
 jQuery( window ).resize(
 	function() {
-		setminHeightHeader();
+		if ( jQuery(window).width() != windowWidth ) {
+			windowWidth = jQuery(window).width();
+			setminHeightHeader();
+		}
+		
 	}
 );
+
 function setminHeightHeader()
 {
 	jQuery( '#main-nav' ).css( 'min-height','75px' );
 	jQuery( '.header' ).css( 'min-height','75px' );
+	var minHeight = parseInt( jQuery( '#main-nav' ).height() );
+	jQuery( '#main-nav' ).css( 'min-height',minHeight );
+	jQuery( '.header' ).css( 'min-height',minHeight );
 }
 /* - */
 
