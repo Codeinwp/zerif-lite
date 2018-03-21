@@ -1,4 +1,9 @@
 
+### 1.8.5.37 - 21/03/2018
+**Changes:** 
+- Fixed problem with primary menu not closing on iOS devices
+- Fixed problem with the horizontal scroll on Mac OS in Chrome
+
 ### 1.8.5.36 - 09/03/2018
 **Changes:** 
 - Improved compatibility with WooCommerce 3.3
