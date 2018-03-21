@@ -407,7 +407,7 @@ function zerif_setup() {
 			'deactivate_label' => esc_html__( 'Deactivate', 'zerif-lite' ),
 			'content'          => array(
 				'themeisle-companion' => array(
-					'title'       => 'ThemeIsle Companion',
+					'title'       => 'Orbit Fox',
 					'description' => __( 'It is highly recommended that you install the companion plugin to have access to the frontpage sections widgets.', 'zerif-lite' ),
 					'check'       => defined( 'THEMEISLE_COMPANION_VERSION' ),
 					'plugin_slug' => 'themeisle-companion',
@@ -739,7 +739,7 @@ function zerif_register_required_plugins() {
 				'required' => false,
 			),
 			array(
-				'name'     => 'ThemeIsle Companion',
+				'name'     => 'Orbit Fox',
 				'slug'     => 'themeisle-companion',
 				'required' => false,
 			),
@@ -754,7 +754,7 @@ function zerif_register_required_plugins() {
 				'required' => false,
 			),
 			array(
-				'name'     => 'ThemeIsle Companion',
+				'name'     => 'Orbit Fox',
 				'slug'     => 'themeisle-companion',
 				'required' => false,
 			),
