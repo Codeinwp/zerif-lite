@@ -903,15 +903,17 @@ a:active {
 	width: 100%;
 }
 
-.nav .has_children > a:after {
-	margin: 0 0 0 6px;
-	color: inherit;
-	font-family: FontAwesome;
-	content: "\f0d7";
-}
+@media (min-width: 768px) {
+	.nav .has_children > a:after {
+		margin: 0 0 0 6px;
+		color: inherit;
+		font-family: FontAwesome;
+		content: "\f0d7";
+	}
 
-.nav .sub-menu .has_children > a:after {
-	content: "\f0da";
+	.nav .sub-menu .has_children > a:after {
+		content: "\f0da";
+	}
 }
 
 

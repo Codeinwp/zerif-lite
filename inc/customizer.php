@@ -106,8 +106,8 @@ function zerif_customize_register( $wp_customize ) {
 	);
 
 	/*
-     * View Pro Version Section Control
-     */
+	 * View Pro Version Section Control
+	 */
 	$wp_customize->add_control(
 		new Zerif_Control_Upsell_Theme_Info(
 			$wp_customize, 'zerif_theme_info_main_control', array(

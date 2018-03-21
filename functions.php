@@ -22,18 +22,18 @@ function zerif_setup() {
 	}
 
 	/*
-     * Make theme available for translation.
-     * Translations can be filed in the /languages/ directory.
-     * If you're building a theme based on zerif, use a find and replace
-     * to change 'zerif-lite' to the name of your theme in all the template files
-     */
+	 * Make theme available for translation.
+	 * Translations can be filed in the /languages/ directory.
+	 * If you're building a theme based on zerif, use a find and replace
+	 * to change 'zerif-lite' to the name of your theme in all the template files
+	 */
 	load_theme_textdomain( 'zerif-lite', get_template_directory() . '/languages' );
 
 	add_theme_support( 'automatic-feed-links' );
 
 	/*
-     * Enable support for Post Thumbnails on posts and pages.
-     */
+	 * Enable support for Post Thumbnails on posts and pages.
+	 */
 	add_theme_support( 'post-thumbnails' );
 
 	/* Set the image size by cropping the image */
