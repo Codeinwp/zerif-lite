@@ -472,19 +472,23 @@ function fixFooterBottom(){
 /*** CENTERED MENU */
 var callback_menu_align = function () {
 
-	var headerWrap    = jQuery( '.header' );
-	var navWrap       = jQuery( '#site-navigation' );
-	var logoWrap      = jQuery( '.responsive-logo' );
-	var containerWrap = jQuery( '.container' );
-	var classToAdd    = 'menu-align-center';
+	var headerWrap     = jQuery( '.header' );
+	var navWrap        = jQuery( '#site-navigation' );
+	var maxMenuNavWrap = jQuery('#mega-menu-wrap-primary');
+	var logoWrap       = jQuery( '.responsive-logo' );
+	var containerWrap  = jQuery( '.container' );
+	var classToAdd     = 'menu-align-center';
+	
 
 	if ( headerWrap.hasClass( classToAdd ) ) {
 		headerWrap.removeClass( classToAdd );
 	}
 	var logoWidth      = logoWrap.outerWidth();
-	var menuWidth      = navWrap.outerWidth();
+	var menuWidth      = navWrap.outerWidth() + maxMenuNavWrap.outerWidth();
 	var containerWidth = containerWrap.width();
 
+	console.log(menuWidth);
+	
 	if ( menuWidth + logoWidth > containerWidth ) {
 		headerWrap.addClass( classToAdd );
 	} else {

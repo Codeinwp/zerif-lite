@@ -6249,22 +6249,8 @@ body.custom-background {
  **   Max Mega Menu                 -----
 -----------------------------------------*/
 
-#mega-menu-wrap-primary .mega-menu-toggle + #mega-menu-primary {
-	display: block !important;
-	margin-top: 15px;
-}
-
-#mega-menu-wrap-primary .mega-menu-toggle {
-	display: none !important;
-}
-
 .menu-align-center #mega-menu-wrap-primary #mega-menu-primary {
 	text-align: center;
-}
-
-.blog-header-wrap .customize-partial-edit-shortcut-zerif_blog_header_title_subtitle {
-	float: left;
-	top: 150px;
 }
 
 
