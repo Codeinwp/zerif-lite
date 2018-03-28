@@ -6253,6 +6253,20 @@ body.custom-background {
 	text-align: center;
 }
 
+#mega-menu-wrap-primary {
+	float: right;
+	clear: none;
+	top: 20px;
+}
+
+@media (max-width: 768px) {
+	#mega-menu-wrap-primary {
+		float: none;
+		clear: both;
+		top: 0;
+	}
+}
+
 
 /*---------------------------------------
  **   Responsive            -----
