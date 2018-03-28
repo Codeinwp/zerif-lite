@@ -916,7 +916,6 @@ a:active {
 	}
 }
 
-
 /*---------------------------------------
  **   6.0 Accessibility                   -----
 -----------------------------------------*/
@@ -1895,6 +1894,15 @@ ul.nav > li.current_page_item.current > a:before {
 	margin: auto;
 	background: #e96656;
 	content: "";
+}
+
+@media (max-width: 768px) {
+	ul.nav > li.current > a:before,
+	.page ul.nav > li.current-menu-item > a:before,
+	.single-post ul.nav > li.current-menu-item > a:before,
+	.archive ul.nav > li.current-menu-item > a:before {
+		display: none;
+	}
 }
 
 /*----  SECTION:  HOME > INTRO AND SHORT MSGS   ----*/
