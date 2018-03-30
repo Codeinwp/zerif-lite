@@ -6267,6 +6267,10 @@ body.custom-background {
 	top: 20px;
 }
 
+.menu-align-center #mega-menu-wrap-primary {
+	top: 0;
+}
+
 @media (max-width: 768px) {
 	#mega-menu-wrap-primary {
 		float: none;
