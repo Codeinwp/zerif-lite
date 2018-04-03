@@ -474,7 +474,7 @@ var callback_menu_align = function () {
 
 	var headerWrap     = jQuery( '.header' );
 	var navWrap        = jQuery( '#site-navigation' );
-	var maxMenuNavWrap = jQuery('#mega-menu-wrap-primary');
+	var maxMenuNavWrap = jQuery('#mega-menu-primary');
 	var logoWrap       = jQuery( '.responsive-logo' );
 	var containerWrap  = jQuery( '.container' );
 	var classToAdd     = 'menu-align-center';

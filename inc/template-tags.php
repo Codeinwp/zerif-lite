@@ -519,10 +519,10 @@ if ( ! function_exists( 'zerif_primary_navigation_function' ) ) :
 
 		<?php if ( function_exists( 'max_mega_menu_is_enabled' ) && max_mega_menu_is_enabled( 'primary' ) ) : ?>
 
-			<?php
-				wp_nav_menu( array( 'theme_location' => 'primary' ) );
-				echo '<style>.navbar-toggle {display: none;}</style>';
-			?>
+				<?php
+					wp_nav_menu( array( 'theme_location' => 'primary' ) );
+					echo '<style>.navbar-toggle {display: none;}</style>';
+				?>
 
 		<?php else : ?>
 

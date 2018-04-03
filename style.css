@@ -6264,18 +6264,37 @@ body.custom-background {
 #mega-menu-wrap-primary {
 	float: right;
 	clear: none;
-	top: 20px;
-}
-
-.menu-align-center #mega-menu-wrap-primary {
-	top: 0;
 }
 
 @media (max-width: 768px) {
+	.mega-menu-primary .responsive-logo {
+		float: left;
+	}
+	.mega-toggle-label-closed,
+	.mega-toggle-label-open {
+		display: none;
+	}
 	#mega-menu-wrap-primary {
 		float: none;
 		clear: both;
-		top: 0;
+		position: static;
+	}
+	#mega-menu-wrap-primary .mega-menu-toggle {
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		background-color: #e96656;
+	}
+	#mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-block-1::after {
+		display: none;
+	}
+	#mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-block-1::before {
+		margin: 0;
+		font-size: 30px;
+		padding: 7px;
+	}
+	#mega-menu-wrap-primary .mega-menu-toggle.mega-menu-open .mega-toggle-block-1::before {
+		content: '\f335';
 	}
 }
 

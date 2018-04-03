@@ -936,9 +936,7 @@ if ( ! class_exists( 'zerif_ourfocus' ) && zerif_check_if_old_version_of_theme()
 		 */
 		function widget( $args, $instance ) {
 
-			extract( $args );
-
-			echo $before_widget;
+			echo $args['before_widget'];
 
 			echo '<div class="col-lg-3 col-sm-3 focus-box" data-scrollreveal="enter left after 0.15s over 1s">';
 
@@ -1009,7 +1007,7 @@ if ( ! class_exists( 'zerif_ourfocus' ) && zerif_check_if_old_version_of_theme()
 
 			echo '</div>';
 
-			echo $after_widget;
+			echo $args['after_widget'];
 
 		}
 
@@ -1142,13 +1140,11 @@ if ( ! class_exists( 'zerif_testimonial_widget' ) && zerif_check_if_old_version_
 		 */
 		function widget( $args, $instance ) {
 
-			extract( $args );
-
 			$zerif_accessibility = get_theme_mod( 'zerif_accessibility' );
 			// open link in a new tab when checkbox "accessibility" is not ticked
 			$attribut_new_tab = ( isset( $zerif_accessibility ) && ( $zerif_accessibility != 1 ) ? ' target="_blank"' : '' );
 
-			echo $before_widget;
+			echo $args['before_widget'];
 
 			if ( ! empty( $instance['text'] ) ) {
 				echo '<div class="message">' . htmlspecialchars_decode( apply_filters( 'widget_title', $instance['text'] ) ) . '</div>';
@@ -1207,7 +1203,7 @@ if ( ! class_exists( 'zerif_testimonial_widget' ) && zerif_check_if_old_version_
 
 			echo '</div>';
 
-			echo $after_widget;
+			echo $args['after_widget'];
 
 		}
 
@@ -1350,9 +1346,7 @@ if ( ! class_exists( 'zerif_clients_widget' ) && zerif_check_if_old_version_of_t
 		 */
 		function widget( $args, $instance ) {
 
-			extract( $args );
-
-			echo $before_widget;
+			echo $args['before_widget'];
 
 			echo '<a href="';
 
@@ -1376,7 +1370,7 @@ if ( ! class_exists( 'zerif_clients_widget' ) && zerif_check_if_old_version_of_t
 
 			echo '</a>';
 
-			echo $after_widget;
+			echo $args['after_widget'];
 
 		}
 
@@ -1497,9 +1491,7 @@ if ( ! class_exists( 'zerif_team_widget' ) && zerif_check_if_old_version_of_them
 		 */
 		function widget( $args, $instance ) {
 
-			extract( $args );
-
-			echo $before_widget;
+			echo $args['before_widget'];
 
 			echo '<div class="col-lg-3 col-sm-3 team-box">';
 
@@ -1623,7 +1615,7 @@ if ( ! class_exists( 'zerif_team_widget' ) && zerif_check_if_old_version_of_them
 
 			echo '</div>';
 
-			echo $after_widget;
+			echo $args['after_widget'];
 
 		}
 
