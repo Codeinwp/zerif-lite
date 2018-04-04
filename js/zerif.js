@@ -173,7 +173,7 @@ jQuery( document ).ready(
 
 jQuery( window ).load(
 	function(){
-		jQuery( '#site-navigation a[href*="#"]:not([href="#"]), header.header a[href*="#"]:not([href="#"])' ).bind(
+		jQuery( '#site-navigation a[href*="#"]:not([href="#"]), header.header a[href*="#"]:not([href="#"]), #focus .focus-box .service-icon a[href*="#"]:not([href="#"])' ).bind(
 			'click',function () {
 				var headerHeight;
 				var hash   = this.hash;
@@ -427,7 +427,7 @@ jQuery( window ).resize(
 			windowWidth = jQuery(window).width();
 			setminHeightHeader();
 		}
-		
+
 	}
 );
 
