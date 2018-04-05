@@ -1977,9 +1977,9 @@ function zerif_coupon_after_order_table() {
 /**
  * Max Mega Menu Zerif Theme
  **/
-function megamenu_add_theme_hestia_lite_max_menu( $themes ) {
-	$themes['hestia_lite_max_menu'] = array(
-		'title'                                    => 'Hestia Lite',
+function megamenu_add_theme_zerif_lite_max_menu( $themes ) {
+	$themes['zerif_lite_max_menu'] = array(
+		'title'                                    => 'Zerif Lite',
 		'menu_item_link_height'                    => '70px',
 		'container_background_from'                => 'rgb(255, 255, 255)',
 		'container_background_to'                  => 'rgb(255, 255, 255)',
@@ -2035,4 +2035,4 @@ function megamenu_add_theme_hestia_lite_max_menu( $themes ) {
 	);
 	return $themes;
 }
-add_filter( 'megamenu_themes', 'megamenu_add_theme_hestia_lite_max_menu' );
+add_filter( 'megamenu_themes', 'megamenu_add_theme_zerif_lite_max_menu' );
