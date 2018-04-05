@@ -67,9 +67,8 @@ jQuery( document ).ready( callback_mobile_dropdown );
 
 jQuery( document ).ready(
 	function() {
-		var current_height = jQuery( '.header .container' ).height();
-		jQuery( '.header' ).css( 'min-height',current_height );
-
+		var current_height = parseInt( jQuery( '.header .container' ).height() );
+		jQuery( '.header' ).css( 'min-height', current_height);
 	}
 );
 
@@ -436,8 +435,7 @@ function setminHeightHeader()
 	jQuery( '#main-nav' ).css( 'min-height','75px' );
 	jQuery( '.header' ).css( 'min-height','75px' );
 	var minHeight = parseInt( jQuery( '#main-nav' ).height() );
-	jQuery( '#main-nav' ).css( 'min-height',minHeight );
-	jQuery( '.header' ).css( 'min-height',minHeight );
+	jQuery( '.header' ).css( 'min-height', minHeight);
 }
 /* - */
 
@@ -486,8 +484,6 @@ var callback_menu_align = function () {
 	var logoWidth      = logoWrap.outerWidth();
 	var menuWidth      = navWrap.outerWidth() + maxMenuNavWrap.outerWidth();
 	var containerWidth = containerWrap.width();
-
-	console.log(menuWidth);
 	
 	if ( menuWidth + logoWidth > containerWidth ) {
 		headerWrap.addClass( classToAdd );

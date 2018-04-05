@@ -6266,6 +6266,11 @@ body.custom-background {
 	clear: none;
 }
 
+.obfx-menu-icon {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
 @media (max-width: 768px) {
 	.mega-menu-primary .responsive-logo {
 		float: left;
@@ -6283,17 +6288,29 @@ body.custom-background {
 		position: absolute;
 		right: 20px;
 		top: 20px;
-		background-color: #e96656;
+		background: #808080;
+		border: 1px solid #333;
+		border-radius: 4px;
+		height: auto;
+		transition: .3s ease background;
 	}
-	#mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-block-1::after {
+	#mega-menu-wrap-primary .mega-menu-toggle.mega-menu-open {
+		background: #e96656;
+	}
+	#mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-block-1 .mega-toggle-label {
 		display: none;
 	}
-	#mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-block-1::before {
-		margin: 0;
-		font-size: 30px;
-		padding: 7px;
+	#mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-blocks-right .mega-toggle-block {
+		margin-right: 0;
 	}
-	#mega-menu-wrap-primary .mega-menu-toggle.mega-menu-open .mega-toggle-block-1::before {
+	#mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-block::after {
+		margin: 0;
+		font-size: 28px;
+		padding: 0 10px;
+		color: #fff;
+		line-height: 35px;
+	}
+	#mega-menu-wrap-primary .mega-menu-toggle.mega-menu-open .mega-toggle-block::after {
 		content: '\f335';
 	}
 }

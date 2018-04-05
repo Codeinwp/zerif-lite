@@ -1973,3 +1973,66 @@ add_action( 'woocommerce_checkout_order_review', 'zerif_coupon_after_order_table
 function zerif_coupon_after_order_table() {
 	echo '<div id="zerif-checkout-coupon"></div><div style="clear:both"></div>';
 }
+
+/**
+ * Max Mega Menu Zerif Theme
+ **/
+function megamenu_add_theme_hestia_lite_max_menu( $themes ) {
+	$themes['hestia_lite_max_menu'] = array(
+		'title'                                    => 'Hestia Lite',
+		'menu_item_link_height'                    => '70px',
+		'container_background_from'                => 'rgb(255, 255, 255)',
+		'container_background_to'                  => 'rgb(255, 255, 255)',
+		'menu_item_background_hover_from'          => 'rgb(255, 255, 255)',
+		'menu_item_background_hover_to'            => 'rgb(255, 255, 255)',
+		'menu_item_link_font_size'                 => '15px',
+		'menu_item_link_color'                     => 'rgb(49, 49, 49)',
+		'menu_item_link_color_hover'               => 'rgb(233, 102, 86)',
+		'menu_item_highlight_current'              => 'off',
+		'panel_background_from'                    => 'rgb(255, 255, 255)',
+		'panel_background_to'                      => 'rgb(255, 255, 255)',
+		'panel_header_font_size'                   => '15px',
+		'panel_header_font_weight'                 => 'normal',
+		'panel_header_border_color'                => '#555',
+		'panel_font_size'                          => '15px',
+		'panel_font_color'                         => 'rgb(49, 49, 49)',
+		'panel_font_color_hover'                   => 'rgb(233, 102, 86)',
+		'panel_font_family'                        => 'inherit',
+		'panel_second_level_font_color'            => 'rgb(49, 49, 49)',
+		'panel_second_level_font_color_hover'      => 'rgb(233, 102, 86)',
+		'panel_second_level_text_transform'        => 'none',
+		'panel_second_level_font'                  => 'inherit',
+		'panel_second_level_font_size'             => '15px',
+		'panel_second_level_font_weight'           => 'normal',
+		'panel_second_level_font_weight_hover'     => 'normal',
+		'panel_second_level_text_decoration'       => 'none',
+		'panel_second_level_text_decoration_hover' => 'none',
+		'panel_second_level_padding_left'          => '20px',
+		'panel_second_level_border_color'          => '#555',
+		'panel_third_level_font_color'             => 'rgb(49, 49, 49)',
+		'panel_third_level_font_color_hover'       => 'rgb(233, 102, 86)',
+		'panel_third_level_font'                   => 'inherit',
+		'panel_third_level_font_size'              => '15px',
+		'panel_third_level_padding_left'           => '20px',
+		'flyout_background_from'                   => 'rgb(255, 255, 255)',
+		'flyout_background_to'                     => 'rgb(255, 255, 255)',
+		'flyout_background_hover_from'             => 'rgb(255, 255, 255)',
+		'flyout_background_hover_to'               => 'rgb(255, 255, 255)',
+		'flyout_link_size'                         => '15px',
+		'flyout_link_color'                        => 'rgb(49, 49, 49)',
+		'flyout_link_color_hover'                  => 'rgb(233, 102, 86)',
+		'flyout_link_family'                       => 'inherit',
+		'responsive_breakpoint'                    => '768px',
+		'resets'                                   => 'on',
+		'toggle_background_from'                   => '#222',
+		'toggle_background_to'                     => '#222',
+		'toggle_font_color'                        => 'rgb(102, 102, 102)',
+		'mobile_background_from'                   => 'rgb(255, 255, 255)',
+		'mobile_background_to'                     => 'rgb(255, 255, 255)',
+		'mobile_menu_item_link_font_size'          => '15px',
+		'mobile_menu_item_link_color'              => 'rgb(102, 102, 102)',
+		'mobile_menu_item_link_text_align'         => 'left',
+	);
+	return $themes;
+}
+add_filter( 'megamenu_themes', 'megamenu_add_theme_hestia_lite_max_menu' );
