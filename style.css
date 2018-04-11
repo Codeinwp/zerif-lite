@@ -6257,13 +6257,18 @@ body.custom-background {
  **   Max Mega Menu                 -----
 -----------------------------------------*/
 
+.mega-menu-primary #main-nav > .container {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
 .menu-align-center #mega-menu-wrap-primary #mega-menu-primary {
 	text-align: center;
 }
 
 #mega-menu-wrap-primary {
-	float: right;
-	clear: none;
+	margin-left: auto;
 }
 
 .obfx-menu-icon {
@@ -6272,6 +6277,9 @@ body.custom-background {
 }
 
 @media (max-width: 768px) {
+	.mega-menu-primary #main-nav > .container {
+		display: block;
+	}
 	.mega-menu-primary .responsive-logo {
 		float: left;
 	}

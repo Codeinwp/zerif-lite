@@ -1980,6 +1980,7 @@ function zerif_coupon_after_order_table() {
 function megamenu_add_theme_zerif_lite_max_menu( $themes ) {
 	$themes['zerif_lite_max_menu'] = array(
 		'title'                                    => 'Zerif Lite',
+		'menu_item_align'                          => 'right',
 		'menu_item_link_height'                    => '70px',
 		'container_background_from'                => 'rgb(255, 255, 255)',
 		'container_background_to'                  => 'rgb(255, 255, 255)',
