@@ -426,11 +426,11 @@ function zerif_setup() {
 	);
 
 	/*
-	* Add recommendation for Elementor plugin, after 5 days of installing the theme
+	* Add recommendation for Beaver Builder plugin, after 5 days of installing the theme
 	**/
-	if ( ! defined( 'ELEMENTOR_VERSION' ) && zerif_check_passed_time( '259200' ) ) {
+	if ( ! defined( 'FL_BUILDER_VERSION' ) && zerif_check_passed_time( '259200' ) ) {
 		$elementor_array = array(
-			'slug' => 'elementor',
+			'slug' => 'beaver-builder-lite-version',
 		);
 		if ( ! empty( $config['recommended_plugins']['content'] ) ) {
 			array_push( $config['recommended_plugins']['content'], $elementor_array );
