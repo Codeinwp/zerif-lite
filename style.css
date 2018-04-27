@@ -229,16 +229,20 @@ p {
 
 /* do not group these rules (placeholder colors) */
 *::-webkit-input-placeholder {
-	color: #000 !important;
+	color: #999 !important;
+	opacity: 1 !important;
 }
 *:-moz-placeholder {
-	color: #000 !important;
+	color: #999 !important;
+	opacity: 1 !important;
 }
 *::-moz-placeholder {
-	color: #000 !important;
+	color: #999 !important;
+	opacity: 1 !important;
 }
 *:-ms-input-placeholder {
-	color: #000 !important;
+	color: #999 !important;
+	opacity: 1 !important;
 }
 
 
@@ -716,6 +720,7 @@ input::-moz-focus-inner {
 input[type="text"],
 input[type="email"],
 input[type="url"],
+input[type="tel"],
 input[type="password"],
 input[type="search"],
 textarea {
@@ -726,6 +731,7 @@ textarea {
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="url"]:focus,
+input[type="tel"]:focus,
 input[type="password"]:focus,
 input[type="search"]:focus,
 textarea:focus {
@@ -4524,6 +4530,16 @@ article .posted-on a:hover {
 .woocommerce-page .woocommerce .checkout select {
 	padding: 12px 15% 12px 2%;
 }
+
+.woocommerce form .form-row .input-checkbox {
+	margin-top: 10px;
+}
+#add_payment_method #payment ul.payment_methods li input,
+.woocommerce-cart #payment ul.payment_methods li input,
+.woocommerce-checkout #payment ul.payment_methods li input {
+	margin: 0 5px 0 15px;
+}
+
 .woocommerce-page .woocommerce ul.payment_methods {
 	padding-left: 1em;
 }
