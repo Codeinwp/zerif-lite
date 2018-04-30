@@ -5010,6 +5010,10 @@ article .posted-on a:hover {
 	vertical-align: inherit;
 }
 
+.woocommerce-checkout .woocommerce-additional-fields h3 {
+	margin-top: 20px;
+}
+
 /* End changes for woocommerce 3.0.0*/
 
 @media (max-width: 1200px) {
