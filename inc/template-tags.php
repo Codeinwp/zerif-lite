@@ -516,6 +516,16 @@ if ( ! function_exists( 'zerif_primary_navigation_function' ) ) :
 	 */
 	function zerif_primary_navigation_function() {
 		?>
+
+		<?php if ( function_exists( 'max_mega_menu_is_enabled' ) && max_mega_menu_is_enabled( 'primary' ) ) : ?>
+
+				<?php
+					wp_nav_menu( array( 'theme_location' => 'primary' ) );
+					echo '<style>.navbar-toggle {display: none;}</style>';
+				?>
+
+		<?php else : ?>
+
 		<nav class="navbar-collapse bs-navbar-collapse collapse" id="site-navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
 			<a class="screen-reader-text skip-link" href="#content"><?php _e( 'Skip to content', 'zerif-lite' ); ?></a>
 			<?php
@@ -527,8 +537,11 @@ if ( ! function_exists( 'zerif_primary_navigation_function' ) ) :
 					'fallback_cb'    => 'zerif_wp_page_menu',
 				)
 			);
-	?>
+			?>
 		</nav>
+
 		<?php
+		endif;
 	}
+
 endif;

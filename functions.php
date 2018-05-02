@@ -22,18 +22,18 @@ function zerif_setup() {
 	}
 
 	/*
-     * Make theme available for translation.
-     * Translations can be filed in the /languages/ directory.
-     * If you're building a theme based on zerif, use a find and replace
-     * to change 'zerif-lite' to the name of your theme in all the template files
-     */
+	 * Make theme available for translation.
+	 * Translations can be filed in the /languages/ directory.
+	 * If you're building a theme based on zerif, use a find and replace
+	 * to change 'zerif-lite' to the name of your theme in all the template files
+	 */
 	load_theme_textdomain( 'zerif-lite', get_template_directory() . '/languages' );
 
 	add_theme_support( 'automatic-feed-links' );
 
 	/*
-     * Enable support for Post Thumbnails on posts and pages.
-     */
+	 * Enable support for Post Thumbnails on posts and pages.
+	 */
 	add_theme_support( 'post-thumbnails' );
 
 	/* Set the image size by cropping the image */
@@ -936,9 +936,7 @@ if ( ! class_exists( 'zerif_ourfocus' ) && zerif_check_if_old_version_of_theme()
 		 */
 		function widget( $args, $instance ) {
 
-			extract( $args );
-
-			echo $before_widget;
+			echo $args['before_widget'];
 
 			echo '<div class="col-lg-3 col-sm-3 focus-box" data-scrollreveal="enter left after 0.15s over 1s">';
 
@@ -1009,7 +1007,7 @@ if ( ! class_exists( 'zerif_ourfocus' ) && zerif_check_if_old_version_of_theme()
 
 			echo '</div>';
 
-			echo $after_widget;
+			echo $args['after_widget'];
 
 		}
 
@@ -1142,13 +1140,11 @@ if ( ! class_exists( 'zerif_testimonial_widget' ) && zerif_check_if_old_version_
 		 */
 		function widget( $args, $instance ) {
 
-			extract( $args );
-
 			$zerif_accessibility = get_theme_mod( 'zerif_accessibility' );
 			// open link in a new tab when checkbox "accessibility" is not ticked
 			$attribut_new_tab = ( isset( $zerif_accessibility ) && ( $zerif_accessibility != 1 ) ? ' target="_blank"' : '' );
 
-			echo $before_widget;
+			echo $args['before_widget'];
 
 			if ( ! empty( $instance['text'] ) ) {
 				echo '<div class="message">' . htmlspecialchars_decode( apply_filters( 'widget_title', $instance['text'] ) ) . '</div>';
@@ -1207,7 +1203,7 @@ if ( ! class_exists( 'zerif_testimonial_widget' ) && zerif_check_if_old_version_
 
 			echo '</div>';
 
-			echo $after_widget;
+			echo $args['after_widget'];
 
 		}
 
@@ -1350,9 +1346,7 @@ if ( ! class_exists( 'zerif_clients_widget' ) && zerif_check_if_old_version_of_t
 		 */
 		function widget( $args, $instance ) {
 
-			extract( $args );
-
-			echo $before_widget;
+			echo $args['before_widget'];
 
 			echo '<a href="';
 
@@ -1376,7 +1370,7 @@ if ( ! class_exists( 'zerif_clients_widget' ) && zerif_check_if_old_version_of_t
 
 			echo '</a>';
 
-			echo $after_widget;
+			echo $args['after_widget'];
 
 		}
 
@@ -1497,9 +1491,7 @@ if ( ! class_exists( 'zerif_team_widget' ) && zerif_check_if_old_version_of_them
 		 */
 		function widget( $args, $instance ) {
 
-			extract( $args );
-
-			echo $before_widget;
+			echo $args['before_widget'];
 
 			echo '<div class="col-lg-3 col-sm-3 team-box">';
 
@@ -1623,7 +1615,7 @@ if ( ! class_exists( 'zerif_team_widget' ) && zerif_check_if_old_version_of_them
 
 			echo '</div>';
 
-			echo $after_widget;
+			echo $args['after_widget'];
 
 		}
 
@@ -1981,3 +1973,67 @@ add_action( 'woocommerce_checkout_order_review', 'zerif_coupon_after_order_table
 function zerif_coupon_after_order_table() {
 	echo '<div id="zerif-checkout-coupon"></div><div style="clear:both"></div>';
 }
+
+/**
+ * Max Mega Menu Zerif Theme
+ **/
+function megamenu_add_theme_zerif_lite_max_menu( $themes ) {
+	$themes['zerif_lite_max_menu'] = array(
+		'title'                                    => 'Zerif Lite',
+		'menu_item_align'                          => 'right',
+		'menu_item_link_height'                    => '70px',
+		'container_background_from'                => 'rgb(255, 255, 255)',
+		'container_background_to'                  => 'rgb(255, 255, 255)',
+		'menu_item_background_hover_from'          => 'rgb(255, 255, 255)',
+		'menu_item_background_hover_to'            => 'rgb(255, 255, 255)',
+		'menu_item_link_font_size'                 => '15px',
+		'menu_item_link_color'                     => 'rgb(49, 49, 49)',
+		'menu_item_link_color_hover'               => 'rgb(233, 102, 86)',
+		'menu_item_highlight_current'              => 'off',
+		'panel_background_from'                    => 'rgb(255, 255, 255)',
+		'panel_background_to'                      => 'rgb(255, 255, 255)',
+		'panel_header_font_size'                   => '15px',
+		'panel_header_font_weight'                 => 'normal',
+		'panel_header_border_color'                => '#555',
+		'panel_font_size'                          => '15px',
+		'panel_font_color'                         => 'rgb(49, 49, 49)',
+		'panel_font_color_hover'                   => 'rgb(233, 102, 86)',
+		'panel_font_family'                        => 'inherit',
+		'panel_second_level_font_color'            => 'rgb(49, 49, 49)',
+		'panel_second_level_font_color_hover'      => 'rgb(233, 102, 86)',
+		'panel_second_level_text_transform'        => 'none',
+		'panel_second_level_font'                  => 'inherit',
+		'panel_second_level_font_size'             => '15px',
+		'panel_second_level_font_weight'           => 'normal',
+		'panel_second_level_font_weight_hover'     => 'normal',
+		'panel_second_level_text_decoration'       => 'none',
+		'panel_second_level_text_decoration_hover' => 'none',
+		'panel_second_level_padding_left'          => '20px',
+		'panel_second_level_border_color'          => '#555',
+		'panel_third_level_font_color'             => 'rgb(49, 49, 49)',
+		'panel_third_level_font_color_hover'       => 'rgb(233, 102, 86)',
+		'panel_third_level_font'                   => 'inherit',
+		'panel_third_level_font_size'              => '15px',
+		'panel_third_level_padding_left'           => '20px',
+		'flyout_background_from'                   => 'rgb(255, 255, 255)',
+		'flyout_background_to'                     => 'rgb(255, 255, 255)',
+		'flyout_background_hover_from'             => 'rgb(255, 255, 255)',
+		'flyout_background_hover_to'               => 'rgb(255, 255, 255)',
+		'flyout_link_size'                         => '15px',
+		'flyout_link_color'                        => 'rgb(49, 49, 49)',
+		'flyout_link_color_hover'                  => 'rgb(233, 102, 86)',
+		'flyout_link_family'                       => 'inherit',
+		'responsive_breakpoint'                    => '768px',
+		'resets'                                   => 'on',
+		'toggle_background_from'                   => '#222',
+		'toggle_background_to'                     => '#222',
+		'toggle_font_color'                        => 'rgb(102, 102, 102)',
+		'mobile_background_from'                   => 'rgb(255, 255, 255)',
+		'mobile_background_to'                     => 'rgb(255, 255, 255)',
+		'mobile_menu_item_link_font_size'          => '15px',
+		'mobile_menu_item_link_color'              => 'rgb(102, 102, 102)',
+		'mobile_menu_item_link_text_align'         => 'left',
+	);
+	return $themes;
+}
+add_filter( 'megamenu_themes', 'megamenu_add_theme_zerif_lite_max_menu' );

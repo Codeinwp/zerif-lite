@@ -67,9 +67,8 @@ jQuery( document ).ready( callback_mobile_dropdown );
 
 jQuery( document ).ready(
 	function() {
-		var current_height = jQuery( '.header .container' ).height();
-		jQuery( '.header' ).css( 'min-height',current_height );
-
+		var current_height = parseInt( jQuery( '.header .container' ).height() );
+		jQuery( '.header' ).css( 'min-height', current_height);
 	}
 );
 
@@ -436,8 +435,7 @@ function setminHeightHeader()
 	jQuery( '#main-nav' ).css( 'min-height','75px' );
 	jQuery( '.header' ).css( 'min-height','75px' );
 	var minHeight = parseInt( jQuery( '#main-nav' ).height() );
-	jQuery( '#main-nav' ).css( 'min-height',minHeight );
-	jQuery( '.header' ).css( 'min-height',minHeight );
+	jQuery( '.header' ).css( 'min-height', minHeight);
 }
 /* - */
 
@@ -472,19 +470,21 @@ function fixFooterBottom(){
 /*** CENTERED MENU */
 var callback_menu_align = function () {
 
-	var headerWrap    = jQuery( '.header' );
-	var navWrap       = jQuery( '#site-navigation' );
-	var logoWrap      = jQuery( '.responsive-logo' );
-	var containerWrap = jQuery( '.container' );
-	var classToAdd    = 'menu-align-center';
+	var headerWrap     = jQuery( '.header' );
+	var navWrap        = jQuery( '#site-navigation' );
+	var maxMenuNavWrap = jQuery('#mega-menu-primary');
+	var logoWrap       = jQuery( '.responsive-logo' );
+	var containerWrap  = jQuery( '.container' );
+	var classToAdd     = 'menu-align-center';
+	
 
 	if ( headerWrap.hasClass( classToAdd ) ) {
 		headerWrap.removeClass( classToAdd );
 	}
 	var logoWidth      = logoWrap.outerWidth();
-	var menuWidth      = navWrap.outerWidth();
+	var menuWidth      = navWrap.outerWidth() + maxMenuNavWrap.outerWidth();
 	var containerWidth = containerWrap.width();
-
+	
 	if ( menuWidth + logoWidth > containerWidth ) {
 		headerWrap.addClass( classToAdd );
 	} else {
