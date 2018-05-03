@@ -6286,6 +6286,9 @@ body.custom-background {
 .menu-align-center #mega-menu-wrap-primary #mega-menu-primary {
 	text-align: center;
 }
+.menu-align-center #mega-menu-wrap-primary {
+	margin: auto;
+}
 
 #mega-menu-wrap-primary {
 	margin-left: auto;
@@ -6302,10 +6305,6 @@ body.custom-background {
 	}
 	.mega-menu-primary .responsive-logo {
 		float: left;
-	}
-	.mega-toggle-label-closed,
-	.mega-toggle-label-open {
-		display: none;
 	}
 	#mega-menu-wrap-primary {
 		float: none;
@@ -6325,9 +6324,6 @@ body.custom-background {
 	#mega-menu-wrap-primary .mega-menu-toggle.mega-menu-open {
 		background: #e96656;
 	}
-	#mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-block-1 .mega-toggle-label {
-		display: none;
-	}
 	#mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-blocks-right .mega-toggle-block {
 		margin-right: 0;
 	}
@@ -6338,8 +6334,17 @@ body.custom-background {
 		color: #fff;
 		line-height: 35px;
 	}
-	#mega-menu-wrap-primary .mega-menu-toggle.mega-menu-open .mega-toggle-block::after {
-		content: '\f335';
+	#mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-block-1 .mega-toggle-label {
+		color: #fff;
+		line-height: 34px;
+	}
+	.mega-toggle-label-closed,
+	.mega-toggle-label-open {
+		padding-left: 10px;
+	}
+	.mega-toggle-label-closed:empty,
+	.mega-toggle-label-open:empty {
+		padding-left: 0;
 	}
 }
 
@@ -6973,9 +6978,11 @@ body.custom-background {
 
 /* Nivo slider basic styling */
 .nivo-controlNav {
-	position: relative;
+	position: absolute;
+	width: 100%;
 	bottom: 30px;
 	text-align: center;
+	z-index: 5;
 }
 .nivo-controlNav a,
 .nivo-directionNav a {
@@ -7001,7 +7008,7 @@ body.custom-background {
 .nivo-directionNav {
 	position: relative;
 	z-index: 100;
-	bottom: 40px;
+	bottom: 74px;
 	width: 100%;
 }
 
@@ -7019,10 +7026,6 @@ body.custom-background {
 
 .nivo-directionNav .nivo-nextNav:after {
 	content: " \00BB";
-}
-
-.home-slider-plugin {
-	margin-bottom: -34px;
 }
 
 /* END Nivo slider basic styling */
