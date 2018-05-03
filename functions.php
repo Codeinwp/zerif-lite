@@ -10,6 +10,10 @@ if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
 }
 
 
+define( 'ZERIF_LITE_VERSION', '1.8.5.38' );
+
+
+
 /**
  * Main setup function
  */
@@ -647,24 +651,24 @@ function zerif_scripts() {
 	}
 
 	/* Bootstrap script */
-	wp_enqueue_script( 'zerif_bootstrap_script', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), '20120206', true );
+	wp_enqueue_script( 'zerif_bootstrap_script', get_template_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), ZERIF_LITE_VERSION, true );
 
 	/* Knob script */
-	wp_enqueue_script( 'zerif_knob_nav', get_template_directory_uri() . '/js/jquery.knob.js', array( 'jquery' ), '20120206', true );
+	wp_enqueue_script( 'zerif_knob_nav', get_template_directory_uri() . '/js/jquery.knob.js', array( 'jquery' ), ZERIF_LITE_VERSION, true );
 
 	/* Smootscroll script */
 	$zerif_disable_smooth_scroll = get_theme_mod( 'zerif_disable_smooth_scroll' );
 	if ( isset( $zerif_disable_smooth_scroll ) && ( $zerif_disable_smooth_scroll != 1 ) ) {
-		wp_enqueue_script( 'zerif_smoothscroll', get_template_directory_uri() . '/js/smoothscroll.js', array( 'jquery' ), '20120206', true );
+		wp_enqueue_script( 'zerif_smoothscroll', get_template_directory_uri() . '/js/smoothscroll.js', array( 'jquery' ), ZERIF_LITE_VERSION, true );
 	}
 
 	/* scrollReveal script */
 	if ( ! wp_is_mobile() ) {
-		wp_enqueue_script( 'zerif_scrollReveal_script', get_template_directory_uri() . '/js/scrollReveal.js', array( 'jquery' ), '20120206', true );
+		wp_enqueue_script( 'zerif_scrollReveal_script', get_template_directory_uri() . '/js/scrollReveal.js', array( 'jquery' ), ZERIF_LITE_VERSION, true );
 	}
 
 	/* zerif script */
-	wp_enqueue_script( 'zerif_script', get_template_directory_uri() . '/js/zerif.js', array( 'jquery', 'zerif_knob_nav' ), '20120207', true );
+	wp_enqueue_script( 'zerif_script', get_template_directory_uri() . '/js/zerif.js', array( 'jquery', 'zerif_knob_nav' ), ZERIF_LITE_VERSION, true );
 
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 
