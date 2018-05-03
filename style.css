@@ -4,7 +4,7 @@ Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: https://themeisle.com
 Description: Zerif LITE is a free one page WordPress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.8.5.37
+Version: 1.8.5.38
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -229,16 +229,20 @@ p {
 
 /* do not group these rules (placeholder colors) */
 *::-webkit-input-placeholder {
-	color: #000 !important;
+	color: #999 !important;
+	opacity: 1 !important;
 }
 *:-moz-placeholder {
-	color: #000 !important;
+	color: #999 !important;
+	opacity: 1 !important;
 }
 *::-moz-placeholder {
-	color: #000 !important;
+	color: #999 !important;
+	opacity: 1 !important;
 }
 *:-ms-input-placeholder {
-	color: #000 !important;
+	color: #999 !important;
+	opacity: 1 !important;
 }
 
 
@@ -716,6 +720,7 @@ input::-moz-focus-inner {
 input[type="text"],
 input[type="email"],
 input[type="url"],
+input[type="tel"],
 input[type="password"],
 input[type="search"],
 textarea {
@@ -726,6 +731,7 @@ textarea {
 input[type="text"]:focus,
 input[type="email"]:focus,
 input[type="url"]:focus,
+input[type="tel"]:focus,
 input[type="password"]:focus,
 input[type="search"]:focus,
 textarea:focus {
@@ -903,17 +909,18 @@ a:active {
 	width: 100%;
 }
 
-.nav .has_children > a:after {
-	margin: 0 0 0 6px;
-	color: inherit;
-	font-family: FontAwesome;
-	content: "\f0d7";
-}
+@media (min-width: 768px) {
+	.nav .has_children > a:after {
+		margin: 0 0 0 6px;
+		color: inherit;
+		font-family: FontAwesome;
+		content: "\f0d7";
+	}
 
-.nav .sub-menu .has_children > a:after {
-	content: "\f0da";
+	.nav .sub-menu .has_children > a:after {
+		content: "\f0da";
+	}
 }
-
 
 /*---------------------------------------
  **   6.0 Accessibility                   -----
@@ -1893,6 +1900,15 @@ ul.nav > li.current_page_item.current > a:before {
 	margin: auto;
 	background: #e96656;
 	content: "";
+}
+
+@media (max-width: 768px) {
+	ul.nav > li.current > a:before,
+	.page ul.nav > li.current-menu-item > a:before,
+	.single-post ul.nav > li.current-menu-item > a:before,
+	.archive ul.nav > li.current-menu-item > a:before {
+		display: none;
+	}
 }
 
 /*----  SECTION:  HOME > INTRO AND SHORT MSGS   ----*/
@@ -4514,6 +4530,16 @@ article .posted-on a:hover {
 .woocommerce-page .woocommerce .checkout select {
 	padding: 12px 15% 12px 2%;
 }
+
+.woocommerce form .form-row .input-checkbox {
+	margin-top: 10px;
+}
+#add_payment_method #payment ul.payment_methods li input,
+.woocommerce-cart #payment ul.payment_methods li input,
+.woocommerce-checkout #payment ul.payment_methods li input {
+	margin: 0 5px 0 15px;
+}
+
 .woocommerce-page .woocommerce ul.payment_methods {
 	padding-left: 1em;
 }
@@ -4982,6 +5008,10 @@ article .posted-on a:hover {
 .woocommerce div.product form.cart .variations td,
 .woocommerce div.product form.cart .variations th {
 	vertical-align: inherit;
+}
+
+.woocommerce-checkout .woocommerce-additional-fields h3 {
+	margin-top: 20px;
 }
 
 /* End changes for woocommerce 3.0.0*/
@@ -6247,22 +6277,75 @@ body.custom-background {
  **   Max Mega Menu                 -----
 -----------------------------------------*/
 
-#mega-menu-wrap-primary .mega-menu-toggle + #mega-menu-primary {
-	display: block !important;
-	margin-top: 15px;
-}
-
-#mega-menu-wrap-primary .mega-menu-toggle {
-	display: none !important;
+.mega-menu-primary #main-nav > .container {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
 }
 
 .menu-align-center #mega-menu-wrap-primary #mega-menu-primary {
 	text-align: center;
 }
+.menu-align-center #mega-menu-wrap-primary {
+	margin: auto;
+}
 
-.blog-header-wrap .customize-partial-edit-shortcut-zerif_blog_header_title_subtitle {
-	float: left;
-	top: 150px;
+#mega-menu-wrap-primary {
+	margin-left: auto;
+}
+
+.obfx-menu-icon {
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+@media (max-width: 768px) {
+	.mega-menu-primary #main-nav > .container {
+		display: block;
+	}
+	.mega-menu-primary .responsive-logo {
+		float: left;
+	}
+	#mega-menu-wrap-primary {
+		float: none;
+		clear: both;
+		position: static;
+	}
+	#mega-menu-wrap-primary .mega-menu-toggle {
+		position: absolute;
+		right: 20px;
+		top: 20px;
+		background: #808080;
+		border: 1px solid #333;
+		border-radius: 4px;
+		height: auto;
+		transition: .3s ease background;
+	}
+	#mega-menu-wrap-primary .mega-menu-toggle.mega-menu-open {
+		background: #e96656;
+	}
+	#mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-blocks-right .mega-toggle-block {
+		margin-right: 0;
+	}
+	#mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-block::after {
+		margin: 0;
+		font-size: 28px;
+		padding: 0 10px;
+		color: #fff;
+		line-height: 35px;
+	}
+	#mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-block-1 .mega-toggle-label {
+		color: #fff;
+		line-height: 34px;
+	}
+	.mega-toggle-label-closed,
+	.mega-toggle-label-open {
+		padding-left: 10px;
+	}
+	.mega-toggle-label-closed:empty,
+	.mega-toggle-label-open:empty {
+		padding-left: 0;
+	}
 }
 
 
@@ -6895,9 +6978,11 @@ body.custom-background {
 
 /* Nivo slider basic styling */
 .nivo-controlNav {
-	position: relative;
+	position: absolute;
+	width: 100%;
 	bottom: 30px;
 	text-align: center;
+	z-index: 5;
 }
 .nivo-controlNav a,
 .nivo-directionNav a {
@@ -6923,7 +7008,7 @@ body.custom-background {
 .nivo-directionNav {
 	position: relative;
 	z-index: 100;
-	bottom: 40px;
+	bottom: 74px;
 	width: 100%;
 }
 
@@ -6941,10 +7026,6 @@ body.custom-background {
 
 .nivo-directionNav .nivo-nextNav:after {
 	content: " \00BB";
-}
-
-.home-slider-plugin {
-	margin-bottom: -34px;
 }
 
 /* END Nivo slider basic styling */

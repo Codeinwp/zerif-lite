@@ -106,8 +106,8 @@ function zerif_customize_register( $wp_customize ) {
 	);
 
 	/*
-     * View Pro Version Section Control
-     */
+	 * View Pro Version Section Control
+	 */
 	$wp_customize->add_control(
 		new Zerif_Control_Upsell_Theme_Info(
 			$wp_customize, 'zerif_theme_info_main_control', array(
@@ -1716,7 +1716,7 @@ function zerif_customize_register( $wp_customize ) {
 
 	$wp_customize->add_section(
 		'zerif_aboutus_clients_title_section', array(
-			'title'    => 'Clients area title',
+			'title'    => __( 'Clients area title', 'zerif-lite' ),
 			'priority' => 7,
 			'panel'    => 'panel_about',
 		)
@@ -1731,7 +1731,7 @@ function zerif_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control(
 		'zerif_aboutus_clients_title_text', array(
-			'label'    => 'Title',
+			'label'    => __( 'Title', 'zerif-lite' ),
 			'section'  => 'zerif_aboutus_clients_title_section',
 			'priority' => -1,
 		)
