@@ -6286,6 +6286,9 @@ body.custom-background {
 .menu-align-center #mega-menu-wrap-primary #mega-menu-primary {
 	text-align: center;
 }
+.menu-align-center #mega-menu-wrap-primary {
+	margin: auto;
+}
 
 #mega-menu-wrap-primary {
 	margin-left: auto;
