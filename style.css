@@ -6980,7 +6980,7 @@ body.custom-background {
 .nivo-controlNav {
 	position: absolute;
 	width: 100%;
-	bottom: 0;
+	bottom: 30px;
 	text-align: center;
 	z-index: 5;
 }
@@ -7008,7 +7008,7 @@ body.custom-background {
 .nivo-directionNav {
 	position: relative;
 	z-index: 100;
-	bottom: 40px;
+	bottom: 74px;
 	width: 100%;
 }
 
