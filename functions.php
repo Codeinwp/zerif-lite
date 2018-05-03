@@ -10,7 +10,7 @@ if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
 }
 
 
-define( 'ZERIF_LITE_VERSION', '1.8.5.38' );
+define( 'ZERIF_LITE_VERSION', '2.0.3' );
 
 
 
