@@ -6975,9 +6975,11 @@ body.custom-background {
 
 /* Nivo slider basic styling */
 .nivo-controlNav {
-	position: relative;
-	bottom: 30px;
+	position: absolute;
+	width: 100%;
+	bottom: 0;
 	text-align: center;
+	z-index: 5;
 }
 .nivo-controlNav a,
 .nivo-directionNav a {
@@ -7021,10 +7023,6 @@ body.custom-background {
 
 .nivo-directionNav .nivo-nextNav:after {
 	content: " \00BB";
-}
-
-.home-slider-plugin {
-	margin-bottom: -34px;
 }
 
 /* END Nivo slider basic styling */
