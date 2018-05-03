@@ -1,4 +1,13 @@
 
+### 1.8.5.38 - 03/05/2018
+**Changes:** 
+- Improved Max Mega Menu compatibility
+- Improved Nivo Slider Lite compatibility
+- Added missing Gettext functions
+- Allow links in the Our focus section to work with smooth scroll
+- Checkout page improvements
+- Fixed problem with placeholders color for the Contact form
+
 ### 1.8.5.37 - 21/03/2018
 **Changes:** 
 - Fixed problem with primary menu not closing on iOS devices
