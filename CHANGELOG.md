@@ -1,4 +1,8 @@
 
+### 1.8.5.39 - 03/05/2018
+**Changes:** 
+- Change scripts versioning to pass cache plugins
+
 ### 1.8.5.38 - 03/05/2018
 **Changes:** 
 - Improved Max Mega Menu compatibility
