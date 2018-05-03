@@ -6303,10 +6303,6 @@ body.custom-background {
 	.mega-menu-primary .responsive-logo {
 		float: left;
 	}
-	.mega-toggle-label-closed,
-	.mega-toggle-label-open {
-		display: none;
-	}
 	#mega-menu-wrap-primary {
 		float: none;
 		clear: both;
@@ -6325,9 +6321,6 @@ body.custom-background {
 	#mega-menu-wrap-primary .mega-menu-toggle.mega-menu-open {
 		background: #e96656;
 	}
-	#mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-block-1 .mega-toggle-label {
-		display: none;
-	}
 	#mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-blocks-right .mega-toggle-block {
 		margin-right: 0;
 	}
@@ -6338,8 +6331,17 @@ body.custom-background {
 		color: #fff;
 		line-height: 35px;
 	}
-	#mega-menu-wrap-primary .mega-menu-toggle.mega-menu-open .mega-toggle-block::after {
-		content: '\f335';
+	#mega-menu-wrap-primary .mega-menu-toggle .mega-toggle-block-1 .mega-toggle-label {
+		color: #fff;
+		line-height: 34px;
+	}
+	.mega-toggle-label-closed,
+	.mega-toggle-label-open {
+		padding-left: 10px;
+	}
+	.mega-toggle-label-closed:empty,
+	.mega-toggle-label-open:empty {
+		padding-left: 0;
 	}
 }
 
