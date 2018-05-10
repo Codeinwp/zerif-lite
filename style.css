@@ -6538,10 +6538,6 @@ body.custom-background {
 	#main-nav {
 		overflow: hidden;
 	}
-	#main-nav,
-	#main-nav.fixed {
-		position: relative;
-	}
 	.navbar-collapse {
 		max-height: 100%;
 	}
