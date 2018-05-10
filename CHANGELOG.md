@@ -1,4 +1,8 @@
 
+### 1.8.5.40 - 10/05/2018
+**Changes:** 
+- Fixed problem with smooth scroll on mobile devices
+
 ### 1.8.5.39 - 03/05/2018
 **Changes:** 
 - Change scripts versioning to pass cache plugins
