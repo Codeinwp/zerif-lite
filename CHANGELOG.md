@@ -1,4 +1,8 @@
 
+### 1.8.5.41 - 22/05/2018
+**Changes:** 
+- Recommend new theme Fagri
+
 ### 1.8.5.40 - 10/05/2018
 **Changes:** 
 - Fixed problem with smooth scroll on mobile devices
