@@ -10,7 +10,7 @@ if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
 }
 
 
-define( 'ZERIF_LITE_VERSION', '1.8.5.40' );
+define( 'ZERIF_LITE_VERSION', '1.8.5.41' );
 
 
 
@@ -2041,3 +2041,38 @@ function megamenu_add_theme_zerif_lite_max_menu( $themes ) {
 	return $themes;
 }
 add_filter( 'megamenu_themes', 'megamenu_add_theme_zerif_lite_max_menu' );
+
+
+add_action( 'admin_notices', 'zerif_fagri_notice' );
+/**
+ * Add a dismissible notice in the dashboard to let users know that we have a new child theme for Hestia, Fagri
+ * TODO: Remove this in a future release
+ */
+function zerif_fagri_notice() {
+	global $current_user;
+	$user_id = $current_user->ID;
+	/* Check that the user hasn't already clicked to ignore the message */
+	if ( ! get_user_meta( $user_id, 'zerif_ignore_fagri_notice' ) ) {
+		echo '<div class="notice updated" style="position:relative;">';
+		printf( '<a href="%s" class="notice-dismiss" style="text-decoration:none;"></a>', '?zerif_nag_ignore_fagri=0' );
+		echo '<p>';
+		/* translators: Install Fagri link */
+		printf( esc_html__( 'We just launched a new free %s, you might like it.', 'zerif-lite' ), sprintf( '<a href="%1$s">%2$s</a>', admin_url( 'theme-install.php?theme=fagri' ), esc_html__( 'theme', 'zerif-lite' ) ) );
+		echo '</p>';
+		echo '</div>';
+	}
+}
+
+add_action( 'admin_init', 'zerif_nag_ignore_fagri' );
+
+/**
+ * Update the zerif_ignore_fagri_notice option to true, to dismiss the notice from the dashboard
+ */
+function zerif_nag_ignore_fagri() {
+	global $current_user;
+	$user_id = $current_user->ID;
+	/* If user clicks to ignore the notice, add that to their user meta */
+	if ( isset( $_GET['zerif_nag_ignore_fagri'] ) && '0' == $_GET['zerif_nag_ignore_fagri'] ) {
+		add_user_meta( $user_id, 'zerif_ignore_fagri_notice', 'true', true );
+	}
+}
