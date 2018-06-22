@@ -786,7 +786,7 @@ textarea {
 .entry-content input[type="button"],
 .entry-content input[type="reset"],
 .entry-content input[type="submit"] {
-	padding: 5px 20px 5px 20px;
+	padding: 13px 35px 13px 35px;
 }
 .entry-content button:hover,
 .entry-content input[type="button"]:hover,
@@ -2461,6 +2461,20 @@ ul.nav > li.current_page_item.current > a:before {
 .pirate_forms .pirate-forms-submit-button:hover {
 	color: #fff;
 	background: #cb4332;
+}
+.pirate_forms .contact_checkbox_wrap,
+.pirateform_wrap_classes_spam_wrap {
+	text-align: left;
+}
+.pirate_forms .contact_checkbox_wrap #pirate-forms-contact-checkbox, .pirate_forms .contact_checkbox_wrap p {
+	display:inline-block
+}
+.pirate_forms .contact_checkbox_wrap p {
+	padding-left: 5px;
+	margin: 0px;
+}
+section#contact .pirate_forms .contact_checkbox_wrap p {
+	color: #ffffff;
 }
 .pirate-forms-maps-custom {
 	float: left;
@@ -6645,7 +6659,6 @@ body.custom-background {
 	}
 	.pirate_forms .pirate-forms-submit-button {
 		display: inline-block;
-		float: none;
 		text-align: center;
 	}
 	.contact_submit_wrap {
