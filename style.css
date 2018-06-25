@@ -2466,9 +2466,6 @@ ul.nav > li.current_page_item.current > a:before {
 .pirateform_wrap_classes_spam_wrap {
 	text-align: left;
 }
-.pirate_forms .contact_checkbox_wrap #pirate-forms-contact-checkbox, .pirate_forms .contact_checkbox_wrap p {
-	display:inline-block
-}
 .pirate_forms .contact_checkbox_wrap p {
 	padding-left: 5px;
 	margin: 0px;
