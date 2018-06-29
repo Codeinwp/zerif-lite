@@ -6391,6 +6391,20 @@ body.custom-background {
 	}
 }
 
+@media (max-width: 480px) {
+	#mega-menu-wrap-primary .mega-menu-toggle {
+		position: relative;
+		top: 0;
+		left: 0;
+	}
+	.mega-menu-primary .responsive-logo {
+		width: 100%;
+		text-align: center;
+	}
+	.mega-menu-primary .navbar-brand {
+		float: none !important;
+	}
+}
 
 /*---------------------------------------
  **   Responsive            -----
