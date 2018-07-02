@@ -6358,6 +6358,7 @@ body.custom-background {
 		position: absolute;
 		right: 20px;
 		top: 20px;
+		margin-bottom: 10px;
 		background: #808080;
 		border: 1px solid #333;
 		border-radius: 4px;
