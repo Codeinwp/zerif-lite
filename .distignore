@@ -9,5 +9,13 @@ phpcs.xml
 node_modules
 logs
 package.json
-npm-debug.log
 bin
+tests
+phpunit.xml
+npm-debug.log
+package-lock.json
+dist
+artifact
+composer.json
+composer.lock
+key.enc
