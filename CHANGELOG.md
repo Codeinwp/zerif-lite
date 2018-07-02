@@ -1,4 +1,9 @@
 
+ ### v1.8.5-43 - 2018-07-02 
+ **Changes:** 
+ * Improved compatibility with Pirate Forms
+* Improved mobile compatibility with Max Mega Menu plugin
+ 
 ### 1.8.5.41 - 22/05/2018
 **Changes:** 
 - Recommend new theme Fagri
