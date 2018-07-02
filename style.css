@@ -833,7 +833,72 @@ textarea:focus {
 	border: 1px solid rgba(0, 0, 0, 0.3);
 	outline: 0;
 }
+/* Support for Contact Form 7 plugin */
+.contact-us form.wpcf7-form label, .contact-us form.wpcf7-form .wpcf7-list-item-label {
+	color: #fff;
+}
 
+form.wpcf7-form p label {
+	display: block;
+	text-align: left;
+}
+
+form.wpcf7-form p label > span {
+	margin-top: 5px;
+}
+
+span.wpcf7-form-control-wrap {
+	display: block;
+}
+
+.contact-us .wpcf7-list-item{
+	margin: 0;
+	width: 100%;
+	text-align: left;
+}
+
+span.wpcf7-form-control-wrap input:not([type="checkbox"]):not([type="radio"]),
+span.wpcf7-form-control-wrap select{
+	display: block;
+	width: 100%;
+	border-radius: 4px;
+	padding: 9px 9px 9px 15px;
+}
+
+span.wpcf7-form-control-wrap input[type="file"]{
+	padding: 0;
+}
+
+span.wpcf7-form-control-wrap input::placeholder {
+	color: #A0A0A0;
+}
+
+span.wpcf7-form-control-wrap textarea {
+	color: #A0A0A0;
+	padding: 9px 9px 9px 15px;
+}
+
+.contact-us form.wpcf7-form input[type="submit"] {
+	float: right;
+	margin-right: 0;
+}
+.pirate-forms-fields-container .form_field_wrap{
+	text-align: left;
+}
+
+.pirate-forms-file-upload-hidden.form-control {
+	height: auto;
+}
+
+@media screen and (max-width: 767px) {
+	.pirate-forms-fields-container .form_field_wrap {
+		clear: both;
+	}
+}
+
+.form-control {
+	height: auto;
+}
 
 /*---------------------------------------
  **   5.0 Navigation                 -----
@@ -2475,9 +2540,16 @@ section#contact .pirate_forms .contact_checkbox_wrap p {
 }
 .pirate-forms-maps-custom {
 	float: left;
+	text-align: left;
 }
-.contact-us .pirate-forms-maps-custom {
+.contact-us .pirate-forms-maps-custom,
+.contact-us .pirate_forms .contact_checkbox_wrap {
 	color: #ffffff;
+}
+
+.contact-us .pirate_forms .contact_checkbox_wrap,
+.contact-us .pirateform_wrap_classes_spam_wrap {
+	text-align: left;
 }
 
 .zerif_hidden_if_not_customizer {
@@ -6669,10 +6741,6 @@ body.custom-background {
 	.pirate-forms-g-recaptcha > div {
 		display: inline-block;
 	}
-	.pirate_forms .pirate-forms-submit-button {
-		display: inline-block;
-		text-align: center;
-	}
 	.contact_submit_wrap {
 		text-align: center;
 	}
@@ -6728,6 +6796,9 @@ body.custom-background {
 	}
 }
 @media (max-width: 480px) {
+	.contact-us form.wpcf7-form input[type="submit"] {
+		width: 100%;
+	}
 	/* HOME */
 	.intro {
 		margin-top: 60%;

@@ -2271,6 +2271,21 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
+	/* zerif_contact_shortcode */
+	$wp_customize->add_setting(
+		'zerif_contactus_shortcode', array(
+			'sanitize_callback' => 'zerif_sanitize_input',
+		)
+	);
+	$wp_customize->add_control(
+		'zerif_contactus_shortcode', array(
+			'label'       => __( 'Contact Form Shortcode', 'zerif' ),
+			'description' => __( 'Or add the shortcode of your choice here.', 'zerif' ),
+			'section'     => 'zerif_contactus_section',
+			'priority'    => 2,
+		)
+	);
+
 	/* Contactus email */
 	$wp_customize->add_setting(
 		'zerif_contactus_email', array(
