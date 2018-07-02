@@ -119,7 +119,7 @@ textarea {
 .entry-content input[type="button"],
 .entry-content input[type="reset"],
 .entry-content input[type="submit"] {
-	padding: 5px 20px 5px 20px;
+	padding: 13px 35px 13px 35px;
 }
 
 .input-box {
@@ -847,10 +847,6 @@ ul.nav > li.current_page_item.current > a:before {
 .contact-us .custom-button {
 	float: left;
 	margin-left: 15px;
-}
-
-.g-recaptcha {
-	margin-right: 15px;
 }
 
 .zerif-rtl-contact-name,
@@ -1648,6 +1644,26 @@ ul.nav > li.current_page_item > a:before {
 .pirate_forms input,
 .pirate_forms textarea {
 	text-align: right !important;
+}
+
+.pirate_forms .contact_checkbox_wrap,
+.pirateform_wrap_classes_spam_wrap {
+	text-align: right;
+}
+
+.pirateform_wrap_classes_spam_wrap,
+.pirate-forms-maps-custom {
+	float: right;
+}
+
+.pirate_forms .contact_checkbox_wrap p {
+	padding-right: 5px;
+}
+
+.pirate_forms .pirate-forms-submit-button {
+	margin-right: auto;
+	float: left;
+	margin-left: 0;
 }
 
 @media (min-width: 768px) {

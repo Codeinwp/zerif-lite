@@ -4,7 +4,7 @@ Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: https://themeisle.com
 Description: Zerif LITE is a free one page WordPress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.8.5.41
+Version: 1.8.5.43
 License: GNU General Public License version 3
 License URI: license.txt
 Text Domain: zerif-lite
@@ -12,9 +12,38 @@ Domain Path: /languages/
 Tags: one-column, two-columns, right-sidebar,full-width-template,rtl-language-support,sticky-post,theme-options, custom-background, custom-menu, editor-style, featured-images, threaded-comments, translation-ready, footer-widgets, portfolio, e-commerce, blog
 */
 
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+1.0 Reset
+	## Generic styles
+	## Buttons and links
+# Navigation
+# Forms
+# Pagination and navbar
+# Typography
+# Cards styling
+# Tables
+# Sections Styling
+    ## About Section
+    ## Portfolio Section
+    ## Contact Section
+    ## Team Section
+    ## Subscribe Section
+# Footer
+# Blog
+	## Content
+	## Sidebar
+	## Attachment Page
+# Woocommerce Integration
+	## My Account Page
+	## Generic
+	## YITH Magnifier
+# Responsive
+--------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
-1.0 - Reset
+1.0 Reset
 --------------------------------------------------------------*/
 
 html {
@@ -245,6 +274,9 @@ p {
 	opacity: 1 !important;
 }
 
+.bypostauthor {
+	display: inherit;
+}
 
 /*--------------------------------------------------------------
 2.0 Typography
@@ -754,7 +786,7 @@ textarea {
 .entry-content input[type="button"],
 .entry-content input[type="reset"],
 .entry-content input[type="submit"] {
-	padding: 5px 20px 5px 20px;
+	padding: 13px 35px 13px 35px;
 }
 .entry-content button:hover,
 .entry-content input[type="button"]:hover,
@@ -2430,10 +2462,22 @@ ul.nav > li.current_page_item.current > a:before {
 	color: #fff;
 	background: #cb4332;
 }
+.pirate_forms .contact_checkbox_wrap,
+.pirateform_wrap_classes_spam_wrap {
+	text-align: left;
+}
+.pirate_forms .contact_checkbox_wrap p {
+	padding-left: 5px;
+	margin: 0px;
+}
+section#contact .pirate_forms .contact_checkbox_wrap p {
+	color: #ffffff;
+}
 .pirate-forms-maps-custom {
 	float: left;
 }
-.contact-us .pirate-forms-maps-custom {
+.contact-us .pirate-forms-maps-custom,
+.contact-us .contact_checkbox_wrap {
 	color: #ffffff;
 }
 
@@ -6315,6 +6359,7 @@ body.custom-background {
 		position: absolute;
 		right: 20px;
 		top: 20px;
+		margin-bottom: 10px;
 		background: #808080;
 		border: 1px solid #333;
 		border-radius: 4px;
@@ -6348,6 +6393,20 @@ body.custom-background {
 	}
 }
 
+@media (max-width: 480px) {
+	#mega-menu-wrap-primary .mega-menu-toggle {
+		position: relative;
+		top: 0;
+		left: 0;
+	}
+	.mega-menu-primary .responsive-logo {
+		width: 100%;
+		text-align: center;
+	}
+	.mega-menu-primary .navbar-brand {
+		float: none !important;
+	}
+}
 
 /*---------------------------------------
  **   Responsive            -----
@@ -6613,7 +6672,6 @@ body.custom-background {
 	}
 	.pirate_forms .pirate-forms-submit-button {
 		display: inline-block;
-		float: none;
 		text-align: center;
 	}
 	.contact_submit_wrap {
@@ -6749,6 +6807,8 @@ body.custom-background {
 		-o-transform: scale(1);
 		transform: scale(1);
 	}
+
+
 }
 @media (max-width: 320px) {
 	.intro {
