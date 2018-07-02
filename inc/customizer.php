@@ -2279,8 +2279,8 @@ function zerif_customize_register( $wp_customize ) {
 	);
 	$wp_customize->add_control(
 		'zerif_contactus_shortcode', array(
-			'label'       => __( 'Contact Form Shortcode', 'zerif' ),
-			'description' => __( 'Or add the shortcode of your choice here.', 'zerif' ),
+			'label'       => __( 'Contact Form Shortcode', 'zerif-lite' ),
+			'description' => __( 'Or add the shortcode of your choice here.', 'zerif-lite' ),
 			'section'     => 'zerif_contactus_section',
 			'priority'    => 2,
 		)

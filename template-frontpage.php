@@ -80,7 +80,7 @@ if ( ( isset( $zerif_bigtitle_show ) && $zerif_bigtitle_show != 1 ) || is_custom
 	}
 
 	/* CONTACT US */
-	$zerif_contactus_show = get_theme_mod( 'zerif_contactus_show' );
+	$zerif_contactus_show           = get_theme_mod( 'zerif_contactus_show' );
 	$zerif_alternative_contact_form = get_theme_mod( 'zerif_contactus_shortcode' );
 
 	if ( ( isset( $zerif_contactus_show ) && $zerif_contactus_show != 1 ) || is_customize_preview() ) :
