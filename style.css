@@ -2476,7 +2476,8 @@ section#contact .pirate_forms .contact_checkbox_wrap p {
 .pirate-forms-maps-custom {
 	float: left;
 }
-.contact-us .pirate-forms-maps-custom {
+.contact-us .pirate-forms-maps-custom,
+.contact-us .contact_checkbox_wrap {
 	color: #ffffff;
 }
 
@@ -6806,6 +6807,8 @@ body.custom-background {
 		-o-transform: scale(1);
 		transform: scale(1);
 	}
+
+	
 }
 @media (max-width: 320px) {
 	.intro {
