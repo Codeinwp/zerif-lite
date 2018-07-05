@@ -2286,83 +2286,87 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* Contactus email */
-	$wp_customize->add_setting(
-		'zerif_contactus_email', array(
-			'sanitize_callback' => 'sanitize_email',
-		)
-	);
-	$wp_customize->add_control(
-		'zerif_contactus_email', array(
-			'label'    => __( 'Email address', 'zerif-lite' ),
-			'section'  => 'zerif_contactus_section',
-			'priority' => 4,
-		)
-	);
-	/* Contactus button label */
-	$wp_customize->add_setting(
-		'zerif_contactus_button_label', array(
-			'sanitize_callback' => 'zerif_sanitize_input',
-			'default'           => __( 'Send Message', 'zerif-lite' ),
-			'transport'         => 'postMessage',
-		)
-	);
+	/* Use the contact options from the theme, only if Pirate Forms is not installed */
+	if ( ! defined( 'PIRATE_FORMS_VERSION' ) ) {
+		/* Contactus email */
+		$wp_customize->add_setting(
+			'zerif_contactus_email', array(
+				'sanitize_callback' => 'sanitize_email',
+			)
+		);
+		$wp_customize->add_control(
+			'zerif_contactus_email', array(
+				'label'    => __( 'Email address', 'zerif-lite' ),
+				'section'  => 'zerif_contactus_section',
+				'priority' => 4,
+			)
+		);
+		/* Contactus button label */
+		$wp_customize->add_setting(
+			'zerif_contactus_button_label', array(
+				'sanitize_callback' => 'zerif_sanitize_input',
+				'default'           => __( 'Send Message', 'zerif-lite' ),
+				'transport'         => 'postMessage',
+			)
+		);
 
-	$wp_customize->add_control(
-		'zerif_contactus_button_label', array(
-			'label'    => __( 'Button label', 'zerif-lite' ),
-			'section'  => 'zerif_contactus_section',
-			'priority' => 5,
-		)
-	);
+		$wp_customize->add_control(
+			'zerif_contactus_button_label', array(
+				'label'    => __( 'Button label', 'zerif-lite' ),
+				'section'  => 'zerif_contactus_section',
+				'priority' => 5,
+			)
+		);
 
-	/* Recaptcha */
-	$wp_customize->add_setting(
-		'zerif_contactus_recaptcha_show', array(
-			'sanitize_callback' => 'zerif_sanitize_checkbox',
-		)
-	);
+		/* Recaptcha */
+		$wp_customize->add_setting(
+			'zerif_contactus_recaptcha_show', array(
+				'sanitize_callback' => 'zerif_sanitize_checkbox',
+			)
+		);
 
-	$wp_customize->add_control(
-		'zerif_contactus_recaptcha_show', array(
-			'type'     => 'checkbox',
-			'label'    => __( 'Hide reCaptcha?', 'zerif-lite' ),
-			'section'  => 'zerif_contactus_section',
-			'priority' => 6,
-		)
-	);
+		$wp_customize->add_control(
+			'zerif_contactus_recaptcha_show', array(
+				'type'     => 'checkbox',
+				'label'    => __( 'Hide reCaptcha?', 'zerif-lite' ),
+				'section'  => 'zerif_contactus_section',
+				'priority' => 6,
+			)
+		);
 
-	/* Site key */
-	$attribut_new_tab = ( isset( $zerif_accessibility ) && ( $zerif_accessibility != 1 ) ? ' target="_blank"' : '' );
-	$wp_customize->add_setting(
-		'zerif_contactus_sitekey', array(
-			'sanitize_callback' => 'sanitize_text_field',
-		)
-	);
+		/* Site key */
+		$attribut_new_tab = ( isset( $zerif_accessibility ) && ( $zerif_accessibility != 1 ) ? ' target="_blank"' : '' );
+		$wp_customize->add_setting(
+			'zerif_contactus_sitekey', array(
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
 
-	$wp_customize->add_control(
-		'zerif_contactus_sitekey', array(
-			'label'       => __( 'Site key', 'zerif-lite' ),
-			'description' => '<a' . $attribut_new_tab . ' href="https://www.google.com/recaptcha/admin#list">' . __( 'Create an account here', 'zerif-lite' ) . '</a> to get the Site key and the Secret key for the reCaptcha.',
-			'section'     => 'zerif_contactus_section',
-			'priority'    => 7,
-		)
-	);
+		$wp_customize->add_control(
+			'zerif_contactus_sitekey', array(
+				'label'       => __( 'Site key', 'zerif-lite' ),
+				'description' => '<a' . $attribut_new_tab . ' href="https://www.google.com/recaptcha/admin#list">' . __( 'Create an account here', 'zerif-lite' ) . '</a> to get the Site key and the Secret key for the reCaptcha.',
+				'section'     => 'zerif_contactus_section',
+				'priority'    => 7,
+			)
+		);
 
-	/* Secret key */
-	$wp_customize->add_setting(
-		'zerif_contactus_secretkey', array(
-			'sanitize_callback' => 'sanitize_text_field',
-		)
-	);
+		/* Secret key */
+		$wp_customize->add_setting(
+			'zerif_contactus_secretkey', array(
+				'sanitize_callback' => 'sanitize_text_field',
+			)
+		);
 
-	$wp_customize->add_control(
-		'zerif_contactus_secretkey', array(
-			'label'    => __( 'Secret key', 'zerif-lite' ),
-			'section'  => 'zerif_contactus_section',
-			'priority' => 8,
-		)
-	);
+		$wp_customize->add_control(
+			'zerif_contactus_secretkey', array(
+				'label'    => __( 'Secret key', 'zerif-lite' ),
+				'section'  => 'zerif_contactus_section',
+				'priority' => 8,
+			)
+		);
+
+	}
 
 	/**
 	 * FOOTER OPTIONS
