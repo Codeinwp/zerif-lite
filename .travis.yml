@@ -10,12 +10,6 @@ php:
 
 matrix:
   include:
-  - php: "7.0"
-    before_install: chmod +x bin/wraith.sh
-    install: true
-    before_script:
-    env: TEST_SUITE=Wraith_Visual_Regression_Testing WRAITH_FAIL=5
-    script: ./bin/wraith.sh
   - php: '5.3'
     dist: precise
 sudo: false
