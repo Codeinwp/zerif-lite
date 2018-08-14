@@ -1,4 +1,8 @@
 
+ ### v1.8.5-44 - 2018-08-14 
+ **Changes:** 
+ * Development
+ 
  ### v1.8.5-43 - 2018-07-02 
  **Changes:** 
  * Improved compatibility with Pirate Forms
