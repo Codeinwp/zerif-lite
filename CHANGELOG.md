@@ -1,43 +1,68 @@
 
  ### v1.8.5-44 - 2018-08-14 
  **Changes:** 
- * Development
+Updated screenshot
  
  ### v1.8.5-43 - 2018-07-02 
  **Changes:** 
  * Improved compatibility with Pirate Forms
 * Improved mobile compatibility with Max Mega Menu plugin
  
-### 1.8.5.41 - 22/05/2018
-**Changes:** 
-- Recommend new theme Fagri
 
-### 1.8.5.40 - 10/05/2018
-**Changes:** 
-- Fixed problem with smooth scroll on mobile devices
+### 1.8.5.41 - 22/05/2018
 
-### 1.8.5.39 - 03/05/2018
-**Changes:** 
-- Change scripts versioning to pass cache plugins
+**Changes:** 
 
-### 1.8.5.38 - 03/05/2018
-**Changes:** 
-- Improved Max Mega Menu compatibility
-- Improved Nivo Slider Lite compatibility
-- Added missing Gettext functions
-- Allow links in the Our focus section to work with smooth scroll
-- Checkout page improvements
-- Fixed problem with placeholders color for the Contact form
+- Recommend new theme Fagri
 
-### 1.8.5.37 - 21/03/2018
-**Changes:** 
-- Fixed problem with primary menu not closing on iOS devices
-- Fixed problem with the horizontal scroll on Mac OS in Chrome
 
-### 1.8.5.36 - 09/03/2018
-**Changes:** 
-- Improved compatibility with WooCommerce 3.3
-
+### 1.8.5.40 - 10/05/2018
+
+**Changes:** 
+
+- Fixed problem with smooth scroll on mobile devices
+
+
+### 1.8.5.39 - 03/05/2018
+
+**Changes:** 
+
+- Change scripts versioning to pass cache plugins
+
+
+### 1.8.5.38 - 03/05/2018
+
+**Changes:** 
+
+- Improved Max Mega Menu compatibility
+
+- Improved Nivo Slider Lite compatibility
+
+- Added missing Gettext functions
+
+- Allow links in the Our focus section to work with smooth scroll
+
+- Checkout page improvements
+
+- Fixed problem with placeholders color for the Contact form
+
+
+### 1.8.5.37 - 21/03/2018
+
+**Changes:** 
+
+- Fixed problem with primary menu not closing on iOS devices
+
+- Fixed problem with the horizontal scroll on Mac OS in Chrome
+
+
+### 1.8.5.36 - 09/03/2018
+
+**Changes:** 
+
+- Improved compatibility with WooCommerce 3.3
+
+
 
 ### 1.8.5.35 - 08/01/2018
 
