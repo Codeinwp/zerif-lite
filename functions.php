@@ -5,6 +5,24 @@
  * @package zerif-lite
  */
 
+$vendor_file = trailingslashit( get_template_directory() ) . 'vendor/autoload.php';
+if ( is_readable( $vendor_file ) ) {
+	require_once $vendor_file;
+}
+add_filter( 'themeisle_sdk_products', 'zerif_load_sdk' );
+/**
+ * Loads products array.
+ *
+ * @param array $products All products.
+ *
+ * @return array Products array.
+ */
+function zerif_load_sdk( $products ) {
+	$products[] = get_template_directory() . '/style.css';
+
+	return $products;
+}
+
 if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
 	define( 'ELEMENTOR_PARTNER_ID', 2112 );
 }

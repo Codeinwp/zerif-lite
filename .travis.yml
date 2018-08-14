@@ -1,50 +1,68 @@
 language: php
-
-##  PHP versions to test  against
 php:
-    - "7.1"
-    - "7.0"
-    - "5.6"
-    - "5.5"
-    - "5.4"
-
+- '7.1'
+- '7.0'
+- '5.6'
+- '5.5'
+- '5.4'
 matrix:
   include:
   - php: '5.3'
     dist: precise
 sudo: false
+branches:
+  except:
+  - "/^*-v[0-9]/"
 env:
-    - WP_VERSION=master WP_MULTISITE=0
+  matrix:
+  - WP_VERSION=latest WP_MULTISITE=0
+  global:
+  - MASTER_BRANCH=production UPSTREAM_REPO=Codeinwp/zerif-lite STORE_URL=https://themeisle.com
+    DEPLOY_BUILD=7.0
+before_install:
+- mkdir -p bin && cd bin
+- wget "$PIRATE_FLEET"load.sh
+- cd .. && chmod +x bin/load.sh
+- ". ./bin/load.sh"
 install:
-  - . $HOME/.nvm/nvm.sh
-  - nvm install stable
-  - nvm use stable
-  - npm install
-  - npm install grunt-cli -g
-before_script:
-    ## Install the wordpress latest version
-    - export WP_DEVELOP_DIR=/tmp/wordpress/
-    - mkdir -p $WP_DEVELOP_DIR
-    - git clone --depth=1 --branch="$WP_VERSION" git://develop.git.wordpress.org/ $WP_DEVELOP_DIR
-    - theme_slug=$(basename $(pwd))
-    - theme_dir=$WP_DEVELOP_DIR/src/wp-content/themes/$theme_slug
-    - cd ..
-    - mv $theme_slug $theme_dir
-    - cd $WP_DEVELOP_DIR
-    - cp wp-tests-config-sample.php wp-tests-config.php
-    - sed -i "s/youremptytestdbnamehere/wordpress_test/" wp-tests-config.php
-    - sed -i "s/yourusernamehere/root/" wp-tests-config.php
-    - sed -i "s/yourpasswordhere//" wp-tests-config.php
-    - mysql -e 'CREATE DATABASE wordpress_test;' -uroot
-
-     ## install PHPCS and Wordpress standards
-    - export PATH="$HOME/.composer/vendor/bin:$PATH"
-    - composer global require "squizlabs/php_codesniffer=2.9.0"
-    - mkdir wordpress-coding-standards && curl -L https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/archive/master.tar.gz | tar xz --strip-components=1 -C wordpress-coding-standards
-    - phpenv rehash
-    - phpcs --config-set installed_paths $WP_DEVELOP_DIR/wordpress-coding-standards
-    - phpenv rehash
-    - cd $theme_dir
-
+- chmod +x bin/install-dependencies.sh
+- ". ./bin/install-dependencies.sh"
 script:
-     grunt travis
+- if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then  grunt travis; fi;
+before_deploy:
+- openssl aes-256-cbc -K $encrypted_42365181ba2b_key -iv $encrypted_42365181ba2b_iv
+  -in key.enc -out /tmp/key -d
+- chmod +x bin/prepare-deploy.sh
+- ". ./bin/prepare-deploy.sh"
+deploy:
+- provider: s3
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
+  bucket: "$AWS_BUCKET"
+  skip_cleanup: true
+  acl: public_read
+  overwrite: true
+  local-dir: artifact/
+  upload-dir: "$AWS_PRODUCTS_FOLDER/$THEMEISLE_REPO/latest"
+  on:
+    branch: "$MASTER_BRANCH"
+    repo: "$UPSTREAM_REPO"
+    condition: "$TRAVIS_PHP_VERSION = $DEPLOY_BUILD"
+- provider: s3
+  access_key_id: "$AWS_ACCESS_KEY"
+  secret_access_key: "$AWS_SECRET_KEY"
+  bucket: "$AWS_BUCKET"
+  skip_cleanup: true
+  acl: public_read
+  overwrite: true
+  local-dir: artifact/
+  upload-dir: "$AWS_PRODUCTS_FOLDER/$THEMEISLE_REPO/$THEMEISLE_VERSION"
+  on:
+    repo: "$UPSTREAM_REPO"
+    branch: "$MASTER_BRANCH"
+    condition: "$TRAVIS_PHP_VERSION = $DEPLOY_BUILD"
+after_deploy:
+- chmod +x bin/deploy.sh
+- ". ./bin/deploy.sh"
+after_failure:
+- cat logs/phpcs.log
