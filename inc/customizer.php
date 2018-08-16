@@ -2271,6 +2271,21 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
+	/* zerif_contact_shortcode */
+	$wp_customize->add_setting(
+		'zerif_contactus_shortcode', array(
+			'sanitize_callback' => 'zerif_sanitize_input',
+		)
+	);
+	$wp_customize->add_control(
+		'zerif_contactus_shortcode', array(
+			'label'       => __( 'Contact Form Shortcode', 'zerif-lite' ),
+			'description' => __( 'Or add the shortcode of your choice here.', 'zerif-lite' ),
+			'section'     => 'zerif_contactus_section',
+			'priority'    => 2,
+		)
+	);
+
 	/* Use the contact options from the theme, only if Pirate Forms is not installed */
 	if ( ! defined( 'PIRATE_FORMS_VERSION' ) ) {
 		/* Contactus email */

@@ -128,7 +128,14 @@ function zerif_setup() {
 	require_once get_template_directory() . '/ti-prevdem/init-prevdem.php';
 
 	/* woocommerce support */
-	add_theme_support( 'woocommerce' );
+	$woocommerce_settings = apply_filters(
+		'zerif_woocommerce_args', array(
+			'single_image_width'            => 1600,
+			'thumbnail_image_width'         => 300,
+			'gallery_thumbnail_image_width' => 165,
+		)
+	);
+	add_theme_support( 'woocommerce', $woocommerce_settings );
 	add_theme_support( 'wc-product-gallery-zoom' );
 	add_theme_support( 'wc-product-gallery-lightbox' );
 	add_theme_support( 'wc-product-gallery-slider' );
@@ -486,6 +493,35 @@ function zerif_setup() {
 }
 
 add_action( 'after_setup_theme', 'zerif_setup' );
+
+/**
+ * Add compatibility with WooCommerce Product Images customizer controls.
+ */
+function zerif_set_woo_image_sizes() {
+
+	$execute = get_option( 'zerif_update_woocommerce_customizer_controls', false );
+	if ( $execute !== false ) {
+		return;
+	}
+
+	update_option( 'woocommerce_thumbnail_cropping', 'custom' );
+	update_option( 'woocommerce_thumbnail_cropping_custom_width', '3' );
+	update_option( 'woocommerce_thumbnail_cropping_custom_height', '2' );
+
+	if ( class_exists( 'WC_Regenerate_Images' ) ) {
+		$regenerate_obj = new WC_Regenerate_Images();
+		$regenerate_obj::init();
+		if ( method_exists( $regenerate_obj, 'maybe_regenerate_images' ) ) {
+			$regenerate_obj::maybe_regenerate_images();
+		} elseif ( method_exists( $regenerate_obj, 'maybe_regenerate_images_option_update' ) ) {
+			// Force woocommerce 3.3.1 to regenerate images
+			$regenerate_obj::maybe_regenerate_images_option_update( 1, 2, '' );
+		}
+	}
+
+	update_option( 'zerif_update_woocommerce_customizer_controls', true );
+}
+add_action( 'after_setup_theme', 'zerif_set_woo_image_sizes', 10 );
 
 /**
  * Migrate logo from theme to core
