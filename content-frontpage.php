@@ -101,9 +101,9 @@ if ( ( isset( $zerif_contactus_show ) && $zerif_contactus_show != 1 ) || is_cust
 			endif;
 
 			$contactus_subtitle_default = '';
-			if ( ! defined( 'PIRATE_FORMS_VERSION' ) ) {
-				/* translators: Pirate Forms plugin install link */
-				$contactus_subtitle_default = sprintf( __( 'You need to install %s to create a contact form.', 'zerif-lite' ), sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=pirate-forms' ), 'install-plugin_pirate-forms' ) ), 'Pirate Forms' ) );
+			if ( ! defined( 'WPFORMS_VERSION' ) ) {
+				/* translators: WPForms Lite plugin install link */
+				$contactus_subtitle_default = sprintf( __( 'You need to install %s to create a contact form.', 'zerif-lite' ), sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=wpforms-lite' ), 'install-plugin_wpforms-lite' ) ), 'WPForms Lite' ) );
 			}
 
 			if ( current_user_can( 'edit_theme_options' ) ) {
@@ -122,10 +122,10 @@ if ( ( isset( $zerif_contactus_show ) && $zerif_contactus_show != 1 ) || is_cust
 	<!-- / END SECTION HEADER -->
 
 	<?php
-	if ( defined( 'PIRATE_FORMS_VERSION' ) && shortcode_exists( 'pirate_forms' ) ) :
+	if ( defined( 'WPFORMS_VERSION' ) && shortcode_exists( 'wpforms id="3673"') ) :
 
 		echo '<div class="row">';
-			echo do_shortcode( '[pirate_forms]' );
+			echo do_shortcode( '[wpforms id="3673""]' );
 		echo '</div>';
 
 	endif;

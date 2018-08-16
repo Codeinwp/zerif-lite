@@ -435,12 +435,12 @@ function zerif_setup() {
 					'plugin_slug' => 'themeisle-companion',
 					'id'          => 'themeisle-companion',
 				),
-				'pirate-forms'        => array(
-					'title'       => 'Pirate Forms',
-					'description' => __( 'Makes your contact page more engaging by creating a good-looking contact form on your website. The interaction with your visitors was never easier.', 'zerif-lite' ),
-					'check'       => defined( 'PIRATE_FORMS_VERSION' ),
-					'plugin_slug' => 'pirate-forms',
-					'id'          => 'pirate-forms',
+				'wpforms-lite'        => array(
+					'title'       => 'WPForms Lite',
+					'description' => __( 'WPForms allow you to create beautiful contact forms, subscription forms, payment forms, and other type of forms for your site in minutes, not hours!', 'zerif-lite' ),
+					'check'       => defined( 'WPFORMS_VERSION' ),
+					'plugin_slug' => 'wpforms-lite',
+					'id'          => 'wpforms-lite',
 				),
 
 			),
@@ -756,8 +756,8 @@ function zerif_register_required_plugins() {
 				'required' => false,
 			),
 			array(
-				'name'     => 'Pirate Forms',
-				'slug'     => 'pirate-forms',
+				'name'     => 'WPForms Lite',
+				'slug'     => 'wpforms-lite',
 				'required' => false,
 			),
 			array(
@@ -771,8 +771,8 @@ function zerif_register_required_plugins() {
 
 		$plugins = array(
 			array(
-				'name'     => 'Pirate Forms',
-				'slug'     => 'pirate-forms',
+				'name'     => 'WPForms Lite',
+				'slug'     => 'wpforms-lite',
 				'required' => false,
 			),
 			array(
@@ -1827,53 +1827,53 @@ function remove_class_function( $classes ) {
 
 }
 
-add_action( 'customize_save_after', 'zerif_lite_update_options_in_pirate_forms', 99 );
+add_action( 'customize_save_after', 'zerif_lite_update_options_in_wpforms', 99 );
 
 /**
- * Update Pirate Forms plugin when there is a change in Customizer Contact us section
+ * Update WPForms Lite plugin when there is a change in Customizer Contact us section
  */
-function zerif_lite_update_options_in_pirate_forms() {
+function zerif_lite_update_options_in_wpforms() {
 
-	/* if Pirate Forms is installed */
-	if ( defined( 'PIRATE_FORMS_VERSION' ) ) :
+	/* if WPForms Lite is installed */
+	if ( defined( 'WPFORMS_VERSION' ) ) :
 
 		$zerif_lite_current_mods = get_theme_mods(); /* all theme modification values in Customize for Zerif Lite */
 
-		$pirate_forms_settings_array = get_option( 'pirate_forms_settings_array' ); /* Pirate Forms's options's array */
+		$wpforms_settings_array = get_option( 'wpforms_settings_array' ); /* WPForms Lite's options's array */
 
 		if ( ! empty( $zerif_lite_current_mods ) ) :
 
 			if ( isset( $zerif_lite_current_mods['zerif_contactus_button_label'] ) ) :
-				$pirate_forms_settings_array['pirateformsopt_label_submit_btn'] = $zerif_lite_current_mods['zerif_contactus_button_label'];
+				$wpforms_settings_array['wpformsopt_label_submit_btn'] = $zerif_lite_current_mods['zerif_contactus_button_label'];
 			endif;
 
 			if ( isset( $zerif_lite_current_mods['zerif_contactus_email'] ) ) :
 
-				$pirate_forms_settings_array['pirateformsopt_email']            = $zerif_lite_current_mods['zerif_contactus_email'];
-				$pirate_forms_settings_array['pirateformsopt_email_recipients'] = $zerif_lite_current_mods['zerif_contactus_email'];
+				$wpforms_settings_array['wpformsopt_email']            = $zerif_lite_current_mods['zerif_contactus_email'];
+				$wpforms_settings_array['wpformsopt_email_recipients'] = $zerif_lite_current_mods['zerif_contactus_email'];
 
 			endif;
 
 			if ( isset( $zerif_lite_current_mods['zerif_contactus_recaptcha_show'] ) && ( $zerif_lite_current_mods['zerif_contactus_recaptcha_show'] == 1 ) ) :
-				if ( isset( $pirate_forms_settings_array['pirateformsopt_recaptcha_field'] ) ) :
-					unset( $pirate_forms_settings_array['pirateformsopt_recaptcha_field'] );
+				if ( isset( $wpforms_settings_array['wpformsopt_recaptcha_field'] ) ) :
+					unset( $wpforms_settings_array['wpformsopt_recaptcha_field'] );
 				endif;
 			else :
-				$pirate_forms_settings_array['pirateformsopt_recaptcha_field'] = 'yes';
+				$wpforms_settings_array['wpformsopt_recaptcha_field'] = 'yes';
 			endif;
 
 			if ( isset( $zerif_lite_current_mods['zerif_contactus_sitekey'] ) ) :
-				$pirate_forms_settings_array['pirateformsopt_recaptcha_sitekey'] = $zerif_lite_current_mods['zerif_contactus_sitekey'];
+				$wpforms_settings_array['wpformsopt_recaptcha_sitekey'] = $zerif_lite_current_mods['zerif_contactus_sitekey'];
 			endif;
 
 			if ( isset( $zerif_lite_current_mods['zerif_contactus_secretkey'] ) ) :
-				$pirate_forms_settings_array['pirateformsopt_recaptcha_secretkey'] = $zerif_lite_current_mods['zerif_contactus_secretkey'];
+				$wpforms_settings_array['wpformsopt_recaptcha_secretkey'] = $zerif_lite_current_mods['zerif_contactus_secretkey'];
 			endif;
 
 		endif;
 
-		if ( ! empty( $pirate_forms_settings_array ) ) :
-			update_option( 'pirate_forms_settings_array', $pirate_forms_settings_array ); /* Update the options */
+		if ( ! empty( $wpforms_settings_array ) ) :
+			update_option( 'wpforms_settings_array', $wp_forms_settings_array ); /* Update the options */
 		endif;
 
 	endif;

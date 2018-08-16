@@ -134,7 +134,7 @@
  *                'deactivate_label' => esc_html__( 'Deactivate', 'flymag' ),
  *                'content'             => array(
  *                    array(
- *                        'slug'        => 'pirate-forms',
+ *                        'slug'        => 'wp-forms',
  *                    ),
  *                    array(
  *                        'link'        => 'http://themeisle.com/plugins/easy-content-types/',
@@ -153,13 +153,13 @@
  *                'activate_label' => esc_html__( 'Activate', 'flymag' ),
  *                'deactivate_label' => esc_html__( 'Deactivate', 'flymag' ),
  *                'content'            => array(
- *                    'pirate-forms' => array(
- *                        'title'       => __( 'Pirate Forms', 'flymag' ),
- *                        'description' => __( 'Makes your contact page more engaging by creating a good-looking contact form on your website. The interaction with your visitors was never easier.', 'flymag' ),
- *                        'link_label'  => __( 'Install Pirate Forms', 'flymag' ),
- *                        'check'       => defined( 'PIRATE_FORMS_VERSION' ),
- *                        'id'          => 'pirate-forms',
- *                        'plugin_slug' => 'pirate-forms'
+ *                    'wp-forms' => array(
+ *                        'title'       => __( 'WPForms Lite', 'flymag' ),
+ *                        'description' => __( 'WPForms allow you to create beautiful contact forms, subscription forms, payment forms, and other type of forms for your site in minutes, not hours!', 'flymag' ),
+ *                        'link_label'  => __( 'Install WPForms Lite', 'flymag' ),
+ *                        'check'       => defined( 'WPFORMS_VERSION' ),
+ *                        'id'          => 'wpforms-lite',
+ *                        'plugin_slug' => 'wpforms-lite'
  *                    ),
  *                ),
  *            ),

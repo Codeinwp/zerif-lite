@@ -315,7 +315,7 @@ function zerif_customize_register( $wp_customize ) {
 		);
 		$wp_customize->selective_refresh->add_partial(
 			'zerif_contactus_button_label', array(
-				'selector'        => '#contact .pirate_forms .contact_submit_wrap',
+				'selector'        => '#contact .wpforms .contact_submit_wrap',
 				'render_callback' => 'zerif_contactus_button_label_render_callback',
 			)
 		);
@@ -564,7 +564,7 @@ function zerif_customize_register( $wp_customize ) {
 	 */
 	function zerif_contactus_button_label_render_callback() {
 	?>
-		<button id="pirate-forms-contact-submit" name="pirate-forms-contact-submit" class="pirate-forms-submit-button" type="submit">
+		<button id="wp-forms-contact-submit" name="wp-forms-contact-submit" class="wp-forms-submit-button" type="submit">
 			<?php echo wp_kses_post( get_theme_mod( 'zerif_contactus_button_label' ) ); ?>
 		</button>
 		<?php
@@ -2201,9 +2201,9 @@ function zerif_customize_register( $wp_customize ) {
 
 	$zerif_contact_us_section_description = '';
 
-	/* If Pirate Forms is installed */
-	if ( defined( 'PIRATE_FORMS_VERSION' ) ) :
-		$zerif_contact_us_section_description = __( 'For more advanced settings please go to Settings -> Pirate Forms', 'zerif-lite' );
+	/* If WPForms Lite is installed */
+	if ( defined( 'WPFORMS_VERSION' ) ) :
+		$zerif_contact_us_section_description = __( 'For more advanced settings please go to Settings -> WPForms Lite', 'zerif-lite' );
 	endif;
 
 	$wp_customize->add_section(
@@ -2254,8 +2254,8 @@ function zerif_customize_register( $wp_customize ) {
 
 	/* Contactus subtitle */
 
-	/* translators: Pirate Forms plugin */
-	$default = ! defined( 'PIRATE_FORMS_VERSION' ) ? sprintf( __( 'You need to install %s to create a contact form.', 'zerif-lite' ), 'Pirate Forms' ) : '';
+	/* translators: WPForms Lite plugin */
+	$default = ! defined( 'WPFORMS_VERSION' ) ? sprintf( __( 'You need to install %s to create a contact form.', 'zerif-lite' ), 'WPForms Lite' ) : '';
 	$wp_customize->add_setting(
 		'zerif_contactus_subtitle', array(
 			'sanitize_callback' => 'zerif_sanitize_input',
@@ -2271,8 +2271,8 @@ function zerif_customize_register( $wp_customize ) {
 		)
 	);
 
-	/* Use the contact options from the theme, only if Pirate Forms is not installed */
-	if ( ! defined( 'PIRATE_FORMS_VERSION' ) ) {
+	/* Use the contact options from the theme, only if WPForms Lite is not installed */
+	if ( ! defined( 'WPFORMS_VERSION' ) ) {
 		/* Contactus email */
 		$wp_customize->add_setting(
 			'zerif_contactus_email', array(
