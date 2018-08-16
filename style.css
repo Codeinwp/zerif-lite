@@ -2390,16 +2390,16 @@ ul.nav > li.current_page_item.current > a:before {
 /***********************  PIRATE FORMS style ********************/
 /****************************************************************/
 
-.wpforms-container .wpforms-form {
+.pirate_forms {
 	padding-bottom: 95px;
 }
-.wpforms-container .wpforms-form input:not([type='checkbox']),
-.wpforms-container .wpforms-form textarea {
+.pirate_forms input:not([type='checkbox']),
+.pirate_forms textarea {
 	width: 100%;
 	margin: auto;
 	border-radius: 4px !important;
 }
-.wpforms-container .wpforms-form input:not([type='checkbox']) {
+.pirate_forms input:not([type='checkbox']) {
 	display: inline-block;
 	min-height: 46px;
 	padding: 9px;
@@ -2409,7 +2409,7 @@ ul.nav > li.current_page_item.current > a:before {
 	text-align: left;
 	text-transform: none;
 }
-.wpforms-container .wpforms-form .wpforms-field-textarea {
+.pirate_forms textarea {
 	display: inline-block;
 	width: 100% !important;
 	min-height: 250px;
@@ -2420,24 +2420,24 @@ ul.nav > li.current_page_item.current > a:before {
 	text-align: left;
 	text-transform: none;
 }
-.wpforms-container .wpforms-form .custom-button {
+.pirate_forms .custom-button {
 	float: right;
 	margin-right: 15px;
 }
-.wpforms-g-recaptcha {
+.pirate-forms-g-recaptcha {
 	display: none;
 }
-.wpforms-container .wpforms-form .notification p {
+.pirate_forms .notification p {
 	display: inline-block;
 	margin-bottom: 10px;
 	padding: 5px 10px;
 	border-radius: 3px;
 	color: #fff;
 }
-.wpforms-form_error_box {
+.pirate_forms_error_box {
 	text-align: center;
 }
-.wpforms-form_error_box p {
+.pirate_forms_error_box p {
 	display: inline-block;
 	margin-bottom: 10px;
 	padding: 5px 10px;
@@ -2445,7 +2445,7 @@ ul.nav > li.current_page_item.current > a:before {
 	color: #fff;
 	background: #e96656;
 }
-.wpforms-form_thankyou_wrap p {
+.pirate_forms_thankyou_wrap p {
 	display: inline-block;
 	margin-bottom: 10px;
 	padding: 5px 10px;
@@ -2453,32 +2453,32 @@ ul.nav > li.current_page_item.current > a:before {
 	color: #fff;
 	background: #34d293;
 }
-.wpforms-container .wpforms-form .wpforms-submit-button {
+.pirate_forms .pirate-forms-submit-button {
 	float: right;
 	margin-right: 0;
 	color: #fff !important;
 	-webkit-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
-.wpforms-container .wpforms-form .wpforms-submit-button:hover {
+.pirate_forms .pirate-forms-submit-button:hover {
 	color: #fff;
 	background: #cb4332;
 }
-.wpforms-form .contact_checkbox_wrap,
-.wpforms-form_wrap_classes_spam_wrap {
+.pirate_forms .contact_checkbox_wrap,
+.pirateform_wrap_classes_spam_wrap {
 	text-align: left;
 }
-.wpforms-form .contact_checkbox_wrap p {
+.pirate_forms .contact_checkbox_wrap p {
 	padding-left: 5px;
 	margin: 0px;
 }
-section#contact .wpforms-form .contact_checkbox_wrap p {
+section#contact .pirate_forms .contact_checkbox_wrap p {
 	color: #ffffff;
 }
-.wpforms-form-maps-custom {
+.pirate-forms-maps-custom {
 	float: left;
 }
-.contact-us .wpforms-form-maps-custom,
+.contact-us .pirate-forms-maps-custom,
 .contact-us .contact_checkbox_wrap {
 	color: #ffffff;
 }
@@ -6672,7 +6672,7 @@ body.custom-background {
 	.pirate-forms-g-recaptcha > div {
 		display: inline-block;
 	}
-	.wpforms .pirate-forms-submit-button {
+	.pirate_forms .pirate-forms-submit-button {
 		display: inline-block;
 		text-align: center;
 	}
