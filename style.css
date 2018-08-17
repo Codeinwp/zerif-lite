@@ -2563,10 +2563,44 @@ section#contact .pirate_forms .contact_checkbox_wrap p {
 	background-size: 30px 30px;
 }
 
+/****************************************************************/
+/***********************  WPFORMS Lite style ********************/
+/****************************************************************/
 
-/*---------------------------------------
- **   Section: About us;              -----
------------------------------------------*/
+.home div.wpforms-container-full .wpforms-form input[type=text], .home div.wpforms-container-full .wpforms-form input[type=email], .home div.wpforms-container-full .wpforms-form textarea {
+	border-radius: 4px;
+	padding: 9px 9px 9px 15px;
+	font-size: 14px;
+	background-color: rgba(255, 255, 255, 0.95);
+}
+
+div.wpforms-container-full .wpforms-form .wpforms-submit-container {
+	text-align: right;
+}
+
+div.wpforms-container-full .wpforms-form .wpforms-submit-container .wpforms-submit {
+	background-color: #e96656;
+	border-width: 0;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 14px;
+	text-transform: uppercase;
+	padding: 13px 35px 13px 35px;
+}
+
+div.wpforms-container-full .wpforms-form .wpforms-submit-container .wpforms-submit:hover {
+	background-color: #cb4332;
+	border-width: 0;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 14px;
+	text-transform: uppercase;
+	padding: 13px 35px 13px 35px;
+}
+
+	/*---------------------------------------
+     **   Section: About us;              -----
+    -----------------------------------------*/
 
 .about-us {
 	color: #fff;
