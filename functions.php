@@ -9,6 +9,11 @@ $vendor_file = trailingslashit( get_template_directory() ) . 'vendor/autoload.ph
 if ( is_readable( $vendor_file ) ) {
 	require_once $vendor_file;
 }
+
+if ( ! defined( 'WPFORMS_SHAREASALE_ID' ) ) {
+	define( 'WPFORMS_SHAREASALE_ID', '848264' );
+}
+
 add_filter( 'themeisle_sdk_products', 'zerif_load_sdk' );
 /**
  * Loads products array.
