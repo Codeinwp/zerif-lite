@@ -2201,7 +2201,7 @@ function zerif_customize_register( $wp_customize ) {
 
 	$zerif_contact_us_section_description = '';
 
-	/* If WPForms Lite is installed */
+	/* If Pirate Forms is installed */
 	if ( defined( 'PIRATE_FORMS_VERSION' ) ) :
 		$zerif_contact_us_section_description = __( 'For more advanced settings please go to Settings -> Pirate Forms', 'zerif-lite' );
 	endif;

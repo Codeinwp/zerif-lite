@@ -483,7 +483,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 		 * Check if plugin is active
 		 */
 		public function check_if_plugin_active( $slug ) {
-			if ( ( $slug == 'intergeo-maps' ) || ( $slug == 'visualizer' ) || ( $slug == 'wpforms-lite' ) ) {
+			if ( ( $slug == 'intergeo-maps' ) || ( $slug == 'visualizer' ) ) {
 				$plugin_root_file = 'index';
 			} elseif ( $slug == 'wpforms-lite' ) {
 				$plugin_root_file = 'wpforms';
@@ -542,7 +542,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 		 */
 		public function create_action_link( $state, $slug ) {
 
-			if ( ( $slug == 'intergeo-maps' ) || ( $slug == 'visualizer' ) || ( $slug == 'wpforms-lite' ) ) {
+			if ( ( $slug == 'intergeo-maps' ) || ( $slug == 'visualizer' ) ) {
 				$plugin_root_file = 'index';
 			} elseif ( $slug == 'adblock-notify-by-bweb' ) {
 				$plugin_root_file = 'adblock-notify';

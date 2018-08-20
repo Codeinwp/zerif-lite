@@ -800,11 +800,6 @@ function zerif_register_required_plugins() {
 				'required' => false,
 			),
 			array(
-				'name'     => 'WPForms Lite',
-				'slug'     => 'wpforms-lite',
-				'required' => false,
-			),
-			array(
 				'name'     => 'Orbit Fox',
 				'slug'     => 'themeisle-companion',
 				'required' => false,
@@ -817,11 +812,6 @@ function zerif_register_required_plugins() {
 			array(
 				'name'     => 'Pirate Forms',
 				'slug'     => 'pirate-forms',
-				'required' => false,
-			),
-			array(
-				'name'     => 'WPForms Lite',
-				'slug'     => 'wpforms-lite',
 				'required' => false,
 			),
 			array(
@@ -1883,7 +1873,6 @@ add_action( 'customize_save_after', 'zerif_lite_update_options_in_pirate_forms',
  */
 function zerif_lite_update_options_in_pirate_forms() {
 
-	/* if WPForms Lite is installed */
 	/* if Pirate Forms is installed */
 	if ( defined( 'PIRATE_FORMS_VERSION' ) ) :
 
