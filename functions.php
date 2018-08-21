@@ -2112,7 +2112,6 @@ add_filter( 'megamenu_themes', 'megamenu_add_theme_zerif_lite_max_menu' );
  * Displays Zelle  notice after 1st November '18
  */
 
-function zerif_renaming_notice() {
 	$countdown_time = strtotime('2018-11-01');
 	$current_time   = time();
 	if ( $current_time <= $countdown_time ) {
@@ -2120,7 +2119,7 @@ function zerif_renaming_notice() {
 	} else {
 		add_action( 'admin_notices', 'zerif_neve_notice' );
 	}
-}
+
 
 
 /**
