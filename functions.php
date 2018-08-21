@@ -5,6 +5,8 @@
  * @package zerif-lite
  */
 
+
+
 $vendor_file = trailingslashit( get_template_directory() ) . 'vendor/autoload.php';
 if ( is_readable( $vendor_file ) ) {
 	require_once $vendor_file;
@@ -2103,3 +2105,46 @@ function megamenu_add_theme_zerif_lite_max_menu( $themes ) {
 	return $themes;
 }
 add_filter( 'megamenu_themes', 'megamenu_add_theme_zerif_lite_max_menu' );
+
+
+
+/**
+ * Add a dismissible notice in the dashboard to let users know they can migrate to Hestia
+ * Displays until 1st November 2018
+ */
+
+add_action( 'admin_notices', 'zerif_hestia_notice' );
+
+function zerif_hestia_notice() {
+	$countdown_time = strtotime('2018-11-01');
+	$current_time    = time();
+
+	global $current_user;
+	$user_id = $current_user->ID;
+	/* Check that the user hasn't already clicked to ignore the message */
+	if ( $current_time <= $countdown_time ) {
+		if ( ! get_user_meta( $user_id, 'zerif_ignore_hestia_notice' ) ) {
+			echo '<div class="notice updated" style="position:relative;">';
+			printf( '<a href="%s" class="notice-dismiss" style="text-decoration:none;"></a>', '?zerif_nag_ignore_hestia=0' );
+			echo '<p>';
+			/* translators: Install Fagri link */
+			printf( esc_html__( 'Check out our %s, fully compatible with your current Zerif Lite theme. You will love it!', 'zerif-lite' ), sprintf( '<a href="%1$s"><strong>%2$s</strong></a>', admin_url( 'theme-install.php?theme=hestia' ), esc_html__( 'best 2018 free theme', 'zerif-lite' ) ) );
+			echo '</p>';
+			echo '</div>';
+		}
+	}
+}
+
+/**
+ * Update the zerif_ignore_hestia_notice option to true, to dismiss the notice from the dashboard
+ */
+add_action( 'admin_init', 'zerif_nag_ignore_hestia' );
+
+function zerif_nag_ignore_hestia() {
+	global $current_user;
+	$user_id = $current_user->ID;
+	/* If user clicks to ignore the notice, add that to their user meta */
+	if ( isset( $_GET['zerif_nag_ignore_hestia'] ) && '0' == $_GET['zerif_nag_ignore_hestia'] ) {
+		add_user_meta( $user_id, 'zerif_ignore_hestia_notice', 'true', true );
+	}
+}
