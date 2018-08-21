@@ -563,7 +563,7 @@ function zerif_customize_register( $wp_customize ) {
 	 * Render callback for zerif_contactus_button_label
 	 */
 	function zerif_contactus_button_label_render_callback() {
-	?>
+		?>
 		<button id="pirate-forms-contact-submit" name="pirate-forms-contact-submit" class="pirate-forms-submit-button" type="submit">
 			<?php echo wp_kses_post( get_theme_mod( 'zerif_contactus_button_label' ) ); ?>
 		</button>

@@ -271,7 +271,7 @@ class Ti_Customizer_Notify_Section extends WP_Customize_Section {
 	 * Outputs the structure for the customizer control
 	 */
 	protected function render_template() {
-	?>
+		?>
 		<# if( data.recommended_actions.length > 0 || data.recommended_plugins.length > 0 ){ #>
 			<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} cannot-expand">
 
@@ -349,6 +349,6 @@ class Ti_Customizer_Notify_Section extends WP_Customize_Section {
 				</div>
 			</li>
 		<# } #>
-	<?php
+		<?php
 	}
 }

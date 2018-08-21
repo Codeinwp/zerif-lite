@@ -11,7 +11,7 @@
 	<h1><?php esc_html_e( 'Keep up with Zerif Lite\'s latest news', 'zerif-lite' ); ?></h1>
 
 	<!-- NEWS -->
-	<hr />
+	<hr>
 
 	<?php
 	global $zerif_required_actions;
@@ -36,14 +36,14 @@
 								if ( ! empty( $zerif_required_action_value['title'] ) ) :
 									echo $zerif_required_action_value['title'];
 endif;
-?>
+								?>
 </h4>
 				<p>
 				<?php
 				if ( ! empty( $zerif_required_action_value['description'] ) ) :
 					echo $zerif_required_action_value['description'];
 endif;
-?>
+				?>
 </p>
 				<?php
 				if ( ! empty( $zerif_required_action_value['plugin_slug'] ) ) :
@@ -53,13 +53,13 @@ endif;
 											if ( ! empty( $zerif_required_action_value['title'] ) ) :
 												echo $zerif_required_action_value['title'];
 endif;
-?>
+											?>
 </a></p>
 					<?php
 					endif;
 				?>
 
-				<hr />
+				<hr>
 			</div>
 			<?php
 		endforeach;

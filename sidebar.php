@@ -30,7 +30,7 @@
 							'type' => 'monthly',
 						)
 					);
-?>
+					?>
 				</ul>
 
 			</aside>

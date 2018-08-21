@@ -115,11 +115,11 @@
 
 				if ( $categories_list && zerif_categorized_blog() ) :
 
-				?>
+					?>
 
 				<span class="cat-links">
 
-				<?php /* translators: Categories list */ printf( __( 'Posted in %1$s', 'zerif-lite' ), $categories_list ); ?>
+					<?php /* translators: Categories list */ printf( __( 'Posted in %1$s', 'zerif-lite' ), $categories_list ); ?>
 
 				</span>
 
@@ -133,11 +133,11 @@
 
 				if ( $tags_list ) :
 
-				?>
+					?>
 
 				<span class="tags-links">
 
-				<?php /* translators: Tags list */ printf( __( 'Tagged %1$s', 'zerif-lite' ), $tags_list ); ?>
+					<?php /* translators: Tags list */ printf( __( 'Tagged %1$s', 'zerif-lite' ), $tags_list ); ?>
 
 				</span>
 
