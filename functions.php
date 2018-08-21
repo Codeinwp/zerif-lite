@@ -2107,32 +2107,39 @@ function megamenu_add_theme_zerif_lite_max_menu( $themes ) {
 add_filter( 'megamenu_themes', 'megamenu_add_theme_zerif_lite_max_menu' );
 
 
+/**
+ * Displays Hestia notice until 1st November '18
+ * Displays Zelle  notice after 1st November '18
+ */
+
+function zerif_renaming_notice() {
+	$countdown_time = strtotime('2018-11-01');
+	$current_time   = time();
+	if ( $current_time <= $countdown_time ) {
+		add_action( 'admin_notices', 'zerif_hestia_notice' );
+	} else {
+		add_action( 'admin_notices', 'zerif_neve_notice' );
+	}
+}
+
 
 /**
  * Add a dismissible notice in the dashboard to let users know they can migrate to Hestia
- * Displays until 1st November 2018
  */
 
-add_action( 'admin_notices', 'zerif_hestia_notice' );
-
 function zerif_hestia_notice() {
-	$countdown_time = strtotime('2018-11-01');
-	$current_time    = time();
-
 	global $current_user;
 	$user_id = $current_user->ID;
 	/* Check that the user hasn't already clicked to ignore the message */
-	if ( $current_time <= $countdown_time ) {
 		if ( ! get_user_meta( $user_id, 'zerif_ignore_hestia_notice' ) ) {
 			echo '<div class="notice updated" style="position:relative;">';
 			printf( '<a href="%s" class="notice-dismiss" style="text-decoration:none;"></a>', '?zerif_nag_ignore_hestia=0' );
 			echo '<p>';
-			/* translators: Install Fagri link */
+			/* translators: Install Hestia link */
 			printf( esc_html__( 'Check out our %s, fully compatible with your current Zerif Lite theme. You will love it!', 'zerif-lite' ), sprintf( '<a href="%1$s"><strong>%2$s</strong></a>', admin_url( 'theme-install.php?theme=hestia' ), esc_html__( 'best 2018 free theme', 'zerif-lite' ) ) );
 			echo '</p>';
 			echo '</div>';
 		}
-	}
 }
 
 /**
@@ -2146,5 +2153,42 @@ function zerif_nag_ignore_hestia() {
 	/* If user clicks to ignore the notice, add that to their user meta */
 	if ( isset( $_GET['zerif_nag_ignore_hestia'] ) && '0' == $_GET['zerif_nag_ignore_hestia'] ) {
 		add_user_meta( $user_id, 'zerif_ignore_hestia_notice', 'true', true );
+	}
+}
+
+/**
+ * Add a dismissible notice in the dashboard to let users know they can migrate to Zelle and read about Zerif renaming
+ */
+
+function zerif_neve_notice() {
+	global $current_user;
+	$user_id = $current_user->ID;
+	/* Check that the user hasn't already clicked to ignore the message */
+	if ( ! get_user_meta( $user_id, 'zerif_ignore_neve_notice' ) ) {
+		echo '<div class="notice updated" style="position:relative;">';
+		printf( '<a href="%s" class="notice-dismiss" style="text-decoration:none;"></a>', '?zerif_nag_ignore_neve=0' );
+		echo '<p>';
+		/* translators: Install Neve link */
+		printf( esc_html__( 'Zerif Lite changes its name and is no longer maintained. But don\'t worry about that. Check out %s, fully compatible with Zerif Lite. It\'s free and it\'s superb. You will love it!', 'zerif-lite' ), sprintf( '<a href="%1$s"><strong>%2$s</strong></a>', admin_url( 'theme-install.php?theme=neve' ), esc_html__( 'our newest theme', 'zerif-lite' ) ) );
+		echo '</p>';
+		echo '<p>';
+		/* translators: Zerif renaming article link */
+		printf( esc_html__( '%s about the Zerif renaming and our next plans.', 'zerif-lite' ), sprintf( '<a href="%1$s"><strong>%2$s</strong></a>', esc_url( 'https://themeisle.com/blog/zerif-changes-its-name-to-zelle/' ), esc_html__( 'Read more', 'zerif-lite' ) ) );
+		echo '</p>';
+		echo '</div>';
+	}
+}
+
+/**
+ * Update the zerif_ignore_hestia_notice option to true, to dismiss the notice from the dashboard
+ */
+add_action( 'admin_init', 'zerif_nag_ignore_neve' );
+
+function zerif_nag_ignore_neve() {
+	global $current_user;
+	$user_id = $current_user->ID;
+	/* If user clicks to ignore the notice, add that to their user meta */
+	if ( isset( $_GET['zerif_nag_ignore_neve'] ) && '0' == $_GET['zerif_nag_ignore_neve'] ) {
+		add_user_meta( $user_id, 'zerif_ignore_neve_notice', 'true', true );
 	}
 }
