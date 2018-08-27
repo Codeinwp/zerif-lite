@@ -2169,7 +2169,7 @@ function zerif_neve_notice() {
 		echo '</p>';
 		echo '<p>';
 		/* translators: Zerif renaming article link */
-		printf( esc_html__( '%s about the Zerif renaming and our next plans.', 'zerif-lite' ), sprintf( '<a href="%1$s"><strong>%2$s</strong></a>', esc_url( 'https://themeisle.com/blog/zerif-changes-its-name-to-zelle/' ), esc_html__( 'Read more', 'zerif-lite' ) ) );
+		printf( esc_html__( '%s about the Zerif renaming and our next plans.', 'zerif-lite' ), sprintf( '<a target="_blank" href="%1$s"><strong>%2$s</strong></a>', esc_url( 'https://themeisle.com/blog/zerif-changes-its-name-to-zelle/' ), esc_html__( 'Read more', 'zerif-lite' ) ) );
 		echo '</p>';
 		echo '</div>';
 	}
