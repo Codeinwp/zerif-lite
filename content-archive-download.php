@@ -6,10 +6,10 @@
  */
 ?>
 
-<div class="edd_download" itemscope itemtype="http://schema.org/Product" >
+<div class="edd_download" itemscope itemtype="http://schema.org/Product">
 	<div class="edd_download_inner">
 		<div class="edd_download_image">
-			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" >
+			<a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
 
 				<?php
 				if ( has_post_thumbnail() ) { // check if the post has a Post Thumbnail assigned to it.
@@ -29,6 +29,6 @@
 				'download_id' => get_the_ID(),
 			)
 		);
-?>
+		?>
 	</div>	
 </div><!-- #post-## -->

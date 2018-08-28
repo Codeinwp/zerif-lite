@@ -14,7 +14,7 @@ $zerif_lite = wp_get_theme( 'zerif-lite' );
 		<h1>Zerif Lite
 			<?php
 			if ( ! empty( $zerif_lite['Version'] ) ) :
-			?>
+				?>
 			<sup id="zerif-lite-theme-version"><?php echo esc_attr( $zerif_lite['Version'] ); ?> </sup><?php endif; ?>
 		</h1>
 	</div>

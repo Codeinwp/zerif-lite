@@ -62,7 +62,7 @@ get_header(); ?>
 		zerif_after_page_content_trigger();
 		zerif_sidebar_trigger();
 	}
-		?>
+	?>
 	</div><!-- .container -->
 
 <?php get_footer(); ?>

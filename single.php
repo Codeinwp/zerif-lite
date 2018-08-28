@@ -37,7 +37,7 @@ get_header(); ?>
 						comments_template( '' );
 						endif;
 					endwhile; // end of the loop.
-					?>
+				?>
 				</main><!-- #main -->
 			</div><!-- #primary -->
 			<?php zerif_bottom_single_post_trigger(); ?>

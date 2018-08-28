@@ -84,7 +84,7 @@ if ( ( isset( $zerif_latestnews_show ) && $zerif_latestnews_show != 1 ) || is_cu
 
 if ( ( isset( $zerif_contactus_show ) && $zerif_contactus_show != 1 ) || is_customize_preview() ) :
 	echo '<section class="contact-us ' . ( ( is_customize_preview() && ( ! isset( $zerif_contactus_show ) || $zerif_contactus_show == 1 ) ) ? ' zerif_hidden_if_not_customizer ' : '' ) . '" id="contact">';
-?>
+	?>
 <div class="container">
 	<!-- SECTION HEADER -->
 	<div class="section-header">
@@ -118,11 +118,12 @@ if ( ( isset( $zerif_contactus_show ) && $zerif_contactus_show != 1 ) || is_cust
 			} elseif ( is_customize_preview() ) {
 				echo '<h6 class="white-text section-legend zerif_hidden_if_not_customizer"></h6>';
 			}
-		?>
+			?>
 	</div>
 	<!-- / END SECTION HEADER -->
 
 	<?php
+
 	if ( ! empty( $zerif_alternative_contact_form ) ) :
 		echo '<div class="row">';
 		echo do_shortcode( $zerif_alternative_contact_form );

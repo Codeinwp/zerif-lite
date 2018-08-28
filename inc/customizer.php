@@ -563,7 +563,7 @@ function zerif_customize_register( $wp_customize ) {
 	 * Render callback for zerif_contactus_button_label
 	 */
 	function zerif_contactus_button_label_render_callback() {
-	?>
+		?>
 		<button id="pirate-forms-contact-submit" name="pirate-forms-contact-submit" class="pirate-forms-submit-button" type="submit">
 			<?php echo wp_kses_post( get_theme_mod( 'zerif_contactus_button_label' ) ); ?>
 		</button>
@@ -2254,7 +2254,7 @@ function zerif_customize_register( $wp_customize ) {
 
 	/* Contactus subtitle */
 
-	/* translators: Pirate Forms plugin */
+	/* translators: WPForms Lite plugin */
 	$default = ! defined( 'PIRATE_FORMS_VERSION' ) ? sprintf( __( 'You need to install %s to create a contact form.', 'zerif-lite' ), 'Pirate Forms' ) : '';
 	$wp_customize->add_setting(
 		'zerif_contactus_subtitle', array(

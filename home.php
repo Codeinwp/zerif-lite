@@ -17,15 +17,15 @@ if ( ! zerif_check_if_old_version_of_theme() ) {
 		<div class="blog-header-content-wrap">
 			<?php if ( ! empty( $blog_header_title ) ) { ?>
 				<h1 class="intro-text"><?php echo esc_html( $blog_header_title ); ?></h1>
-			<?php
+				<?php
 }
 if ( ! empty( $blog_header_subtitle ) ) {
-?>
+	?>
 				<p class="blog-header-subtitle"><?php echo esc_html( $blog_header_subtitle ); ?></p>
 			<?php } ?>
 		</div>
 	</div>
-<?php
+		<?php
 	}
 }
 ?>

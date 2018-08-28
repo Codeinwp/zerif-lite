@@ -28,7 +28,7 @@ get_header(); ?>
 							<?php
 							/* translators: Search query */
 								printf( __( 'Search Results for: %s', 'zerif-lite' ), '<span>' . get_search_query() . '</span>' );
-								?>
+							?>
 								</h1>
 
 						</header><!-- .page-header -->
@@ -55,7 +55,7 @@ get_header(); ?>
 }
 
 					zerif_after_search_trigger();
-					?>
+?>
 				</main><!-- #main -->
 
 			</div><!-- #primary -->

@@ -1680,6 +1680,18 @@ ul.nav > li.current_page_item > a:before {
 	}
 }
 
+/*---------------------------------------
+ **   WPForms Lite                  -----
+-----------------------------------------*/
+
+.home div.wpforms-container-full .wpforms-form input[type=text], .home div.wpforms-container-full .wpforms-form input[type=email], .home div.wpforms-container-full .wpforms-form textarea {
+	padding: 9px 15px 9px 9px;
+}
+
+div.wpforms-container-full .wpforms-form .wpforms-submit-container {
+	text-align: left;
+}
+
 
 /*---------------------------------------
  **   Responsive            -----

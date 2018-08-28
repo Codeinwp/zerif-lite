@@ -30,7 +30,7 @@
 
 	<body <?php body_class(); ?> >
 
-<?php
+	<?php
 endif;
 
 	zerif_top_body_trigger();
@@ -48,7 +48,7 @@ if ( is_front_page() && ! is_customize_preview() ) :
 		endif;
 
 	endif;
-	?>
+?>
 
 
 <div id="mobilebgfix">
@@ -90,7 +90,7 @@ if ( is_front_page() && ! is_customize_preview() ) :
 
 						} else {
 
-						?>
+							?>
 							<div class="site-title-tagline-wrapper">
 								<h1 class="site-title">
 									<a href=" <?php echo esc_url( home_url( '/' ) ); ?> ">
@@ -103,7 +103,7 @@ if ( is_front_page() && ! is_customize_preview() ) :
 								$description = get_bloginfo( 'description', 'display' );
 
 								if ( ! empty( $description ) ) :
-								?>
+									?>
 
 									<p class="site-description">
 

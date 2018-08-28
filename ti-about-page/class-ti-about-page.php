@@ -134,7 +134,7 @@
  *                'deactivate_label' => esc_html__( 'Deactivate', 'flymag' ),
  *                'content'             => array(
  *                    array(
- *                        'slug'        => 'pirate-forms',
+ *                        'slug'        => 'wp-forms',
  *                    ),
  *                    array(
  *                        'link'        => 'http://themeisle.com/plugins/easy-content-types/',
@@ -485,6 +485,8 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 		public function check_if_plugin_active( $slug ) {
 			if ( ( $slug == 'intergeo-maps' ) || ( $slug == 'visualizer' ) ) {
 				$plugin_root_file = 'index';
+			} elseif ( $slug == 'wpforms-lite' ) {
+				$plugin_root_file = 'wpforms';
 			} elseif ( $slug == 'adblock-notify-by-bweb' ) {
 				$plugin_root_file = 'adblock-notify';
 			} else {
@@ -544,6 +546,8 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 				$plugin_root_file = 'index';
 			} elseif ( $slug == 'adblock-notify-by-bweb' ) {
 				$plugin_root_file = 'adblock-notify';
+			} elseif ( $slug == 'wpforms-lite' ) {
+				$plugin_root_file = 'wpforms';
 			} else {
 				$plugin_root_file = $slug;
 			}

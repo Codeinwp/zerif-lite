@@ -30,7 +30,7 @@
 					'after'  => '</div>',
 				)
 			);
-		?>
+			?>
 
 	</div><!-- .entry-content -->
 
@@ -80,7 +80,7 @@
 				esc_url( get_permalink() )
 			);
 
-		?>
+			?>
 
 		<?php edit_post_link( __( 'Edit', 'zerif-lite' ), '<span class="edit-link">', '</span>' ); ?>
 

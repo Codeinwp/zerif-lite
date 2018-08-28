@@ -158,145 +158,145 @@ echo '<section class="about-us ' . ( ( is_customize_preview() && ( ! isset( $zer
 
 if ( $there_is_skills != '' ) :
 
-?>
+	?>
 <div class="col-lg-<?php echo $colCount; ?> col-md-<?php echo $colCount; ?> column zerif-rtl-skills ">
 
 <ul class="skills" data-scrollreveal="enter right after 0s over 1s">
 
 <!-- SKILL ONE -->
-<?php
-if ( ! empty( $zerif_aboutus_feature1_nr ) || ! empty( $zerif_aboutus_feature1_title ) || ! empty( $zerif_aboutus_feature1_text ) ) {
+	<?php
+	if ( ! empty( $zerif_aboutus_feature1_nr ) || ! empty( $zerif_aboutus_feature1_title ) || ! empty( $zerif_aboutus_feature1_text ) ) {
 
-	echo '<li class="skill skill_1">';
+		echo '<li class="skill skill_1">';
 
-	if ( ! empty( $zerif_aboutus_feature1_nr ) ) {
+		if ( ! empty( $zerif_aboutus_feature1_nr ) ) {
 
-		echo '<div class="skill-count">';
+			echo '<div class="skill-count">';
 
-		echo '<input role="presentation" type="text" id="' . ( ! empty( $zerif_aboutus_feature1_title ) ? sanitize_title( $zerif_aboutus_feature1_title ) : '' ) . '" value="' . esc_attr( $zerif_aboutus_feature1_nr ) . '" data-thickness=".2" class="skill1" tabindex="-1">';
+			echo '<input role="presentation" type="text" id="' . ( ! empty( $zerif_aboutus_feature1_title ) ? sanitize_title( $zerif_aboutus_feature1_title ) : '' ) . '" value="' . esc_attr( $zerif_aboutus_feature1_nr ) . '" data-thickness=".2" class="skill1" tabindex="-1">';
 
-		echo '</div>';
+			echo '</div>';
 
-	}
+		}
 
-	if ( ! empty( $zerif_aboutus_feature1_title ) ) {
-		echo '<div class="section-legend"><label for="' . sanitize_title( $zerif_aboutus_feature1_title ) . '">' . wp_kses_post( $zerif_aboutus_feature1_title ) . '</label></div>';
-	} elseif ( is_customize_preview() ) {
-		echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
-	}
+		if ( ! empty( $zerif_aboutus_feature1_title ) ) {
+			echo '<div class="section-legend"><label for="' . sanitize_title( $zerif_aboutus_feature1_title ) . '">' . wp_kses_post( $zerif_aboutus_feature1_title ) . '</label></div>';
+		} elseif ( is_customize_preview() ) {
+			echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
+		}
 
-	if ( ! empty( $zerif_aboutus_feature1_text ) ) {
-		echo '<p>' . wp_kses_post( $zerif_aboutus_feature1_text ) . '</p>';
-	} elseif ( is_customize_preview() ) {
-		echo '<p class="zerif_hidden_if_not_customizer"></p>';
-	}
-
-	echo '</li>';
-
-}
-?>
-
-<!-- SKILL TWO -->
-
-<?php
-if ( ! empty( $zerif_aboutus_feature2_nr ) || ! empty( $zerif_aboutus_feature2_title ) || ! empty( $zerif_aboutus_feature2_text ) ) {
-
-	echo '<li class="skill skill_2">';
-
-	if ( ! empty( $zerif_aboutus_feature2_nr ) ) {
-
-		echo '<div class="skill-count">';
-
-		echo '<input role="presentation" type="text" id="' . ( ! empty( $zerif_aboutus_feature2_title ) ? sanitize_title( $zerif_aboutus_feature2_title ) : '' ) . '" value="' . esc_attr( $zerif_aboutus_feature2_nr ) . '" data-thickness=".2" class="skill2" tabindex="-1">';
-
-		echo '</div>';
-
-	}
-
-	if ( ! empty( $zerif_aboutus_feature2_title ) ) {
-		echo '<div class="section-legend"><label for="' . sanitize_title( $zerif_aboutus_feature2_title ) . '">' . wp_kses_post( $zerif_aboutus_feature2_title ) . '</label></div>';
-	} elseif ( is_customize_preview() ) {
-		echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
-	}
-
-	if ( ! empty( $zerif_aboutus_feature2_text ) ) {
-		echo '<p>' . wp_kses_post( $zerif_aboutus_feature2_text ) . '</p>';
-	} elseif ( is_customize_preview() ) {
-		echo '<p class="zerif_hidden_if_not_customizer"></p>';
-	}
-
-	echo '</li>';
-
-}
-?>
-
-<!-- SKILL THREE -->
-
-<?php
-if ( ! empty( $zerif_aboutus_feature3_nr ) || ! empty( $zerif_aboutus_feature3_title ) || ! empty( $zerif_aboutus_feature3_text ) ) {
-	echo '<li class="skill skill_3">';
-
-	if ( ! empty( $zerif_aboutus_feature3_nr ) ) {
-
-		echo '<div class="skill-count">';
-
-		echo '<input role="presentation" type="text" id="' . ( ! empty( $zerif_aboutus_feature3_title ) ? sanitize_title( $zerif_aboutus_feature3_title ) : '' ) . '" value="' . esc_attr( $zerif_aboutus_feature3_nr ) . '" data-thickness=".2" class="skill3" tabindex="-1">';
-
-		echo '</div>';
-
-	}
-
-	if ( ! empty( $zerif_aboutus_feature3_title ) ) {
-		echo '<div class="section-legend"><label for="' . sanitize_title( $zerif_aboutus_feature3_title ) . '">' . wp_kses_post( $zerif_aboutus_feature3_title ) . '</label></div>';
-	} elseif ( is_customize_preview() ) {
-		echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
-	}
-
-	if ( ! empty( $zerif_aboutus_feature3_text ) ) {
-		echo '<p>' . wp_kses_post( $zerif_aboutus_feature3_text ) . '</p>';
-	} elseif ( is_customize_preview() ) {
-		echo '<p class="zerif_hidden_if_not_customizer"></p>';
-	}
-
-	echo '</li>';
-
-}
-
-?>
-
-<!-- SKILL FOUR -->
-
-<?php
-if ( ! empty( $zerif_aboutus_feature4_nr ) || ! empty( $zerif_aboutus_feature4_title ) || ! empty( $zerif_aboutus_feature4_text ) ) {
-	echo '<li class="skill skill_4">';
-
-	if ( ! empty( $zerif_aboutus_feature4_nr ) ) {
-
-		echo '<div class="skill-count">';
-
-		echo '<input role="presentation" type="text" id="' . ( ! empty( $zerif_aboutus_feature4_title ) ? sanitize_title( $zerif_aboutus_feature4_title ) : '' ) . '" value="' . esc_attr( $zerif_aboutus_feature4_nr ) . '" data-thickness=".2" class="skill4" tabindex="-1">';
-
-		echo '</div>';
-
-	}
-
-	if ( ! empty( $zerif_aboutus_feature4_title ) ) {
-		echo '<div class="section-legend"><label for="' . sanitize_title( $zerif_aboutus_feature4_title ) . '">' . wp_kses_post( $zerif_aboutus_feature4_title ) . '</label></div>';
-	} elseif ( is_customize_preview() ) {
-		echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
-	}
-
-	if ( ! empty( $zerif_aboutus_feature4_text ) ) {
-		echo '<p>' . wp_kses_post( $zerif_aboutus_feature4_text ) . '</p>';
-	} elseif ( is_customize_preview() ) {
-		echo '<p class="zerif_hidden_if_not_customizer"></p>';
-	}
+		if ( ! empty( $zerif_aboutus_feature1_text ) ) {
+			echo '<p>' . wp_kses_post( $zerif_aboutus_feature1_text ) . '</p>';
+		} elseif ( is_customize_preview() ) {
+			echo '<p class="zerif_hidden_if_not_customizer"></p>';
+		}
 
 		echo '</li>';
 
-}
+	}
+	?>
 
-?>
+<!-- SKILL TWO -->
+
+	<?php
+	if ( ! empty( $zerif_aboutus_feature2_nr ) || ! empty( $zerif_aboutus_feature2_title ) || ! empty( $zerif_aboutus_feature2_text ) ) {
+
+		echo '<li class="skill skill_2">';
+
+		if ( ! empty( $zerif_aboutus_feature2_nr ) ) {
+
+			echo '<div class="skill-count">';
+
+			echo '<input role="presentation" type="text" id="' . ( ! empty( $zerif_aboutus_feature2_title ) ? sanitize_title( $zerif_aboutus_feature2_title ) : '' ) . '" value="' . esc_attr( $zerif_aboutus_feature2_nr ) . '" data-thickness=".2" class="skill2" tabindex="-1">';
+
+			echo '</div>';
+
+		}
+
+		if ( ! empty( $zerif_aboutus_feature2_title ) ) {
+			echo '<div class="section-legend"><label for="' . sanitize_title( $zerif_aboutus_feature2_title ) . '">' . wp_kses_post( $zerif_aboutus_feature2_title ) . '</label></div>';
+		} elseif ( is_customize_preview() ) {
+			echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
+		}
+
+		if ( ! empty( $zerif_aboutus_feature2_text ) ) {
+			echo '<p>' . wp_kses_post( $zerif_aboutus_feature2_text ) . '</p>';
+		} elseif ( is_customize_preview() ) {
+			echo '<p class="zerif_hidden_if_not_customizer"></p>';
+		}
+
+		echo '</li>';
+
+	}
+	?>
+
+<!-- SKILL THREE -->
+
+	<?php
+	if ( ! empty( $zerif_aboutus_feature3_nr ) || ! empty( $zerif_aboutus_feature3_title ) || ! empty( $zerif_aboutus_feature3_text ) ) {
+		echo '<li class="skill skill_3">';
+
+		if ( ! empty( $zerif_aboutus_feature3_nr ) ) {
+
+			echo '<div class="skill-count">';
+
+			echo '<input role="presentation" type="text" id="' . ( ! empty( $zerif_aboutus_feature3_title ) ? sanitize_title( $zerif_aboutus_feature3_title ) : '' ) . '" value="' . esc_attr( $zerif_aboutus_feature3_nr ) . '" data-thickness=".2" class="skill3" tabindex="-1">';
+
+			echo '</div>';
+
+		}
+
+		if ( ! empty( $zerif_aboutus_feature3_title ) ) {
+			echo '<div class="section-legend"><label for="' . sanitize_title( $zerif_aboutus_feature3_title ) . '">' . wp_kses_post( $zerif_aboutus_feature3_title ) . '</label></div>';
+		} elseif ( is_customize_preview() ) {
+			echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
+		}
+
+		if ( ! empty( $zerif_aboutus_feature3_text ) ) {
+			echo '<p>' . wp_kses_post( $zerif_aboutus_feature3_text ) . '</p>';
+		} elseif ( is_customize_preview() ) {
+			echo '<p class="zerif_hidden_if_not_customizer"></p>';
+		}
+
+		echo '</li>';
+
+	}
+
+	?>
+
+<!-- SKILL FOUR -->
+
+	<?php
+	if ( ! empty( $zerif_aboutus_feature4_nr ) || ! empty( $zerif_aboutus_feature4_title ) || ! empty( $zerif_aboutus_feature4_text ) ) {
+		echo '<li class="skill skill_4">';
+
+		if ( ! empty( $zerif_aboutus_feature4_nr ) ) {
+
+			echo '<div class="skill-count">';
+
+			echo '<input role="presentation" type="text" id="' . ( ! empty( $zerif_aboutus_feature4_title ) ? sanitize_title( $zerif_aboutus_feature4_title ) : '' ) . '" value="' . esc_attr( $zerif_aboutus_feature4_nr ) . '" data-thickness=".2" class="skill4" tabindex="-1">';
+
+			echo '</div>';
+
+		}
+
+		if ( ! empty( $zerif_aboutus_feature4_title ) ) {
+			echo '<div class="section-legend"><label for="' . sanitize_title( $zerif_aboutus_feature4_title ) . '">' . wp_kses_post( $zerif_aboutus_feature4_title ) . '</label></div>';
+		} elseif ( is_customize_preview() ) {
+			echo '<div class="section-legend zerif_hidden_if_not_customizer"></div>';
+		}
+
+		if ( ! empty( $zerif_aboutus_feature4_text ) ) {
+			echo '<p>' . wp_kses_post( $zerif_aboutus_feature4_text ) . '</p>';
+		} elseif ( is_customize_preview() ) {
+			echo '<p class="zerif_hidden_if_not_customizer"></p>';
+		}
+
+		echo '</li>';
+
+	}
+
+	?>
 
 			</ul>
 
@@ -330,7 +330,7 @@ if ( ! empty( $zerif_aboutus_feature4_nr ) || ! empty( $zerif_aboutus_feature4_t
 			echo '<div data-scrollreveal="enter right move 60px after 0.00s over 2.5s">';
 			dynamic_sidebar( 'sidebar-aboutus' );
 			echo '</div>';
-			echo '</div> ';
+			echo '</div>';
 			endif;
 	?>
 
