@@ -135,14 +135,7 @@ function zerif_setup() {
 	require_once get_template_directory() . '/ti-prevdem/init-prevdem.php';
 
 	/* woocommerce support */
-	$woocommerce_settings = apply_filters(
-		'zerif_woocommerce_args', array(
-			'single_image_width'            => 1600,
-			'thumbnail_image_width'         => 300,
-			'gallery_thumbnail_image_width' => 165,
-		)
-	);
-	add_theme_support( 'woocommerce', $woocommerce_settings );
+	add_theme_support( 'woocommerce' );
 	add_theme_support( 'wc-product-gallery-zoom' );
 	add_theme_support( 'wc-product-gallery-lightbox' );
 	add_theme_support( 'wc-product-gallery-slider' );
@@ -531,7 +524,7 @@ function zerif_set_woo_image_sizes() {
 
 	update_option( 'zerif_update_woocommerce_customizer_controls', true );
 }
-add_action( 'after_setup_theme', 'zerif_set_woo_image_sizes', 10 );
+
 
 /**
  * Migrate logo from theme to core
