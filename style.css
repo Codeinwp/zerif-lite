@@ -2574,11 +2574,11 @@ section#contact .pirate_forms .contact_checkbox_wrap p {
 	background-color: rgba(255, 255, 255, 0.95);
 }
 
-div.wpforms-container-full .wpforms-form .wpforms-submit-container {
+.home div.wpforms-container-full .wpforms-form .wpforms-submit-container {
 	text-align: right;
 }
 
-div.wpforms-container-full .wpforms-form .wpforms-submit-container .wpforms-submit {
+.home div.wpforms-container-full .wpforms-form .wpforms-submit-container .wpforms-submit {
 	background-color: #e96656;
 	border-width: 0;
 	border-radius: 4px;
@@ -2588,7 +2588,7 @@ div.wpforms-container-full .wpforms-form .wpforms-submit-container .wpforms-subm
 	padding: 13px 35px 13px 35px;
 }
 
-div.wpforms-container-full .wpforms-form .wpforms-submit-container .wpforms-submit:hover {
+.home div.wpforms-container-full .wpforms-form .wpforms-submit-container .wpforms-submit:hover {
 	background-color: #cb4332;
 	border-width: 0;
 	border-radius: 4px;
@@ -2596,6 +2596,19 @@ div.wpforms-container-full .wpforms-form .wpforms-submit-container .wpforms-subm
 	font-size: 14px;
 	text-transform: uppercase;
 	padding: 13px 35px 13px 35px;
+}
+
+.home .wpforms-field-label, .home .wpforms-field-description, .home .wpforms-field-sublabel, .home .wpforms-field-checkbox, .home .wpforms-field-radio, .home .wpforms-image-choices-none label {
+	color: rgba(255, 255, 255, 0.95);
+	text-align: left;
+}
+
+.home .wpforms-field-checkbox .wpforms-image-choices, .home .wpforms-field-radio .wpforms-image-choices{
+	color: #404040;
+}
+
+.home div.wpforms-container-full .wpforms-form ul.wpforms-image-choices-classic .wpforms-selected label {
+	border-color: #e96656;
 }
 
 	/*---------------------------------------
