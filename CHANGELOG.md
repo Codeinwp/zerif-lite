@@ -1,4 +1,9 @@
 
+ ### v1.8.5-45 - 2018-08-28 
+ **Changes:** 
+ * Add compatibility with WPForms
+* Recommend Hestia Lite
+ 
  ### v1.8.5-44 - 2018-08-14 
  **Changes:** 
  
