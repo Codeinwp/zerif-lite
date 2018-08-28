@@ -2109,10 +2109,11 @@ add_filter( 'megamenu_themes', 'megamenu_add_theme_zerif_lite_max_menu' );
 
 /**
  * Function that decide if current date is before a certain date.
+ *
  * @param string $date Date to compare.
  * @return bool
  */
-function zerif_is_before_date( $date ){
+function zerif_is_before_date( $date ) {
 	$countdown_time = strtotime( $date );
 	$current_time   = time();
 	return $current_time <= $countdown_time;
@@ -2126,25 +2127,28 @@ function zerif_hestia_notice() {
 	$user_id = $current_user->ID;
 
 	$ignored_notice = get_user_meta( $user_id, 'zerif_ignore_hestia_notice' );
-	if( !empty( $ignored_notice ) ){
+	if ( ! empty( $ignored_notice ) ) {
 		return;
 	}
 
-	$should_display_notice = zerif_is_before_date('2018-11-01');
-	if( ! $should_display_notice ){
+	$should_display_notice = zerif_is_before_date( '2018-11-01' );
+	if ( ! $should_display_notice ) {
 		return;
 	}
 
 	$message =
-		/* translators: Install Hestia link */
-		sprintf( esc_html__( 'Check out our %s, fully compatible with your current Zerif Lite theme. You will love it!', 'zerif-lite' ),
-			sprintf( '<a href="%1$s"><strong>%2$s</strong></a>',
+		sprintf(
+			/* translators: Install Hestia link */
+			esc_html__( 'Check out our %s, fully compatible with your current Zerif Lite theme. You will love it!', 'zerif-lite' ),
+			sprintf(
+				'<a href="%1$s"><strong>%2$s</strong></a>',
 				admin_url( 'theme-install.php?theme=hestia' ),
 				esc_html__( 'best 2018 free theme', 'zerif-lite' )
 			)
 		);
 
-	$dismiss_button = sprintf( '<a href="%s" class="notice-dismiss" style="text-decoration:none;"></a>',
+	$dismiss_button = sprintf(
+		'<a href="%s" class="notice-dismiss" style="text-decoration:none;"></a>',
 		'?zerif_nag_ignore_hestia=0'
 	);
 
@@ -2174,39 +2178,45 @@ function zerif_neve_notice() {
 	$user_id = $current_user->ID;
 
 	$ignored_notice = get_user_meta( $user_id, 'zerif_ignore_neve_notice' );
-	if( !empty( $ignored_notice ) ){
+	if ( ! empty( $ignored_notice ) ) {
 		return;
 	}
 
-	$should_display_notice = ! zerif_is_before_date('2018-11-01');
-	if( ! $should_display_notice ){
+	$should_display_notice = ! zerif_is_before_date( '2018-11-01' );
+	if ( ! $should_display_notice ) {
 		return;
 	}
 
 	$dismiss_button =
-		sprintf( '<a href="%s" class="notice-dismiss" style="text-decoration:none;"></a>',
+		sprintf(
+			'<a href="%s" class="notice-dismiss" style="text-decoration:none;"></a>',
 			'?zerif_nag_ignore_neve=0'
 		);
 
 	$message1 =
-		sprintf( esc_html__( 'Zerif changes its name and will be no longer maintained. But don\'t worry about that. Check out %s, fully compatible with Zerif Lite. It\'s free and it\'s superb. You will love it!', 'zerif-lite' ),
+		sprintf(
 			/* translators: Install Neve link */
-			sprintf( '<a target="_blank" href="%1$s"><strong>%2$s</strong></a>',
+			esc_html__( 'Zerif changes its name and will be no longer maintained. But don\'t worry about that. Check out %s, fully compatible with Zerif Lite. It\'s free and it\'s superb. You will love it!', 'zerif-lite' ),
+			sprintf(
+				'<a target="_blank" href="%1$s"><strong>%2$s</strong></a>',
 				esc_url( 'https://themeisle.com/themes/neve/?notice=1' ),
 				esc_html__( 'our newest theme', 'zerif-lite' )
 			)
 		);
 
 	$message2 =
-		sprintf( esc_html__( '%s about the Zerif renaming and our next plans.', 'zerif-lite' ),
+		sprintf(
 			/* translators: Zerif renaming article link */
-			sprintf( '<a target="_blank" href="%1$s"><strong>%2$s</strong></a>',
+			esc_html__( '%s about the Zerif renaming and our next plans.', 'zerif-lite' ),
+			sprintf(
+				'<a target="_blank" href="%1$s"><strong>%2$s</strong></a>',
 				esc_url( 'https://themeisle.com/blog/zerif-changes-its-name-to-zelle/' ),
 				esc_html__( 'Read more', 'zerif-lite' )
 			)
 		);
 
-	printf( '<div class="notice updated" style="position:relative;">%1$s<p>%2$s</p><p>%3$s</p></div>',
+	printf(
+		'<div class="notice updated" style="position:relative;">%1$s<p>%2$s</p><p>%3$s</p></div>',
 		$dismiss_button,
 		$message1,
 		$message2
