@@ -79,7 +79,7 @@ class Zerif_Customizer_Upsell_Features extends WP_Customize_Section {
 	 * @return void
 	 */
 	protected function render_template() {
-	?>
+		?>
 
 		<li id="accordion-section-{{ data.id }}" class="accordion-section control-section control-section-{{ data.type }} cannot-expand">
 			<p class="frontpage-sections-upsell">

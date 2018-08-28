@@ -4,7 +4,7 @@ Theme URI: https://themeisle.com/themes/zerif-lite/
 Author: ThemeIsle
 Author URI: https://themeisle.com
 Description: Zerif LITE is a free one page WordPress theme. It's perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.
-Version: 1.8.5.44
+Version: 1.8.5.45
 License: GNU General Public License version 3
 License URI: license.txt
 WordPress Available:  yes
@@ -2563,10 +2563,57 @@ section#contact .pirate_forms .contact_checkbox_wrap p {
 	background-size: 30px 30px;
 }
 
+/****************************************************************/
+/***********************  WPFORMS Lite style ********************/
+/****************************************************************/
 
-/*---------------------------------------
- **   Section: About us;              -----
------------------------------------------*/
+.home div.wpforms-container-full .wpforms-form input[type=text], .home div.wpforms-container-full .wpforms-form input[type=email], .home div.wpforms-container-full .wpforms-form textarea {
+	border-radius: 4px;
+	padding: 9px 9px 9px 15px;
+	font-size: 14px;
+	background-color: rgba(255, 255, 255, 0.95);
+}
+
+.home div.wpforms-container-full .wpforms-form .wpforms-submit-container {
+	text-align: right;
+}
+
+.home div.wpforms-container-full .wpforms-form .wpforms-submit-container .wpforms-submit {
+	background-color: #e96656;
+	border-width: 0;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 14px;
+	text-transform: uppercase;
+	padding: 13px 35px 13px 35px;
+}
+
+.home div.wpforms-container-full .wpforms-form .wpforms-submit-container .wpforms-submit:hover {
+	background-color: #cb4332;
+	border-width: 0;
+	border-radius: 4px;
+	color: #fff;
+	font-size: 14px;
+	text-transform: uppercase;
+	padding: 13px 35px 13px 35px;
+}
+
+.home .wpforms-field-label, .home .wpforms-field-description, .home .wpforms-field-sublabel, .home .wpforms-field-checkbox, .home .wpforms-field-radio, .home .wpforms-image-choices-none label {
+	color: rgba(255, 255, 255, 0.95);
+	text-align: left;
+}
+
+.home .wpforms-field-checkbox .wpforms-image-choices, .home .wpforms-field-radio .wpforms-image-choices{
+	color: #404040;
+}
+
+.home div.wpforms-container-full .wpforms-form ul.wpforms-image-choices-classic .wpforms-selected label {
+	border-color: #e96656;
+}
+
+	/*---------------------------------------
+     **   Section: About us;              -----
+    -----------------------------------------*/
 
 .about-us {
 	color: #fff;
