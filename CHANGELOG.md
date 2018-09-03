@@ -1,4 +1,8 @@
 
+ ### v1.8.5-46 - 2018-09-03 
+ **Changes:** 
+ * Redone the code for notices
+ 
  ### v1.8.5-45 - 2018-08-28 
  **Changes:** 
  * Add compatibility with WPForms
