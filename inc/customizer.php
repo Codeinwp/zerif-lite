@@ -2254,7 +2254,7 @@ function zerif_customize_register( $wp_customize ) {
 
 	/* Contactus subtitle */
 
-	/* translators: WPForms Lite plugin */
+	/* translators: PirateForms plugin */
 	$default = ! defined( 'PIRATE_FORMS_VERSION' ) ? sprintf( __( 'You need to install %s to create a contact form.', 'zerif-lite' ), 'Pirate Forms' ) : '';
 	$wp_customize->add_setting(
 		'zerif_contactus_subtitle', array(

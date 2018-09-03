@@ -35,7 +35,7 @@ if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
 }
 
 
-define( 'ZERIF_LITE_VERSION', '1.8.5.45' );
+define( 'ZERIF_LITE_VERSION', '1.8.5.46' );
 
 
 
@@ -2186,33 +2186,28 @@ function zerif_neve_notice() {
 			'?zerif_nag_ignore_neve=0'
 		);
 
-	$message1 =
+	$message =
 		sprintf(
-			/* translators: Install Neve link */
-			esc_html__( 'Zerif changes its name and will be no longer maintained. But don\'t worry about that. Check out %s, fully compatible with Zerif Lite. It\'s free and it\'s superb. You will love it!', 'zerif-lite' ),
+			/* translators: Install Neve link and Zerif renaming article link */
+			esc_html__( 'Zerif changes its name and will no longer be maintained. But don\'t worry about that. Check out %1$s, fully compatible with Zerif Lite. It\'s free and it\'s superb. You will love it! %2$s about the Zerif renaming and our next plans.', 'zerif-lite' ),
 			sprintf(
+				/* translators: Install Neve link */
 				'<a target="_blank" href="%1$s"><strong>%2$s</strong></a>',
 				esc_url( 'https://themeisle.com/themes/neve/?notice=1' ),
 				esc_html__( 'our newest theme', 'zerif-lite' )
-			)
-		);
-
-	$message2 =
-		sprintf(
+			),
 			/* translators: Zerif renaming article link */
-			esc_html__( '%s about the Zerif renaming and our next plans.', 'zerif-lite' ),
 			sprintf(
-				'<a target="_blank" href="%1$s"><strong>%2$s</strong></a>',
+				'<br><a target="_blank" href="%1$s"><strong>%2$s</strong></a>',
 				esc_url( 'https://themeisle.com/blog/zerif-changes-its-name-to-zelle/' ),
 				esc_html__( 'Read more', 'zerif-lite' )
 			)
 		);
 
 	printf(
-		'<div class="notice updated" style="position:relative;">%1$s<p>%2$s</p><p>%3$s</p></div>',
+		'<div class="notice updated" style="position:relative;">%1$s<p>%2$s</p></div>',
 		$dismiss_button,
-		$message1,
-		$message2
+		$message
 	);
 }
 add_action( 'admin_notices', 'zerif_neve_notice' );
