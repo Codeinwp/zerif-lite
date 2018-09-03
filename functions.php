@@ -35,7 +35,7 @@ if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
 }
 
 
-define( 'ZERIF_LITE_VERSION', '1.8.5.45' );
+define( 'ZERIF_LITE_VERSION', '1.8.5.46' );
 
 
 
@@ -2175,7 +2175,7 @@ function zerif_neve_notice() {
 		return;
 	}
 
-	$should_display_notice = ! zerif_is_before_date( '2018-08-01' );
+	$should_display_notice = ! zerif_is_before_date( '2018-11-01' );
 	if ( ! $should_display_notice ) {
 		return;
 	}
