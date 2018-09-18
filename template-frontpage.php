@@ -106,7 +106,7 @@ if ( ( isset( $zerif_bigtitle_show ) && $zerif_bigtitle_show != 1 ) || is_custom
 					$contactus_subtitle_default = '';
 					if ( ! defined( 'PIRATE_FORMS_VERSION' ) ) {
 						/* translators: Pirate Forms plugin install link */
-						$contactus_subtitle_default = sprintf( __( 'You need to install %s to create a contact form.', 'zerif-lite' ), sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=pirate-forms' ), 'install-plugin_pirate-forms' ) ), 'Pirate Forms' ) );
+						$contactus_subtitle_default = sprintf( __( 'You need to install %s to create a contact form.', 'zerif-lite' ), sprintf( '<a href="%1$s" class="zerif-default-links">%2$s</a>', esc_url( wp_nonce_url( self_admin_url( 'update.php?action=install-plugin&plugin=wpforms-lite' ), 'install-plugin_wpforms-lite' ) ), 'WPForms' ) );
 					}
 
 					if ( current_user_can( 'edit_theme_options' ) ) {

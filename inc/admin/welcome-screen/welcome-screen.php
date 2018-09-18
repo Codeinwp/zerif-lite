@@ -109,7 +109,9 @@ class Zerif_Welcome {
 			endif;
 
 			wp_localize_script(
-				'zerif-lite-welcome-screen-js', 'zerifLiteWelcomeScreenObject', array(
+				'zerif-lite-welcome-screen-js',
+				'zerifLiteWelcomeScreenObject',
+				array(
 					'nr_actions_required'      => $nr_actions_required,
 					'ajaxurl'                  => admin_url( 'admin-ajax.php' ),
 					'template_directory'       => get_template_directory_uri(),
@@ -149,7 +151,9 @@ class Zerif_Welcome {
 		endif;
 
 		wp_localize_script(
-			'zerif-lite-welcome-screen-customizer-js', 'zerifLiteWelcomeScreenCustomizerObject', array(
+			'zerif-lite-welcome-screen-customizer-js',
+			'zerifLiteWelcomeScreenCustomizerObject',
+			array(
 				'nr_actions_required' => $nr_actions_required,
 				'aboutpage'           => esc_url( admin_url( 'themes.php?page=zerif-lite-welcome#actions_required' ) ),
 				'customizerpage'      => esc_url( admin_url( 'customize.php#actions_required' ) ),
