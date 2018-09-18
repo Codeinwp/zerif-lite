@@ -99,7 +99,8 @@ class Ti_Customizer_Notify_Section extends WP_Customize_Section {
 						'plugin_status' => 'all',
 						'paged'         => '1',
 						'_wpnonce'      => wp_create_nonce( 'deactivate-plugin_' . $slug . '/' . $slug . '.php' ),
-					), network_admin_url( 'plugins.php' )
+					),
+					network_admin_url( 'plugins.php' )
 				);
 				break;
 			case 'activate':
@@ -110,7 +111,8 @@ class Ti_Customizer_Notify_Section extends WP_Customize_Section {
 						'plugin_status' => 'all',
 						'paged'         => '1',
 						'_wpnonce'      => wp_create_nonce( 'activate-plugin_' . $slug . '/' . $slug . '.php' ),
-					), network_admin_url( 'plugins.php' )
+					),
+					network_admin_url( 'plugins.php' )
 				);
 				break;
 		}
@@ -124,7 +126,8 @@ class Ti_Customizer_Notify_Section extends WP_Customize_Section {
 
 		if ( false === ( $call_api = get_transient( 'ti_customizer_notify_plugin_information_transient_' . $slug ) ) ) {
 			$call_api = plugins_api(
-				'plugin_information', array(
+				'plugin_information',
+				array(
 					'slug'   => $slug,
 					'fields' => array(
 						'downloaded'        => false,

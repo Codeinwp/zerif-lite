@@ -91,8 +91,10 @@ function zerif_setup() {
 		$zerif_default_image = get_template_directory_uri() . '/images/bg.jpg';
 	}
 	add_theme_support(
-		'custom-background', apply_filters(
-			'zerif_custom_background_args', array(
+		'custom-background',
+		apply_filters(
+			'zerif_custom_background_args',
+			array(
 				'default-color' => 'ffffff',
 				'default-image' => $zerif_default_image,
 			)
@@ -101,7 +103,8 @@ function zerif_setup() {
 
 	/* Enable support for HTML5 markup. */
 	add_theme_support(
-		'html5', array(
+		'html5',
+		array(
 			'comment-list',
 			'search-form',
 			'comment-form',
@@ -114,7 +117,8 @@ function zerif_setup() {
 
 	/* Enable support for custom logo */
 	add_theme_support(
-		'custom-logo', array(
+		'custom-logo',
+		array(
 			'flex-width' => true,
 		)
 	);
@@ -672,11 +676,13 @@ function zerif_scripts() {
 	wp_enqueue_style( 'zerif_font', zerif_slug_fonts_url(), array(), null );
 
 	wp_enqueue_style(
-		'zerif_font_all', add_query_arg(
+		'zerif_font_all',
+		add_query_arg(
 			array(
 				'family' => urlencode( 'Open Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic' ),
 				'subset' => urlencode( 'latin' ),
-			), '//fonts.googleapis.com/css'
+			),
+			'//fonts.googleapis.com/css'
 		)
 	);
 
@@ -1943,7 +1949,8 @@ function zerif_starter_content() {
 	 * Starter Content Support
 	 */
 	add_theme_support(
-		'starter-content', array(
+		'starter-content',
+		array(
 			// Twenty Seventeen
 			'posts'     => array(
 				'home',
