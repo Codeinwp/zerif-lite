@@ -41,7 +41,8 @@ if ( ! empty( $zerif_total_posts ) && ( $zerif_total_posts > 0 ) ) :
 
 				$zerif_latest_loop = new WP_Query(
 					apply_filters(
-						'zerif_latest_news_parameters', array(
+						'zerif_latest_news_parameters',
+						array(
 							'post_type'           => 'post',
 							'posts_per_page'      => $zerif_total_posts,
 							'order'               => 'DESC',
@@ -160,13 +161,15 @@ if ( ! empty( $zerif_total_posts ) && ( $zerif_total_posts > 0 ) ) :
 
 				/* Controls */
 				echo apply_filters(
-					'zerif_latest_news_left_arrow', '<a class="left carousel-control" href="#carousel-homepage-latestnews" role="button" data-slide="prev">
+					'zerif_latest_news_left_arrow',
+					'<a class="left carousel-control" href="#carousel-homepage-latestnews" role="button" data-slide="prev">
 						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
 						<span class="sr-only">' . __( 'Previous', 'zerif-lite' ) . '</span>
 					</a>'
 				);
 			echo apply_filters(
-				'zerif_latest_news_right_arrow', '<a class="right carousel-control" href="#carousel-homepage-latestnews" role="button" data-slide="next">
+				'zerif_latest_news_right_arrow',
+				'<a class="right carousel-control" href="#carousel-homepage-latestnews" role="button" data-slide="next">
 						<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 						<span class="sr-only">' . __( 'Next', 'zerif-lite' ) . '</span>
 					</a>'

@@ -13,7 +13,8 @@
 function zerif_jetpack_setup() {
 
 	add_theme_support(
-		'infinite-scroll', array(
+		'infinite-scroll',
+		array(
 
 			'container' => 'main',
 

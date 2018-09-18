@@ -77,7 +77,9 @@ final class Zerif_Customizer_Upsell {
 		// Main Documentation Link In Customizer Root.
 		$manager->add_section(
 			new Zerif_Customizer_Theme_Info_Main(
-				$manager, 'zerif-theme-info', array(
+				$manager,
+				'zerif-theme-info',
+				array(
 					'theme_info_title' => __( 'Zerif Lite', 'zerif-lite' ),
 					'label_url'        => esc_url( 'http://docs.themeisle.com/article/5-zerif-lite-documentation' ),
 					'label_text'       => __( 'Documentation', 'zerif-lite' ),
@@ -88,7 +90,9 @@ final class Zerif_Customizer_Upsell {
 		// Frontpage Sections Upsell.
 		$manager->add_section(
 			new Zerif_Customizer_Upsell_Section(
-				$manager, 'zerif-upsell-frontpage-sections', array(
+				$manager,
+				'zerif-upsell-frontpage-sections',
+				array(
 					'panel'       => 'zerif_frontpage_sections_panel',
 					'priority'    => 500,
 					'options'     => array(

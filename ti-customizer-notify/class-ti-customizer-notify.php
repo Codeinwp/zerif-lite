@@ -165,7 +165,9 @@ class Ti_Customizer_Notify {
 
 		wp_enqueue_script( 'ti-customizer-notify-customizer-js', get_template_directory_uri() . '/ti-customizer-notify/js/ti-customizer-notify-customizer.js', array( 'customize-controls' ) );
 		wp_localize_script(
-			'ti-customizer-notify-customizer-js', 'tiCustomizerNotifyObject', array(
+			'ti-customizer-notify-customizer-js',
+			'tiCustomizerNotifyObject',
+			array(
 				'ajaxurl'            => admin_url( 'admin-ajax.php' ),
 				'template_directory' => get_template_directory_uri(),
 				'base_path'          => admin_url(),
