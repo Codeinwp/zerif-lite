@@ -445,12 +445,12 @@ function zerif_setup() {
 					'plugin_slug' => 'themeisle-companion',
 					'id'          => 'themeisle-companion',
 				),
-				'pirate-forms'        => array(
-					'title'       => 'Pirate Forms',
+				'wpforms-lite'        => array(
+					'title'       => 'WPForms',
 					'description' => __( 'Makes your contact page more engaging by creating a good-looking contact form on your website. The interaction with your visitors was never easier.', 'zerif-lite' ),
 					'check'       => defined( 'PIRATE_FORMS_VERSION' ),
-					'plugin_slug' => 'pirate-forms',
-					'id'          => 'pirate-forms',
+					'plugin_slug' => 'wpforms-lite',
+					'id'          => 'wpforms-lite',
 				),
 
 			),
@@ -795,8 +795,8 @@ function zerif_register_required_plugins() {
 				'required' => false,
 			),
 			array(
-				'name'     => 'Pirate Forms',
-				'slug'     => 'pirate-forms',
+				'name'     => 'WPForms',
+				'slug'     => 'wpforms-lite',
 				'required' => false,
 			),
 			array(
@@ -810,8 +810,8 @@ function zerif_register_required_plugins() {
 
 		$plugins = array(
 			array(
-				'name'     => 'Pirate Forms',
-				'slug'     => 'pirate-forms',
+				'name'     => 'WPForms',
+				'slug'     => 'wpforms-lite',
 				'required' => false,
 			),
 			array(
