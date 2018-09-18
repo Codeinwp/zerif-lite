@@ -1,4 +1,8 @@
 
+ ### v1.8.5-47 - 2018-09-18 
+ **Changes:** 
+ * Recommend WPForms plugin
+ 
  ### v1.8.5-46 - 2018-09-03 
  **Changes:** 
  * Redone the code for notices
