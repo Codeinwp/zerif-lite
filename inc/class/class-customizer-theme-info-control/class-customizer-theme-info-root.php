@@ -2,7 +2,7 @@
 /**
  * Singleton class file.
  *
- * @package Zerif Lite
+ * @package Zelle Lite
  */
 
 /**
@@ -80,7 +80,7 @@ final class Zerif_Customizer_Upsell {
 				$manager,
 				'zerif-theme-info',
 				array(
-					'theme_info_title' => __( 'Zerif Lite', 'zerif-lite' ),
+					'theme_info_title' => __( 'Zelle Lite', 'zerif-lite' ),
 					'label_url'        => esc_url( 'http://docs.themeisle.com/article/5-zerif-lite-documentation' ),
 					'label_text'       => __( 'Documentation', 'zerif-lite' ),
 				)

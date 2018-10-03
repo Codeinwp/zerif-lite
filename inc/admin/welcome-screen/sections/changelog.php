@@ -11,7 +11,7 @@ $zerif_lite = wp_get_theme( 'zerif-lite' );
 <div class="zerif-lite-tab-pane" id="changelog">
 
 	<div class="zerif-tab-pane-center">
-		<h1>Zerif Lite
+		<h1>Zelle Lite
 			<?php
 			if ( ! empty( $zerif_lite['Version'] ) ) :
 				?>

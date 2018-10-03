@@ -15,7 +15,7 @@
 
 		<h1><?php esc_html_e( 'Get a whole new look for your site', 'zerif-lite' ); ?></h1>
 
-		<p><?php esc_html_e( 'Below you will find a selection of Zerif Lite child themes that will totally transform the look of your site.', 'zerif-lite' ); ?></p>
+		<p><?php esc_html_e( 'Below you will find a selection of Zelle Lite child themes that will totally transform the look of your site.', 'zerif-lite' ); ?></p>
 
 	</div>
 
