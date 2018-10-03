@@ -1,4 +1,8 @@
 
+ ### v1.8.5-48 - 2018-10-03 
+ **Changes:** 
+ * Rename Zerif Lite to Zelle Lite
+ 
  ### v1.8.5-47 - 2018-09-18 
  **Changes:** 
  * Recommend WPForms plugin
