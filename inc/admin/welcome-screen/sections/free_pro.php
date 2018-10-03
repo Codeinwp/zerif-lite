@@ -13,8 +13,8 @@
 		<thead>
 			<tr>
 				<th></th>
-				<th>Zerif Lite</th>
-				<th>Zerif PRO</th>
+				<th>Zelle Lite</th>
+				<th>Zelle PRO</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -125,7 +125,7 @@
 			<tr>
 				<td>
 					<h3><?php esc_html_e( 'No credit footer link', 'zerif-lite' ); ?></h3>
-					<p><?php esc_html_e( 'Remove "Zerif Lite powered by WordPress" copyright from the footer.', 'zerif-lite' ); ?></p>
+					<p><?php esc_html_e( 'Remove "Zelle Lite powered by WordPress" copyright from the footer.', 'zerif-lite' ); ?></p>
 				</td>
 				<td><span class="dashicons-before dashicons-no-alt"></span></td>
 				<td><span class="dashicons-before dashicons-yes"></span></td>

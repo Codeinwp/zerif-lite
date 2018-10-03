@@ -1,4 +1,4 @@
-# Zerif Lite
+# Zelle Lite
 
 Contributors:		[Codeinwp](https://github.com/Codeinwp), [Uriahs Victor](https://github.com/UVLabs), [HardeepAsrani](https://github.com/HardeepAsrani), [Rodica-Elena Andronache](https://github.com/rodica-andronache)
 
@@ -9,12 +9,12 @@ Requires at least:	3.3.0
 Tested up to:		4.4
 
 ## Description
-Zerif Lite is a modern responsive WordPress Theme. It's perfect for web agencies, digital studios, corporate, product showcase, personal and business portfolio.
+Zelle Lite is a modern responsive WordPress Theme. It's perfect for web agencies, digital studios, corporate, product showcase, personal and business portfolio.
 
 ## License
-Zerif Lite WordPress theme, Copyright (C) 2014 ThemeIsle.com
+Zelle Lite WordPress theme, Copyright (C) 2014 ThemeIsle.com
 
-Zerif Lite WordPress theme is licensed under the GPL3.
+Zelle Lite WordPress theme is licensed under the GPL3.
 
 Note: The custom background only applies to the blog posts index.
 

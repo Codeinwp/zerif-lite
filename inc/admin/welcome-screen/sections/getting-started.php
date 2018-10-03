@@ -12,14 +12,14 @@ $customizer_url = admin_url() . 'customize.php';
 
 	<div class="zerif-tab-pane-center">
 
-		<h1 class="zerif-lite-welcome-title">Welcome to Zerif Lite! 
+		<h1 class="zerif-lite-welcome-title">Welcome to Zelle Lite!
 		<?php
 		if ( ! empty( $zerif_lite['Version'] ) ) :
 			?>
 <sup id="zerif-lite-theme-version"><?php echo esc_attr( $zerif_lite['Version'] ); ?> </sup><?php endif; ?></h1>
 
-		<p><?php esc_html_e( 'Our most popular free one page WordPress theme, Zerif Lite!', 'zerif-lite' ); ?></p>
-		<p><?php esc_html_e( 'We want to make sure you have the best experience using Zerif Lite and that is why we gathered here all the necessary informations for you. We hope you will enjoy using Zerif Lite, as much as we enjoy creating great products.', 'zerif-lite' ); ?>
+		<p><?php esc_html_e( 'Our most popular free one page WordPress theme, Zelle Lite!', 'zerif-lite' ); ?></p>
+		<p><?php esc_html_e( 'We want to make sure you have the best experience using Zelle Lite and that is why we gathered here all the necessary informations for you. We hope you will enjoy using Zelle Lite, as much as we enjoy creating great products.', 'zerif-lite' ); ?>
 
 	</div>
 
@@ -57,8 +57,8 @@ $customizer_url = admin_url() . 'customize.php';
 
 		<hr>
 
-		<h4><?php esc_html_e( 'Translate Zerif Lite', 'zerif-lite' ); ?></h4>
-		<p><?php esc_html_e( 'In the below documentation you will find an easy way to translate Zerif Lite into your native language or any other language you need for you site.', 'zerif-lite' ); ?></p>
+		<h4><?php esc_html_e( 'Translate Zelle Lite', 'zerif-lite' ); ?></h4>
+		<p><?php esc_html_e( 'In the below documentation you will find an easy way to translate Zelle Lite into your native language or any other language you need for you site.', 'zerif-lite' ); ?></p>
 		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/80-how-to-translate-zerif' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr>
@@ -70,7 +70,7 @@ $customizer_url = admin_url() . 'customize.php';
 		<hr>
 
 		<h4><?php esc_html_e( 'Turn off the animations', 'zerif-lite' ); ?></h4>
-		<p><?php esc_html_e( 'You can turn off the animation effects you see when Zerif Lite loads a section in an easy way with just few changes. Check the documentation below.', 'zerif-lite' ); ?></p>
+		<p><?php esc_html_e( 'You can turn off the animation effects you see when Zelle Lite loads a section in an easy way with just few changes. Check the documentation below.', 'zerif-lite' ); ?></p>
 		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/15-turn-off-loading-animations-in-zerif/' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr>
@@ -108,13 +108,13 @@ $customizer_url = admin_url() . 'customize.php';
 		<hr>
 
 		<h4><?php esc_html_e( 'Change the page template', 'zerif-lite' ); ?></h4>
-		<p><?php esc_html_e( 'Zerif Lite has three page templates available, two for the blog and one for full width pages. To make sure you take full advantage of those page templates, make sure you read the documentation.', 'zerif-lite' ); ?></p>
+		<p><?php esc_html_e( 'Zelle Lite has three page templates available, two for the blog and one for full width pages. To make sure you take full advantage of those page templates, make sure you read the documentation.', 'zerif-lite' ); ?></p>
 		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/32-how-to-change-the-page-template-in-wordpress' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr>
 
 		<h4><?php esc_html_e( 'Remove the opacity', 'zerif-lite' ); ?></h4>
-		<p><?php esc_html_e( 'You don\'t like the way Zerif Lite looks with its background opacity? No problem. Just remove it using the steps below.', 'zerif-lite' ); ?></p>
+		<p><?php esc_html_e( 'You don\'t like the way Zelle Lite looks with its background opacity? No problem. Just remove it using the steps below.', 'zerif-lite' ); ?></p>
 		<p><a href="<?php echo esc_url( 'http://docs.themeisle.com/article/30-removing-background-opacity-in-zerif/' ); ?>" class="button"><?php esc_html_e( 'View how to do this', 'zerif-lite' ); ?></a></p>
 
 		<hr>
@@ -138,7 +138,7 @@ $customizer_url = admin_url() . 'customize.php';
 	<div class="zerif-tab-pane-center">
 
 		<h1><?php esc_html_e( 'View full documentation', 'zerif-lite' ); ?></h1>
-		<p><?php esc_html_e( 'Need more details? Please check our full documentation for detailed information on how to use Zerif Lite.', 'zerif-lite' ); ?></p>
+		<p><?php esc_html_e( 'Need more details? Please check our full documentation for detailed information on how to use Zelle Lite.', 'zerif-lite' ); ?></p>
 		<p><a href="<?php echo esc_url( 'http://themeisle.com/documentation-zerif-lite/' ); ?>" class="button button-primary"><?php esc_html_e( 'Read full documentation', 'zerif-lite' ); ?></a></p>
 
 	</div>

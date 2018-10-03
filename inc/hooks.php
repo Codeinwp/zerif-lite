@@ -1,6 +1,6 @@
 <?php
 /**
- * Zerif Lite Hooks
+ * Zelle Lite Hooks
  *
  * @package zerif-lite
  */

@@ -1,6 +1,6 @@
 <?php
 /**
- * Zerif Lite functions and definitions
+ * Zelle Lite functions and definitions
  *
  * @package zerif-lite
  */
@@ -35,7 +35,7 @@ if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
 }
 
 
-define( 'ZERIF_LITE_VERSION', '1.8.5.47' );
+define( 'ZERIF_LITE_VERSION', '1.8.5.48' );
 
 
 
@@ -199,14 +199,14 @@ function zerif_setup() {
 	*/
 	$config = array(
 		// Menu name under Appearance.
-		'menu_name'           => __( 'About Zerif Lite', 'zerif-lite' ),
+		'menu_name'           => __( 'About Zelle Lite', 'zerif-lite' ),
 		// Page title.
-		'page_name'           => __( 'About Zerif Lite', 'zerif-lite' ),
+		'page_name'           => __( 'About Zelle Lite', 'zerif-lite' ),
 		// Main welcome title
 		/* translators: Theme Name */
-		'welcome_title'       => sprintf( __( 'Welcome to %s! - Version ', 'zerif-lite' ), 'Zerif Lite' ),
+		'welcome_title'       => sprintf( __( 'Welcome to %s! - Version ', 'zerif-lite' ), 'Zelle Lite' ),
 		// Main welcome content
-		'welcome_content'     => esc_html__( 'Zerif LITE is a free one page WordPress theme. It\'s perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zerif Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.', 'zerif-lite' ),
+		'welcome_content'     => esc_html__( 'Zelle LITE is a free one page WordPress theme. It\'s perfect for web agency business,corporate business,personal and parallax business portfolio, photography sites and freelancer.Is built on BootStrap with parallax support, is responsive, clean, modern, flat and minimal. Zelle Lite is ecommerce (WooCommerce) Compatible, WPML, RTL, Retina-Ready, SEO Friendly and with parallax, full screen image is one of the best business themes.', 'zerif-lite' ),
 		/**
 		 * Tabs array.
 		 *
@@ -226,7 +226,7 @@ function zerif_setup() {
 			'first'  => array(
 				'title'        => esc_html__( 'Contact Support', 'zerif-lite' ),
 				'icon'         => 'dashicons dashicons-sos',
-				'text'         => esc_html__( 'We want to make sure you have the best experience using Zerif Lite and that is why we gathered here all the necessary informations for you. We hope you will enjoy using Zerif Lite, as much as we enjoy creating great products.', 'zerif-lite' ),
+				'text'         => esc_html__( 'We want to make sure you have the best experience using Zelle Lite and that is why we gathered here all the necessary informations for you. We hope you will enjoy using Zelle Lite, as much as we enjoy creating great products.', 'zerif-lite' ),
 				'button_label' => esc_html__( 'Contact Support', 'zerif-lite' ),
 				'button_link'  => esc_url( 'https://themeisle.com/contact/' ),
 				'is_button'    => true,
@@ -235,7 +235,7 @@ function zerif_setup() {
 			'second' => array(
 				'title'        => esc_html__( 'Documentation', 'zerif-lite' ),
 				'icon'         => 'dashicons dashicons-book-alt',
-				'text'         => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Zerif Lite.', 'zerif-lite' ),
+				'text'         => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Zelle Lite.', 'zerif-lite' ),
 				'button_label' => esc_html__( 'Read full documentation', 'zerif-lite' ),
 				'button_link'  => 'https://docs.themeisle.com/article/5-zerif-lite-documentation',
 				'is_button'    => false,
@@ -291,7 +291,7 @@ function zerif_setup() {
 			),
 			'second' => array(
 				'title'               => esc_html__( 'Read full documentation', 'zerif-lite' ),
-				'text'                => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Zerif Lite.', 'zerif-lite' ),
+				'text'                => esc_html__( 'Need more details? Please check our full documentation for detailed information on how to use Zelle Lite.', 'zerif-lite' ),
 				'button_label'        => esc_html__( 'Documentation', 'zerif-lite' ),
 				'button_link'         => 'https://docs.themeisle.com/article/5-zerif-lite-documentation',
 				'is_button'           => false,
@@ -310,8 +310,8 @@ function zerif_setup() {
 		),
 		// Free vs pro array.
 		'free_pro'            => array(
-			'free_theme_name'     => 'Zerif Lite',
-			'pro_theme_name'      => 'Zerif PRO',
+			'free_theme_name'     => 'Zelle Lite',
+			'pro_theme_name'      => 'Zelle PRO',
 			'pro_theme_link'      => 'https://themeisle.com/themes/zerif-pro-one-page-wordpress-theme/upgrade/',
 			/* translators: Zerif Pro name */
 			'get_pro_theme_label' => sprintf( __( 'Get %s now!', 'zerif-lite' ), 'Zerif Pro' ),
@@ -396,7 +396,7 @@ function zerif_setup() {
 				),
 				array(
 					'title'       => __( 'No credit footer link', 'zerif-lite' ),
-					'description' => __( 'Remove "Zerif Lite developed by ThemeIsle" copyright from the footer.', 'zerif-lite' ),
+					'description' => __( 'Remove "Zelle Lite developed by ThemeIsle" copyright from the footer.', 'zerif-lite' ),
 					'is_in_lite'  => 'false',
 					'is_in_pro'   => 'true',
 				),
@@ -1882,7 +1882,7 @@ function zerif_lite_update_options_in_pirate_forms() {
 	/* if Pirate Forms is installed */
 	if ( defined( 'PIRATE_FORMS_VERSION' ) ) :
 
-		$zerif_lite_current_mods = get_theme_mods(); /* all theme modification values in Customize for Zerif Lite */
+		$zerif_lite_current_mods = get_theme_mods(); /* all theme modification values in Customize for Zelle Lite */
 
 		$pirate_forms_settings_array = get_option( 'pirate_forms_settings_array' ); /* Pirate Forms's options's array */
 
@@ -2120,57 +2120,6 @@ function zerif_is_before_date( $date ) {
 }
 
 /**
- * Add a dismissible notice in the dashboard to let users know they can migrate to Hestia
- */
-function zerif_hestia_notice() {
-	global $current_user;
-	$user_id = $current_user->ID;
-
-	$ignored_notice = get_user_meta( $user_id, 'zerif_ignore_hestia_notice' );
-	if ( ! empty( $ignored_notice ) ) {
-		return;
-	}
-
-	$should_display_notice = zerif_is_before_date( '2018-11-01' );
-	if ( ! $should_display_notice ) {
-		return;
-	}
-
-	$message =
-		sprintf(
-			/* translators: Install Hestia link */
-			esc_html__( 'Check out our %s, fully compatible with your current Zerif Lite theme. You will love it!', 'zerif-lite' ),
-			sprintf(
-				'<a href="%1$s"><strong>%2$s</strong></a>',
-				admin_url( 'theme-install.php?theme=hestia' ),
-				esc_html__( 'best 2018 free theme', 'zerif-lite' )
-			)
-		);
-
-	$dismiss_button = sprintf(
-		'<a href="%s" class="notice-dismiss" style="text-decoration:none;"></a>',
-		'?zerif_nag_ignore_hestia=0'
-	);
-
-	printf( '<div class="notice updated" style="position:relative;">%1$s<p>%2$s</p></div>', $dismiss_button, $message );
-}
-add_action( 'admin_notices', 'zerif_hestia_notice' );
-
-
-/**
- * Update the zerif_ignore_hestia_notice option to true, to dismiss the notice from the dashboard
- */
-function zerif_nag_ignore_hestia() {
-	global $current_user;
-	$user_id = $current_user->ID;
-	/* If user clicks to ignore the notice, add that to their user meta */
-	if ( isset( $_GET['zerif_nag_ignore_hestia'] ) && '0' == $_GET['zerif_nag_ignore_hestia'] ) {
-		add_user_meta( $user_id, 'zerif_ignore_hestia_notice', 'true', true );
-	}
-}
-add_action( 'admin_init', 'zerif_nag_ignore_hestia' );
-
-/**
  * Add a dismissible notice in the dashboard to let users know they can migrate to Zelle and read about Zerif renaming
  */
 function zerif_neve_notice() {
@@ -2179,11 +2128,6 @@ function zerif_neve_notice() {
 
 	$ignored_notice = get_user_meta( $user_id, 'zerif_ignore_neve_notice' );
 	if ( ! empty( $ignored_notice ) ) {
-		return;
-	}
-
-	$should_display_notice = ! zerif_is_before_date( '2018-11-01' );
-	if ( ! $should_display_notice ) {
 		return;
 	}
 
@@ -2196,7 +2140,7 @@ function zerif_neve_notice() {
 	$message =
 		sprintf(
 			/* translators: Install Neve link and Zerif renaming article link */
-			esc_html__( 'Zerif changes its name and will no longer be maintained. But don\'t worry about that. Check out %1$s, fully compatible with Zerif Lite. It\'s free and it\'s superb. You will love it! %2$s about the Zerif renaming and our next plans.', 'zerif-lite' ),
+			esc_html__( 'Zerif changes its name and will no longer be maintained. But don\'t worry about that. Check out %1$s, fully compatible with Zelle Lite. It\'s free and it\'s superb. You will love it! %2$s about the Zerif renaming and our next plans.', 'zerif-lite' ),
 			sprintf(
 				/* translators: Install Neve link */
 				'<a target="_blank" href="%1$s"><strong>%2$s</strong></a>',

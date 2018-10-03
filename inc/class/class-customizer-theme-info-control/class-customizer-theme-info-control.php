@@ -1,8 +1,8 @@
 <?php
 /**
- *  Zerif Lite Upsell Theme Info Class
+ *  Zelle Lite Upsell Theme Info Class
  *
- * @package Zerif Lite
+ * @package Zelle Lite
  */
 
 if ( ! class_exists( 'Zerif_Control_Upsell_Theme_Info' ) ) :

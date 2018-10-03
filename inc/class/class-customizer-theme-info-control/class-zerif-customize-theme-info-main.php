@@ -5,7 +5,7 @@
  * Pro customizer section.
  *
  * @package WordPress
- * @subpackage Zerif Lite
+ * @subpackage Zelle Lite
  */
 
 /**

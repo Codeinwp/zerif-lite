@@ -8,7 +8,7 @@
 
 <div id="actions_required" class="zerif-lite-tab-pane">
 
-	<h1><?php esc_html_e( 'Keep up with Zerif Lite\'s latest news', 'zerif-lite' ); ?></h1>
+	<h1><?php esc_html_e( 'Keep up with Zelle Lite\'s latest news', 'zerif-lite' ); ?></h1>
 
 	<!-- NEWS -->
 	<hr>
