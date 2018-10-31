@@ -410,6 +410,9 @@ function zerif_setup() {
 			'activate_label'            => esc_html__( 'Activate', 'zerif-lite' ),
 			'deactivate_label'          => esc_html__( 'Deactivate', 'zerif-lite' ),
 			'content'                   => array(
+			    array(
+			        'slug' => 'optimole-wp',
+                ),
 				array(
 					'slug' => 'wpforms-lite',
 				),
