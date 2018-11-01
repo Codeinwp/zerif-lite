@@ -1,4 +1,8 @@
 
+ ### v1.8.5-49 - 2018-11-01 
+ **Changes:** 
+ * Recommend Optimole
+ 
  ### v1.8.5-48 - 2018-10-03 
  **Changes:** 
  * Rename Zerif Lite to Zelle Lite
