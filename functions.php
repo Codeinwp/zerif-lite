@@ -35,7 +35,7 @@ if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
 }
 
 
-define( 'ZERIF_LITE_VERSION', '1.8.5.48' );
+define( 'ZERIF_LITE_VERSION', '1.8.5.49' );
 
 
 
@@ -410,6 +410,9 @@ function zerif_setup() {
 			'activate_label'            => esc_html__( 'Activate', 'zerif-lite' ),
 			'deactivate_label'          => esc_html__( 'Deactivate', 'zerif-lite' ),
 			'content'                   => array(
+				array(
+					'slug' => 'optimole-wp',
+				),
 				array(
 					'slug' => 'wpforms-lite',
 				),
