@@ -1,4 +1,8 @@
 
+ ### v1.8.5-50 - 2018-11-24 
+ **Changes:** 
+ * Update link to Neve
+ 
  ### v1.8.5-49 - 2018-11-01 
  **Changes:** 
  * Recommend Optimole
