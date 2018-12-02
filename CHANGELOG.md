@@ -1,4 +1,9 @@
 
+ ### v1.8.5-51 - 2018-12-02 
+ **Changes:** 
+ * Recommend Otter Blocks
+* Fixed dismissable notification
+ 
  ### v1.8.5-50 - 2018-11-24 
  **Changes:** 
  * Update link to Neve
