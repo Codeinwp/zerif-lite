@@ -35,7 +35,7 @@ if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
 }
 
 
-define( 'ZERIF_LITE_VERSION', '1.8.5.50' );
+define( 'ZERIF_LITE_VERSION', '1.8.5.51' );
 
 
 
@@ -420,7 +420,7 @@ function zerif_setup() {
 					'slug' => 'translatepress-multilingual',
 				),
 				array(
-					'slug' => 'siteorigin-panels',
+					'slug' => 'otter-blocks',
 				),
 				array(
 					'slug' => 'wp-product-review',
