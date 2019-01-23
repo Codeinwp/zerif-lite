@@ -27,8 +27,6 @@
         <exclude name="WordPress.Files.FileName.InvalidClassFileName" />
         <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase" />
 
-        <exclude name="WordPress.Functions.DontExtract" />
-
         <exclude name="WordPress.Classes" />
         <exclude name="PEAR.NamingConventions.ValidClassName" />
     </rule>
