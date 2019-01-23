@@ -1,4 +1,8 @@
 
+ ### v1.8.5-52 - 2019-01-23 
+ **Changes:** 
+ * Fixed compatibility with PHP lower than 5.4
+ 
  ### v1.8.5-51 - 2018-12-02 
  **Changes:** 
  * Recommend Otter Blocks
