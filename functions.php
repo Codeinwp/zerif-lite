@@ -30,12 +30,40 @@ function zerif_load_sdk( $products ) {
 	return $products;
 }
 
+/**
+ * Adds notice for PHP < 5.3.29 hosts.
+ */
+function zerif_php_support() {
+	$message = sprintf(
+		/* translators: %s - message to upgrade PHP to the latest version */
+		__( 'Hey, we\'ve noticed that you\'re running an outdated version of PHP which is no longer supported. Make sure your site is fast and secure, by %s. Zelle\'s minimal requirement is PHP 5.4.0.', 'zerif-lite' ),
+		sprintf(
+			/* translators: %s message to upgrade PHP to the latest version */
+			'<a href="https://wordpress.org/support/upgrade-php/">%s</a>',
+			__( 'upgrading PHP to the latest version', 'zerif-lite' )
+		)
+	);
+
+	printf( '<div class="error"><p>%1$s</p></div>', wp_kses_post( $message ) );
+}
+
+if ( version_compare( PHP_VERSION, '5.3.29' ) < 0 ) {
+	/**
+	 * Add notice for PHP upgrade.
+	 */
+	add_filter( 'template_include', '__return_null' );
+	switch_theme( WP_DEFAULT_THEME );
+	unset( $_GET['activated'] );
+	add_action( 'admin_notices', 'zerif_php_support', 99 );
+	return;
+}
+
 if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
 	define( 'ELEMENTOR_PARTNER_ID', 2112 );
 }
 
 
-define( 'ZERIF_LITE_VERSION', '1.8.5.51' );
+define( 'ZERIF_LITE_VERSION', '1.8.5.52' );
 
 
 
@@ -503,34 +531,6 @@ function zerif_setup() {
 }
 
 add_action( 'after_setup_theme', 'zerif_setup' );
-
-/**
- * Add compatibility with WooCommerce Product Images customizer controls.
- */
-function zerif_set_woo_image_sizes() {
-
-	$execute = get_option( 'zerif_update_woocommerce_customizer_controls', false );
-	if ( $execute !== false ) {
-		return;
-	}
-
-	update_option( 'woocommerce_thumbnail_cropping', 'custom' );
-	update_option( 'woocommerce_thumbnail_cropping_custom_width', '3' );
-	update_option( 'woocommerce_thumbnail_cropping_custom_height', '2' );
-
-	if ( class_exists( 'WC_Regenerate_Images' ) ) {
-		$regenerate_obj = new WC_Regenerate_Images();
-		$regenerate_obj::init();
-		if ( method_exists( $regenerate_obj, 'maybe_regenerate_images' ) ) {
-			$regenerate_obj::maybe_regenerate_images();
-		} elseif ( method_exists( $regenerate_obj, 'maybe_regenerate_images_option_update' ) ) {
-			// Force woocommerce 3.3.1 to regenerate images
-			$regenerate_obj::maybe_regenerate_images_option_update( 1, 2, '' );
-		}
-	}
-
-	update_option( 'zerif_update_woocommerce_customizer_controls', true );
-}
 
 
 /**
@@ -2121,60 +2121,3 @@ function zerif_is_before_date( $date ) {
 	$current_time   = time();
 	return $current_time <= $countdown_time;
 }
-
-/**
- * Add a dismissible notice in the dashboard to let users know they can migrate to Zelle and read about Zerif renaming
- */
-function zerif_neve_notice() {
-	global $current_user;
-	$user_id = $current_user->ID;
-
-	$ignored_notice = get_user_meta( $user_id, 'zerif_ignore_neve_notice' );
-	if ( ! empty( $ignored_notice ) ) {
-		return;
-	}
-
-	$dismiss_button =
-		sprintf(
-			'<a href="%s" class="notice-dismiss" style="text-decoration:none;"></a>',
-			'?zerif_nag_ignore_neve=0'
-		);
-
-	$message =
-		sprintf(
-			/* translators: Install Neve link and Zerif renaming article link */
-			esc_html__( 'Zerif changes its name and will no longer be maintained. But don\'t worry about that. Check out %1$s, fully compatible with Zelle Lite. It\'s free and it\'s superb. You will love it! %2$s about the Zerif renaming and our next plans.', 'zerif-lite' ),
-			sprintf(
-				/* translators: Install Neve link */
-				'<a target="_blank" href="%1$s"><strong>%2$s</strong></a>',
-				esc_url( admin_url( 'theme-install.php?theme=neve' ) ),
-				esc_html__( 'our newest theme', 'zerif-lite' )
-			),
-			/* translators: Zerif renaming article link */
-			sprintf(
-				'<br><a target="_blank" href="%1$s"><strong>%2$s</strong></a>',
-				esc_url( 'https://themeisle.com/blog/zerif-changes-its-name-to-zelle/' ),
-				esc_html__( 'Read more', 'zerif-lite' )
-			)
-		);
-
-	printf(
-		'<div class="notice updated" style="position:relative;">%1$s<p>%2$s</p></div>',
-		$dismiss_button,
-		$message
-	);
-}
-add_action( 'admin_notices', 'zerif_neve_notice' );
-
-/**
- * Update the zerif_ignore_hestia_notice option to true, to dismiss the notice from the dashboard
- */
-function zerif_nag_ignore_neve() {
-	global $current_user;
-	$user_id = $current_user->ID;
-	/* If user clicks to ignore the notice, add that to their user meta */
-	if ( isset( $_GET['zerif_nag_ignore_neve'] ) && '0' == $_GET['zerif_nag_ignore_neve'] ) {
-		add_user_meta( $user_id, 'zerif_ignore_neve_notice', 'true', true );
-	}
-}
-add_action( 'admin_init', 'zerif_nag_ignore_neve' );
