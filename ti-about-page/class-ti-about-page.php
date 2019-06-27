@@ -133,7 +133,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 				esc_html__( 'Your theme is no longer maintained. A New, Modern WordPress Theme is Here!', 'zerif-lite' ),
 				sprintf(
 					/* translators: %s - theme name */
-					esc_html__( "%s is no longer maintained. Switch to Neve today and get more powerful features (for free).", 'zerif-lite' ),
+					esc_html__( '%s is no longer maintained. Switch to Neve today and get more powerful features (for free).', 'zerif-lite' ),
 					$name
 				)
 			);
@@ -147,26 +147,24 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 			);
 
 			$notice_right_side_content = sprintf(
-				'<div><h3> %1$s</h3><p>%2$s</p><p>%3$s</p><p class="nv-buttons-wrapper"><a class="button button-primary button-hero" href="%4$s">%5$s</a></p><a href="%6$s" target="_blank">%7$s</a></div>',
-				__( 'Switch to Neve today.', 'zerif-lite' ),
+				'<div><h3> %1$s</h3><p>%2$s</p><p>%3$s</p></div>',
+				__( 'Switch to Neve today', 'zerif-lite' ),
 				// translators: %s - theme name
-				sprintf( esc_html__( "We've made it easy for you to try the new Neve theme and import your existing content into a template similar to %s with just a few clicks.", 'zerif-lite' ), $name ),
-				esc_html__( 'With Neve you get a super fast, multi-purpose theme, fully AMP optimized and responsive, that works perfectly with Gutenberg and the most popular page builders like Elementor, Beaver Builder, and many more.', 'zerif-lite' ),
-				esc_url( admin_url( 'theme-install.php?theme=neve' ) ),
-				esc_html__( 'See Neve in action', 'zerif-lite' ),
-				'https://themeisle.com/themes/neve/',
-				esc_html__( 'Learn more about Neve', 'zerif-lite' )
+				sprintf( __( 'We\'ve made it easy for you to try the new Neve theme and import your existing content into a template similar to %s with just a few clicks.', 'zerif-lite' ), $name ),
+				esc_html__( 'With Neve you get a super fast, multi-purpose theme, fully AMP optimized and responsive, that works perfectly with Gutenberg and the most popular page builders like Elementor, Beaver Builder, and many more.', 'zerif-lite' )
 			);
 
 			$notice_left_side_content = sprintf(
-				'<div><h3> %1$s</h3><p>%2$s</p><p>%3$s</p><p class="nv-buttons-wrapper"><a class="button button-hero" href="%4$s" target="_blank">%5$s</a></p> </div>',
-				sprintf( esc_html__( '%s is no longer maintained.', 'zerif-lite' ), $name ),
-				sprintf( esc_html__( "We're saying goodbye to %s in favor of our more powerful Neve WordPress theme. This means that there will not be any new features updates although we will continue to update the theme for any major security issues.", 'zerif-lite' ), $name ),
-				sprintf( esc_html__( "We strongly encourage you to switch to Neve. We've made sure you can easily migrate your old content into a template similar to %s.", 'zerif-lite' ), $name ),
-				'https://themeisle.com/blog/zerif-changes-its-name-to-zelle/',
-				esc_html__( 'Why switch to Neve?', 'zerif-lite' )
+				'<div><h3> %1$s</h3><p>%2$s</p><p>%3$s</p><p class="nv-buttons-wrapper"><a class="button button-hero button-primary" href="%4$s" target="_blank">%5$s</a></p> </div>',
+				sprintf( esc_html__( '%s (former Zerif Lite) is no longer maintained', 'zerif-lite' ), $name ),
+				// translators: %s - theme name
+				sprintf( __( 'We\'re saying %s in favor of our more powerful Neve free WordPress theme. This means that there will not be any new features added although we will continue to update the theme for major security issues.', 'zerif-lite' ), sprintf( "<a href='https://themeisle.com/blog/zerif-changes-its-name-to-zelle/' target='_blank'>goodbye to %s</a>", $name ) ),
+				// translators: %s - theme name
+				sprintf( __( 'We strongly encourage you to switch to %1$s. Also, we\'ve made sure you can easily migrate your old content into a template similar to %2$s.' ), "<a href='https://themeisle.com/themes/neve/' target='_blank'>Neve</a>", $name ),
+				esc_url( admin_url( 'theme-install.php?theme=neve' ) ),
+				esc_html__( 'See Neve theme', 'zerif-lite' )
 			);
-			$style                    = '
+			$style = '
 				.nv-notice-wrapper p{
 					font-size: 14px;
 				}
