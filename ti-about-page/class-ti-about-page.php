@@ -156,6 +156,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 
 			$notice_left_side_content = sprintf(
 				'<div><h3> %1$s</h3><p>%2$s</p><p>%3$s</p><p class="nv-buttons-wrapper"><a class="button button-hero button-primary" href="%4$s" target="_blank">%5$s</a></p> </div>',
+				// translators: %s - theme name
 				sprintf( esc_html__( '%s (former Zerif Lite) is no longer maintained', 'zerif-lite' ), $name ),
 				// translators: %s - theme name
 				sprintf( __( 'We\'re saying %s in favor of our more powerful Neve free WordPress theme. This means that there will not be any new features added although we will continue to update the theme for major security issues.', 'zerif-lite' ), sprintf( "<a href='https://themeisle.com/blog/zerif-changes-its-name-to-zelle/' target='_blank'>goodbye to %s</a>", $name ) ),
@@ -356,6 +357,13 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 		 * Display an admin notice linking to the about page
 		 */
 		public function ti_about_page_welcome_admin_notice() {
+			global $current_user;
+			$user_id        = $current_user->ID;
+			$ignored_notice = get_user_meta( $user_id, 'zerif_ignore_neve_notice' );
+
+			if ( ! empty( $ignored_notice ) ) {
+				return;
+			}
 			$dismiss_button =
 				sprintf(
 					/* translators: Install Neve link */
