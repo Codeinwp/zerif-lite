@@ -130,10 +130,10 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 			/* translators: 1 - notice title, 2 - notice message */
 			$notice_header = sprintf(
 				'<h2>%1$s</h2><p class="about-description">%2$s</p></hr>',
-				sprintf( esc_html__( '%s is no longer maintained.', 'zerif-lite' ), $name ),
+				esc_html__( 'Your theme is no longer maintained. A New, Modern WordPress Theme is Here!', 'zerif-lite' ),
 				sprintf(
 					/* translators: %s - theme name */
-					esc_html__( "We're saying goodbye to %s in favour of our more powerful Neve WordPress theme.", 'zerif-lite' ),
+					esc_html__( "%s is no longer maintained. Switch to Neve today and get more powerful features (for free).", 'zerif-lite' ),
 					$name
 				)
 			);
@@ -161,7 +161,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 			$notice_left_side_content = sprintf(
 				'<div><h3> %1$s</h3><p>%2$s</p><p>%3$s</p><p class="nv-buttons-wrapper"><a class="button button-hero" href="%4$s" target="_blank">%5$s</a></p> </div>',
 				sprintf( esc_html__( '%s is no longer maintained.', 'zerif-lite' ), $name ),
-				sprintf( esc_html__( "We're not maintaining the %s theme in favor of our more powerful Neve WordPress theme. This means that there will not be any new features updates although we will continue to update the theme for any major security issues.", 'zerif-lite' ), $name ),
+				sprintf( esc_html__( "We're saying goodbye to %s in favor of our more powerful Neve WordPress theme. This means that there will not be any new features updates although we will continue to update the theme for any major security issues.", 'zerif-lite' ), $name ),
 				sprintf( esc_html__( "We strongly encourage you to switch to Neve. We've made sure you can easily migrate your old content into a template similar to %s.", 'zerif-lite' ), $name ),
 				'https://themeisle.com/blog/zerif-changes-its-name-to-zelle/',
 				esc_html__( 'Why switch to Neve?', 'zerif-lite' )

@@ -17,6 +17,8 @@
         <exclude name="Squiz.Commenting.InlineComment.NotCapital" />
         <exclude name="Squiz.PHP.CommentedOutCode.Found" />
         <exclude name="WordPress.PHP.StrictComparisons.LooseComparison" />
+        <exclude name="WordPress.PHP.StrictInArray.MissingTrueStrict" />
+        <exclude name="WordPress.CodeAnalysis.AssignmentInCondition.Found" />
 
         <exclude name="Squiz.PHP.DisallowMultipleAssignments.Found" />
 
