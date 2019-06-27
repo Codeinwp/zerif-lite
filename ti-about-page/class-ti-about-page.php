@@ -1,6 +1,7 @@
 <?php
 /**
  * ThemeIsle - About page class
+ *
  * @package Themeisle
  * @subpackage Admin
  * @since 1.0.0
@@ -96,24 +97,25 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 
 		}
 
-        /**
-         * Notice for Neve theme
-         * @return string
-         */
-        public function neve_notice() {
+		/**
+		 * Notice for Neve theme
+		 *
+		 * @return string
+		 */
+		public function neve_notice() {
 
-            global $current_user;
-            $user_id        = $current_user->ID;
-            $ignored_notice = get_user_meta( $user_id, 'zerif_ignore_neve_notice' );
+			global $current_user;
+			$user_id        = $current_user->ID;
+			$ignored_notice = get_user_meta( $user_id, 'zerif_ignore_neve_notice' );
 
-            if ( ! empty( $ignored_notice ) ) {
-                return;
-            }
+			if ( ! empty( $ignored_notice ) ) {
+				return;
+			}
 
-            $theme_args = wp_get_theme();
-            $name       = $theme_args->__get( 'Name' );
+			$theme_args = wp_get_theme();
+			$name       = $theme_args->__get( 'Name' );
 
-            $notice_template = '
+			$notice_template = '
 			<div class="nv-notice-wrapper">
 			%1$s
 			<hr/>
@@ -125,145 +127,145 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 			</div>
 			<style>%5$s</style>';
 
-            /* translators: 1 - notice title, 2 - notice message */
-            $notice_header = sprintf(
-                '<h2>%1$s</h2><p class="about-description">%2$s</p></hr>',
-                sprintf( esc_html__( '%s is no longer maintained.', 'zerif-lite' ), $name ),
-                sprintf(
-                /* translators: %s - theme name */
-                    esc_html__( "We're saying goodbye to %s in favour our more powerful Neve WordPress theme.", 'zerif-lite' ),
-                    $name
-                )
-            );
+			/* translators: 1 - notice title, 2 - notice message */
+			$notice_header = sprintf(
+				'<h2>%1$s</h2><p class="about-description">%2$s</p></hr>',
+				sprintf( esc_html__( '%s is no longer maintained.', 'zerif-lite' ), $name ),
+				sprintf(
+					/* translators: %s - theme name */
+					esc_html__( "We're saying goodbye to %s in favour of our more powerful Neve WordPress theme.", 'zerif-lite' ),
+					$name
+				)
+			);
 
-            $notice_picture = sprintf(
-                '<picture>
+			$notice_picture = sprintf(
+				'<picture>
 					<source srcset="about:blank" media="(max-width: 1024px)">
 					<img src="%1$s">
 				</picture>',
-                esc_url( get_template_directory_uri() . '/ti-about-page/images/neve.png' )
-            );
+				esc_url( get_template_directory_uri() . '/ti-about-page/images/neve.png' )
+			);
 
-            $notice_right_side_content = sprintf(
-                '<div><h3> %1$s</h3><p>%2$s</p><p>%3$s</p><p class="nv-buttons-wrapper"><a class="button button-primary button-hero" href="%4$s">%5$s</a></p><a href="%6$s" target="_blank">%7$s</a></div>',
-                __( 'Switch to Neve today.', 'zerif-lite' ),
-                // translators: %s - theme name
-                esc_html__( "We've made it easy for you to try the new Neve theme and import your existing content with just a few clicks.", 'zerif-lite' ),
-                esc_html__( "With Neve you get a super fast, multi-purpose theme, fully AMP optimized and responsive, that works perfectly with Gutenberg and the most popular page builders like Elementor, Beaver Builder and many more.", 'zerif-lite' ),
-                esc_url( admin_url( 'theme-install.php?theme=neve' ) ),
-                esc_html__( 'See Neve in action', 'zerif-lite' ),
-                'https://themeisle.com/themes/neve/',
-                esc_html__( 'Learn more about Neve', 'zerif-lite' )
-            );
+			$notice_right_side_content = sprintf(
+				'<div><h3> %1$s</h3><p>%2$s</p><p>%3$s</p><p class="nv-buttons-wrapper"><a class="button button-primary button-hero" href="%4$s">%5$s</a></p><a href="%6$s" target="_blank">%7$s</a></div>',
+				__( 'Switch to Neve today.', 'zerif-lite' ),
+				// translators: %s - theme name
+				sprintf( esc_html__( "We've made it easy for you to try the new Neve theme and import your existing content into a template similar to %s with just a few clicks.", 'zerif-lite' ), $name ),
+				esc_html__( 'With Neve you get a super fast, multi-purpose theme, fully AMP optimized and responsive, that works perfectly with Gutenberg and the most popular page builders like Elementor, Beaver Builder, and many more.', 'zerif-lite' ),
+				esc_url( admin_url( 'theme-install.php?theme=neve' ) ),
+				esc_html__( 'See Neve in action', 'zerif-lite' ),
+				'https://themeisle.com/themes/neve/',
+				esc_html__( 'Learn more about Neve', 'zerif-lite' )
+			);
 
-            $notice_left_side_content = sprintf(
-                '<div><h3> %1$s</h3><p>%2$s</p><p>%3$s</p><p class="nv-buttons-wrapper"><a class="button button-hero" href="%4$s" target="_blank">%5$s</a></p> </div>',
-                sprintf( esc_html__( '%s is no longer maintained.', 'zerif-lite' ), $name ),
-                sprintf( esc_html__( "We're not maintaining the %s theme in favor of the more powerful Neve WordPress theme. This means that there will not be any new feature updates although we will continue to maintain the theme for any major security issues.", 'zerif-lite' ), $name ),
-                sprintf( esc_html__( "We strongly encourage you to switch to Neve. We've made sure you can easily migrate your old content into a template similar to %s.", 'zerif-lite' ), $name ),
-                'https://themeisle.com/blog/zerif-changes-its-name-to-zelle/',
-                esc_html__( 'Read the Full Announcement', 'zerif-lite' )
-            );
-            $style = '
-                .nv-notice-wrapper p{
-                    font-size: 14px;
-                }
-                .nv-buttons-wrapper {
-                    padding-top: 20px !important;
-                }
-                .nv-notice-wrapper h2{
-                    margin: 0;
-                    font-size: 21px;
-                    font-weight: 400;
-                    line-height: 1.2;
-                }
-                .nv-notice-wrapper p.about-description{
-                    color: #72777c;
-                    font-size: 16px;
-                    margin: 0;
-                    padding:0px;
-                }
-                .nv-notice-wrapper{
-                    padding: 23px 10px 0;
-                    max-width: 1500px;
-                }
-                .nv-notice-wrapper hr {
-                    margin: 20px -23px 0;
-                    border-top: 1px solid #f3f4f5;
-                    border-bottom: none;
-                }
-                .nv-notice-column-container h3{	
-                    margin: 17px 0 0;
-                    font-size: 16px;
-                    line-height: 1.4;
-                }
-                .nv-notice-text p.ti-return-dashboard {
-                    margin-top: 30px;
-                }
-                .nv-notice-column-container .nv-notice-column{
-                     padding-right: 60px;
-                } 
-                .nv-notice-column-container img{ 
-                    margin-top: 23px;
-                    width: 100%;
-                    border: 1px solid #f3f4f5; 
-                } 
-                .nv-notice-column-container { 
-                    display: -ms-grid;
-                    display: grid;
-                    -ms-grid-columns: 24% 32% 32%;
-                    grid-template-columns: 24% 32% 32%;
-                    margin-bottom: 13px;
-                }
-                .nv-notice-column-container a.button.button-hero.button-secondary,
-                .nv-notice-column-container a.button.button-hero.button-primary{
-                    margin:0px;
-                }
-                @media screen and (max-width: 1280px) {
-                    .nv-notice-wrapper .nv-notice-column-container {
-                        -ms-grid-columns: 50% 50%;
-                        grid-template-columns: 50% 50%;
-                    }
-                    .nv-notice-column-container a.button.button-hero.button-secondary,
-                    .nv-notice-column-container a.button.button-hero.button-primary{
-                        padding:6px 18px;
-                    }
-                    .nv-notice-wrapper .nv-notice-image {
-                        display: none;
-                    }
-                } 
-                @media screen and (max-width: 870px) {
-                     
-                    .nv-notice-wrapper .nv-notice-column-container {
-                        -ms-grid-columns: 100%;
-                        grid-template-columns: 100%;
-                    }
-                    .nv-notice-column-container a.button.button-hero.button-primary{
-                        padding:12px 36px;
-                    }
-                }
-		    ';
-            return sprintf(
-                $notice_template,
-                $notice_header,
-                $notice_picture,
-                $notice_left_side_content,
-                $notice_right_side_content,
-                $style
-            );// WPCS: XSS OK.
+			$notice_left_side_content = sprintf(
+				'<div><h3> %1$s</h3><p>%2$s</p><p>%3$s</p><p class="nv-buttons-wrapper"><a class="button button-hero" href="%4$s" target="_blank">%5$s</a></p> </div>',
+				sprintf( esc_html__( '%s is no longer maintained.', 'zerif-lite' ), $name ),
+				sprintf( esc_html__( "We're not maintaining the %s theme in favor of our more powerful Neve WordPress theme. This means that there will not be any new features updates although we will continue to update the theme for any major security issues.", 'zerif-lite' ), $name ),
+				sprintf( esc_html__( "We strongly encourage you to switch to Neve. We've made sure you can easily migrate your old content into a template similar to %s.", 'zerif-lite' ), $name ),
+				'https://themeisle.com/blog/zerif-changes-its-name-to-zelle/',
+				esc_html__( 'Why switch to Neve?', 'zerif-lite' )
+			);
+			$style                    = '
+				.nv-notice-wrapper p{
+					font-size: 14px;
+				}
+				.nv-buttons-wrapper {
+					padding-top: 20px !important;
+				}
+				.nv-notice-wrapper h2{
+					margin: 0;
+					font-size: 21px;
+					font-weight: 400;
+					line-height: 1.2;
+				}
+				.nv-notice-wrapper p.about-description{
+					color: #72777c;
+					font-size: 16px;
+					margin: 0;
+					padding:0px;
+				}
+				.nv-notice-wrapper{
+					padding: 23px 10px 0;
+					max-width: 1500px;
+				}
+				.nv-notice-wrapper hr {
+					margin: 20px -23px 0;
+					border-top: 1px solid #f3f4f5;
+					border-bottom: none;
+				}
+				.nv-notice-column-container h3{	
+					margin: 17px 0 0;
+					font-size: 16px;
+					line-height: 1.4;
+				}
+				.nv-notice-text p.ti-return-dashboard {
+					margin-top: 30px;
+				}
+				.nv-notice-column-container .nv-notice-column{
+					 padding-right: 60px;
+				} 
+				.nv-notice-column-container img{ 
+					margin-top: 23px;
+					width: 100%;
+					border: 1px solid #f3f4f5; 
+				} 
+				.nv-notice-column-container { 
+					display: -ms-grid;
+					display: grid;
+					-ms-grid-columns: 24% 32% 32%;
+					grid-template-columns: 24% 32% 32%;
+					margin-bottom: 13px;
+				}
+				.nv-notice-column-container a.button.button-hero.button-secondary,
+				.nv-notice-column-container a.button.button-hero.button-primary{
+					margin:0px;
+				}
+				@media screen and (max-width: 1280px) {
+					.nv-notice-wrapper .nv-notice-column-container {
+						-ms-grid-columns: 50% 50%;
+						grid-template-columns: 50% 50%;
+					}
+					.nv-notice-column-container a.button.button-hero.button-secondary,
+					.nv-notice-column-container a.button.button-hero.button-primary{
+						padding:6px 18px;
+					}
+					.nv-notice-wrapper .nv-notice-image {
+						display: none;
+					}
+				} 
+				@media screen and (max-width: 870px) {
+					 
+					.nv-notice-wrapper .nv-notice-column-container {
+						-ms-grid-columns: 100%;
+						grid-template-columns: 100%;
+					}
+					.nv-notice-column-container a.button.button-hero.button-primary{
+						padding:12px 36px;
+					}
+				}
+			';
+			return sprintf(
+				$notice_template,
+				$notice_header,
+				$notice_picture,
+				$notice_left_side_content,
+				$notice_right_side_content,
+				$style
+			);// WPCS: XSS OK.
 		}
 
-        /**
-         * Dismiss the notice for Neve
-         */
-        public function zerif_nag_ignore_neve() {
-            global $current_user;
-            $user_id = $current_user->ID;
+		/**
+		 * Dismiss the notice for Neve
+		 */
+		public function zerif_nag_ignore_neve() {
+			global $current_user;
+			$user_id = $current_user->ID;
 
-            if ( isset( $_GET['zerif_nag_ignore_neve'] ) && '0' == $_GET['zerif_nag_ignore_neve'] ) {
-                add_user_meta( $user_id, 'zerif_ignore_neve_notice', 'true', true );
-            }
-        }
+			if ( isset( $_GET['zerif_nag_ignore_neve'] ) && '0' == $_GET['zerif_nag_ignore_neve'] ) {
+				add_user_meta( $user_id, 'zerif_ignore_neve_notice', 'true', true );
+			}
+		}
 
 		/**
 		 * Setup the class props based on the config array.
@@ -293,9 +295,9 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 
 			add_action( 'admin_menu', array( $this, 'register' ) );
 
-            add_action( 'admin_notices', array( $this, 'ti_about_page_welcome_admin_notice' ) );
+			add_action( 'admin_notices', array( $this, 'ti_about_page_welcome_admin_notice' ) );
 
-            add_action( 'admin_init', array( $this, 'zerif_nag_ignore_neve' ) );
+			add_action( 'admin_init', array( $this, 'zerif_nag_ignore_neve' ) );
 
 			/* enqueue script and style for about page */
 			add_action( 'admin_enqueue_scripts', array( $this, 'style_and_scripts' ) );
@@ -356,16 +358,16 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 		 * Display an admin notice linking to the about page
 		 */
 		public function ti_about_page_welcome_admin_notice() {
-            $dismiss_button =
-                sprintf(
-                /* translators: Install Neve link */
-                    '<a href="%s" class="notice-dismiss" style="text-decoration:none;"></a>',
-                    '?zerif_nag_ignore_neve=0'
-                );
-            echo '<div class="updated notice" style="position:relative;">';
-            echo $dismiss_button;
-            echo $this->neve_notice();
-            echo '</div>';
+			$dismiss_button =
+				sprintf(
+					/* translators: Install Neve link */
+					'<a href="%s" class="notice-dismiss" style="text-decoration:none;"></a>',
+					'?zerif_nag_ignore_neve=0'
+				);
+			echo '<div class="updated notice" style="position:relative;">';
+			echo $dismiss_button;
+			echo $this->neve_notice();
+			echo '</div>';
 		}
 
 		/**
