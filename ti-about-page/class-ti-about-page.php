@@ -2,170 +2,6 @@
 /**
  * ThemeIsle - About page class
  *
- * Example of config array with all parameters ( This needs to be defined in the theme's functions.php:
- *
- *        TI About page register example.
- *
- *        $config = array(
- *            // Menu name under Appearance.
- *            'menu_name'               => __( 'About Flymag', 'flymag' ),
- *            // Page title.
- *            'page_name'               => __( 'About Flymag', 'flymag' ),
- *            // Main welcome title
- *            'welcome_title'         => sprintf( __( 'Welcome to %s! - Version ', 'flymag' ), 'FlyMag' ),
- *             // Main welcome content
- *             'welcome_content'       => sprintf( __( '%1$s is now installed and ready to use! Get ready to build something beautiful. We hope you enjoy it! We want to make sure you have the best experience using %2$s and that is why we gathered here all the necessary information for you. We hope you will enjoy using %3$s, as much as we enjoy creating great products.','flymag' ), 'FlyMag', 'FlyMag', 'FlyMag' ),
- *             //Tabs array.
- *             //
- *             // The key needs to be ONLY consisted from letters and underscores. If we want to define outside the class a function to render the tab,
- *             // the will be the name of the function which will be used to render the tab content.
- *            'tabs'                    => array(
- *                'getting_started'  => __( 'Getting Started', 'flymag' ),
- *                'recommended_actions' => __( 'Recommended Actions', 'flymag' ),
- *                'recommended_plugins' => __( 'Recommended Plugins', 'flymag' ),
- *                'child_themes'     => __( 'Child themes', 'flymag' ),
- *                'support'       => __( 'Support', 'flymag' ),
- *                'changelog'        => __( 'Changelog', 'flymag' ),
- *                'free_pro'         => __( 'Free VS PRO', 'flymag' ),
- *            ),
- *            // Support content tab.
- *            'support_content'      => array(
- *                  'first' => array (
- *                      'title' => esc_html__( 'Contact Support','flymag' ),
- *                      'icon' => 'dashicons dashicons-sos',
- *                      'text' => esc_html__( 'We offer excellent support through our advanced ticketing system. Make sure to register your purchase before contacting support!','flymag' ),
- *                      'button_label' => esc_html__( 'Contact Support','flymag' ),
- *                      'button_link' => esc_url( 'https://themeisle.com/contact/' ),
- *                      'is_button' => true,
- *                      'is_new_tab' => false
- *                  ),
- *            ),
- *            // Getting started tab content.
- *            'getting_started' => array(
- *               'first_step' => array (
- *                  'title' => esc_html__( 'Step 1 - Implement recommended actions','flymag' ),
- *                  'text' => esc_html__( 'We have compiled a list of steps for you, to take make sure the experience you will have using one of our products is very easy to follow.','flymag' ),
- *                  'button_label' => esc_html__( 'Check recommended actions','flymag' ),
- *                  'button_link' => esc_url( admin_url( 'themes.php?page=flymag-welcome&tab=recommended_actions' ) ),
- *                  'is_button' => false,
- *                  'recommended_actions' => true
- *                ),
- *             ),
- *            // Child themes array.
- *            'child_themes'            => array(
- *                'download_button_label' => 'Download',
- *                'preview_button_label'  => 'Live preview',
- *                'content'               => array(
- *                    array(
- *                        'title'         => 'Flymag child theme 1',
- *                        'image'         => 'https://github.com/Codeinwp/zerif-lite/blob/production/inc/admin/welcome-screen/img/zblackbeard.jpg?raw=true',
- *                        'image_alt'     => 'Image of the child theme',
- *                        'description'   => 'Description',
- *                        'download_link' => 'Download link',
- *                        'preview_link'  => 'Preview link',
- *                    ),
- *                    array(
- *                        'title'         => 'Flymag child theme 2',
- *                        'image'         => 'https://github.com/Codeinwp/zerif-lite/blob/production/inc/admin/welcome-screen/img/zblackbeard.jpg?raw=true',
- *                        'image_alt'     => 'Image of the child theme',
- *                        'description'   => 'Description',
- *                        'download_link' => 'Download link',
- *                        'preview_link'  => 'Preview link',
- *                    ),
- *                ),
- *            ),
- *            // Free vs pro array.
- *            'free_pro'                => array(
- *                'free_theme_name'     => 'FlyMag',
- *                'pro_theme_name'      => 'FlyMag PRO',
- *                'pro_theme_link'      => 'https://themeisle.com/themes/flymag-pro/',
- *                'get_pro_theme_label' => sprintf( __( 'Get %s now!', 'flymag' ), 'FlyMag Pro' ),
- *                'features'            => array(
- *                    array(
- *                        'title'       => __( 'Mobile friendly', 'flymag' ),
- *                        'description' => __( 'Responsive layout. Works on every device.', 'flymag' ),
- *                        'is_in_lite'  => 'true',
- *                        'is_in_pro'   => 'true',
- *                    ),
- *                    array(
- *                        'title'       => __( 'Unlimited color option', 'flymag' ),
- *                        'description' => __( 'You can change the colors of each section. You have unlimited options.', 'flymag' ),
- *                        'is_in_lite'  => 'true',
- *                        'is_in_pro'   => 'true',
- *                    ),
- *                    array(
- *                        'title'       => __( 'Background image', 'flymag' ),
- *                        'description' => __( 'You can use any background image you want.', 'flymag' ),
- *                        'is_in_lite'  => 'true',
- *                        'is_in_pro'   => 'true',
- *                    ),
- *                    array(
- *                        'title'       => __( 'Featured Area', 'flymag' ),
- *                        'description' => __( 'Have access to a new featured area.', 'flymag' ),
- *                        'is_in_lite'  => 'false',
- *                        'is_in_pro'   => 'true',
- *                    ),
- *                    array(
- *                        'title'       => __( 'Footer credits', 'flymag' ),
- *                        'description' => '',
- *                        'is_in_lite'  => 'false',
- *                        'is_in_pro'   => 'true',
- *                    ),
- *                    array(
- *                        'title'       => __( 'Extra widgets areas', 'flymag' ),
- *                        'description' => __( 'More widgets areas for your theme.', 'flymag' ),
- *                        'is_in_lite'  => 'false',
- *                        'is_in_pro'   => 'true',
- *                    ),
- *                    array(
- *                        'title'       => __( 'Support', 'flymag' ),
- *                        'description' => __( 'You will benefit of our full support for any issues you have with the theme.', 'flymag' ),
- *                        'is_in_lite'  => 'false',
- *                        'is_in_pro'   => 'true',
- *                    ),
- *                ),
- *            ),
- *            // Recommended plugins tab.
- *            'recommended_plugins'     => array(
- *                'already_activated_message' => esc_html__( 'Already activated', 'flymag' ),
- *                'version_label' => esc_html__( 'Version: ', 'flymag' ),
- *                'install_label' => esc_html__( 'Install', 'flymag' ),
- *                'activate_label' => esc_html__( 'Activate', 'flymag' ),
- *                'deactivate_label' => esc_html__( 'Deactivate', 'flymag' ),
- *                'content'             => array(
- *                    array(
- *                        'slug'        => 'wp-forms',
- *                    ),
- *                    array(
- *                        'link'        => 'http://themeisle.com/plugins/easy-content-types/',
- *                    ),
- *                    array(
- *                        'slug'        => 'siteorigin-panels',
- *                    ),
- *                    array(
- *                        'slug'        => 'intergeo-maps',
- *                    ),
- *                ),
- *            ),
- *            // Required actions array.
- *            'recommended_actions'        => array(
- *                'install_label' => esc_html__( 'Install', 'flymag' ),
- *                'activate_label' => esc_html__( 'Activate', 'flymag' ),
- *                'deactivate_label' => esc_html__( 'Deactivate', 'flymag' ),
- *                'content'            => array(
- *                    'pirate-forms' => array(
- *                        'title'       => __( 'Pirate Forms', 'flymag' ),
- *                        'description' => __( 'Makes your contact page more engaging by creating a good-looking contact form on your website. The interaction with your visitors was never easier.', 'flymag' ),
- *                        'link_label'  => __( 'Install Pirate Forms', 'flymag' ),
- *                        'check'       => defined( 'PIRATE_FORMS_VERSION' ),
- *                        'id'          => 'pirate-forms',
- *                        'plugin_slug' => 'pirate-forms'
- *                    ),
- *                ),
- *            ),
- *        );
- *        TI_About_Page::init( $config );
- *
  * @package Themeisle
  * @subpackage Admin
  * @since 1.0.0
@@ -262,6 +98,175 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 		}
 
 		/**
+		 * Notice for Neve theme
+		 *
+		 * @return string
+		 */
+		public function neve_notice() {
+
+			global $current_user;
+			$user_id        = $current_user->ID;
+			$ignored_notice = get_user_meta( $user_id, 'zerif_ignore_neve_notice' );
+
+			if ( ! empty( $ignored_notice ) ) {
+				return;
+			}
+
+			$theme_args = wp_get_theme();
+			$name       = $theme_args->__get( 'Name' );
+
+			$notice_template = '
+			<div class="nv-notice-wrapper">
+			%1$s
+			<hr/>
+				<div class="nv-notice-column-container">
+					<div class="nv-notice-column nv-notice-image">%2$s</div>
+					<div class="nv-notice-column nv-notice-starter-sites">%3$s</div>
+					<div class="nv-notice-column nv-notice-documentation">%4$s</div>
+				</div> 
+			</div>
+			<style>%5$s</style>';
+
+			/* translators: 1 - notice title, 2 - notice message */
+			$notice_header = sprintf(
+				'<h2>%1$s</h2><p class="about-description">%2$s</p></hr>',
+				esc_html__( 'Your theme is no longer maintained. A New, Modern WordPress Theme is Here!', 'zerif-lite' ),
+				sprintf(
+					/* translators: %s - theme name */
+					esc_html__( '%s is no longer maintained. Switch to Neve today and get more powerful features (for free).', 'zerif-lite' ),
+					$name
+				)
+			);
+
+			$notice_picture = sprintf(
+				'<picture>
+					<source srcset="about:blank" media="(max-width: 1024px)">
+					<img src="%1$s">
+				</picture>',
+				esc_url( get_template_directory_uri() . '/ti-about-page/images/neve.png' )
+			);
+
+			$notice_right_side_content = sprintf(
+				'<div><h3> %1$s</h3><p>%2$s</p><p>%3$s</p></div>',
+				__( 'Switch to Neve today', 'zerif-lite' ),
+				// translators: %s - theme name
+				sprintf( __( 'We\'ve made it easy for you to try the new Neve theme and import your existing content into a template similar to %s with just a few clicks.', 'zerif-lite' ), $name ),
+				esc_html__( 'With Neve you get a super fast, multi-purpose theme, fully AMP optimized and responsive, that works perfectly with Gutenberg and the most popular page builders like Elementor, Beaver Builder, and many more.', 'zerif-lite' )
+			);
+
+			$notice_left_side_content = sprintf(
+				'<div><h3> %1$s</h3><p>%2$s</p><p>%3$s</p><p class="nv-buttons-wrapper"><a class="button button-hero button-primary" href="%4$s" target="_blank">%5$s</a></p> </div>',
+				// translators: %s - theme name
+				sprintf( esc_html__( '%s (former Zerif Lite) is no longer maintained', 'zerif-lite' ), $name ),
+				// translators: %s - theme name
+				sprintf( __( 'We\'re saying %s in favor of our more powerful Neve free WordPress theme. This means that there will not be any new features added although we will continue to update the theme for major security issues.', 'zerif-lite' ), sprintf( "<a href='https://themeisle.com/blog/zerif-changes-its-name-to-zelle/' target='_blank'>goodbye to %s</a>", $name ) ),
+				// translators: %s - theme name
+				sprintf( __( 'We strongly encourage you to switch to %1$s. Also, we\'ve made sure you can easily migrate your old content into a template similar to %2$s.', 'zerif-lite' ), "<a href='https://themeisle.com/themes/neve/' target='_blank'>Neve</a>", $name ),
+				esc_url( admin_url( 'theme-install.php?theme=neve' ) ),
+				esc_html__( 'See Neve theme', 'zerif-lite' )
+			);
+			$style = '
+				.nv-notice-wrapper p{
+					font-size: 14px;
+				}
+				.nv-buttons-wrapper {
+					padding-top: 20px !important;
+				}
+				.nv-notice-wrapper h2{
+					margin: 0;
+					font-size: 21px;
+					font-weight: 400;
+					line-height: 1.2;
+				}
+				.nv-notice-wrapper p.about-description{
+					color: #72777c;
+					font-size: 16px;
+					margin: 0;
+					padding:0px;
+				}
+				.nv-notice-wrapper{
+					padding: 23px 10px 0;
+					max-width: 1500px;
+				}
+				.nv-notice-wrapper hr {
+					margin: 20px -23px 0;
+					border-top: 1px solid #f3f4f5;
+					border-bottom: none;
+				}
+				.nv-notice-column-container h3{	
+					margin: 17px 0 0;
+					font-size: 16px;
+					line-height: 1.4;
+				}
+				.nv-notice-text p.ti-return-dashboard {
+					margin-top: 30px;
+				}
+				.nv-notice-column-container .nv-notice-column{
+					 padding-right: 60px;
+				} 
+				.nv-notice-column-container img{ 
+					margin-top: 23px;
+					width: 100%;
+					border: 1px solid #f3f4f5; 
+				} 
+				.nv-notice-column-container { 
+					display: -ms-grid;
+					display: grid;
+					-ms-grid-columns: 24% 32% 32%;
+					grid-template-columns: 24% 32% 32%;
+					margin-bottom: 13px;
+				}
+				.nv-notice-column-container a.button.button-hero.button-secondary,
+				.nv-notice-column-container a.button.button-hero.button-primary{
+					margin:0px;
+				}
+				@media screen and (max-width: 1280px) {
+					.nv-notice-wrapper .nv-notice-column-container {
+						-ms-grid-columns: 50% 50%;
+						grid-template-columns: 50% 50%;
+					}
+					.nv-notice-column-container a.button.button-hero.button-secondary,
+					.nv-notice-column-container a.button.button-hero.button-primary{
+						padding:6px 18px;
+					}
+					.nv-notice-wrapper .nv-notice-image {
+						display: none;
+					}
+				} 
+				@media screen and (max-width: 870px) {
+					 
+					.nv-notice-wrapper .nv-notice-column-container {
+						-ms-grid-columns: 100%;
+						grid-template-columns: 100%;
+					}
+					.nv-notice-column-container a.button.button-hero.button-primary{
+						padding:12px 36px;
+					}
+				}
+			';
+			return sprintf(
+				$notice_template,
+				$notice_header,
+				$notice_picture,
+				$notice_left_side_content,
+				$notice_right_side_content,
+				$style
+			);// WPCS: XSS OK.
+		}
+
+		/**
+		 * Dismiss the notice for Neve
+		 */
+		public function zerif_nag_ignore_neve() {
+			global $current_user;
+			$user_id = $current_user->ID;
+
+			if ( isset( $_GET['zerif_nag_ignore_neve'] ) && '0' == $_GET['zerif_nag_ignore_neve'] ) {
+				add_user_meta( $user_id, 'zerif_ignore_neve_notice', 'true', true );
+			}
+		}
+
+		/**
 		 * Setup the class props based on the config array.
 		 */
 		public function setup_config() {
@@ -277,10 +282,10 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 			$this->theme_slug    = $theme->get_template();
 			$this->menu_name     = isset( $this->config['menu_name'] ) ? $this->config['menu_name'] : 'About ' . $this->theme_name;
 			$this->page_name     = isset( $this->config['page_name'] ) ? $this->config['page_name'] : 'About ' . $this->theme_name;
-			$this->notification  = isset( $this->config['notification'] ) ? $this->config['notification'] : ( '<p>' . sprintf( 'Welcome! Thank you for choosing %1$s! To fully take advantage of the best our theme can offer please make sure you visit our %2$swelcome page%3$s.', $this->theme_name, '<a href="' . esc_url( admin_url( 'themes.php?page=' . $this->theme_slug . '-welcome' ) ) . '">', '</a>' ) . '</p><p><a href="' . esc_url( admin_url( 'themes.php?page=' . $this->theme_slug . '-welcome' ) ) . '" class="button" style="text-decoration: none;">' . sprintf( 'Get started with %s', $this->theme_name ) . '</a></p>' );
 			$this->tabs          = isset( $this->config['tabs'] ) ? $this->config['tabs'] : array();
-
 		}
+
+
 
 		/**
 		 * Setup the actions used for this page.
@@ -288,8 +293,11 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 		public function setup_actions() {
 
 			add_action( 'admin_menu', array( $this, 'register' ) );
-			/* activation notice */
-			add_action( 'load-themes.php', array( $this, 'activation_admin_notice' ) );
+
+			add_action( 'admin_notices', array( $this, 'ti_about_page_welcome_admin_notice' ) );
+
+			add_action( 'admin_init', array( $this, 'zerif_nag_ignore_neve' ) );
+
 			/* enqueue script and style for about page */
 			add_action( 'admin_enqueue_scripts', array( $this, 'style_and_scripts' ) );
 
@@ -346,24 +354,26 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 		}
 
 		/**
-		 * Adds an admin notice upon successful activation.
-		 */
-		public function activation_admin_notice() {
-			global $pagenow;
-			if ( is_admin() && ( 'themes.php' == $pagenow ) && isset( $_GET['activated'] ) ) {
-				add_action( 'admin_notices', array( $this, 'ti_about_page_welcome_admin_notice' ), 99 );
-			}
-		}
-
-		/**
 		 * Display an admin notice linking to the about page
 		 */
 		public function ti_about_page_welcome_admin_notice() {
-			if ( ! empty( $this->notification ) ) {
-				echo '<div class="updated notice is-dismissible">';
-				echo wp_kses_post( $this->notification );
-				echo '</div>';
+			global $current_user;
+			$user_id        = $current_user->ID;
+			$ignored_notice = get_user_meta( $user_id, 'zerif_ignore_neve_notice' );
+
+			if ( ! empty( $ignored_notice ) ) {
+				return;
 			}
+			$dismiss_button =
+				sprintf(
+					/* translators: Install Neve link */
+					'<a href="%s" class="notice-dismiss" style="text-decoration:none;"></a>',
+					'?zerif_nag_ignore_neve=0'
+				);
+			echo '<div class="updated notice" style="position:relative;">';
+			echo $dismiss_button;
+			echo $this->neve_notice();
+			echo '</div>';
 		}
 
 		/**

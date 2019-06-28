@@ -63,7 +63,7 @@ if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
 }
 
 
-define( 'ZERIF_LITE_VERSION', '1.8.5.52' );
+define( 'ZERIF_LITE_VERSION', '1.8.5.53' );
 
 
 
@@ -786,8 +786,6 @@ function zerif_remove_yoast_rel_link() {
 }
 add_filter( 'wpseo_prev_rel_link', 'zerif_remove_yoast_rel_link' );
 add_filter( 'wpseo_next_rel_link', 'zerif_remove_yoast_rel_link' );
-
-add_action( 'tgmpa_register', 'zerif_register_required_plugins' );
 
 /**
  * Recommend plugins with TGMPA
