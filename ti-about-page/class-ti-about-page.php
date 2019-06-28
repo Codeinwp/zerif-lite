@@ -161,7 +161,7 @@ if ( ! class_exists( 'TI_About_Page' ) ) {
 				// translators: %s - theme name
 				sprintf( __( 'We\'re saying %s in favor of our more powerful Neve free WordPress theme. This means that there will not be any new features added although we will continue to update the theme for major security issues.', 'zerif-lite' ), sprintf( "<a href='https://themeisle.com/blog/zerif-changes-its-name-to-zelle/' target='_blank'>goodbye to %s</a>", $name ) ),
 				// translators: %s - theme name
-				sprintf( __( 'We strongly encourage you to switch to %1$s. Also, we\'ve made sure you can easily migrate your old content into a template similar to %2$s.' ), "<a href='https://themeisle.com/themes/neve/' target='_blank'>Neve</a>", $name ),
+				sprintf( __( 'We strongly encourage you to switch to %1$s. Also, we\'ve made sure you can easily migrate your old content into a template similar to %2$s.', 'zerif-lite' ), "<a href='https://themeisle.com/themes/neve/' target='_blank'>Neve</a>", $name ),
 				esc_url( admin_url( 'theme-install.php?theme=neve' ) ),
 				esc_html__( 'See Neve theme', 'zerif-lite' )
 			);
