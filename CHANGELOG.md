@@ -1,4 +1,8 @@
 
+ ### v1.8.5-53 - 2019-06-28 
+ **Changes:** 
+ * Retirement notice
+ 
  ### v1.8.5-52 - 2019-01-23 
  **Changes:** 
  * Fixed compatibility with PHP lower than 5.4
